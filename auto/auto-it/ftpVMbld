@@ -1,0 +1,60 @@
+#!/usr/bin/expect
+
+if {[llength $argv] != 5} {
+	puts "ERROR: $argv0 usage: $argv0 host username password dir filename"
+#	return "usage: $argv0 password filename"
+	return 1
+}
+
+set hostname [lindex $argv 0]
+set username [lindex $argv 1]
+set password [lindex $argv 2]
+set blddir [lindex $argv 3]
+set filename [lindex $argv 4]
+
+set timeout -1
+log_user 0
+
+spawn -noecho ftp $hostname
+expect "Name"
+send "$username\n"
+expect "Password"
+send "$password\n"
+expect {
+	"ftp>" {
+	}
+	"fail*" {
+		puts "$argv0: FTP Auth fail"
+		return "fail"
+	}
+}
+send "cd $blddir\n"
+expect "ftp>"
+send "get $filename\n"
+expect {
+	 "send OK" {
+		expect "ftp>"
+		send "bye\n"
+#		puts "FTP done success"
+		puts "ok"
+		return "ok"
+		}
+	"No such file" {
+		puts "$argv0: FTP fail"
+		return "fail"
+		}
+	"Fail*" {
+		puts "$argv0: FTP fail"
+		return "fail"
+		}
+	"fail*" {
+		puts "$argv0: FTP fail"
+		return "fail"
+		}
+	"rror*" {
+		puts "$argv0: FTP fail"
+		return "fail"
+		}
+}
+put "$argv0: FTP fail"
+return 1

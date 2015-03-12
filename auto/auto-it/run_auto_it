@@ -1,0 +1,38 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+# set the timeout to 3 hrs
+set timeout 10800 
+log_user 1
+set ithost $env(ITHOST)
+set ituser $env(USERNAME)
+set itpassword $env(PASSWORD)
+set itdisplay $env(ITDISPLAY)
+
+spawn ssh $ituser@$ithost
+expect {
+       "Are you sure*" {
+                send "yes\n"
+		expect "password:" {
+			send "$itpassword\n"
+			}
+                }
+
+	"password:" {
+		send "$itpassword\n"
+		}
+}
+expect "$ituser"
+send "cd ~/auto-it/\n"
+expect "auto-it"
+send "cd ~/auto-it/\n"
+#send "script auto-it.log\n"
+#expect "$ituser"
+send "source /home/it40/jenkins_script/autoIT/auto-it.env\n"
+expect "auto-it"
+send "setenv DISPLAY $itdisplay\n"
+send "./auto-it.sh |tee auto-it.log\n"
+expect "IT cases*"
+send "exit\n"
+#expect "auto-it"
+#send "exit\n"

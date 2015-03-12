@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bulkCmConfigDataFile xmlns="configData.xsd" xmlns:xn="genericNrm-alcatel.xsd" xmlns:contr="ContractData.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="configData.xsd configData.xsd">
+    <fileHeader fileFormatVersion="32.615 V5.0"/>
+    <configData dnPrefix="">
+      <xn:ManagedElement id="HSS1">
+         <contr:CustomizationFunction id="1">
+            <contr:ContractData id="1">
+               <contr:ApplicationEquipment id="ALL">
+                  <contr:EquipmentStation id="ALL">
+                     <contr:AppStartupConf id="EIR" modifier="create">
+                        <contr:attributes>
+                           <contr:svcInstNum>1</contr:svcInstNum>
+                        </contr:attributes>
+                     </contr:AppStartupConf>
+                  </contr:EquipmentStation>
+               </contr:ApplicationEquipment>
+            </contr:ContractData>
+         </contr:CustomizationFunction>
+      </xn:ManagedElement>
+    </configData>
+    <fileFooter dateTime="2005-10-04T10:00:00+01:00"/>
+</bulkCmConfigDataFile>

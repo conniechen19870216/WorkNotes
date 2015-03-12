@@ -1,0 +1,81 @@
+dns_db_find
+        |
+        |
+        +---> Input:  dns_name_t:      client->query->qname / dns_rootname 
+		|             dns_rdatatype_t: type
+        | 
+        +---> Output: dns_dbnode_t:    node
+		              dns_name_t:      fname
+                      dns_dataset_t:   rdataset
+
+(1) dns_dbtype_t == dns_dbtype_zone
+==> zone_find
+
+(2) dns_dbtype_t == dns_dbtype_cache_
+==> cache_find
+
+
+cache_find
+        |
+        |
+        +---> search.rbtdb:          search.rbtdb = (dns_rbtdb_t *)db 
+        |
+        |
+        +---> search.zonecut_name:   ns_fixedname_init(&search.zonecut_name) 
+        |
+        |
+        +---> search.chain:          dns_rbtnodechain_init(&search.chain, search.rbtdb->common.mctx); 
+        |
+        |
+        +---> by name rbtnode:       dns_rbt_findnode
+		|                            ****************** name v.s. node ********************
+        |                            | #define NODENAME(node, name) \                     |
+		|							 | do { \                                             |
+		|							 |     (name)->length = NAMELEN(node); \              |
+		|							 |     (name)->labels = OFFSETLEN(node); \            |
+		|							 |     (name)->ndata = NAME(node); \                  |
+		|							 |     (name)->offsets = OFFSETS(node); \             |     
+		|							 |     (name)->attributes = ATTRS(node); \            |
+		|							 |     (name)->attributes |= DNS_NAMEATTR_READONLY; \ |
+		|							 | } while (0)                                        |
+		|							 *******************************************************
+        |
+        |
+        |
+        +---> by type rdatasetheader_t * found:  for (header = node->data; header != NULL; header = header_next) 
+        |          		***************************************************************************************
+        |          		|     rbtdb_search_t -> dns_rbtdb_t -> dns_rbt_t -> dns_rbtnode_t -> data -> type     |   
+        |	       		***************************************************************************************
+		|	 			|
+		|	 			|
+		|	 			+----- (1) header->ttl <= now
+		|	 			|                          ----- dns_rdatatype_ns
+		|	 			|                         |  
+		|	 			+----- (2) EXISTS(header) +----- ...
+		|	 			|                         |
+		|	 			|                          ----- RBTDB_RDATATYPE_NCACHEAN | negtype
+        |               |                            |                  isc_uint32_t negtype = RBTDB_RDATATYPE_VALUE(0, type);
+		|    			|                            |
+		|    			|                            |                  
+		|    			|                            +-------- RETVALE: DNS_R_NCACHENXDOMAIN or DNS_R_NCACHENXRRSET
+		|    			|
+		|    			+----- (3) 'else' header_prev = header
+        |
+        |
+        +---> bind rdataset:     bind_rdataset(search.rbtdb, node, found, search.now, rdataset)
+		|
+        |
+        +---> Final search results if found
+		                |
+						|
+						+----- found negative cache entry: DNS_R_NCACHENXDOMAIN or DNS_R_NCACHENXRRSET
+		                |
+						|
+						+----- found cname:                DNS_R_CNAME
+		                |
+						|
+						+----- found successfully:         ISC_R_SUCCESS
+
+Problem 1: lock update mechanism
+Problem 2: regular, negative and extended cache
+Problem 3: rbtdb.c Telica Added

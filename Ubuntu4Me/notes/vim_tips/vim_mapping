@@ -1,0 +1,21 @@
+1. key mapping (usr_40.txt)
+(1) Normal mode:
+:map <F2> GoDate: <Esc>:read !date<CR>kJ
+(J: join two lines)
+
+(2) Insert mode:
+:imap <F2> <CR>Date: <Esc>:read !date<CR>kJ
+
+The <F2> mapping for Normal mode is still there. 
+
+2. Here is an overview of map commands and in which mode they work:
+
+   :map            Normal, Visual, Operator-pending
+   :vmap           Visual
+   :nmap           Normal
+   :omap           Operator-pending                                                                                                
+   :imap           Insert
+
+3. Operator-pending mode
+:omap <F7> a{
+how to use it ? d<F7> or y<F7> 

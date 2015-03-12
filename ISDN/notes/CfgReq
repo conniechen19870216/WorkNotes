@@ -1,0 +1,83 @@
+inActvTskNew (in_ex_ms.c)
+    |
+    | [No.1: pst->event = EVTLINCFGREQ]
+    |
+    +---------- InMiLinCfgReq (in_bdy1.c)
+                    |
+    			    | [No.2: switch(cfg->hdr.elmId.elmnt)]
+    			    |
+    			    | a) STGEN:      General configuration
+    			    |**************  inGenCfgHandler(cfg) from cl_ign2.c
+    			    |                (Dest <= Source) InGenCfg inCp <= InGenCfg inGen (target: InGenCfg inCp)
+    			    |
+    			    |
+    			    | b) STTSAP:     Transport SAP configuration (Upper SAP)
+    			    |**************  inTSAPCfgHandler(cfg): spIdLst[] - PLM_IGN_GETSWTCHTYPE (6/SW_ETSI=14) from plm_ign2.c
+    			    |                (Dest <= Source) InCb cb <= InSAPCfg inTSAP (target: InCb **inSapLstPtr)
+    			    |                <<<<<<<<<<<<<< inInitTCb >>>>>>>>>>>>>>
+    			    |
+    			    |
+    			    | c) STDLSAP:    Data link SAP configuration (Lower SAP) from cl_ilk2.c
+    			    |**************  inDLSAPCfgHandler(cfg): <inDLSAP.tCbId == 6(SW_ETSI), inDLSAP.spId == inDLSAP.sapId(start from 1 per link)>
+    			    |                (Dest <= Source) InPCB pcb <= InPhLnkCfg inDLSAP (target: InPcb **pcbLstPtr)
+    			    |                                 target: pcb->cesLst (allocate memory) inDLSAP.nmbCes = clilkIsdnGetNmbDlc(*) = 1 (cl_ilk2.c)
+                    |
+    			    |                (Dest <= Source) InCtldPcb ctldPcb <= InPhLnkCfg inDLSAP (target: InPcb **ctldPcbLstPtr)
+                    |
+    			    |                if (initCfg)
+    			    |                {
+    			    |                    <<<<<<<<<<<<<< inSigPcbCfgHandler >>>>>>>>>>>>>> 
+    				|                                   <<<<<<<<<< 1.1 inInitPcb >>>>>>>>>
+                    |
+    				|                                   <<<<<<<<<< 1.2 inPrcSigPcbCfg(inInitCb)) >>>>>>>>>
+    				|                                              <<<<<<<<<< 1.2.1 inInitCb(PRI: 1)  ==> InCb *(pcb->cesLst+i) >>>>>>>>>
+                    |
+    				|                                   <<<<<<<<<< 2.1 inCtldPcbCfgHandler >>>>>>>>>
+    				|                                              => [1, 32]
+                    |                                                 ctldPcb->cfg.bProf[i].valid = FALSE
+                    |                                                 ctldPcb->cfg.bProf[i].profNmb = 0
+                    |                                                 ctldPcb->cfg.bProf[i].state = PROV
+                    |                                              => (InBearChn *)ctldPcb->bBearer (33 * sizeof(InBearChn))
+                    |
+                    |                                              => inPrcChanCfg (in_bdy11.c)
+                    |                                              => [0, 32]
+    				|                                                 0,16 = IN_SERVICE, others = NOTPROVISIONED
+                    |                                                 bBearer->intId = ctldPcb->suId
+                    |                                                 bBearer->suIdPres = TRUE
+                    |                                                 bBearer->suId = sigPcb->cfg.tCbId = 6 (SW_ETSI)
+                    |                                                 ...
+    			    |                }
+    			    |                else
+    			    |                {
+    			    |                    <<<<<<<<<<<<<< inPartialRecfgDLSAP >>>>>>>>>>>>>> 
+    			    |                }
+    			    |
+    			    |
+    			    | e) STCTLDPCB:  Controlled interface configuration 
+    			    |**************  inCtldSapCfgHandler(cfg) (only for LNK_TYPE_B)
+    			    |                (Dest <= Source) InCtldPcb ctldPcb <= InPhLnkCfg inDLSAP (target: InCtldPcb **ctldPcbLstPtr)
+    			    |                <<<<<<<<<<<<<< inCtldPcbCfgHandler >>>>>>>>>>>>>>
+    			    |
+    			    |
+    			    |
+    			    | d) STDLC:      Data link connection configuration
+    			    |**************  inDLCCfgHandler(cfg) (cesNmb = 1, ces = 0)
+    			    |                (Dest <= Source) (*(pcb->cesLst+ces))->cbCfg <= InCBCfg inLCe (target: InCBCfg cbCfg)
+    			    |                <<<<<<<<<<<<<< inCesCfg >>>>>>>>>>>>>> 
+    			    |
+    			    |
+    			    |
+    			    | f) STBCHNPROF: B-Channel profile configuration (Not Used)
+    			    |**************  inBearCfgHandler(cfg)
+    			    |
+    			    |
+    			    |
+    			    | g) STBCHNCFG:  B-Channel configuration from cl_ibc2.c
+                    |                {
+                    |                    => clIbcCfgIn (cl_ibc2.c)
+                    |                    ibcCfg.t.cfg.s.inDLSAP.bProf[i].valid = TRUE;
+                    |                    ibcCfg.t.cfg.s.inDLSAP.bProf[i].profNmb = 0;
+                    |                    ibcCfg.t.cfg.s.inDLSAP.bProf[i].state = PROV;
+                    |                }
+    			    |**************  inBchCfgHandler(cfg)
+                                     bearChn->status = OUT_SERVICE_NE

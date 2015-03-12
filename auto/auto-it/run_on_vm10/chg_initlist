@@ -1,0 +1,13 @@
+ChangeInitlist  modify_parameter  gmond sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  gmetad sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  DbSupervisor sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  DDM_ndb_mgmd sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  DDM_PlatProxy sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  APACHE sanity_timer=15 sanity_timer=200
+ChangeInitlist  modify_parameter  gmond sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  gmetad sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter TopologyManager sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  DbSupervisor sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  DDM_ndb_mgmd sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  DDM_PlatProxy sanity_timer=35 sanity_timer=200
+ChangeInitlist  modify_parameter  APACHE sanity_timer=15 sanity_timer=200

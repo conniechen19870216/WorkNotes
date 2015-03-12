@@ -1,0 +1,28 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+
+#spawn -noecho scp ./run_on_vm10/* ainet@vm10:/tmp
+puts "The following files are sending to VM10:/tmp"
+set tools [glob ~/auto-it/run_on_vm10/*]
+foreach tool $tools {
+	spawn -noecho scp $tool ainet@vm10:/tmp/
+	expect "password:"
+	send "ainet1\n"
+	log_user 1
+	expect eof
+	log_user 0
+}
+
+log_user 0
+puts "The following files are sending to VM10:/sn/cr/tracedir"
+set flags [glob ~/auto-it/traceflag/*]
+foreach flag $flags {
+	spawn -noecho scp $flag ainet@vm10:/sn/cr/tracedir/
+	expect "password:"
+	send "ainet1\n"
+	log_user 1
+	expect eof
+	log_user 0
+}

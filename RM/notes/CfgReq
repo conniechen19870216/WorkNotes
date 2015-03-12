@@ -1,0 +1,252 @@
+1. Cfg Part
+                                                            ########## Allocation Methods ############
+                                                            # Ascending:    LRM_AM_LOWEST_AVAIL  = 1 # 
+                                                            # Descending:   LRM_AM_HIGHEST_AVAIL = 2 #
+                                                            # Random:       LRM_AM_RANDOM        = 4 #
+                                                            # Circular:     LRM_AM_CIRCULAR      = 5 #
+                                                            ##########################################
+
+rmActvTskNew (rm_ex_ms.c)
+    |
+    | [pst->event = EVTLRMCFGREQ]
+    |
+    +---------- RmMiLrmCfgReq (rm_bdy1.c)
+                    |
+                    | [switch(cfg->hdr.elmId.elmnt)]
+                    |
+                    | a) STRMDSS1INTFC:    DSS1 interface configuration
+                    |********************  rmDss1IntfcCfg (rm_bdy6.c)
+                    |                      (Dest <= Source) RmDss1Intfc rmDss1Intfc <= RmDss1IntfcCfg rmDss1IntfcCfg
+                    |                             |
+                    |                             +---- ENT-ISDN-IF
+                    |                             |         |
+                    |                             |         +--- rmDss1Intfc->alocMeth = cfg->t.cfg.s.rmDss1IntfcCfg.alocMeth
+                    |                             |         +--- rmDss1Intfc->t.pri.lastLnkUsd = 0;
+                    |                             |         +--- rmDss1Intfc->t.pri.lastChnlUsd = 0;
+                    |                             |         |
+                    |                             |         +--- rmListInit(&rmDss1Intfc->freeBchnlList, sizeof(CmAVLNode), 
+                    |                             |         |          |    (CmAVLCmpFn)rmListBChnlAscCmpFunc, (PTR)NULLP, RM_LIST_AVL_TREE) (rm_lib.c) 
+                    |                             |         |          |
+                    |                             |         |          | [RM_LIST_AVL_TREE]
+                    |                             |         |          |
+                    |                             |         |          +--- cmAVLTreeInit (cm_avl.c)
+                    |                             |         |
+                    |                             |         | [Register interface with RUM] -- rumCp.intfcTbl (Hash List Table)
+                    |                             |         +--- rumIntfcCfg((PTR*)&rmDss1Intfc->rumHandle, (PTR)rmDss1Intfc, rmDss1Intfc->intfcId, CC_IN_INTFC) (rm_rum.c)
+                    |                             |                    |
+                    |                             |                    |
+                    |                             |                    +--- cmHashListFind (rm_rum.c)
+                    |                             |                               |
+                    |                             |                               | [key (RumIntfcKey): intfcId / intfcType]
+                    |                             |                               |
+                    |                             |                               +--- found: return directly (RumIntfcCb)
+                    |                             |                               |
+                    |                             |                               +--- not found: cmHashListInsert (RumIntfcCb)
+                    |                             |                                               rumSetUpdFlag => RUM_UPD_BIT (rm_rum.c)
+                    |                             |
+                    |                             |
+                    |                             +---- ED-ISDN-IF
+                    |                                       |
+                    |                                       +--- check whether alocMeth changes (LRM_NFAS only)
+                    |
+                    |
+                    | b) STRMDSS1LNK:      DSS1 link configuration
+                    |********************  rmDss1IntfcCfg (rm_bdy6.c)
+                    |                      (Dest <= Source) RmDss1Intfc rmDss1Intfc <= RmDss1IntfcCfg rmDss1IntfcCfg
+                    |                             |         RmPRI rmDss1Intfc->t.pri.lnkInfo 
+                    |                             |
+                    |                             +---- ENT-ISDN-LNK
+                    |                                       |
+                    |                                       +--- rmDss1Intfc->alocMeth = cfg->t.cfg.s.rmDss1IntfcCfg.alocMeth
+                    |                                       |
+                    |                                       | [accessType = LRM_PRI]
+                    |                                       |
+                    |                                       +--- Allocate a new RmPRI structure and Init
+                    |                                       +--- rmDss1Intfc->t.pri.lnkInfo = rmPri
+                    |                                       +--- rmPri->chnl[i].state = LRM_UNEQUIP (0xFF)
+                    |                                       +--- rmPri->chnl[i].rmPri = rmPri
+                    |                                       +--- rmPri->chnl[i].rmDss1Intfc = rmDss1Intfc
+                    |                                       +--- rmDss1Intfc->numPri = 1 (Only one for LRM_PRI access type)
+                    |
+                    |
+                    |
+                    |
+                    | c) STRMDSS1BCHAN:    DSS1 B-Channel configuration
+                    |********************  rmDss1BChanCfg (rm_bdy6.c)
+                                           (Dest <= Source) RmChnl rmDss1Intfc->t.pri.lnkInfo->chnl[LRMMAXPRICHNL] <= RmDss1BChanInfo rmDss1BChanInfo[LRMMAXPRICHNL]
+                                                  |
+                                                  +---- Search rmDss1Intfc
+                                                  |
+                                                  +---- Search rmPRI
+                                                  |
+                                                  +---- rmPri->chnl[i] <= cfg->t.cfg.s.rmDss1BChanCfg.info[i]
+                                                            |
+                                                            |
+                                                            +--- initState = LRM_MNT_BSY (ENT: 0x02) [clIbcCfgRm]
+                                                            |               |
+                                                            |               |
+                                                            |               +--- rmPri->chnl[i].state = cfg->t.cfg.s.rmDss1BChanCfg.info[i].initState
+                                                            |               +--- rmPri->chnl[i].chMemberId  = cfg->t.cfg.s.rmDss1BChanCfg.info[i].chMemberId (External: start from 3670-5&&-14)
+                                                            |               +--- rmPri->chnl[i].channelId = i (Internal: starts from TERMID=tdm/9/1/1/2)
+                                                            |               |
+                                                            |               +--- rmDss1Intfc->cntCfgdChans++ (number of Channels configured in the interface)
+                                                            |               +--- rmDss1Intfc->cntMntChans++  (number of Channels in maintanance only state)
+                                                            |               |
+                                                            |               +--- intfc.intfType  = CC_IN_INTFC
+                                                            |               +--- intfc.t.intfcId = cfg->t.cfg.s.rmDss1BChanCfg.intfcId
+                                                            |               |
+                                                            |               +--- rmRscAvlTreeInsert(&rmPri->chnl[i], &rmPri->chnl[i].termId, &intfc) (rm_bdy1.c)
+                                                            |               |             |         RmChnl(rmPri->chnl[i]) => RmCallRscCb 
+                                                            |               |             |
+                                                            |               |             +--- allocate memory for rscCb (RmCallRscCb) 
+                                                            |               |             |
+                                                            |               |             +--- memcpy(&(rscCb->intfc), intfc, sizeof(RmInterface)) 
+                                                            |               |             |
+                                                            |               |             +--- rscCb->u.bchnl = (RmChnl *)rsc 
+                                                            |               |             |
+                                                            |               |             +--- rscCb->node.termId = *termId (termId as key of rscCb)
+                                                            |               |             |
+                                                            |               |             +--- cmMglTreeInsert(gRscTreeHandle, (PTR)rscCb)) 
+                                                            |               |              
+                                                            |               |              
+                                                            |               |              
+                                                            |               +--- rmFindChnlToBeAlctd (rm_bdy6.c) (Only for CIRCULAR and RANDOM alocMeth)
+                                                            |               |                                                                                      
+                                                            |               |                                                                                      
+                                                            |               +--- rumSetUpdFlag => RUM_UPD_BIT (rm_rum.c)
+                                                            |
+                                                            |
+                                                            |
+                                                            +--- initState = LRM_UNEQUIP (DLT: 0xFF) [clIbcCfgRm]
+                                                            |               |
+                                                            |               |
+                                                            |               +--- rmRscAvlTreeRemove (rm_bdy1.c) [key: cfg->t.cfg.s.rmDss1BChanCfg.info[i].termId]
+                                                            |               |
+                                                            |               +--- rmDss1Intfc->cntMntChans--  (number of Channels in maintanance only state)
+                                                            |               |
+                                                            |               +--- rmDss1Intfc->cntCfgdChans-- (number of Channels configured in the interface)
+                                                            |               |
+                                                            |               +--- rmPri->chnl[i].state = LRM_UNEQUIP
+                                                            |               +--- delChnlFlag = TRUE
+                                                            |
+                                                            |
+                                                            |
+                                                            +--- initState = LRM_IDLE (ED: 0x00) [clIbcCtlRm] (ed-isdn-bchan::xx::::is/oos) /* TO BE CONTINUED */
+
+2. Cntrl Part for ed-isdn-bchan::xx::::is/oos
+
+(1) ******** OOS to IS ******** LRM_MNT_BSY -> LRM_IDLE
+
+clIbcSendInCtrl (cl_ibc2.c)
+    |
+    |
+    +---------- SmMiLinCntrlReq(&pst, &ctrl) (sminptmi.c)
+
+inActvTskNew (in_ex_ms.c)
+    |
+    | [pst->event = EVTLINCNTRLREQ]
+    |
+    +---------- InMiLinCntrlReq (in_bdy1.c)
+                  |
+                  |
+                  | [switch(cntrl->hdr.elmId.elmnt)]
+                  |
+                  |    STBCHNPROF        
+                  |********************  inCntrlBChan (in_bdy11.c)
+                                            |
+                                            |
+                                            | [switch(cntrl->t.cntrl.action)]
+                                            |
+                                            |       AENA = 1          
+                                            |********************  inDisEnbChan (in_bdy11.c) (chn == ALL_CHAN<33>)
+                                                                       |
+                                                                       |
+                                                                       +------ inHandleBChanReq (in_bdy11.c) (status => VAIL)
+                                                                       |
+                                                                       |
+                                                                       +------ zqRunTimeUpd_real (zq_bdy1.c)
+                                                                                 |
+                                                                                 |
+                                                                                 +------ inGenBChanStaInd (in_bdy2.c)
+                                                                                               |
+                                                                                               |
+                                                                                               +------ InUiIntStaInd (in_ptui.c)
+                                                                                                          |
+                                                                                                          |
+                                                                                                          +------ QwLiIntStaInd (qw_bdy1.c)
+                                                                                			                         |
+                                                                                			                         |
+                                                                                			                         +----- QwLiRmtDealocDss1Req (qw_ptli.c) (status = VAIL)
+                                                                                			                                    |
+                                                                                			                                    |
+                                                                                			                                    +------ RmUiRmtDealocDss1Req (rm_bdy1.c)
+                                                                                                                                        |
+                                                                                                                                        +------ rmDealocDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  +--- rmValidateDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  +--- RM_DEC_ISDN_NUM_MNT_BUSY
+																				                                                                  +--- chnlCb->rmDss1Intfc->cntMntChans--
+                                                                                                                                                  |
+																				                                                                  +--- chnlCb->rmDss1Intfc->cntIdleChans++
+                                                                                                                                                  +--- chnlCb->state &= ~LRM_MNT_BSY
+																				                                                                  +--- if (chnlCb->state == LRM_IDLE)
+																				                                                                  +--- rmListInsert (rm_lib.c)
+																				                                                                  +--- chnlCb->rmDss1Intfc->cntIdleChans++
+
+(2) ******** IS to OOS ******** LRM_IDLE -> LRM_MNT_BSY
+clIbcSendInCtrl (cl_ibc2.c)
+    |
+    |
+    +---------- SmMiLinCntrlReq(&pst, &ctrl) (sminptmi.c)
+
+inActvTskNew (in_ex_ms.c)
+    |
+    | [pst->event = EVTLINCNTRLREQ]
+    |
+    +---------- InMiLinCntrlReq (in_bdy1.c)
+                  |
+                  |
+                  | [switch(cntrl->hdr.elmId.elmnt)]
+                  |
+                  |    STBCHNPROF        
+                  |********************  inCntrlBChan (in_bdy11.c)
+                                            |
+                                            |
+                                            | [switch(cntrl->t.cntrl.action)]
+                                            |
+                                            |     ADISIMM = 2        
+                                            |********************  inDisEnbChan (in_bdy11.c) (chn != ALL_CHAN<33>)
+                                                                       |
+                                                                       |
+                                                                       +------ inHandleBChanReq (in_bdy11.c) (status => MAINT_NE)
+                                                                       |
+                                                                       |
+                                                                       +------ zqRunTimeUpd_real (zq_bdy1.c)
+                                                                                 |
+                                                                                 |
+                                                                                 +------ inGenBChanStaInd (in_bdy2.c)
+                                                                                               |
+                                                                                               |
+                                                                                               +------ InUiIntStaInd (in_ptui.c)
+                                                                                                          |
+                                                                                                          |
+                                                                                                          +------ QwLiIntStaInd (qw_bdy1.c)
+                                                                                						             |
+                                                                                						             |
+                                                                                						             +----- QwLiRmtAlocReq (qw_ptli.c) (status = MAINT_NE)
+                                                                                						                        |
+                                                                                						                        |
+                                                                                						                        +------ RmUiRmtAlocReq (rm_bdy1.c)
+                                                                                						                                |
+                                                                                						                                +------ rmAlocIdentDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  +--- rmValidateDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  +--- RM_INC_ISDN_NUM_MNT_BUSY
+                                                                                                                                                  +--- chnlCb->rmDss1Intfc->cntMntChans++
+                                                                                                                                                  +--- chnlCb->state |= LRM_MNT_BSY
+                                                                                                                                                  |
+                                                                                                                                                  +--- if (chnlCb->state == LRM_IDLE)
+                                                                                                                                                  +--- rmRemoveBChnl (rm_lib.c)
+                                                                                                                                                  +--- chnlCb->rmDss1Intfc->cntIdleChans--

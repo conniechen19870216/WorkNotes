@@ -1,0 +1,116 @@
+#!/usr/bin/expect -f
+# 2011.12
+# Qi Lei
+
+set hostname $env(USER)
+
+spawn ssh ainet@vm50
+
+expect {
+"Host key verification failed." {	spawn rm -rf /home/$hostname/.ssh/known_hosts;
+									spawn ssh ainet@vm50
+									expect {
+										"connecting (yes/no)?" {	send "yes\r"
+																	 expect "ainet@vm50's password:" { send "ainet1\r" } 
+																}
+										"ainet@vm50's password:" { send "ainet1\r" } 
+										}
+								}
+"connecting (yes/no)?" { send "yes\r"
+						 expect "ainet@vm50's password:" { send "ainet1\r" } 
+						}
+"ainet@vm50's password:" { send "ainet1\r" } 
+}
+
+expect "/u/ainet->"
+send "su -\r"
+
+expect "Password:"
+send "r00t\r"
+
+expect "/root-#"
+send "cd /etc/ssh/;mv sshd_config sshd_config.bak;sed 's/#PermitRootLogin yes/PermitRootLogin yes/' sshd_config.bak>sshd_config;/etc/init.d/sshd restart;\r"
+
+
+expect "vm50-0-0-1:/etc/ssh-#"
+send "exit\r"
+
+expect "vm50-0-0-1:/u/ainet->"
+send "exit\r"
+
+#####################################################
+sleep 1
+
+expect "*home*"
+spawn ssh-keygen -d
+
+expect "/id_dsa):"
+send "/home/$hostname/.ssh/id_dsa\r"
+
+sleep 1
+expect {
+"Overwrite (y/n)?" {	
+	send "y\r"
+	
+	expect "Enter passphrase (empty for no passphrase):"
+	send "\r"
+	
+	expect "Enter same passphrase again:"
+	send "\r"
+					}
+"Enter passphrase (empty for no passphrase):" {
+	send "\r"
+	
+	expect "Enter same passphrase again:"
+	send "\r"
+												}
+}
+
+expect "*home*"
+spawn scp /home/$hostname/.ssh/id_dsa.pub root@vm50:/root/.ssh/my_id_dsa.pub
+
+expect {
+"root@vm50's password:" {send "r00t\r"
+						 interact}
+"> " {send "\r"}
+}
+
+sleep 1
+##################################################
+spawn ssh ainet@vm50
+
+expect {
+"Host key verification failed." {	spawn rm -rf /home/$hostname/.ssh/known_hosts;
+									spawn ssh ainet@vm50
+									expect {
+										"connecting (yes/no)?" {	send "yes\r"
+																	 expect "ainet@vm50's password:" { send "ainet1\r" } 
+																}
+										"ainet@vm50's password:" { send "ainet1\r" } 
+										}
+								}
+"connecting (yes/no)?" { send "yes\r"
+						 expect "ainet@vm50's password:" { send "ainet1\r" } 
+						}
+"ainet@vm50's password:" { send "ainet1\r" } 
+}
+
+expect "/u/ainet->"
+send "su -\r"
+
+expect "Password:"
+send "r00t\r"
+
+expect "vm50-0-0-1:/root-#"
+send "cd /root/.ssh\r"
+
+expect "vm50-0-0-1:/root/.ssh-#"
+send "cat my_id_dsa.pub >> authorized_keys\r"
+
+expect "vm50-0-0-1:/root/.ssh-#"
+send "exit\r"
+
+expect "vm50-0-0-1:/u/ainet->"
+send "exit\r"
+
+interact

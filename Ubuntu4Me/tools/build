@@ -1,0 +1,401 @@
+#!/bin/bash
+
+# Functions definition start
+# ==========================
+
+# usage: prompt usage
+usage()
+{
+    echo -e "\nUsage:"
+    echo -e "build -option1 -option2 -option3"
+    echo -e "\n-option1 could be:"
+    echo -e "\t-h:      usage"
+    echo -e "\t-atca:   full build"
+    echo -e "\t-mp:     to build Memory Pool"
+    echo -e "\t-dm:     to build Digit Map"
+    echo -e "\t-ltr:    to build Lottery"
+    echo -e "\t-posix:  to build Posix examples"
+    echo -e "\t-isupcust:  to build ISUP CUST"
+    echo -e "\t-pani:   to build PANI"
+    echo -e "\t-sdes:   to build SDES"
+    echo -e "\t-clean:  make clean"
+
+    echo -e "\n-option2 could be:"
+    echo -e "\t-ut:     build UT part"
+    echo -e "\t-cov: build UT part"
+
+    echo -e "\n-option3 could be:"
+    echo -e "\t-cov: build UT part"
+}
+
+# buildBasic: basic build
+buildBasic()
+{
+    echo "start to do basic build"
+    echo "you can also see build log in buildBasic.log"
+    echo "======================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWBASIC=t UT=t COV=t | tee buildBasic.log
+	    else
+            make SWBASIC=t UT=t | tee buildBasic.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWBASIC=t COV=t | tee buildBasic.log
+	    else
+            make SWBASIC=t | tee buildBasic.log
+        fi
+	fi
+
+    echo "================"
+    echo "basic build done"
+}
+
+# buildATCA: build SWATCA
+buildATCA()
+{
+    echo "start to build SWATCA"
+    echo "you can also see build log in buildATCA.log"
+    echo "====================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWATCA=t UT=t COV=t | tee buildATCA.log
+	    else
+            make SWATCA=t UT=t | tee buildATCA.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWATCA=t COV=t | tee buildATCA.log
+	    else
+            make SWATCA=t | tee buildATCA.log
+        fi
+	fi
+
+    echo "================"
+    echo "build SWATCA done"
+}
+
+# buildMP: build SWMP
+buildMP()
+{
+    echo "start to build SWMP"
+    echo "you can also see build log in buildMP.log"
+    echo "===================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWMP=t UT=t COV=t | tee buildMP.log
+	    else
+            make SWMP=t UT=t | tee buildMP.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWMP=t COV=t | tee buildMP.log
+	    else
+            make SWMP=t | tee buildMP.log
+        fi
+	fi
+
+    echo "==============="
+    echo "build SWMP done"
+}
+
+# buildDM: build SWDM
+buildDM()
+{
+    echo "start to build SWDM"
+    echo "you can also see build log in buildDM.log"
+    echo "===================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWDM=t UT=t COV=t | tee buildDM.log
+	    else
+            make SWDM=t UT=t | tee buildDM.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWDM=t COV=t | tee buildDM.log
+	    else
+            make SWDM=t | tee buildDM.log
+        fi
+	fi
+
+    echo "==============="
+    echo "build SWDM done"
+}
+
+# buildLTR: build SWLTR
+buildLTR()
+{
+    echo "start to build SWLTR"
+    echo "you can also see build log in buildLTR.log"
+    echo "===================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWLTR=t UT=t COV=t | tee buildLTR.log
+        elif [ ${debug} -eq 1 ]
+        then
+            make SWLTR=t UT=t DEBUG=t | tee buildLTR.log
+	    else
+            make SWLTR=t UT=t | tee buildLTR.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWLTR=t COV=t | tee buildLTR.log
+        elif [ ${debug} -eq 1 ]
+        then
+            make SWLTR=t DEBUG=t | tee buildLTR.log
+	    else
+            make SWLTR=t | tee buildLTR.log
+        fi
+	fi
+
+    echo "==============="
+    echo "build SWLTR done"
+}
+
+# buildPosix: build SWPOSIX
+buildPosix()
+{
+    echo "start to build SWPOSIX"
+    echo "you can also see build log in buildPosix.log"
+    echo "===================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWPOSIX=t UT=t COV=t | tee buildPosix.log
+	    else
+            make SWPOSIX=t UT=t | tee buildPosix.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWPOSIX=t COV=t | tee buildPosix.log
+	    else
+            make SWPOSIX=t | tee buildPosix.log
+        fi
+	fi
+
+    echo "==============="
+    echo "build SWPOSIX done"
+}
+
+# buildISUPCUST: build SWISUPCUST
+buildISUPCUST()
+{
+    echo "start to build SWISUPCUST"
+    echo "you can also see build log in buildISUPCUST.log"
+    echo "===================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWISUPCUST=t UT=t COV=t | tee buildISUPCUST.log
+	    else
+            make SWISUPCUST=t UT=t | tee buildISUPCUST.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWISUPCUST=t COV=t | tee buildISUPCUST.log
+	    else
+            make SWISUPCUST=t | tee buildISUPCUST.log
+        fi
+	fi
+
+    echo "==============="
+    echo "build SWISUPCUST done"
+}
+
+# buildPANI: build SWPANI
+buildPANI()
+{
+    echo "start to build SWPANI"
+    echo "you can also see build log in buildPANI.log"
+    echo "===================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWPANI=t UT=t COV=t | tee buildPANI.log
+	    else
+            make SWPANI=t UT=t | tee buildPANI.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWPANI=t COV=t | tee buildPANI.log
+	    else
+            make SWPANI=t | tee buildPANI.log
+        fi
+	fi
+
+    echo "==============="
+    echo "build SWPANI done"
+}
+
+# buildSDES: build SWSDES
+buildSDES()
+{
+    echo "start to build SWSDES"
+    echo "you can also see build log in buildSDES.log"
+    echo "===================================================================="
+
+	if [ ${ut} -eq 1 ]
+    then
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWSDES=t UT=t COV=t | tee buildSDES.log
+        elif [ ${debug} -eq 1 ]
+        then
+            make SWSDES=t UT=t DEBUG=t | tee buildSDES.log
+        else
+            make SWSDES=t UT=t | tee buildSDES.log
+        fi
+	else
+	    if [ ${cov} -eq 1 ]
+        then
+            make SWSDES=t COV=t | tee buildSDES.log
+        elif [ ${debug} -eq 1 ]
+        then
+            make SWSDES=t DEBUG=t | tee buildSDES.log
+	    else
+            make SWSDES=t | tee buildSDES.log
+        fi
+	fi
+
+    echo "==============="
+    echo "build SWSDES done"
+}
+
+# buildClean: make clean
+buildClean()
+{
+    echo "start to make clean"
+    echo "you can also see build log in buildClean.log"
+    echo "====================================================================="
+    echo ""
+
+	if [ ${ut} -eq 1 ]
+    then
+        make SWATCA=t UT=t clean | tee buildClean.log
+	else
+        make SWATCA=t clean | tee buildClean.log
+	fi
+
+    echo "==================="
+    echo "make clean done"
+}
+
+# ========================
+# Functions definition end
+
+# Main body:
+# ==========
+# arguments number should [1,3]
+if [ $# -lt 1 -o $# -gt 3 ]
+then
+    echo "wrong command format"
+    usage
+    exit
+fi
+
+# set UT flag
+ut=0
+cov=0
+debug=0
+if [ $# -eq 2 -o $# -eq 3 ]
+then
+    if [ $2 = -ut ]
+    then
+    	ut=1
+        if [ $3 = -cov ]
+        then
+	        cov=1
+        elif [ $3 = -debug ]
+        then
+	        debug=1
+        fi
+    elif [ $2 = -cov ]
+    then
+	    cov=1
+    elif [ $2 = -debug ]
+    then
+        debug=1
+    fi
+fi
+
+# options
+case $1 in
+    -atca)
+        buildATCA
+        ;;
+    -mp)
+        buildBasic
+        buildMP
+        ;;
+    -dm)
+        buildBasic
+        buildMP
+        buildDM
+        ;;
+    -ltr)
+        buildBasic
+        buildMP
+        buildLTR
+        ;;
+    -posix)
+        buildBasic
+        buildMP
+        buildPosix
+        ;;
+    -isupcust)
+        buildBasic
+        buildMP
+        buildISUPCUST
+        ;;
+    -pani)
+        buildBasic
+        buildMP
+        buildPANI
+        ;;
+    -sdes)
+        buildBasic
+        buildMP
+        buildSDES
+        ;;
+    -clean)
+        buildClean
+        ;;
+    -h)
+		usage
+        ;;
+    *)
+        echo "Wrong option."
+        usage
+        ;;
+esac

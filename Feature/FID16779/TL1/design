@@ -1,0 +1,35 @@
+########################################################
+             ###### Four Aspects ######
+########################################################
+1. <Done> Initialize a new hash list 
+         => InMiLinCfgReq
+
+2. <Done> Insert/Modify the hash list and also init DigitMap structure
+         => ENT/ED-DIGITMAP 
+		           => InMiLinCfgReq
+
+3. <Done> DLT-DIGITMAP 
+         => InMiLinCntrlReq
+
+
+4. <Done> Configure the DigitMap structure according to ISDN-IF
+         => Modify inInitDigitMap function and calling place 
+		 => Modify DigitMap/DigitMapCandidate Structure in order to suit the hash list
+		    (1) Add cmHashListEnt into DigitMap
+		    (2) Add hash key into DigitMap
+			(3) Add candidate list into DigitMap and DigitMapCandidate
+         => Initialization happens when ENT-DIGITMAP is entered.
+		 => Refactor the existing functions related with DigitMap
+
+5. <Done> Modify the usage of digit map
+
+6. Mock packing and unpacking
+
+7. <Done> ISDN-IF digitmap receiving
+
+8. Remove DigitMap from InPhLnkCfg
+   <Done> Remove DigitMap from InPcbCfg
+
+########################################################
+               ##### Problems ######
+########################################################

@@ -1,0 +1,867 @@
+#!/usr/bin/ksh
+# Created by Robert Wu - QD x5258 2011/6
+set -x
+
+quit="false"
+#The following variables need to be set in env.
+
+#FTPHOST=135.252.181.52
+#BUILDHOST=135.252.181.245
+#USERNAME=wxl
+#PASSWORD=wxl01
+#VMDIR="/local/sdm400/vmware/"
+#APPDIR="/local/sdm400/application/"
+#APPDIR="/local/it40/fulltar/tar_build/COMPACT/"
+#VMTARNAME="R29su2_DDM80_NOASR.tgz"
+#SDMTARNAME="SDM400-service_logic.full.tar.0625"
+#OAMTARNAME="OAM400-service_logic.full.tar.0625"
+
+SDMTARNAME="SDM421-service_logic.full.tar"
+OAMTARNAME="OAM421-service_logic.full.tar"
+PROXYNAME="PROXY421-service_logic.full.tar"
+#SDMTOOLTARNAME="SDM_tools.tar"
+OAMBETARNAME="OAMBE421-service_logic.full.tar"
+
+function mainmenu
+{
+print ""
+print "===================================="
+print "Steps to Install SDM4.0 on LincasePC"
+print "===================================="
+print "1 - Get the vmware build via ftp and Start the VM10"
+print "2 - Get the SDM400 and OAM400 tar via ftp"
+print "3 - Send tools and traceflags to VM10 - coretest, chk_init, traceflags"
+print "4 - ck_init"
+print "5 - install OAM400 spa"
+print "6 - install SDM400 spa"
+print "7 - op:status,spa=all"
+print "q - Quit"
+}
+
+function bktomm
+{
+print "Hit Enter to back to mainmenu...."
+read
+}
+
+function manualmode
+{
+while [[ $quit == "false" ]]
+do
+	mainmenu
+	print "Please select the operation to do (1-9, q-Quit):"
+	read option
+	case $option in
+	1)
+		clear
+#		 print "The ftp tool will look for the File under 135.252.181.52:/local/sdm400/vmware" 
+		read host?"ftp server(default 135.252.181.52)?   "
+		read username?"User name for ftp(default: $USER)?   "
+		read password?"Password of $USER(must input)?   "
+		read sdir?"Directory of the build on ftp server(default: /local/sdm400/vmware)?   "
+		read filename?"Filename(must input)?   "
+		read targetdir?"Where you want to put the file locally(Default: /local/$USER)?  "
+		if [[ -z $host ]]; then
+			host="135.252.181.52"
+		fi
+		if [[ -z $username ]]; then
+			username="$USER"
+		fi
+		if [[ -z $sdir ]]; then
+			sdir="/local/sdm400/vmware"
+		fi
+		if [[ -z $targetdir ]]; then
+			targetdir="/local/$USER"
+		fi
+		if [ ! -d "$targetdir" ]; then
+			mkdir -p "$targetdir"
+		fi
+		cd $targetdir
+		print "Download inprogress..."
+		rt=$(ftpVMbld $host $username $password $sdir $filename)
+		if [[ $rt == "ok" ]]; then
+			print " Download completed."
+			print ""
+			read inst?"Do you want to untar and run this VMware?(Y or N)"
+			if [[ $inst == "Y" ]]; then
+				startvm $targetdir $filename
+			fi
+		else
+			print " There's some problem to download the file, please check."
+		fi
+		bktomm
+	;;
+	
+	2)
+		clear
+#		 print "The ftp tool will look for the File under 135.252.181.52:/local/sdm400/vmware" 
+		read host?"ftp server(default 135.252.181.52)?   "
+		read username?"User name for ftp(default: $USER)?   "
+		read password?"Password of $USER(must input)?   "
+		read sdir?"Directory of the build on ftp server(default: /local/sdm400/application/)?   "
+		read filename?"Filename(must input)?   "
+		read targetdir?"Where you want to put the file locally(Default: /local/$USER)?  "
+		if [[ -z $host ]]; then
+			host="135.252.181.52"
+		fi
+		if [[ -z $username ]]; then
+			username="$USER"
+		fi
+		if [[ -z $sdir ]]; then
+			sdir="/local/sdm400/application/"
+		fi
+		if [[ -z $targetdir ]]; then
+			targetdir="/local/$USER"
+		fi
+		if [ ! -d "$targetdir" ]; then
+			mkdir -p "$targetdir"
+		fi
+		cd $targetdir
+		print "Download inprogress..."
+		rt=$(ftpVMbld $host $username $password $sdir $filename)
+		if [[ $rt == "ok" ]]; then
+			print " Download completed."
+			print ""
+		else
+			print " There's some problem to download the file, please check."
+		fi
+		bktomm
+	;;
+	
+	3)	
+		clear
+		vm10sshvfy
+		send2vm10
+		bktomm
+	;;
+	
+	4) 
+		clear
+		print "Please run step 3 to send the chk_init to vm10 first!!!"
+		print "Hit Enter to execute..."
+		read
+		vm10run "/tmp/chk_init"
+		bktomm
+	;;
+	5)
+		clear
+		read sdir?"Where is your OAM400 tar?   "
+		print "Sending to VM10..."
+		rt=$(scp2vm10 $sdir /etc/SU/OAM400-service_logic.full.tar)
+		if [[ $rt == "Done" ]]; then
+			print " Send completed."
+			vm10run "cp /etc/SU/OAM400-service_logic.full.tar /etc/SU/OAM400-service_logic.full.tar.bak"
+			print "A copy is saved to /etc/SU/OAM400-service_logic.full.tar.bak"
+		else
+			print " There's some problem to send the file, please check."
+			bktomm
+			continue
+		fi
+
+		print "install:config, install:proc, rst:spa will be done."
+		print "Hit Enter to execute..."
+		read
+		vm10run "/tmp/addhost"	
+		vm10run "chmod 755 /usr/dhafw/shlib/*"
+		vm10run "chmod -R 755 /usr/dhafw/data"
+		vm10run "chmod 755 /sn/cr/tracedir/"
+		inst_cfg OAM400	
+#		vm10run "/sn/sps/OAM400/bin/post.install.LXSERVER_ACTL.sh"
+		inst_spa OAM400	
+		bktomm
+	;;
+		
+	6)
+		clear
+		read sdir?"Where is your SDM400 tar?   "
+		print "Sending to VM10..."
+		rt=$(scp2vm10 $sdir /etc/SU/SDM400-service_logic.full.tar)
+		if [[ $rt == "Done" ]]; then
+			print " Send completed."
+			vm10run "cp /etc/SU/SDM400-service_logic.full.tar /etc/SU/SDM400-service_logic.full.tar.bak"
+			print "A copy is saved to /etc/SU/SDM400-service_logic.full.tar.bak"
+		else
+			print " There's some problem to send the file, please check."
+			bktomm
+			continue
+		fi
+		print "install:config, install:proc, rst:spa will be done."
+		print "rcv 1.3,1.2 will insert SSN 311"
+		print "Hit Enter to execute..."
+		read
+		inst_cfg SDM400	
+		rcv_menu_1.3_insert 311
+		rcv_menu_1.2_insert SDM400 311 
+		inst_spa SDM400
+		bktomm
+	;;
+
+	7)	
+		clear
+		subshl "op:status,spa=all;"
+		bktomm
+	;;
+		
+		
+	q)
+		quit="true" ;;
+	*)
+		print "Invalid input. Please input a number or q to Quit" ;;
+	esac
+done
+}
+ 
+function ftpbldvm
+{
+	print "INFO: $0: Start: FTP the $1 to $targetdir."
+	cd $targetdir
+	if [[ -f $1 ]]; then
+        	print "INFO: $0: $1 already exists, no need to ftp"
+		rt="ok"
+	else
+		#rt=$(ftpVMbld $FTPHOST $USERNAME $PASSWORD $VMDIR $VMTARNAME)
+		rt=$(ftpVMbld $FTPHOST $USERNAME $PASSWORD $VMDIR $1)
+	fi
+	if [[ $rt == "ok" ]]; then
+		print "INFO: $0: End: FTP the $1 to $targetdir done."
+		return 0
+	else
+		print "ITERROR: $0: End: FTP the $1 to $targetdir failed: $rt."
+		exit 1
+	fi
+}
+
+function ftpspa
+{
+#1. FTP to get the build.
+	print "INFO: $0: Start: FTP the $1 to $targetdir."
+	cd $targetdir
+	rt=$(ftpVMbld $BUILDHOST $USERNAME $PASSWORD $APPDIR $1)
+	if [[ $rt == "ok" ]]; then
+		print "INFO: $0: End: FTP the $1 to $targetdir done."
+		return 0
+	else
+		print "ITERROR: $0: End: FTP the $1 to $targetdir failed: $rt."
+		exit 1
+	fi
+}
+
+function vminitchk
+{
+print "INFO: $0: Start: Check the $1 is started: check if able to login via ssh; home dir for ainet is mounted."
+vmstat="bad"
+i=0
+while [[ $vmstat == "bad" ]]
+do
+	vmsshvfy $1
+	rt=$?
+	if [[ $rt == "0" ]]; then
+		vmstat="ok"
+		print "INFO: $0: $1 started"
+		break
+	fi
+	let i=i+1
+	if [[ $i -ge 30 ]]; then
+		print "ITERROR: $0: $1 started failed"
+		exit 1
+	fi
+	sleep 30
+	print "INFO: $0: $1 start in progress..."
+done
+}
+
+function mcasinitchk
+{
+
+#4. Check if the PROCs, mysql are up.
+print "INFO: $0: Start: Check the MCAS of $1 is started: check if all PROCs and MySql are up."
+
+initstat="bad"
+i=0
+while [[ $initstat == "bad" ]]
+do
+	rm -rf /tmp/chkinit.tmp.$1
+	vmRun $1 "/tmp/chk_init" > /tmp/chkinit.tmp.$1
+		grep "started" /tmp/chkinit.tmp.$1 > /dev/null 2>1
+		rt=$?
+		grep "no DB stations" /tmp/chkinit.tmp.$1 > /dev/null 2>1
+		rt1=$?
+		if [[ $rt == "0" ]] || [[ $rt1 == "0" ]]; then
+			initstat="ok"
+			print "INFO: $0: MCAS of $1 Init done."
+			break
+		fi
+
+	let i=i+1
+	if [[ $i -ge 20 ]]; then
+		print "ITERROR: $0 : $1 MCAS init failed."
+		subshl1 $1 "op:init"
+		vmRun $1 "/usr/dhafw/tools/fw lsndb"
+		exit 1
+	fi
+	sleep 30
+	print "INFO: $0 : $1 Init in progress..."
+done
+}
+
+function sendtar
+{
+	print "INFO: $0: Start: Sending application tars to VM."
+	if [[ $1 == "COMP" ]]; then
+		rt=$(scp2vm vm10 $targetdir/$OAMTARNAME /etc/SU/OAM421-service_logic.full.tar)
+		rt1=$(scp2vm vm10 $targetdir/$SDMTARNAME /etc/SU/SDM421-service_logic.full.tar)
+		rt2=$(scp2vm vm10 $targetdir/$SDMTOOLTARNAME /tmp/)
+		rt3="Done"
+                rt4="Done"
+         #       rt7=$(scp2vm vm10 $targetdir/$PROXYNAME /etc/SU/PROXY421-service_logic.full.tar)
+		rt7="Done"
+		vmRun vm10 "cp /etc/SU/OAM421-service_logic.full.tar /etc/SU/OAM421-service_logic.full.tar.ofc"
+		vmRun vm10 "cp /etc/SU/SDM421-service_logic.full.tar /etc/SU/SDM421-service_logic.full.tar.ofc"
+         #       vmRun vm10 "cp /etc/SU/PROXY421-service_logic.full.tar /etc/SU/PROXY421-service_logic.full.tar.ofc"
+	else
+		rt=$(scp2vm vm10 $targetdir/FE/$OAMTARNAME /etc/SU/OAM421-service_logic.full.tar)
+		rt1=$(scp2vm vm10 $targetdir/FE/$SDMTARNAME /etc/SU/SDM421-service_logic.full.tar)
+		rt2=$(scp2vm vm10 $targetdir/FE/$SDMTOOLTARNAME /tmp/)
+		rt3=$(scp2vm vm20 $targetdir/BE/$SDMTOOLTARNAME /tmp/)
+		rt4=$(scp2vm vm20 $targetdir/BE/$OAMBETARNAME /etc/SU/)
+                rt7=$(scp2vm vm10 $targetdir/$PROXYNAME /etc/SU/PROXY421-service_logic.full.tar)
+		vmRun vm10 "cp /etc/SU/OAM421-service_logic.full.tar /etc/SU/OAM421-service_logic.full.tar.ofc"
+		vmRun vm10 "cp /etc/SU/SDM421-service_logic.full.tar /etc/SU/SDM421-service_logic.full.tar.ofc"
+		vmRun vm20 "cp /etc/SU/$OAMBETARNAME /etc/SU/$OAMBETARNAME.ofc"
+                vmRun vm10 "cp /etc/SU/PROXY421-service_logic.full.tar /etc/SU/PROXY421-service_logic.full.tar.ofc"
+	fi
+
+
+	if [[ $rt == "Done" ]] && [[ $rt1 == "Done" ]] && [[ $rt2 == "Done" ]] && [[ $rt3 == "Done" ]] && [[ $rt4 == "Done" ]] && [[ $rt7 == "Done" ]] ; then
+		print "INFO: $0: Send Application Tars completed to VM."
+	else
+		print "ITERROR: $0: There's some problem to send the Application Tars: rt= $rt, rt1=$rt1, rt2=$rt2, rt3=$rt3, rt4=$rt4, please check."
+		exit 1
+	fi
+
+	if [[ $1 == "mnrg" ]]; then
+		rt5=$(scp2vm vm30 $targetdir/BE/$SDMTOOLTARNAME /tmp/)
+		rt6=$(scp2vm vm30 $targetdir/BE/$OAMBETARNAME /etc/SU/)
+		vmRun vm30 "cp /etc/SU/$OAMBETARNAME /etc/SU/$OAMBETARNAME.ofc"
+	else
+		return 0
+	fi
+	
+	if [[ $rt5 == "Done" ]] && [[ $rt6 == "Done" ]]; then
+		print "INFO: $0: Send Application Tars completed to VM30."
+	else
+		print "ITERROR: $0: There's some problem to send the Application Tars: rt5= $rt5, rt6=$rt6, please check."
+		exit 1
+	fi
+
+}
+
+function cfgsdmtool
+{
+	print "INFO: $0: Start: config SDMTOOL and some system configs."
+#	vmRun  $1 "/tmp/chg_initlist" 
+	vmRun  $1 "mkdir /cust_use/SDM"
+#	vmRun  $1 "mkdir /cust_use/SDM/SDM_tools"
+	vmRun $1 "cp /tmp/$SDMTOOLTARNAME /cust_use/SDM/"
+	vmRun $1 "cd /cust_use/SDM; tar xvf $SDMTOOLTARNAME"
+	vmRun $1 "cd /cust_use/SDM; tar xvf SDM_tools.tar"
+#	vmRun $1 "cd /cust_use/SDM/SDM_tools; tar xvf ../$SDMTOOLTARNAME"
+	#new added in R4.2 CP29 20130326
+	vmRun $1 "cd /cust_use/SDM/SDM_tools/cfg; cp SDM_General_Data_template.xml SDM_General_Data.xml"
+	#new added in R4.2 CP29 20130326 
+	vmRun $1 "/tmp/cfg_sdm_tool1 $1"   ##need add check
+	if [[ $1 == "vm10" ]];then
+	vmRun  $1 "/tmp/addhost" 
+	vmRun $1 "/tmp/ssn_conf"
+	fi
+	#vmRun $1 "/tmp/sshdchg"
+        vmRun $1 "sed -e 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config > /tmp/sshd_config"
+        vmRun $1 "cp /tmp/sshd_config /etc/ssh/sshd_config"
+        vmRun $1 "/etc/init.d/sshd restart"
+        sleep 5
+	#vmRun $1 "chmod -R 755 /usr/dhafw/data"
+	vmRun $1 "chmod 755 /sn/cr/tracedir/"
+	vmRun $1 "sed -e 's/ACCESS_CONTROL_ACTIVATED = 1/ACCESS_CONTROL_ACTIVATED = 0/' /usr/dhafw/data/pf_generic.cfg > /tmp/pf_generic.cfg"
+	vmRun $1 "cp /tmp/pf_generic.cfg /usr/dhafw/data/pf_generic.cfg"
+	vmRun $1 "rm /sncore/*/core*"
+	print "INFO: $0: END: config SDMTOOL and some system configs."
+}
+
+function chkcore
+{
+	rm /tmp/chkcore.tmp
+	vmRun $1 "cd /sncore; ls -ltr */*" >/tmp/chkcore.tmp
+	grep "core[A-Z]" /tmp/chkcore.tmp 
+	rt=$?
+	if [[ $rt == "0" ]]; then
+		print "ITERROR: $0: There's Core Dump happened."
+	fi
+}
+
+function fix_wa1
+{
+# usage fix_wa1 vm10
+        print "INFO: $0: Start: fix the first workaround after install:config,spa=OAM421 & OAMBE421."
+        vmRun $1 "cp /tmp/libssl.so.6 /lib64"
+        vmRun $1 "cp /tmp/libcrypto.so.6 /lib64"
+        vmRun $1 "cd /lib64; chmod 777 libssl.so.6 libcrypto.so.6"
+#        vmRun $1 "chmod 777 libssl.so.6 libcrypto.so.6"
+
+        vmRun $1 "cp /tmp/liblber-2.3.so.0 /usr/lib64"
+        vmRun $1 "cp /tmp/libldap-2.3.so.0 /usr/lib64"
+        vmRun $1 "cd /usr/lib64; chmod 777 libldap-2.3.so.0 liblber-2.3.so.0"
+#        vmRun $1 "chmod 777 libldap-2.3.so.0 liblber-2.3.so.0"
+        print "INFO: $0: END: fix the first workaround after install:config,spa=OAM421 & OAMBE421."
+}
+
+function fix_wa2
+{
+# usage fix_wa2 vm10
+        print "INFO: $0: Start: fix the second workaround after install:config,spa=OAM421."
+# temporary wa for LTE OAM
+#        vmRun $1 "cd /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/; cp subscription--basic--BE_Interface_Basic.xml /etc/SU/"
+#        vmRun $1 "cp /tmp/BE_Interface_Basic.xml /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/subscription--basic--BE_Interface_Basic.xml"
+# end of temporary wa 
+
+# WA for NDB error 266, SDMA01FAG28356
+#      if [[ $1 == "vm10" ]];then
+#        vmRun $1 "cp /sn/sps/OAM421/bin/COMM/data/GlobalDataSync_HLR.xml /root/SU/GlobalDataSync_HLR.xml"
+#        vmRun $1 "sed -e 's/contractOamExtId=1,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1/' /sn/sps/OAM421/bin/COMM/data/GlobalDataSync_HLR.xml > /tmp/GlobalDataSync_HLR.xml"
+#        vmRun $1 "cp /tmp/GlobalDataSync_HLR.xml /sn/sps/OAM421/bin/COMM/data/GlobalDataSync_HLR.xml"
+#      fi
+# end of WA
+
+#        vmRun $1 "cp /tmp/libACE.so.5.6a_p10 /vendorpackages/Corba/ACE_TAO/lib64"
+#        vmRun $1 "cd /cust_use/SDM; tar xvf SDM_tools.tar"
+#        if [[ $1 == "vm10" ]];then
+#        vmRun  $1 "/tmp/addhost"
+#        vmRun $1 "/tmp/ssn_conf"
+#        fi
+#        vmRun $1 "sed -e 's/export LD_LIBRARY_PATH=/export LD_LIBRARY_PATH=\/vendorpackages\/Apache\/lib\/64:/g' /cs/sn/init/webctl"
+#	vmRun $1 "cd /cs/sn/init; cp webctl webctl.ofc"
+#	vmRun $1 "cp /tmp/webctl /cs/sn/init/webctl"
+        vmRun $1 "cd /cs/sn/init; ./webctl"
+        vmRun $1 "ps -ef | grep httpd"
+        print "INFO: $0: END: fix the second workaround after install:config,spa=OAM421."
+}
+
+function fix_wa3
+{
+# usage fix_wa3 vm10 OAMBE421
+        print "INFO: $0: Start: fix the third workaround after install:config,spa=.$2"
+#        vmRun $1 "sed -i -e 's/DHAFW_MAX_PROCESS_SIZE_MBYTES = 1024/DHAFW_MAX_PROCESS_SIZE_MBYTES = 2048/g' /sn/sps/$2/config/Oam_db.cfg"
+        vmRun $1 "cd /sn/sps/$2/config/; cp Oam_db.cfg Oam_db.cfg.ofc"
+        vmRun $1 "cp /tmp/Oam_db.cfg /sn/sps/$2/config/Oam_db.cfg"
+
+        print "INFO: $0: END: fix the third workaround after install:config,spa=$2."
+}
+
+function fix_wa4
+{
+# usage fix_wa4 vm20 30
+        print "INFO: $0: Start: fix the forth workaround after install:config,spa= OAMBE421."
+	vmRun $1 "cp /sn/sps/OAMBE421/bin/OAMBE421 /sn/sps/OAMBE421/bin/OAMBE421.ofc"
+        vmRun $1 "cp /tmp/OAMBE421 /sn/sps/OAMBE421/bin/OAMBE421"
+        print "INFO: $0: END: fix the fourth workaround after install:config,spa= OAMBE421."
+}
+
+function fix_wa_proxy
+{
+# usage fix_wa_proxy vm20
+        print "INFO: $0: Start: fix the workaround for PROXY after install:config,spa= PROXY421."
+        vmRun $1 "cp /cust_use/SDM/SDM_tools/proxy/config.xml /cust_use/SDM/SDM_tools/proxy/config.xml.ofc"
+        vmRun $1 "cp /tmp/config.xml /cust_use/SDM/SDM_tools/proxy/config.xml"
+        vmRun $1 "/cust_use/SDM/SDM_tools/proxy/updateProxy.sh"
+        sleep 10
+        print "INFO: $0: END: fix the workaround after install:config,spa= PROXY421."
+
+}
+
+function instOAM
+{
+	print "INFO: $0: Start: install config and proc for $2 on $1 ."
+	inst_cfg1 $1 $2
+	rt=$?
+	if [[ $rt != "0" ]] ; then
+		print "ITERROR: $0 : Install:config for $2 spa failed"
+		exit 1
+	fi
+#	rcv_menu_1.6_delete $2 2 $1
+#	vmRun $1 "/sn/sps/$2/bin/post.install.LXSERVER_ACTL.sh"
+#	if [[ $2 == "OAM421" ]]; then
+		#vmRun $1 "cp /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/subscription--gprs--BE_Internal_SubEps.xml /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/subscription--gprs--BE_Internal_SubEps.xml.ofc" 
+		#scp2vm $1 /home/chunmeiw/subscription--gprs--BE_Internal_SubEps.xml  /tmp/
+		#vmRun $1 "cp /tmp/subscription--gprs--BE_Internal_SubEps.xml /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/subscription--gprs--BE_Internal_SubEps.xml"
+		#vmRun $1 "cp /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/subscription--gprs--BE_Internal_EpsPostCommit.xml /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/subscription--gprs--BE_Internal_EpsPostCommit.xml.ofc" 
+		#scp2vm $1 /home/chunmeiw/subscription--gprs--BE_Internal_EpsPostCommit.xml /tmp/
+		#vmRun $1 "cp /tmp/subscription--gprs--BE_Internal_EpsPostCommit.xml /sn/sps/OAM421/bin/COMM/xml/hss/otherDomain/BEDescription/subscription--gprs--BE_Internal_EpsPostCommit.xml"
+#	fi
+
+#	sleep 120
+#	fix_wa1 $1	
+#	fix_wa2 $1
+#	fix_wa3 $1 $2
+	inst_spa1 $1 $2
+	rt1=$?
+	if [[ $rt1 != "0" ]]; then
+		chkcore $1
+		print "ITERROR: $0 : Install $2 spa failed"
+		exit 1
+	fi
+	print "INFO: $0: END: install config and proc for $2 completed."
+}
+
+function instOAMMNRG
+{
+        print "INFO: $0: Start: install config and proc for $2 on $1 ."
+        inst_cfg1 $1 $2
+        rt=$?
+        if [[ $rt != "0" ]] ; then
+                print "ITERROR: $0 : Install:config for $2 spa failed"
+                exit 1
+        fi
+#	fix_wa1 $1
+#	fix_wa2 $1
+#	fix_wa3 $1 $2
+#        if [[ $1 == "vm20" ]] || [[ $1 == "vm30" ]]; then
+#        	fix_wa4 $1
+#	fi
+        
+        inst_spa1 $1 $2
+        rt1=$?
+        if [[ $rt1 != "0" ]]; then
+                chkcore $1
+                print "ITERROR: $0 : Install $2 spa failed"
+                exit 1
+        fi
+		if [[ $1 == "vm10" ]]; then
+			print "INFO: $0: Start EIR and MNP"
+			vmRun $1 "/sn/sps/$2/bulkenv/tools/bulk.csh /root/Create_EIR_bulk_create.xml"
+			vmRun $1 "/sn/sps/$2/bulkenv/tools/bulk.csh /root/Create_LTEEIR_bulk_create.xml"
+			vmRun $1 "/sn/sps/$2/bulkenv/tools/bulk.csh /root/Create_MNP_bulk_create.xml"
+
+			abt_proc $1 $2
+			sleep 5
+			inst_spa1 $1 $2
+		fi
+        print "INFO: $0: END: install config and proc for $2 completed."
+}
+
+function instPROXY
+{
+        print "INFO: $0: Start: install config and proc for $2 on $1 ."
+        vmRun  $1 "cp /cust_use/SDM/SDM_tools/proxy/config.template.xml /cust_use/SDM/SDM_tools/proxy/config.xml"
+        vmRun  $1 "chmod 755 /cust_use/SDM/SDM_tools/proxy/config.xml"
+        vmRun  $1 "chown root:scncraft /cust_use/SDM/SDM_tools/proxy/config.xml"
+
+        inst_cfg1 $1 $2
+        rt=$?
+        if [[ $rt != "0" ]] ; then
+                print "ITERROR: $0 : Install:config for $2 spa failed"
+                exit 1
+        fi
+        
+#        fix_wa_proxy  -- wrong procedure, no need
+
+        inst_spa1 $1 $2
+        rt1=$?
+        if [[ $rt1 != "0" ]]; then
+                chkcore $1
+                print "ITERROR: $0 : Install $2 spa failed"
+                exit 1
+        fi
+        print "INFO: $0: END: install config and proc for $2 completed."
+}
+
+function instSDM
+{
+#7. Install SDM400
+	print "INFO: $0: Start: install config and proc for SDM400 on $1 ."
+	inst_cfg1 $1 SDM421
+	rt=$?
+	if [[ $rt != "0" ]] ; then
+		print "ITERROR: $0 : Install:config for $2 spa failed"
+		exit 1
+	fi
+
+	vm10run "sed -e 's/^DBCOME_THREAD_NUM.*/DBCOME_THREAD_NUM = 5/' /sn/sps/SDM421/bin/data/pdlsipf_generic.cfg > /tmp/pdlsipf_generic.cfg"
+	vm10run "cp /tmp/pdlsipf_generic.cfg /sn/sps/SDM421/bin/data/pdlsipf_generic.cfg"
+	vm10run "sed -e 's/^DBCOME_THREAD_NUM.*/DBCOME_THREAD_NUM = 5/' /sn/sps/SDM421/bin/data/pdlslpf_generic.cfg > /tmp/pdlslpf_generic.cfg"
+	vm10run "cp /tmp/pdlslpf_generic.cfg /sn/sps/SDM421/bin/data/pdlslpf_generic.cfg"
+#	if [[ $2 == "COMP" ]]; then
+#		rcv_menu_1.3_insert 311
+#		rcv_menu_1.2_insert SDM400 311
+#	fi
+#	rcv_menu_1.6_delete SDM400 2 vm10
+
+	subshl1 $1 "set:runlvl=100;" 
+	subshl1 $1 "init:proc=S7SCH0,level=1,UCL;" 
+	subshl1 $1 "init:proc=TT,level=1,UCL;" 
+
+	inst_spa1 $1 SDM421
+	rt1=$?
+
+	if [[ $rt != "0" ]] || [[ $rt1 != "0" ]]; then
+		chkcore $1
+		print "ITERROR: $0 : Install SDM400 on $1 failed"
+		exit 1
+	fi
+	print "INFO: $0: END: install config and proc for SDM400 completed."
+sleep 30
+}
+
+function chkspa
+{
+	print "INFO: $0: Check if the SPAs are IS on $1."
+	subshl1 $1 "op:status,spa=all;" |tee /tmp/opstat.tmp 
+	grep 421 /tmp/opstat.tmp |sort -u |tee /tmp/opstatsort.tmp  >/dev/null 2>1
+#	diff /tmp/opstatsort.tmp ~/auto-it/opstat.ok.$1 >/dev/null 2>1
+	diff /tmp/opstatsort.tmp ~/auto-it/opstat.ok.$1 
+	rt=$?
+	if [[ $rt != "0" ]]; then
+		print "ITERROR: $0: The spa status check of $1 failed"
+#		cat /tmp/opstat.tmp
+		exit 1
+	fi
+	print "INFO: $0: END. All the SPAs are IS on $1."
+}
+
+function runit
+{
+	print "INFO: $0: Start to run IT test cases."
+	cleartool setview -exec ~/auto-it/runIT fionali_dev_8650_r3_01_bj
+}
+
+function automodec
+{
+	targetdir="/local/$USER/autoIT"
+	print "INFO: $0 : Start AUTO-IT for COMPACT mode in $targetdir."
+	if [ ! -d "$targetdir" ]; then
+       		mkdir -p "$targetdir"
+	fi
+
+	ftpbldvm $VMTARNAME
+
+	ftpspa $COMPACTTARNAME
+	cd $targetdir ; tar xvf $COMPACTTARNAME 
+
+	rt=$?
+	if [[ $rt != "0" ]]; then
+       		 print "ITERROR: $0: $COMPACTTARNAME untar failed."
+       		 exit 1
+	fi
+       ftpspa $SDMTOOLTARNAME 
+
+#       ftpspa $PROXYTARNAME
+#        cd $targetdir
+#        tar xvf $PROXYTARNAME
+
+	startvm1 $targetdir $VMTARNAME CMP Y
+
+	sleep 180 
+
+	vminitchk vm10
+
+	send2vm vm10 CMP
+
+	mcasinitchk vm10
+	
+	sendtar COMP
+
+	cfgsdmtool vm10
+
+	instOAM vm10 OAM421
+
+	instSDM vm10 COMP
+
+	chkspa vm10
+
+#        instPROXY vm10 PROXY421
+#	runit
+        print "INFO: IT cases not run, but report IT cases passed, to avoid conflict."
+}
+
+function automoded
+{
+	targetdir="/local/$USER/autoITd"
+	print "INFO: $0 : Start AUTO-IT for DIST mode(1 FE+ 1BE) in $targetdir."
+	if [ ! -d "$targetdir" ]; then
+       		mkdir -p "$targetdir"
+	fi
+
+	ftpbldvm $VMTARNAMEFE
+	ftpbldvm $VMTARNAMEBE
+
+	ftpspa $FETARNAME ; cd $targetdir ; rm -rf FE ; mkdir FE ; cd FE 
+	tar xvf ../$FETARNAME > /dev/null
+
+	rt=$?
+	if [[ $rt != "0" ]]; then
+       		 print "ITERROR: $0: $FETARNAME untar failed."
+       		 exit 1
+	fi
+
+	ftpspa $BETARNAME ; cd $targetdir ; rm -rf BE ; mkdir BE ; cd BE 
+	tar xvf ../$BETARNAME > /dev/null
+
+	rt=$?
+	if [[ $rt != "0" ]]; then
+       		 print "ITERROR: $0: $BETARNAME untar failed."
+       		 exit 1
+	fi
+
+       ftpspa $SDMTOOLTARNAME 
+
+	startvm1 $targetdir $VMTARNAMEBE BE Y
+	startvm1 $targetdir $VMTARNAMEFE FE N
+
+	vminitchk vm20
+	vminitchk vm10
+
+	send2vm vm20 BE
+	send2vm vm10 FE
+
+	mcasinitchk vm20
+	mcasinitchk vm10
+	
+	sendtar dist
+
+	cfgsdmtool vm20
+	sleep 600
+
+	instOAM vm20 OAMBE400
+
+	chkspa vm20
+
+	cfgsdmtool vm10
+
+	instOAM vm10 OAM400
+
+	instSDM vm10 dist
+
+	chkspa vm10
+
+	runit
+	#print "INFO: IT cases not run to avoid conflict since two ITs are running."
+	print "INFO: IT cases not run, but report IT cases passed, to avoid conflict."
+}
+
+function automodem
+{
+	targetdir="/local/$USER/autoITm"
+	print "INFO: $0 : Start AUTO-IT for Multi NRG mode(1 FE+ 2BE) in $targetdir."
+	if [ ! -d "$targetdir" ]; then
+       		mkdir -p "$targetdir"
+	fi
+
+	ftpbldvm $VMMNRGFE
+	ftpbldvm $VMMNRGBE1
+	ftpbldvm $VMMNRGBE2
+
+	ftpspa $FETARNAME ; cd $targetdir ; rm -rf FE ; mkdir FE ; cd FE 
+	tar xvf ../$FETARNAME 
+
+	rt=$?
+	if [[ $rt != "0" ]]; then
+    		 print "ITERROR: $0: $FETARNAME untar failed."
+       		 exit 1
+	fi
+
+	ftpspa $BETARNAME ; cd $targetdir ; rm -rf BE ; mkdir BE ; cd BE 
+	tar xvf ../$BETARNAME 
+
+	rt=$?
+	if [[ $rt != "0" ]]; then
+    		 print "ITERROR: $0: $BETARNAME untar failed."
+       		 exit 1
+	fi
+
+       ftpspa $SDMTOOLTARNAME 
+	cd $targetdir
+	cp $targetdir/$SDMTOOLTARNAME $targetdir/BE
+	cp $targetdir/$SDMTOOLTARNAME $targetdir/FE
+
+       ftpspa $PROXYTARNAME
+        cd $targetdir
+        tar xvf $PROXYTARNAME
+
+	startvm1 $targetdir $VMMNRGBE1 BE1 Y
+	startvm1 $targetdir $VMMNRGBE2 BE2 N
+	startvm1 $targetdir $VMMNRGFE FE1 N
+
+	vminitchk vm20
+	send2vm vm20 BE
+	mcasinitchk vm20
+
+	vminitchk vm30
+	send2vm vm30 BE
+	mcasinitchk vm30
+
+	vminitchk vm10
+	send2vm vm10 FE
+	mcasinitchk vm10
+	
+	sendtar mnrg
+
+	sleep 600
+
+	cfgsdmtool vm20
+
+#	instOAM vm20 OAMBE421
+	instOAMMNRG vm20 OAMBE421
+	chkspa vm20
+
+        cfgsdmtool vm30
+
+#        instOAM vm30 OAMBE421
+        instOAMMNRG vm30 OAMBE421
+        chkspa vm30
+
+	cfgsdmtool vm10
+
+#	instOAM vm10 OAM421
+        instOAMMNRG vm10 OAM421
+	
+        instSDM vm10 dist
+
+	chkspa vm10
+        
+        instPROXY vm10 PROXY421
+        
+#	runit
+#	print "INFO: OAM421 not installed, need manually do it."
+	#print "INFO: IT cases not run to avoid conflict"
+	print "INFO: IT cases not run, but report IT cases passed, to avoid conflict."
+
+}
+#main()
+
+case $1 in
+man) 
+	print "INFO: Manual mode"
+	manualmode
+	;;
+dist)
+	print "INFO: Auto Installation mode for DIST(1FE + 1BE) config. START..."
+	export auto="yes"
+	automoded
+	;;
+comp)
+	print "INFO: Auto Installation mode for COMPACT config. START..."
+	export auto="yes"
+	automodec
+	;;
+mnrg)
+        print "INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START..."
+        export auto="yes"
+        automodem
+        ;;
+*)	print "Usage: $0 [man | dist | comp ] "
+	print "		 man - manual mode;"
+	print "		 dist - Auto mode for DIST(1FE + 1BE) config;"
+	print "		 comp - Auto mode for COMPACT config."
+	print "		 mnrg - Auto mode for Multi NRG(1FE+2BE) config."
+	exit 1
+	;;
+esac
+

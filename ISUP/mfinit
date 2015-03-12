@@ -1,0 +1,47 @@
+1. Structures
+              SiMfCfgProf
+                   |
+                   V
+               SiMfMsgCtl
+                   |
+                   V
+                SiMsgDef   =>"MF_"
+                   |
+                   V
+              SiMsgElmtDef =>"EF_"
+                   |
+                   V
+     		  SiTknElmtDef =>"TF_"
+
+teXXXFlgs
+typeA/typeB
+
+2. Operations
+(1) MFINITPROF
+
+MFINITPROF (si_mf.h)
+       |
+       | 
+	   +------ siMfInitProf (si_mf.c)
+                  |
+	              |
+				  +------ siMfInit (si_mf.c) ==========> init global variable during decoding and encoding
+
+#################### Targets #####################
+         <Target 1> SiMfCfgProf
+         numPdus = NMB_IMSG
+         numSdus = NMB_IPRIM
+         pduDefs = siAllPduDefs 
+         sduDefs = siAllSduDefs
+         flags   = MF_IGNORE | MF_ISUP
+         
+         <Target 2>
+         message decode/encode global variables
+#################################################
+
+(2) MFINITMSGCTL
+
+MFINITMSGCTL (si_mf.h)
+       | 
+	   |
+	   +------ siMfInitMsgCtl (si_mf.c)

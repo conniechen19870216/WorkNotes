@@ -1,0 +1,7 @@
+encr appStartupConfId=5,equipmentStationId=255,applicationEquipmentId=ALL,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1
+encr appStartupConfId=6,equipmentStationId=255,applicationEquipmentId=ALL,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1
+encr appStartupConfId=7,equipmentStationId=255,applicationEquipmentId=ALL,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1
+setattr appStartupConfId=5,equipmentStationId=255,applicationEquipmentId=ALL,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1 svcInstNum 1
+setattr appStartupConfId=6,equipmentStationId=255,applicationEquipmentId=ALL,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1 svcInstNum 1
+setattr appStartupConfId=7,equipmentStationId=255,applicationEquipmentId=ALL,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1 svcInstNum 1
+

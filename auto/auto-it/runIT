@@ -1,0 +1,17 @@
+#!/bin/csh
+
+source /home/sdmhss/tools/autorun/setup
+cd ~/HSSIT/SDM4.0
+source set_env.csh
+genkey.sh
+mk -f cs9999.fdt
+echo "INFO: runit: test cases is running, the log is $PWD/cs9999.fdt.out"
+execute --nomis cs9999.fdt > cs9999.fdt.out
+./gen_fail_case_diff_log
+diff fail_case_diff_result.txt fail_case_diff_result.txt.r410
+set rt="$?"
+if ( $rt == "0" ) then
+        echo "INFO: runit: IT cases passed"
+else
+	echo "ITERROR: runit: Some IT cases failed, please check"
+endif

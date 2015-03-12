@@ -1,0 +1,141 @@
+1. sipw part
+sipwActvTskNew (sipw_ex_ms.c)
+       |
+	   |
+	   +------ case EVTSIPWCONIND: cmUnpkSipaLiConEvnt (lsip.c)
+       |
+	   |
+	   +------ sipwUnpkSipaTknStrVarData (sipw_bdy4.c)
+       |
+	   |
+	   +------ SipwLiSipConInd (sipw_bdy1.c)
+	                     |
+	    				 |
+	    				 +------ sipwTransSipConIndToCctFormat (sipw_bdy3.c)
+                         |
+	                     |
+	                     +------ sipwPrintConIndToGcc (sipw_bdy4.c)
+                         |
+	                     |
+	                     +------ SipwUiCctConInd (sipw_ptui.c)
+						               |
+									   |
+									   |
+2. cc part                             |
+(1) E00S00: S00 -> S01                 |
+									   +------ CcLiCctConInd (cc_bdy1.c)
+                                                      |
+                                                      |
+                                                      |
+                                                      +------ CcPsSap: pCb = *(ccPsSapLstPtr + suId)
+                                                      |
+                                                      |
+                                                      +------ ccInitCon (cc_bdy4.c): sizeof(CcConCb) + 2*sizeof(CcProfile)
+                                                      |          |
+                                                      |          |
+                                                      |          +------ ccGetConn (cc_bdy4.c)
+                                                      |		     |      |
+                                                      |			 |  	+---- AINSpecificInfo_t: initAinInfo -> ainInfo
+                                                      |			 |      |
+                                                      |			 |  	+---- AinBCM_t: initIcBcm -> icBcm
+                                                      |			 |      |
+                                                      |			 |  	+---- AinBCM_t: initOgBcm -> ogBcm
+                                                      |          |
+                                                      |          | 
+                                                      |          | 
+                                                      |          +------ cmInitTimers: con->timers, con->cc100Timers
+                                                      |           
+                                                      |
+                                                      +------- con->icSuConnId = ccGetNewSuConnId() => ccSuInstTbl
+                                                      +------- con->ogSuConnId = ccGetNewSuConnId() => ccSuOgInstTbl
+                                                      +------- con->icSpConnId = spConnId
+                                                      |
+                                                      |
+                                                      +------- ccUpdSts(con->icSapCb, NULLP)
+                                                      |
+                                                      +------- ccAssignSaps(con, &rsc->intfc) (cc_bdy4.c): RMSAP, IntfcSAP, SFSAP
+                                                      |        (1) con->rmSapCb: ccGetRmSap
+                                                      |        (2) con->icIntfcCb: ccGetIntfcSap
+                                                      |        (3) con->sfSapCb: ccGetSfSap
+                                                      |
+                                                      |
+                                                      +------- con->icRsc: cmMemcpy((U8 *) &con->icRsc, (U8 *)rsc, sizeof(RmRsc))
+                                                      |
+                                                      |
+                                                      +------ ccStoreEvnt (cc_bdy4.c): 
+                                                      |       (1) Old: icConEvntHold / ccRelEvntHold
+                                                      |       (2) New: ccEvntHold
+                                                      |
+                                                      |
+                                                      +------ ccBillUpdCdPtyNum (cc_bdy4.c)
+                                                      |
+                                                      |
+                                                      |
+                                                      +------ Three hash lists points to one con cb
+                                                      |       (1) cmHashListInsert(&ccSuInstTbl, (PTR)con, (U8 *)&con->icSuConnId, (U16)sizeof(UConnId));
+                                                      |       (2) cmHashListInsert(&ccSuOgInstTbl, (PTR)con, (U8 *)&con->ogSuConnId, (U16)sizeof(UConnId));
+                                                      |       (3) cmHashListInsert(&pCb->spInstTbl, (PTR)con, (U8 *)&con->icSpConnId, (U16)sizeof(UConnId));
+                                                      |
+                                                      |
+                                                      +------ CC_TRACE_EVENTS(con, logFirstConInd, CCE_CONIND)
+                                                      |
+                                                      +------ ccCallStateMachine (cc_bdy2.c) <<<<<<< E00S00 >>>>>>>>
+                                                                     |
+                                                    				 +------ ccConE00S00 (cc_bdy2.c)
+                                                    				            |
+                                            									+----- ccStartConTmr(TMR_SETUP, con, (PTR)&ccCp.genCfg) (cc_bdy4.c)
+                                            						            |
+                                            						            +----- ccCp.sts.totalCalls++
+                                            						            |
+                                            									+----- ccCopyCdPty2ClAddr (cc_bdy5.c)
+                                            						            |
+                                            									+----- ccExtractSipCallId (cc_lib.c)
+                                            						            |
+                                            									+----- ccExtractSpecialCallFromConInd (cc_lib.c)
+                                            						            |
+                                            									+----- ccExtractProtSdp (cc_lib.c)
+                                            									|               |
+                                            									|   			+--- cmSdpPrint(_real) (cm_sdp.c)
+                                            									|   			|       |
+                                            									|   			|       +--- cmMgctSdpPrint (cm_sdp.c)
+                                            									|   			|                 |
+                                            									|   			|      		      +--- cmPrintLargeBuf (cm_sdp.c) <<<<<<<<<< print SDP >>>>>>>>>>
+                                            									|               |
+                                            									|               |
+                                            									|   			+--- ccStoreBillingSdp (cc_lib.c)
+                                            									|               |
+                                            									|               |
+                                            								    |				+--- cmStoreSdp (cc_lib.c)
+                                            						            |
+                                            						            |
+                                            									+----- ccExtractPChargingVectorFromConEvent (cc_lib.c)
+                                            						            |
+                                            									+----- ccExtractSipMethodSupport (cc_lib.c)
+                                            						            |
+                                            									+----- ccGeoExtractProtCri (cc_lib.c)
+                                            						            |
+                                            									+----- ccExtractCallReferenceForIAM (cc_lib.c)
+                                            						            |
+                                            									+----- ccExtractInfoFromConEvent (cc_lib.c)
+                                            						            |
+                                            									+----- ccFindMgMapAddr (cc_lib.c)
+                                            						            |
+                                            									+----- CC_STATE_CHANGE(con, CCS_AWTROUTERSC) <<<<<<< S00 -> S01 CCS_IDLE -> CCS_AWTROUTERSC >>>>>>>>>
+                                            						            |
+                                            						            |
+                                            						            |
+                                            						            |
+                                            									+----- ccAllocateResource (cc_bdy3.c)
+                                            									                 |
+                                            									    			 |
+                                            									    			 +----- CcLiRmtAlocReq (cc_ptli.c)
+                                            									                 |           |
+                                            								    				 |           +----- RmUiRmtAlocReq (rm_bdy1.c)
+																	                             |                       |
+																	                             |                       +----- RmUiRmtAlocCfm (rm_ptui.c)
+																	                             |
+																	                             |
+																	                             +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E09S01 >>>>>>>>
+																				                             |
+																								             +----- ccConE09S01 (cc_bdy2.c)
+																											 /* TO BE CONTINUED */

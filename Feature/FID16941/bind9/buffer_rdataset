@@ -1,0 +1,29 @@
+ -------dns_name_t---------
+            |
+ ------dns_rdataset_t------
+            |
+       dns_rdatatype_t
+	        |
+            |
+            +
+	 count of dns_rdata_t
+	        |
+		    |
+            +
+ --------dns_rdata_t--------
+	  length of rdata1
+	        |
+            |
+            +
+	      rdata1
+		    |
+			|
+			+
+	  length of rdata2
+	        |
+            |
+            +
+	      rdata2
+		   ...
+		   
+		   

@@ -1,0 +1,1245 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<title>Utilities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="Org-mode">
+<meta name="generated" content="2013-01-31 11:01:13 CST">
+<meta name="author" content="Fang lungang">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<link rel="stylesheet" type="text/css" href="Utilities_files/lgfang.css">
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+<style id="huaban_Style">#huaban_Container {font-family: 'helvetica neue', arial, sans-serif; position: absolute; padding-top: 37px; z-index: 100000002; top: 0; left: 0; background-color: transparent; opacity: 1;hasLayout:-1;}#huaban_Overlay {position: fixed; z-index: 100000001; top: 0; right: 0; bottom: 0; left: 0; background-color: #f2f2f2; opacity: .95;}* html #huaban_Overlay {position: absolute;}#huaban_Control {position:relative; z-index: 100000; float: left; background-color: #fcf9f9; border: solid #ccc; border-width: 0 1px 1px 0; height: 200px; width: 200px; opacity: 1;}* html #huaban_Control {position:static;}#huaban_Control img {position: relative; padding: 0; display: block; margin: 82px auto 0; -ms-interpolation-mode: bicubic;}#huaban_Control a {position: fixed; z-index: 10001; right: 0; top: 0; left: 0; height: 24px; padding: 12px 0 0; text-align: center; font-size: 14px; line-height: 1em; text-shadow: 0 1px #fff; color: #211922; font-weight: bold; text-decoration: none; background: #fff url(http://huaban.com/img/fullGradient07Normal.png) 0 0 repeat-x; border-bottom: 1px solid #ccc; -mox-box-shadow: 0 0 2px #d7d7d7; -webkit-box-shadow: 0 0 2px #d7d7d7;}* html #huaban_Control a {position: absolute; width: 100%;}#huaban_Control a:hover {color: #fff; text-decoration: none; background-color: #1389e5; border-color: #1389e5; text-shadow: 0 -1px #46A0E6;}#huaban_Control a:active {height: 23px; padding-top: 13px; background-color: #211922; border-color: #211922; background-image: url(http://huaban.com/img/fullGradient07Inverted.png); text-shadow: 0 -1px #211922;}.huabanImagePreview {position: relative; padding: 0; margin: 0; float: left; background-color: #fff; border: solid #e7e7e7; border-width: 0 1px 1px 0; height: 200px; width: 200px; opacity: 1; z-index: 10002; text-align: center; overflow:hidden;}.huabanImagePreview .huabanVideoIcon {position:absolute;display:block;top:0;left:0;width:100%;height:100%;background:url(http://huaban.com/img/media_video.png) center center no-repeat;}.huabanImagePreview .huabanImg {border: none; height: 200px; width: 200px; opacity: 1; padding: 0;}.huabanImagePreview .huabanImg a {margin: 0; padding: 0; position: absolute; top: 0; bottom: 0; right: 0; left: 0; display: block; text-align: center;  z-index: 1;}.huabanImagePreview .huabanImg a:hover {background-color: #fcf9f9; border: none;}.huabanImagePreview .huabanImg .ImageToPin {max-height: 200px; max-width: 200px; width: auto !important; height: auto !important;}.huabanImagePreview img.huaban_PinIt {border: none; position: absolute; top: 82px; left: 42px; display: none; padding: 0; background-color: transparent; z-index: 100;}.huabanImagePreview img.huaban_vidind {border: none; position: absolute; top: 75px; left: 75px; padding: 0; background-color: transparent; z-index: 99;}.huabanDimensions { color: #000; position: relative; margin-top: 180px; text-align: center; font-size: 10px; z-index:10003; display: inline-block; background: white; border-radius: 4px; padding: 0 2px;}#huaban_Button { display: block; position: absolute; z-index: 999999999; color: #211922; background-color: #fff; text-shadow: 0 1px #eaeaea; border-radius: 5px; box-shadow: 0 0 2px #555; font: 12px/1 'Helvetica Neue',Helvetica,Arial,Sans-serif; text-align: center; padding: 5px 18px; cursor: pointer; border: 1px solid #555\9;}#huaban_Button:hover { background-image: -webkit-linear-gradient(top, #fefeff, #efefef); background-image: -moz-linear-gradient(top, #fefeff, #efefef); }#huaban_Button.huaban_Button_share {text-indent: -9999px; width: 86px; height: 24px; padding:0; background: url(http://huaban.com/img/sharebutton.png) no-repeat; background: url(http://huaban.com/img/sharebutton.png) no-repeat !important; }</style></head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/index.html"> UP </a>
+ |
+ <a accesskey="H" href="http://ihgpweb.ih.lucent.com/%7Elgfang/index.html"> HOME </a>
+</div>
+
+<h1 class="title">Utilities</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 My Shell Profile (bash) </a></li>
+<li><a href="#sec-2">2 Editors </a>
+<ul>
+<li><a href="#sec-2_1">2.1 For Emacs related information, refer to here. </a></li>
+<li><a href="#sec-2_2">2.2 my .vimrc </a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 Terminal Emulator </a>
+<ul>
+<li><a href="#sec-3_1">3.1 Tmux </a></li>
+<li><a href="#sec-3_2">3.2 "to" - automatically login servers/TL1 agents </a></li>
+<li><a href="#sec-3_3">3.3 Putty </a></li>
+<li><a href="#sec-3_4">3.4 Misc </a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 VNC </a></li>
+<li><a href="#sec-5">5 Windows Managers </a>
+<ul>
+<li><a href="#sec-5_1">5.1 my .twmrc screenshots </a></li>
+<li><a href="#sec-5_2">5.2 my .fvwm2rc screenshots </a></li>
+<li><a href="#sec-5_3">5.3 配置cygwin/x以及自动设置 DISPLAY </a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6 Multimedia in Linux </a>
+<ul>
+<li><a href="#sec-6_1">6.1 Dealing with audio, video and images in Linux </a></li>
+<li><a href="#sec-6_2">6.2 <code>~/.mplayer/config</code> </a></li>
+<li><a href="#sec-6_3">6.3 <code>~/.mplayer/input.conf</code> </a></li>
+<li><a href="#sec-6_4">6.4 An example of running mplayer in slave mode </a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7 Miscellaneous </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> My Shell Profile (bash) </h2>
+<div class="outline-text-2" id="text-1">
+
+
+
+
+
+<pre class="src src-shell-script"><span class="org-comment-delimiter"># </span><span class="org-comment">Settings applicable to bash (and probably ksh) -*- mode:shell-script -*-
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">* .bash_profile
+</span><span class="org-comment-delimiter">################</span><span class="org-comment">
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">** source .bashrc
+</span>
+<span class="org-keyword">if</span> [ -t 0 -a -f <span class="org-string">"$HOME/.bashrc"</span> ]; <span class="org-keyword">then</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Load .bashrc for interactive login shell (no matter bash or ksh). I'll try
+</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">to make .bashrc applicable to ksh as well
+</span>    <span class="org-builtin">.</span> <span class="org-string">"$HOME/.bashrc"</span>
+<span class="org-keyword">fi</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">** Shell options
+</span>
+<span class="org-keyword">if</span> [ -n <span class="org-string">"$BASH_VERSION"</span> ]; <span class="org-keyword">then</span> <span class="org-comment-delimiter"># </span><span class="org-comment">it is bash
+</span>    <span class="org-builtin">shopt</span> -s histappend
+    <span class="org-builtin">shopt</span> -s autocd
+    <span class="org-builtin">shopt</span> -s cdspell
+    <span class="org-builtin">shopt</span> -s dirspell
+    <span class="org-comment-delimiter"># </span><span class="org-comment">shopt -q progcomp
+</span><span class="org-keyword">fi</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">** Env variables
+</span>
+<span class="org-variable-name">PATH</span>=$<span class="org-variable-name">HOME</span>/.local/bin:$<span class="org-variable-name">PATH</span>
+<span class="org-builtin">export</span> PATH
+
+<span class="org-variable-name">EDITOR</span>=emacs
+<span class="org-builtin">export</span> EDITOR
+
+<span class="org-builtin">export</span> <span class="org-variable-name">HISTCONTROL</span>=<span class="org-string">"ignoredups:ignorespace"</span>
+<span class="org-builtin">export</span> <span class="org-variable-name">HISTFILESIZE</span>=1000
+<span class="org-builtin">export</span> <span class="org-variable-name">HISTSIZE</span>=500
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">* .bashrc
+</span><span class="org-comment-delimiter">##########</span><span class="org-comment">
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">It is safe to source .bashrc more than one times.
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">** tty
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">TERM=dtterm
+</span>stty erase ^?                   <span class="org-comment-delimiter"># </span><span class="org-comment">kill ^U intr ^C eof ^D stop ^S
+</span><span class="org-builtin">set</span> -o ignoreeof                <span class="org-comment-delimiter"># </span><span class="org-comment">do not logout while press ctrl + D
+</span>
+<span class="org-keyword">if</span> [ -n <span class="org-string">"$BASH_VERSION"</span> ]; <span class="org-keyword">then</span> <span class="org-comment-delimiter"># </span><span class="org-comment">for bash
+</span>    <span class="org-builtin">set</span> -o emacs
+<span class="org-keyword">else</span>                            <span class="org-comment-delimiter"># </span><span class="org-comment">for ksh
+</span>    <span class="org-builtin">set</span> -o vi                   <span class="org-comment-delimiter"># </span><span class="org-comment">emacs style does not work well
+</span>    <span class="org-builtin">set</span> -o viraw                <span class="org-comment-delimiter"># </span><span class="org-comment">for auto-completing
+</span><span class="org-keyword">fi</span>
+
+<span class="org-keyword">if</span> [ -n <span class="org-string">"$BASH_VERSION"</span> ]; <span class="org-keyword">then</span> <span class="org-comment-delimiter"># </span><span class="org-comment">for Bash
+</span>    <span class="org-variable-name">PS1</span>=<span class="org-string">'\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">PROMPT_COMMAND='\echo -ne "\033]0;${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+</span><span class="org-keyword">else</span>                            <span class="org-comment-delimiter"># </span><span class="org-comment">for ksh
+</span>    <span class="org-variable-name">PS1</span>=<span class="org-string">'$(</span><span class="org-sh-quoted-exec">print</span><span class="org-string"> "[$LOGNAME@`hostname`:${PWD/$HOME/~}]\n$ ")'</span>
+    <span class="org-comment-delimiter">#</span><span class="org-comment">PS1="[\$PWD]\$ "
+</span><span class="org-keyword">fi</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">** auto-completion
+</span>
+<span class="org-keyword">if</span> [ -n <span class="org-string">"$BASH_VERSION"</span> -a -f $<span class="org-variable-name">HOME</span>/.local/bin/bash_completion_tmux.sh ]; <span class="org-keyword">then</span>
+    <span class="org-builtin">source</span> $<span class="org-variable-name">HOME</span>/.local/bin/bash_completion_tmux.sh
+<span class="org-keyword">fi</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">** alias
+</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">vi</span>=vim
+<span class="org-builtin">alias</span> <span class="org-variable-name">hex</span>=<span class="org-string">'od -Ax -tx1z -v'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">et</span>=<span class="org-string">'emacsclient -t'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">ls</span>=<span class="org-string">'ls --color=auto'</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">** functions
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">*** set window title. Without argument, restore to orignal one
+</span><span class="org-keyword">function</span> <span class="org-function-name">mytitle</span> {
+    <span class="org-comment-delimiter"># </span><span class="org-comment">usage: title [text]
+</span>    <span class="org-keyword">if</span> [ -z <span class="org-string">"$ORG_PROMPT_COMMAND"</span> ]; <span class="org-keyword">then</span>
+        <span class="org-comment-delimiter"># </span><span class="org-comment">for bash: store system default
+</span>        <span class="org-variable-name">ORG_PROMPT_COMMAND</span>=$<span class="org-variable-name">PROMPT_COMMAND</span>
+    <span class="org-keyword">fi</span>
+
+    <span class="org-keyword">if</span> [ $<span class="org-variable-name">#</span> -gt 0 ]; <span class="org-keyword">then</span>
+        <span class="org-variable-name">PROMPT_COMMAND</span>=<span class="org-string">""</span> <span class="org-comment-delimiter"># </span><span class="org-comment">for bash
+</span>        <span class="org-builtin">echo</span> -ne <span class="org-string">"\033]0;$1\007"</span>
+    <span class="org-keyword">else</span>
+        <span class="org-comment-delimiter"># </span><span class="org-comment">restore system default # for bash
+</span>        <span class="org-variable-name">PROMPT_COMMAND</span>=$<span class="org-variable-name">ORG_PROMPT_COMMAND</span>
+    <span class="org-keyword">fi</span>
+}
+<span class="org-builtin">export</span> mytitle
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">*** directory bookmark from http://www.huyng.com
+</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d0</span>=<span class="org-string">'alias g0="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d1</span>=<span class="org-string">'alias g1="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d2</span>=<span class="org-string">'alias g2="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d3</span>=<span class="org-string">'alias g3="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d4</span>=<span class="org-string">'alias g4="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d5</span>=<span class="org-string">'alias g5="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d6</span>=<span class="org-string">'alias g6="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d7</span>=<span class="org-string">'alias g7="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d8</span>=<span class="org-string">'alias g8="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">d9</span>=<span class="org-string">'alias g9="cd $(</span><span class="org-sh-quoted-exec">pwd</span><span class="org-string">)"'</span>
+<span class="org-keyword">function</span> <span class="org-function-name">lsd</span> {
+    <span class="org-builtin">alias</span> -p | grep -e <span class="org-string">"alias g[0-9]"</span> | grep -v -e <span class="org-string">"alias d[0-9]="</span> <span class="org-sh-escaped-newline">\</span>
+        | sed <span class="org-string">'s/alias //'</span>
+}
+<span class="org-keyword">function</span> <span class="org-function-name">dumpdm</span> {
+    <span class="org-comment-delimiter"># </span><span class="org-comment">dump directory marks
+</span>    <span class="org-builtin">alias</span> -p | grep -e <span class="org-string">"alias g[0-9]"</span> | grep -v -e <span class="org-string">"alias d[0-9]="</span> &gt; ~/.dir_mark
+}
+<span class="org-keyword">function</span> <span class="org-function-name">loaddm</span> {
+    <span class="org-keyword">if</span> [ -r ~/.dir_mark ]; <span class="org-keyword">then</span>
+        <span class="org-builtin">source</span> ~/.dir_mark
+    <span class="org-keyword">fi</span>
+}
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Bash Tips
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Insert last argument of previous command using M-. (or ESC-.)
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">replace (Correcting mistakes) with "^old^new"
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Repeating the last command with !!
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">The last argument of the last command using !$
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">All arguments of the last command using !*
+</span></pre>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Editors </h2>
+<div class="outline-text-2" id="text-2">
+
+
+
+</div>
+
+<div id="outline-container-2_1" class="outline-3">
+<h3 id="sec-2_1"><span class="section-number-3">2.1</span> For Emacs related information, refer to <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/emacs/index.html">here</a>. </h3>
+<div class="outline-text-3" id="text-2_1">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2_2" class="outline-3">
+<h3 id="sec-2_2"><span class="section-number-3">2.2</span> my .vimrc </h3>
+<div class="outline-text-3" id="text-2_2">
+
+
+
+
+
+<pre class="src src-vimrc"><span class="org-comment">" Created:  Fang lungang ??</span>
+<span class="org-comment">" Modified: Fang lungang 10/18/2012 15:57&gt;</span>
+
+<span class="org-comment">" To load this file, add "source path/to/lgfang.vimrc" to .vimrc</span>
+<span class="org-comment">" General</span>
+<span class="org-keyword">
+set </span><span class="org-variable-name">nocompatible</span> <span class="org-comment">" get out of horrible vi-compatible mode</span>
+<span class="org-keyword">set </span><span class="org-variable-name">ignorecase</span>
+
+<span class="org-variable-name">filetype</span> on <span class="org-comment">" detect the type of file</span>
+<span class="org-keyword">set </span><span class="org-variable-name">history</span><span class="org-constant">=</span>1000 <span class="org-comment">" How many lines of history to remember</span><span class="org-keyword">
+set </span><span class="org-variable-name">cf</span> <span class="org-comment">" enable error files and error jumping</span><span class="org-keyword">
+set </span><span class="org-variable-name">clipboard</span><span class="org-constant">+=</span>unnamed <span class="org-comment">" turns out I do like is sharing windows clipboard</span><span class="org-keyword">
+set </span><span class="org-variable-name">ffs</span><span class="org-constant">=</span>unix,dos,mac <span class="org-comment">" support all three, in this order</span>
+<span class="org-variable-name">filetype</span> plugin<span class="org-keyword"> on </span><span class="org-comment">" load filetype plugins</span><span class="org-keyword">
+set </span><span class="org-variable-name">viminfo</span><span class="org-constant">+=!</span> <span class="org-comment">" make sure it can save viminfo</span><span class="org-keyword">
+set </span><span class="org-variable-name">isk</span><span class="org-constant">+=</span>_,$,@,%,#,<span class="org-constant">-</span> <span class="org-comment">" none of these should be word dividers, so make them not be</span>
+<span class="org-keyword">runtime </span>ftplugin/man<span class="org-keyword">.vim </span><span class="org-comment">" enable :Man (\K)</span>
+
+<span class="org-comment">" Theme/Colors</span>
+<span class="org-keyword">
+set </span><span class="org-variable-name">background</span><span class="org-constant">=</span>dark <span class="org-comment">" we are using a dark background</span>
+syntax<span class="org-keyword"> on
+</span><span class="org-comment">" colorscheme evening</span>
+
+<span class="org-comment">" Files/Backups</span>
+
+<span class="org-comment">" set backup " make backup file</span>
+<span class="org-comment">" set backupdir=$VIM\vimfiles\backup " where to put backup file</span>
+<span class="org-comment">" set directory=$VIM\vimfiles\temp " directory is the directory for temp file</span>
+<span class="org-comment">" set makeef=error.err " When using make, where should it dump the file</span>
+
+<span class="org-comment">" Vim UI</span>
+
+<span class="org-comment">"set mouse=a " use mouse everywhere. Doesn't work well with tmux</span><span class="org-keyword">
+set </span><span class="org-variable-name">wildmenu</span> <span class="org-comment">" turn on wild menu</span><span class="org-keyword">
+set </span><span class="org-variable-name">wildmode</span><span class="org-keyword">=list:</span>longest,full <span class="org-comment">" list all completions for wild menu</span><span class="org-keyword">
+set </span><span class="org-variable-name">lsp</span><span class="org-constant">=</span>0 <span class="org-comment">" space it out a little more (easier to read)</span><span class="org-keyword">
+set </span><span class="org-variable-name">ruler</span> <span class="org-comment">" Always show current positions along the bottom</span>
+<span class="org-comment">"set number " turn on line numbers</span><span class="org-keyword">
+set </span><span class="org-variable-name">lz</span> <span class="org-comment">" do not redraw while running macros (much faster) (LazyRedraw)</span><span class="org-keyword">
+set </span><span class="org-variable-name">hid</span> <span class="org-comment">" you can change buffer without saving</span><span class="org-keyword">
+set </span><span class="org-variable-name">backspace</span><span class="org-constant">=</span>2 <span class="org-comment">" make backspace work normal</span><span class="org-keyword">
+set </span><span class="org-variable-name">whichwrap</span><span class="org-constant">+=&lt;</span>,<span class="org-constant">&gt;</span>,h<span class="org-keyword">,l </span> <span class="org-comment">" backspace and cursor keys wrap to</span>
+<span class="org-keyword">set </span><span class="org-variable-name">shortmess</span><span class="org-constant">=</span>atI <span class="org-comment">" shortens messages to avoid 'press a key' prompt</span><span class="org-keyword">
+set </span><span class="org-variable-name">report</span><span class="org-constant">=</span>0 <span class="org-comment">" tell us when anything is changed via :...</span><span class="org-keyword">
+set </span><span class="org-variable-name">noerrorbells</span> <span class="org-comment">" don't make noise</span>
+<span class="org-comment">" make the splitters between windows be blank</span><span class="org-keyword">
+set </span><span class="org-variable-name">fillchars</span><span class="org-keyword">=vert:</span>\ ,<span class="org-variable-name">stl</span>:\ ,stlnc:\
+
+<span class="org-comment">" Visual Cues</span>
+<span class="org-keyword">
+set </span><span class="org-variable-name">showmatch</span> <span class="org-comment">" show matching brackets</span><span class="org-keyword">
+set </span><span class="org-variable-name">mat</span><span class="org-constant">=</span>1 <span class="org-comment">" how many tenths of a second to blink matching brackets for</span>
+<span class="org-keyword">set </span><span class="org-variable-name">hlsearch</span> <span class="org-comment">" highlight searched-for phrases</span><span class="org-keyword">
+set </span><span class="org-variable-name">incsearch</span> <span class="org-comment">" BUT do highlight as you type you search phrase</span><span class="org-keyword">
+set </span><span class="org-variable-name">listchars</span><span class="org-keyword">=tab:</span>\|\ ,trail:<span class="org-constant">.</span>,extends:<span class="org-constant">&gt;</span>,precedes:<span class="org-constant">&lt;</span>,<span class="org-variable-name">eol</span>:$ <span class="org-comment">" what to show when I hit :set list</span><span class="org-keyword">
+set </span><span class="org-variable-name">so</span><span class="org-constant">=</span>10 <span class="org-comment">" Keep 10 lines (top/bottom) for scope</span><span class="org-keyword">
+set </span><span class="org-variable-name">novisualbell</span> <span class="org-comment">" don't blink</span><span class="org-keyword">
+set </span><span class="org-variable-name">statusline</span><span class="org-constant">=</span>%F%m%r%h%w\ [FORMAT<span class="org-constant">=</span>%{<span class="org-variable-name">&amp;ff</span>}]\ [TYPE<span class="org-constant">=</span>%Y]\ [POS<span class="org-constant">=</span>%04l,%04v][%p%%]<span class="org-keyword">
+set </span><span class="org-variable-name">laststatus</span><span class="org-constant">=</span>2 <span class="org-comment">" always show the status line</span>
+
+<span class="org-comment">" Text Formatting/Layout</span>
+<span class="org-keyword">
+set </span><span class="org-variable-name">fo</span><span class="org-constant">=</span>tcrqn <span class="org-comment">" See Help (complex)</span><span class="org-keyword">
+set </span><span class="org-variable-name">ai</span> <span class="org-comment">" autoindent</span><span class="org-keyword">
+set </span><span class="org-variable-name">si</span> <span class="org-comment">" smartindent</span><span class="org-keyword">
+set </span><span class="org-variable-name">cindent</span> <span class="org-comment">" do c-style indenting</span><span class="org-keyword">
+set </span><span class="org-variable-name">tabstop</span><span class="org-constant">=</span>4 <span class="org-comment">" tab spacing (settings below are just to unify it)</span><span class="org-keyword">
+set </span><span class="org-variable-name">softtabstop</span><span class="org-constant">=</span>4 <span class="org-comment">" unify</span><span class="org-keyword">
+set </span><span class="org-variable-name">shiftwidth</span><span class="org-constant">=</span>4 <span class="org-comment">" unify</span><span class="org-keyword">
+set </span><span class="org-variable-name">expandtab</span> <span class="org-comment">" tab to space. use ctrl-v&lt;Tab&gt; to insert tab</span>
+<span class="org-comment">"set smarttab " use tabs at the start of a line, spaces elsewhere</span><span class="org-keyword">
+set </span><span class="org-variable-name">nowrap</span> <span class="org-comment">" do not wrap lines</span>
+
+<span class="org-comment">" Minibuf</span>
+<span class="org-keyword">
+let </span><span class="org-variable-name">g:miniBufExplTabWrap</span> <span class="org-constant">=</span> 1 <span class="org-comment">" make tabs show complete (no broken on two lines)</span><span class="org-keyword">
+let </span><span class="org-variable-name">g:miniBufExplModSelTarget</span> <span class="org-constant">=</span> 1
+
+<span class="org-comment">" Matchit</span>
+<span class="org-keyword">
+let </span>b:match_ignorecase <span class="org-constant">=</span> 1
+
+<span class="org-comment">" Autocommands</span>
+<span class="org-keyword">
+autocmd </span>BufEnter * :<span class="org-variable-name">syntax</span> sync fromstart <span class="org-comment">" ensure every file does syntax highlighting (full)</span><span class="org-keyword">
+au </span>BufNewFile,BufRead *<span class="org-keyword">.x :set </span><span class="org-variable-name">ft</span><span class="org-keyword">=c </span><span class="org-comment">" all my .x files are .h files</span>
+
+<span class="org-comment">" Commands Ref</span>
+<span class="org-comment">" :split [file] split window, C-ww switch window, :close close current window</span>
+<span class="org-comment">" C-^ switch buffer, :bd close buffer(buffer delete)</span>
+<span class="org-comment">" :ls list buffers, :bn switch to buffer n, :sbn split and bn</span>
+<span class="org-comment">" In editing mode, C-n/C-p auto-completion</span>
+<span class="org-comment">" vim -d file1 file2 [file3]  diff files</span>
+<span class="org-comment">" see man page: K or \K or :Man</span>
+<span class="org-comment">" go to file at point: gf</span>
+<span class="org-comment">" format code: select text in visual mode, then "="</span>
+
+<span class="org-comment">" Thanks for .vimrc template from http://www.vi-improved.org/vimrc.php</span>
+</pre>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Terminal Emulator </h2>
+<div class="outline-text-2" id="text-3">
+
+
+
+</div>
+
+<div id="outline-container-3_1" class="outline-3">
+<h3 id="sec-3_1"><span class="section-number-3">3.1</span> Tmux </h3>
+<div class="outline-text-3" id="text-3_1">
+
+
+<p>
+   tmux is a great terminal multiplexer. I <b>strongly recommend</b> it!
+</p>
+<p>
+   <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/tmux.beamer.pdf">Here</a> is a PDF slides introduces tmux.
+</p>
+<p>
+   My configure file (for tmux1.6):
+</p>
+
+
+
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">Created:  Fang lungang 11/08/2010
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified: Fang lungang 01/15/2013 13:27&gt;
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Configure for Tmux 1.6
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Behaviour
+</span><span class="org-variable-name">set-option</span> -g display-time 3000
+<span class="org-variable-name">set-option</span> -g history-limit 600000
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Key bindings
+</span><span class="org-variable-name">set-option</span> -g prefix F12        <span class="org-comment-delimiter"># </span><span class="org-comment">if not work, check if TERM=xterm
+</span><span class="org-variable-name">bind-key</span> -n F11 send-prefix     <span class="org-comment-delimiter"># </span><span class="org-comment">F11 becomes 'prefix' of nested tmux sessions
+</span><span class="org-variable-name">bind-key</span> C-b send-prefix        <span class="org-comment-delimiter"># </span><span class="org-comment">F11 C-b ... nested nested ... sessions
+</span><span class="org-variable-name">bind-key</span> | split-window -h      <span class="org-comment-delimiter"># </span><span class="org-comment">default is "
+</span><span class="org-variable-name">bind-key</span> _ split-window -v      <span class="org-comment-delimiter"># </span><span class="org-comment">default is %
+</span><span class="org-variable-name">bind-key</span> Tab select-pane -t:.+  <span class="org-comment-delimiter"># </span><span class="org-comment">easier to key-chord than F12+&lt;arrow&gt;
+</span><span class="org-variable-name">bind-key</span> BTab select-pane -t:.-
+<span class="org-variable-name">set-option</span> -g status-keys emacs
+<span class="org-variable-name">set-option</span> -g mode-keys emacs
+<span class="org-variable-name">bind-key</span> C-s set-window-option synchronize-panes
+<span class="org-variable-name">bind-key</span> b set-option status
+
+<span class="org-variable-name">bind-key</span> -r n next-window       <span class="org-comment-delimiter"># </span><span class="org-comment">same as default ones but are repeat-able
+</span><span class="org-variable-name">bind-key</span> -r p previous-window
+<span class="org-variable-name">bind-key</span> -r Space next-layout
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Conflicts with my emacs settings.
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">bind-key -nr C-Up select-pane -U
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">bind-key -nr C-Down select-pane -D
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">bind-key -nr C-Left select-pane -L
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">bind-key -nr C-Right select-pane -R
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Status bar format
+</span><span class="org-variable-name">set-option</span> -g base-index 1      <span class="org-comment-delimiter"># </span><span class="org-comment">window index starts from 1 instead of 0
+</span><span class="org-variable-name">set-option</span> -g status on
+<span class="org-variable-name">set-window-option</span> -g automatic-rename on
+<span class="org-variable-name">set-window-option</span> -g monitor-activity on
+<span class="org-comment-delimiter"># </span><span class="org-comment">set-option -g status-utf8 on
+</span><span class="org-variable-name">set-option</span> -g status-left-length 30
+<span class="org-variable-name">set-option</span> -g status-justify left
+<span class="org-variable-name">set-option</span> -g status-left <span class="org-string">"(#h.#S)"</span>
+<span class="org-variable-name">set-option</span> -g status-right <span class="org-string">"#T"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">set-option -g status-left "#[bg=cyan,fg=black][tmux:#S@#h]"
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Terminal type
+</span><span class="org-comment-delimiter">## </span><span class="org-comment">NOTE: Comment out this if you don't know what it is
+</span><span class="org-variable-name">set-option</span> -g default-terminal <span class="org-string">"xterm-256color"</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">set-option -g default-terminal "screen-256color"
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">or start tmux with "tmux -2" to force 256
+</span><span class="org-comment-delimiter">## </span><span class="org-comment">"if-shell" runs asynchronously, so it does not help
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">* color themes
+</span><span class="org-variable-name">source-file</span> ~/.tmux/lgfang-blocks
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Terminal emulator window title
+</span><span class="org-variable-name">set</span> -g set-titles on
+<span class="org-variable-name">set</span> -g set-titles-string <span class="org-string">'tmux:#S@#h'</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Mouse support
+</span><span class="org-variable-name">set-option</span> -g mouse-select-pane on
+<span class="org-comment-delimiter"># </span><span class="org-comment">mouse-resize-pane rarely used and have a annoying bug
+</span><span class="org-variable-name">set-option</span> -g mouse-resize-pane off
+<span class="org-variable-name">set-option</span> -g mouse-select-window on
+<span class="org-variable-name">set-window-option</span> -g mode-mouse on
+
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">* My functions
+</span>
+<span class="org-variable-name">bind-key</span> m command-prompt -p <span class="org-string">"move (swap) current pane with: "</span> <span class="org-string">"swap-pane -s %1"</span>
+<span class="org-variable-name">bind-key</span> j command-prompt <span class="org-string">"join-pane -s '%1'"</span>
+<span class="org-variable-name">bind-key</span> C command-prompt <span class="org-string">"new-window '%1'"</span>
+<span class="org-variable-name">bind-key</span> S command-prompt <span class="org-string">"new-session -s '%1'"</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">** Screen log
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">`C-h' to save log
+</span><span class="org-variable-name">bind-key</span> C-h command-prompt -p <span class="org-string">"save log to:"</span> \
+         <span class="org-string">"copy-mode; send-keys 'M-&gt;' C-e C-space 'M-&lt;' C-a C-w; save-buffer %%"</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment"># if "set-window-option -g mode-keys vi", use this one:
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">bind-key C-h command-prompt -p "save log to:" \
+</span><span class="org-comment-delimiter">#          </span><span class="org-comment">"copy-mode; send-keys g 'space' G 'enter'; save-buffer %%"
+</span>
+<span class="org-variable-name">bind-key</span> h pipe-pane <span class="org-string">"cat &gt;&gt;$HOME/#S-#I-#P.log"</span> \; \
+         <span class="org-variable-name">rename-window</span> <span class="org-string">"log"</span> \; \
+         <span class="org-variable-name">display-message</span> <span class="org-string">"Start logging($HOME/#S-#I-#P.log)"</span>
+
+<span class="org-variable-name">bind-key</span> H pipe-pane \; \
+         <span class="org-variable-name">set-window-option</span> automatic-rename on \; \
+         <span class="org-variable-name">display-message</span> <span class="org-string">"Stopped logging(#S-#I-#P.log)"</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">** temporary "maximize" a pane
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">from http://superuser.com/questions/238702/maximizing-a-pane-in-tmux
+</span><span class="org-variable-name">unbind</span> +
+<span class="org-variable-name">bind-key</span> + run <span class="org-string">"if [[ $(tmux list-window) =~ MAX ]]; then \
+         tmux last-window;\
+         tmux swap-pane -s MAX.0; \
+         tmux kill-window -t MAX; \
+         else tmux new-window -d -n MAX; \
+         tmux swap-pane -s MAX.0; \
+         tmux select-window -t MAX;fi"</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">* Usage of Screen in case tmux is not available
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">***********************************************
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">screen -S foo # new session foo
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">screen -x foo # attach to session foo
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">screen -ls    # list all sessions
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">C-a C-c       # create a new window
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">C-a "         # list and switch window
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">C-a C-d       # detach
+</span></pre>
+
+
+
+<p>
+   I put color related stuffs into dedicated files so that I can <code>source-file    path/to/scheme</code> to change the look of tmux dynamically.
+</p>
+
+
+
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">\file Name: lgfang-blocks -*-mode:conf-*-
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Created:  Fang lungang 12/27/2012
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified: Fang lungang 01/15/2013 13:40&gt;
+</span>
+
+<span class="org-variable-name">set-option</span> -g status-fg white
+<span class="org-variable-name">set-option</span> -g status-bg colour234
+<span class="org-variable-name">set-option</span> -g status-attr none
+
+<span class="org-variable-name">set-window-option</span> -g window-status-fg green
+<span class="org-variable-name">set-window-option</span> -g window-status-bg default
+<span class="org-variable-name">set-window-option</span> -g window-status-attr reverse,bold
+
+<span class="org-variable-name">set-window-option</span> -g window-status-current-fg red
+<span class="org-variable-name">set-window-option</span> -g window-status-current-bg default
+<span class="org-variable-name">set-window-option</span> -g window-status-current-attr reverse,bold
+
+<span class="org-variable-name">set-option</span> -g pane-border-fg green
+<span class="org-variable-name">set-option</span> -g pane-active-border-fg red
+
+<span class="org-variable-name">set-window-option</span> -g window-status-activity-attr reverse,bold
+<span class="org-variable-name">set-window-option</span> -g window-status-activity-fg yellow
+</pre>
+
+
+
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">\file Name: lgfang-concise -*-mode:conf-*-
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Created:  Fang lungang 12/27/2012
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified: Fang lungang 01/15/2013 13:40&gt;
+</span>
+<span class="org-variable-name">set-option</span> -g status-fg white
+<span class="org-variable-name">set-option</span> -g status-bg colour234
+<span class="org-variable-name">set-option</span> -g status-attr none
+
+<span class="org-variable-name">set-window-option</span> -g window-status-fg white
+<span class="org-variable-name">set-window-option</span> -g window-status-bg default
+<span class="org-variable-name">set-window-option</span> -g window-status-attr none
+
+<span class="org-variable-name">set-window-option</span> -g window-status-current-fg red
+<span class="org-variable-name">set-window-option</span> -g window-status-current-bg default
+<span class="org-variable-name">set-window-option</span> -g window-status-current-attr bold
+
+<span class="org-variable-name">set-option</span> -g pane-border-fg white
+<span class="org-variable-name">set-option</span> -g pane-active-border-fg white
+
+<span class="org-variable-name">set-window-option</span> -g window-status-activity-attr none
+<span class="org-variable-name">set-window-option</span> -g window-status-activity-fg yellow
+</pre>
+
+
+
+<pre class="src src-conf"><span class="org-comment-delimiter">#### </span><span class="org-comment">COLOUR (Solarized 256)
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">From https://github.com/seebi/tmux-colors-solarized
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified: Fang lungang 01/15/2013 13:29&gt;
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">default statusbar colors
+</span><span class="org-variable-name">set-option</span> -g status-fg colour136 <span class="org-comment-delimiter">#</span><span class="org-comment">yellow
+</span><span class="org-variable-name">set-option</span> -g status-bg colour235 <span class="org-comment-delimiter">#</span><span class="org-comment">base02
+</span><span class="org-variable-name">set-option</span> -g status-attr default
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">default window title colors
+</span><span class="org-variable-name">set-window-option</span> -g window-status-fg colour244 <span class="org-comment-delimiter">#</span><span class="org-comment">base0
+</span><span class="org-variable-name">set-window-option</span> -g window-status-bg default
+<span class="org-comment-delimiter">#</span><span class="org-comment">set-window-option -g window-status-attr dim
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">active window title colors
+</span><span class="org-variable-name">set-window-option</span> -g window-status-current-fg red
+<span class="org-variable-name">set-window-option</span> -g window-status-current-bg default
+<span class="org-comment-delimiter">#</span><span class="org-comment">set-window-option -g window-status-current-attr bright
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">pane border
+</span><span class="org-variable-name">set-option</span> -g pane-border-fg colour235 <span class="org-comment-delimiter">#</span><span class="org-comment">base02
+</span><span class="org-variable-name">set-option</span> -g pane-active-border-fg colour240 <span class="org-comment-delimiter">#</span><span class="org-comment">base01
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">activity indication
+</span><span class="org-variable-name">set-window-option</span> -g window-status-activity-attr none
+<span class="org-variable-name">set-window-option</span> -g window-status-activity-fg colour166 <span class="org-comment-delimiter">#</span><span class="org-comment">orange
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">message text
+</span><span class="org-variable-name">set-option</span> -g message-bg colour235 <span class="org-comment-delimiter">#</span><span class="org-comment">base02
+</span><span class="org-variable-name">set-option</span> -g message-fg colour166 <span class="org-comment-delimiter">#</span><span class="org-comment">orange
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">pane number display
+</span><span class="org-variable-name">set-option</span> -g display-panes-active-colour colour166 <span class="org-comment-delimiter">#</span><span class="org-comment">orange
+</span><span class="org-variable-name">set-option</span> -g display-panes-colour colour33 <span class="org-comment-delimiter">#</span><span class="org-comment">blue
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">clock
+</span><span class="org-variable-name">set-window-option</span> -g clock-mode-colour colour64 <span class="org-comment-delimiter">#</span><span class="org-comment">green
+</span></pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3_2" class="outline-3">
+<h3 id="sec-3_2"><span class="section-number-3">3.2</span> "to" - automatically login servers/TL1 agents </h3>
+<div class="outline-text-3" id="text-3_2">
+
+
+<p>
+   "to" is a tcl script to facilitate accessing servers. Here is <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/to.pdf">a PDF slides</a>
+   which introduces it.
+</p>
+<p>
+   The script itself is:
+</p>
+
+
+
+<pre class="src src-tcl"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/expect --
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">\file Name: to
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Created: Fang lungang 12/26/2008
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified:Fang lungang 01/21/2013 14:41&gt;
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">\brief This is a re-write of tn in TCL/expect
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">seems 'source' instead of 'package require' makes it faster
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">lgfang: modify this accordingly
+</span><span class="org-builtin">source</span> /usr/share/tcl8.5/tcllib-1.11.1/cmdline/cmdline.tcl
+<span class="org-comment-delimiter"># </span><span class="org-comment">source /home/lgfang/.local/lib/tcllib1.11/cmdline/cmdline.tcl
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">set TCLLIB_PATH "/home/lungangfang/local/lib/tcllib1.11"
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">lappend auto_path $TCLLIB_PATH
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">package require cmdline
+</span>
+<span class="org-builtin">set</span> <span class="org-variable-name">nul</span> \0;                     <span class="org-comment"># according to `exploring expect', it should not
+</span>                                <span class="org-comment"># work. But it works
+</span><span class="org-builtin">set</span> <span class="org-variable-name">esc</span> \033
+<span class="org-builtin">set</span> <span class="org-variable-name">host</span> {}
+<span class="org-builtin">set</span> <span class="org-variable-name">hostname</span> {}
+<span class="org-builtin">set</span> <span class="org-variable-name">username</span> root;              <span class="org-comment"># default username
+</span><span class="org-builtin">set</span> <span class="org-variable-name">password</span> plexus9000;        <span class="org-comment"># default password
+</span><span class="org-builtin">set</span> <span class="org-variable-name">commands</span> {}
+<span class="org-builtin">set</span> <span class="org-variable-name">tl1Port</span> 2361;               <span class="org-comment"># plexus specific
+</span>
+<span class="org-builtin">set</span> <span class="org-variable-name">synopsis</span> {
+    Usage: to [-a] [-q|-f|-t|-s] 'host_nick_name'
+
+    host: The <span class="org-builtin">regexp</span> which matches part of name/IP of destination
+    host.  The single quotes may be ommitted <span class="org-keyword">if</span> no <span class="org-builtin">file</span> name <span class="org-keyword">in</span> PWD
+    matches the regexp.
+
+    <span class="org-keyword">for</span> example, to telnet to TL1 of the lab named summer and act-user
+    automatically, you can:
+
+    to -a -t sum
+
+    *NOTE* however: due to limit of ::cmdline::getoption, you can't abbrev above
+    example as:
+
+    to -at sum
+
+    the translation from nick name to host address is done based on <span class="org-string">"~/.hosts"</span>.
+    <span class="org-string">".hosts"</span> may contain one field, or 2 fields, or 3 fileds or more. If
+    presented:
+
+    Field 1 ==&gt; host address
+    Field 2 ==&gt; host nick name
+    Field 3 ==&gt; login <span class="org-keyword">for</span> that host (<span class="org-keyword">default</span> is <span class="org-string">"root"</span>)
+    Field 4 ==&gt; password (<span class="org-keyword">default</span> is <span class="org-string">"plexus9000"</span>), be cautious to put
+                password <span class="org-keyword">in</span> your .hosts. Other ones might able <span class="org-builtin">read</span> it.
+    Field 5 etc. ==&gt; command to be executed <span class="org-builtin">after</span> login
+
+    <span class="org-string">".hosts"</span> example:
+
+    <span class="org-comment"># a record with addr only
+</span>    gdcsr60.gdc.lucent.com
+    <span class="org-comment"># a record with ip, nick name, login
+</span>    135.252.41.248 qdbuild2 lungangfang
+    <span class="org-comment"># a record with ip, nick name, login and passwd
+</span>    135.252.135.68 qdi02-c04 root newsys
+    <span class="org-comment"># a record which will run a command after login
+</span>    135.252.152.115 loads <span class="org-type">public</span> public send \r; send <span class="org-string">"cd /home/toaster/LCP \r"</span>
+    <span class="org-comment"># login to a sever via an intermediate host, like 'ssh -t middle ssh dest'
+</span>    152.148.163.134 wf03-c01 root telica send \r; send <span class="org-string">"ssh 152.148.184.200\r"</span>
+}
+
+<span class="org-builtin">set</span> <span class="org-variable-name">options</span> {
+    {q  <span class="org-string">"query host address only"</span>}
+    {a  <span class="org-string">"auto login, input username/password for you"</span>}
+    {t  <span class="org-string">"telnet to TL1"</span>}
+    {f  <span class="org-string">"ftp to the server"</span>}
+    {s  <span class="org-string">"ssh to server"</span>}
+    { i.arg <span class="org-string">"~/.hosts"</span>  <span class="org-string">"input file, ~/.hosts if not specified"</span>}
+}
+
+trap SIG_DFL SIGINT
+
+<span class="org-keyword">proc</span> <span class="org-function-name">getHostInfo</span> {target {query false} } {
+    <span class="org-type">global</span> hostfile host hostname username password commands
+
+    <span class="org-builtin">set</span> <span class="org-variable-name">grep_cmd</span> [<span class="org-builtin">concat</span> {grep -v '[ \t]*#'} <span class="org-tcl-escaped-newline">\</span>
+                      <span class="org-string">" $hostfile | grep -i $target | "</span> <span class="org-tcl-escaped-newline">\</span>
+                      {sed 's/[ \t][ \t]*/ /g'}]
+    <span class="org-comment"># or " $hostfile | grep -iw $target | " ?
+</span>    <span class="org-comment"># sed line is for split later
+</span>
+    <span class="org-keyword">if</span> { [<span class="org-builtin">catch</span> {<span class="org-builtin">set</span> entries [<span class="org-builtin">split</span> [<span class="org-builtin">exec</span> bash -c $<span class="org-variable-name">grep_cmd</span> ] <span class="org-string">"\n"</span>]}] } {
+        send_user <span class="org-string">"grep fail, please contact author\n"</span>
+        <span class="org-keyword">exit</span> -3
+    }
+
+    <span class="org-keyword">if</span> { ! [<span class="org-builtin">llength</span> $<span class="org-variable-name">entries</span>] } {
+        send_user <span class="org-string">"no match for $target\n"</span>
+        <span class="org-keyword">exit</span> -4
+    }
+
+    <span class="org-builtin">set</span> <span class="org-variable-name">x</span> 1
+    <span class="org-keyword">foreach</span> match $<span class="org-variable-name">entries</span> {
+        send_user <span class="org-string">"$x,\t[lrange $match 0 1]\n"</span>
+        <span class="org-builtin">incr</span> x
+    }
+
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">query</span> } {<span class="org-keyword">exit</span> 0}
+
+    <span class="org-builtin">set</span> <span class="org-variable-name">choice</span> <span class="org-string">"X"</span>
+    <span class="org-keyword">if</span> { [<span class="org-builtin">expr</span> [<span class="org-builtin">llength</span> $<span class="org-variable-name">entries</span>] &gt; 1] } {
+        <span class="org-builtin">set</span> <span class="org-variable-name">timeout</span> -1
+        <span class="org-keyword">while</span> { ! [<span class="org-builtin">string</span> is integer $<span class="org-variable-name">choice</span>] || $<span class="org-variable-name">choice</span> &gt; [<span class="org-builtin">llength</span> $<span class="org-variable-name">entries</span>]} {
+            send <span class="org-string">"Make a choice (1): "</span>
+            expect -re <span class="org-string">".*\n"</span>
+            <span class="org-builtin">set</span> <span class="org-variable-name">choice</span> [<span class="org-builtin">string</span> trim $<span class="org-variable-name">expect_out</span>(buffer)]
+
+            <span class="org-keyword">if</span> { [<span class="org-builtin">string</span> length $<span class="org-variable-name">choice</span>] == 0 } {
+                <span class="org-builtin">set</span> <span class="org-variable-name">choice</span> 1
+            }
+        }
+
+        <span class="org-builtin">incr</span> choice -1
+    } <span class="org-keyword">else</span> {
+        <span class="org-builtin">set</span> <span class="org-variable-name">choice</span> 0
+    }
+
+    <span class="org-builtin">set</span> <span class="org-variable-name">fields</span> [<span class="org-builtin">split</span> [<span class="org-builtin">string</span> trim [<span class="org-builtin">lindex</span> $<span class="org-variable-name">entries</span> $<span class="org-variable-name">choice</span> ]]]
+
+    <span class="org-builtin">set</span> <span class="org-variable-name">fieldNum</span> [<span class="org-builtin">llength</span> $<span class="org-variable-name">fields</span>]
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">fieldNum</span> &gt;= 1 } {
+        <span class="org-builtin">set</span> <span class="org-variable-name">host</span> [<span class="org-builtin">lindex</span> $<span class="org-variable-name">fields</span> 0]
+    }
+
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">fieldNum</span> &gt;= 2 } {
+        <span class="org-builtin">set</span> <span class="org-variable-name">hostname</span> [<span class="org-builtin">lindex</span> $<span class="org-variable-name">fields</span> 1]
+    } <span class="org-keyword">else</span> {
+        <span class="org-builtin">set</span> <span class="org-variable-name">hostname</span> $<span class="org-variable-name">host</span>
+    }
+
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">fieldNum</span> &gt;= 3 } {
+            <span class="org-builtin">set</span> <span class="org-variable-name">username</span> [<span class="org-builtin">lindex</span> $<span class="org-variable-name">fields</span> 2]
+    }
+
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">fieldNum</span> &gt;= 4 } {
+            <span class="org-builtin">set</span> <span class="org-variable-name">password</span> [<span class="org-builtin">lindex</span> $<span class="org-variable-name">fields</span> 3]
+    }
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">fieldNum</span> &gt;= 5 } {
+            <span class="org-builtin">set</span> <span class="org-variable-name">commands</span> [<span class="org-builtin">lrange</span> $<span class="org-variable-name">fields</span> 4 end]
+    }
+}
+
+<span class="org-keyword">proc</span> <span class="org-function-name">auto_telnet</span> { } {
+    <span class="org-type">global</span> username password commands
+    <span class="org-builtin">set</span> <span class="org-variable-name">timeout</span> 10
+    expect -re <span class="org-string">"(user name|login|Login):"</span>
+    send -- <span class="org-string">"$username\r"</span>
+    expect {
+        -re <span class="org-string">"\[Pp\]assword:"</span> {send -- <span class="org-string">"$password\r"</span>}
+        <span class="org-comment"># for plex labs in case need no password and suppose PS1 is hostname#
+</span>        -re <span class="org-string">".*#"</span> {send <span class="org-string">"\r"</span>}
+    }
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">commands</span> != {} } {
+        expect {
+            -re <span class="org-string">"."</span> {
+                <span class="org-keyword">eval</span> <span class="org-string">"[join $commands]"</span>
+            }
+        }
+    }
+}
+
+<span class="org-keyword">proc</span> <span class="org-function-name">auto_ftp</span> {} {
+    <span class="org-type">global</span> username password
+    <span class="org-builtin">set</span> <span class="org-variable-name">timeout</span> 30
+    send_user <span class="org-string">"auto_ftp\n"</span>
+    expect -re <span class="org-string">"Name (.*):"</span>
+    send -- <span class="org-string">"$username\r"</span>
+    expect -re <span class="org-string">"Password:"</span>
+    send -- <span class="org-string">"$password\r"</span>
+}
+
+<span class="org-keyword">proc</span> <span class="org-function-name">auto_ssh</span> {} {
+    <span class="org-type">global</span> username password commands
+    <span class="org-builtin">set</span> <span class="org-variable-name">timeout</span> 60
+    expect {
+        timeout {<span class="org-keyword">exit</span>}
+        <span class="org-string">"continue connecting (yes/no)?"</span> {
+            send <span class="org-string">"yes\r"</span>
+            exp_continue
+        }
+        -re <span class="org-string">"\[Pp]assword:"</span> {
+            send -- <span class="org-string">"$password\r"</span>
+        }
+        <span class="org-string">"Host key verification failed."</span> {
+            expect_after;       <span class="org-comment"># do not exit on eof
+</span>            <span class="org-keyword">if</span> {[<span class="org-builtin">regexp</span> -line <span class="org-string">"^Offending key in.*\.ssh/known_hosts:(\[0-9]*)"</span> <span class="org-tcl-escaped-newline">\</span>
+                     $<span class="org-variable-name">expect_out</span>(buffer) dummy lineNum] ==1} { 
+                send_user <span class="org-string">"Delete stored finger print? (n/y) "</span>;
+                expect_user {
+                    -re <span class="org-string">"\[yY]"</span> {<span class="org-builtin">exec</span> sed -i <span class="org-string">"${lineNum}d"</span> [<span class="org-builtin">glob</span> <span class="org-string">"~/.ssh/known_hosts"</span>]}
+                    -re <span class="org-string">"\[^Yy]"</span> {}
+                }
+                <span class="org-keyword">exit</span> 0
+            } 
+        }
+    }
+
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">commands</span> != {} } {
+        expect {
+            -re <span class="org-string">"."</span> {
+                <span class="org-keyword">eval</span> <span class="org-string">"[join $commands]"</span>
+            }
+        }
+    }
+}
+
+<span class="org-keyword">proc</span> <span class="org-function-name">auto_tl1</span> {} {
+    <span class="org-comment"># this is a plexus specific function
+</span>
+    <span class="org-builtin">set</span> <span class="org-variable-name">tl1Tries</span> [<span class="org-builtin">list</span> <span class="org-string">"telica"</span> <span class="org-string">"plexntmctrl"</span> <span class="org-string">"plexview"</span> <span class="org-string">"plexview1"</span>]
+    <span class="org-builtin">set</span> <span class="org-variable-name">timeout</span> 30
+    <span class="org-type">global</span> esc
+
+    expect {
+        timeout {send_user <span class="org-string">"timeout\n"</span>; <span class="org-keyword">return</span> }
+        <span class="org-string">"Connection refused"</span> {<span class="org-keyword">return</span>}
+        <span class="org-string">"Escape character is '^]'"</span> { send <span class="org-string">"${esc}"</span> }
+    }
+
+    expect <span class="org-string">"&gt;"</span>
+    <span class="org-keyword">foreach</span> USERNAME $<span class="org-variable-name">tl1Tries</span> {
+        <span class="org-comment"># password is same as user name
+</span>        <span class="org-builtin">set</span> <span class="org-variable-name">PASSWORD</span> $<span class="org-variable-name">USERNAME</span>
+        send <span class="org-string">"act-user::${USERNAME}:::${PASSWORD};"</span>
+        expect {
+            timeout { send_user <span class="org-string">"Timed out Waiting for COMPLD\n"</span>; <span class="org-keyword">exit</span> -1}
+            <span class="org-string">"DENY"</span> { send_user <span class="org-string">"try $USERNAME\n"</span>;  }
+            <span class="org-string">"COMPLD"</span> {<span class="org-keyword">break</span>}
+        }
+    }
+}
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">main
+</span><span class="org-keyword">if</span> { [<span class="org-builtin">catch</span> {<span class="org-builtin">array</span> <span class="org-builtin">set</span> <span class="org-variable-name">params</span> <span class="org-tcl-escaped-newline">\</span>
+                 [::cmdline::getoptions argv $<span class="org-variable-name">options</span> $<span class="org-variable-name">synopsis</span>]} res] } {
+    send_user stderr $<span class="org-variable-name">res</span>
+    <span class="org-keyword">exit</span> -1
+}
+
+<span class="org-keyword">if</span> { [<span class="org-builtin">llength</span> $<span class="org-variable-name">argv</span>] != 1 } {
+    send_user stderr [::cmdline::usage $<span class="org-variable-name">options</span> $<span class="org-variable-name">synopsis</span>]
+    <span class="org-keyword">exit</span> -2
+}
+
+<span class="org-builtin">set</span> <span class="org-variable-name">query</span> false
+<span class="org-keyword">if</span> { $<span class="org-variable-name">params</span>(q) } {<span class="org-builtin">set</span> query true}
+<span class="org-builtin">set</span> <span class="org-variable-name">hostfile</span> $<span class="org-variable-name">params</span>(i)
+<span class="org-keyword">if</span> {! [<span class="org-builtin">file</span> exists $<span class="org-variable-name">hostfile</span>] } {
+    send_user <span class="org-string">"Erro: can't access $hostfile\n"</span>
+    <span class="org-keyword">exit</span> -1
+}
+
+getHostInfo [<span class="org-builtin">lindex</span> $<span class="org-variable-name">argv</span> 0] $<span class="org-variable-name">query</span>
+
+<span class="org-keyword">if</span> { $<span class="org-variable-name">params</span>(f) } {
+    <span class="org-builtin">set</span> <span class="org-variable-name">application</span> ftp
+    spawn $<span class="org-variable-name">application</span> $<span class="org-variable-name">host</span>
+} <span class="org-keyword">elseif</span> { $<span class="org-variable-name">params</span>(s) } {
+    <span class="org-builtin">set</span> <span class="org-variable-name">application</span> ssh
+    <span class="org-keyword">if</span> { $<span class="org-variable-name">params</span>(a) } {
+        spawn $<span class="org-variable-name">application</span> $<span class="org-variable-name">username</span>@$<span class="org-variable-name">host</span>
+    } <span class="org-keyword">else</span> {
+        spawn $<span class="org-variable-name">application</span> $<span class="org-variable-name">host</span>
+    }
+
+} <span class="org-keyword">elseif</span> { $<span class="org-variable-name">params</span>(t) } { <span class="org-comment"># login tl1
+</span>    <span class="org-builtin">set</span> <span class="org-variable-name">application</span> tl1
+    spawn telnet $<span class="org-variable-name">host</span> $<span class="org-variable-name">tl1Port</span>
+} <span class="org-keyword">else</span> {
+    <span class="org-builtin">set</span> <span class="org-variable-name">application</span> telnet
+    spawn $<span class="org-variable-name">application</span> $<span class="org-variable-name">host</span>
+}
+
+<span class="org-keyword">if</span> {[<span class="org-builtin">info</span> exists ::env(TMUX)]} {
+    <span class="org-builtin">exec</span> tmux rename-window $<span class="org-variable-name">hostname</span>
+}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">expect *AFTER* to allow dealing with what we get right before "eof"
+</span>expect_after <span class="org-builtin">eof</span> {              
+    <span class="org-keyword">if</span> {[<span class="org-builtin">info</span> exists ::env(TMUX)]} {
+        <span class="org-builtin">exec</span> tmux set-window-option automatic-rename on
+    }
+    send_user <span class="org-string">"connection closed\n"</span>
+    <span class="org-keyword">exit</span> 0
+}
+
+<span class="org-keyword">if</span> { $<span class="org-variable-name">params</span>(a) } {
+    <span class="org-keyword">eval</span> auto_$<span class="org-variable-name">application</span>
+}
+
+interact {
+    <span class="org-comment"># add your own "hot-keys" here
+</span>    <span class="org-comment"># "${esc}OP" -&gt; F1
+</span>    <span class="org-comment"># "${esc}OQ" -&gt; F2
+</span>    <span class="org-comment"># "${esc}OR" -&gt; F3
+</span>    <span class="org-comment"># "${esc}OS" -&gt; F4
+</span>    <span class="org-string">"${esc}OPtl1"</span> {send <span class="org-string">"telnet 0 $tl1Port\r"</span>; auto_tl1}
+    <span class="org-string">"${esc}OPcu"</span> {send <span class="org-string">"CANC-USER;"</span>}
+    <span class="org-string">"${esc}OPrs"</span> {send <span class="org-string">"RTRV-ATCA-EQPTSTATE;"</span>}
+    <span class="org-string">"${esc}OPr1"</span> {send <span class="org-string">"RTRV-ATCA-EQPT::SHELF-0-ACM-1;"</span>}
+    <span class="org-string">"${esc}OPr2"</span> {send <span class="org-string">"RTRV-ATCA-EQPT::SHELF-0-ACM-2;"</span>}
+    <span class="org-string">"${esc}OPr3"</span> {send <span class="org-string">"RTRV-ATCA-EQPT::SHELF-0-ACM-3;"</span>}
+    <span class="org-string">"${esc}OPr4"</span> {send <span class="org-string">"RTRV-ATCA-EQPT::SHELF-0-ACM-4;"</span>}
+    <span class="org-string">"${esc}OPr4"</span> {send <span class="org-string">"RTRV-ATCA-EQPT::SHELF-0-ACM-4;"</span>}
+    <span class="org-comment"># NUL bug in expect 5.43, fixed in expect 5.45?
+</span>    <span class="org-string">"${nul}"</span> { send <span class="org-string">"${nul}"</span>}
+
+    <span class="org-comment"># TODO: privide capability to search input history
+</span>}
+
+<span class="org-keyword">if</span> {[<span class="org-builtin">info</span> exists ::env(TMUX)]} {
+    <span class="org-builtin">exec</span> tmux set-window-option automatic-rename on
+}
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3_3" class="outline-3">
+<h3 id="sec-3_3"><span class="section-number-3">3.3</span> Putty </h3>
+<div class="outline-text-3" id="text-3_3">
+
+
+<ul>
+<li><a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/putty.html">putty settings</a>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3_4" class="outline-3">
+<h3 id="sec-3_4"><span class="section-number-3">3.4</span> Misc </h3>
+<div class="outline-text-3" id="text-3_4">
+
+
+<ul>
+<li><a href="#term-title">设置xterm窗口的标题</a>
+
+</li>
+<li><a href="#cygwin-terminal">配置 cygwin 的 terminal</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> VNC </h2>
+<div class="outline-text-2" id="text-4">
+
+
+<ul>
+<li>Start VNC sever
+
+<p>
+    The setup of VNC sever is in <code>~/.vnc/xstartup</code>.
+</p>
+<p>
+    The command to start a VNC server:
+</p><pre class="example">vncserver
+vncserver -geometry 1024x768
+</pre>
+
+
+<p>
+    For example
+</p>
+
+
+<pre class="example">$ vncserver
+
+New 'qdbuild2.cn.alcatel-lucent.com:4 (lungangfang)' desktop is qdbuild2.cn.alcatel-lucent.com:4
+
+Starting applications specified in /home/lungangfang/.vnc/xstartup
+Log file is /home/lungangfang/.vnc/qdbuild2.cn.alcatel-lucent.com:4.log
+</pre>
+
+
+
+</li>
+<li>Connect
+
+<p>
+    Start VNC viewer, set destination to that displayed in previous step
+    ("qdbuild2.cn.alcatel-lucent.com:4" in this example).
+</p>
+</li>
+<li>Disconnect
+
+<p>
+    Just close the vnc viewer
+</p>
+</li>
+<li>Stop (kill) the server
+
+<pre class="example">vncserver -kill :4
+</pre>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Windows Managers </h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+  If you are using VNC, Maybe twm (or fvwm) is enough. Simple and light-weighted
+  is the key.
+</p>
+
+</div>
+
+<div id="outline-container-5_1" class="outline-3">
+<h3 id="sec-5_1"><span class="section-number-3">5.1</span> <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/lgfang.twmrc">my .twmrc</a> <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/twm-screen">screenshots</a> </h3>
+<div class="outline-text-3" id="text-5_1">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5_2" class="outline-3">
+<h3 id="sec-5_2"><span class="section-number-3">5.2</span> <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/lgfang.fvwm2rc">my .fvwm2rc</a> <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/fvwm-screen/">screenshots</a> </h3>
+<div class="outline-text-3" id="text-5_2">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5_3" class="outline-3">
+<h3 id="sec-5_3"><span class="section-number-3">5.3</span> <a href="#cygwin-xserver">配置cygwin/x以及自动设置 DISPLAY</a> </h3>
+<div class="outline-text-3" id="text-5_3">
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Multimedia in Linux </h2>
+<div class="outline-text-2" id="text-6">
+
+
+
+</div>
+
+<div id="outline-container-6_1" class="outline-3">
+<h3 id="sec-6_1"><span class="section-number-3">6.1</span> <a href="http://ihgpweb.ih.lucent.com/%7Elgfang/util/linux-multimedia.html">Dealing with audio, video and images in Linux</a> </h3>
+<div class="outline-text-3" id="text-6_1">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6_2" class="outline-3">
+<h3 id="sec-6_2"><span class="section-number-3">6.2</span> <code>~/.mplayer/config</code> </h3>
+<div class="outline-text-3" id="text-6_2">
+
+
+
+
+
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">Created:  Fang lungang 03/06/2010
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified: Fang lungang 08/24/2012 21:24&gt;
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">configure &amp; tips for mplayer, cp or link it to $HOME/.mplayer/config
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Refer to $HOME/.mplayer/input.conf for hotkeys
+</span>
+<span class="org-variable-name">stop-xscreensaver</span>=1
+<span class="org-variable-name">ontop</span>=1
+
+<span class="org-variable-name">osdlevel</span>=3
+<span class="org-variable-name">subfont-osd-scale</span>=2
+<span class="org-variable-name">subfont-text-scale</span>=3
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Font for OSD
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">font="DejaVu Sans Mono"
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Font for subtitle. If not specified, uses "font"
+</span><span class="org-variable-name">subfont</span>=<span class="org-string">"wenquanyi micro hei"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">Using FreeType fonts
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">subfont=/path/to/prefered/font.ttf # Using TrueType fonts
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Most simplified Chinese sub are encoded in cp936
+</span><span class="org-variable-name">subcp</span>=cp936
+<span class="org-comment-delimiter"># </span><span class="org-comment">iconv -fbig5 -tcp936 xxx.srt &gt; yyy.srt
+</span>
+<span class="org-comment-delimiter">#  </span><span class="org-comment">Load all subs containing movie name
+</span><span class="org-variable-name">sub-fuzziness</span>=1
+<span class="org-comment-delimiter"># </span><span class="org-comment">For embeded sub of *.mkv, *.ogm etc, run mplayer with '-sid 0' or '-sid 1'.
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">to prevent kde4 ScreenSaver
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">heartbeat-cmd="qdbus org.freedesktop.ScreenSaver /ScreenSaver SimulateUserActivity"
+</span></pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6_3" class="outline-3">
+<h3 id="sec-6_3"><span class="section-number-3">6.3</span> <code>~/.mplayer/input.conf</code> </h3>
+<div class="outline-text-3" id="text-6_3">
+
+
+
+
+
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">Created:  Fang lungang 03/02/2011
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified: Fang lungang 10/13/2011 09:39&gt;
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">link or copy to $HOME/.mplayer/input.conf
+</span>
+<span class="org-variable-name">RIGHT</span> seek +3
+<span class="org-variable-name">LEFT</span> seek -3
+<span class="org-variable-name">UP</span> seek +30
+<span class="org-variable-name">DOWN</span> seek -30
+<span class="org-variable-name">PGUP</span> seek +300
+<span class="org-variable-name">PGDWN</span> seek -300
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6_4" class="outline-3">
+<h3 id="sec-6_4"><span class="section-number-3">6.4</span> An example of running mplayer in slave mode </h3>
+<div class="outline-text-3" id="text-6_4">
+
+
+
+
+
+<pre class="src src-shell-script"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/local/bin/</span><span class="org-keyword">bash</span><span class="org-comment">
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">author    Fang lungang
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Created:  Fang lungang 06/23/2009
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Modified: Fang lungang 06/24/2009 11:00&gt;
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">An example shows how to run mplayer in slave move and control it via fifo.
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">It will mimic "fade-in" effect so that no one get shocked.  In fact, it can be
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">done simply using mixer.  Or even simpler by sox (play xxx.mp3 fade 5).
+</span>
+<span class="org-variable-name">PATH</span>=/bin/:/usr/bin/:/usr/sbin/:/usr/local/bin
+
+<span class="org-variable-name">FIFO</span>=/tmp/fifo.mplayer.health
+<span class="org-keyword">if</span> [ -p $<span class="org-variable-name">FIFO</span> ]; <span class="org-keyword">then</span>
+    rm $<span class="org-variable-name">FIFO</span> || { <span class="org-builtin">echo</span> <span class="org-string">"Err: rm $FIFO"</span> &gt;&amp;2 ; <span class="org-keyword">exit</span> 1; }
+<span class="org-keyword">fi</span> 
+
+mkfifo $<span class="org-variable-name">FIFO</span> || { <span class="org-builtin">echo</span> <span class="org-string">"Make fifo fail"</span> &gt;&amp;2; <span class="org-keyword">exit</span> 1; }
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">store current volume and mute
+</span><span class="org-variable-name">oldVol</span>=$(<span class="org-sh-quoted-exec">mixer</span> pcm | sed <span class="org-string">'s/.* \([0-9]*:[0-9]*\)$/\1/'</span>)
+<span class="org-keyword">trap</span> <span class="org-string">"mixer pcm $oldVol"</span> EXIT
+mixer pcm 0
+
+mplayer -slave -quiet -really-quiet -input <span class="org-variable-name">file</span>=$<span class="org-variable-name">FIFO</span> <span class="org-string">"$@"</span> &amp;
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">start fade-in
+</span><span class="org-keyword">for</span> astep<span class="org-keyword"> in</span> 20 40 60 80; <span class="org-keyword">do</span>
+    <span class="org-builtin">echo</span> <span class="org-string">"volume $astep 1"</span> &gt; $<span class="org-variable-name">FIFO</span>
+    sleep 1
+<span class="org-keyword">done</span>
+
+<span class="org-builtin">wait</span> <span class="org-comment-delimiter"># </span><span class="org-comment">don't restore PCM volume until mplayer is done
+</span></pre>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Miscellaneous </h2>
+<div class="outline-text-2" id="text-7">
+
+
+<ul>
+<li><a href="#shell-recipes">Collections of One-Line Scripts</a>
+</li>
+<li><a href="#emacs-ncsl">Count NCSL</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="postamble">
+<p class="author">Author: Fang lungang</p>
+<p class="creator">Org version 7.5 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+
+
+</body></html>

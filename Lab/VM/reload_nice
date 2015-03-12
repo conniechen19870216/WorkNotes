@@ -1,0 +1,5 @@
+vbRestore vm12 5 R26.12.31&
+vbRestore vm12 6 R26.12.31&
+vbConfig vm12
+vbLoadApp vm12 5 /home/oam/ALGPV2.ATCA.9.1.0.0.0.208.zip &
+vbLoadApp vm12 6 /home/oam/ALGPV2.ATCA.9.1.0.0.0.208.zip &

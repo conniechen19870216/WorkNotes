@@ -1,0 +1,38 @@
+rmActvTskNew (rm_ex_ms.c)
+    |
+    | [pst->event = EVTLRMCNTRLREQ]
+    |
+    +---------- RmMiLrmCntrlReq (rm_bdy1.c)
+                    |
+                    | [switch(cntrl->t.cntrl.subAction)]
+                    |
+                    |      SAELMNT
+                    |******************** 
+                    |
+                    | [switch(cntrl->hdr.elmId.elmnt)]
+                    |
+                    |    STRMDSS1LNK       DSS1 link control
+                    |********************  rmDss1IntfcCntrl (rm_bdy6.c)
+                                           (Dest <= Source) RmDss1Intfc rmDss1Intfc <= RmDss1IntfcCfg rmDss1IntfcCfg
+                                                  |         RmPRI rmDss1Intfc->t.pri.lnkInfo 
+                                                  |
+                                                  |
+                                                  | [switch(cntrl->t.cntrl.action)]
+                                                  |
+                                                  |     ADISIMM          Disable all identified Channels
+                                                  |********************  rmDisableDss1Chnl(pst, cntrl, rmDss1Intfc) (rm_bdy6.c)
+                                                  |
+                                                  |
+                                                  |
+                                                  |       AENA           Enable all identified Channels
+                                                  |********************  rmEnableDss1Chnl(pst, cntrl, rmDss1Intfc) (rm_bdy6.c)
+                                                  |
+                                                  |
+                                                  |
+                                                  |       ARST           Reset State of Identified Channels
+                                                  |********************  rmResetDss1Chnl(pst, cntrl, rmDss1Intfc) (rm_bdy6.c)
+                                                  |
+                                                  |
+                                                  |
+                                                  |       AADD           Mark the identified Channels as EQUIPED
+                                                  |********************  rmEquipDss1Chnl(pst, cntrl, rmDss1Intfc) (rm_bdy6.c)

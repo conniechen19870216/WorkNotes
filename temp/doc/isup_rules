@@ -1,0 +1,171 @@
+1. ********************************************* Basic Information *********************************************
+(1) ISUP UT related files
+    components/signaling/ss7/isup/Test/isupTest.c:   ISUP UT source code
+    components/signaling/ss7/isup/Test/isupTest.h:   local defines used in isupTest.c 
+    components/signaling/ccs/Test/AllTest/AllTest.h: ISUP test group imported here
+    components/signaling/tsm/ccs_rhx86/test_ccs:     ISUP UT binary
+
+(2) How to build test_ccs binary?
+    make SWCCS=t TARGET_OS=RHX86 ATCA_UT=t
+    or 
+    make SWATCA=t ATCA_UT=t
+
+(3) There is a test example in isupTest.c for your reference.
+    TESTGROUP: IsupDecodeTestGroup
+    TEST:      MFDECPDU_ITU_IAM_NCI_SAT00
+
+2. *************************************************** Rules ****************************************************
+2.1 Naming rules
+(1) TEST_GROUP Name: IsupXXXTestGroup
+    i) There may be several TEST_GROUPs based on different types of test functions.
+       e.g. IsupDecodeTestGroup is used to test functions related with decoding messages.
+
+(2) TEST Name: 
+    i) Each TEST starts with test function name followed by input information and expected results if necessary.
+       e.g. MFDECPDU_ITU_IAM_NCI_SAT00
+            MFDECPDU: Function name 
+            ITU:      ISUP variant
+            IAM:      ISUP message type
+            NCI:      Parameter type in IAM message (Nature of Connection Indicators)
+            SAT:      Toke type in NCI parameter (Satellite indicator)
+            00:       SAT=00
+
+(3) Defined Function Name
+     i) Local functions:
+        a) If you want to prepare the initial variable, please use 'set' as the prefix.
+           e.g. setDfltMsgBuffer()
+        b) If you want to check the test results, please use 'chk' as the prefix.
+           e.g. chkPduHdrFor()
+
+    ii) Modify existing plexus function if it cannot used directly:
+        When it is difficult to reuse all the parts of one existing function, you need to create a new local 
+        function to simulate most parts of the existing function. In that situation, your function should
+        start with 'mod_' followed by the modified function name.
+        e.g. mod_SGetMsg_real() make some modifications of SGetMsg_real.
+
+   iii) Mock functions:
+         CppUTest has support for building mocks. If one function has other dependencies and can not be called directly 
+         by test function, you need to mock a new local function to replace the original function so that test function 
+         will call the new function instead of the original function. In that situation, your function should start 
+         with 'mock_' followed by the mocked function name.
+         e.g. mock_SGetDBuf_real() mocks the SGetDBuf_real function.
+
+2.2 ************************************************ Coding rules ***********************************************
+(1) Comments
+    i)   TEST_GROUP
+       /*    
+        *         TGrp:   IsupDecodeTestGroup
+        *
+        *         Desc:   Pdu Decode Test Group for ISUP Layer
+        *
+        *        TESTs:   MFDECPDU_ITU_IAM_NCI_SAT00
+        *                 ...
+        *
+        *         Note:   N/A
+        *
+        */
+
+    ii)  TEST case 
+       /*    
+        *         Case 01:   MFDECPDU_ITU_IAM_NCI_SAT00
+        *
+        *       Bug xxxxx:   ...
+        *
+        *       FID xxxxx:   ...
+        *
+        *         Message:   ITU Initial Address Message (IAM)
+        *
+        *       Parameter:   Nature of connection indicaton
+        *
+        *           Token:   Satellite Indicator00
+        *
+        *        Function:   MFDECPDUHDR
+        *                    MFDECPDU
+        *
+        */
+        TEST(IsupDecodeTestGroup, MFDECPDU_ITU_IAM_NCI_SAT00)
+        {
+           ...
+        } 
+		 
+    iii) Local Function
+       /* 
+        *        Func:   chkPduHdrFor
+        *
+        *        Type:   local function
+        *
+        *        Desc:   Check decoded pdu header format
+        *        
+        *        Note:   This function can be used to check the decoded pdu header format 
+        *                for all the types of messages.
+        *
+        */
+       void chkPduHdrFor(SiPduHdr *hdr, SiMfMsgCtl *msgCtlp, U8 msgIdx)
+
+    iv)  Modification Function    
+       /*                                                                                                                                                                      
+        *        Func:   mod_SGetMsg_real
+        *
+        *        Type:   Modify original plexus function
+        *
+        *        Prot:   SGetMsg_real (ss_msg.c)
+        *        
+        *        Desc:   Get a message
+        *
+        *        Note:   N/A
+        *
+        */
+        void mod_SGetMsg_real(Buffer **mBuf, Size size, Size DataSize)
+        {
+           ...
+        }
+
+    v)   Mock Function
+       /* 
+        *        Func:   mock_SGetDBuf_real
+        *
+        *        Type:   Mock the original plexus function
+        *
+        *        Prot:   SGetDBuf_real (ss_msg.c)
+        *                                                                                                                                      
+        *        Desc:   Initialize the message buffer
+        *        
+        *        Note:   N/A
+        *
+        */
+        S16 mock_SGetDBuf_real
+        (
+        Region region,              /* region id */
+        Pool pool,                  /* pool id */
+        Buffer **bufPtr,
+        const char *file,
+        int line
+        )
+ 
+(2) Local defines
+    i) If you need to define the local macros, please add them to the local header file 'isupTest.h'.
+
+(3) Example: Procedures for adding your own test case for decoding an isup message
+      i) Create a new TEST similar to 'MFDECPDU_ITU_IAM_NCI_SAT00' according to the naming rule and comment rule above.
+
+     ii) Prepare your own message raw data and also specify which message belonging to which variant just like:
+         /* Local variable declarations */
+         Data rawData[RAWDATA_SIZE] = {0x01, 0x00, 0x20, 0x00, 0x0a, 0x00, 0x02, 0x09, 0x07, 0x03, 0x11, 0x08, 0x60, 0x88, 0x00, 0x40,
+                                       0x0a, 0x07, 0x03, 0x13, 0x23, 0x81, 0x88, 0x00, 0x20, 0x00};
+
+    iii) Replace LSI_SW_ITU with new variant in the following function call according to your needs.
+         /* Decode pdu header */
+         MFDECPDUHDR(&msgCtlp, ret, mBuf, (ElmtHdr *) &hdr, &siPduHdrMsgDef[0],
+                TRUE, TRUE, LSI_SW_ITU, (U32) MF_ISUP);
+  
+     iv) In chkPduHdrFor function, add your own check codes for message types.
+
+      v) Check pdu decoding results similar to the following:    
+         SiPduIAM IAM = message.m.initAddr;
+         CHECK(ROK == ret3);
+         CHECK((IAM.natConInd.eh.pres == PRSNT_NODEF) &&
+               (IAM.natConInd.satInd.pres == PRSNT_NODEF) &&
+               (IAM.natConInd.satInd.val == SAT_NONE));
+
+     vi) Done!
+

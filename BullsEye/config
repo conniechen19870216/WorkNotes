@@ -1,0 +1,43 @@
+The BullsEye has been installed in QDBUILD3/4.
+
+1. Change GCC, CC and CCP in telica_env.mk >>>>>>>>>>> already checked in <<<<<<<<<<<<
+
+ifdef ATCA_COV
+ifndef APP_64BIT
+   CC=$(CODECOV_TOOL_ROOT)/i386-redhat-linux-gcc
+   GCC=$(CC)
+   CCP=$(CODECOV_TOOL_ROOT)/i386-redhat-linux-g++
+else
+   CC=$(CODECOV_TOOL_ROOT)/x86_64-redhat-linux-gcc
+   GCC=$(CC)
+   CCP=$(CODECOV_TOOL_ROOT)/x86_64-redhat-linux-g++
+endif
+endif
+
+2. Set COVCCFG and COVFILE >>>>>>>>>>> configured in components/lynx/SETUP.bash <<<<<<<<<<
+   export COVCCFG=$ENV_PREFIX/../covc.cfg            #Bullseye configuration file
+   export COVFILE=$ENV_PREFIX/../atca.cov            #Bullseye output file
+
+3. Set covc.cfg file
+-t/home/yex/sandbox/utMain/TelicaRoot/components/lynx/../tl1/src/user_impl/agc_SIPT_NE_impl.c:agc_SIPT_NE_ED_DNS_SYS_req
+-t/home/yex/sandbox/utMain/TelicaRoot/components/lynx/../tl1/src/user_impl/agc_EM_NE_impl.c:agc_EM_NE_SET_DATASERVER_HOSTCFG_req
+
+4. Enable Bullseye (also in SETUP.bash)
+   cov01 -1
+
+5. Start to build
+make SWATCA=t ATCA_COV=t
+
+**************************************************************************************
+
+CppUTest
+(1) CoverageBrowser atca.cov
+
+UT in lab
+(1) Ship the binary and BullsEye output to the lab
+(2) Modify "startemf"
+    Add following line at the beginning of file "startemf":
+    export COVFILE=/Telica/swCPU/CurrRel/apps/atca.cov
+(3) Reboot and then start UT
+(4) After UT, ship the BullsEye output back to the build server for analysis.
+    CoverageBrowser atca.cov

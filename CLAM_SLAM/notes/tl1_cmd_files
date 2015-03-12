@@ -1,0 +1,14 @@
+I. Part I: brief overview
+1. tb_the1.h / tb_the1.c
+2. sl_the1.h / sl_the1.c
+3. cl_the11.h / cl_the12.h / cl_the11.c / cl_the12.c
+4. db_the1.h / db_the1.c
+5. lm_bdy1.c
+
+II. Part II: how to find a specified tl1 cmd table defination
+1. tb_defs.c: search 'tableDefs'
+2. and then search 'the1', find '&thE1Def'
+3. in the thE1Def structure, find columns defination 'thE1Cols' 
+4. in the thE1Cols structure, find the column 'thE1_thLev'
+Addition: table ID is defined in the tb.h file.
+          TELICA_MAX_TAB_ID: number of tables

@@ -1,0 +1,26 @@
+#!/bin/bash
+while [ -n $1 ]
+do
+	[ $1 == "atca" ] && ATCA=atca && shift && continue
+	[ $1 == "vcp" ] && VCP=vcp && ATCA=atca && shift && continue
+	[ $1 == "cloud" ] && CLOUD=cloud && ATCA=atca && VCP=vcp && shift && continue
+	[ $1 == "legacy" ] && LGCY_CODE=legacy && shift && continue
+	[ $1 == "main" ] && break
+	[ `expr $1 : "TAG.*"` -gt 0 ] && break
+	echo "unrecognized option: $1"; exit 1
+done
+TYPE_OPTIONS="$ATCA $VCP $CLOUD $LGCY_CODE"
+
+FILE=TelicaRoot/TelicaUpdate
+VERSION=$1
+if [ -f ${FILE} ]; then
+	rm ${FILE}
+fi
+
+if [ ${VERSION} = "main" ]; then
+	cvs co -A ${FILE}
+	nohup ./${FILE} $TYPE_OPTIONS -A &
+else
+	cvs co -r ${VERSION} ${FILE}
+	nohup ./${FILE} $TYPE_OPTIONS -r ${VERSION} &
+fi

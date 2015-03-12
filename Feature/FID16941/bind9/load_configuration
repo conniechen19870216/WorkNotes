@@ -1,0 +1,84 @@
+1. External Call Flow
+
+                                           (1st time)
+                           run_server ----------------------+               
+           			                                        |
+           							                        |
+           							                        |
+           							                        +----- load_configuration
+           							                        |
+	   reload  ------+					                    |
+	                 |					                    |
+    				 +---  loadconfig ----------------------+              
+	                 |                   (not 1st time)
+     reconfig  ------+  
+
+
+2. Internal Call Flow
+(1)
+     ************************************************************************************************
+	| Simply, a) 'cfg_obj_t' for config obtained from default or config file                         |
+	|         b) recursive to call 'cfg_map_get' to find out the 'cfg_obj_t' containing 'xcache-ttl' |
+	|         c) call 'cfg_obj_asuint32' to obtain the final 'xcache-ttl'                            |
+     ************************************************************************************************
+
+    default configurations -----------------+
+	                                        |
+										    |
+											|  <parse>                             <cfg_map_get>                               <cfg_map_get>
+											+-------------> ns_g_config / config -------------------> ns_g_defaults / options --------------> xcache-ttl
+											|
+											|
+						<higher priority>	|
+	config from file -----------------------+
+
+    /* 
+	 * Fill in the maps array, used for resolving defaults.
+     */
+
+load_configuration
+            |
+			|<default>
+			+-------- ns_config_parsedefaults(ns_g_parser, &ns_g_config))
+            |    |                                              
+            |    |                                        
+            |    |          
+            |    |                                                 
+			|    +--- cfg_map_get(ns_g_config, "options", &ns_g_defaults)
+			|
+			|
+            |
+            |<from file>
+            +--------- cfg_parse_file(parser, filename, &cfg_type_namedconf, &config)
+            |    |                                                         
+            |    |
+            |    |
+            |    +--- cfg_map_get(config, "options", &options)
+			|
+			|
+			|<xcache-ttl>
+			+--------- ns_config_get(maps, "xcache-ttl", &obj)
+                                                 |                                             
+				                                 |
+                                                 |
+                                                 +--- cfg_map_get(maps[i], name, obj)
+     i = 0;
+     options = NULL;
+     result = cfg_map_get(config, "options", &options);
+     if (result == ISC_R_SUCCESS)
+         maps[i++] = options;
+     maps[i++] = ns_g_defaults;
+     maps[i++] = NULL;
+
+*****************************************************************************************************
+ns_config_parsedefaults
+               |   
+               |
+               +------------- isc_buffer_init(&b, defaultconf, sizeof(defaultconf) - 1)
+               |   
+               |
+               +------------- isc_buffer_add(&b, sizeof(defaultconf) - 1)
+               |
+			   |
+               +------------- cfg_parse_buffer(parser, &b, &cfg_type_namedconf, conf)
+

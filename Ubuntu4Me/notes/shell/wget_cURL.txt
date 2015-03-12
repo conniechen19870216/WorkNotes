@@ -1,0 +1,22 @@
+wget: output into file and log into stdout
+wget url: common
+wget url -O file: assign a specific output file
+wget url -O file -o log: assign a specific file indicating progress
+wget -t 5 url: 5 trials
+wget --limit-rate 20k url: limit maximum downloading rate is 20kbps
+wget -Q(--quota) 100m url: limit maximum quota usage of disk
+wget -c url: continue from break point
+wget --user username --password password url: user/password
+wget --user username --ask-password password url: user/password
+
+**********************************
+curl: output into stdout and log into stderr
+curl url: common
+curl url --silent： Don't display the progress log
+curl url --silent -O: output into the default file
+curl url --silent -o file: assign a specific output file
+curl url --progress -O: display the progress log
+curl url --limit-rate 20k: limit maximum downloading rate to 20k
+curl url --max-filesize 10k: limit maximum size of file to 10k bytes
+curl -u user:password url: user/password
+curl -C url: continue from break point

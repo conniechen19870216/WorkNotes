@@ -1,0 +1,248 @@
+SInit() 
+    ----> SCreateSTsk(0, &tskId)
+            ----> SRegTTsk(ENTCC, 0, TTNORM, 0, ccActvInit, ccActvTsk)
+                     ----> SAttachTTsk(ENTCC, 0, tskId)
+                           (ENTCC,0 => TTsk index; tskId => STsk index)
+
+Lock1: osCp.sTskTblLock
+Lock2: sTsk->lock
+Lock3: sTsk->dep.lock
+
+Important points: 
+(1) SRegTTsk calls ActvInit
+(2) telica_priorities.h for the thread depending on the 1st TAPA task type
+
+
+1. SInit (ss_gen.c)
+   (1) osCp.tTskIds[SS_MAX_ENT][SS_MAX_INST]
+   for (i = 0;  i < SS_MAX_ENT;  i++)
+      for (j = 0;  j < SS_MAX_INST;  j++)
+         osCp.tTskIds[i][j] = SS_TSKNC;
+   
+   (2) osCp.tTskTbl[SS_MAX_TTSKS]
+   for (i = 0;  i < SS_MAX_TTSKS;  i++)
+   {
+      tTsk = &osCp.tTskTbl[i];         
+   
+      tTsk->used = FALSE;              
+      tTsk->ent = ENTNC;
+      tTsk->inst = INSTNC;
+      tTsk->tskType = TTUND;
+      tTsk->tskPrior = 0;
+      tTsk->initTsk = NULLP;
+      tTsk->actvTsk = NULLP;
+      tTsk->sTsk = NULLP;
+   
+      tTsk->nxt = i + 1;
+   }
+   
+   osCp.numTTsks = 0;    
+   osCp.nxtTTskEntry = 0;
+   
+   (3) osCp.sTskTbl[SS_MAX_STSKS]
+   for (i = 0;  i < SS_MAX_STSKS;  i++)
+   {
+      sTsk = &osCp.sTskTbl[i];
+   
+      sTsk->used = FALSE;
+      sTsk->termPend = FALSE;
+      sTsk->tskPrior = 0;
+      for (j = 0;  j < SS_MAX_TTSKS;  j++)
+         sTsk->tTsks[j] = SS_INVALID_IDX;
+      sTsk->numTTsks = 0;
+   
+      sTsk->nxt = i + 1;
+   }
+   
+   osCp.numSTsks = 0;
+   osCp.nxtSTskEntry = 0;
+   
+   (4) &osCp.drvrTskTbl[SS_MAX_DRVRTSKS]
+   /* initialize driver task information */
+   for (i = 0;  i < SS_MAX_DRVRTSKS;  i++) 
+   {                                       
+      drvrTsk = &osCp.drvrTskTbl[i];       
+                                           
+      drvrTsk->used = FALSE;               
+                                           
+      drvrTsk->channel = 0;                
+      drvrTsk->actvTsk = NULLP;            
+      drvrTsk->isTsk = NULLP;              
+      drvrTsk->low = 0;                    
+      drvrTsk->high = 0;                   
+   }                                       
+
+   /* implementation specific driver initialization */
+   ret = ssdInitDrvr();                               
+
+   (5) ************** Lock1(Init): osCp.sTskTblLock **************
+   ret = SInitLock(&osCp.sTskTblLock, SS_STSKTBL_LOCK);
+
+2. SCreateSTsk (ss_task.c) ---------- thread entry: mtTskHdlr ----------
+   (1) ************** Lock1(Lock): lock the system task table ***************
+   ret = SLock(&osCp.sTskTblLock);
+   
+   (2) sTsk
+   ssInitDmndQ(&sTsk->dQ): prior * SS_MAX_MSG_PRI) + pst->prior
+   SInitLock(&sTsk->lock, SS_STSKENTRY_LOCK) ************ Lock2(Init): TAPA task table ************
+   
+   (3) ssdCreateSTsk (mt_ss.c)
+        a) sTsk->dep
+        /* set the current executing entity and instance IDs to               
+         * 'not configured'. create the lock to access them.                  
+         */                                                                   
+        sTsk->dep.ent = ENTNC;                                                
+        sTsk->dep.inst = INSTNC;                                              
+        SInitLock(&sTsk->dep.lock, SS_LOCK_MUTEX) ************ Lock3(Init): sTsk->dep.lock ************
+        
+        b) create a new thread
+        sigprocmask(SIG_SETMASK, NULL, &set)
+        pthread_attr_init(&attr)                      
+        pthread_attr_setstacksize(&attr, telicaSTskStacksize)
+        pthread_create(&sTsk->dep.tId, &attr, mtTskHdlr, (Ptr)sTsk)
+        pthread_detach(sTsk->dep.tId);
+         
+   (4) ssSTskEntry remaining configuration
+   
+        /* success, update the table */       
+        *tskId = osCp.nxtSTskEntry;           
+        sTsk->tskId       = osCp.nxtSTskEntry;
+        sTsk->used        = TRUE;             
+        sTsk->termPend    = FALSE;            
+        osCp.nxtSTskEntry = sTsk->nxt;        
+        osCp.numSTsks++;                      
+
+        (5) *********** Lock1: unlock ************
+        SUnlock(&osCp.sTskTblLock)
+
+3. SRegTTsk (ss_task.c)
+   (1) Register osCp.tTskTbl
+   tTsk = &osCp.tTskTbl[osCp.nxtTTskEntry];
+   tTsk->used     = TRUE;
+   tTsk->ent      = ent;
+   tTsk->inst     = inst;
+   tTsk->tskType  = type;
+   tTsk->tskPrior = prior;
+   tTsk->initTsk  = initTsk;
+   tTsk->actvTsk  = actvTsk;
+   tTsk->sTsk     = NULLP;
+   
+   osCp.tTskIds[ent][inst] = osCp.nxtTTskEntry;
+   osCp.nxtTTskEntry = tTsk->nxt;              
+   osCp.numTTsks++;
+   
+   (2) Activate the initilization function of TAPA task
+   (Void)(*initTsk)(ent, inst, DFLT_REGION, PWR_UP)
+
+4. SAttachTTsk (ss_task.c)
+   (1) ************ Lock1: lock the system task table ************
+   SLock(&osCp.sTskTblLock)
+   
+   (2) ************ Lock2: lock the system task entry ************
+   if (!SS_CHECK_CUR_STSK(sTsk)) =====> pthread_equal(pthread_self(), sTsk->dep.tid)
+   {                               
+   	   ret = SLock(&sTsk->lock);
+   	   ...
+   }
+
+   (3) get the index of the TAPA task entry in the table
+   idx = osCp.tTskIds[ent][inst];                         
+
+   (4) verify that this TAPA task is not already attached
+   if (osCp.tTskTbl[idx].sTsk != NULLP)
+
+   (5) really attach TAPA task to system task 
+   for (i = 0;  i < SS_MAX_TTSKS;  i++)
+   {
+      if (sTsk->tTsks[i] == SS_INVALID_IDX)
+      {
+         sTsk->tTsks[i] = idx;
+         sTsk->numTTsks++;
+         break;
+      }
+   }
+
+   (6) *set a thread name and priorities if 1st TAPA task is attached into the thread
+   SSetThrdName(sTsk->dep.tId,"ENTCC-callCtrl");
+   SSetThrdPrior(sTsk->dep.tId, SP_SIGNALING_ENTCC_THREAD_PRIO); <<<<<<<<<<<<<telica_priorities.h>>>>>>>>>>>>>>>
+
+   (7) Fill in the system task info in the TAPA task entry, so the TAPA task knows who's running it.
+   osCp.tTskTbl[idx].sTsk = sTsk
+
+   (8) call the implementation to do anything implementation-specific
+   ssdAttachTTsk(&osCp.tTskTbl[idx])
+
+   (9) ************ Lock2: unlock the system task entry ************
+   if (!SS_CHECK_CUR_STSK(sTsk))
+   {
+   	SUnlock(&sTsk->lock);
+       ...
+   }
+
+   (10)************ Lock1: unlock the system task table ************
+   SUnlock(&osCp.sTskTblLock)
+   
+Appendix I. ssSTskEntry structure
+/* individual entry in the table of system tasks */
+struct ssSTskEntry                                                        
+{
+   SsdSTskEntry dep;                    /* implementation specific */
+
+
+   Bool         used;                   /* entry is used or not */
+   Bool         termPend;               /* termination pending */
+   SSTskId      tskId;                  /* system task ID */
+   SSTskPrior   tskPrior;               /* system task priority */
+   SsDmndQ      dQ;                     /* demand queue */
+
+
+   /* TAPA task information: the TAPA tasks being handled by
+    *  this system task.
+    */
+   SsIdx        tTsks[SS_MAX_TTSKS];    /* indices into TAPA task table */
+   SsCntr       numTTsks;               /* count of TAPA tasks */
+   SLockId      lock;                   /* lock for table access */
+
+
+   SsIdx        nxt;                    /* table implementation */
+
+};
+
+/* System task entry */
+typedef struct ssdSTskEntry  
+{
+   pthread_t            tId;
+   Ent                  ent; 
+   Inst                 inst;
+   SLockId              lock;
+
+} SsdSTskEntry;              
+
+Appendix II. ssTTskEntry structure
+typedef struct ssTTskEntry                                           
+{
+   SsdTTskEntry dep;                    /* implementation specific */
+
+
+   Bool         used;                   /* entry is used? */
+   Ent          ent;                    /* task entity ID */
+   Inst         inst;                   /* task instance ID */
+   Ttype        tskType;                /* normal/permanent/driver */
+   Prior        tskPrior;               /* priority of task */
+   PAIFS16      initTsk;                /* initialization function */
+   ActvTsk      actvTsk;                /* activation function */
+
+   SsSTskEntry  *sTsk;                  /* system task */
+
+
+   SsIdx        nxt;                    /* table implementation */
+
+#ifdef SS_PROFILE
+   Ticks        cumTicks;
+   U32          tickSamps;
+#endif /* SS_PROFILE */
+
+} SsTTskEntry;
+
+/* TAPA task entry doesn't need anything extra for MTSS */
+typedef S8              SsdTTskEntry;                     

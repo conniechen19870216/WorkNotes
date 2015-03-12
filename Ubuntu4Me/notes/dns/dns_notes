@@ -1,0 +1,127 @@
+1. 解析器(Resolver)属于客户方 
+(1) 主要负责接收客户查询请求；
+(2) 向名字服务器发出查询；
+(3) 解释从名字服务器返回的应答信息；
+(4) 将信息提交给客户。
+
+2. 名称服务器(Name Server)
+(1) 包含了数据库中本地部分的信息
+(2) 接受解析器(Resolver)的访问。
+
+3. DNS Server
+(1) serves as a resolver
+(2) serves as a name server
+(3) serves as both
+
+4. DNS v.s. BIND
+(1) DNS: 一种主机名称与IP的解析协议
+(2) BIND: 提供DNS服务的套件, Domain Name Server
+
+5. 域和域名
+(1) 域(Domain): 树上的每个节点
+(2) 域名(Domain Name): 从 root 开始,到当前节点的所有 domain 标志的集合
+
+6. hostname & domain name
+
+7. RFC
+(1) 域名服务器定义：RFC974, RFC1034, RFC1035
+
+8. 要让你的主机名对应 IP 且让其他计算机都可以查询的到，你有两种方式：
+(1) DNS服务器：取得上层 DNS 授权领域查询权，自己设定 DNS 服务器；
+(2) 主机名：直接请上层 DNS 服务器来帮你设定主机名对应！
+
+9. 正解zone和反解zone
+(1) 正解zone：*.edu.cn
+(2) 反解zone：120.114.140.0/24
+注意：zone指的是数据库里面针对每个要解析的领域
+
+10. dig 命令
+dig +[no]question/+[no]answer/+[no]authority/+[no]stats @server name
+dig -t a/ns/soa/mx
+dig -x
+
+11. Configuration files
+(1) Group 1: common
+    /etc/named.conf
+    /etc/sysconfig/named
+    /var/named
+    /var/run/named
+(2) Group 2: hosts
+    /etc/hosts
+    /etc/resolv.conf
+    /etc/nsswitch.conf
+(3) Group 3: rndc key
+    /etc/rndc.key
+	/etc/rndc.conf
+	/etc/named.conf
+(4) Group 4: zone data
+    /etc/named/named.*
+
+12. Other files
+(1) Group 1: debug log file
+    /var/log/messages: log file; 
+                       tail -n 30 /var/log/messages | grep named
+(2) Group 2: start named service 					   
+   start named: /etc/init.d/named start \ chkconfig named on
+   restart named: /etc/init.d/named restart
+(3) 正解文件格式
+    [domain]   [ttl]          IN [[RR type]  [RR data]]
+    [待查数据] [暂存时间(秒)] IN [[资源类型] [资源内容]]
+
+13. DNS Server Types
+(1) cache-only: only root zone file
+(2) forwarding: just forward query request to upper DNS server
+(3) Normal: 包括.zone，正解和反解。
+
+14. Database Update
+(1) 修改对应的zone文件，添加上RR；
+(2) 更改zone文件的序列号；
+(3) 重新启动named 。
+ 
+15. Useful tools -- rndc/netstat
+a.  rndc
+(1) rndc-confgen: 生成rndc的key
+(2) copy the generated key to /etc/rndc.key 
+(3) copy the generated named.conf part to /etc/named.conf
+(4) /etc/init.d/named restart
+b. netstat
+(1) netstat -tunlp | grep named/53
+
+16. DNS cache
+(1) How to check cache data
+    rndc dumpdb
+(2) TTL: 解析出来的数据在对方DNS服务器中的缓存时间
+    当这笔记录被其他 DNS 服务器查询到后， 这个记录会保持在对方 DNS 服务器的快取中，保持多少秒钟的意思。
+(3) 清空cache 的方法
+    a. client: no need
+	b. server: restart named / rndc flush
+
+17. DDNS
+(1) Server term: 
+    a. dnssec-keygen -a [算法] -b [密码长度] -n [类型] 名称
+	b. public key： copy to named.conf
+	c. grant web name web.centos.vbird. A;
+	d. chmod g+w /var/named
+	e. chown named /var/named/named.centos.vbird
+	f. /etc/init.d/named restart
+(2) Client term:
+    a. copy two key files to /usr/local/ddns
+	b. nsupdate -k public_key_file
+	c. use crontab to update automatically
+
+18. Configuration types
+(1) cache-only plus forwarding
+    1) options(named.conf): forward only
+	                        forwarders
+(2) master/slave
+    a. master: named.conf/zone file
+	   1) named.conf: allow-transfer
+	   2) zone file:  add a component as a new NS
+	b. slave:  named.conf
+       1) named.conf: assign the masters	
+(3) upper/lower authority
+    a. upper: zone file
+	   1) add a new domain record only
+	b. lower: normal configuration only
+	   1) Firstly, create the /etc/named.conf file
+	   2) Secondly, created the specified zone files

@@ -1,0 +1,39 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 1
+
+set spa [ lindex $argv 0 ]
+set timeout -1
+if { $spa == "" } {
+	send "Usage: abt_proc spa_name \n"
+	exit
+}
+
+#spawn -noecho subshl
+spawn -noecho ssh ainet@vm10
+expect "password:"
+send "ainet1\n"
+expect "bj*>"
+send "subshl\n"
+expect "<"
+send "abt:spa=$spa\n"
+expect "CONTINUE Y OR N?"
+send "Y\n"
+expect {
+        "COMPLETED SUCCESSFULLY" {
+                puts "$argv0 abt:proc=$spa,success"
+                }
+	"FAILED" {
+		puts "$argv0 ERR: abt $spa failed"
+		send "quit\n"
+		send "exit\n"
+		exit 1
+		}
+}
+sleep 1
+expect "<"
+send "quit\n"
+send "exit\n"
+exit 0
+

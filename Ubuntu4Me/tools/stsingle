@@ -1,0 +1,3 @@
+#!/bin/bash
+FILE=$1
+cvs -d ${CVSROOT} status ${FILE}

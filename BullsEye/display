@@ -1,0 +1,9 @@
+1. lightDM: cat /etc/lightdm/lightdm.conf
+
+   [SeatDefaults]
+   greeter-session=unity-greeter
+   user-session=ubuntu
+   xserver-allow-tcp=true
+
+2. X server: xhost + IP 
+   X client: export $DISPLAY=IP

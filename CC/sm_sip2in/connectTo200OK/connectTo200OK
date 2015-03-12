@@ -1,0 +1,122 @@
+(1) E01S09: S09->S07
+    E66S09: S09->S09
+    E66S09: S09->S09
+    E09S10: S09->S10
+InLiDatDatInd (in_bdy1.c)
+       |
+       |
+       +------ inActDat (in_bdy9.c) <<<<<< ISDN: E02S07 (Event: Connect Message; State: call received) >>>>>>>>
+                  |
+                  |
+                  +------ inNetE02S07 (in_bdy5.c) 
+                            |
+                            +---- inGenPdu_real (in_bdy9.c)
+                            |         |
+                            |         +---- inBldMsg (in_bdy9.c)
+                            |         |
+                            |         +---- inSndMsg (in_bdy9.c)
+                            |                   |
+                            |                   +---- InLiDatDatReq (in_ptui.c) <<<<<<<<< CONNECT ACK >>>>>>>>>
+                            |                            |
+                            |                            +---- cmPkDatDatReq (dat.c)
+                            |                                      |
+                            |                                      +---- SPstTsk
+                            |
+                            |     (After post CON ACK to Layer-2, ctrl returned.)
+                            +---- InUiIntConCfm (in_ptui.c)
+                                      |
+                                      +---- QwLiIntConCfm (qw_bdy1.c)
+                                                |
+                                                +---- QwUiCctConCfm (qw_ptui.c)
+                                                         |
+                                                         +---- CcLiCctConCfm (cc_bdy1.c)
+                                                                   |
+                                                                   +---- ccChkCallTrc (cc_calltrc.c) <<<<<<< State Change Tracing Log >>>>>>>
+                                                                   |         |
+                                                                   |         +------- ccNeedsLogging (cc_calltrc.c)
+                                                                   |
+                                                                   |
+                                                                   +---- ccCallStateMachine (cc_bdy2.c) <<<<<<< E01S09 >>>>>>>>
+                                                                             |
+                                                                             +---- ccConE01S09 (cc_bdy2.c) 
+                                                                                      |
+                                                                                      +---- ccStopConTmr (cc_bdy4.c) <<<<<<< Timer: CC_TMR_AWAITANS=32 >>>>>>> 
+                                                                                      |
+                                                                                      +---- ccProcessConCfmNoSwitching (cc_bdy2.c) 
+                                                                                                     |
+                                                                                                     +---- ccStoreEvnt (cc_bdy4.c) 
+                                                                                                     |
+                                                                                                     +---- ccProcessTAnswer (cc_bdy2.c) 
+                                                                                                     |           |
+                                                                                                     |           +---- CcUiFctTAnswer (cc_ptui.c)
+                                                                                                     |                    |
+                                                                                                     |                    +---- FcLiFctTAnswer (fic_bdy2.c)
+                                                                                                     |                            |
+                                                                                                     |                            +---- FcLiFctCloseTrans (fic_ptli.c)
+                                                                                                     |                                     |
+                                                                                                     |                                     +---- CcUiFctCloseTrans (cc_bdy5.c)
+                                                                                                     |                                              |
+                                                                                                     |                                              +---- ccCallStateMachine (cc_bdy2.c) <<<<<<< E66S09 >>>>>>>>
+                                                                                                     |                                                      |
+                                                                                                     |                                                      +---- ccConE66SXX (cc_bdy2_2.c)
+                                                                                                     |
+                                                                                                     |
+                                                                                                     +---- ccProcessOAnswer (cc_bdy2.c) 
+                                                                                                     |           |
+                                                                                                     |           +---- CcUiFctOAnswer (cc_ptui.c)
+                                                                                                     |                    |
+                                                                                                     |                    +---- FcLiFctOAnswer (fic_bdy2.c)
+                                                                                                     |                            |
+                                                                                                     |                            +---- FcLiFctCloseTrans (fic_ptli.c)
+                                                                                                     |                                     |
+                                                                                                     |                                     +---- CcUiFctCloseTrans (cc_bdy5.c)
+                                                                                                     |                                              |
+                                                                                                     |                                              +---- ccCallStateMachine (cc_bdy2.c) <<<<<<< E66S09 >>>>>>>>
+                                                                                                     |                                                      |
+                                                                                                     |                                                      +---- ccConE66SXX (cc_bdy2_2.c)
+                                                                                                     |
+                                                                                                     |
+                                                                                                     +---- ccAnswerCall (cc_lib.c) 
+                                                                                                                 |
+                                                                                                                 +----- ccMapEvent_real (cc_lib.c)
+                                                                                                                 |        |
+                                                                                                                 |        +----- /* Please see (1.1) CONNECT to 200 OK */
+                                                                                                                 |         
+                                                                                                                 +----- CC_STATE_CHANGE(CON, CCS_ANSWERED) <<<<<< S09->S10 CCS_AWTANS -> CCS_ANSWERED >>>>>>>
+                                                                                                                 |
+                                                                                                                 +----- ccProcessCcChangeforX2SIG (cc_li.c)
+                                                                                                                 |
+                                                                                                                 +----- ccUpdateBillingInfo (cc_lib.c)
+                                                                                                                 |
+                                                                                                                 +----- CC_SET_CALL_FLAG(con->flag, CC_FLAG_CCCONCBREP)
+                                                                                                                 |
+                                                                                                                 +----- CC_FREE_EVNT_HOLD(con)
+                                                                                                                 |
+                                                                                                                 +----- CC_INIT_CON_ICEVNT_PTR(con)
+                                                                                                                 |
+                                                                                                                 +----- CC_FREE_ROUTE_EVNT(con)
+                                                                                                                 |
+                                                                                                                 +----- CC_FREE_SIP3XX_BLOCK(con) <<<<< After Connect, free con->sip3xxCb >>>>>>>
+                                                                                                                 |
+                                                                                                                 |
+                                                                                                                 +----- CcLiCctConRsp (cc_ptli.c)
+                                                                                                                 |         |
+                                                                                                                 |         +------ CC_TRACE_EVENTS_ID (cc.h) <<<<< Systicks >>>>>
+                                                                                                                 |         |
+                                                                                                                 |         +------ SipwUiCctConRsp (sipw_bdy1.c)
+                                                                                                                 |
+                                                                                                                 |
+                                                                                                                 |      sipw pst event to sipa, and then ctl returned 
+                                                                                                                 +----- ccPostAnswerCall (cc_lib.c)
+(1.1) CONNECT -> 200 OK    
+ccMapEvent_real (cc_lib.c)
+          |   
+          +------ ccGetMapTblEntry (cc_map.c)
+          |   
+          +------ ccGetMappingIndex_real (cc_map.c)
+          |   
+          +------ directMappingMatrix (cc_map.c) 
+                         |   
+                         +------ ISDN_TO_SIP (cc_map.c)
+                                        |   
+                                        +------ ccSIP2SIMapS22M03 (cc_sipmap.c)    

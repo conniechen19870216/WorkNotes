@@ -1,0 +1,141 @@
+#!/bin/ksh
+#set -x
+if [ $# != 4 ]; then
+	echo "Usage: ${0} directory vmware.tgz BE/FE/CMP N/Y"
+	return 1
+fi
+
+print "INFO: $0 Start: $3 Vmware will be started."
+
+cd ${1}
+vmnum=`ps -ef | grep -i "\-pilot" |wc -l`
+if [[ $vmnum -ge 2 ]] && [[ $4 == "Y" ]]; then
+	if [[ $auto != "yes" ]]; then
+		echo "Hit Enter to continue.."
+		echo "Warning: There's existing VMware running, please STOP it before Continue"
+		read
+	else
+		echo "INFO: $0: another VMware is running,try to kill"
+		pkill vmware
+		vmnum1=`ps -ef | grep -i "\-pilot" |wc -l`
+		if [[ $vmnum1 -ge 2 ]]; then
+			echo "ERROR: $0: Another VMware is running,and can't be killed"
+			ps -ef | grep -i "\-pilot"
+#			exit 1
+		fi
+	fi
+fi
+
+if [ -d "VM_CS" ] || [ -d "VM10" ] || [ -d "VMCS" ] || [ -d "VMCS10" ]; then
+	if [[ $auto != "yes" ]]; then
+		read remove?"${1}/VM is existing. Remove it?(Y/N)"
+	else
+		remove="Y"
+	fi
+	if [[ $remove == "Y" ]]; then
+		echo "INFO: $0 : The existing VMware will be removed"
+		rm -rf VM VM10 VMCS VMCS10 VM_CS
+	else
+	return 1
+	fi
+fi
+
+if [ -d "VMBE10" ] && [[ $3 == "BE" ]]; then
+	if [[ $auto != "yes" ]]; then
+		read remove?"${1}/VMBE10 is existing. Remove it?(Y/N)"
+	else
+		remove="Y"
+	fi
+	if [[ $remove == "Y" ]]; then
+		rm -rf VMBE10
+	else
+	return 1
+	fi
+fi
+
+if [ -d "VMFE10" ] && [[ $3 == "FE" ]]; then
+	if [[ $auto != "yes" ]]; then
+		read remove?"${1}/VMFE10 is existing. Remove it?(Y/N)"
+	else
+		remove="Y"
+	fi
+	if [[ $remove == "Y" ]]; then
+		rm -rf VMFE10
+	else
+	return 1
+	fi
+fi
+
+if [ -d "VMBE1" ] && [[ $3 == "BE1" ]]; then
+        if [[ $auto != "yes" ]]; then
+                read remove?"${1}/VMBE1 is existing. Remove it?(Y/N)"
+        else
+                remove="Y"
+        fi
+        if [[ $remove == "Y" ]]; then
+		echo "INFO: $0 : The existing VMware will be removed"
+                rm -rf VMBE1
+        else
+        return 1
+        fi
+fi
+if [ -d "VMBE2" ] && [[ $3 == "BE2" ]]; then
+        if [[ $auto != "yes" ]]; then
+                read remove?"${1}/VMBE2 is existing. Remove it?(Y/N)"
+        else
+                remove="Y"
+        fi
+        if [[ $remove == "Y" ]]; then
+		echo "INFO: $0 : The existing VMware will be removed"
+                rm -rf VMBE2
+        else
+        return 1
+        fi
+fi
+if [ -d "VMFE" ] && [[ $3 == "FE1" ]]; then
+        if [[ $auto != "yes" ]]; then
+                read remove?"${1}/VMFE is existing. Remove it?(Y/N)"
+        else
+                remove="Y"
+        fi
+        if [[ $remove == "Y" ]]; then
+		echo "INFO: $0 : The existing VMware will be removed"
+                rm -rf VMFE
+        else
+        return 1
+        fi
+fi
+
+
+echo "tar xvfz ${2}"
+tar xvfz ${2} > auto-it.untar.log.${2}
+if [ $? != 0 ]; then
+	print "ERROR: $0 : Failed to untar the ${2}"
+	return $?
+fi
+
+if [[ $3 == "BE" ]]; then
+	cd VMBE*
+elif [[ $3 == "FE" ]]; then
+	cd VMFE*
+elif [[ $3 == "FE1" ]]; then
+	cd VMFE
+elif [[ $3 == "BE1" ]]; then
+	cd VMBE1
+elif [[ $3 == "BE2" ]]; then
+	cd VMBE2
+else
+	cd VM*
+fi
+
+if [ $? != 0 ]; then
+	print "ERROR: $0 : Failed to enter the vmware directory."
+	return $?
+fi
+
+rm -r VM*-pilot-A/*.lck
+cat runVMs | awk '{ sub(/vmware/,"vmware -x");print }' | tee runVMs.auto
+chmod 755 runVMs.auto
+nohup runVMs.auto &
+print "INFO: $0 End: $3 Vmware is started."
+return 0

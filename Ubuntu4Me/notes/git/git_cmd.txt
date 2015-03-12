@@ -1,0 +1,96 @@
+创建版本库
+git init
+git clone <url> [new-dirname]
+1. Add/Delete into/from staged area 
+git add
+git add . :点表示当前目录下的所有内容均交给git管理，即提交到了git的本地仓库
+git rm --cached
+git reset HEAD 
+
+2. Check the status
+git status
+
+3. Check the difference
+git diff: 工作目录中的当前文件和暂存区域快照之间的差异
+git diff --cached/staged: 暂存区域快照与上次提交之间的差异
+
+4. Commit the files in staged area
+git commit
+git commit -v: 显示修改的每一行
+git commit -a: 跳过git add自动把所有(已经跟踪过的)文件暂存起来一并提交
+
+5. Remove files
+(1) 方式一
+rm file
+git rm: 用在rm file之后
+(2) 方式二
+git rm --cached: 不删除原始文件，并且文件状态变为untracked
+git rm -f: 强制删除
+
+e.g. git rm \*.log: Recursive
+     git rm *.log: Non-Recursive
+
+6. Move files
+git mv from to
+<=>等价于
+mv from to
+git rm from
+git add to
+
+7. Check committed log
+(1) Options -- Common
+-p 按补丁格式显示每个更新之间的差异。
+--stat 显示每次更新的文件修改统计信息。
+--shortstat 只显示 --stat 中最后的行数修改添加移除统计。
+--name-only 仅在提交信息后显示已修改的文件清单。
+--name-status 显示新增、修改、删除的文件清单。
+--abbrev-commit 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。
+--relative-date 使用较短的相对时间显示（比如，“2 weeks ago”）。
+--graph 显示 ASCII 图形表示的分支合并历史。
+--pretty 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。
+(2) Other options
+-(n)	仅显示最近的 n 条提交
+--since, --after 仅显示指定时间之后的提交。
+--until, --before 仅显示指定时间之前的提交。
+--author 仅显示指定作者相关的提交。
+--grep 搜索提交声明中的关键字
+--committer 仅显示指定提交者相关的提交
+--all-match 当同时包括--author和--grep两个选项的时候
+--<path> 仅显示指定路径path对应更新历史记录
+(3) Examples
+git log
+git log -p -2: -p显示每次提交的内容差异，并显示最近2次更新
+git log --stat: 显示协作者的改动，仅显示简要的增改行数统计
+git log --pretty=oneline: 每个改动只需在一行显示出来 （主要包括SHA-1校验和）
+git log --pretty=short/medium/full/fuller/email/raw
+git log --pretty=format:"%h - %an, %ar: %s"
+git log --pretty=format:"%h - %an, %ar: %s" --graph：显示每个提交所在的分支及其分化衍合情况
+%H	提交对象（commit）的完整哈希字串
+%h	提交对象的简短哈希字串
+%T	树对象（tree）的完整哈希字串
+%t	树对象的简短哈希字串
+%P	父对象（parent）的完整哈希字串
+%p	父对象的简短哈希字串
+%an	作者（author）的名字
+%ae	作者的电子邮件地址
+%ad	作者修订日期（可以用 -date= 选项定制格式）
+%ar	作者修订日期，按多久以前的方式显示
+%cn	提交者(committer)的名字
+%ce	提交者的电子邮件地址
+%cd	提交日期
+%cr	提交日期，按多久以前的方式显示
+%s	提交说明
+
+8. 撤销操作
+git commit -m "comments"
+git add forgotten_file
+git commit --amend
+
+git reset HEAD file： 从暂存区域中移除
+git checkout -- file: 消除工作目录下的改动
+
+9. 配置操作
+git config --global user.name/email
+git config --global core.editor
+git config --global merge.tool 
+git config --list

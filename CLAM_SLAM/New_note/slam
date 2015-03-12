@@ -1,0 +1,133 @@
+main (sl_main.c)
+    |
+    |
+    +------ setPriority(telica_priorities.h: SP_SLAM_APP_PRIO)
+    |
+    |
+    +------ slGAStartup (sl_main.c)
+                 |
+                 |
+                 +------ slGAInit (sl_git.c)
+                 |
+                 |
+                 +------ slGitTableInit (sl_git.c)
+                 |
+                 |
+                 +------ slProcIdInit (sl_main.c)
+                 |
+                 |
+                 +------ slGitRelayTimerInit
+                 |
+                 |
+                 +------ slInitCmAppCountAtca (sl_main.c)
+                 |
+                 |
+                 +------ slPartnerSWVer()
+				 +------ slActiveInit()
+				 +------ slStandbyInit() (sl_main.c)
+                               |
+                               |
+                               |      /* Initialize the eqm database */
+                               +----- slChassisInit (sl_main.c)
+							   |          |
+							   |          |
+							   |		  +---- cmSigIpAddrRead (cm_sigip.c)
+							   |          |
+							   |          |
+                               |		  +---- slReadFltIsolationTimes (sl_main.c)
+                               |
+                               |
+                               |      /* Initialize Trillium Environment */
+							   +----- gitTSInit(1, argv);
+							              |
+							              |
+							              +---- SInit (ss_gen.c)
+                                                  |
+                                                  +---- Fork a child process to complete tasks below
+                                                  |
+                                                  |     /* implementation specific general initialization */
+                                                  +---- ssdInitGen (mt_ss.c)
+                                                  |
+                                                  +---- ssInitSema (mt_ss.h)
+                                                  |
+                                                  |     /* implementation specific memory initialization */
+                                                  +---- ssdInitMem (mt_ss.c)
+                                                  |         |
+                                                  |         |
+                                                  | 		+----- cmMmRegInit (cm_mem.c)
+                                                  | 		           |
+                                                  |                    +----- dump_buckets (cm_mem.c)
+                                                  |
+                                                  |
+                                                  +---- SInitLock (mt_ss.h)
+                                                  |
+                                                  |
+                                                  +---- ssdInitTsk (mt_ss.c)
+                                                  |
+                                                  |
+                                                  +---- ssdInitDrvr (mt_ss.c)
+                                                  |
+                                                  |
+                                                  +---- ssdInitFinal (mt_ss.c)
+                                                  |
+                                                  |
+                                                  +---- tst (sl_main.c)
+                                                            |
+                                                            |
+                                                            |       /* Initialize  Go Ahead entity that is needed for publishing*/
+                                                            +------ SRegActvTsk(ENTGA, 0, TTNORM, PRIOR0, slGitActvTsk);
+                                                            +------ SRegInit(ENTGA, 0, slGitActvInit);                            
+                                                            |
+                                                            +------ SRegActvTsk(ENTSLM, 0, TTNORM, PRIOR0, slActvTsk);
+															+------ SRegInit(ENTSLM, 0, slActvInit); **************** IMPORTANT **************
+                                                            |                            |
+                                                            |                            |
+                                                            |                            |       /* FSM initializations */
+                                                            |                            +------ slInitInit
+                                                            |                            +------ slFsoInit
+                                                            |                            +------ slMglInitInit
+                                                            |                            +------ slBrdInit
+                                                            |                            +------ slClamInit
+                                                            |                            +------ ...
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ slTransIdInit
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ tbInit (tb.c)
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ slTl1HlInit
+                                                            |                            +------ lmValidateEvtMt
+                                                            |                            +------ lmInitEvtMtHl ***************** IMPORTANT ******************
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ slTl1Init
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ slIpfInit
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ ...
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ slInitIsupDdiVarHash *************** IMPORTANT **************
+                                                            |                            |
+                                                            |                            |
+                                                            |                            +------ ...
+                                                            |
+                                                            +------ SRegActvTsk(ENTTRC_SRV, 0, TTNORM, PRIOR0, trcSrvActvTsk);
+                                                            +------ SRegInit(ENTTRC_SRV, 0, trcSrvActvInit);
+                                                            |
+                                                            |
+                                                            |
+                                                            +------ ry_config (ipagent.c)
+															            |
+																		|
+																		+------ ryCfgGen (ipagent.c)
+															            |           |
+															            |           |
+															            |           +----- SmMiLryCfgReq (smryptmi.c)
+															            |
+																		|
+																		+------ ryCfgTCP (ipagent.c)

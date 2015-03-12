@@ -1,0 +1,214 @@
+#!/usr/bin/python
+# created by Robert Wu
+from Tkinter import *
+import Pmw
+import os
+
+class Application(Frame):
+	entrylist=[]
+	outputrow=[]
+	cblist=[]
+	cbvarlist=[]
+	msgcodedict = { 'DPR':'282', 'UAR' : '300', 'SAR':'301','LIR':'302','MAR':'303','RTR':'304','PPR':'305','UDR':'306','PUR':'307','SNR':'308','PNR':'309' }
+	codemsgdict = { '282':'DPR','300' : 'UAR', '301':'SAR','302':'LIR','303':'MAR','304':'RTR','305':'PPR','306':'UDR','307':'PUR','308':'SNR','309':'PNR' }
+
+	def __init__(self, master=None):
+		Frame.__init__(self, master)
+		self.grid(sticky=N+S+E+W)
+		self.createWidgets()
+	
+	def createWidgets(self):
+		top=self.winfo_toplevel()
+		top.rowconfigure(0,weight=5)
+		top.columnconfigure(0,weight=5)
+		self.rowconfigure(0, weight=1)
+		self.columnconfigure(0, weight=1)
+		self.quitButton = Button ( self, text='Quit',command=self.quit )
+		self.quitButton.grid(row=0,column=0,sticky=N+W)
+		self.saveButton = Button ( self, text='Save',command=self.saveToFile )
+		self.saveButton.grid(row=0,column=1,sticky=N+W)
+		self.addButton = Button ( self, text='Add Row',command=self.addRow )
+		self.addButton.grid(row=0,column=2,sticky=N+W)
+		self.delButton = Button ( self, text='Del Row',command=self.delRow )
+		self.delButton.grid(row=0,column=3,sticky=N+W)
+		self.titleLabel = Label( self, text='Timeval')
+		self.titleLabel.grid(row=1,column=0,sticky=N+W)
+		self.titleLabel1 = Label( self, text='Wait')
+		self.titleLabel1.grid(row=1,column=1,sticky=N+W)
+		self.titleLabel2 = Label( self, text='RepeatNum')
+		self.titleLabel2.grid(row=1,column=2,sticky=N+W)
+		self.titleLabel3 = Label( self, text='MsgCode')
+		self.titleLabel3.grid(row=1,column=3,sticky=N+W)
+
+#		self.mb = Menubutton ( self, text="select")
+#		self.mb.grid(row=0,column=3,sticky=N+W)
+#		self.mb.menu=Menu(self.mb, tearoff=0)
+#		self.mb["menu"] = self.mb.menu
+#		self.mayoVar=IntVar()
+#		self.mb.menu.add_command(label="majo",command=self.hello)
+
+#		self.menuvar = StringVar()
+#		self.menuvar.set('steamed')
+#		self.method_menu= Pmw.OptionMenu(self, labelpos='w', label_text='choose:', menubutton_textvariable=self.menuvar, items=['baked','steamed'],menubutton_width=7)
+#		self.method_menu.grid(row=0,column=3,sticky=N+W)
+#		self.method_menu.pack(anchor = 'w', padx = 10, pady = 10) 
+
+	def hello(self):
+		print 'hello'
+
+	def saveToFile(self):
+		newtaskfile=open(file,'w')
+		newtaskfile.write('# Timeval   Wait  RepeatNum   MsgCode\n')
+                for i in xrange(len(self.entrylist)):
+			for j in xrange(len(self.entrylist[i])-1):
+				val=self.entrylist[i][j].get()
+				newtaskfile.write(val)
+				newtaskfile.write('\t')
+			msgcode=self.entrylist[i][3].getcurselection()
+			val= self.msgcodedict[msgcode]
+			newtaskfile.write(val)
+			newtaskfile.write('\n')
+		newtaskfile.close()
+		print 'file saved to %s' % file
+
+        def saveToTmpFile(self,tmplist):
+                newtaskfile=open(file,'w')
+                newtaskfile.write('# Timeval   Wait  RepeatNum   MsgCode\n')
+                for i in xrange(len(tmplist)):
+                        for j in xrange(len(tmplist[i])-1):
+                                val=tmplist[i][j].get()
+                                newtaskfile.write(val)
+                                newtaskfile.write('\t')
+                        msgcode=tmplist[i][3].getcurselection()
+                        val= self.msgcodedict[msgcode]
+                        newtaskfile.write(val)
+                        newtaskfile.write('\n')
+                newtaskfile.close()
+
+
+#	def getRow(self,entryrow):
+#		row=[]
+#		for i in xrange(len(entryrow)):
+#			val=entryrow[i].get()
+#			row.append(val)
+#		return row
+#		
+#
+#	def getTable(self):
+#		row=[]
+#		for i in xrange(len(self.entrylist)):	
+#			row=self.getRow(self.entrylist[i])
+#			self.outputrow.append(row)
+#		print self.outputrow
+
+	def addRow(self):
+		defaultval=[1,1,1,300]
+		newrowlist=self.createRow(defaultval, len(self.entrylist))
+		self.entrylist.append(newrowlist)	
+
+	def getMsg(self):
+		msglist=[]
+		for msg,msgcode in self.msgcodedict.items():
+			msglist.append(msg)
+		return msglist
+
+	def createRow(self,entryrow,rownumber):
+		rowlist=[]
+		for i in (xrange(len(entryrow)-1)):
+			timeval=StringVar()
+			timeval.set(entryrow[i])
+			self.entry = Entry (self, width=3, textvariable=timeval)
+			self.entry.grid(row=3+rownumber,column=i,sticky=N+W)
+			rowlist.append(self.entry)	
+		msgcode=str(entryrow[3])
+		timeval=StringVar()
+		timeval.set(self.codemsgdict[msgcode])
+		self.method_menu= Pmw.OptionMenu(self, labelpos='w', menubutton_textvariable=timeval, items=self.getMsg(),menubutton_width=7)
+		self.method_menu.grid(row=3+rownumber,column=3,sticky=N+W)
+		rowlist.append(self.method_menu)	
+		self.cbvarlist.append(IntVar())
+		self.cblist.append(Checkbutton(self, variable=self.cbvarlist[rownumber], onvalue=1,offvalue=0))
+		self.cblist[rownumber].grid(row=3+rownumber,column=4,sticky=N+W)
+		
+		return rowlist
+
+	def destroyAll(self):
+		for i in xrange(len(self.entrylist)):
+			for j in xrange(len(self.entrylist[i])):
+				self.entrylist[i][j].destroy()
+				self.cblist[i].destroy()
+
+	def delRow(self):
+		tmplist=self.entrylist[:]
+		i=0
+		try:
+			while self.cbvarlist[i].get()==0 or self.cbvarlist[i].get()==1:
+				if self.cbvarlist[i].get()==1:
+					del tmplist[i]	
+					del self.cbvarlist[i]
+				else:
+					i=i+1
+		except IndexError:
+			print 'del row'
+		global file
+		tmpfile=file
+		file='/tmp/task.s.tmp'
+		self.saveToTmpFile(tmplist)
+		newentryrow = self.readFile(file)
+		self.destroyAll()
+		self.grid_forget()
+		self.grid(sticky=N+S+E+W)
+		self.createWidgets()
+		self.createTable(newentryrow)
+		file=tmpfile
+	
+
+	def createTable(self, entrylist):
+		del self.entrylist[:]
+		del self.cblist[:]
+		del self.cbvarlist[:]
+		for i in xrange(len(entrylist)):
+			rowlist = self.createRow(entrylist[i],i)
+			self.entrylist.append(rowlist)
+#			print len(self.entrylist)
+
+	def readFile(self,filedir):
+		fileexist = os.path.isfile(filedir)	
+		fileentryrow = []
+		if fileexist == True:
+        		outfile = open(filedir)
+			while True:
+               			line = outfile.readline()
+              			linelist =  line.split()
+#               if ('totallines' in dir()) == False:
+#                       totallines = linelist[:]
+#                       print totallines
+#                       print type(totallines)
+#               print type(totallines)
+                		if len(line) == 0: # Zero length indicates EOF
+                       			break
+				if linelist[0] != '#':
+					fileentryrow.append(linelist)
+			outfile.close()
+		else:
+			fileentryrow=[[1,1,1,300]]
+
+		return fileentryrow
+
+if __name__=='__main__':
+	if len(sys.argv) == 2:
+		file=sys.argv[1]
+	elif len(sys.argv) ==1:
+		file='task.s'
+	else:
+		print '''Usage: %s [task file] -- default: task.s''' % sys.argv[0] 
+		sys.exit(2)
+	
+	root=Tk()
+	Pmw.initialise(root)
+	app = Application(root)
+	app.master.title("Task File Editor")
+	entryrow = []
+	entryrow = app.readFile(file)
+	app.createTable(entryrow)
+	app.mainloop()

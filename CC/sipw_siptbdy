@@ -1,0 +1,44 @@
+1. Mapping: ccSIP2SIMapS21M04
+(1) SiCnStEvnt siOut 
+    ccFillSiptCPGFromSipHoldXfer(siOut,con)
+
+(2) Egress Event Type
+    con->ogEvntType = CC_ET_XFER;
+
+2. SIPW: depend on event type
+
+(1) SipwUiCctCnStReq 
+    case CC_ET_XFERQRY:
+    cnst->evntType.val  =  SIPCNSTS_007_XFER_QRY; 
+
+    /* Check if this is a CPG Hold event (BUG:91541) */
+    if (ccCnst->optElmnt.sipt.encapCPG)
+    {    
+        msgType = M_CALLPROG; /* So we encode the CPG and add this encaps */
+        SIPW_DP(SIPW_DBG_LEVEL_2,"%s: kavon XFER QUERY rcvd (ev=%d) w/ encaps CPG\n",funcName, evntType);
+    }
+    else
+    {
+        msgType = 0; /* So we don't try to encode the event */
+        SIPW_DP(SIPW_DBG_LEVEL_2,"%s: XFER QUERY rcvd (ev=%d) w/o encaps CPG\n",funcName, evntType);
+    }
+    break;
+
+(2) Encoding ISUP Body: MFINITPDU -> MFENCPDUHDR -> MFENCPDU
+    if (msgType != 0) /* Only attempt isup encoding if valid msgType (BUG 40561) */
+    {
+
+        if ((ret = encode_isup_msg((SiAllSdus *)ccCnst, variant,  msgType,
+                                    TempEncIsupBuf,           
+       		                        &cnst->sipt.encIsupMsg.len, uBuf, 
+        				            xchgType, EVTSIPWCNSTREQ, cnst->suConnId)) != ROK) 
+        {
+			...
+		}
+        /* Get a buffer to send the encoded ISUP msg to SIPA */
+        else if ((ret = SGetSBuf(sipwInit.region, sipwInit.pool,(Data **)&(cnst->sipt.encIsupMsg.val),
+	                    (Size)cnst->sipt.encIsupMsg.len + 1)) == ROK) 
+        {
+			...
+		}
+	}

@@ -1,0 +1,39 @@
+1. CC_TRACE_EVENTS && CC_TRACE_EVENTS_ID
+#define CC_TRACE_EVENTS(CON, LOG, EVENT)\
+{\
+  if (LOG)\
+  {\
+    (LOG)--;\
+    switch(EVENT)\
+    {\
+      case CCE_CONIND :\
+        DP("** RCVD CONNECTION INDICATION FROM LAYER-3 **\n");\
+        break;\
+      case CCE_CONCFM :\
+        DP("** RCVD CONNECTION CONFIRM FROM LAYER-3 **\n");\
+        break;\
+      case CCE_RELIND :\
+        DP("** RCVD RELEASE INDICATION FROM LAYER-3 **\n");\
+        break;\
+      case CCE_CONREQ :\
+        DP("** SENDING CONNECT REQUEST TO LAYER-3 **\n");\
+        break;\
+      case CCE_CONRSP :\
+        DP("** SENDING CONNECT RESPONSE TO LAYER-3 **\n");\
+        break;\
+      case CCE_RELREQ :\
+        DP("** SENDING RELEASE REQUEST TO LAYER-3 **\n");\
+        break;\
+    }\
+    CC_PRINT_CALL_INFO((CON));\
+  }\
+}
+
+#define CC_TRACE_EVENTS_ID(ID, LOG, EVENT)\
+{\
+  CcConCb *con37962 = ccFindConFromSuConnId(suConnId);\
+  CC_TRACE_EVENTS(con37962, LOG, EVENT);\
+}
+
+Note: logFirstConInd, logFirstConReq, logFirstConCfm, logFirstConRsp
+      logFirstRelInd, logFirstRelReq                                

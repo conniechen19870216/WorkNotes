@@ -1,0 +1,247 @@
+spawn ssh hssit@135.252.181.13
+The authenticity of host '135.252.181.13 (135.252.181.13)' can't be established.
+RSA key fingerprint is 8e:e7:ec:05:aa:8d:05:d6:33:47:29:97:b2:0b:40:db.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '135.252.181.13' (RSA) to the list of known hosts.
+hssit@135.252.181.13's password: 
+Last login: Thu Dec 27 13:21:29 2012 from bl1245.cn.alcatel-lucent.com
+SCMCCASE configuration for BIC FT 
+[32mhssit@bl1013:[33m/home/hssit[0m> cd ~/auto-it/
+cd ~/auto-it/
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> source /home/it40/jenkins_script/autoIT_R420/auto-it_R420.env
+cd ~/auto-it/
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> setenv DISPLAY 135.252.181.13:1
+./auto-it.enh mnrg | tee auto-it.enh.mnrg.log
+source /home/it40/jenkins_script/autoIT_R420/a uto-it_R420.env
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> setenv DISPLAY 135.252.181.13:1
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> ./auto-it.enh mnrg | tee auto-it.enh.mnrg.log
++ quit=false
++ SDMTARNAME=SDM420-service_logic.full.tar
++ OAMTARNAME=OAM420-service_logic.full.tar
++ OAMBETARNAME=OAMBE410-service_logic.full.tar
++ print 'INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...'
+INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...
++ auto=yes
++ export auto
++ automodem
+INFO: automodem : Start AUTO-IT for Multi NRG mode(1 FE+ 2BE) in /local/hssit/autoITm.
+INFO: ftpbldvm: Start: FTP the mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_FE_20121224.tgz to /local/hssit/autoITm.
+INFO: ftpbldvm: mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_FE_20121224.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_FE_20121224.tgz to /local/hssit/autoITm done.
+INFO: ftpbldvm: Start: FTP the mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE1_20121220.tgz to /local/hssit/autoITm.
+INFO: ftpbldvm: mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE1_20121220.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE1_20121220.tgz to /local/hssit/autoITm done.
+INFO: ftpbldvm: Start: FTP the mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE2_20121220.tgz to /local/hssit/autoITm.
+INFO: ftpbldvm: mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE2_20121220.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE2_20121220.tgz to /local/hssit/autoITm done.
+INFO: ftpspa: Start: FTP the 8650SDM-4.2.0-ATCAv2-2013-01-08-15-SDM-FE.tar to /local/hssit/autoITm.
+INFO: ftpspa: End: FTP the 8650SDM-4.2.0-ATCAv2-2013-01-08-15-SDM-FE.tar to /local/hssit/autoITm done.
+OAM420-service_logic.full.tar
+SDM420-service_logic.full.tar
+INFO: ftpspa: Start: FTP the 8650SDM-4.2.0-ATCAv2-2013-01-08-15-SDM-BE.tar to /local/hssit/autoITm.
+INFO: ftpspa: End: FTP the 8650SDM-4.2.0-ATCAv2-2013-01-08-15-SDM-BE.tar to /local/hssit/autoITm done.
+OAMBE420-service_logic.full.tar
+INFO: ftpspa: Start: FTP the 8650SDM-4.2.0-ATCAv2-2013-01-08-15-SDM-TOOLS.tar to /local/hssit/autoITm.
+INFO: ftpspa: End: FTP the 8650SDM-4.2.0-ATCAv2-2013-01-08-15-SDM-TOOLS.tar to /local/hssit/autoITm done.
+INFO: /home/hssit/auto-it/startvm1 Start: BE1 Vmware will be started.
+INFO: /home/hssit/auto-it/startvm1 : The existing VMware will be removed
+tar xvfz mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE1_20121220.tgz
+vmware -x VMBE1-pilot-A/VMBE1-pilot-A.vmx
+INFO: /home/hssit/auto-it/startvm1 End: BE1 Vmware is started.
+INFO: /home/hssit/auto-it/startvm1 Start: BE2 Vmware will be started.
+INFO: /home/hssit/auto-it/startvm1 : The existing VMware will be removed
+Xlib: connection to "135.252.181.13:1.0" refused by server
+Xlib: Invalid MIT-MAGIC-COOKIE-1 key
+tar xvfz mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_BE2_20121220.tgz
+vmware -x VMBE2-pilot-A/VMBE2-pilot-A.vmx
+INFO: /home/hssit/auto-it/startvm1 End: BE2 Vmware is started.
+INFO: /home/hssit/auto-it/startvm1 Start: FE1 Vmware will be started.
+INFO: /home/hssit/auto-it/startvm1 : The existing VMware will be removed
+Xlib: connection to "135.252.181.13:1.0" refused by server
+Xlib: Invalid MIT-MAGIC-COOKIE-1 key
+tar xvfz mCAS_r30-20121107_ddm_r80.00.01.47-03.el6_MultiNRG_FE_20121224.tgz
+vmware -x VMFE-pilot-A/VMFE-pilot-A.vmx
+INFO: /home/hssit/auto-it/startvm1 End: FE1 Vmware is started.
+INFO: vminitchk: Start: Check the vm20 is started: check if able to login via ssh; home dir for ainet is mounted.
+Xlib: connection to "135.252.181.13:1.0" refused by server
+Xlib: Invalid MIT-MAGIC-COOKIE-1 key
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+INFO: vminitchk: vm20 start in progress...
+ssh: connect to host vm20 port 22: No route to host
+expect: spawn id exp6 not open
+    while executing
+"expect "password:""
+    (file "/home/hssit/auto-it/vmsshvfy" line 47)
+ITERROR: vminitchk: vm20 started failed

@@ -1,0 +1,24 @@
+1. compile with two new options: -ftest-coverage -fprofile-arcs (*.gcno)
+   gcc *.c -o <exe> -ftest-coverage -fprofile-arcs (--coverage)
+
+2. execute the binary (*.gcda)
+   ./<exe>
+
+##################
+Option 1: gcov (*.gcov)
+##################
+3. gcov *.c
+
+##################
+Option 2: lcov (*.html)
+##################
+3. lcov command (*.gcov)
+   lcov -d . -o *.info -t <name> -c
+
+4. genhtml command
+   genhtml *.info
+   genhtml *.info -o <directory>
+   genhtml *.info -o <directory> -t ATCA_COV
+   genhtml *.info -o <directory> -s
+   genhtml *.info -o <directory> --legend
+   genhtml *.info -o <directory> -t ATCA_COV -s --legend

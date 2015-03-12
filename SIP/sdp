@@ -1,0 +1,82 @@
+An SDP session description consists of a session-level section
+followed by zero or more media-level sections. The session-level
+part starts with a "v=" line and continues to the first media-level
+section. Each media-level section starts with an "m=" line and
+continues to the next media-level section or end of the whole session
+description. In general, session-level values are the default for
+all media unless overridden by an equivalent media-level value.
+
+Some lines in each description are REQUIRED and some are OPTIONAL,
+but all MUST appear in exactly the order given here (the fixed order
+greatly enhances error detection and allows for a simple parser).
+OPTIONAL items are marked with a "*"
+
+1. Part I
+Session description
+        v=  (protocol version)
+        o=  (owner/creator and session identifier).
+        s=  (session name)
+        i=* (session information)
+
+        u=* (URI of description)
+        e=* (email address)
+        p=* (phone number)
+        c=* (connection information - not required if included in all media)
+        b=* (bandwidth information)
+        One or more time descriptions (see below)
+        z=* (time zone adjustments)
+        k=* (encryption key)
+        a=* (zero or more session attribute lines)
+        Zero or more media descriptions (see below)
+
+Time description
+        t=  (time the session is active)
+        r=* (zero or more repeat times)
+
+Media description
+        m=  (media name and transport address)
+        i=* (media title)
+        c=* (connection information - optional if included at session-level)
+        b=* (bandwidth information)
+        k=* (encryption key)
+        a=* (zero or more media attribute lines)
+
+2. Part II
+o=<username> <session id> <version> <network type> <address type> <address>
+o=- 2890844526 1346929146 IN IP4 10.84.21.61
+
+c=<network type> <address type> <connection address>
+<connection address>:  <base multicast address>/<ttl>/<number of addresses>
+c=IN IP4 10.84.21.61
+c=IN IP4 10.84.21.61/127
+c=IN IP4 10.84.21.61/127/3
+
+t=<start time>  <stop time>
+t=0 0
+
+m=<media> <port> <transport> <fmt list>
+m=<media> <port>/<number of ports> <transport> <fmt list>
+m=audio 6000 RTP/AVP 0
+m=audio 6000/2 RTP/AVP 0
+
+a=<attribute>
+a=<attribute>:<value>
+a=recvonly
+a=kavon:majun
+
+a=rtpmap:<payload type> <encoding name>/<clock rate>[/<encoding parameters>]
+a=rtpmap:0 PCMU/8000
+
+m=audio 49230 RTP/AVP 96 97 98
+a=rtpmap:96 L8/8000
+a=rtpmap:97 L16/8000
+a=rtpmap:98 L16/11025/2
+
+3. Part III
+Incoming: INVITE includes "Supported: 100rel"
+          Send PRACK after rcving 18x w/ SDP 
+		                   and "Require: 100rel"
+Outgoing: Take effects when SIP2SIP or TDM2SIP and Involve MG
+          sendPrack=Y
+		=>INVITE with "Supported: 100rel"
+		  rcv 18x w/ SDP and "Require: 100rel"

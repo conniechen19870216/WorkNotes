@@ -1,0 +1,65 @@
+1. 模块搜索路径
+1) 程序的主目录
+2) PYTHONPATH目录
+3) 标准链接库目录
+4) 任何.pth文件的内容
+
+2. sys.path列表
+>>> import sys
+>>> print sys.path
+['', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-linux2', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PIL', '/usr/lib/python2.7/dist-packages/gst-0.10', '/usr/lib/python2.7/dist-packages/gtk-2.0', '/usr/lib/pymodules/python2.7', '/usr/lib/python2.7/dist-packages/ubuntu-sso-client', '/usr/lib/python2.7/dist-packages/ubuntuone-client', '/usr/lib/python2.7/dist-packages/ubuntuone-control-panel', '/usr/lib/python2.7/dist-packages/ubuntuone-couch', '/usr/lib/python2.7/dist-packages/ubuntuone-installer', '/usr/lib/python2.7/dist-packages/ubuntuone-storage-protocol']
+
+3. Example I
+module.py
+print 'hello'
+spam = 1
+
+>>> import module
+hello
+>>> module.spam
+1
+>>> module.spam = 2
+>>> import module
+>>> module.spam
+2
+
+4. Example II
+small.py
+x = 1
+y = [1, 2]
+
+>>> from small import *
+>>> x = 2
+>>> y[0] = 30
+>>> import small
+>>> small.x
+1
+>>> small.y
+[30, 2]
+
+5. import && from
+from module import name1, name2
+<=>
+import module
+name1 = module.name1
+name2 = module.name2
+del module
+
+6. when to use import
+M.py
+def func():
+    ...do sth.
+
+N.py
+def func():
+    ...do sth.
+
+O.py - v1
+from M import func
+from N import func
+func()              # Call N.func only
+
+O.py - v2
+import M, N
+M.func()
+N.func()

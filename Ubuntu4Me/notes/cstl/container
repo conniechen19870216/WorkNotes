@@ -1,0 +1,82 @@
+“创建”->“初始化”->“使用”->“销毁”
+1. 序列容器
+(1) vector_t: 向量，类似于数组
+<特点>
+    向后动态生长：在vector_t 的末尾插入或者删除数据是非常高效的,但是在开头或者中间插入或者删除数据效率就会很低
+<include headers>
+    #include <cstl/cvector.h>
+<vector operations>
+    vector_t* vector_kavon = create_vector(int);
+    vector_init(vector_kavon);
+    vector_push_back(vector_kavon, 1);
+    vector_size(vector_kavon);
+    *(int*)vector_at(vector_kavon, 0);
+    vector_destroy(vector_kavon);
+
+(2) deque_t:  双向队列
+<特点>
+    向前后动态生长：在deque_t的在开头和结尾插入和删除数据都很高效,但是在中间插入和删除数据很慢
+<include headers>
+    #include <cstl/cdeque.h>
+<deque operations>
+    deque_t* deque_kavon = create_deque(float);
+	deque_init(deque_kavon);
+	deque_push_front(deque_kavon, 1);
+	deque_push_back(deque_kavon, 1);
+	deque_size(deque_kavon);
+	*(float*)deque_at(deque_kavon, 0);
+	deque_destroy(deque_kavon);
+
+(3) list_t:   双向链表
+<特点>
+    向前后动态生长：在list_t的任意位置插入和删除数据都很高效,但是无法随机访问数据
+<include headers>
+    #include <cstl/clist.h>
+<list operations>
+    list_t* list_kavon = create_list(char);
+	list_init(list_kavon);
+	list_push_back(list_kavon, 'a');
+	list_push_front(list_kavon, 'b');
+	list_empty(list_kavon);
+	list_pop_back(list_kavon);
+	list_pop_front(list_kavon);
+	*(char*)list_front(list_kavon);
+	*(char*)list_back(list_kavon);
+	list_destroy(list_kavon);
+
+(4) slist_t:  单向链表
+<特点>
+    向前后动态生长：在slist_t的任意位置插入和删除数据都很高效,但是无法随机访问数据, 而且找前驱困难
+<include headers>
+    #include <cstl/cslist.h>
+<list operations>
+    ...
+
+(5) string_t: 向量，类似于数组
+<特点>
+    与vector_t类似，但是主要用于存储字符串，并且提供了很多关于字符串的特殊操作
+
+2. 关联容器
+<特点>
+    基于保存的数据本身或者数据定义的键值来自动排序, 默认规则是小于操作
+	分为集合和映射两种，而集合和映射又根据数据或者键值的唯一性分为集合和多重集合，映射和多重映射
+<底层实现>
+    AVL树或者平衡二叉树，哈希表结构
+<Types>
+    set_t
+	multiset_t
+	map_t
+	multimap_t
+
+	hash_set_t
+	hash_multiset_t
+	hash_map_t
+	hash_multimap_t
+
+3. 容器适配器
+<特点>
+    由基本的容器作为底层来实现的，本质也属于容器，不支持迭代器
+<Types>
+    stack_t: LIFO
+	queue_t: FIFO
+	priority_queue_t: 优先队列，每次从队列中取出的都是优先级最大的数据（数值越大，优先级越大）

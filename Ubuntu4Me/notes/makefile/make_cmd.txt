@@ -1,0 +1,61 @@
+1. 命令回显
+(1) @: 禁止回显需要执行的命令
+(2) make -n/--just-print： 只是显示需要执行的命令，但并不真正执行（可以用于makefile的调试）
+    同时，环境变量 MAKELEVEL 可以有助于调试。
+(3) make -s/--silent: 禁止显示所有需要执行的命令
+(4) 附：-w/--print-directory 打印出相应的执行目录信息（有助于调试，默认自动打开）
+
+2. 命令执行
+独立的一行：独立的一个shell进程
+            即，多条命令行的执行为多个相互独立的进程
+foo: bar/lose
+	cd bar; gobble lose > ../foo
+	ls; pwd
+第一行命令不会影响到第二行的目录，就是说第二行还是在当前目录进行
+
+3. 忽略命令的执行错误
+"-"或者"-i"或者"--ignore-errors"
+注：养成make clean(所有的目标文件)的习惯，这样可以避免错误执行了生成的目标文件，时间戳被更新之后，
+    下次修正之后不会再次生成一个正确的目标。
+
+4. make的递归执行
+(1) Simple Example:
+subsystem: 
+	cd subdir && $(MAKE)
+或者
+	$(MAKE) -C subdir
+
+(2) 变量的递归:解决的是parent makefile和child makefile之间的关系，而不是命令行与第一个makefile之间的关系
+ a) 默认传递的参数：执行make之前已经存在的环境变量；使用命令行指定的变量(make CFLAGS += -g 或者 make -e CFLAGS += -g)
+ b) 原则：上层传递的变量定义不会覆盖子Makefile中定义的同名变量定义，除非使用-e这个option
+ c) 指示符export实现变量的传递
+    export VARIABLE
+	unexport VARIABLE
+      1) VARIABLE = value
+         export VARIABLE
+	  <=> export VARIABLE = value
+      2) VARIABLE := value
+         export VARIABLE
+	  <=> export VARIABLE := value
+      3) VARIABLE += value
+         export VARIABLE
+	  <=> export VARIABLE += value
+	  4) export： 不带参数指的是将此Makefile所有定义变量传递给子make过程
+	     unexport: 不带参数时没有实际意义
+
+(3) 命令行选项的递归（包括命令行定义的变量）
+MAKEFLAGS
+ a) -k, -s: 自动向下通过MAKEFLAGS传递
+ b) -C, -f, -o, -W: 反之
+ c) 命令行中的变量定义：同样通过MAKEFLAGS向下传递
+注：若想禁止继续向子目录传递的话，
+	$(MAKE) -C subdir MAKEFLAGS=
+
+Conclusion:
+a) make 命令行传参数，无条件地向下传送，
+                      无论是否有重复定义；无论是否使用-e；无论参数是否是环境变量。
+   e.g. make [-e] var=*
+   注意：不包括 make -e，其用于传递环境变量，覆盖 makefile 文件中重复定义的环境变量。
+b) make -e：其中，-e 可以决定 makefile 外部环境变量是否会替换重复定义的值。
+c) 在 makefile 文件中，export 与 -e 搭配可以起到应有的作用。
+d) 总之，第一种情况 -e 失效，后两种情况可以正常起作用。

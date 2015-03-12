@@ -1,0 +1,114 @@
+00003(00387),00000(00000) 0x00000020 01-07 06:06:42.684 17426: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(34300) has null entry
+00003(00387),00000(00000) 0x00000020 01-07 06:06:42.684 17426: ../cl_bdy6.c:207 sending back transId 0x85fc  status = 0  reason = 0
+00001(00387),00000(00000) 0x00000020 01-07 06:06:42.684 17426: ../cl_bdy2.c:1450 freeing input tables
+00001(00387),00000(00000) 0x00000020 01-07 06:06:42.684 17426: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00387),00000(00000) 0x00000020 01-07 06:06:44.719 17450: ../cc_bdy4.c:17336 ccGenericTmrEvent=2
+00001(00387),00000(00000) 0x00000020 01-07 06:06:44.719 17450: ../cc_lib.c:63631 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00387),00000(00000) 0x00000020 01-07 06:06:44.719 17450: ../cc_bdy4.c:17264 ccGenericStartTmr
+00001(00387),00000(00000) 0x00000020 01-07 06:06:54.719 17450: ../cc_bdy4.c:17336 ccGenericTmrEvent=2
+00001(00387),00000(00000) 0x00000020 01-07 06:06:54.719 17450: ../cc_lib.c:63631 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00387),00000(00000) 0x00000020 01-07 06:06:54.719 17450: ../cc_bdy4.c:17264 ccGenericStartTmr
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:1 evtId: 0x1a3
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc1.c:389 numBchanRows:1
+00003(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc1.c:2185 TDM/9/1/1/3 gave binary termId is 0x482043
+00004(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/3 found
+00004(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc1.c:440 starting 1th edit fsm intfcId.val:3670, memId.val:3 
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:2871 clIbcSelfPost: entered FsmCb 0xbd7c1884 event: 0x2 lmEvt->lmEvtId: 0x1a3
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0x71, status=0, reason = 0
+00003(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6e04664 lmEvtId: 0x0 lmEvt->lmEvtId: 0x1a3
+00004(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00004(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:775 *******  clIbcCtlRm entered   ********
+00004(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:830 holdStr =    portTerm = tdm/9/1/1
+00005(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:837 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/3
+00005(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:854 kavon initState = 0
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:867 sent RM Bchan ctl request for intfcId:3670
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=1, cntMntChans=29, cntPcChans=0, cntPcOosChans=0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=3, preCut=0, initState=0, rmPri->chnl[i].state=0
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=3, preCut=0, initState=0, rmPri->chnl[i].state=0
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy6.c:3964 kavon RM_ATT not defined
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy6.c:961 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=1, cntMntChans=29, cntPcChans=0, cntPcOosChans=0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:943 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6e04664 lmEvtId: 0x0 lmEvt->lmEvtId: 0x1a3
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00003(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17426: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 3
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../in_bdy1.c:13287 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147479576, action=2, subaction=1
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../in_bdy11.c:7436 [Q931]:rSuId = 4425 action=2 chan=3
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../in_bdy11.c:7869 [Q931]:rSuId = 4425 bch->intId =1 chan=3, action=2 state=AVAIL ntc=0x0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../qw_bdy1.c:1833 [QW]:kavon QwLiIntStaInd, evt->t.bChan.status = 4
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy1.c:1640 kavon RmUiRmtAlocReq: SpId 7, suConnId 0, AlocType 5, otherRscReq 0
+00003(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy6.c:2162 kavon rsrc->rscPres = 1
+00003(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy6.c:2259 kavon alocType = 5
+00003(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00004(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00005(00387),00000(00000) 0x00000020 01-07 06:07:00.949 17450: ../rm_bdy1.c:1960 kavon RmUiRmtAlocReq::suConnId=0, intfType=ISDN, intfcId=3670, intType=1, infoChanSel=1, dChanInd=000001(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0x60, status=0, reason = 0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6e04664 lmEvtId: 0x0 lmEvt->lmEvtId: 0x1a3
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_ibc2.c:1594 get binary termId is 0x482043
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_ibc2.c:1727 clUpdateIbcTermId updated bchan memId 3670-3 on if-link-chn 3670-1-3, new mntState = 1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_ibc2.c:887 TL1 Edit complete for ISDN-IBC
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_ibc2.c:894 IBC EDIT: 0 remaining 
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_ibc2.c:897 edit complete for ISDN-IBC
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(34302) has null entry
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_bdy6.c:207 sending back transId 0x85fe  status = 0  reason = 0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_bdy2.c:1450 freeing input tables
+00002(00387),00000(00000) 0x00000020 01-07 06:07:00.950 17426: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:01.019 17450: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00001(00387),00000(00000) 0x00000020 01-07 06:07:01.019 17450: ../rm_rum.c:1293 rumPrepareAndSendUpd: *** No Realms are configured *****
+00002(00387),00000(00000) 0x00000020 01-07 06:07:01.019 17450: ../rm_rum.c:1349 rumPrepareAndSendUpd: *** No Realms are configured *****
+00003(00387),00000(00000) 0x00000020 01-07 06:07:01.019 17450: ../rm_rum.c:1431 rumPrepareAndSendUpd: type = 512, id = 3670, flags = 0, hunting = 0, numCics = 0, total = 30, precut = 0, oos = 30, free = 0, overflow = 0, busy = 0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:01.019 17450: ../rm_rum.c:1638 rumPrepareAndSendUpd: numEntities:1, ccsId:1, versionId:10, flags:0 rumState:2, numRealms:0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:01.119 17450: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00002(00387),00000(00000) 0x00000020 01-07 06:07:01.119 17450: ../rm_rum.c:1293 rumPrepareAndSendUpd: *** No Realms are configured *****
+00002(00387),00000(00000) 0x00000020 01-07 06:07:01.119 17450: ../rm_rum.c:1349 rumPrepareAndSendUpd: *** No Realms are configured *****
+00003(00387),00000(00000) 0x00000020 01-07 06:07:01.119 17450: ../rm_rum.c:1606 rumPrepareAndSendUpd: ** RUM will stop updates to RS untill there isa change in  resource status
+00001(00387),00000(00000) 0x00000020 01-07 06:07:04.719 17450: ../cc_bdy4.c:17336 ccGenericTmrEvent=2
+00001(00387),00000(00000) 0x00000020 01-07 06:07:04.719 17450: ../cc_lib.c:63631 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00387),00000(00000) 0x00000020 01-07 06:07:04.719 17450: ../cc_bdy4.c:17264 ccGenericStartTmr
+00003(00387),00000(00000) 0x00000020 01-07 06:07:04.719 17450: ../rm_rum.c:648 rumInactiveTimeOut: **** RUM Inactivity detected *****
+00001(00387),00000(00000) 0x00000020 01-07 06:07:14.719 17450: ../cc_bdy4.c:17336 ccGenericTmrEvent=2
+00001(00387),00000(00000) 0x00000020 01-07 06:07:14.719 17450: ../cc_lib.c:63631 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00387),00000(00000) 0x00000020 01-07 06:07:14.719 17450: ../cc_bdy4.c:17264 ccGenericStartTmr
+00001(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_rcpm1.c:229 numcounters received 1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy7.c:299 LM_RC_PM:event:0 in state:0, next state:1
+00001(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17450: ../cc_bdy1.c:7558 CCDP_RECOND : relCondition[18] count[8] 
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17450: ../cc_bdy1.c:7558 CCDP_RECOND : relCondition[57] count[4] 
+00001(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy7.c:299 LM_RC_PM:event:1 in state:1, next state:0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_rcpm2.c:914 Inside clRcPmUnpackStsData
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_rcpm2.c:933 Unpacking STGENCALLFAIL
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_rcpm2.c:219 >> Inside clRcPmGenCfm <<
+00001(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_rcpm2.c:720 context->fsmInfo.event 1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_rcpm2.c:721 packing 96 counters 
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy5.c:802 cleaning up stale transId:0x80000fe9 for module:153
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(34304) has null entry
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy6.c:207 sending back transId 0x8600  status = 0  reason = 0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy2.c:1450 freeing input tables
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00002(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy5.c:763 cmHashListFind failed for 0x80000fe9
+00003(00387),00000(00000) 0x00000020 01-07 06:07:19.882 17426: ../cl_bdy5.c:714  can't free transId
+00001(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_rcpm1.c:229 numcounters received 1
+00002(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy7.c:299 LM_RC_PM:event:0 in state:0, next state:1
+00001(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17450: ../cc_bdy1.c:7558 CCDP_RECOND : relCondition[18] count[8] 
+00001(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17450: ../cc_bdy1.c:7558 CCDP_RECOND : relCondition[57] count[4] 
+00001(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy7.c:299 LM_RC_PM:event:1 in state:1, next state:0
+00001(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_rcpm2.c:914 Inside clRcPmUnpackStsData
+00002(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_rcpm2.c:933 Unpacking STGENCALLFAIL
+00003(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_rcpm2.c:219 >> Inside clRcPmGenCfm <<
+00004(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_rcpm2.c:720 context->fsmInfo.event 1
+00005(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_rcpm2.c:721 packing 96 counters 
+00006(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy5.c:802 cleaning up stale transId:0x80000fea for module:153
+00007(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(34308) has null entry
+00007(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy6.c:207 sending back transId 0x8604  status = 0  reason = 0
+00003(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy2.c:1450 freeing input tables
+00003(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy5.c:763 cmHashListFind failed for 0x80000fea
+00004(00387),00000(00000) 0x00000020 01-07 06:07:20.082 17426: ../cl_bdy5.c:714  can't free transId

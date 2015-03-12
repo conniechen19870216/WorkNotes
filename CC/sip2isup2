@@ -1,0 +1,232 @@
+(2) ccConE09S01: S01 -> S37
+
+ccAllocateResource (cc_bdy3.c)
+         |
+		 |
+		 +----- CcLiRmtAlocReq (cc_ptli.c)
+         |           |
+		 |           +----- RmUiRmtAlocReq (rm_bdy1.c)
+         |                       |
+         |                       +----- RmUiRmtAlocCfm (rm_ptui.c)
+         |
+         |
+         +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E09S01 >>>>>>>>
+                     |
+		             +----- ccConE09S01 (cc_bdy2.c)
+					             |
+								 +----- ccChkCallTrc (cc_calltrc.c)
+								 |           |
+								 |			 +----- ccNeedsLogging (cc_calltrc.c)
+					             |
+								 +----- ccSendOrSkipInfoCollected (cc_lib.c)
+								             |
+								  			 +----- ccFillSvcHeader (cc_bdy5.c)
+								             |
+								  			 +----- ccFillInfoColltdParam (cc_bdy5.c)
+								             |
+								  			 +----- CC_STATE_CHANGE(con, CCS_AWTRSPFORDPE3) <<<<<<< S01 -> S37 CCS_AWTROUTERSC -> CCS_AWTRSPFORDPE3 >>>>>>>>>
+								             |
+								  			 +----- ccChangeCallStateOfAssociatedCalls (cc_lib.c)
+								             |
+								  			 +----- CcUiFctInfoCollected (cc_ptui.c)
+								                              |
+															  +------ FcLiFctInfoCollected (fic_bdy1.c)
+															  |
+															  |
+															  ... /* TO BE CONTINUED */
+
+(3) ccConE37S37: S37 -> S04
+
+FcLiFctInfoCollected (fic_bdy1.c)
+         |
+         |
+         +
+FcLiFctAnalyzeRoute (fic_ptli.c)
+         |
+		 |
+		 +------ CcUiFctAnalyzeRoute (cc_bdy5.c)
+                        |
+						+----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E37S37 >>>>>>>>
+                                       |
+		                               +----- ccConE37S37 (cc_bdy2.c)
+									                |
+													+----- ccRestoreCallStateOfAssociatedCalls (cc_lib.c)
+									                |
+													+----- ccRestoreEvntHold (cc_bdy4.c)
+									                |
+													+----- ccExtractAnalyzeRteParam (cc_bdy5.c)
+									                |
+													+----- ccExtractSvcHeader (cc_bdy5.c)
+									                |
+													+----- ccPopulateRtListFromMdpTgInfo (cc_bdy5.c)
+									                |
+													+----- ccPostCallForwardProcessingAPI (cc_bdy5.c)
+									                |
+													+----- ccIsRscRspReqd (cc_lib.c)
+									                |
+													+----- ccCheckForInterfaces (cc_lib.c)
+									                |
+													+----- ccRouteCall (cc_bdy2.c)
+								                                |
+								  			                    +----- CC_STATE_CHANGE(con, CCS_AWTRSCALOCCFM) <<<<<<< S37 -> S04 CCS_AWTRSPFORDPE3 -> CCS_AWTRSCALOCCFM >>>>>>>>>
+																|
+																+----- ccAllocateResourceArray (cc_bdy2.c)
+																                 |
+																				 +----- CcLiRmtAloc2WayPriReq (cc_ptli.c)
+																				                |
+																								+----- RmUiRmtAloc2WayPriReq (rm_bdy1.c)
+																								            |
+																											+----- RmUiRmtAloc2WayPriCfm (rm_ptui.c)
+																											            |
+																														+---- CcLiRmtAloc2WayPriCfm (cc_bdy1.c)
+(4) ccConE09S04: S04 -> S39
+
+CcLiRmtAloc2WayPriCfm (cc_bdy1.c)
+         |
+         +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E09S04 >>>>>>>>
+                    |
+                    +----- ccConE09S04 (cc_bdy2.c)
+					            |
+								+----- ccRestoreEvntHold (cc_bdy4.c)
+					            |
+								+----- ccRegisterCurrentInterface (cc_lib.c)
+					            |
+								+----- ccStopConTmr (cc_bdy4.c)
+					            |
+								+----- ccSendOrSkipTerminationAttempt (cc_lib.c)
+								              |
+											  +----- ccProcessONoAnswer (cc_bdy2.c)
+								              |
+											  +----- ccFillBCMInfo (cc_bdy5.c)
+								              |
+											  +----- ccFillSvcHeader (cc_bdy2.c)
+								              |
+											  +----- ccFillTermAttemptParam (cc_bdy5.c)
+								              |
+								  			  +----- CC_STATE_CHANGE(con, CCS_CANNOTPROCESSEVENTS) <<<<<<< S04 -> S39  CCS_AWTRSCALOCCFM-> CCS_AWTRSPFORDPE20 >>>>>>>>>
+								              |
+											  +----- ccChangeCallStateOfAssociatedCalls (cc_lib.c)
+								              |
+											  +----- CcUiFctTerminationAttempt (cc_ptui.c)
+											                      |
+																  +----- FcLiFctTerminationAttempt (fic_bdy1.c)
+															      |
+															      |
+															      ... /* TO BE CONTINUED */
+
+(5) ccConE38S39: S39 -> S09
+
+FcLiFctTerminationAttempt (fic_bdy1.c)
+          |
+          |
+		  +
+ccUiFctAuthorizeTermination (cc_bdy5.c)
+          |
+		  +----- ccExtractAuthTermParam (cc_bdy5.c)
+          |
+		  +----- ccExtractSvcHeader (cc_bdy5.c)
+          |
+          +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E38S39 >>>>>>>>
+		                 |
+						 +------ ccConE38S39 (cc_bdy2.c)
+						              |
+									  +------ ccRestoreCallStateOfAssociatedCalls (cc_lib.c)
+						              |
+									  +------ ccProcessAuthorizeTermination (cc_lib.c)
+									            |
+										        +------ ccUpdBillRecPicAuthorizeCallSetup (cc_bdy4.c)
+										   	    |         |
+										   	    |         +------ ccUpdBillRecForTns (cc_bdy4.c)
+									            |
+										   	    +------ ccUpdateBcm (cc_bdy5.c)
+									            |
+										   	    +------ ccDeriveCcn (cc_lib.c)
+									            |
+										   	    +------ ccLocateLiInfo (cc_lib.c)
+									            |
+										   	    +------ ccProcessPostAuthorizeTermination (cc_lib.c)
+										   	              |
+										   	              +------ ccProcessAuthTermSwtReqFalse (cc_lib.c)
+								                                  |
+								  		                          +----- CC_STATE_CHANGE(con, CCS_AWTANS) <<<<<<< S39 -> S09  CCS_AWTRSPFORDPE20 -> CCS_AWTANS >>>>>>>>>
+																  |           |
+															      |			  +------ ccMapEvent_real (cc_lib.c)
+																  |           |
+																  |           |
+																  |			  ... /* (6) INVITE -> IAM */
+																  |           
+																  +------ processAnsSupervisionFraudPrflId (cc_bdy5.c)
+																  |           
+																  +------ ccUpdInterCcsTermPbxSubId (cc_lib.c)
+																  |           
+																  +------ ccSaveProfileId (cc_lib.c)
+																  |           
+																  +------ ccProcessOCallSent (cc_bdy2.c)
+																  |           
+																  +------ ccStartConTmr (cc_bdy4.c)
+																  |           
+																  +------ CcLiCctConReq (cc_ptli.c)
+																              |
+																			  +------ cmPkLiCctConReq (cct.c)
+																              |          |
+																			  |          +------ ccPkCcConEvnt (cct.c)
+																			  |	     	             |
+																			  |                      +------ siPkConEvnt (sit.c)
+																			  |	
+																			  +------ SPstTsk
+
+(6) INVITE -> IAM
+
+ccMapEvent_real (cc_lib.c)
+          |
+		  +------ ccGetMapTblEntry (cc_map.c)
+          |
+		  +------ ccGetMappingIndex_real (cc_map.c)
+          |
+		  +------ directMappingMatrix (cc_map.c) 
+		                 |
+						 +------ SIP_TO_SIPT_SI_BICC (cc_map.c)
+						                |
+										+------ ccSIP2SIMapS21M00 (cc_sipmap.c)
+										              |
+													  +------- ccCheckAndFillTypeOfXchange (cc_lib.c)
+										              |
+													  +------- ccIwXXXIcProtSIPHopCounter (cc_sipmap.c)
+										              |
+													  +------- ccMapUsrServInfoToTmr (cc_lib.c)
+										              |
+													  +------- ccSipMapSendOLI (cc_sipmap.c)
+													  |
+													  +------- INVITE->IAM IW successful
+													  |
+													  +------- ccFgdBilling (cc_lib.c)
+													  |
+													  +------- ccIwPopulateAndAddSipTIcidValue (cc_lib.c)
+													  |
+													  +------- ccProcessParmSuppOrParmDefValForOgSS7 (cc_sisimap.c)
+													  |
+													  +------- ccProcessAuthTermForParamSuppOrDef (cc_lib.c)
+													  |                    |
+												      |  				   +------ ccFillIcIncPrefix (cc_lib.c)
+													  |
+													  +------- ccChkPresRestForOgSS7IAM (cc_sisimap.c)
+													  |
+													  +------- ccExtractPChargingVectorFromConEvent (cc_lib.c)
+													  |
+													  +------- ccMapSIIForIAM (cc_lib.c)
+													  |
+													  +------- ccSi2InCdPtyNum (cc_lib.c)
+
+(7) ISUP level
+
+iwActvTskNew
+       |
+	   +------- cmUnpkCctConReq (cct.c)
+                    |
+	                +------- IwUiCctConReq (psif_iw.c)
+					              |
+								  +------- IwLiSitConReq (iw_ptli.h)
+								  +------- SiUiSitConReq (si_bdy1.c)
+								                |
+												+------ SPrntUData
+								            

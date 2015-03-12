@@ -1,0 +1,30 @@
+1. 用途：变量，函数，参数，类和namespace
+
+2. 名副其实
+int elapsedTimeInDays;
+int daysSinceCreation;
+int daysSinceModification;
+int fileAgeInDays;
+
+e.g. gameBoard, flaggedCells
+
+隐藏细节：把 int 类型封装成一个有意义的 struct 或者 class，并定义多个操作。
+          if (cell[STATUS_VALUE] == FLAGGED)
+	   => if (cell.isFlagged())
+
+3. 废话无益于做区分
+类名：Product, ProduceData, ProductInfo
+变量名：NameString => Name, moneyAmount => money
+函数名：getActiveAccout();
+        getActiveAccounts();
+		getActiveAccountInfo();
+
+4. 名称要读得出来
+Bad: genymdhms
+Good: generationTimestamp
+
+5. 创建结构体的需求
+当一堆变量隶属于一个大的概念的时候，需要用一个结构体或者类来整合多个变量
+例如，firstName, lastName, street, houseNumber, city, state, zipcode 构成了一个完整的地址
+所以，可以创建一个Address的结构体或者类来管理这些变量，并且相应地定义一些方法，从而使得各
+种方法存在得更有语境。

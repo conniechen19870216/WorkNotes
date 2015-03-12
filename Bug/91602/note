@@ -1,0 +1,181 @@
+1. Notify Indication Received
+sipwActvTskNew (sipw_ex_ms.c)
+    |
+	| <pst->event = EVTSIPWMSGIND>
+	|
+	+---- cmUnpkSipaLiMsgInd (lsip.c)
+	|
+	+---- SipwLiSipMsgInd (sipw_bdy1.c)
+	             |
+				 | <ncSipEvnt->ncEvnt.type = NOTIFY_IND>
+				 |
+				 +------- sipwTransSipMsgIndToCctFormat (sipw_bdy3.c)
+				 |
+				 +------- SipwUiCctMsgInd (sipw_ptui.c)
+				               |
+							   |
+							   +------- CcLiCctMsgInd (cc_bdy1.c)
+							                |
+											|
+											+------ CcUiFctSrvcInd (cc_ptui.c)
+											              |
+														  |
+														  +------ FcLiFctSrvcInd (fic_bdy2.c)
+														                |
+																		|
+																		+------ FicSendNotMwiOodRoutingReq (fic_lib.c)
+																		               |
+																					   |------ pTidInfo->currPic = FIC_PIC_INFO_ANALYZED
+																					   |
+																					   +------ SendIAToRouter (fic_lib.c)
+																				                        |
+																				        				|
+																				        				+------- ficAddSrvcBlk (fic_lib.c)
+																				                        |
+																				        				|
+																				        				+------- FicFillIARouter (fic_lib.c)
+																				                        |
+																				        				|
+																				        				+------- FicSnd2Srvc (fic_lib.c)
+																				        		        |              |
+																				        		        |              |
+																				        		        |              +------- FicInitPst (fic_lib.c)
+																				        		        |              |
+																				        		        |              |
+																				        		        |              +------- FicCheckModifyBCap (fic_lib.c)
+																				        		        |              |
+																				        		        |              |
+																				        		        |              +------- FcUiFstInd (fic_ptui.c)
+																				        		        |                         |
+																				        		        |                         |
+																				        		        |                         +----- cmPkFst (fst.c)
+																				         		        |                                |
+																					     		        |                       		 |
+																					     				|			            		 +------ FsLiFstRsp (fs_puli.c)
+																										|
+																										|
+																										|
+																										+-------- ficStartTimer (fic_timer.c): Waiting for response
+                                                                                        
+
+2. Router Processing
+rsActvTsk (rs_ex_ms.c)
+    |
+	| <pst->srcEnt = ENTFIC >
+	| <pst->event  = EVTFSTIND >
+	|
+	+---- cmUnpkFst(RsLiRstInd, pst, mBuf)
+	           |
+	           | <fsEv.upperapihdr.msgType = MSGTYPE_INFO_ANALYZED>
+	           |
+	           +---- cmUnpkInfoAnalyzedUI (fst.c)
+			   |
+			   |
+			   +---- RsLiRstInd (rs_bdy1.c)
+			            |
+						|
+						+---- rsHandleFicMsg (rs_bdy2.c)
+						           |
+								   |
+								   +----- rsCreateNewConCb (rs_bdy2.c)
+                                   |             |
+                                   | 			 |
+                                   | 			 +------ rsExtractCallParams (rs_bdy2.c)
+                                   |                         |
+                                   | 			             |
+                                   | 			             +------ rsTvSaveReqInfo (rs_traver.c)
+                                   |                         |
+                                   | 			             |
+                                   | 			             +------ rsDumpAll (rs_util.c)
+								   |
+								   |
+								   +------ rsRouteReq (rs_router.c)
+								   |             |
+								   | 			 |
+								   | 			 +------- rsRTStateMachine (rs_router.c)
+								   | 			             |
+								   | 			             | <conCb->rtState.state = RS_RT_START>
+								   | 			             |
+								   | 			             +------- rsCheckMcg (rs_mcg.c)
+								   | 						 ... RS_RT_START -> RS_RT_FIND_ENTRY -> RS_RT_HANDLE_LOC -> RS_RT_FIND_ENTRY -> RS_RT_HANDLE_LOC
+								   | 			             |
+								   | 			             |
+								   | 			             |
+								   | 			             +------- rsTrunkGrpSelection (rs_router.c)
+                                   |                         |               |
+                                   |                         |   			 |
+                                   |                         |   			 +------- rsSelectIntfc (rs_router.c)
+                                   |                         |               |             |
+                                   |                         |               |       	   | <tgs->numIntfcs = 1>
+                                   |                         |               |       	   |
+                                   |                         |               |       	   +------ rsTvIntfcSelected (rs_traver,c)
+                                   |                         |               |       	                |
+                                   |                         |               |       					|
+                                   |                         |               |       					+------- rsTvCheckMod (rs_traver.c)
+                                   |                         |   			 |
+                                   |                         |   			 |
+                                   |                         |   			 +-------- rsAppendGrInterMgcIntfc (rs_router.c)
+                                   |                         |   			 |
+                                   |                         |   			 | <tgs->numIntfcs > 0>
+                                   |                         |   			 |
+                                   |                         |   			 +-------- rsPopulateFcRouteList (rs_router.c) ** 1. conCb->routeList.numIntfcs = conCb->tgsState.numIntfcs **
+                                   |                         |   			           <state = RS_RT_HANDLE_TGS_STATUS, rtnStatus = RS_STATUS_TGS_TRUNKS_SELECTED>
+								   | 						 |
+								   | 						 |
+								   | 						 |
+								   | 						 ... RS_RT_HANDLE_LOC -> RS_RT_HANDLE_TGS_STATUS
+								   | 						 |
+								   | 						 |
+								   | 						 +-------- rsBuildAnalyzeRouteMsg (rs_bdy2.c)
+								   | 						           <respAr->routeList.numIntfcs = conCb->routeList.numIntfcs> ******* legacy ********
+								   | 						                       |
+								   | 						                       |
+								   | 											   +------- rsSendPackReq (rs_pack.c)
+								   |                                               ........
+								   |                                                             |
+								   +------- rsCloseCall (rs_bdy2.c)                              |
+								                                                                 |
+								                                                                 |
+								                                                                 +------- rsPackBuildAnalyzeRouteMsg (rs_pack.c)
+								     						                                     <2. respAr->routeList.numIntfcs = conCb->routeList.numIntfcs> ******* existing ********
+								                                                                           |
+								                                                                           |
+								                                                                           +------ RsLiFctRsp (rs_bdy1.c)
+								                                                                                        |
+								                                                                                        |
+                                                                                                                        |
+																				                                        +------- cmPkFst(pst, fsEv) (fst.c)
+                                     
+                                     
+                                     
+                                     
+3. Response From Router              
+ficActvTsk (fic_main.c)              
+    |                                
+    | <pst->event = EVTFSTRSP>       
+    |                                
+    +---- cmUnpkFst (fst.c)          
+    |                                
+    | <MSGTYPE_ANALYZE_ROUTE>        
+    |                                
+    +---- cmUnpkAnalyzeRouteUI (fst. c)
+	|     Target: fsEv.mbdy.analyzer oute
+    |                                
+    +---- cmUnpkFcRouteList
+    |     Target: data->routelist
+    |             SUnpkU8 (&flag, mBuf)
+    |             SUnpkU8 (&data->numIntfcs, mBuf)
+    |
+    +---- FcUiFstRsp (fic_bdy3.c)
+		       |
+               | <fsEv->upperapihdr.msgType = MSGTYPE_ANALYZE_ROUTE>
+               |
+               +------- FcUiFstAnalyzeRoute (fic_bdy3.c)
+                             |
+                          	 | <ficParamBlk.pTidInfo->currPic = FIC_PIC_INFO_ANALYZED>
+                          	 |
+                          	 +--------- FcUiFstAnalyzeRouteIA (fic_bdy3.c)
+                                  |
+                          		  |
+                          		  +--------- FicSendNotRsp (fic_lib.c)
+                          		             <pFsEv->mbdy.noncallevent.u.notRsp.u.mwi_result = sipError;>

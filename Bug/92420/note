@@ -1,0 +1,37 @@
+1. Make sip to isdnetsi intra and inter ccs call. When mgc8 receives Alerting from isdn side:
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                              |                              |                           |                        |                        |                        |
+|      SIPPSTNXMLMAP           |         PEARLYMEDIA          |          CUTTHRU          |  PROGRESS INDICATION   |       SIP Message      |          SDP           |
+|        (PRFL-SIP)            |         (PRFL-SIP)           |         (ISDN-IF)         |      (Alerting)        |       (180/183)        |       (w/, w/o)        |
+|                              |                              |                           |                        |                        |                        |
+|------------------------------|------------------------------|---------------------------|------------------------|------------------------|------------------------|
+|           Y/N                |              N               |             N             |          Y/N           |           180          |           w/o          |
+|------------------------------|------------------------------|---------------------------|------------------------|------------------------|------------------------|
+|           Y/N                |              Y               |             N             |          Y/N           |           180          |           w/           |
+|------------------------------|------------------------------|---------------------------|------------------------|------------------------|------------------------|
+|                              |                              |                           |           N            |           180          |           w/o          |
+|           Y/N                |              N               |             Y             |------------------------|------------------------|------------------------|
+|                              |                              |                           |           Y            |           180          |           w/           |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Make sip to isdnetsi intra and inter ccs call. When mgc8 receives PROGRESS from isdn side:
+
+1) SIPPSTNXMLMAP=Y/N, EarlyMedia=N, cutThru=N 
+SIPPSTNXMLMAP=y/n, intra, PI-1/8(progress map ignored, alerting map to 180 wo sdp)
+SIPPSTNXMLMAP=y/n, inter, PI-1/8(progress map ignored, alerting map to 180 wo sdp)
+#####################################################################################
+SIPPSTNXMLMAP=y/n, intra, PI-2(progress map 183 with sdp, alerting map to 180 wo sdp)
+SIPPSTNXMLMAP=y/n, inter, PI-2(progress map 183 with sdp, alerting map to 180 wo sdp)
+
+
+2) SIPPSTNXMLMAP=Y/N, EarlyMedia=Y, cutThru=N 
+SIPPSTNXMLMAP=y/n, intra, PI-2(progress map 183 with sdp, alerting map to 180 wo sdp)
+SIPPSTNXMLMAP=y/n, inter, PI-2(progress map 183 wo sdp, alerting map to 180 wo sdp) 
+
+
+3) SIPPSTNXMLMAP=Y/N, EarlyMedia=N, cutThru=Y
+SIPPSTNXMLMAP=n, intra, PI-2(progress map 183 with sdp, alerting map to 183 wo sdp)
+SIPPSTNXMLMAP=n, inter, PI-2(progress map 183 wo sdp, alerting map to 183 with sdp)
+#####################################################################################
+SIPPSTNXMLMAP=y, intra, PI-2(progress map 183 with sdp, alerting map to 180 wo sdp)
+SIPPSTNXMLMAP=y, inter, PI-2(progress map 183 wo sdp, alerting map to 180 wo sdp)

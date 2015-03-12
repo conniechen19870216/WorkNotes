@@ -1,0 +1,8 @@
+cut -f1,3 filename
+cut -f1-5 filename
+cut -f3 --complement filename
+
+cut -f2 -d";" filename
+
+cut -c1-5 filename
+cut -c1-3,6-9 --output-delimiter "," filename

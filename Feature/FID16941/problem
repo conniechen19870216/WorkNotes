@@ -1,0 +1,28 @@
+1. Abnormal: Right can not override Wrong
+
+; authauthority
+qd.plexuslab.com.       172859  IN NS   root.qd.plexuslab.com.
+; additional
+root.qd.plexuslab.com.  172859  A       135.252.142.151
+; authauthority
+trkgrp8.qd.plexuslab.com. 172760 \-ANY  ;-$NXDOMAIN
+; authanswer
+                        172859  A       135.252.41.253
+
+2. Normal: Wrong can override Right
+(1) Right 
+; authauthority
+qd.plexuslab.com.       172849  IN NS   root.qd.plexuslab.com.
+; additional
+root.qd.plexuslab.com.  172849  A       135.252.142.151
+; authanswer
+trkgrp8.qd.plexuslab.com. 172849 A      135.252.41.253
+
+(2) Wrong
+; authauthority
+qd.plexuslab.com.       172675  IN NS   root.qd.plexuslab.com.
+; additional
+root.qd.plexuslab.com.  172675  A       135.252.142.151
+; authauthority
+trkgrp8.qd.plexuslab.com. 172809 \-ANY  ;-$NXDOMAIN
+

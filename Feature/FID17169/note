@@ -1,0 +1,55 @@
+1. Interworking Types
+   CC_IW_SI767_TO_SIITU92
+   CC_IW_SIITU92_TO_SI767
+
+2. Impact on CGPN
+
+3. Line No. in ccMapS02M00
+
+1) TO_SI767:
+   Line 1489  
+   if (IS_MAP_CAT_ANY_O(con->mapInfo.currIntwPtr->mappingCategory))
+   {
+       /* ISUPX to Q.767 direct mapping case */
+       siOut->redirInfo.eh.pres = NOTPRSNT;
+       siOut->origCdNum.eh.pres = NOTPRSNT;
+       siOut->usr2UsrInd.eh.pres = NOTPRSNT;
+   }
+
+   Line 2059  
+   if (IS_MAP_CAT_ANY_O(con->mapInfo.currIntwPtr->mappingCategory))
+   { /* ISUPX to Q.767 direct mapping */
+       siOut->redirgNum.eh.pres = NOTPRSNT;
+       ...
+   }
+
+2) FROM_SI767:
+   Line 2090  
+   if ((IS_MAP_CAT_ANY_O(con->mapInfo.currIntwPtr->mappingCategory)) && 
+        con->icIntfcCb && (con->icIntfcCb->protType == CC_SI76792))
+   { /* Q.767 to ISUPX direct mapping */
+       siOut->redirgNum.eh.pres = NOTPRSNT;
+       ...
+       Copy siInc->redirNum to siOut->cgPtyNum
+   }
+
+3) DDI_TO_SIQ767 (including ISUP-IG_TO_SI767)
+   Line 2182
+   if (IS_MAP_CAT_ANY_O(con->mapInfo.currIntwPtr->mappingCategory) && con->ogProtType == CC_SI76792) 
+       /* ISUPX to Q.767 direct mapping */
+   {     
+       siOut->redirgNum.eh.pres = NOTPRSNT;
+       ...
+       Copy siInc->redirNum to siOut->cgPtyNum
+   }
+
+4) Ignore at present
+   Line 2318
+   Line 4034
+   Line 4117
+
+4. Q&A (Flag Share)
+1) Flag Share between ISUP and SIPT
+   a. ISUP_CUST and CCS_CUST or send flag by Event
+   b. Decode/Encode Issues
+2) Flag Share between ISUP and CC

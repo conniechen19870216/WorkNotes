@@ -1,0 +1,126 @@
+1. Sending complete IE is not present in SETUP message.
+2. called party number is not present or its length is less than minDgts in ISDN-IF
+=> overlap (ISDN internal) = TRUE
+
+*************************************************************************************
+
+Test Plan
+Part 1: Basic Overlap Scenarios
+Assumptions: Sending Complete IE is not present in SETUP message.
+(1) No CDPN in SETUP (log: kavon.null)
+(2) CDPN in SETUP < minDgts in ISDN-IF (kavon.less)
+Q1:   TMR_T302 timer started or not ?
+A1:   TMR_TMIN timer started instead of TMR_T302 (Marshell 1)
+(3) CDPN in minDgts <= SETUP < maxDgts in ISDN-IF (kavon.greater)
+
+Note1: kavon.null, kavon.less and kavon.greater are all the same.
+Note2: ISDN state change: S00(ST_NULL)->S01(ST_CALLINIT)->S02(ST_OVLAPSND)
+       CC state change:   S00->S01->S96
+Note3: Initially, maxDigts => IN_SET_WAITINFO(ntc->waitForMoreInfo)
+              And minDigts => start TMR_TMIN or TMR_T302
+Note4: NPPL just replaces maxDigts with its own max and keep minDigts unchanged.
+
+       CcLiCctConInd: set waitForMoreInfo flag
+	         |
+			 |
+			 V
+       ccConE09S01: check waitForMoreInfo flag
+	         |
+			 |
+			 V
+       CcLiCctRscRsp 
+             |
+	     	 |
+	     	 +------ QwUiCctRscRsp
+                      [SETUP ACK Message]
+	     	         if (sndCmplt) 
+	     				 evntType=MI_CALLPROC; 
+	     			 else 
+	     				 evntType=MI_SETUPACK;  
+	     				  |
+	     				  |
+	     				  +------ InUiIntCnStReq
+	     				             |
+	     							 |
+	     							 +------ inNetE29S01 (NMB_MSG + EI_CNST = 26)
+                                              [S01->S02;  Start TMR_TMIN timer]
+                                              ntc->state = ST_OVLAPSND;
+
+	     							         if((pcb->cfg.overlap) &&                                  
+                                                 (!IN_GOT_MINDIGITS(ntc->nmbCdPty, pcb->cfg.minDigits)))
+                                                 inStartNtcTmr(TMR_TMIN, ntc, ntc->dCallCb);
+                                              else
+                                                 inStartNtcTmr(TMR_T302, ntc, ntc->dCallCb);
+
+                                              inGenPdu;
+
+       inNetE19S02
+ 	   [stop TMR_TMIN] <Choice 1>
+ 	   [stop TMR_T302] <Choice 2>
+ 	        |
+ 			|
+ 			+------ if {(1) '#' || (2) CDPN >= maxDigts || (3) Sending Complete}
+ 			            IN_CLR_WAITINFO(ntc->waitForMoreInfo);
+ 					else
+ 						Start TMR_TMIN or TMR_T302
+ 						|
+ 						|
+ 						+------ InUiIntCnStInd
+ 						           |
+ 								   |
+ 								   +------CcLiCctAddrInd (MI_INFO)
+ 								              |
+ 											  |
+ 											  +----- ccConE02S96 (CCE_ADDRIND = 2)
+ 											            |
+ 														|
+ 														+------- ccAddSubsqCalledDigits
+ 														              |
+																	  +------- Return to receive More Information <Choice 3>
+																	  +------- Start To Routing <Choice 4>
+Test Case: Combine <1> <2> with <3> <4> 
+
+Part II: Poland Overlap Scenarioes
+Assumptions: remark = NPPL
+(1) Call Type of SETUP CDPN: International or 00xx and UNKNOWN
+    Expected Results: Follow the basic overlap behaviors
+(2) Rainy case: Poland 21xx < minDigts(5)
+    SETUP CDPN: 2100
+	SETUP CDPN: 21 + INFO CDPN 00
+
+Test case: 1. 00 + UNKNOWN 
+              SETUP 00 (inNetE05S00) 
+			  Normal SETUP + INFO 00 (inNetE19S02)
+           2. International
+		      International SETUP (inNetE05S00)
+              Normal SETUP + International INFO (inNetE19S02)	   
+*************************************************************************************
+
+Dialing considered complete when
+(1) Digits length >= maxDigs
+(2) Sending Complete is received.
+(3) TMR_T302 expires.
+(4) '#' (Marshell 2)
+
+*************************************************************************************
+
+Poland Variant
+[File Overview]
+in_bdy5.c:  inNetE05S00
+in_bdy6.c:  inNetE19S02
+in_bdy9.c： MapDig; inDigMapSrch; inCmpLdNmb
+in_bdy13.c: inScreenCdPtyNum
+
+1. Structure
+typedef struct mapDig
+{
+   U8 num_init[ADRLEN];
+   U8 max;
+} MapDig;               
+
+2. Performance Function
+(1) inScreenCdPtyNum
+(2) inDigMapSrch
+(3) inCmpLdNmb
+
+3. TL1 remark = NPPL

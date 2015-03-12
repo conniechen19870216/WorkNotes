@@ -1,0 +1,1267 @@
+1. type I: structure definition
+(1) Sdp
+typedef Sdp_v_21_1 Sdp;
+typedef struct sdp_v_21_1
+{
+    ElmtHdr               eh;                   /* Element Header */
+    U8                    numDecode;            /* how many MediaStream_t present */
+#ifndef TEST_HARNESS_LMGCC
+#define SDP_SELECT_INIT       0xFF              /* not analyzed yet; init value */
+#define SDP_SELECT_NONE       0x00              /* all rejected */
+#define SDP_SELECT_FIRST      (0x01 << 0)       /* first selected */
+#define SDP_SELECT_SECOND     (0x01 << 1)       /* second selected */
+#define SDP_SELECT_THIRD      (0x01 << 2)       /* third selected */
+#define SDP_SELECT_FOURTH     (0x01 << 3)       /* fourth selected */
+#endif
+    U8                    chosenOne;            /* which media is selected for Use ;; bit field*/
+    MediaStream_t_v_21_1  p[SDP_MAX_MEDIA];     /* parsed (decoded) sdp */
+    SdpRaw_t_v_1_1        r;                    /* raw    (encoded) sdp */
+#if 1                                           /* g726Encode */
+    U8 g726Encode;                              /* MSB or LSB */
+    U8 faxProtocol;                             /* pass thru, T38Fallback, T38Strict */
+#endif
+    TknU32          verOffset;                  /* Constant added to NTP time for o= version */
+    /* BUG: 44033 */
+    TknU64          sessionId;            /* o = session */
+    TknU64          versionId;            /* o = version */
+} Sdp_v_21_1;
+
+(2) MediaStream_t
+typedef struct _MediaStream_t_v_21_1 {
+#ifndef TEST_HARNESS_LMGCC
+#define SDP_MTYPE_NONE     0x00
+#define SDP_MTYPE_AUDIO    0x44  /* IP Audio */
+#define SDP_MTYPE_VIDEO    0x48  /* VIDEO */
+#define SDP_MTYPE_IMAGE    0x55  /* T.38 Fax, IP */
+#define SDP_MTYPE_ATM_AUD  0x66  /* ATM Audio */
+#define SDP_MTYPE_ATM_VID  0x77  /* ATM Video */
+#define SDP_MTYPE_ATM_DAT  0x88  /* ATM Data */
+#define SDP_MTYPE_ATM_APP  0x99  /* ATM Application */
+#define SDP_MTYPE_ATM_CTL  0xaa  /* ATM Control */
+#define SDP_MTYPE_MESSAGE  0xbb  /* Message */ /*FID 14941*/
+#define SDP_MTYPE_AGNOSTIC 0xcc  /* Agnostic '-'*/
+#endif
+   U8 mediaType;
+   U8 agnostic;
+   union
+   {
+      struct
+      {
+#ifdef IPV6SDP
+         struct
+         {
+             U8 pres;
+             ip_addr_t val;
+         } binary;         /* IP addr in binary from c= */
+#else
+         TknU32  binary;         /* IP addr in binary from c= */
+#endif
+         TknStrE ascii;          /* IP addr/FQDN in ASCII from c= */
+         TknU32  port;           /* RTP port from m= field */
+      } ip;
+      struct
+      {
+         TknU8    addType;        /* Address Type: NSAP, E164, GWID */
+         TknStr32 addValue;       /* ATM Adderess */
+      } atm;
+   } address;
+   union
+   {
+        SDP_VOIP_v_21_1  voip;
+        T38_FAX_v_14_1   t38;
+        ATM_AUDIO_v_1_1 audioATM;
+        SDP_VIDEO_v_21_1 video;
+        SDP_MESSAGE_v_16_1 message; /* To support m = message..*/
+   } m;
+   SdpPrecond sdpPrecond;
+} MediaStream_t_v_21_1;
+
+(3) SdpRaw_t_v_1_1
+typedef struct SdpRaw_Tag_v_1_1          /* raw    (encoded) sdp */
+{
+    TknStrVar         buf;               /* allocated buffer */
+} SdpRaw_t_v_1_1;
+
+(4) SDP_VOIP_v_21_1
+typedef struct _Sdp_VOIP_v_21_1
+{
+    /* FID:17221.0 */
+    SdpRtpInfo_v_21_1    rtpInfo;             /* IP addr, port, mode & ptime */
+    U8                   numCodec;            /* how many coded are present ? */
+    SdpCodec_v_21_1      codec[MAX_CODEC_v_6_1];    /* list of codecs/payload types, */
+    SdpToneRelay_v_1_1   toneRelay;           /* RFC 2833 support */
+    SdpEcho_v_16_1       echo;                /* RFC 3108 support, ATM-SDP */
+    SdpSilenceSupp_v_1_1 silenceSupp;         /* RFC 3108 support, ATM-SDP */
+    SdpCodecCfg_2_1      codecCfg[SDP_MAX_CODECCONFIG]; /* RFC:3108, Sec:5.6.3.10 */
+    SdpAMRAttr_v_19_1    amrAttr[MAX_CODEC_v_6_1];/* RFC:4867 support total 10 AMR and AMR-WB attr */
+    SdpExtrAttr_v_16_1   extrAttr;              /* extra a line handling, FID 16087.0 */
+} SDP_VOIP_v_21_1;
+
+(5) SdpCodecCfg_2_1
+typedef struct _SdpCodecCfg_2_1 { /* RFC:3108, Sec:5.6.3.10 */
+      TknU8             orgnId;              /* Organization identifier */
+      TknU8             codecInfo;           /* Codec information */
+      TknStr32          bitMap;              /* Codec configuration bit-map */
+      TknU8             rcvdPayloadType;     /* what payLoadType was rcvd */
+      TknU8             rcvdCodec;           /* single codec information element */
+                                             /* note: last 2 members are just to make sure we can
+                                                encode the same string as rcvd */
+} SdpCodecCfg_2_1;
+
+(6) MgctEventsDescriptor
+typedef struct MgctEventsDescriptor_s_v_18_1
+{
+    U8                                 pres;
+    U32                                requestId;
+    MgctRequestedEvent_v_18_1          *reqEventList;
+} MgctEventsDescriptor_v_18_1;                       
+
+(7) MgctRequestedEvent
+typedef struct MgctRequestedEvent_s_v_18_1
+{
+    struct MgctRequestedEvent_s_v_18_1  *next;
+    MgctPkgdName_v_18_1                 name;
+    MgctEventParameter_v_18_1           *eventParameterList;
+} MgctRequestedEvent_v_18_1;
+
+(8) MgctPkgdName    
+typedef struct MgctPkgdName_s_v_18_1    
+{       
+    MgctPackageId_v_18_1                pkgId;
+    MgctItemId_v_18_1                  itemId;
+} MgctPkgdName_v_18_1;                            
+
+typedef MgctPkgdName_v_18_1 MgctSignalName_v_18_1;
+
+(9) MgctEventParameter
+typedef struct MgctEventParameter_s_v_18_1
+{
+    struct MgctEventParameter_s_v_18_1  *next;
+    MgctEventParameterType_v_14_1        type;
+    union
+    {
+        MgctEmbedWithSig_v_18_1         embedWithSig;    /* MGCT_EVENT_PARAM_ESIG, with embed signals+events descriptor */
+        MgctEmbedNoSig_v_18_1           embedNoSig;  /* MGCT_EVENT_PARAM_ENOSIG, with embed events descriptor */
+        MgctEmbedSig_v_18_1             embedSig;    /* MGCT_SECOND_EVENT_ESIG, with embed signals descriptor */
+        MgctKeepActive_v_1_1            keepActive;
+        MgctEventDM_v_3_1               eventDM;
+        MgctEventOther_v_18_1           eventOther;
+        MgctSigEventStreamID_v_14_1      streamID;
+    } u;
+} MgctEventParameter_v_18_1;
+
+typedef MgctEventParameter_v_18_1 MgctSecondEventParameter_v_18_1;
+
+###################################################################################################
+(10) CcConCb -> CcMgBlock_t -> CcMgCtx_t -> CcMgCmdQ_t -> MgctMediaDesc -> MgctStreamDesc(by streamId) -> MgctMediaParm (Local. Remote, Local Control) 
+     -> MgctLocalDesc/MgctRemoteDesc/MgctLocalCntrlDesc -> Sdp
+                                                                                                ||
+(11) MgctTxnReq -> MgctAction -> MgctCmd/MgctContextProperties -> MgctDesc -> MgctMediaDesc <====
+
+2. type II: structure definition
+(1) MgctTxnReq
+typedef struct MgctTxnReq_s_v_21_1
+{
+    U32                 transId;
+    U32                 flags;
+    U32                 transCorr; /* needed by MMM to build transaction response */
+    MgctAction_v_21_1   *actionList;                                                
+    U8                  partitionId; /* MG partition ID */
+    U8                  congCorr;    /* Bug: 66156 Now making use of mbz1. */ 
+    U16                 mbz2; /* Reserved -- Must Be Zero! */
+    U32                 mbz3; /* Reserved -- Must Be Zero!  */
+} MgctTxnReq_v_21_1;
+
+(2) MgctAction
+typedef struct MgctAction_s_v_21_1
+{
+    struct MgctAction_s_v_21_1   *next;
+    U32                          suCtxId;
+    U32                          contextId;
+    MgctContextProperties_v_1_1  contextProps;
+    MgctCmd_v_21_1               *cmdList;
+} MgctAction_v_21_1;
+
+(3) MgctCmd
+typedef struct MgctCmd_s_v_21_1           
+{
+    struct MgctCmd_s_v_21_1       *next;
+    CmMglWild_t                   termId;
+    MgctTermSubType_v_1_1         subType;
+#if 1 /* FID 1886 */
+    MgctCmdType_v_14_1            cmdType;
+#endif
+    MgctDesc_v_21_1               desc;
+    U32                           flags;
+    U32                           eos;
+} MgctCmd_v_21_1;
+
+(4) MgctDesc
+typedef struct MgctDesc_s_v_21_1
+{
+    MgctEventsDescriptor_v_18_1   eventsDesc;
+    MgctSignalsDescriptor_v_18_1  signalsDesc;
+    MgctMediaDesc_v_21_1          mediaDesc;    
+    MgctDigitMapDescriptor_v_4_1  *digitMapDesc;
+    MgctServiceChgDesc_v_11_1     svcDesc;
+    MgctAuditDesc_v_1_1           auditDesc;
+    MgctAtmDesc_v_1_1             atmDesc;
+} MgctDesc_v_21_1;
+
+(5) ProtoInfo
+typedef struct protoInfo_v_14_1 {    /* Protocol specific Info for SDP */
+   Bool        isMpTime;      /* ptime or mptime to be used */
+   TknStr      sessionName;   /* sessionName, if NOT_PRSNT "-" will be used */
+   TknStr65    ipOrig;        /* IP addr for the origin field */
+   Bool        h248;          /* Use H.282 encoding.  On ADD:  Use CHOOSE for IP addr, ommit s=, t=, and o= */
+} ProtoInfo_v_14_1;                                                                                           
+
+3. Tx SDP Operations (BICC2SIP Call)
+#define SDP_SET_NOTPRSNT(sdp)                   \
+   {                                            \
+   void *p_sdp = (void *)sdp;                   \
+   if (p_sdp)                                   \
+      {                                         \
+         U8 _tt_;                               \
+         (sdp)->eh.pres = NOTPRSNT;             \
+         (sdp)->numDecode =0;                   \
+         (sdp)->chosenOne = SDP_SELECT_INIT;    \
+         for(_tt_=0;_tt_<SDP_MAX_MEDIA;_tt_++)  \
+            (sdp)->p[_tt_].mediaType =          \
+                               SDP_MTYPE_NONE;  \
+         (sdp)->r.buf.pres = NOTPRSNT;          \
+         (sdp)->r.buf.len = 0;                  \
+         (sdp)->r.buf.size = 0;                 \
+         (sdp)->r.buf.val = NULL;               \
+      }                                         \
+   }
+
+================================ ccProcessAuthTermSwtReqTrue ====================================
+(1) local/remote SDP: 
+cmCreateBiccSdp(ccInit.region, ccInit.pool, mediaType, 1, codecVal, &locBiccSdp);
+cmCreateBiccSdp(ccInit.region, ccInit.pool, mediaType, 1, codecVal, &rmtBiccSdp);
+
+(2)_/* build the local control descriptor for 3GUP */
+mgctLocCtrlDescSet(con, &(con->ctl), pIcMediaDesc, MGCT_3GUP_INIT_DIR_IN, MGCT_BCP_BNCCHAR_IPRTP);
+
+(3) ingress/egress MgctMediaDesc->MgctMediaStream: mgctMediaDesc
+a) ingress => China BICC
+mgctMediaDesc(&(con->ctl), NOTPRSNT, icMode, ingrEchoPres, ingrEchoTail,
+           |                ingrEchoCntrlNLP, ingrEchoCntrlType, 0, FALSE, 0, DSVal, locBiccSdp,
+           |                rmtBiccSdp, pIcTermStateDesc, pIcMediaDesc);
+           |
+           |
+           |
+           +------- mgctStreamDesc(ctl, pres, mode, echo_pres, echoTail, echoCntrlNLP, 
+                           |       echoCntrlType, realmId, pol, pdr, DSVal, local, rem,
+                           |       mediaDesc->streamDescList);
+                           |
+                           |
+                           +------- 1. local control descriptor 2. local descriptor 3. remote descriptor
+
+b) egress => SIP
+mgctMediaDesc(&(con->ctl), NOTPRSNT, ogMode,  egrEchoPres, egrEchoTail,
+            egrEchoCntrlNLP, egrEchoCntrlType, 0, FALSE, 0, DSVal, NULLP,
+            NULLP, pOgTermStateDesc, pOgMediaDesc);
+
+
+(4) event descriptor if fast forward
+ccBuildMgctEventsDescriptorForBicc(con, con->icSuConnId, MGCT_EVT_GB_BNCCHANGE_EST, TRUE, TRUE, &icEvDesc)
+
+
+(5) mgCmdQ->mediaDesc
+ccProcessForAddModify(con, tmpBcm, tmpOgBcm,
+           |         MGCT_CMD_ADD,
+           |         icMode, ogMode,
+           |         MGCT_ITEM_ID_CG_MAX,
+           |         MGCT_ITEM_ID_CG_MAX,
+           |         pIcMediaDesc, pOgMediaDesc,
+           |         pIcEvDesc, pOgEvDesc);
+           |
+		   |
+           |<1. BtTBcm, 2. BtOBcm>
+           |
+		   +------- ccUpdateMgQForAddOrModifyRsc(mode[i], MGCT_PACKAGE_ID_CG, signal[i], mgiAction,
+                        |            pBcm[i], evDesc[i], NULLP, NULLP, NULLP,
+                        |            mediaDesc[i], suCtxId,
+                        |            MGCT_CONTEXT_CHOOSE, con);
+                        |
+                        +------ ccDumpMgctMediaDesc(mediaDesc);
+                        |
+                        |<TBcm> /* Put CcMgCtx_t into CcMgBlock_t and AinBCM_t */
+                        +------ SGetSBuf(ccInit.region, ccInit.pool, (Data **) &tmpMgCtx,
+                        |                (Size) sizeof(CcMgCtx_t));
+                        |       cmMemset((U8 *) tmpMgCtx, 0, sizeof(CcMgCtx_t));
+                        |           
+                        |       tmpMgCtx->suCtxId   = ccGetNewsuCtxId();
+                        |       tmpMgCtx->contextId = contextId;
+                        |       tmpMgCtx->mgSapCb   = mgSapCb;
+                        |       tmpMgCtx->mgBlock   = con->mgBlock; <<<<<<< CcMgBlock_t >>>>>>
+                        |       tmpMgCtx->next      = NULLP;
+                        |       
+                        |       GCC_CHECK_MGBLOCK (con->mgBlock);    
+                        |       ret = cmHashListInsert(&ccMgctInsTbl, (PTR) tmpMgCtx,
+                        |                              (U8 *)&(tmpMgCtx->suCtxId),
+                        |                              (U16)sizeof(U32));
+                        |
+                        |       bcm->mgCtx = tmpMgCtx;   <<<<<<< AinBCM_t >>>>>>
+                        |
+                        |       /* Link it to the tail of the mgBlock's mgCtx list */
+                        |       if(con->mgBlock->mgCtx == NULLP)
+                        |       {
+                        |         CCDP(AIN_DBG_LEVEL_0, "First MgCtx in MgBlock!\n");
+                        |         con->mgBlock->mgCtx       =  tmpMgCtx;
+                        |         tmpMgCtx                  =  NULLP;
+                        |         mgCtx                     =  con->mgBlock->mgCtx;  
+                        |       }
+                        |       else
+                        |       {
+                        |         mgCtx = con->mgBlock->mgCtx;   
+                        |         
+                        |         while(mgCtx && mgCtx->next)    
+                        |         {                
+                        |           mgCtx = mgCtx->next;
+                        |         }
+                        |       
+                        |         mgCtx->next               = tmpMgCtx;
+                        |         tmpMgCtx                  = NULLP;
+                        |         mgCtx                     = mgCtx->next;
+                        |       }
+                        |
+                        |<OBcm>
+                        +------ cmHashListFind(&ccMgctInsTbl, (U8 *)&suCtxId, (U16)sizeof(U32),
+                        |                      (U16)0, (PTR *)&mgCtx);
+                        |       if (bcm->mgCtx == NULLP)
+                        |       {
+                        |         bcm->mgCtx = mgCtx;
+                        |       }
+                        |
+                        |<TBcm>
+                        +------ /*FID 16458.0*/
+                        |       if(!(bcm->bcmType == BtOBcm && CC_GET_PROTOCOL(bcm->con->icProtType) == CC_EXT_BICC) &&
+                        |          !(bcm->bcmType == BtTBcm && CC_GET_PROTOCOL(bcm->con->ogProtType) == CC_EXT_BICC))
+                        |       
+                        |       { 
+                        |         ccFillMgctSdp(ccInit.region, ccInit.pool, cmdType, bcm, &loc, &rem);                 
+                        |       }        |
+                        |                |
+                        |                |
+                        |                +------ CCDP(AIN_DBG_LEVEL_0, "%s: Building Local SDP using SDP profile\n", __FUNCTION__);
+                        |                |       ccGetMgiLocDesc(region, pool, bcm, locDesc);
+                        |                |               |
+                        |                |               |
+                        |                |               +------ cmCreateSdp: create an SDP structure
+                        |                |               |
+                        |                |               +------ <<<<<<<<<<< ccFillSdpProfile(*tgtSdp, sdpCb, bcm, needClearChannel, vbdFlag); >>>>>>>>>>
+                        |                |               |
+                        |                |               +------ if (AIN_DBG_LEVEL_0>=inDbgMsk)
+                        |                |                       {
+                        |                |                         cmSdpPrint(suConnId, *tgtSdp); 
+                        |                |                       }
+                        |                |                
+                        |                |                
+                        |                |                
+                        |                +------ /* Map G726 Codecs in Remote Descriptor */ (not used here)
+                        |                        ccMapMGSdpG726Codec(bcm, NULLP, NULLP, *rmtDesc);
+                        |
+                        |
+                        +------ mgCmdQ = ccAllocateMgCmdQ(mgCtx);
+                        |
+                        |       /* Build the mgCmdQ */               
+                        |       mgCmdQ->suCtxId   = mgCtx->suCtxId;
+                        |       mgCmdQ->contextId = mgCtx->contextId;
+                        |       mgCmdQ->termId    = wildTermId;
+                        |       mgCmdQ->cmdType   = cmdType;
+                        |       mgCmdQ->mode      = mode;
+                        |
+                        |
+                        |
+                        +------ mgctMediaDesc(&(con->ctl), NOTPRSNT, mode, NOTPRSNT, 0,
+                        |           TGP_NLP_MAX, TGP_EC_MAX, (includeIpdc?realmId:0), (pdr&&bwPolInd), pdr, DSVal,
+                        |           loc, rem, (inlcudeTermState == TRUE) ? termStateDesc : NULLP,
+                        |           mediaDesc);
+                        |
+                        |
+                        +------ 1. Media: cmMemcpy((U8*)&(mgCmdQ->mediaDesc), (U8*) mediaDesc, sizeof(MgctMediaDesc));
+                        |
+                        |
+                        +------ 2. Events: /* Build the event desc using the eventsDesc */
+                        |                  if (eventsDesc)
+                        |                    cmMemcpy((U8*)&(mgCmdQ->event), (U8*) eventsDesc, sizeof(MgctEventsDescriptor));
+                        |
+                        |
+                        +------ mgCmdQ->con       = con;
+                                mgCmdQ->bcm       = bcm;
+                                mgCmdQ->mgCtx     = bcm->mgCtx;
+
+
+(6) mgCmdQ->mediaDesc => cmdList->desc.mediaDesc
+ccSendMgiQueue
+           |
+           |
+           +-------- cmMemset((U8 *)&(mgctTxnReq), 0, sizeof(MgctTxnReq));
+           +-------- mgctTxnReq.transId = mgCmdQ->suCtxId;
+           +-------- ccBuildActionList: mgctTxnReq (MgctTxnReq) ->actionList (MgctAction)
+           |            |
+           |            | <loop twice for egress and ingress>
+           |            |
+		   |			+------ ccBuildContextProps: actionList->contextProps.ctxPropList
+           |            |
+           |            |
+           |            +------ ccBuildCmdList: actionList->cmdList (MgctCmd)
+           |                         |
+           |                         |
+           |                         |
+           |                         |
+           |                         +------- cmdList->termId           = mgCmdQ->termId;
+           |                                  cmdList->cmdType          = mgCmdQ->cmdType;
+           |                                  
+           |                                  /* Build various descriptors */
+           |                                  cmMemcpy((U8*)&(cmdList->desc.eventsDesc), (U8*)&(mgCmdQ->event),
+           |                                           sizeof(MgctEventsDescriptor));                                
+           |                                  cmMemcpy((U8*)&(cmdList->desc.signalsDesc), (U8*)&(mgCmdQ->signalDesc),
+           |                                           sizeof(MgctSignalsDescriptor));
+           |                                  cmMemcpy((U8*)&(cmdList->desc.digitMapDesc), (U8*)&(mgCmdQ->digitMap),
+           |                                           sizeof(MgctDigitMapDescriptor));
+           |                                  cmMemcpy((U8*)&(cmdList->desc.mediaDesc), (U8*)&(mgCmdQ->mediaDesc),
+           |                                           sizeof(MgctMediaDesc));
+           |
+           |
+           |
+           +-------- MgiLiMgctTxnReq(&(mgCtx->mgSapCb->cb.pst), mgCtx->mgSapCb->cb.suId,
+                                     &mgctTxnReq, &(mgCtx->mgSapCb->version), pCallTrcId);
+
+
+(7) MgiLiMgctTxnReq(_real)
+           |
+           |
+           |
+           +--------- SGetMsg(pst->region, pst->pool, &mBuf)
+           |          pst->event = (Event) MGCT_EVT_TXN_REQ;
+           |
+           |
+           +--------- ret = MGCT_PACK_FROM_PTR (action);
+           |          MGCT_CHECK_PACK;
+           |          <mgctPackAction>
+		   |          action = txnReq->actionList;
+           |          while (action)
+           |          {
+           |              ret = mgctPackAction (mBuf, action, mgctVersion);
+           |              MGCT_CHECK_PACK;
+           |              action = action->next;
+           |          }       |
+           |                  |
+           |                  |
+           |                  +------- <mgctPackCmd>
+           |                           cmd = action->cmdList;
+           |                           while (cmd)
+           |                           {
+           |                               ret = mgctPackCmd (mBuf, cmd, mgctVersion);
+           |                               MGCT_CHECK_PACK;
+           |                               cmd = cmd->next;
+           |                           }         |
+           |                                     |
+           |                                     |
+           |                                     +------- ret = MGCT_PACK_FROM_PTR (cmd);
+           |                                              MGCT_CHECK_PACK;               
+           |                                              <mgctPackDesc>
+		   |									          ret = mgctPackDesc (mBuf, &cmd->desc, mgctVersion);
+           |                                                     |
+           |                                                     |
+           |                                                     +-------- <mgctPackEventsDesc>
+		   |													 |         ret = mgctPackEventsDesc (mBuf, &desc->eventsDesc, mgctVersion);
+           |                                                     |
+           |                                                     |
+           |                                                     +-------- <mgctPackMediaDesc>
+		   |													           ret = mgctPackMediaDesc (mBuf, &desc->mediaDesc, mgctVersion);
+           |                                                                   |
+           |                                                                   |
+           |                                                                   +------- <mgctPackStreamDesc>
+           |                                                                            while (streamDesc)
+           |                                                                            {
+           |                                                                                ret = mgctPackStreamDesc (mBuf, streamDesc, mgctVersion);
+           |                                                                                MGCT_CHECK_PACK;
+           |                                                                                streamDesc = streamDesc->next;
+           |                                                                            }        |
+           |                                                                                     |
+           |                                                                                     |
+           |                                                                                     |
+           |                                                                                     +------- ret = MGCT_PACK_FROM_PTR (streamDesc);
+           |                                                                                              MGCT_CHECK_PACK;
+           |                                                                                              <mgctPackMediaParm>
+		   |																                              mediaParm = streamDesc->mediaParmList;
+		   |																                              while (mediaParm)
+		   |                                                                                              {
+		   |                                                                                                    ret = mgctPackMediaParm (mBuf, mediaParm, mgctVersion);
+		   |                                                                                               	    MGCT_CHECK_PACK;
+		   |                                                                                               		mediaParm = mediaParm->next;
+		   |                                                                                              }     |
+		   |																                      		        |
+		   |																                      		        |
+		   |																                      		        +------ ret = MGCT_PACK_FROM_PTR (mediaParm); <including MGCT_MEDIA_LOCAL_CONTROL>
+           |                                                                                                            MGCT_CHECK_PACK;
+           |                                                                                                            <mgctPackLocalDesc, mgctPackRemoteDesc>
+           |                                                                                                            case MGCT_MEDIA_LOCAL:
+           |                                                                                                                 ret = mgctPackLocalDesc (mBuf, &mediaParm->u.localDesc, mgctVersion);
+           |                                                                                                                 break;
+           |                                                                                                                    |
+           |                                                                                                                    +------- sdp_encode(localDesc->sdp, &h248_proto_info)
+           |                                                                                                                    |
+           |                                                                                                                    +------- mgctPackSdp (mBuf, &localDesc->sdp, mgctVersion)
+           |                                                                                                               
+           |                                                                                                            case MGCT_MEDIA_REMOTE:
+           |                                                                                                                 ret = mgctPackRemoteDesc (mBuf, &mediaParm->u.remoteDesc, mgctVersion);
+           |                                                                                                                 break;
+           |                                                                                                                    |
+           |                                                                                                                    +------- sdp_encode(remoteDesc->sdp, &h248_proto_info)
+           |                                                                                                                    |
+           |                                                                                                                    +------- mgctPackSdp (mBuf, &remoteDesc->sdp, mgctVersion)
+           |
+           |
+           |<Send out SDP>
+           +--------- (void) SPstTsk(pst, mBuf)
+
+(8) sdp_encode
+         |
+         |
+         |
+         +------ /* BUG:58329, 08/17/2007 */
+         |       if (sdp->chosenOne == SDP_SELECT_INIT)
+         |       {
+         |           sdp->chosenOne = SDP_SELECT_NONE;
+         |       }
+         |
+         |       for (i = 0; i < SDP_MAX_MEDIA; ++i)
+         |       {
+         |           media_array [i] = &sdp->p[i];
+         |       }
+         |
+         |
+         +------ sdp_encode_real(media_array, sdp->numDecode, sdp->chosenOne, &sdp->r, protoInfo, &sdp->verOffset, &sdp->sessionId, &sdp->versionId, TRUE NBB_CCXT)
+                 offset = 0;
+                 sdpStr = r->buf.val;
+                 U8 *sdp_eol = "\r\n"; (Producing ^M)
+
+                 /* Take BICC|SIP SDP as examples */
+                 (a) v=0
+                     /*------------------------------------------------------------------------*/
+                     /* Protocol version => v=0                                                */
+                     /*------------------------------------------------------------------------*/
+                     offset += sprintf(sdpStr+offset, "%s%s", PROTOCOL_VER, sdp_eol);
+
+                 (b) <BICC: c=IN IP4 -> | <SIP: c=IN IP4 $> <<<<<<<<=============
+                 (c) <BICC: m=audio - - -> | <SIP: m=audio $ RTP/AVP 96 8 0>   ==============>>>>>>>> codecMapTbl <<<<<<<<=============
+                     oneConnection = sdpCompareIP(*pp, numDecode);
+
+                     if(oneConnection == TRUE && connAdded == FALSE)
+                     {
+                         connAdded = TRUE;
+                         if((ret = add_connectionLine(&offset, sdpStr, parsed, protoInfo)) != ROK)
+                             RETVALUE(ret);
+                         if ((protoInfo == NULL) || (protoInfo->h248 != TRUE))
+                             offset += sprintf(sdpStr+offset, "%s%s", "t=0 0", sdp_eol);
+                         if((ret = add_mediaLine(&offset, sdpStr, parsed, voip, protoInfo)) != ROK)
+                             RETVALUE(ret);
+                     }
+                     else
+                     {
+                         if((ret = add_mediaLine(&offset, sdpStr, parsed, voip, protoInfo)) != ROK)
+                             RETVALUE(ret);
+                         if (oneConnection == FALSE)
+                         {
+                            if((ret = add_connectionLine(&offset, sdpStr, parsed, protoInfo)) != ROK)
+                                RETVALUE(ret);
+                         }
+
+                     }
+
+                 (d) <BICC: a=codecconfig:0101> | 
+                     <SIP:  a=rtpmap:96 AMR/8000^M
+                            a=fmtp:96 mode-change-capability=2^M
+                            a=rtpmap:8 PCMA/8000^M              
+                            a=rtpmap:0 PCMU/8000^M
+                            a=silenceSupp:off - - - -^M>
+
+                     /*------------------------------------------------------------------------*/
+                     /* a=codecconfig:<Organization identifier><Codec information>             */
+                     /* Doc: 79-xxxx-01 "WAG NbUP protocol design", by kumarb                  */
+                     /*------------------------------------------------------------------------*/
+                     for(codecCfgIdx=0;codecCfgIdx<SDP_MAX_CODECCONFIG;codecCfgIdx++)
+                     {
+                         Bool add_codecCfg = FALSE;
+                         if (codecCfg[codecCfgIdx] == TRUE) /* means no payloadType matched with rcvdPayloadType */
+                         {
+                             DP("SDP_ERROR: no PayloadType matched with rcvdPayloadType\n");
+                             RETVALUE(RSDP_BAD_CODECCFG);
+                         }
+                     
+                         if((parsed->address.ip.port.pres == PRSNT_NODEF) &&
+                                           (parsed->address.ip.port.val == -1) &&
+                                            (voip->numCodec == 0)) /* telica add */
+                         {
+                             add_codecCfg = TRUE;
+                         }
+                         else if (voip->codecCfg[codecCfgIdx].rcvdPayloadType.pres == PRSNT_NODEF &&
+                            voip->codecCfg[codecCfgIdx].rcvdCodec.pres == PRSNT_NODEF)
+                         {
+                             add_codecCfg = TRUE;
+                         }
+                     
+                         if(add_codecCfg)
+                         {
+                             if (voip->codecCfg[codecCfgIdx].orgnId.val < 0x01 ||
+                               voip->codecCfg[codecCfgIdx].orgnId.val > 0x02)
+                             {
+                                 DP("SDP Warning: codecCfg values Out of range orgnId:%d\n",
+                                 voip->codecCfg[codecCfgIdx].orgnId.val);
+                             }
+                             else /* encode it */
+                             {
+                                 offset += sprintf(sdpStr+offset, "%s", "a=codecconfig:");
+                                 offset += sprintf(sdpStr+offset, "%02x%02x",
+                                 voip->codecCfg[codecCfgIdx].orgnId.val, voip->codecCfg[codecCfgIdx].codecInfo.val);
+                                 if (voip->codecCfg[codecCfgIdx].bitMap.pres == PRSNT_NODEF)
+                                 {
+                                     offset += sprintf(sdpStr+offset, "%s",
+                                                               voip->codecCfg[codecCfgIdx].bitMap.val);
+                                 }
+                                 /* terminate the string */
+                                 offset += sprintf(sdpStr+offset, "%s", sdp_eol);
+                             }
+                         }
+                         
+                         add_codecCfg = FALSE;
+
+                     /*------------------------------------------------------------------------*/
+                     /* rtpmap => a=rtpmap:<payload type>                                      */
+                     /*             <encoding name>/<clock rate>[/<encoding parameters>]       */
+                     /*------------------------------------------------------------------------*/
+                     for (i=0; ((i<voip->numCodec) && (i<MAX_CODEC)); i++)
+                     {
+                         /* Bug 54480: Skip this codec if payload type is INVALID */
+                         if (voip->codec[i].payloadType == SDP_PTYPE_INVALID)
+                         {
+                            continue;
+                         }
+                     
+                         if (voip->codec[i].codec.pres != PRSNT_NODEF)
+                         {
+                             if (sdpIsStatic(voip->codec[i].payloadType) == TRUE)
+                             {
+                                 voip->codec[i].codec.pres = PRSNT_NODEF;
+                                 voip->codec[i].codec.val = voip->codec[i].payloadType;
+                             }
+                             else                                                                            
+                             {
+                                 DP("SDP_ERROR: codec is not present for payloadType=%d\n",
+                                           voip->codec[i].payloadType);
+                             }
+                         }
+                         else /* if codec (for rtpmap) present */
+                         {
+                             if ((sdpIsStatic(voip->codec[i].payloadType) == TRUE) &&
+                                 (voip->codec[i].codec.val != voip->codec[i].payloadType))
+                             {
+                                 for(codecCfgIdx=0;codecCfgIdx<SDP_MAX_CODECCONFIG;codecCfgIdx++)
+                                 {
+                                     if (voip->codecCfg[0].rcvdPayloadType.pres == PRSNT_NODEF &&
+                                         voip->codec[i].payloadType == voip->codecCfg[0].rcvdPayloadType.val)
+                                     {
+                                         /* it is OK for 3gpp */
+                                     }
+                                     else
+                                     {
+                                         continue;
+                                     }            
+                                 }
+                             }
+                         }
+
+                         if ((voip->codec[i].clockRate.pres != PRSNT_NODEF) ||
+                             (voip->codec[i].clockRate.val == 0))
+                         {
+                             ...
+                             voip->codec[i].clockRate.val = SDP_CLOCK_RATE_DEFAULT;
+                             ...
+                         }
+
+                         /* <payload type> */
+                         offset += sprintf(sdpStr+offset, "a=rtpmap:%d ", voip->codec[i].payloadType);
+
+                         /* <encoding name> */
+                         if (sdpGetMime (j, sdpStr+offset, &mimeLen) == ROK)
+                         {
+                             offset += mimeLen;
+                         }
+
+                         offset += sprintf(sdpStr+offset, "/%lu", voip->codec[i].clockRate.val);
+
+                         /* AMR */
+                         /* FID 14551.0 */
+                         if (voip->amrAttr[num_amrAttr].modeChangePeriod.pres == PRSNT_NODEF)
+                         {
+                             if (voip->amrAttr[num_amrAttr].modeSet.pres == PRSNT_NODEF)
+                                 offset += sprintf(sdpStr+offset, "; %s", SDP_MODE_CHANGE_PERIOD);
+                             else
+                             {
+                                 offset += sprintf(sdpStr+offset, "%s", SDP_MODE_CHANGE_PERIOD);
+                                 amrFlag = TRUE;
+                             }
+                         
+                             offset += sprintf(sdpStr+offset, "%d", voip->amrAttr[num_amrAttr].modeChangePeriod.val);
+                         }
+                         ...
+                     }
+
+                     /*------------------------------------------------------------------------*/
+                     /* silence Supressor as given in  RFC:3108 - ATM-SDP  => a=silenceSupp:   */
+                     /*   <silenceSuppEnable> <silenceTimer> <suppPref> <sidUse> <fxnslevel>   */
+                     /*------------------------------------------------------------------------*/
+                     if (voip->silenceSupp.enb.pres == PRSNT_NODEF)
+                     {
+                         offset += sprintf(sdpStr+offset, "%s", "a=silenceSupp:");
+                         switch(voip->silenceSupp.enb.val)
+                         {
+                             case SDP_SIS_ENB_ON:
+                                 offset += sprintf(sdpStr+offset, "%s", SDP_SIS_ENB_ON_VAL);
+                                 break;
+                             case SDP_SIS_ENB_OFF:
+                                 offset += sprintf(sdpStr+offset, "%s", SDP_SIS_ENB_OFF_VAL);
+                                 break;
+                             default:
+                                 DP("SDP_ERROR:Unknown type silSupp=%d rcvd, assuming \"off\"\n",
+                                      voip->silenceSupp.enb.val);
+                                 offset += sprintf(sdpStr+offset, "%s", SDP_SIS_ENB_OFF_VAL);
+                                 break;
+                         }
+                         /* see all rest perameters as UNKNOWN => '-' */
+                         offset += sprintf(sdpStr+offset, " - - - -%s", sdp_eol);
+                     }
+
+(9) mgctPackSdp: Pack raw data or decoded media stream (Only one type of SDP data)
+
+mgctSdp.eh        = sdp->eh;                                           
+if (!sdp->r.buf.pres)                                                  
+    mgctSdp.numDecode = sdp->numDecode;                                
+else                                                                   
+    mgctSdp.numDecode = 0;                                             
+mgctSdp.chosenOne = sdp->chosenOne;                                    
+mgctSdp.verOffset = sdp->verOffset;                                    
+mgctSdp.next      = NULL;                                              
+                                                                       
+for (i = 0; (i < SDP_MAX_MEDIA); ++i)                                  
+{                                                                      
+    mgctSdp.p [i] = NULL;                                              
+                                                                       
+    if ((sdp->p [i].mediaType != SDP_MTYPE_NONE) && (!sdp->r.buf.pres))
+    {                                                                  
+        mgctSdp.p [i] = &sdp->p [i];                                   
+    }                                                                  
+}                                                                      
+                                                                       
+mgctSdp.r = sdp->r;                                                    
+
+/* FID 15682.0 only pack the real length of raw sdp. Save space from null data */  
+if(mgctSdp.r.buf.pres)                                                             
+{                                                                                  
+    MGCT_INFO("Old size of raw sdp =[%d]\n",mgctSdp.r.buf.size);                   
+    mgctSdp.r.buf.size = ((mgctSdp.r.buf.len + 1)>mgctSdp.r.buf.size)?mgctSdp.r.buf.size : (mgctSdp.r.buf.len + 1);
+    MGCT_INFO("Packed size of raw sdp =[%d]\n",mgctSdp.r.buf.size);                
+}
+
+ret = MGCT_PACK_FROM_PTR (&mgctSdp);
+MGCT_CHECK_PACK;
+
+/* No conversion required. */
+for (i = 0; i < SDP_MAX_MEDIA; ++i)
+{
+    if (mgctSdp.p[i] != NULL)
+    {
+        ret = MGCT_PACK_FROM_PTR (mgctSdp.p [i]);
+        MGCT_CHECK_PACK;
+    }
+}
+
+if (mgctSdp.r.buf.pres)
+{
+    /* FID 15682.0 only pack the real length of raw sdp. Save 
+
+    ret = MGCT_PACK_SIZE (sdp->r.buf.val, mgctSdp.r.buf.size);
+    MGCT_CHECK_PACK;
+}
+
+4. Rx SDP Operations: (BICC2SIP Call) BtOBcm --> bcm->con->icIpParam; BtTBcm --> bcm->con->ogIpParam
+(1) Type1: Structures
+typedef struct MgctTxnCfm_s_v_21_1
+{
+    SuId                               suId;
+    U32                                transId;
+    U32                                transCorr;   /* needed by MMM to build transaction response */
+    MgctTxnStatus_v_4_1                status;
+    MgctVsmResourceArray_t_v_3_2       rscCounts;
+    MgctActionReply_v_21_1             *replyList;
+    U8                                 partitionId; /* MG partition ID */
+    U8                                 congCorr;    /* Bug: 66156 Now making use of mbz1. */
+#if defined (TELICA_MGCT_GCC) || defined (TELICA_DCL_MGI)
+    U8                                 mbz1;        /* Reserved -- Must Be Zero!  for MEGAA usage */
+#else
+    U8                                 flags;       /* flags bits used for none H248 purposes */
+#endif
+    U8                                 mbz2;        /* Reserved -- Must Be Zero!  */
+    U32                                mbz3;        /* Reserved -- Must Be Zero!  */
+} MgctTxnCfm_v_21_1;                                                                                 
+
+typedef struct MgctActionReply_s_v_21_1
+{
+    struct MgctActionReply_s_v_21_1  *next;
+    MgctActionReplyType_v_1_1        type;
+    U32                              suCtxId;
+    U32                              contextId;
+    union
+    {
+        MgctCommandReply_v_21_1      *replyList;
+        MgctErrorDesc_v_15_1         error;
+    } u;
+} MgctActionReply_v_21_1;
+
+typedef struct MgctCommandReply_s_v_21_1
+{
+    struct MgctCommandReply_s_v_21_1   *next;
+#if 1 /* FID 1886 */
+    MgctCmdType_v_14_1                 cmdType; /* the type of command that was executed */
+    MgctCmdReplyType_v_14_1            type;    /* the type of descriptor that has been returned */
+#endif
+    CmMglWild_t                        termId;
+    union
+    {
+        MgctReplyDesc_v_21_1           reply;
+        MgctErrorDesc_v_15_1           error;
+        MgctVsmBlobInfoDesc_v_1_1      blob;
+        MgctVsmBlobV2InfoDesc          blobV2;
+        MgctVsmBlobV3InfoDesc          blobV3; 
+#if 1  /* FID 1886 */
+        MgctVsmRscStats_v_7_1          vsmRscStats;
+#endif
+    } u;
+} MgctCommandReply_v_21_1;
+
+typedef struct MgctReplyDesc_s_v_21_1
+{
+#if defined (TELICA_MGCT_GCC) || defined (TELICA_DCL_MGI)
+    MgctMediaDesc_v_21_1               mediaDesc;
+    MgctStatistics_v_10_1              *stats;
+    MgctOptionalDesc_v_7_1             optionalDesc;  /* proprietary information */
+#else
+    MgctLocalDesc_v_21_1               local;
+    MgctRemoteDesc_v_21_1              remote;
+    MgctStatistics_v_10_1              *stats;
+    MgctTermStateDesc_v_18_1           termStateDesc;
+    MgctMode_v_1_1                     mode;
+    MgctOptionalDesc_v_7_1             optionalDesc;  /* proprietary information */
+#endif
+} MgctReplyDesc_v_21_1;
+
+(2) Type2: Structures
+
+(3) Function Call Flow <MgiUnpkMgctTxnCfm(pst, mBuf, FALSE, MgiLiMgctTxnCfm, &pMgSapCb->version)>
+/* Build the context from the mgctTxnCfm */
+ccHandleMgResponse
+        |
+        |
+        +-------- replyList = txnCfm->replyList;
+        +-------- cmdRspList = replyList->u.replyList;
+        |
+        |
+        +-------- mgCmdPointer = ccFindMgCmdQFromCmdRspList(mgCtx, cmdRspList, replyList);
+        |
+        |
+        +-------- ccExecuteMgCmdQ_On_MgCtx(mgCtx, mgCmdPointer, cmdRspList, replyList, txnCfm->status);
+        |               |
+        |               |
+        |               +------- ccUpdateCcConCbForAddReq
+        |   			|                |
+        |   			|   			 +-------- mgCtx->contextId = replyList->contextId;
+        |   			|   			 +-------- ret = cmHashListFind(&(mgCtx->mgSapCb->ccMgInsTbl), (U8 *)&(replyList->contextId),
+        |               |                |                              (U16)sizeof(U32), (U16)0, (PTR *)&tmpMgCtx);
+        |               |                |         if ((ret == ROK) && (tmpMgCtx != NULLP))
+        |               |                |         {
+        |               |                |           if ((mgCmdQ->bcm) && (mgCmdQ->bcm->mgCtx == NULLP))
+        |               |                |           {
+        |               |                |              mgCmdQ->bcm->mgCtx = tmpMgCtx;
+        |               |                |           }
+        |               |                |         }
+        |               |                |         else
+        |               |                |           ret = cmHashListInsert(&(mgCtx->mgSapCb->ccMgInsTbl), (PTR) mgCtx,
+        |               |                |                                  (U8 *)&(mgCtx->contextId),
+        |               |                |                                  (U16)sizeof(U32));
+        |               |                |
+        |               |                |
+        |               |                |
+        |               |                +-------- term = ccAllocateTerm(mgCtx);
+        |               |                |         /* Fill in the term Data Structure */
+        |               |                |         term->mode       = mgCmdQ->mode;
+        |               |                |         term->pkgId    = mgCmdQ->pkgId;
+        |               |                |         if (term->pkgId < MGCT_PACKAGE_ID_MAX)
+        |               |                |           term->signal   = mgCmdQ->signal;
+        |               |                |         else
+        |               |                |           term->signal   = MGCT_ITEM_ID_CG_MAX;
+        |               |                |         
+        |               |                |         term->bcm        = mgCmdQ->bcm;
+        |               |                |         <<<<<<term->termId     = cmdRspList->termId.termId;>>>>>>>
+        |               |                |
+        |               |                |
+        |               |                |         /* CcBearerIpParams_t *ipParam */
+        |               |                |         if ((mgCmdQ->bcm) && (ccIsIPResource(mgCmdQ->bcm)))
+        |               |                |         {
+        |               |                |           if(mgCmdQ->bcm->bcmType == BtOBcm)
+        |               |                |             ipParam = &(mgCmdQ->bcm->con->icIpParam);
+        |               |                |         
+        |               |                |           if(mgCmdQ->bcm->bcmType == BtTBcm)
+        |               |                |             ipParam = &(mgCmdQ->bcm->con->ogIpParam);
+        |               |                |             ...
+        |               |                |         }
+        |               |                |         ipParam->termId = cmdRspList->termId.termId;
+        |               |                |
+        |               |                |
+        |               |                +-------- if (cmdRspList->u.reply.mediaDesc.streamDescList)
+        |               |                          {
+        |               |                            MgctMediaParm *localDesc  = NULLP;
+        |               |                            MgctMediaParm *remoteDesc = NULLP;
+        |               |                            Sdp                 **localSdp   = NULLP;
+        |               |                            Sdp                 **remoteSdp  = NULLP;
+        |               |                          
+        |               |                            /* Bug90716 */
+        |               |                            if (cmdRspList->u.reply.mediaDesc.pres == PRSNT_NODEF)
+        |               |                            {
+        |               |                                streamDescList = cmdRspList->u.reply.mediaDesc.streamDescList;
+        |               |                                CCDP(AIN_DBG_LEVEL_0, "%s: StreamID=%d\n", __FUNCTION__,
+        |               |                                        (streamDescList?streamDescList->streamID:0xFFFF));
+        |               |                          
+        |               |                                localDesc = mgctGetDescFromStreamDesc (streamDescList, MGCT_MEDIA_LOCAL);
+        |               |                                remoteDesc = mgctGetDescFromStreamDesc (streamDescList, MGCT_MEDIA_REMOTE);
+        |               |                          
+        |               |                                if ((localDesc)&&(localDesc->u.localDesc.sdp))
+        |               |                                {
+        |               |                                    SdpInReplyNonNull = TRUE;
+        |               |                                    localSdp = &localDesc->u.localDesc.sdp;
+        |               |                                }
+        |               |                          
+        |               |                                if ((remoteDesc)&&(remoteDesc->u.remoteDesc.sdp))
+        |               |                                {
+        |               |                                    remoteSdp = &remoteDesc->u.remoteDesc.sdp;
+        |               |                                }
+        |               |                          
+        |               |                                /* Extract the SDP from the mgctTxnCfm structure */
+        |               |                                if (term->bcm)
+        |               |                                    ccExtractMgctSdp(ccInit.region, ccInit.pool, term->bcm,
+        |               |                                            localSdp,
+        |               |                                            remoteSdp);
+        |               |                            }           |
+        |               |                          }             |
+        |               |                                        |<target: bcm->con->icIpParam.locDesc>
+        |               |                                        |
+        |               |                                        +------- if (bcm->bcmType == BtOBcm)
+        |               |                                        |        {
+        |               |                                        |          tgtSdp = &bcm->con->icIpParam.locDesc;
+        |               |                                        |          tgtBearerIpPort = &bcm->con->icIpParam;
+        |               |                                        |          suConnId        = ccGetCorrecticSuConnId(bcm->con);
+        |               |                                        |          bcmProt         = CC_GET_PROTOCOL(bcm->con->icProtType);
+        |               |                                        |        }
+        |               |                                        |        else if (bcm->bcmType == BtTBcm)
+        |               |                                        |        {
+        |               |                                        |          tgtSdp = &bcm->con->ogIpParam.locDesc;
+        |               |                                        |          tgtBearerIpPort = &bcm->con->ogIpParam;
+        |               |                                        |          suConnId        = ccGetCorrectogSuConnId(bcm->con);
+        |               |                                        |          bcmProt         = CC_GET_PROTOCOL(bcm->con->ogProtType);
+        |               |                                        |        }
+        |               |                                        |        ...
+        |               |                                        |
+        |               |                                        |
+        |               |                                        |<Discarded already>
+        |               |                                        +------- sdp_parse((*srcSdp), (ProtoInfo *)NULL);
+        |               |                                        |           |
+        |               |                                        |           |
+        |               |                                        |           +------- sdp_mgct_parse_real
+        |               |                                        |                        |
+        |               |                                        |                        |
+        |               |                                        |                        +------- case SDP_ATTR_CODEC_CONFIG:
+        |               |                                        |                                 /*---------------------------------------------------------------*/
+        |               |                                        |                                 /* a=codecconfig:<Organization id><Codec info><Codec Bit-Map>    */
+        |               |                                        |                                 /* RFC:3108, Sec:5.6.3.10                                        */
+        |               |                                        |                                 /*---------------------------------------------------------------*/
+        |               |                                        |
+        |               |                                        |
+        |               |                                        |
+        |               |                                        +------- ccPostExtractMgctSdp(region, pool, bcm, tgtSdp, srcSdp, rmtDesc);
+        |               |                                                    |
+        |               |                                                    |
+        |               |                                                    +------- if (bcm->bcmType == BtOBcm)
+        |               |                                                    |        {
+        |               |                                                    |          tgtSdp = targetSdp;
+        |               |                                                    |          tgtBearerIpPort = &bcm->con->icIpParam;                 
+        |               |                                                    |          bcmProt         = CC_GET_PROTOCOL(bcm->con->icProtType);
+        |               |                                                    |        }
+        |               |                                                    |        else if (bcm->bcmType == BtTBcm)
+        |               |                                                    |        {
+        |               |                                                    |          tgtSdp = targetSdp;
+        |               |                                                    |          tgtBearerIpPort = &bcm->con->ogIpParam;
+        |               |                                                    |          bcmProt         = CC_GET_PROTOCOL(bcm->con->ogProtType);
+        |               |                                                    |        }
+        |               |                                                    |
+        |               |                                                    |
+        |               |                                                    |
+        |               |                                                    +------- *tgtSdp = *srcSdp;
+        |               |                                                    |
+        |               |                                                    |
+        |               |                                                    +------- cmCpyAndFreeSdp
+        |               |                                                    |            |
+        |               |                                                    |            |
+        |               |                                                    |            +------- *tgtSdp = *(*srcSdp);
+        |               |                                                    |
+        |               |                                                    |
+        |               |                                                    +-------- /* Save billing parameters */
+        |               |                                                              CC_SDP_TO_BEARER_IP_PORT(&tgtBearerIpPort->locBearerIpPort, *tgtSdp);
+        |               |                                                              tgtBearerIpPort->pres = PRSNT_NODEF;                                 
+        |               |                                                     
+        |               |                                                     
+        |               |
+        |               |
+        |               |
+        |               +------- if(cmdRspList->cmdType != MGCT_CMD_SUB)
+        |                           ccDeleteElementFromCmdQ(mgCtx, mgCmdQ);
+        |
+        |
+        |
+        |
+        +------- cleanUpCtxMgQ(mgCtx);
+        |
+        |
+        |
+        +------- /* After processing the TxnCfm, GCC should not have anything in the mgCmdQ */
+        |        if (mgCtx->mgCmdQ)
+        |        {
+        |          ABORT_DEBUG;
+        |        } 
+        |
+        |
+        |
+        +------- if (mgCtx->term == NULLP)
+                 {
+                   CCDP(AIN_DBG_LEVEL_1, "mgCtx's term is NULLP, need to delete the mgCtx from the mgBlock\n");
+                   ccResetBcmMgCtx(mgCtx);
+                   ccDeleteMgCtxFromMgBlock(mgCtx);
+                 }
+
+
+sdp_mgct_parse_real (sdp_telica.c)
+        |
+        |
+        |<Step 1. basic parser: identify kinds of lines in SDP raw data>
+        |
+        +------- SDP_GET_SESSION_INFO (sdp->r.buf.val, sdp->r.buf.len,
+        |               |              SDP_PARSE_IGNORE_UNREC|SDP_PARSE_OPT_O_S_T|SDP_PARSE_ALLOW_WHITESPACE|SDP_PARSE_IGNORE_TOKEN_CASE,
+        |               |              &sess_info, &error_info) != ATG_OK)
+        |               |
+        |               |
+        |               +------- sdp_parse_session_info
+        |                                 |
+        |                                 |<NBB_BYTE version>
+        |                                 +------- /***************************************************************************/
+        |                                 |        /* Read version number - "v="                                              */
+        |                                 |        /***************************************************************************/
+        |                                 |        sdp_parse_version(buf, max_offset, &cur_offset, flags, &(session_info->version), error_info NBB_CCXT);
+        |                                 |               |
+        |                                 |               |
+        |                                 |               +------- /*************************************************************************/
+        |                                 |               |        /* Check we have the right type of line, and if so get its contents.     */
+        |                                 |               |        /*************************************************************************/
+        |                                 |               |        correct_type = sdp_check_line_type(buf, max_offset, cur_offset, SDP_ASCII_LC_V NBB_CCXT);
+        |                                 |               |              |
+        |                                 |               |              |
+        |                                 |               |              +------- sdp_eat_whitespace
+        |                                 |               |
+        |                                 |               |<SDP_OFF_LEN line>
+        |                                 |               +------- /***********************************************************************/
+        |                                 |               |        /* Got the right line type, so get the data it carries.                */
+        |                                 |               |        /***********************************************************************/
+        |                                 |               |        sdp_get_line(buf, max_offset, cur_offset, flags, &line, error  NBB_CCXT);
+        |                                 |               |              |
+        |                                 |               |              |
+        |                                 |               |              +------- /***************************************************************************/
+        |                                 |               |                       /* Now trim the line of its leading whitespace, "L=", and trailing         */
+        |                                 |               |                       /* whitespace.                                                             */
+        |                                 |               |                       /***************************************************************************/
+        |                                 |               |                       sdp_strip_line(buf, flags, trimmed_line, error  NBB_CCXT)
+        |                                 |               |
+        |                                 |               |
+        |                                 |               |<SDP_OFF_LEN token>
+        |                                 |               +------- /***************************************************************************/
+        |                                 |               |        /* Tokenize the line.                                                      */
+        |                                 |               |        /***************************************************************************/
+        |                                 |               |        num_tokens = sdp_get_tokens(buf, &line, flags, SDP_ASCII_SPACE, &token, 1  NBB_CCXT);
+        |                                 |               |
+        |                                 |               |
+        |                                 |               |
+        |                                 |               |<sdp_table_versions>
+        |                                 |               +------- /***************************************************************************/
+        |                                 |                        /* Convert the token to a version number                                   */
+        |                                 |                        /***************************************************************************/
+        |                                 |                        *version = (NBB_BYTE)sdp_convert_token(buf, &token, flags, sdp_table_versions, error  NBB_CCXT);
+        |                                 |
+        |                                 |
+        |                                 |<SDP_RPT_CONN_INFO session_conn_info>
+        |                                 +------- /***************************************************************************/
+        |                                 |        /* Read list of connection info - "c=" Note, this line is optional if the  */
+        |                                 |        /* SDP_PARSE_OPT_C bit is set in flags.                                    */
+        |                                 |        /***************************************************************************/
+        |                                 |        sdp_parse_connection_list(buf, max_offset, &cur_offset, flags, &(session_info->session_conn_info), error_info NBB_CCXT);
+        |                                 |
+        |                                 |
+        |                                 |<SDP_RPT_ATTRIBUTE_INFO session_attribute_info> ====== <sdp_table_attribute_types> ======
+        |                                 +------- /***************************************************************************/
+        |                                 |        /* Read list of attribute lines - "a=".                                    */
+        |                                 |        /***************************************************************************/
+        |                                 |        sdp_parse_attr_list(buf, max_offset, &cur_offset, flags, &(session_info->session_attribute_info), error_info NBB_CCXT);
+        |                                 |               |
+        |                                 |               |
+        |                                 |               |<SDP_OFF_LEN attribute_offlen: subsequent attribute info (a= line)>
+        |                                 |               +-------- line_is_in_list = sdp_parse_attribute(buf, max_offset, cur_offset, flags, dest_buffer, error NBB_CCXT);
+        |                                 |
+        |                                 |
+        |                                 |
+        |                                 |<SDP_RPT_MEDIA_DESC_INFO media_desc_info>
+        |                                 +------- /***************************************************************************/
+        |                                          /* Read list of media descriptions - "m=".                                 */
+        |                                          /***************************************************************************/
+        |                                          sdp_parse_media_desc_list(buf, max_offset, &cur_offset, flags, &(session_info->media_desc_info), error_info, &have_conn_info NBB_CCXT)
+        |                                            |
+        |                                            |
+        |                                            |<SDP_OFF_LEN media_offlen: subsequent media description info (m= line)>
+        |                                            +-------- line_is_in_list = sdp_parse_media_desc(buf, max_offset, cur_offset, flags, dest_buffer, error NBB_CCXT);
+        |                                                        |
+        |                                                        |
+        |                                                        |<SDP_MEDIA_INFO media>
+        |                                                        +-------- sdp_parse_media_info(buf, max_offset, cur_offset, flags, &(media_desc->media), error_info NBB_CCXT)
+        |                                                        |               |
+        |                                                        |               |
+        |                                                        |               +------- Table: <sdp_table_media_types> => media_info->media_type
+        |                                                        |               |
+        |                                                        |               |
+        |                                                        |               +------- num_elements = sdp_parse_rpt_fmt_info(buf, max_fmt_offset, &(cur_fmt_offset), 
+        |                                                        |                          |                          flags, &(media_info->media_fmt_info), error NBB_CCXT);
+        |                                                        |                          |
+        |                                                        |                          |
+        |                                                        |                          +------- sdp_parse_fmt_info(buf, max_offset, cur_offset, flags, dest_buffer, error NBB_CCXT)
+        |                                                        |                                        |
+        |                                                        |                                        |
+        |                                                        |                                        |
+        |                                                        |                                        +------- Table: <sdp_table_protocol_types>
+        |                                                        |
+        |                                                        |
+        |                                                        |
+        |                                                        |<SDP_RPT_CONN_INFO media_conn_info>
+        |                                                        +-------- sdp_parse_connection_list(buf, max_offset, cur_offset, flags, &(media_desc->media_conn_info), error_info NBB_CCXT)
+        |                                                        |
+        |                                                        |<SDP_RPT_ATTRIBUTE_INFO media_attribute_info>
+        |                                                        +-------- sdp_parse_attr_list(buf, max_offset, cur_offset, flags, &(media_desc->media_attribute_info), error_info NBB_CCXT);
+        |
+        |
+        |
+        |
+        |<Step 2. media section parser: check the detail information about identified lines>
+        |
+        +------- sdpStr = sdp->r.buf.val;
+        |        media_info      =&sess_info.media_desc_info.media_info.media;
+        |        media_desc_info = sess_info.media_desc_info.media_info;
+        |        media_offlen    = sess_info.media_desc_info.media_offlen;
+        |
+        |
+        |
+        +------- loop_cnt = sess_info.media_desc_info.num_elements;                                    
+                 for (cnt=0, validDecodeCnt = 0; cnt<loop_cnt && validDecodeCnt < SDP_MAX_MEDIA; cnt++)
+                 {
+                     if (cnt != 0)
+                     {
+                         /* get next available media_attribute */
+                         SDP_GET_MEDIA_DESC(sdpStr, &media_offlen, &media_desc_info);
+                         media_info = &media_desc_info.media;
+                     }
+
+                     /* part I */
+                     if ((conn_info->network_type == SDP_NETWORK_INTERNET) &&
+                         (conn_info->addr_type == SDP_ADDR_TYPE_IPV4))
+                     {
+                         <parsed->address.ip.ascii>
+                         <parsed->address.ip.binary>
+                     }
+
+                     /* part II */
+                     if ((conn_info->network_type == SDP_NETWORK_INTERNET) &&
+                         (media_info->media_type == SDP_MEDIA_TYPE_AUDIO)  &&
+                         (media_info->protocol == SDP_MEDIA_PROT_RTP_AVP))
+                     {
+                         <parsed->address.ip.port.pres>
+                         <parsed->mediaType = SDP_MTYPE_AUDIO>
+                         voip = &sdp->p[validDecodeCnt]->m.voip;
+                     }
+                     ...
+                     else if (media_info->media_type == SDP_MEDIA_TYPE_VIDEO)
+                     {                                                       
+                         <parsed->address.ip.port>
+                         <parsed->mediaType = SDP_MTYPE_VIDEO>
+                         video = &sdp->p[validDecodeCnt]->m.video;
+                         if (media_info->protocol == SDP_MEDIA_PROT_RTP_AVPF)
+                             video->IsAVPF = 1;
+                         else
+                             video->IsAVPF = 0;
+                         video->RtcpMuxFlag = 0;
+                     }
+
+                     ******************* Check Twice *******************
+                     media_info->media_type != SDP_MEDIA_TYPE_AUDIO &&
+                     media_info->media_type != SDP_MEDIA_TYPE_VIDEO &&  
+                     media_info->media_type != SDP_MEDIA_TYPE_IMAGE &&
+                     media_info->media_type != SDP_MEDIA_TYPE_MESSAGE &&
+                     media_info->media_type != SDP_MEDIA_TYPE_OMIT &&
+                     media_info->media_type != SDP_MEDIA_TYPE_DATA)
+                     ***************************************************
+
+                     /* part III */
+                     <Video> 1. Decode Video Codec
+                                video->codec[video->numCodec].payloadType
+
+                             2. Parse the VIDEO media attributes 
+                                j           =  media_desc_info.media_attribute_info.num_elements;
+                                attr_info   =  media_desc_info.media_attribute_info.attribute_info;
+                                attr_offlen =  media_desc_info.media_attribute_info.attribute_offlen;
+                                for (i=0; i<j; i++)
+                                {
+                                    if (i)
+                                    {
+                                        SDP_GET_ATTRIBUTE(sdpStr, &attr_offlen, &attr_info);
+                                    }
+
+                             3.     For specific VIDEO attributes
+                                    /*---------------------------------------------------------------*/
+                                    /* a=rtpmap:<payload Type> <encoding Name>/<Clock Rate>          */
+                                    /*                                  [/<encoding parameters>]     */
+                                    /*---------------------------------------------------------------*/
+                                    case SDP_ATTR_RTPMAP:
+                                }
+                             
+                     /* part IV */
+                     <Audio>
+                             if (parsed->mediaType == SDP_MTYPE_AUDIO ||
+                             parsed->mediaType == SDP_MTYPE_IMAGE )
+                             {
+                                 <voip->codec[voip->numCodec].payloadType>
+                                 <voip->codec[voip->numCodec].codec>
+                             }
+
+                             For specific VIDEO attributes
+                             /*---------------------------------------------------------------*/
+                             /* a=rtpmap:<payload Type> <encoding Name>/<Clock Rate>          */
+                             /*                                  [/<encoding parameters>]     */
+                             /*---------------------------------------------------------------*/
+                             case SDP_ATTR_RTPMAP:
+                 }

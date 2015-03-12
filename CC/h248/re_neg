@@ -1,0 +1,120 @@
+1. After call answered
+ccPostAnswerCall (from ccAnswerCall)
+       |
+	   |
+	   +------ ccCreateBearer
+                   |
+	               |
+				   +------- twice: ccUpdateMgQForAddOrModifyRsc
+				   +------- 10->125: CC_STATE_CHANGE(con, CCS_CBI_AWTMGI1);
+				   +------- ccSendMgiQueue
+
+2. h248 inactive modification and send INVITE to egress
+ccConE11S125
+       |
+       |
+       +------ ccHandleMgResponse (modify inactive)
+       |
+       |
+	   +------ 125->126: CC_STATE_CHANGE(con, CCS_CBI_AWTOGQRYRSP);
+       |
+       |
+	   +------ ccSendQuery: INVITE (egress)
+	               |
+	               |
+	               +------- egress SIPT: ccSendSiptQuery >>>>>>>>> CC_ET_XFERQRY <<<<<<<<
+				                |
+				                |
+				                +------- ccSendCnStReq
+
+3. receive egress 200 OK and send INVITE to ingress
+CcLiCnStInd: 200 OK (egress): >>>>>>>>>>> CC_ET_XFERQRYRESP <<<<<<<<<<<
+       |
+       |
+       +------ ccConE03S126
+                   |
+                   |
+                   +------ ccSendXfer(&con->icBcm): INVITE (ingress)
+	               |            |
+	               |            |
+	               |            +------- ingress SIP: ccSendSipXfer >>>>>>>>> CCSIP_ET_XFER <<<<<<<<<
+				   |                          |
+				   |                          |
+				   |                          +------- ccSendCnStReq
+                   |
+                   |
+	               +------ 126->127: CC_STATE_CHANGE(con, CCS_CBI_AWTICQRYRSP1);
+
+4. receive ingress 200 OK, send ACK to egress and try to subtract all in context 10046
+CcLiCnStInd: 200 OK (ingress) >>>>>>>>>> CCSIP_ET_XFER_RSP <<<<<<<<<
+       |
+       |
+       +------ ccConE03S127
+	               |
+	               |
+	               +------ ccSendAck(&con->ogBcm): ACK (egress)
+	               |            |
+	               |            |
+				   |            +------- egress SIPT: ccSendSiptOrBiccAck <<<<<<< CC_ET_ACK >>>>>>>>>
+				   |                          |
+				   |                          |
+				   |                          +------- ccSendCnStReq
+				   |
+				   |
+				   |
+				   +------ ccUpdateMgQForSubRsc
+				   |            |
+				   |            |
+				   |            +------- mgCmdQ = ccAllocateMgCmdQ(mgCtx);
+				   |            |
+				   |            |
+				   |            +------- /* If CAS Term present, modify the termination with a NULL Context */
+                   |                     ccModifyCASTermOnNULLCtxWithEvents(mgCtx);
+                   |                     ############ Analysis: found two terminations ###########
+                   |
+                   |
+	               +------ 127->129: CC_STATE_CHANGE(con, CS_CBI_AWTSUB)
+                   |
+                   |
+                   +------ ccSendMgiQueue
+
+6. subtract all in context 10046
+ccConE11S129
+       |
+       |
+       +------ ccHandleMgResponse
+       |           |
+       |           |
+       |           +------ ccFillMgiStats
+	   |		   |            |
+	   |		   |            |
+       |           |            +------ ccFindtermId(&(con->icBcm), &icTermId);
+       |           |            +------ ccFindtermId(&(con->ogBcm), &ogTermId);
+       |           |
+       |           |
+       |           +------ ccExecuteMgCmdQ_On_MgCtx(mgCtx, mgCmdPointer, cmdRspList, replyList, txnCfm->status);
+       |           |            | 
+       |           |            | 
+       |           |            +------ ccUpdateCcConCbForSubReq(mgCmdQ, cmdRspList, replyList); 
+	   |		   |                          |
+	   |		   |                          |
+	   |		   |                          +------- ccDeleteTermFromMgCtx
+       |           |
+       |           |
+       |           +------- cleanUpCtxMgQ(mgCtx);
+       |           |
+       |           |
+       |           +------- if (mgCtx->term == NULLP)
+       |                    {
+       |                      CCDP(AIN_DBG_LEVEL_1, "mgCtx's term is NULLP, need to delete the mgCtx from the mgBlock\n"); ###### ter
+       |                      ccResetBcmMgCtx(mgCtx);
+       |                      ccDeleteMgCtxFromMgBlock(mgCtx);
+       |                    }
+       |
+       |
+       |
+       +------ /* Re-Negotiation Complete, the call is now ON-Net */
+               ccCreateBearer_Completed(con);
+                   |
+                   |
+                   +------- 129->10: CC_STATE_CHANGE(con, con->ccBearerConnectData.currState);

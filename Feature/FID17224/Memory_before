@@ -1,0 +1,179 @@
+00003(00391),00000(00000) 0x00000001 12-23 02:45:33.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13847 sbAsInitTO: restarting timer = 10
+00001(00391),00000(00000) 0x00000001 12-23 02:45:34.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13642 sbAsInitTO: rtxCnt (4)
+00002(00391),00000(00000) 0x00000001 12-23 02:45:34.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13649 sbAsInitTO: INIT has been sent too many times(4) - sending TermInd: maxInitReTx(4)
+00002(00391),00000(00000) 0x00000001 12-23 02:45:34.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:4899 sbAsAbortAssoc(assocCb, sendPeer(0))
+00003(00391),00000(00000) 0x00000001 12-23 02:45:34.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5085 sbAsAbortAssoc: ** freeing sequence number arrays
+00004(00391),00000(00000) 0x00000001 12-23 02:45:34.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5100 sbAsAbortAssoc: ** freeing sequenceQ control points
+00004(00391),00000(00000) 0x00000001 12-23 02:45:34.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5108 sbAsAbortAssoc: ** Stopping Timers
+00004(00391),00000(00000) 0x00000001 12-23 02:45:34.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5148 sbAsAbortAssoc: ** putting Buffers
+00001(00391),00000(00000) 0x00000020 12-23 02:45:34.414 30559: ../cl_idmgcusta.c:753 STIDPEER: peerId: 1
+00001(00391),00000(00000) 0x00000020 12-23 02:45:34.414 30559: ../cl_idmgcusta.c:1455 IUA USTA: event: LID_EVENT_ESTABLISH_FAIL
+00001(00391),00000(00000) 0x00000020 12-23 02:45:41.148 30559: ../cl_ex_ms.c:461 Got a sigdbg from slam 
+00002(00391),00000(00000) 0x00000020 12-23 02:45:41.148 30559: ../../common/lm_sigdbg.c:581 handleSigdbg: entered
+00002(00391),00000(00000) 0x00000020 12-23 02:45:41.148 30559: ../../common/lm_sigdbg.c:589 new usrCmd=dumpmem
+00001(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN=====================================================================================================
+00002(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN                       TELICA MEMORY HISTOGRAM
+00002(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN=====================================================================================================
+00003(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN        FILE            |  LINE  |BYTES OUT|BKS_OUT|BKS_ALL|BYTES MAX|BKS_MAX| BTRACE L1| BTRACE L2  
+00004(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-----------------------------------------------------------------------------------------------------
+00004(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../ry_bdy1.c      666      4704       4       4      4704       4    9c25091    9c2532a
+00004(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../ry_bdy1.c      693     49152       3       4     65536       4    9c25091    9c2532a
+00004(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../id_b_asm.c      865     98512       1       1     98512       1    995a53b    a154ec5
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c    19512     20880     580     580     20880     580    86f393e    9ccdbfc
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../qw_bdy2.c      416     65532       1       1     65532       1    993f7d6    99547f2
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cm_tree.c      196      1784     223     223      1784     223    8640db4    8648b38
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cm_tree.c      227     10212     151     151     10212     151    8640db4    8648b38
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../sb_bdy4.c      535      1024       1       1      1024       1    9b611e0    a1b5965
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../sb_bdy4.c      590      2048       1       1      2048       1    9b611e0    a1b5965
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../rm_bdy4.c     4447     34440     210     210     34440     210    86848f0    9c5d8a8
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cl_tgp2.c     4929     14016       6       6     14016       6    84bbd8d    84bd531
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-       ../cl_bicctrk1.c     3584     21840     210     210     21840     210    83fdb99    83fce8a
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-         ../cl_mgcpc1.c       82    110044       1       1    110044       1    825ccc4    825c587
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-            ../rm_rum.c      245      1152      32      32      1152      32    86ddf9f    8684a85
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../rm_bdy4.c      551      1104       6       6      1104       6    86848ba    9c5d8a8
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../sb_bdy3.c     9990      1024       1       1      1024       1    9b966a6    9b86950
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c    20079      3960      15      15      3960      15    86f39aa    9ccdbfc
+00009(00391),00000(00000) 0x00000001 12-23 02:45:41.148 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c     7800      1132       1       1      1132       1    86f3778    9ccdbfc
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c     7935      1132       1       1      1132       1    86f3658    9ccdbfc
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy5.c    12065      4992       8       8      4992       8    9513bb9    9560845
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cm_hash.c     1190   3474336     245     440   3570336     249    825c910    825c587
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../id_b_mi.c      239     65532       1       1     65532       1    997cde8    995a4a5
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../sb_bdy1.c     2652      3004       1     191      6008       2    a1bc1d4    9bfacb2
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c     8435      7168      32      32      7168      32    86f37f9    9ccdbfc
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-    ../cm_mgl_generic.c      263      2960       4       4      2960       4    a0a89cd    88d9527
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-         ../bicc_bdy6.c     1422      1392       2       2      1392       2    927d361    9f2888f
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cl_bdy3.c      807     18408       2     215     27612       3    825b01d    a20137e
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../insl_cfg.c      595      1904      28      28      1904      28    8fd1d20    9d5c9b9
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cl_bdy3.c      822   1180272       2     215   1770408       3    825b01d    a20137e
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../rm_bdy9.c      169      1352      26      26      1352      26    8684a85    9c5d8a8
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c    21042      4960       4       4      4960       4    86f3a67    9ccdbfc
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../mr_bdy4.c      651      9976     174     174      9976     174    9b07cf5    9b0cb78
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../ma_bdy1.c      631    164320       1       1    164320       1    a04cada    97cf695
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../ma_bdy1.c      655    164320       1       1    164320       1    a04cada    97cf695
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c    25559      1132       1       1      1132       1    88adf15    86f35c9
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cl_bdy2.c      315     24820       1       1     24820       1    8281add    825ca51
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../wfs_bdy1.c      407     16000       1       1     16000       1    9d6c14f    84ec25c
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../in_bdy11.c      511     65532       1       1     65532       1    98756c4    a19f4a4
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../in_bdy11.c      523     65532       1       1     65532       1    98756c4    a19f4a4
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../watchdog.c      292      3312      46      46      3312      46     a6eb39     424d7e
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN- ../common/src/tufs_lme.c     3188      1904      28      28      1904      28    90b8840    9115fd8
+00006(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../zc_bdy2.c      810      1336       1       1      1336       1    9164367    a0fb82d
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../zc_bdy2.c      820      1336       1       1      1336       1    9164367    a0fb82d
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../zc_bdy2.c      834      1336       1       1      1336       1    9164367    a0fb82d
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../zc_bdy2.c      852      1336       1       1      1336       1    9164367    a0fb82d
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../zc_bdy2.c      874      1336       1       1      1336       1    9164367    a0fb82d
+00007(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../in_bdy11.c      778      3980       5       5      3980       5    98756d8    a19f4a4
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../zc_bdy2.c      924     32064       1       1     32064       1    9164367    a0fb82d
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-    ../cm_mgl_generic.c     1384     41024       4       4     41024       4    a0c9679    a0a89cd
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../sg_bdy1.c      836      1080       1       1      1080       1    9b0f018    9c3d0e7
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c     1949      1560       2       2      1560       2    942f2d5    9f3c068
+00008(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c    17984      1144      11      11      1144      11    86f3727    9ccdbfc
+00009(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../sg_bdy1.c      862      1080       1       1      1080       1    9b0f018    9c3d0e7
+00009(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../sg_bdy1.c      875    147120       1       1    147120       1    9b0f018    9c3d0e7
+00009(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-            ../sb_mtu.c      289      2048       1       1      2048       1    9beaced    9b611e0
+00009(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../ry_mmap.c     1195     31844       1       1     31844       1    9c212d1     a6eb39
+00009(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../fc_tree1.c     5344      2688      28      28      2688      28    856d530    9d1892f
+00009(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../fc_tree1.c     1258      1054      17      17      1054      17    8648c4f    857087f
+00010(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../ry_mmap.c     1277      1536       6  2413064     21760      85    9c212d1     a6eb39
+00010(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../fc_tree1.c     1282      4278      69      69      4278      69    8648b38    857087f
+00010(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../fc_tree1.c     1294      8832      69      69      8832      69    8648b38    857087f
+00011(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c     2297      1044       3       3      1044       3    942f31a    9f3c068
+00011(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c    18346     22784      32      32     22784      32    88b59ec    86f37f9
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c     2381      1560       3       3      1560       3    942f31a    9f3c068
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c     2404     12288       3       3     12288       3    942f31a    9f3c068
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../fc_tree1.c     1414      1224      18      18      1224      18    864c751    856d530
+00011(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-         ../insl_util.c      668      2352      98      98      2352      98    901322b    8fda89d
+00011(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-     ../cl_sctpendpt2.c      744      1536      64      64      1536      64    83c04ea    825ccc4
+00011(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-          ../id_b_asm.c      187   1181152       2       2   1181152       2    995a4e1    a154ec5
+00011(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c     2785      2328       6       6      2328       6    942f331    9f3c068
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../cc_bdy4.c     6554     14688      12      12     14688      12    86f375d    9ccdbfc
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c    11319      2640      38      38      2640      38    942f376    9f3c068
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c     3264    267120     210     210    267120     210    942f2ec    9f3c068
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-           ../si_bdy6.c     3282     19320     210     210     19320     210    942f2ec    9f3c068
+00013(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-----------------------------------------------------------------------------------------------------
+00013(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN  Total Buckets = 5523, Total Bytes = 7626449, Max Buckets = 17259, Max Bytes = 30882039 
+00014(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN=====================================================================================================
+00011(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [0]: size 32 blocks 1 inuse 1796 total allocs 375530 wasted 29519 average 16
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [0]: available cups (1) full cups (0)
+00012(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [0] cup [0]: buffers 2048 allocated 1796 corrupt 0
+00013(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [1]: size 64 blocks 3 inuse 2108 total allocs 264251 wasted 50672 average 24
+00013(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [1]: available cups (2) full cups (1)
+00014(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [1] cup [0]: buffers 1024 allocated 68 corrupt 0
+00014(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [1] cup [1]: buffers 1024 allocated 1016 corrupt 0
+00015(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [2]: size 128 blocks 2 inuse 722 total allocs 2174346 wasted 23244 average 32
+00015(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [2]: available cups (2) full cups (0)
+00016(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [2] cup [0]: buffers 512 allocated 277 corrupt 0
+00016(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [2] cup [1]: buffers 512 allocated 445 corrupt 0
+00017(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [3]: size 256 blocks 2 inuse 283 total allocs 6068482 wasted 22876 average 80
+00017(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [3]: available cups (2) full cups (0)
+00018(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [3] cup [0]: buffers 256 allocated 38 corrupt 0
+00018(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [3] cup [1]: buffers 256 allocated 245 corrupt 0
+00019(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [4]: size 512 blocks 1 inuse 55 total allocs 58332 wasted 8960 average 162
+00020(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [4]: available cups (1) full cups (0)
+00021(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [4] cup [0]: buffers 128 allocated 55 corrupt 0
+00021(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [5]: size 1280 blocks 8 inuse 313 total allocs 89821 wasted 45108 average 144
+00022(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [5]: available cups (3) full cups (5)
+00022(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [5] cup [0]: buffers 52 allocated 43 corrupt 0
+00023(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [5] cup [1]: buffers 52 allocated 4 corrupt 0
+00023(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [5] cup [2]: buffers 52 allocated 6 corrupt 0
+00024(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [6]: size 2048 blocks 2 inuse 31 total allocs 58 wasted 4912 average 158
+00024(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [6]: available cups (2) full cups (0)
+00025(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [6] cup [0]: buffers 32 allocated 2 corrupt 0
+00025(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [6] cup [1]: buffers 32 allocated 29 corrupt 0
+00026(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [7]: size 4096 blocks 3 inuse 28 total allocs 291265 wasted 11652 average 416
+00026(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [7]: available cups (3) full cups (0)
+00027(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [7] cup [0]: buffers 16 allocated 3 corrupt 0
+00027(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [7] cup [1]: buffers 16 allocated 10 corrupt 0
+00028(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [7] cup [2]: buffers 16 allocated 15 corrupt 0
+00028(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [8]: size 8192 blocks 15 inuse 112 total allocs 29222 wasted 3772 average 33
+00029(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [8]: available cups (2) full cups (13)
+00029(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [8] cup [0]: buffers 8 allocated 1 corrupt 0
+00030(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [8] cup [1]: buffers 8 allocated 7 corrupt 0
+00030(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [9]: size 16384 blocks 9 inuse 30 total allocs 409336 wasted 45712 average 1523
+00031(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [9]: available cups (3) full cups (6)
+00031(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [9] cup [0]: buffers 4 allocated 2 corrupt 0
+00032(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [9] cup [1]: buffers 4 allocated 3 corrupt 0
+00032(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [9] cup [2]: buffers 4 allocated 1 corrupt 0
+00033(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [10]: size 32768 blocks 9 inuse 17 total allocs 252243 wasted 138280 average 8134
+00033(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [10]: available cups (1) full cups (8)
+00034(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN-bucket [10] cup [0]: buffers 2 allocated 1 corrupt 0
+00034(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN- MALLOC TOTALS: bucket 3974200 histogram 100440 malloc 5082196
+00035(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN- OTHER INFO: max -2 left -9056398 bucket-in-use 3194064
+00035(00391),00000(00000) 0x00000001 12-23 02:45:41.149 30559: DUMPMEMTAG ccs1:ccs-MAIN - cfg mem=6601716 Total=8276260 diff=1674544
+00001(00391),00000(00000) 0x00000020 12-23 02:45:41.914 30559: ../cl_idmgc2.c:3200 clIdMgcNewAssoc: provState IS, SCTP down
+00001(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy1.c:2459 SbUiSctAssocReq(pst, spId(2), spEndpId(0), suAssocId(1), priDstNAddr(0x87FC98FB), dstPort(9900), outStrms(16384), dstNAddrLst, srcNAddrLst, sInfo)
+00001(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy1.c:2718 SbUiSctAssocReq: creating spAssocId(1), setting localConn->ownAddr(0x0A541281) from HL
+00001(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy1.c:2898 SbUiSctAssocReq: Copying source addresses from the endpCb->localAddrLst nmb=1
+00002(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy1.c:2922 SbUiSctAssocReq: endpCb->localAddrLst.nAddr[0] = 0x0A541281
+00002(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy1.c:2934 SbUiSctAssocReq: Copying 1 source addresses type 4 from the localAddrLst nmb=1
+00003(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy2.c:5321 sbPmAddAddr: suId(0), endpId(0), spAssocId(1), suAssocId(1), addr.type(4), addr.u.ipv4(0x87FC98FB), srcAddr(0x0A541281)
+00004(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy1.c:3007 SbUiSctAssocReq: sbPmAddAddr() src 0x0A541281, dest 0x87FC98FB
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy1.c:3047 SbUiSctAssocReq: resetting localConn->ownAddr(0x0A541281)
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:3813 sbAsSendInit(assocCb, cookiePreserve(0))
+00005(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:4003 sbAsSendInit: ownInitTag 3298718149, nextLocalTsn 3298718149
+00001(00391),00000(00000) 0x00000001 12-23 02:45:41.916 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:4065 sbAsSendInit: sbLiSend called to send INIT: ret(0)
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.014 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13642 sbAsInitTO: rtxCnt (0)
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.014 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13793 sbAsInitTO: resending INIT using localAddr 0x0A541281, destAddr 0x87FC98FB
+00002(00391),00000(00000) 0x00000001 12-23 02:45:42.014 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13823 sbAsInitTO: called sbLiSend: ret(0)
+00003(00391),00000(00000) 0x00000001 12-23 02:45:42.014 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13847 sbAsInitTO: restarting timer = 2
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.214 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13642 sbAsInitTO: rtxCnt (1)
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.214 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13793 sbAsInitTO: resending INIT using localAddr 0x0A541281, destAddr 0x87FC98FB
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.214 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13823 sbAsInitTO: called sbLiSend: ret(0)
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.214 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13847 sbAsInitTO: restarting timer = 4
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.614 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13642 sbAsInitTO: rtxCnt (2)
+00001(00391),00000(00000) 0x00000001 12-23 02:45:42.614 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13793 sbAsInitTO: resending INIT using localAddr 0x0A541281, destAddr 0x87FC98FB
+00002(00391),00000(00000) 0x00000001 12-23 02:45:42.614 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13823 sbAsInitTO: called sbLiSend: ret(0)
+00003(00391),00000(00000) 0x00000001 12-23 02:45:42.614 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13847 sbAsInitTO: restarting timer = 8
+00001(00391),00000(00000) 0x00000001 12-23 02:45:43.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13642 sbAsInitTO: rtxCnt (3)
+00001(00391),00000(00000) 0x00000001 12-23 02:45:43.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13793 sbAsInitTO: resending INIT using localAddr 0x0A541281, destAddr 0x87FC98FB
+00002(00391),00000(00000) 0x00000001 12-23 02:45:43.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13823 sbAsInitTO: called sbLiSend: ret(0)
+00003(00391),00000(00000) 0x00000001 12-23 02:45:43.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13847 sbAsInitTO: restarting timer = 10
+00001(00391),00000(00000) 0x00000001 12-23 02:45:44.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13642 sbAsInitTO: rtxCnt (4)
+00002(00391),00000(00000) 0x00000001 12-23 02:45:44.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:13649 sbAsInitTO: INIT has been sent too many times(4) - sending TermInd: maxInitReTx(4)
+00002(00391),00000(00000) 0x00000001 12-23 02:45:44.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:4899 sbAsAbortAssoc(assocCb, sendPeer(0))
+00003(00391),00000(00000) 0x00000001 12-23 02:45:44.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5085 sbAsAbortAssoc: ** freeing sequence number arrays
+00004(00391),00000(00000) 0x00000001 12-23 02:45:44.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5100 sbAsAbortAssoc: ** freeing sequenceQ control points
+00005(00391),00000(00000) 0x00000001 12-23 02:45:44.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5108 sbAsAbortAssoc: ** Stopping Timers
+00006(00391),00000(00000) 0x00000001 12-23 02:45:44.414 30727: [SCTP_LAYER 0x97:0] ../sb_bdy3.c:5148 sbAsAbortAssoc: ** putting Buffers
+00006(00391),00000(00000) 0x00000020 12-23 02:45:44.415 30559: ../cl_idmgcusta.c:753 STIDPEER: peerId: 1
+00007(00391),00000(00000) 0x00000020 12-23 02:45:44.415 30559: ../cl_idmgcusta.c:1455 IUA USTA: event: LID_EVENT_ESTABLISH_FAIL

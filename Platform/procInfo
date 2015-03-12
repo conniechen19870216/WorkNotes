@@ -1,0 +1,44 @@
+$1 = {ProcInfo = {PName = "ccs", '\000' <repeats 29 times>, Pid = 10500, ProcId = 1, PState = PSTOP}, ShelfId = 0, SlotNum = 6, PhySlotNum = 6, OwnFixedISIP = 27597066,
+  PeerFixedISIP = 10819850, OwnHostIP = 0, PeerHostIP = 0, ACCM_A_FixedISIP = 10754314, ACCM_B_FixedISIP = 27531530, ACCMFloatingISIP = 14948618,
+  IomXClass = "\000\000\000\000\000\000\000\000\000", ReleasePath = '\000' <repeats 127 times>, IsChassisIBC4 = 0, IsOAMCoexist = 1, CpuNum = 0, InstId = 2, DisconnectEP = 0, CPUState = 2,
+  ActiveSP = 1, HdlStateChange = 0, HdlTL1Logs = 0x9e04e58 <ProcessTL1LogCommand>, Comm = {Hid = -1, PubHid = 0, SubHid = 0, Port = 1199, IpAddrStr = '\000' <repeats 16 times>},
+  CommHost = {{Hid = -1, PubHid = 0, SubHid = 0, Port = 1199, IpAddrStr = "10.25.164.0\000\000\000\000\000"}, {Hid = -1, PubHid = 0, SubHid = 0, Port = 1199,
+      IpAddrStr = "10.25.164.1\000\000\000\000\000"}, {Hid = -1, PubHid = 0, SubHid = 0, Port = 1199, IpAddrStr = "10.25.228.0\000\000\000\000\000"}}, HbInfo = {Priority = 0, Port = 0,
+    Sockfd = 0, Name = '\000' <repeats 49 times>, ThreadAttr = {__size = '\000' <repeats 35 times>, __align = 0}, ThreadId = 0, HeartbeatRate = 0, MaxHeartbeatLost = 0,
+    HeartbeatActive = 0, DataStr = "\000\000\000\000\000\000\000\000\000", StopHeartbeat = 0 '\000', WhichSP = 2, WatchDogQ = {Head = 0x0, Tail = 0x0, Count = 0}, WatchDogMaxTimeout = 0},
+  SchemaDir = '\000' <repeats 50 times>, CpuSwVersion = "9.4.0.0.0.276", '\000' <repeats 17 times>, PartnerSwVersion = "9.4.0.0.0.276", '\000' <repeats 17 times>, ChassisType = 6,
+  CpuStartMode = 0, EmfIpAddress = "127.0.0.1", '\000' <repeats 11 times>, WorkHost = 0, ProtHost = 0, InService = 0 '\000', ProtHostConnPend = 0 '\000', SpUpgradeInProgress = 0 '\000',
+  MonitorState = 0, BrdIdProm = {CLEI = '\000' <repeats 19 times>, PartNo = "\000\000\000\000\000\000\000\000\000", SerialNum = '\000' <repeats 19 times>,
+    HWVersion = "\000\000\000\000\000\000\000\000\000", SWVersion = '\000' <repeats 19 times>, Description = '\000' <repeats 34 times>, DebugMACAddr = {0, 0}, NumExtPorts = 0,
+    ExtPortType = "\000\000\000\000", ExtPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumIntPorts = 0, IntPortType = "\000\000\000\000",
+    IntPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumDrammBanks = 0, SizeDrammBanks = 0, NumFlashBanks = 0, SizeFlashBanks = 0, SarRamSize = 0, TsuRamSize = 0, FsuRamSize = 0,
+    SlotCount = 0, Checksum = 0}, RearBrdIdProm = {CLEI = '\000' <repeats 19 times>, PartNo = "\000\000\000\000\000\000\000\000\000", SerialNum = '\000' <repeats 19 times>,
+    HWVersion = "\000\000\000\000\000\000\000\000\000", SWVersion = '\000' <repeats 19 times>, Description = '\000' <repeats 34 times>, DebugMACAddr = {0, 0}, NumExtPorts = 0,
+    ExtPortType = "\000\000\000\000", ExtPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumIntPorts = 0, IntPortType = "\000\000\000\000",
+    IntPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumDrammBanks = 0, SizeDrammBanks = 0, NumFlashBanks = 0, SizeFlashBanks = 0, SarRamSize = 0, TsuRamSize = 0, FsuRamSize = 0,
+    SlotCount = 0, Checksum = 0}, MgType = 0, SgType = 0, CellFormat = 0, MaintLinkFD = 0}
+
+==========================================================================================================================================================================================
+
+$1 = {ProcInfo = {PName = "ccs", '\000' <repeats 29 times>, Pid = 11410, ProcId = 1, PState = PSTOP}, ShelfId = 0, SlotNum = 6, PhySlotNum = 6, OwnFixedISIP = 27597066,
+  PeerFixedISIP = 10819850, OwnHostIP = 0, PeerHostIP = 0, ACCM_A_FixedISIP = 10754314, ACCM_B_FixedISIP = 27531530, ACCMFloatingISIP = 14948618,
+  IomXClass = "\000\000\000\000\000\000\000\000\000", ReleasePath = '\000' <repeats 127 times>, IsChassisIBC4 = 0, IsOAMCoexist = 1, CpuNum = 0, InstId = 2, DisconnectEP = 0, CPUState = 2,
+  ActiveSP = 1, HdlStateChange = 0, HdlTL1Logs = 0x9e04e58 <ProcessTL1LogCommand>, Comm = {Hid = -1, PubHid = 0, SubHid = 0, Port = 1199, IpAddrStr = '\000' <repeats 16 times>},
+  CommHost = {{Hid = -1, PubHid = 0, SubHid = 0, Port = 1199, IpAddrStr = "10.25.164.0\000\000\000\000\000"}, {Hid = -1, PubHid = 0, SubHid = 0, Port = 1199,
+      IpAddrStr = "10.25.164.1\000\000\000\000\000"}, {Hid = -1, PubHid = 0, SubHid = 0, Port = 1199, IpAddrStr = "10.25.228.0\000\000\000\000\000"}}, HbInfo = {Priority = 0, Port = 0,
+    Sockfd = 0, Name = '\000' <repeats 49 times>, ThreadAttr = {__size = '\000' <repeats 35 times>, __align = 0}, ThreadId = 0, HeartbeatRate = 0, MaxHeartbeatLost = 0,
+    HeartbeatActive = 0, DataStr = "\000\000\000\000\000\000\000\000\000", StopHeartbeat = 0 '\000', WhichSP = 2, WatchDogQ = {Head = 0x0, Tail = 0x0, Count = 0}, WatchDogMaxTimeout = 0},
+  SchemaDir = '\000' <repeats 50 times>, CpuSwVersion = "9.4.0.0.0.276", '\000' <repeats 17 times>, PartnerSwVersion = "9.4.0.0.0.276", '\000' <repeats 17 times>, ChassisType = 6,
+  CpuStartMode = 0, EmfIpAddress = "127.0.0.1", '\000' <repeats 11 times>, WorkHost = 0, ProtHost = 0, InService = 0 '\000', ProtHostConnPend = 0 '\000', SpUpgradeInProgress = 0 '\000',
+  MonitorState = 0, BrdIdProm = {CLEI = '\000' <repeats 19 times>, PartNo = "\000\000\000\000\000\000\000\000\000", SerialNum = '\000' <repeats 19 times>,
+    HWVersion = "\000\000\000\000\000\000\000\000\000", SWVersion = '\000' <repeats 19 times>, Description = '\000' <repeats 34 times>, DebugMACAddr = {0, 0}, NumExtPorts = 0,
+    ExtPortType = "\000\000\000\000", ExtPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumIntPorts = 0, IntPortType = "\000\000\000\000",
+    IntPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumDrammBanks = 0, SizeDrammBanks = 0, NumFlashBanks = 0, SizeFlashBanks = 0, SarRamSize = 0, TsuRamSize = 0, FsuRamSize = 0,
+    SlotCount = 0, Checksum = 0}, RearBrdIdProm = {CLEI = '\000' <repeats 19 times>, PartNo = "\000\000\000\000\000\000\000\000\000", SerialNum = '\000' <repeats 19 times>,
+    HWVersion = "\000\000\000\000\000\000\000\000\000", SWVersion = '\000' <repeats 19 times>, Description = '\000' <repeats 34 times>, DebugMACAddr = {0, 0}, NumExtPorts = 0,
+    ExtPortType = "\000\000\000\000", ExtPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumIntPorts = 0, IntPortType = "\000\000\000\000",
+    IntPortBandwidth = "\000\000\000\000\000\000\000\000\000", NumDrammBanks = 0, SizeDrammBanks = 0, NumFlashBanks = 0, SizeFlashBanks = 0, SarRamSize = 0, TsuRamSize = 0, FsuRamSize = 0,
+    SlotCount = 0, Checksum = 0}, MgType = 0, SgType = 0, CellFormat = 0, MaintLinkFD = 0}
+
+
+==========================================================================================================================================================================================

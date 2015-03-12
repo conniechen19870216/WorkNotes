@@ -1,0 +1,674 @@
+#
+#       File ID:        @(#): <MID13964 () - 05/02/00, 23.1.1.2>
+#
+#       File:                   MID13964
+#       Release:                23.1.1.2
+#       Date:                   05/13/00
+#       Time:                   13:27:18
+#       Newest applied delta:   05/02/00 22:47:23
+#
+# DESCRIPTION:
+#       This file contains aliases for trace settings which may be used
+#       in the "TRACE" CEP.  This file is installed in "/sn/cr/traceflags"
+#       on the StarServer(TM) 3300 and is accessed when a "TRACE" command
+#       is issued.
+#
+
+# SCP-specific subsystem trace aliases should be added below.
+
+# INIT subsystem trace bits:
+initmsg: 512 544
+initseq: 513 544
+initboot: 514 544
+initreset: 515 544
+initcreate: 517 544
+initaudit: 518 544
+initlist: 519 544
+initsync: 520 544
+initsanity: 526 544
+inittest: 527 544
+initreq: 528 544
+initrstrt: 529 544
+inittimer: 530 544
+initcep: 531 544
+initdebug: 541 544
+initsbt: 575
+initinhibitsbt: 572
+
+# MEAS subsystem trace bits
+measdcrout: 320
+measdcrcv: 321
+measdcsend: 322
+measdcmsgs: 321 322
+measdcmeas: 325
+measdcdb: 326
+measdcrinit: 327
+measdcall: 320 321 322 326
+measmtrout: 352
+measmtrcv: 353
+measmtsend: 354
+measmtmsgs: 353 354
+measmtinit: 359
+measmtall: 352 353 354
+
+# SPP (spa1) subsystem trace bit
+sppcalls: 1170
+sppcustomers: 1171
+sppdb: 1172 1173 1174 1175 1199
+sppdbapply: 1199
+sppdbaudit: 1172
+sppdbform: 1173
+sppdbiwindow: 1203
+sppdbread: 1174
+sppdbstatic: 1175
+sppdbsync: 1207
+sppdebugger: 1176
+sppdg: 1177 1178
+sppdgbuild: 1177
+sppdgtraverse: 1178
+sppdgrtrace: 1208
+sppdictbase: 1206
+sppfsm: 1179
+sppfsmenh: 1216
+spphungcalls: 1210
+sppidentDict: 1180
+sppinit: 1181
+spplinenum: 1212
+sppmeasdb: 1182
+sppmemory: 1183
+sppmessages: 1184 1185 1186
+sppmessagesabbrv: 1204
+sppmessagesin: 1185
+sppmessagesout: 1186
+sppmsgUtil: 1187
+sppmsglist: 1195
+sppnotify: 1200
+spppayRent: 1188 1189
+spppayRentcircuit: 1188
+spppayRentfile: 1189
+sppprocess: 1191
+sppprocinit: 1190
+spprandomizememory: 1197
+sppsecure1: 1214
+sppsecure2: 1215
+sppsender: 1196
+sppspafu: 1198
+sppspman: 1192
+sppstring: 1193
+sppstringappend: 1201
+sppstringrequire: 1202
+sppstringsaudit: 1205
+spptimer: 1194
+sppvariableref: 1209
+sppama: 1211
+
+#For proxy
+proxyserverinfo: 1247
+proxyserverdebug: 1247 1248
+proxyserververbose: 1247 1248 1249
+
+proxyclientinfo: 1252
+proxyclientdebug: 1252 1253
+proxyclientverbose: 1252 1253 1254
+
+# SLL Debugger (di) subsystem trace bits
+diinout: 1408
+dimessages: 1409 1410
+dimsgin: 1409
+dimsgout: 1410
+dicallproc: 1411
+diaudit: 1412
+dimeas: 1413
+didb: 1414
+diinit: 1415
+dispman: 1416
+disch: 1417
+diaex: 1418
+dispp: 1419
+diops: 1420
+disym: 1421
+dilex: 1422
+diparse: 1423
+dimem: 1424
+distop: 1425
+diread: 1426
+didefine: 1427
+diexec: 1428
+
+#BILL subsystem trace bits
+blinout: 64
+blmsgin: 65
+blmsgout: 66
+blmsgs: 65 66
+blcallproc: 67
+blaudit: 68
+blmeas: 69
+bldb: 70
+blinit: 71
+blstartup: 72
+blamaFile: 73
+bltapeWrt: 74
+bltp: 75
+blbill: 76
+blgeneral: 77
+blread: 78
+blwrite: 79
+blreturn: 80
+bltmr: 81
+blom: 82
+blprimTrcr: 83
+blmaintFile: 84
+blibcientry: 85
+blibcierror: 86
+blibcifsm: 87
+blibcitli: 88
+blibcimisc: 89
+blibciall: 85 86 87 88 89
+
+# S7SCH subsystem trace bit
+s7ssnerr:  1349
+s7sle:     1350
+s7mtperr:  1351
+s7sccper:  1352
+s7acgerr:  1353
+
+s7mtp:  1364 1365 1366 1367
+s7mtp2: 1365
+s7mtp3Mh: 1366
+s7mtp3Nw: 1367
+
+s7sccp: 1354
+s7scmg: 1355
+s7tld: 1356
+s7fdoc: 1357
+s7cargo: 1358
+
+s7oam:  1374 1375 1376 1377 1378
+s7oamMtp2: 1375
+s7oamMtp3: 1376
+s7oamSccp: 1377
+s7oamMisc: 1378
+
+s7l2l3: 1394
+s7l2l3a: 1395
+s7l2l3b: 1396
+s7l2l3c: 1397
+s7l2l3d: 1398
+s7l2l3e: 1399
+retrofit: 1400
+
+#SPMAN subsystem trace bits
+samsgin: 769
+samsgout: 770
+samsgs: 769 770
+sacp: 771
+sagen: 769 770 771
+saaudit: 772
+sameas: 773
+sadb: 774
+sainit: 775
+saext: 776
+sasch: 777
+saaex: 778
+saspp: 779
+saspa: 778 779
+
+# SEAS subsystem trace bits
+ssinout: 1472
+ssmsgin: 1473
+ssmsgout: 1474
+ssaudit: 1475
+sstimer: 1476
+ssualall: 1482 1483 1484 1485 1486 1487
+ssual: 1482
+ssualdata: 1483
+ssualrq: 1484
+ssualwq: 1485
+ssualcntl: 1486
+ssualpvc: 1487
+ssuplall: 1492 1493 1494 1495
+ssupl: 1492
+ssupldata: 1493
+ssupllink: 1494
+ssuplfile: 1495
+ssdenied: 1502
+sscsop: 1503
+ssdball: 1504 1505
+ssdb: 1504
+ssdbdata: 1505
+
+# RTDB subsystem trace flags
+rdbdump: 1087
+rdbfunstart: 1024
+rdbmsgsent: 1026
+
+rdbread: 1046
+rdbwrite: 1047
+
+rdball: 1050 1051 1052 1053 1054 1055 1056 1057 1058 1060 1067
+rdbstatus: rdbwatch rdbreterr
+rdbop: 1051 1069
+rdbtuple: 1050
+rdbfoldkey: 1051
+rdbdhash: 1052
+rdbdatap: 1053
+rdbdpage: 1054
+rdbutil:  1055
+rdbinit: 1056
+rdbwatch: 1057
+rdbintf:  1058
+rdbrel:    1068
+
+rdbextra: 1059 1060 1061 1062 1063 1064 1065 1066
+rdbclean: 1059
+rdbreterr: 1060
+rdbseize:  1061
+rdbsearch: 1062
+rdbretrieve: 1063
+rdbrelease: 1064
+rdboverflow: 1065
+rdbsplit:  1066
+rdbdouble: 1067
+rdbrcmap:  1069
+
+rdbmonitor: 1060 1061 1066 1067 
+
+rdbmisc:   1077
+rdbmisc1:   1078
+rdbmisc2:   1079
+
+
+#ASPIN flags
+AIFunctionTrace: 1088
+AIMessageReceived: 1089
+AIMessageSent: 1090
+AIInit: 1095
+AIprocess: 1100
+AIlogging:1101
+AImessageHandling: 1102
+AIapplication: 1103
+AIbilling: 1104
+AIss7: 1105
+AImeasurements: 1106
+
+
+# AEX subsystem trace bits
+aexmsgin: 1088
+aexmsgout: 1089
+aexendcall: 1109
+aextcapact: 1123
+aextcapparser: 1140
+aextcapmeas: 1143
+aexmem:	1144
+aexaudit: 1145
+aexbase: 1148
+aextcaptrap: 1146
+aextimers: 1150
+aexresource: 1151
+apmaperr: 2576
+
+
+#ASI trace flags
+#asiinit -  initialization points for the process 
+#asientry -  entry point for functions 
+#asiexit - exit point for functions 
+#asinewmsg -  all messages received 
+#asismsmsgs  - messages received from and sent to the SMS
+
+asiinit: 256
+asientry: 257
+asiexit: 258
+asinewmsg: 259
+asismsmsgs: 262
+
+
+
+#FT trace flags
+ftentry: 2368
+ftmsgin: 2369
+ftmsgout: 2370
+ftaudit: 2372
+ftdb: 2374
+ftinit: 2375
+ftall: 2368 2369 2370 2371 2372 2373 2374 2375 
+
+# TT trace flags
+ttinout: 1280
+ttmsgin: 1281
+ttmsgout: 1282
+ttcallproc: 1283
+ttaudit: 1284
+ttmeas: 1285
+ttdb: 1286
+ttinit: 1287
+ttspman: 1288
+ttset: 1289
+ttinh: 1290
+ttalw: 1291
+ttop: 1292
+ttclr: 1293
+ttcomplete: 1294
+ttabort: 1295
+ttcapmgmt: 1296
+ttdis: 1297
+ttmop: 1298
+ttcri: 1299
+ttcrix: 1300
+ttgen: 1301
+ttcep: 1302
+tts7sch: 1304
+ttaex: 1146
+aptccridata: 2572
+apaincridata: 2573
+ttstate: 1289 1290 1291 1292 1293 1294 1295
+apcridata: 2572 2573
+aptrcainmgr: 2574
+aptrpainmgr: 2575
+apainmgr: 2574 2575
+apainall: 2572 2573 2574 2575
+
+# US (Unified Special Studies) trace flags
+usinout: 3584
+usmsgin: 3585
+usmsgout: 3586
+uscallproc: 3587
+usaudit: 3588
+usmeas: 3589
+usdb: 3590
+usinit: 3591
+usstudy: 3592
+usstudyfsm: 3593
+usmopfsm: 3594
+usrepfsm: 3595
+usgenrep: 3596
+usfile: 3597
+usfsmctl: 3598
+usstudyctl: 3599
+uscapmgmt: 3600
+usdis: 3601
+usmop: 3602
+uscri: 3603
+uscrix: 3604
+usgen: 3605
+uscep: 3606
+usaex: 3607
+usfsmall: 3592 3593 3594 3595 3598 3599 3605
+usmopall: 3600 3602 3603 3604 3605
+uscepall: 3600 3603 3604 3605 3606
+usrepall: 3595 3596 3605
+usdisall: 3590 3591 3601 3605
+
+# TCAP trace flags
+tcdecdrv: 2624
+tcdectxn: 2625
+tcdeccmp: 2626
+tcdecall: 2624 2625 2626 2633
+tcencdrv: 2627
+tcenctxn: 2628
+tcenccmp: 2629
+tcencall: 2627 2628 2629 2633
+tcaincri: 2630 2631
+tchdlrdata: 2632
+tcasn1parm: 2633
+
+# X25SCH subsystem trace bits
+xxtliall:	2496 2497 2498 2499 2500
+xxtli:		2496
+xxpvc:		2497
+xxpvcevent:	2498
+xxpvcmsg:	2499
+xxpvcpoll:	2500
+xxcmall:	2506 2507 2508 2509 
+xxcm:		2506
+xxgrp:		2507
+xxgrpevent:	2508
+xxgrpmsg:	2509
+xxsapall:	2516 2517 2518 2519 2520 2521
+xxsap:		2516
+xxsapaex:	2517
+xxsaptid:	2518
+xxsapmsg:	2519
+xxsapmon:	2520
+xxsapaudit:	2521
+xxoamall:	2526 2527 2528 2529 2530 2531 2536 2537
+xxoam:		2526
+xxtmr:		2527
+xxdisp:		2528
+xxmeas:		2529
+xxoammon:	2530
+xxmsg:		2531
+xxovld:		2536
+xxcongest:	2537
+
+tigen: 2688
+tifuncmsg: 2689
+tilow: 2690
+tishmem: 2691
+tigcbtree: 2692
+tiinoutfunc: 2693
+tioam: 2694
+tialloc: 2695
+tidealloc: 2696
+tifire: 2697
+tiidle: 2698
+tiread: 2699
+tiwrite: 2700
+tituclod: 2701  
+tiack: 2702  
+tifail: 2703  
+tires: 2704  
+tihost: 2705  
+tihostx: 2706  
+tihostu: 2707 
+tireadno: 2708 
+ticonnr: 2709 
+tihostl: 2710 
+tihostn: 2711 
+tiprocmsgs: 2712 
+tithrottle: 2713 
+tifuncmsgs: 2715 
+tiTcpfuncmsgs: 2716 
+titimer: 2718
+
+# SLEE (SPA1 & SPA2) trace bits
+#trace flag for LJTAPI sub-system
+ljtapiinfo: 1152
+ljtapidebug: 1153 1152
+ljtapiverbose: 1154 1153 1152 
+
+##trace flag for JDBC sub-system
+jdbcinfo: 1157
+jdbcdebug: 1158 1157
+jdbcverbose:  1159 1158 1157
+
+##trace flags for LDAP sub-system
+ldapinfo: 1162
+ldapdebug: 1163 1162
+ldapverbose: 1164 1163 1162
+
+##trace flags for service meas sub-system
+svrmeasinfo: 1167
+svrmeasdebug: 1168 1167
+svrmeasverbose: 1169 1168 1167
+
+##trace flags for subscriber meas sub-system
+submeasinfo: 1172
+submeasdebug: 1173 1172
+submeasverbose: 1174 1173 1172
+
+##trace flags for Database beans sub-system
+dbinfo: 1177
+dbdebug: 1178 1177 
+dbverbose: 1179 1178 1177
+
+##trace flags for Call control beans sub-system
+ccinfo: 1182
+ccdebug: 1183 1182
+ccverbose: 1184 1183 1182
+
+##trace flags for Media control beans sub-system
+mcinfo: 1187
+mcdebug: 1188 1187
+mcverbose: 1189 1188 1187
+
+##trace flags for Non-telephony beans sub-system
+ntinfo: 1192
+ntdebug: 1193 1192
+ntverbose: 1194 1193 1192
+
+##trace flags for APP package
+appinfo: 1197
+appdebug: 1198 1197 
+appverbose: 1199 1198 1197
+
+##trace flags for BILL sub-system
+billinfo: 1202
+billdebug: 1203 1202
+billverbose: 1204 1203 1202
+
+##trace flags for GENERAL package
+generalinfo: 1207
+generaldebug: 1208 1207
+generalverbose: 1209 1208 1207 
+
+##trace flags for EVENTS package
+eventsinfo: 1212
+eventsdebug: 1213 1212
+eventsverbose: 1214 1213 1212
+
+##trace flags for JNDI package
+jndiinfo: 1217
+jndidebug: 1218 1217
+jndiverbose: 1219 1218 1217
+
+##trace flags for MONITOR package
+monitorinfo: 1222
+monitordebug: 1223 1222
+monitorverbose: 1224 1223 1222
+
+##trace flags for OUTPUT package
+outputinfo: 1227
+outputdebug: 1228 1227
+outputverbose: 1229 1228 1227
+
+##trace flags for SS7 package
+ss7info: 1232
+ss7debug: 1233 1232
+ss7verbose: 1234 1233 1232
+
+##trace flags for STARTUP package
+startupinfo: 1237
+startupdebug: 1238 1237
+startupverbose: 1239 1238 1237
+
+##trace flags for THREADPOOL package
+threadpoolinfo: 1242 
+threadpooldebug: 1243 1242
+threadpoolverbose: 1244 1243 1242
+
+##trace flags for services
+## SVC_BASE: 2816; //CRspare7 as base
+
+##trace flags for service1
+svc1info: 2816
+svc1debug: 2817 2816
+svc1verbose: 2818 2817 2816
+
+##trace flags for service2
+svc2info: 2821
+svc2debug: 2822 2821
+svc2verbose: 2823 2822 2821
+
+##trace flags for service3
+svc3info: 2826
+svc3debug: 2827 2826
+svc3verbose: 2828 2827 2826
+
+##trace flags for service4
+svc4info: 2831
+svc4debug: 2832 2831
+svc4verbose: 2833 2832 2831
+
+##trace flags for service5
+svc5info: 2836
+svc5debug: 2837 2836
+svc5verbose: 2838 2837 2836
+
+##trace flags for service6
+svc6info: 2841
+svc6debug: 2842 2841
+svc6verbose: 2843 2842 2841
+
+##trace flags for service7
+svc7info: 2846
+svc7debug: 2847 2846
+svc7verbose: 2848 2847 2846
+
+##trace flags for service8
+svc8info: 2851
+svc8debug: 2852 2851
+svc8verbose: 2853 2852 2851
+
+##trace flags for service9
+svc9info: 2856
+svc9debug: 2857 2856
+svc9verbose: 2858 2857 2856
+
+##trace flags for service10
+svc10info: 2861
+svc10debug: 2862 2861
+svc10verbose: 2863 2862 2861
+
+#SMI trace flags (close to range used by asi )
+smiinfo: 289
+smidebug: 290 289
+smiverbose: 291 290 289
+
+#SIP related traceflags
+isip: 1121
+isipcplusplusapi: 1119
+
+b2buajavainfo: 1113
+b2buajavadebug:1114
+b2buajavaverbose: 1115
+
+#SIP related for future use (following 7 flags)
+isipjavaapi: 1120
+
+nistinfo: 1110
+nistdebug: 1111
+nistverbose: 1112
+
+b2buacplusplusinfo: 1116
+b2buacpluplusdebug: 1117
+b2buacplusplusverbose: 1118
+
+
+#sppterse: 1213 - came from ECMS
+
+#IPSCH Trace Bits - SIP Protocol
+
+#SIP Call Processing
+ipinout: 2496
+ipmsgin: 2497
+ipmsgout: 2498
+ipdb: 2502
+ipinit : 2503
+ipspman: 2504
+ipsipcp: 2506
+ipshm: 2507
+ipsipcpdetail: 2508
+ipsiptimer: 2509
+ipscherror: 2510
+ipsipadmin: 2511
+ipsipntwkmsg: 2512
+ipsipmsgin: 2513
+ipsipdialogid: 2514
+ipsipparser: 2515
+ipsipcpprob: 2516
+ipsiplog: 2517
+
+#DGSQL
+dgsqlinfo: 1116
+dgsqldebug: 1116 1117
+dgsqlverbose: 1116 1117 1118

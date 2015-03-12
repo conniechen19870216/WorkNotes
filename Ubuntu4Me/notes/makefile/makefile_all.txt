@@ -1,0 +1,19 @@
+SUBDIRS=src/lib src/ModuleA/apple/shell src/ModuleA/apple/core 
+CURRENTPATH=$(shell /bin/pwd)
+INCLUDES=-I$(CURRENTPATH)/src/include -I$(CURRENTPATH)/src/ModuleA/apple/include 
+#CPFLAG:=$(DEFS)
+export INCLUDES 
+noinst_LIBRARIES=libswap.a
+libswap_a_SOURCES=swap.c
+INCLUDES=-I$(top_srcdir)/src/include
+noinst_PROGRAMS=test
+test_SOURCES=test.c 
+test_LDADD=$(top_srcdir)/src/ModuleA/apple/shell/apple.o $(top_srcdir)/src/lib/libswap.a 
+test_LDFLAGS=-D_GNU_SOURCE
+DEFS+=-D_GNU_SOURCE
+#LIBS=-lpthread
+export INCLUDES
+noinst_PROGRAMS=apple
+apple_SOURCES=apple.c
+#apple_LDFLAGS=-D_GNU_SOURCE
+DEFS+=-D_GNU_SOURCE

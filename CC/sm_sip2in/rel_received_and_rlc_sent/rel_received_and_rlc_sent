@@ -1,0 +1,104 @@
+(1) E05S18: S18->S21
+InLiDatDatInd (in_bdy1.c)
+       |
+       |
+       +------ inActDat (in_bdy9.c) <<<<<< ISDN: E15S12 (Event: Release Message; State: disconnect indication) >>>>>>>>
+                  |
+                  |
+                  +------ inNetE15S12 (in_bdy5.c) 
+                            |
+                            |                                                    
+                            +---- InUiIntRelInd (in_ptui.c)
+                                      |
+                                      +---- QwLiIntRelInd (qw_bdy1.c)
+                                                |
+                                                +---- QwUiCctRelInd (qw_ptui.c)
+                                                         |
+                                                         +---- CcLiCctRelInd (cc_bdy1.c)
+                                                                   |
+                                                                   +---- ccChkCallTrc (cc_calltrc.c) <<<<<<< State Change Tracing Log >>>>>>>
+                                                                   |         |
+                                                                   |         +------- ccNeedsLogging (cc_calltrc.c)
+                                                                   |
+                                                                   |
+                                                                   +---- ccCallStateMachine (cc_bdy2.c) <<<<<<< E05S18 >>>>>>>>
+                                                                             |
+                                                                             +---- ccConE05S18 (cc_bdy2.c) 
+                                                                                      |
+                                                                                      +----- CC_STATE_CHANGE <<<<<<< S18->S21 CCS_AWTRELCFM_OG -> CCS_AWTDEALOCCFM >>>>>>>>>
+                                                                                      |
+                                                                                      +----- ccDeallocateResource (cc_bdy3.c) 
+                                                                                                     |
+                                                                                                     +---- ccCloseOBcmTransaction (cc_bdy5.c)
+                                                                                                     |
+                                                                                                     +---- ccDecrementIntfcActvConn (cc_lib.c)
+                                                                                                     |
+                                                                                                     +---- CcLiRmtDealocReq (cc_ptli.c)
+                                                                                                                 |
+                                                                                                                 +----- RmUiRmtDealocReq (rm_bdy1.c)
+                                                                                                                 |
+                                                                                                                 +----- /* TO BE CONTINUED */
+(2) E10S21: S21->S00
+CcLiRmtDealocReq (cc_ptli.c)
+      |
+      +----- RmUiRmtDealocReq (rm_bdy1.c)
+               |   
+               | CC_IN_INTFC
+               |
+               +----- rmDealocDss1Rsc (rm_bdy6.c)
+               |        |
+               |        +----- rmValidateDss1Rsc (rm_bdy6.c)
+               |        |
+               |        +----- rumSetUpdFlag (rm_rum.c)
+               |
+               |
+               +---- RmUiRmtDealocCfm (cc_ptui.c)
+                        |
+                        +----- CcLiRmtDealocCfm (cc_bdy1.c)
+                                  |
+                                  +----- ccCallStateMachine (cc_bdy2.c) <<<<<< E10S21 (CCE_DEALOCCFM=10) >>>>>>>>
+                                            |
+                                            +------ ccConE10S21 (cc_bdy2.c)
+                                                     |
+                                                     +----- CC_STATE_CHANGE <<<<<<< S21->S00 CCS_AWTDEALOCCFM -> CCS_IDLE >>>>>>>>>
+                                                     |
+                                                     +----- ccRelCon (cc_bdy4.c)
+                                                              |
+                                                              +----- ccCloseOBcmTransaction (cc_bdy5.c)
+                                                              |
+                                                              +----- ccCloseTBcmTransaction (cc_bdy5.c)
+                                                              |
+                                                              +----- ccDropEvnt(con) (cc_bdy4.c)
+                                                              |
+                                                              +----- ccCleanUpBufferedEvent (cc_lib.c)
+                                                              |
+                                                              +----- ccCleanUpforSurrogate (cc_bdy5.c)
+                                                              |
+                                                              +----- all kinds of free
+                                                              |
+                                                              +----- ccPegStndCalls (cc_bdy4.c)
+                                                                         |
+                                                                         +----- CcLiRmtStsReq (cc_ptli.c)
+                                                                                  |
+                                                                                  +----- RmUiRmtStsReq (rm_bdy1.c)
+
+(3) ISDN Release Complete Sent
+InLiDatDatInd (in_bdy1.c)
+       |
+       |
+       +------ inActDat (in_bdy9.c)
+                  |
+                  |
+                  +------ inNetE15S12 (in_bdy5.c) 
+                            |
+                            |                                                    
+                            +------- Above
+                            |
+                            |
+                            +------- inGenRelUpLw (in_bdy2.c)
+                                          |
+                                          +------ inGenPdu_real (in_bdy9.c) 
+                                                    |                                                    
+                                                    +---- inSndMsg (in_bdy9.c)
+                                                              |
+                                                              +---- InLiDatDatReq (in_ptli.c)

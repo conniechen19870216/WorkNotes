@@ -1,0 +1,109 @@
+为什么使用类？
+a) 继承
+b) 组合
+
+类有什么特点？
+a) 多重实例
+b) 通过继承进行定制
+c) 运算符重载
+
+相对于模块来说，类的不同之处在哪儿？
+类是产生多个实例的工厂；而每个模块只有一个副本会导入到一个程序中
+
+1. 类对象：来自于语句
+(1) class语句创建类对象并将其赋值给变量名
+(2) class语句内的赋值语句会创建类的属性（不包括def内部的）
+(3) 类熟悉提供对象的状态和行为
+
+2. 实例对象：来自于调用
+(1) 像函数那样调用类对象会创建新的实例对象
+(2) 每个实例对象继承类的属性并获得了自己的命名空间
+(3) 在方法内对def属性做赋值运算会产生每个实例自己的属性
+
+3. Examples
+>>> class firstclass:
+...     def setdata(self, data):
+...         self.data = data
+...     def printdata(self):
+...         a = 1
+...         print self.data
+... 
+>>> x = firstclass()
+>>> x.setdata(2)
+>>> x.data
+2
+>>> x.a
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: firstclass instance has no attribute 'a'
+>>> y = firstclass()
+>>> y.setdata("Kavon Ma")
+>>> y.printdata()
+Kavon Ma
+>>> y.another = 'hello'
+
+4. 思想：类通过继承进行定制
+逻辑的修改是通过创建子类，而不是修改超类；
+使得对现有的程序代码进行定制，而不是在实地进行修改或者是从头开始
+
+5. Examples
+>>> class firstclass:
+...       def setdata(self, value):
+...           self.data = value
+...       def display(self):
+...           print self.data
+... 
+>>> class secondclass(firstclass):
+...       def __init__(self, value):
+...           self.data = value
+...       def __add__(self, other):
+...           return secondclass(self.data + other)
+...       def __mul__(self, other):
+...           self.data = self.data * other
+... 
+>>> x = secondclass("abc")
+>>> x.display(
+... )
+abc
+>>> x.display()
+abc
+>>> y = x + 'xyz'
+>>> y.display()
+abcxyz
+>>> x * 
+  File "<stdin>", line 1
+    x * 
+       ^
+SyntaxError: invalid syntax
+>>> x * 3
+>>> x.display()
+abcabcabc
+
+6. >>> class kavon: pass
+...
+>>> kavon.km = 1
+>>> kavon.mjsc = 2
+>>> x = kavon()
+>>> y = kavon()
+>>> x, y
+(<__main__.kavon instance at 0xb76a830c>, <__main__.kavon instance at 0xb76a5d8c>)
+>>> x.km, y.km
+(1, 1)
+>>> x.km = 'majun'
+>>> x.km, y.km
+('majun', 1)
+>>> kavon.__dict__.keys()
+['__module__', 'mjsc', '__doc__', 'km']
+>>> x.__dict__.keys()
+['km']
+>>> y.__dict__.keys()
+[]
+
+>>> def upperName(self):
+...     return self.km.upper()
+...
+>>> kavon.method = upperName
+>>> x.method()
+'MAJUN'
+>>> kavon.method(x)
+'MAJUN'

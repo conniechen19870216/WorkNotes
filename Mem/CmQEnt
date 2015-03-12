@@ -1,0 +1,31 @@
+1. structure definations (cm_queue.h)
+
+typedef struct CmQCp_t  
+{
+    void *first;        
+    void *last;         
+    U32  count;         
+    U16  offset;        
+} CmQCp;                
+                        
+typedef struct CmQEnt_t 
+{                       
+    void *prev;         
+    void *next;         
+} CmQEnt;               
+
+2. Operations
+
+S16 cmQInit(CmQCp *qCp, U32 maxEnt, U16 offset);         
+                                                         
+S16 cmQInsert(CmQCp *qCp, void *node);                   
+                                                         
+S16 cmQInsAfter(CmQCp *qCp, void  *prevNode,void  *node);
+                                                         
+S16 cmQGetNext(CmQCp *qCp, void *prevNode, void **node); 
+                                                         
+S16 cmQGetPrev(CmQCp *qCp, void *nextNode, void **node); 
+                                                         
+S16 cmQRemove(CmQCp *qCp, void *node);                   
+
+3. Usage

@@ -1,0 +1,115 @@
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00020),00000(00000) 0x00000001 10-20 11:21:04.112 18141: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=42{C=37{S=ip/37/1/45{SA{nt/dur=80,nt/os=0,nt/or=0,rtp/ps=0,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=80,rtp/os=0,rtp/or=0,tmanr/dp=0}},S=ip/37/0/46{SA{nt/dur=88,nt/os=0,nt/or=0,rtp/ps=0,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=88,rtp/os=0,rtp/or=0,tmanr/dp=0}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00020),00000(00000) 0x00000001 10-20 11:21:40.967 18141: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5001
+TRANSACTION = 43 {
+  CONTEXT = $ {
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 $
+m=audio $ RTP/AVP 96 8 0
+a=rtpmap:96 AMR/8000
+a=fmtp:96 mode-change-capability=2
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=silenceSupp:off - - - -
+        },
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    },
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0206808001
+        },
+        REMOTE {
+v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0206808001
+        },
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       BCP/BNCCHAR = IP/RTP,
+                       BT/TUNOPT = 2,
+                       THREEGUP/UPVERSIONS = 2,
+                       THREEGUP/MODE = SUPP,
+                       THREEGUP/DELERRSDU = YES,
+                       THREEGUP/INTERFACE = CN,
+                       THREEGUP/INITDIR = IN }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00020),00000(00000) 0x00000001 10-20 11:21:40.975 18141: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=43{C=38{A=ip/38/1/47{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 32430 RTP/AVP 96 8 0 127 13
+a=rtpmap:96 AMR/8000
+a=rtpmap:127 telephone-event/8000
+a=fmtp:96 mode-change-capability=2; max-red=0
+a=ptime:20
+a=maxptime:80
+a=silenceSupp:on - - - -
+}}},A=ip/38/0/48{M{L{v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0206808001
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00020),00000(00000) 0x00000001 10-20 11:21:41.000 18141: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5001
+TRANSACTION = 44 {
+  CONTEXT = 38 {
+    MODIFY = ip/38/0/48 {
+      EVENTS = 50331670 { gb/bncchange { TYPE = Est },
+                          bt/tind },
+      MEDIA {
+        TERMINATIONSTATE { GRI/GRI = [ "LAYER:GCC VER:1-1 CCS:0 DIR:INGRESS PROT:5167 TG:9875 CIC:6 CALLID:8317012-54EF6EC4IvyENshUnTBp7Q3JodgaPTcgaID5A1hJWfNx9vsXOtMjJdsyTYx8sMO4URxVge4D0A INTIME:1413804100-9 REALM:0 CCN:0," ] },
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      },
+      SIGNALS { bt/bit { BIT = 2020763D300D0A6F3D2D2030203020494E204950342031302E38342E31342E3130300D0A733D4950424350205344500D0A633D494E204950342031302E38342E31342E3130300D0A743D3020300D0A613D69706263703A3120526571756573740D0A6D3D617564696F203136373138205254502F415650203132300D0A613D7274706D61703A31323020564E442E334750502E497546502F31363030300D0A } }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00020),00000(00000) 0x00000001 10-20 11:21:41.040 18141: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=44{C=38{MF=ip/38/0/48{ER=510{"Insufficient resources-H248_cmd_modify_proc.c:1724: -10030"}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00020),00000(00000) 0x00000001 10-20 11:21:41.041 18141: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5001
+TRANSACTION = 45 {
+  CONTEXT = 38 {
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00020),00000(00000) 0x00000001 10-20 11:21:41.058 18141: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=45{C=38{S=ip/38/1/47{SA{nt/dur=72,nt/os=0,nt/or=0,rtp/ps=0,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=72,rtp/os=0,rtp/or=0,tmanr/dp=0}},S=ip/38/0/48{SA{nt/dur=84,nt/os=0,nt/or=0,rtp/ps=0,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=84,rtp/os=0,rtp/or=0,tmanr/dp=0}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+

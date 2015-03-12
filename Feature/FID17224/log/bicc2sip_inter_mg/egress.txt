@@ -1,0 +1,218 @@
+
+########egress####
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.443 30038: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5001
+TRANSACTION = 38933 {
+  CONTEXT = $ {
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 $
+m=audio $ RTP/AVP 96 8 0 98
+a=ptime:20
+a=maxptime:80
+a=rtpmap:96 AMR/8000
+a=fmtp:96 mode-change-capability=2
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    },
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 $
+m=audio $ RTP/AVP 96 8 0 98
+a=ptime:20
+a=maxptime:80
+a=rtpmap:96 AMR/8000
+a=fmtp:96 mode-change-capability=2
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        REMOTE {
+v=0
+c=IN IP4 10.84.6.186
+m=audio 47524 RTP/AVP 96 8 0 98
+a=ptime:20
+a=maxptime:80
+a=rtpmap:96 AMR/8000
+a=fmtp:96 mode-change-capability=2
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        LOCALCONTROL { MODE = SENDONLY,
+                       RESERVEDVALUE = ON }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.451 30038: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=38933{C=32759{A=ip/247/1/31787{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 47220 RTP/AVP 96 8 0 98 127 13
+a=rtpmap:96 AMR/8000
+a=rtpmap:98 CLEARMODE/8000
+a=rtpmap:127 telephone-event/8000
+a=fmtp:96 mode-change-capability=2; max-red=0
+a=ptime:20
+a=maxptime:80
+a=silenceSupp:on - - - -
+}}},A=ip/247/1/31789{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 47822 RTP/AVP 96 8 0 98 127 13
+a=rtpmap:96 AMR/8000
+a=rtpmap:98 CLEARMODE/8000
+a=rtpmap:127 telephone-event/8000
+a=fmtp:96 mode-change-capability=2; max-red=0
+a=ptime:20
+a=maxptime:80
+a=silenceSupp:on - - - -
+},R{v=0
+c=IN IP4 10.84.6.186
+m=audio 47524 RTP/AVP 96 8 0 98 127 13
+a=rtpmap:96 AMR/8000
+a=rtpmap:98 CLEARMODE/8000
+a=rtpmap:127 telephone-event/8000
+a=fmtp:96 mode-change-capability=2
+a=ptime:20
+a=maxptime:80
+a=silenceSupp:on - - - -
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.562 30038: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5001
+TRANSACTION = 38934 {
+  CONTEXT = 32759 {
+    MODIFY = ip/247/1/31787 {
+      MEDIA {
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    },
+    MODIFY = ip/247/1/31789 {
+      MEDIA {
+        LOCALCONTROL { MODE = SENDONLY }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.652 30038: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=38934{C=32759{MF=ip/247/1/31787,MF=ip/247/1/31789{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 47822 RTP/AVP 96 127 13
+a=rtpmap:96 AMR/8000
+a=rtpmap:127 telephone-event/8000
+a=fmtp:96 mode-change-capability=2; max-red=0
+a=ptime:20
+a=maxptime:80
+a=silenceSupp:on - - - -
+},R{v=0
+c=IN IP4 10.84.6.186
+m=audio 47524 RTP/AVP 96 127 13
+a=rtpmap:96 AMR/8000
+a=rtpmap:127 telephone-event/8000
+a=fmtp:96 mode-change-capability=2
+a=ptime:20
+a=maxptime:80
+a=silenceSupp:on - - - -
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.733 30038: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5001
+TRANSACTION = 38935 {
+  CONTEXT = 32759 {
+    MODIFY = ip/247/1/31787 {
+      MEDIA {
+        REMOTE {
+v=0
+o=- 2890844527 3628200772 IN IP4 10.84.2.10
+s=-
+c=IN IP4 10.84.2.10
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+        },
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      }
+    },
+    MODIFY = ip/247/1/31789 {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 10.84.6.186
+m=audio 47822 RTP/AVP 0
+a=ptime:20
+a=rtpmap:0 PCMU/8000
+        },
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.748 30038: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=38935{C=32759{MF=ip/247/1/31787{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 47220 RTP/AVP 0 127 13
+a=rtpmap:127 telephone-event/8000
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:on - - - -
+},R{v=0
+c=IN IP4 10.84.2.10
+m=audio 6000 RTP/AVP 0 127 13
+a=rtpmap:127 telephone-event/8000
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:on - - - -
+}}},MF=ip/247/1/31789{ER=510{"Insufficient resources-H248_local_remote_desc_proc.c:3649"}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.752 30038: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5001
+TRANSACTION = 38936 {
+  CONTEXT = 32759 {
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00119),00000(00000) 0x00000001 12-22 01:32:52.784 30038: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5001 P=38936{C=32759{S=ip/247/1/31787{SA{nt/dur=310,nt/os=0,nt/or=0,rtp/ps=0,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=310,rtp/os=0,rtp/or=0,tmanr/dp=0}},S=ip/247/1/31789{SA{nt/dur=322,nt/os=78,nt/or=0,rtp/ps=3,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=322,rtp/os=78,rtp/or=0,tmanr/dp=0}}}}
+<<<<<<<<<<<<<<< Rx Msg 
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<
+
+
+ed-prfl-sdp::12:::CODEC1=AMR,CODEC2=PCMA,CODEC3=PCMU,CODEC4=CLEARMODE,CODEC5=NULL,CODEC6=NULL,CODEC7=NULL,CODEC8=NULL,PTYPE1=96,PTYPE2=NULL,PTYPE3=NULL,PTYPE4=98,PTYPE5=NULL,PTYPE6=NULL,PTYPE7=NULL,PTYPE8=NULL;
+
+ed-prfL-sdp::12:0::codeC1=PCMU,ptype1=NULL,codec3=AMR,ptype3=96"

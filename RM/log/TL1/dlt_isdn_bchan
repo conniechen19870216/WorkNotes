@@ -1,0 +1,678 @@
+00003(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_idmgcusta.c:723 IUA Alarm. category: LCM_CATEGORY_PROTOCOL event: LID_EVENT_AS
+00004(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_idmgcusta.c:726 	cause: LID_CAUSE_MSG_RECEIVED status: LCM_PRIM_OK
+00005(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_idmgcusta.c:765 STIDCLST: clstId: 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_idmgcusta.c:1000 AS message LID_AS_INACTIVE
+00007(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_idmgcusta.c:1012 LID_AS_INACTIVE, AS id: 0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_bdy6.c:595 clCb.ccsProcInfo.ChassisType:6
+00007(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00007(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00007(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00008(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_ilk1.c:1636 clIlkHandleIuaUsta: ignored AS message, type:2
+00009(01032),00000(00000) 0x00000020 12-25 08:16:19.537 11098: ../cl_ilk1.c:1652 clIlkHandleIuaUsta: calling clModCallBack()
+00003(01032),00000(00000) 0x00000020 12-25 08:16:23.181 11180: ../cc_bdy4.c:17333 ccGenericTmrEvent=2
+00003(01032),00000(00000) 0x00000020 12-25 08:16:23.181 11180: ../cc_lib.c:63305 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00004(01032),00000(00000) 0x00000020 12-25 08:16:23.181 11180: ../cc_bdy4.c:17261 ccGenericStartTmr
+00005(01032),00000(00000) 0x00000020 12-25 08:16:23.181 11180: ../rm_rum.c:648 rumInactiveTimeOut: **** RUM Inactivity detected *****
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.181 11098: ../cl_idmgc1.c:907 clIdMgcTmrEvnt: entered event: 3
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.181 11098: ../cl_idmgc1.c:915 clIdMgcTmrEvnt: cb is lmEvt 0xf6e04774
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.181 11098: ../cl_idmgc1.c:931 clIdMgcTmrEvnt: CLIDMGC_TMR_H248 expired cb: 0xf6e04774
+00005(01032),00000(00000) 0x00000020 12-25 08:16:24.181 11098: ../cl_idmgc1.c:980 clIdMgcTmrEvnt: CLIDMGC_TMR_EVT_H248, send ASP_ACTIVE 
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.181 11098: ../cl_idmgc1.c:982 clIdMgcTmrEvnt: kicking-off LM_IUAMGC ASP ACTIVE FSM
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.181 11098: ../cl_idmgc2.c:3321 clIdMgcAspAc: entered
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.182 11098: ../cl_idmgc2.c:3379 clIdMgcAspAc: AspState[0]=0x402 AspState[1]=0x302
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.182 11098: ../cl_idmgc2.c:3397 clIdMgcAspAc: cmPkLidCntrlReq() ASP_ACTIVE OKAY, peer: 0, ret 0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_idmgc2.c:4305 clIdMgcLayerCfm: cfm ACK proc = 0447, ent=99, event=0A, status=0, reason = 0
+00010(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_idmgc2.c:4383 clIdMgcLayerCfm: received state IUA_MGC_IDLE_ST
+00011(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_idmgc2.c:4386 clIdMgcLayerCfm: status LCM_PRIM_OK
+00012(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_idmgc2.c:4402 clIdMgcLayerCfm: event IUA_MGC_OK_CFM_EV
+00013(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_bdy7.c:299 IUAMGC-1:event:1 in state:0, next state:0
+00014(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_idmgc2.c:3958 clIdMgcDone: entered
+00015(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_idmgc2.c:4103 clIdMgcDone: LM_USTA_EVT - Done
+00016(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_idmgc2.c:4127 clIdMgcDone: call clModCallBack(lmEvt: 0xf6e04774) SPutSBuf(cb: 0xbd596c14)
+00017(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00018(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00019(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00020(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00021(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_ilk1.c:1643 ignored AS message, event: 260
+00022(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_ilk1.c:1652 clIlkHandleIuaUsta: calling clModCallBack()
+00023(01032),00000(00000) 0x00000020 12-25 08:16:24.184 11098: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_bdy3.c:841 raising USTA event
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_idmgcusta.c:723 IUA Alarm. category: LCM_CATEGORY_PROTOCOL event: LID_EVENT_ASPM
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_idmgcusta.c:726 	cause: LID_CAUSE_MSG_RECEIVED status: LCM_PRIM_OK
+00005(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_idmgcusta.c:753 STIDPEER: peerId: 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_idmgcusta.c:815 ASPM message LID_ASP_ACTIVE_ACK, reason LCM_REASON_NOT_APPL
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_idmgcusta.c:921 LID_ASP_ACTIVE_ACK received, peerId: 0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_idmgcusta.c:928 clIuaHandleIdUsta: provState IS, done with peer: 0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_bdy6.c:595 clCb.ccsProcInfo.ChassisType:6
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00009(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00009(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00010(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_ilk1.c:1643 ignored AS message, event: 259
+00011(01032),00000(00000) 0x00000020 12-25 08:16:24.224 11098: ../cl_ilk1.c:1652 clIlkHandleIuaUsta: calling clModCallBack()
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.225 11179: ../id_b_asm.c:2753 B35519: idAsmUpdAsStatus: oldClstSt: 2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.225 11179: ../id_b_asm.c:2762 B35519: idAsmUpdAsStatus: peerId: 0 state: 1025
+00005(01032),00000(00000) 0x00000020 12-25 08:16:24.225 11179: ../id_b_asm.c:2779 B35519: idAsmUpdAsStatus: clstSta.nmbActPeer: 1
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy3.c:841 raising USTA event
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_idmgcusta.c:723 IUA Alarm. category: LCM_CATEGORY_PROTOCOL event: LID_EVENT_AS
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_idmgcusta.c:726 	cause: LID_CAUSE_MSG_RECEIVED status: LCM_PRIM_OK
+00005(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_idmgcusta.c:765 STIDCLST: clstId: 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_idmgcusta.c:1000 AS message LID_AS_ACTIVE
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_idmgcusta.c:1028 LID_AS_ACTIVE, AS id: 0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy6.c:595 clCb.ccsProcInfo.ChassisType:6
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00009(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1517 LID_AS_ACTIVE, AS id: 0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1520 clIlkHandleIuaUsta: stopping CLILK_TMR_EVT_AS_DOWN
+00009(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1794 clIlkStopTmr: event: 1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1558 clIlkHandleIuaUsta: Found 1 Links in 2 Interface(s)
+00012(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1567 clIlkHandleIuaUsta: found IF 1 - 65535 type: 3 ifMntStatus: 0
+00013(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1567 clIlkHandleIuaUsta: found IF 3670 - 1 type: 3 ifMntStatus: 0
+00013(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1584 clIlkHandleIuaUsta: found 2 interfaces IS
+00012(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1624 clIlkHandleIuaUsta: starting AS_ACTIVE FSM ISDN IF: 1
+00012(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:0, next state:1
+00012(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:497 clIlkSelfPost: entered
+00010(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1624 clIlkHandleIuaUsta: starting AS_ACTIVE FSM ISDN IF: 3670
+00011(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:273 ILK-1:new FSM with event:12 on hold
+00011(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk1.c:1630 clIlkHandleIuaUsta: started 2 FSMs
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2310 clIlkLayerCfm: entered
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2316 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2350 clIlkLayerCfm: received state: ISDN_LNK_AWT_SLFPST_ST
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2686 clIlkLayerCfm: set event: 12
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:1, next state:12
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:4019 clIlkAsActive: entered
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:4039 clIlkAsActive: primary and secondary signaling link for ifNmb=1 are NUM_NA (continue)
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:299 ILK-1:event:3 in state:12, next state:0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:3858 clIlkAsActiveDone: AS_ACTIVE 1 to go
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:533 first FSM in hold Q:ILK-1:holdQ:1 runQ:0, maxInstances:1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:568 ILK-1:calling FSM, event:0xc
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:0, next state:1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:497 clIlkSelfPost: entered
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2310 clIlkLayerCfm: entered
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2316 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2350 clIlkLayerCfm: received state: ISDN_LNK_AWT_SLFPST_ST
+00005(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:2686 clIlkLayerCfm: set event: 12
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:1, next state:12
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:4019 clIlkAsActive: entered
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:4055 clIlkAsActive: found rSuId of 4425 for 3670-1
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.226 11098: ../cl_ilk2.c:4118 cmPkLinCntrlReq sent PRI ABND_ENA: suId: 4425
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=5, transId=-2147431723, action=21, subaction=1
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11180: ../in_bdy11.c:5899 [Q931]:inBndEnableSap rSuId=4425, spId=1, bndState=2, srcProcId=0000, srcEnt=10, dstProcId=0447, dstEnt=153, route=0, action = 21
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11180: ../in_bdy11.c:4943 [Q931]:Q931 got EnableSap cntrl req for rSuId=4425, spId=1
+00003(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_ilk2.c:2310 clIlkLayerCfm: entered
+00004(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_ilk2.c:2316 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_ilk2.c:2350 clIlkLayerCfm: received state: ISDN_LNK_AWT_AS_ACTIVE_ST
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_ilk2.c:2652 clIlkLayerCfm: set event: ISDN_LNK_CTL_CFM_EV
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_ilk2.c:2686 clIlkLayerCfm: set event: 3
+00007(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_bdy7.c:299 ILK-1:event:3 in state:12, next state:0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_ilk2.c:3851 clIlkAsActiveDone: AS_ACTIVE done
+00006(01032),00000(00000) 0x00000020 12-25 08:16:24.227 11098: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:1 evtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:492 numBchanRows:15
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:502 numLnkRows:15
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-17 on link 3670-1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59902c event: 0x1 lmEvt->lmEvtId: 0xa99b
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-18 on link 3670-1
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-19 on link 3670-1
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-20 on link 3670-1
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-21 on link 3670-1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-22 on link 3670-1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-23 on link 3670-1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-24 on link 3670-1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-25 on link 3670-1
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-26 on link 3670-1
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00014(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-27 on link 3670-1
+00014(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00015(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-28 on link 3670-1
+00016(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00017(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-29 on link 3670-1
+00018(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00019(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-30 on link 3670-1
+00020(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00021(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc1.c:542 preparing for deleting isdnBchan 3670-31 on link 3670-1
+00021(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:1 on hold
+00019(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00019(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00019(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00018(01032),00000(00000) 0x00000020 12-25 08:16:25.264 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431721
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/17
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=17, preCut=0, initState=255, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/17
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/17 removed
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=29, cntIdleChans=0, cntMntChans=29, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1588 get binary termId is 0x482051
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726865
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1770 removing 3670-17 from Bchan term tree, cb->chnIdx = 17
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1838 IBC DLT: 14 remaining 
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:14 runQ:0, maxInstances:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59ecfc event: 0x1 lmEvt->lmEvtId: 0xa99b
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431718
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/18
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=29, cntIdleChans=0, cntMntChans=29, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=18, preCut=0, initState=255, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/18
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/18 removed
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=28, cntIdleChans=0, cntMntChans=28, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1588 get binary termId is 0x482052
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726866
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1770 removing 3670-18 from Bchan term tree, cb->chnIdx = 18
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:1838 IBC DLT: 13 remaining 
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:13 runQ:0, maxInstances:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd593dac event: 0x1 lmEvt->lmEvtId: 0xa99b
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.265 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431715
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/19
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=28, cntIdleChans=0, cntMntChans=28, cntPcChans=0, cntPcOosChans=0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=19, preCut=0, initState=255, rmPri->chnl[i].state=2
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/19
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/19 removed
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=27, cntIdleChans=0, cntMntChans=27, cntPcChans=0, cntPcOosChans=0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1588 get binary termId is 0x482053
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726867
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1770 removing 3670-19 from Bchan term tree, cb->chnIdx = 19
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1838 IBC DLT: 12 remaining 
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:12 runQ:0, maxInstances:1
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd5947fc event: 0x1 lmEvt->lmEvtId: 0xa99b
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431712
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/20
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=27, cntIdleChans=0, cntMntChans=27, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=20, preCut=0, initState=255, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/20
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/20 removed
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=26, cntIdleChans=0, cntMntChans=26, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1588 get binary termId is 0x482054
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726868
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1770 removing 3670-20 from Bchan term tree, cb->chnIdx = 20
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1838 IBC DLT: 11 remaining 
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:11 runQ:0, maxInstances:1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59a9f4 event: 0x1 lmEvt->lmEvtId: 0xa99b
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431709
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/21
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=26, cntIdleChans=0, cntMntChans=26, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=21, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/21
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/21 removed
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=25, cntIdleChans=0, cntMntChans=25, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1588 get binary termId is 0x482055
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726869
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1770 removing 3670-21 from Bchan term tree, cb->chnIdx = 21
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:1838 IBC DLT: 10 remaining 
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:10 runQ:0, maxInstances:1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd595c9c event: 0x1 lmEvt->lmEvtId: 0xa99b
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.266 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431706
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/22
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=25, cntIdleChans=0, cntMntChans=25, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=22, preCut=0, initState=255, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/22
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/22 removed
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=24, cntIdleChans=0, cntMntChans=24, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1588 get binary termId is 0x482056
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726870
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1770 removing 3670-22 from Bchan term tree, cb->chnIdx = 22
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1838 IBC DLT: 9 remaining 
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:9 runQ:0, maxInstances:1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59d334 event: 0x1 lmEvt->lmEvtId: 0xa99b
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431703
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/23
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=24, cntIdleChans=0, cntMntChans=24, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=23, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/23
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/23 removed
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=23, cntIdleChans=0, cntMntChans=23, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1588 get binary termId is 0x482057
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726871
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1770 removing 3670-23 from Bchan term tree, cb->chnIdx = 23
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:1838 IBC DLT: 8 remaining 
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:8 runQ:0, maxInstances:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59290c event: 0x1 lmEvt->lmEvtId: 0xa99b
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431700
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/24
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=23, cntIdleChans=0, cntMntChans=23, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=24, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/24
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/24 removed
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=22, cntIdleChans=0, cntMntChans=22, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.267 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1588 get binary termId is 0x482058
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726872
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1770 removing 3670-24 from Bchan term tree, cb->chnIdx = 24
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1838 IBC DLT: 7 remaining 
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:7 runQ:0, maxInstances:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd5985dc event: 0x1 lmEvt->lmEvtId: 0xa99b
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431697
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/25
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=22, cntIdleChans=0, cntMntChans=22, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=25, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/25
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/25 removed
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=21, cntIdleChans=0, cntMntChans=21, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1588 get binary termId is 0x482059
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726873
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1770 removing 3670-25 from Bchan term tree, cb->chnIdx = 25
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1838 IBC DLT: 6 remaining 
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:6 runQ:0, maxInstances:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd5923e4 event: 0x1 lmEvt->lmEvtId: 0xa99b
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431694
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/26
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=21, cntIdleChans=0, cntMntChans=21, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=26, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/26
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/26 removed
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=20, cntIdleChans=0, cntMntChans=20, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1588 get binary termId is 0x48205A
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726874
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1770 removing 3670-26 from Bchan term tree, cb->chnIdx = 26
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:1838 IBC DLT: 5 remaining 
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:5 runQ:0, maxInstances:1
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd5980b4 event: 0x1 lmEvt->lmEvtId: 0xa99b
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431691
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.268 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/27
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=20, cntIdleChans=0, cntMntChans=20, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=27, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/27
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/27 removed
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=19, cntIdleChans=0, cntMntChans=19, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1588 get binary termId is 0x48205B
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726875
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1770 removing 3670-27 from Bchan term tree, cb->chnIdx = 27
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1838 IBC DLT: 4 remaining 
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:4 runQ:0, maxInstances:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59dd84 event: 0x1 lmEvt->lmEvtId: 0xa99b
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431688
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/28
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=19, cntIdleChans=0, cntMntChans=19, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=28, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/28
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/28 removed
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=18, cntIdleChans=0, cntMntChans=18, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1588 get binary termId is 0x48205C
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726876
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1770 removing 3670-28 from Bchan term tree, cb->chnIdx = 28
+00011(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1838 IBC DLT: 3 remaining 
+00012(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:3 runQ:0, maxInstances:1
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00014(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59335c event: 0x1 lmEvt->lmEvtId: 0xa99b
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00013(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00014(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431685
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/29
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=18, cntIdleChans=0, cntMntChans=18, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=29, preCut=0, initState=255, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/29
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/29 removed
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=17, cntIdleChans=0, cntMntChans=17, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1588 get binary termId is 0x48205D
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726877
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1770 removing 3670-29 from Bchan term tree, cb->chnIdx = 29
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_ibc2.c:1838 IBC DLT: 2 remaining 
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.269 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:2 runQ:0, maxInstances:1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd597b8c event: 0x1 lmEvt->lmEvtId: 0xa99b
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431682
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/30
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=17, cntIdleChans=0, cntMntChans=17, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=30, preCut=0, initState=255, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/30
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/30 removed
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=16, cntIdleChans=0, cntMntChans=16, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1588 get binary termId is 0x48205E
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726878
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1770 removing 3670-30 from Bchan term tree, cb->chnIdx = 30
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1838 IBC DLT: 1 remaining 
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:1 runQ:0, maxInstances:1
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:0, next state:1
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59af1c event: 0x1 lmEvt->lmEvtId: 0xa99b
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:1 in state:1, next state:4
+00010(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../in_bdy1.c:12773 [Q931]:got LinCfgReq, elmnt=146 transId=-2147431679
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x59, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:714 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/31
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:751 sent RM Bchan cfg request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=16, cntIdleChans=0, cntMntChans=16, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=31, preCut=0, initState=255, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy1.c:4093 Info: rmRscAvlTreeRemove() entry for term id=tdm/9/1/1/31
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy1.c:4104 Info: resource tree entry for term id=tdm/9/1/1/31 removed
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=15, cntIdleChans=0, cntMntChans=15, cntPcChans=0, cntPcOosChans=0
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xa99b
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1588 get binary termId is 0x48205F
+00004(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_mgl.c:295 deleting node from term tree, termId:4726879
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_mgl.c:239 nodes deleted 1 nodes skipped 0
+00006(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1765 clMglDeleteTerm() returned, numInserted:1, numSkipped:0
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1770 removing 3670-31 from Bchan term tree, cb->chnIdx = 31
+00007(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1831 TL1 cfg Delete complete for ISDN-IBC
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1838 IBC DLT: 0 remaining 
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_ibc2.c:1841 dlt complete for ISDN-IBC
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(36910) has null entry
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy6.c:207 sending back transId 0x902e  status = 0  reason = 0
+00009(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy2.c:1450 freeing input tables
+00008(01032),00000(00000) 0x00000020 12-25 08:16:25.270 11098: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.281 11180: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.281 11180: ../rm_rum.c:1431 rumPrepareAndSendUpd: type = 512, id = 3670, flags = 0, hunting = 0, numCics = 0, total = 15, precut = 0, oos = 15, free = 0, overflow = 0, busy = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:16:25.281 11180: ../rm_rum.c:1638 rumPrepareAndSendUpd: numEntities:1, ccsId:2, versionId:10, flags:0 rumState:2, numRealms:0

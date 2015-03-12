@@ -1,0 +1,243 @@
+1. lib/isc/unix/include/isc/int.h
+
+   typedef char                isc_int8_t;
+   typedef unsigned char           isc_uint8_t;
+   typedef short               isc_int16_t;
+   typedef unsigned short          isc_uint16_t;
+   typedef int             isc_int32_t;
+   typedef unsigned int            isc_uint32_t;
+   typedef long long           isc_int64_t;                                        
+   typedef unsigned long long      isc_uint64_t;
+
+2. lib/isc/include/isc/boolean.h
+
+   typedef enum { isc_boolean_false = 0, isc_boolean_true = 1 } isc_boolean_t; 
+
+   #define ISC_FALSE isc_boolean_false
+   #define ISC_TRUE isc_boolean_true
+
+3. bin/named/include/named/globals.h
+
+   EXTERN cfg_parser_t *       ns_g_parser     INIT(NULL);
+   
+
+   EXTERN cfg_obj_t *      ns_g_config     INIT(NULL);
+   EXTERN const cfg_obj_t *    ns_g_defaults       INIT(NULL);
+
+
+   EXTERN const char *     ns_g_conffile       INIT(NS_SYSCONFDIR
+                                    "/named.conf");
+   EXTERN const char *     ns_g_keyfile        INIT(NS_SYSCONFDIR
+                                    "/rndc.key");
+   EXTERN const char *     lwresd_g_conffile   INIT(NS_SYSCONFDIR
+                                    "/lwresd.conf");
+   EXTERN const char *     lwresd_g_resolvconffile INIT("/etc"
+                                    "/resolv.conf");
+4. lib/isc/include/isc/buffer.h
+
+   struct isc_buffer {
+	    unsigned int        magic;
+	    void               *base;
+            /*@{*/
+	    /*! The following integers are byte offsets from 'base'. */
+	    unsigned int        length;
+	    unsigned int        used;
+	    unsigned int        current;
+	    unsigned int        active;                                         
+	        /*@}*/
+	    /*! linkable */
+	    ISC_LINK(isc_buffer_t)  link;
+	    /*! private internal elements */                                     
+	    isc_mem_t          *mctx;
+    };
+                                                                                      ****************************
+    lib/isc/include/isc/list.h                                                        *                          *
+    #define ISC_LINK(type) struct { type *prev, *next; }                              *   ISC__BUFFER_INIT       *
+                                                                                      *	  ISC__BUFFER_ADD        *
+5. bin/named/include/named/query.h                                                    *                          *
+                                                                                      *	  ISC_LIST_INIT          *
+   /*% nameserver query structure */                                                  *	  ISC_LIST_APPEND        *
+   struct ns_query {                                                                  *	  ISC_LIST_HEAD          *
+       unsigned int            attributes;                                            *	  ISC_LIST_TAIL          *
+       unsigned int            restarts;                                              *	  ISC_LIST_EMPTY_        *
+       isc_boolean_t           timerset;                                              *                          *
+       dns_name_t *            qname;                                                 *	  ISC_LINK_INIT          *
+       dns_name_t *            origqname;                                             *                          *
+       unsigned int            dboptions;                                             ****************************
+       unsigned int            fetchoptions;
+       dns_db_t *          gluedb;
+       dns_db_t *          authdb;
+       dns_zone_t *            authzone;
+       isc_boolean_t           authdbset;
+       isc_boolean_t           isreferral;
+       isc_mutex_t         fetchlock;
+       dns_fetch_t *           fetch;
+       isc_bufferlist_t        namebufs;
+       ISC_LIST(ns_dbversion_t)    activeversions;
+       ISC_LIST(ns_dbversion_t)    freeversions;
+   };
+
+                           +---------------------------------- ns_query_t.namebufs <isc_bufferlist_t> ----------------------------------+
+						   |                                                                                                            | 
+						   |                                                                                                            |
+			<head>         |                                                                                                            | 		<tail>      
+       	(isc_buffer_t *)   |                                                                                                            |  	(isc_buffer_t *)
+						   +                                                                                                            +
+					------------------           ------------------                             ------------------            ------------------
+			<NULL>	|  prev  | next  | <-------> |  prev  | next  | <---------> ...  <--------->|  prev  | next  | <--------->|  prev  | next  | <NULL>
+					------------------           ------------------                             ------------------            ------------------  
+
+
+6. lib/isccfg/namedconf.c
+
+			cfg_type          -> cfg_clausedef **     -> cfg_clausedef *
+------------------------------------------------------------------------------
+Overview:   cfg_type_namedcon -> namedconf_clausesets -> namedconf_clauses -> 
+            cfg_type_options  -> options_clausesets   -> options_clauses
+
+(1) cfg_type_namedcon (cfg_type)
+
+    /*% A configuration object type definition. */
+	struct cfg_type {
+		    const char *name;   /*%< For debugging purposes only */                                                                                                             
+		    cfg_parsefunc_t parse;
+		    cfg_printfunc_t print;
+		    cfg_docfunc_t   doc;    /*%< Print grammar description */
+		    cfg_rep_t * rep;    /*%< Data representation */
+		    const void *    of; /*%< Additional data for meta-types */
+	};
+
+    LIBISCCFG_EXTERNAL_DATA cfg_type_t cfg_type_namedconf = {                                                                                                         
+    	    "namedconf", cfg_parse_mapbody, cfg_print_mapbody, cfg_doc_mapbody,
+    	    &cfg_rep_map, namedconf_clausesets
+    };
+
+(2) namedconf_clausesets (cfg_clausedef **)
+
+    truct cfg_clausedef {                                                                                                                                                   
+    	    const char      *name;
+    	    cfg_type_t      *type;
+    	    unsigned int    flags;
+    };  
+
+    /*% The top-level named.conf syntax. */
+
+	static cfg_clausedef_t *
+	namedconf_clausesets[] = {
+		    namedconf_clauses,
+		    namedconf_or_view_clauses,
+		    NULL
+	};
+
+(3) namedconf_clauses (cfg_clausedef *)
+
+    /*%
+     * Clauses that can be found within the top level of the named.conf
+     * file only.
+     */
+   static cfg_clausedef_t                                                                                                             
+   namedconf_clauses[] = {
+	       { "options", &cfg_type_options, 0 },
+	       { "controls", &cfg_type_controls, CFG_CLAUSEFLAG_MULTI },
+	       { "acl", &cfg_type_acl, CFG_CLAUSEFLAG_MULTI },
+	       { "masters", &cfg_type_masters, CFG_CLAUSEFLAG_MULTI },
+	       { "logging", &cfg_type_logging, 0 },
+	       { "view", &cfg_type_view, CFG_CLAUSEFLAG_MULTI },
+	       { "lwres", &cfg_type_lwres, CFG_CLAUSEFLAG_MULTI },
+	       { NULL, NULL, 0 }
+   };  
+
+(4) cfg_type_options (cfg_type)
+    
+	static cfg_type_t cfg_type_options = {                                                                                                                                  
+		    "options", cfg_parse_map, cfg_print_map, cfg_doc_map, &cfg_rep_map, options_clausesets };
+
+(5) options_clausesets (cfg_clausedef **)
+
+    /*% The "options" statement syntax. */
+    
+	static cfg_clausedef_t *
+	options_clausesets[] = {                                                                                                                                       
+		    options_clauses,
+		    view_clauses,
+		    zone_clauses,
+		    NULL
+	};
+
+(6) options_clauses (cfg_clausedef *)
+    /*%
+     * Clauses that can be found within the 'options' statement.
+     */
+    static cfg_clausedef_t
+    options_clauses[] = {                                                                                                                                                        
+ 	       { "avoid-v4-udp-ports", &cfg_type_bracketed_portlist, 0 },
+ 	       { "avoid-v6-udp-ports", &cfg_type_bracketed_portlist, 0 },
+ 	       { "blackhole", &cfg_type_bracketed_aml, 0 },
+
+           ... 
+
+	       { "flush-zones-on-shutdown", &cfg_type_boolean, 0 },
+    #if 1  /* Telica Added */
+           { "active-named", &cfg_type_uint32, 0 },
+	       { "xcache-ttl", &cfg_type_uint32, 0 },
+	       { "interim-ttl", &cfg_type_uint32, 0 },
+    #endif
+	       { NULL, NULL, 0 }
+	};
+
+7. lib/dns/include/dns/db.h
+
+   struct dns_db {                         
+       unsigned int            magic;                                                     
+       unsigned int            impmagic;   
+       dns_dbmethods_t *       methods;    
+       isc_uint16_t            attributes; 
+       dns_rdataclass_t        rdclass;    
+       dns_name_t          origin;         
+       isc_ondestroy_t         ondest;     
+       isc_mem_t *         mctx;           
+   }; 
+
+8. lib/isc/include/isc/region.h
+
+   struct isc_region { 
+   	    unsigned char * base;     
+	    unsigned int    length;
+   };
+
+9. dns_name_t   v.s.  dns_rdataset_t
+struct dns_name {                                                                                                                       
+    unsigned int            magic;
+    unsigned char *         ndata;
+    unsigned int            length;
+    unsigned int            labels;
+    unsigned int            attributes;
+    unsigned char *         offsets;
+    isc_buffer_t *          buffer;
+    ISC_LINK(dns_name_t)        link;
+    ISC_LIST(dns_rdataset_t)    list;
+}; 
+
+struct dns_rdataset {                                                                                                                   
+    unsigned int            magic;      /* XXX ? */
+    dns_rdatasetmethods_t *     methods;
+    ISC_LINK(dns_rdataset_t)    link;
+
+    dns_rdataclass_t        rdclass;
+    dns_rdatatype_t         type;
+    dns_ttl_t           ttl;
+    dns_trust_t         trust
+    dns_rdatatype_t         covers;
+
+    unsigned int            attributes;
+
+    isc_uint32_t            count;
+
+    void *              private1;
+    void *              private2;
+    void *              private3;
+    unsigned int            privateuint4;
+    void *              private5;
+    void *              private6;
+}
+

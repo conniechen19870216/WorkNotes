@@ -1,0 +1,31 @@
+spawn ssh hssit@135.252.181.13
+The authenticity of host '135.252.181.13 (135.252.181.13)' can't be established.
+RSA key fingerprint is 8e:e7:ec:05:aa:8d:05:d6:33:47:29:97:b2:0b:40:db.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '135.252.181.13' (RSA) to the list of known hosts.
+hssit@135.252.181.13's password: 
+Last login: Mon Apr  1 16:38:42 2013 from pa0043908n1.ad4.ad.alcatel.com
+[hssit@bl1013 ~]$ cd ~/auto-it/
+cd ~/auto-it/
+source /home/it40/jenkins_script/autoIT_R420/auto-it_R420.env
+[hssit@bl1013 ~/auto-it]$ cd ~/auto-it/
+setenv DISPLAY 135.252.181.13:1
+./auto-it.enh mnrg | tee auto-it.enh.mnrg.log
+[hssit@bl1013 ~/auto-it]$ source /home/it40/jenkins_script/autoIT_R420/auto-it_R 420.env
+/home/it40/jenkins_script/autoIT_R420/auto-it_R420.env: No such file or directory.
+[hssit@bl1013 ~/auto-it]$ setenv DISPLAY 135.252.181.13:1
+[hssit@bl1013 ~/auto-it]$ ./auto-it.enh mnrg | tee auto-it.enh.mnrg.log
++ quit=false
++ SDMTARNAME=SDM420-service_logic.full.tar
++ OAMTARNAME=OAM420-service_logic.full.tar
++ PROXYNAME=PROXY420-service_logic.full.tar
++ OAMBETARNAME=OAMBE420-service_logic.full.tar
++ print 'INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...'
+INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...
++ auto=yes
++ export auto
++ automodem
+INFO: automodem : Start AUTO-IT for Multi NRG mode(1 FE+ 2BE) in /local/hssit/autoITm.
+INFO: ftpbldvm: Start: FTP the  to /local/hssit/autoITm.
+./auto-it.enh[841]: automodem[734]: ftpbldvm[223]: ftpVMbld: not found [No such file or directory]
+ITERROR: ftpbldvm: End: FTP the  to /local/hssit/autoITm failed: .

@@ -1,0 +1,3 @@
+read -p  "Please input your hostname:" Hostname
+echo -e "\n"
+echo -n ""

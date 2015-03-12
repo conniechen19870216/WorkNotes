@@ -1,0 +1,101 @@
+1. Initial query
+
+   ns_query_start (query.c)
+          |
+		  |
+          +---> query_find (dns_fetchevent_t == NULL)
+		            |
+					|-------------<1st stage: restart>  <<<<<<<<< stage 1 result: find a db as 'dns_db_t' >>>>>>>>>>--------------
+					|
+					+----> query_getdb 
+					|          |
+					|		   |
+					|		   |
+					|		   +----> query_getzonedb <<<<<<<<< client->view->zonetable >>>>>>>>>> 
+                    |          |                   |
+                    |          |                   |
+                    |          |                   +----> dns_zt_find <<<<<<<<< get a zone >>>>>>>>>> 
+                    |          |                               |                                                  
+                    |          |                               |
+                    |          |                               +----> dns_zone_getdb <<<<<<<<< zone->db >>>>>>>>>> 
+                    |          |<ISC_R_NOTFOUND>
+                    |          |
+					|		   +----> query_getcachedb <<<<<<<<< client->view->cachedb >>>>>>>>>>
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |-------------<2nd stage: db_find>   <<<<<<<<<<<<<< stage 2 result: result >>>>>>>>>>>>>------------
+                    |
+                    +----> (isc_buffer_t *) dbuf = query_getnamebuf(client) = ISC_LIST_TAIL(client->query.namebufs)
+                    |                                     |                                             
+                    |                                     |
+                    |                                     +----> query_newnamebuf (if necessary)
+					|                                     
+                    +----> (dns_name_t *) fname = query_newname(client, dbuf, &b) 
+					|       <<<<<<<<<<<<  result:  fname -> buffer = b (unused part of dbuf) >>>>>>>>>>>>
+                    |
+                    |
+                    |
+                    +----> (dns_rdataset_t *) rdataset = query_newrdataset(client);
+                    |
+                    |
+                    |
+					+----> query_db_find(db, client->query.qname, version, type, client->query.dboptions, client->now, &node, fname, rdataset, sigrdataset)
+                    |          |       
+                    |          |
+					|          |
+                    |          +----> (db->methods->find)(db, name, version, type, options, now,
+                    |    	                              nodep, foundname, rdataset, sigrdataset)
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |------------<3rd stage: resume>
+                    |
+                    |
+                    |
+                    +----> case ISC_R_NOTFOUND (Because root zone file 'root.servers' present: client->view->hints)
+                    |          |
+                    |          |<fall through>
+                    |          |
+                    |          +----> case DNS_R_DELEGATION
+					|                      |       
+                    |                      |
+                    |                      |
+                    |                      +----> query_recurse <<<<<<<<<<<<<<<<<<<<<<< Line: 3795 >>>>>>>>>>>>>>>>>>>>>>
+                    |
+                    |
+                    |
+                    |------------<4th stage: addauth>
+
+
+query_db_find
+        |
+        |
+        +---> Input:  dns_name_t:      client->query->qname / dns_rootname 
+		|             dns_rdatatype_t: type
+        | 
+        +---> Output: dns_dbnode_t:    node
+		              dns_name_t:      fname
+                      dns_dataset_t:   rdataset
+
+************************ Local zone db: client->view->zonetable
+                                      *************************** cache db: client->view->cachedb
+									                                      ******************************** hint zone: client->view->hints
+
+2. Recurse stage    
+
+query_recurse
+       |   
+       | invoke resolver
+       |   
+       +----> dns_resolver_createfetch2: go to fetch an event

@@ -1,0 +1,125 @@
+================================= two timers ====================================
+
+SInit() 
+    |
+    |
+    +-------> ssdInitTmr(): create a new thread [mtTmrHdlr] => handle system_ticks
+    .          .            create an empty timer queue list
+    .          .
+    .          .
+    .          +-----> mtTmrHdlr: cmPrcTmr(&osCp.dep.tmrTqCp, osCp.dep.tmrTq, mtTimeout)
+    .                      |
+    .                      | system timer resolution: 1 ns
+    .                      | one system tick: 0.1 s = 100 ms = 0x5F5E100 ns = 100 000 000 ns
+    .                      |
+    .                      +-----> cmPrcTmr(&osCp.dep.tmrTqCp, osCp.dep.tmrTq, mtTimeout)
+    .                              mtTimeout (triggered while timer_resolution time out) 
+    .                                          ||
+    .                                          || Note: 1st timer will be restarted after expired each time
+    .                                          ||
+    .                                          VV
+    +-------> SCreateSTsk(): create a new thread [mtTskHdlr] 
+               .
+               .
+               .
+               +-----> specific activation function (e.g. ccPrcConTq) => cmPrcTmr(&ccConTqCp, ccConTq, ccConTmrEv)
+
+
+(1) 1st timer (only one timer per SsTmrEntry)
+ccGenCfg=>SRegTmr: SsTmrEntry => SsdTmrEntry <resolution as time expire interval: 0.1s as the unit>
+#############################################
+#     for (i = 0;  i < SS_MAX_TMRS;  i++)   #
+#     {                                     #
+#        tmr = &osCp.tmrTbl[i];             #
+#                                           #
+#        tmr->used = FALSE;                 #
+#        tmr->tmrId = 0;                    #
+#        tmr->ownerEnt = ENTNC;             #
+#        tmr->ownerInst = INSTNC;           # 
+#        tmr->interval = 0;                 #
+#        tmr->tmrActvFn = NULLP;            #
+#                                           #
+#        tmr->nxt = i + 1;                  #
+#     }                                     #
+#############################################
+
+/* initialize common timers */
+cmInitTimers(tmr->dep.timers, TMR_DEF_MAX);
+
+/* start the timer */
+arg.tq = osCp.dep.tmrTq;
+arg.tqCp = &osCp.dep.tmrTqCp;
+arg.timers = tmr->dep.timers;
+arg.cb = (PTR) tmr;
+arg.evnt = TMR_DEF;
+arg.wait = 0;
+arg.tNum = NOTUSED;
+arg.max = TMR_DEF_MAX;
+arg.wait = tmr->interval;
+cmPlcCbTq(&arg); <<<<<<<<<<<<<<<<{1}>>>>>>>>>>>>>>>
+
+(2) 2nd type of timer (specific timers: take GCC timers as one example) 
+ccGenCfg: initialize the specific timer queue list
+SRegTmr(ccInit.ent, ccInit.inst, ccCp.genCfg.timeRes, ccPrcConTq) /* => protocol_timer_value = ccCp.genCfg.timeRes*timer_resolution (0.1s) */
+
+ccConTqCp.tmrLen = TQNUMENT;
+ccConTqCp.nxtEnt = 0;
+for (i = 0; i < TQNUMENT; i++)
+{
+   ccConTq[i].first = NULLP;
+}
+
+ccStartConTmr(TMR_SETUP, con, (PTR)&ccCp.genCfg) (calling cmPlcCbTq function): protocol layer timer
+setup_timer_value = gcb->tmr.tSETUP.val(TMR_SETUP) * protocol_timer_value
+
+1. Structures
+(1) Timer Control Block (CmTimer)
+typedef struct cmTimer         /* timer structure */
+{
+   S16 tmrEvnt;                /* Timer Event */
+   U16 tqExpire;               /* Timing Queue Expiry */
+   PTR cb;                     /* Pointer to start of control block list */
+   struct cmTimer *next;       /* Next item in the timing queue */
+   struct cmTimer *prev;       /* Previous item in the timing queue */
+   U8     ent2bUpd;            /* TRUE, if the timer block is not in the
+                                  proper bin */
+   U16   entIdx;                /* Current entry index */
+} CmTimer;
+
+(2) Timer Function Argument (CmTmrArg)
+typedef struct cmTmrArg
+{
+   CmTqCp     *tqCp;           /* timing queue control point */
+   CmTqType   *tq;             /* timing queue point */
+   CmTimer    *timers;         /* timers array */
+   PTR        cb;              /* control block pointer */
+   S16        evnt;            /* event */
+   U16        wait;            /* wait */
+   U8         tNum;            /* timer number */
+   U8         max;             /* max timers */
+} CmTmrArg;
+
+(3) Timing Queue (CmTqType)
+typedef struct cmTqType
+{
+   CmTimer *first;             /* First Entry */
+   CmTimer *tail;              /* Last Entry */
+} CmTqType;
+
+(4) Timing Queue Control Point (CmTqCp)
+typedef struct cmTqCp          /*  timing queue control point */
+{
+   U16 nxtEnt;                 /* next Entry */
+   U16 tmrLen;                 /* length of timer (MODULO is -1) */
+   CmTimer *tmp;               /* Temporary  variable used in cmPrcTmr */
+} CmTqCp;
+
+2. Functions
+(1) Initialization (cmInitTimers)
+
+(2) Start a Timer (cmPlcCbTq)
+
+(3) Stop a Timer (cmRmvCbTq)
+
+(4) Handle Timer Activation (cmPrcTmr)
+

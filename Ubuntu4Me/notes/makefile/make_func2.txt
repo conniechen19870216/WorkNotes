@@ -1,0 +1,42 @@
+4. foreach 函数
+   $(foreach VAR,LIST,TEXT)
+(1) dirs := a b c d
+	files := $(foreach dir,$(dirs),$(wildcard $(dir)/*))
+(2) files := $(wildcard a/* b/* c/* d/*)
+(3) find_files = $(wildcard $(dir)/*)
+	dirs := a b c d
+	files := $(foreach dir,$(dirs),$(find_files))
+注：VAR是一个局部的临时变量，其作用域仅限于foreach函数的上下文
+
+5. if 函数
+   $(if CONDITION,THEN-PART[,ELSE-PART])
+(1) SUBDIR += $(if $(SRC_DIR), $(SRC_DIR),/home/src)
+
+*************************************************************
+6. call 函数
+   $(call VARIABLE,PARAM,PARAM,...)
+(1) VARIABLE 只能定义为递归展开式，而不能定义为直接展开式
+(2) reverse = $(2) $(1)
+	foo = $(call reverse,a,b)
+	Output: b a
+(3) pathsearch = $(firstword $(addsuffix /$(1),$(subst :, ,$(PATH))))
+	LS := $(call pathsearch,ls)
+	Output: /home/kavonm/bin/ls
+(4) map = $(foreach a,$(2),$(call $(1),$(a)))
+	o = $(call map,origin,o map MAKE)
+	Output: file file default
+*************************************************************
+
+7. shell 函数
+(1) 相当于shell下，``的作用
+(2) 返回的是命令运行的结果
+(3) 推荐的方式： contents := $(shell cat foo)
+    使用直接展开方式定义变量，因为shell函数会在一个单独的进程运行
+
+8. make 的控制函数
+(1) $(error TEXT) 
+    功能：产生致命错误,并提示“TEXT...”信息给用户,并退出 make 的执行。
+	注：不出现在直接展开式的变量定义
+(2) $(warning TEXT)
+    功能：函数“warning”类似于函数“error”, 区别在于它不会导致致命错误(make 不退出), 而只是提示“TEXT...”, make 的执行过程继续
+

@@ -1,0 +1,33 @@
+1. Plexus
+(1) tmux
+(2) to
+(3) cscope/ctags
+(4) vpnc
+(5) CppUTest
+
+2. Local
+(1) git
+(2) evolution
+(3) pidgen/pidgen-sipe
+(4) mplayer
+(5) stardict
+(6) kcalc
+(7) cvim/neocomplcache
+(8) pvtrace (instrument.c)
+(9) crontab
+(10) cflow
+(11) apititude
+(12) bind9 (rndc)
+(13) mysql
+(14) gcov/lcov
+(15) mutt+msmtp
+(16) ncurses + gettext + prozilla
+(17) samba + smbclient
+(18) wync
+
+3. Config
+(1) auto mount Work disk: fstab
+(2) grup for ubuntu and xp: boot.in
+(3) terminal: DejaVu Sans Mono/13  108/32 _ 黑底绿字
+(4) Config CVS server:cvs_conf.txt
+(5) proxy: Proxy.txt

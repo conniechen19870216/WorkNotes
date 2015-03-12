@@ -1,0 +1,8 @@
+#!/bin/bash
+FILE=$1
+VERSION=$2
+if [ ${VERSION} = "main" ]; then
+	cvs -d ${CVSROOT} up -A ${FILE}
+else
+	cvs -d ${CVSROOT} up -r ${VERSION} ${FILE}
+fi

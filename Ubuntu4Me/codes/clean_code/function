@@ -1,0 +1,62 @@
+1. 函数长度 <= 20 行
+
+2. 只做一件事情: 每个函数一个抽象层级
+(1) 判断函数是否不止做了一件事情的标准：
+a. 只是做了该函数名下同一抽象层上的步骤；
+b. 换言之，是否可以再拆出一个函数，且该函数不仅只是单纯地重新诠释其实现。                                    
+
+(2) 函数中的语句要在同一个抽象层次上
+TO 规则：自顶向下编写代码-------------- 要。。。，就。。。
+
+3. switch 语句
+确保每个 switch 都埋藏于较低的抽象层级
+常见的问题：
+(1) 导致代码太长；
+(2) 不止做一件事情；
+(3) 违反单一权责原则（Single Responsibility Principle, SRP）；
+(4) 违反开放闭合原则（Open Closed Principle, OCP）
+
+4. 函数参数
+(1) 参数个数：理想个数为零，其次是一，再次是二，尽量避免使用三（除非有特殊理由）
+(2) 若函数参数过多，会增加测试覆盖的难度
+(3) 尽量使用返回值而不是输出参数
+(4) 参数过多的时候，需要考虑将其中一部分参数封装为类，并且作为类的内部成员
+
+5. 一元函数的普遍形式
+(1) boolean fileExist("MyFile")
+(2) InputStream fileOpen("MyFile")
+(3) 事件event: void passwordAttemptFailedNtimes(int attempts)
+
+6. 标识参数
+(1) 传入布尔值给函数，即宣告该函数不止完成一件事情，例如render(Boolean isSuite)
+(2) 将函数一分为二：renderForSuite() and renderForSingleTest()
+
+7. 动词与关键字的组合
+(1) write(name) => writeField(name)
+(2) assertExpectedEqualsActual(expected, actual)
+
+8. 副作用问题
+(1) 顾名思义，承诺“只做一件事情”，千万不要“偷偷地”干别的事儿
+(2) e.g. checkPasswordAndInitializeSession()
+
+9. 函数内部：分隔指令与询问
+(1) 要么做什么事情，要么回答什么事情
+(2) 举例说明
+if (set("username", "unclebob"))
+=>
+if (attributeExists("username"))
+{
+	setAttribute("username", "unclebob")
+	...
+}
+
+10. 异常替代错误返回码
+(1) 错误返回码会导致更加深层次的嵌套结构
+(2) try, throw, catch
+(3) 隔离错误处理为一个单独的函数，因为错误处理本身就是一件事情
+(4) 依赖磁铁：错误码对应的类或枚举，其一经改动则会使得使用该错误码的地方都要重新部署修改
+
+11. 函数方法论
+(1) 首先，不必完全按照规则写函数，可能会比较丑陋
+(2) 其次，单元测试工具进行覆盖测试
+(3) 最后，打磨代码：分解函数，修改名称，消除重复，拆散类，并保持测试通过

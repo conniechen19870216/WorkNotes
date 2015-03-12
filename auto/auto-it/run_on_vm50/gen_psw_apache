@@ -1,0 +1,22 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+set timeout 20
+
+spawn -noecho /cust_use/SDM/SDM_tools/security/Gen_Psw_Apache.sh  admin_root
+expect {
+	 "New password:" {
+		send "admin_root\n"
+		expect "Re-type new password:"
+		send "admin_root\n"
+		expect "admin_root Successfully"
+		send "\n"
+		}
+	"ERROR" {
+		puts "ERROR: gen_psw_apache: fail to generate the admin_root password"
+	}
+	timeout {
+		puts "ERROR: gen_psw_apache: fail to generate the admin_root password: timeout "
+	}
+}

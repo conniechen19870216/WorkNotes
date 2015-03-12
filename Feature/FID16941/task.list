@@ -1,0 +1,9 @@
+1. LGP-5555
+1) dip extended cache: CI comments
+2) alarm confirm
+
+2. LGP-5556: Log file
+(1) Objects:  Failed queries
+(2) Throttle: within 5 seconds, but record the number of log discarded 
+(3) Save:     maxmsg=500 (include number?) and saved as an zipped backup file (timestamp)
+(4) empty:    file

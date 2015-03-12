@@ -1,0 +1,16 @@
+#!/bin/bash
+FILE=$1
+LINES=$2
+VERSION=$3
+if [ ! -d kavon ]; then
+	mkdir kavon
+fi
+if [ $VERSION = 'main' ]
+then	
+   cvs -d ${CVSROOT} update -A $FILE
+else
+   cvs -d ${CVSROOT} update -r$VERSION $FILE
+fi
+cvs -d ${CVSROOT} status $FILE | tee kavon/${FILE}.status
+cvs -d ${CVSROOT} diff -uN -U $LINES $FILE | tee kavon/${FILE}.diff
+#cvs -d ${CVSROOT} diff -N -w -b -B -U $LINES $FILE | tee kavon/${FILE}.diff

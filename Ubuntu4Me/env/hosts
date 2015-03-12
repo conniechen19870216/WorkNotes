@@ -1,0 +1,398 @@
+# vm lab 12
+10.84.13.179 vm12 oam Plexus.9000
+
+# vm lab 6
+135.251.86.140 vm6 root newsys
+
+# vm lab 11
+10.84.13.169 vm11 root P9000.server
+
+# vm lab 12 temp
+10.84.15.87 vm12temp oam Plexus.9000
+
+# vm lab 10
+10.84.13.159 vm10 oam Plexus.9000
+
+# vm lab 7
+135.251.237.133 vm7 root P9000.server
+
+# vm lab 8
+10.84.14.134 vm8 oam Plexus.9000
+
+# vm lab 9
+10.84.13.149 vm9 oam Plexus.9000
+
+# ATCA lab 1
+135.252.145.227 atca1 root newsys send \r; send "emacs\r"
+
+# ATCA lab 4
+135.251.86.133 atca4 root newsys send \r; send "emacs\r"
+
+# ATCA lab 5
+135.251.86.167 atca5 root newsys send \r; send "emacs\r"
+
+# ATCA lab 6
+135.251.86.195 atca6 root newsys send \r; send "emacs\r"
+
+# ATCA lab 7
+135.252.145.131 atca7 root newsys send \r; send "emacs\r"
+
+# ATCA lab 3
+135.252.145.200 atca3 root newsys send \r; send "emacs\r"
+
+# ATCA lab 8
+135.252.145.164 atca8 root newsys send \r; 
+
+# ATCA lab 9
+135.251.86.232 atca9 root newsys send \r; 
+
+# ATCA lab 12
+10.84.16.1 atca12 root newsys send \r; send "emacs\r"
+
+# ATCA lab 13
+10.84.16.37 atca13 root newsys send \r; send "emacs\r"
+
+# ATCA lab 14
+135.251.91.99 atca14 root newsys send \r; send "emacs\r"
+
+# ATCA lab 15
+135.251.91.71 atca15 root newsys send \r; send "emacs\r"
+
+# ATCA lab 17
+135.251.91.135 atca17 root newsys send \r; send "emacs\r"
+
+# ATCA lab 17 MI-1
+135.251.91.131 atca17_mi_1 root newsys send \r; send "emacs\r"
+
+# ATCA lab 17 MI-2
+135.251.91.132 atca17_mi_2 root newsys send \r; send "emacs\r"
+
+# ATCA lab 18
+135.251.91.167 atca18 root newsys send \r; send "emacs\r"
+
+# ATCA lab 20
+135.251.91.229 atca20 root newsys send \r; send "emacs\r"
+
+# ATCA lab 22
+135.252.135.135 atca22 root newsys send \r; send "emacs\r"
+
+# ATCA lab 22 MI-1
+135.252.135.131 atca22_mi_1 root newsys send \r; send "emacs\r"
+
+# ATCA lab 22 MI-2
+135.252.135.132 atca22_mi_2 root newsys send \r; send "emacs\r"
+
+# ATCA lab 22 MI-3
+135.252.135.133 atca22_mi_3 root newsys send \r; send "emacs\r"
+
+# ATCA lab 22 MI-4
+135.252.135.134 atca22_mi_4 root newsys send \r; send "emacs\r"
+
+# ATCA lab 23
+135.251.237.35 atca23 root newsys send \r; send "emacs\r"
+
+# ATCA lab 24
+135.252.135.151 atca24 root newsys send \r; send "emacs\r"
+
+# ATCA lab 25
+135.252.135.163 atca25 root newsys send \r; send "emacs\r"
+
+# ATCA lab 26
+135.242.50.67 atca26 root newsys send \r; send "emacs\r"
+
+# QD cloud build server
+135.252.152.105 qd_cloud kavonm telica
+
+# QD cloud build server
+135.252.152.105 qd_cloud_emma xiaomans telica
+
+# MGC01
+135.1.186.105 mgc01 root newsys send \r; send "emacs\r"
+
+# qhp01 
+10.84.184.4 qhp01 root newsys send \r; send "emacs\r"
+
+# qhp05
+10.84.185.5 qhp05 root newsys send \r; send "emacs\r"
+
+# psax
+135.252.142.134 psax fli008 362264
+
+# 7510 MG 1
+135.251.237.6 751012 diag -assured
+
+# 7510 MG 2
+135.251.84.113 75103 diag -assured
+
+# 7510 MG 4
+135.251.84.116 75104 diag -assured
+
+# 7510 MG 8
+135.251.237.2 75108 diag -assured
+
+# 7510 MG 10
+135.251.237.4 751010 diag -assured
+
+# 7510 MG 13
+135.251.237.7 751013 diag -assured
+
+# ejin qdbuild cvs
+135.252.41.248 ejin ejin plexus9000 
+
+# patton qdbuild cvs
+135.252.41.248 patton pattonwa 6yhn_7ujm
+
+# kavon qdbuild1 cvs
+135.252.41.247 qd1 carolg telica1234
+
+# kavon qdbuild2 cvs
+135.252.41.248 qd2 kavonm plexus9000
+
+# kavon qdbuild3 cvs
+135.252.41.253 qd3 kavonm plexus9000
+
+# gleven qdbuild cvs
+135.252.41.253 gleven3 glevenc m2swdza!
+
+# gleven qdbuild cvs
+135.252.41.254 gleven4 glevenc m2swdza! 
+
+# jacken qdbuild cvs
+135.252.41.253 jacken3 jackenx telica123 
+
+# jacken qdbuild cvs
+135.252.41.254 jacken4 jackenx telica123 
+
+# gleven chibuild cvs
+chibuild.inse.lucent.com gleven_chi glevenc Lucent12 
+
+# emma qdbuild3 cvs
+135.252.41.253 emma_sun3 xiaomans telica900
+
+# emma qdbuild4 cvs
+135.252.41.254 emma_sun4 xiaomans telica900
+
+# felix qdbuild3 cvs
+135.252.41.253 ywang ywang telica
+
+# jessie fan qdbuild3 cvs
+135.252.41.253 jessie judyf telica9000
+
+# ted qdbuild3 cvs
+135.252.41.253 ted tezhou plexus9000
+
+# david qdbuild3 cvs
+135.252.41.253 david dzhan011 Zhang.1988 
+
+# bill qdbuild3 cvs
+135.252.41.253 bill billfe fengjinchao 
+
+# cindy qdbuild3 cvs
+135.252.41.253 cindy1 cizhao cindy.123
+
+# cindy qdbuild4 cvs
+135.252.41.254 cindy2 cizhao cindy.123
+
+# dxie qdbuild4 cvs
+135.252.41.254 dxie dxie telica900
+
+# katie qdbuild3 cvs
+135.252.41.253 katie3 yuqinzhang plexus9000
+
+# katie qdbuild4 cvs
+135.252.41.254 katie4 yuqinzhang plexus9000
+
+# bruce qdbuild3 cvs
+135.252.41.253 bruce brjiang Qq86995560
+
+# albert qdbuild3 cvs
+135.252.41.253 albert3 lalbert m2swdza!
+
+# albert qdbuild4 cvs
+135.252.41.254 albert4 lalbert m2swdza!
+
+# kavon stein cvs server
+stein.inse.lucent.com stein kavonm plexus9000
+
+# kavon qdbuild4 server
+135.252.41.254 qd4 kavonm plexus9000
+
+# stephen server
+135.252.41.254 stefen stefenm xif.324
+
+# TL1 regression testing
+135.252.152.115 pta pta pta.1234
+
+# Fuwa card
+135.251.84.30 fuwa root plexus9000
+
+# Volvo card
+135.252.152.3 volvo root plexus9000
+
+# Lotus card
+135.252.152.72 lotus root plexus9000
+
+#Firststone card
+135.252.142.64 firststone root plexus9000
+
+# Sun card
+135.251.84.12 sun root plexus9000
+
+# Moon card
+135.251.84.6 moon root plexus9000
+
+# kavon stein cvs server
+stein.inse.lucent.com stein kavonm plexus9000
+
+# stephen server
+135.252.41.254 stefen stefenm xif.324
+
+# TL1 regression testing
+135.252.152.115 pta pta pta.1234
+
+# Fuwa card
+135.251.84.30 fuwa root plexus9000
+
+# Volvo card
+135.252.152.3 volvo root plexus9000
+
+# Lotus card
+135.252.152.72 lotus root plexus9000
+
+#Firststone card
+135.252.142.64 firststone root plexus9000
+
+# Sun card
+135.251.84.12 sun root plexus9000
+
+# Moon card
+135.251.84.6 moon root plexus9000
+
+# Spurs card
+135.252.152.210 spurs root plexus9000
+
+# Taishan card
+135.252.152.249 taishan root plexus9000
+
+# Superior card
+135.252.152.195 superior root plexus9000
+
+# Pandora card
+135.252.145.241 pandora root plexus9000
+
+# Juliet card
+135.251.84.51 juliet root plexus9000
+
+# Load Location
+135.252.152.115 load public Plexus.9000
+
+# Load Location-root
+135.252.152.115 rootload root P9000.server
+
+# BUG Location
+135.252.152.115 bug bug plexus9000
+
+# Better Load Location
+135.252.135.19 betterload sqapf Lucent.1234
+
+# Oak load
+152.148.100.82 oak bow telica   
+
+# Xavier Oak load
+152.148.100.82 xavier_oak xulingxiao xiao1234
+
+# huixu Oak load
+152.148.160.162 huixu_oak huixu plexus9k
+
+# Bug Log Server
+135.252.142.151 bug public Plexus.9000
+
+# Calzone
+calzone.inse.lucent.com calzone root telica
+
+# jerryaw
+152.148.100.82 jerryaw jerryaw telica8
+
+# Hanven sandbox
+135.252.41.253 hanven3 hanveng telica900
+
+# Hanven sandbox
+135.252.41.254 hanven4 hanveng telica900
+
+# Vanessa sandbox
+135.252.41.253 valu valu Luwenwen2010
+
+# Robert sandbox
+135.252.41.253 robert robertq dinghu521
+
+# Colin sandbox
+135.252.41.253 colin3 cocui plexus9000
+
+# Colin sandbox
+135.252.41.254 colin4 cocui plexus9000
+
+# Connie sandbox
+135.252.41.253 connie3 conniech plexus9000
+
+# Connie sandbox
+135.252.41.254 connie4 conniech plexus9000
+
+# Alpha sandbox
+135.252.41.248 alpha alphaz 1234.abc
+
+# Xavier sandbox
+152.148.160.162 xavier xulingxiao xiao1234
+
+# Emma sandbox
+135.252.41.253 emma3 emmama plexus9000
+
+# Emma sandbox
+135.252.41.254 emma4 emmama plexus9000
+
+# Julie sandbox
+135.252.41.253 julie3 juliewa plexus9000
+
+# Julie sandbox
+135.252.41.254 julie4 juliewa plexus9000
+
+# Ashi sandbox
+135.252.41.253 ashi3 ashi telica
+
+# Ashi sandbox
+135.252.41.254 ashi4 ashi telica
+
+# enum server
+135.252.142.151 enum root P9000.server
+
+# paolo wf server
+152.148.160.162 wf paololi polo2010
+
+# paolo oak server
+152.148.100.82 oak_paolo paololi polo2010
+
+# wf server
+152.148.187.246 wf_bruce root newsys send \r; send "emacs\r"
+
+# LGP USA 
+152.148.187.40 usa root plexus9000
+
+# TestHarness server
+135.252.135.1 testharness kavonm telica
+
+# Emma TestHarness server
+135.252.135.1 emma_testharness emmama telica
+
+# Bruce TestHarness server
+135.252.135.1 brjiang_testharness brjiang telica
+
+# sipp server
+135.252.142.160 sipp shipyard plexus9000
+
+# vcp server
+135.252.36.17 vcp root newsys
+
+# local server
+135.252.33.159 local kavonm 1
+
+# sustaining server
+135.252.41.243 sustaining sustain P9000.server

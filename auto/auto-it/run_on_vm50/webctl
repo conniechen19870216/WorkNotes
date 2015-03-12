@@ -1,0 +1,250 @@
+#!/bin/ksh 
+
+# File ID:	@(#): <MID54660 () - 03/20/01, 4.1.1.1>
+#
+# File:		MID54660
+# Release:		4.1.1.1
+# Date:		03/26/01
+# Time:		10:53:44
+# Newest applied delta:03/20/01
+#
+# Stop the httpd deamon if running, copy new version
+# if necessary and start httpd again
+# The exit codes returned are:
+#	0 - operation completed successfully
+#	1 - 
+#
+# NOTES:
+# Apache webserver might not be started successfully if OS does not
+# release the listening port APACHE_PORT(80) rightly after webserver
+# is shutdown. An auto-retry mechanism is provided to avoid this case.
+# The following variables are configurable to specify the retry interval
+# and retry times according to the OS performance.
+# The recommended total retry duration( retry_interval*(1+2+...+total_retry_times) ) < 60s.
+# The maximum should not be greater than sanity_timer(180)
+
+total_retry_times=4
+retry_interval=5
+
+#Add the cslee/lib apache-modules  applib and TAO lib dir to LD_LIBRARY_PATH(SDM request)
+export LD_LIBRARY_PATH=/vendorpackages/Apache/lib/64:/opt/sn/cslee/release/lib/64:/vendorpackages/Apache/webserver/app-modules:/vendorpackages/Apache/webserver/applib:/vendorpackages/Corba/ACE_TAO/lib64:$LD_LIBRARY_PATH
+
+function vpath
+{
+# initialize the file path
+fp=""
+
+for d in `echo $VPATH | sed -e "s/:/ /g"`
+do
+   # if the file passed as $1 exists in the directory from VPATH
+   if [ -f ${d}/${1} ]
+   then
+        # save the full path to the file
+        fp="${d}/${1}"
+
+        # break so only the first instance is found
+        break
+   fi
+done
+}
+
+
+#Need to give group write access so logs can be cleared
+umask 002
+
+if [ -n "$MYNODE" ]
+then
+# 20061111 IBM murthya : conditionally change cc/vendor to cc/vendor_linux for linux platform
+VENDOR="cc/vendor"
+if [ `uname -s` = Linux ];then
+        VENDOR="cc/vendor_linux"
+fi;
+# 20061111 IBM murthya : use the variable VENDOR instead of cc/vendor
+  vpath $VENDOR/Apache/EE/webserver/bin/httpd
+  HTTPD=$fp
+  ROOTDIR=${fp%bin/httpd}
+  vpath $VENDOR/Apache/EE/tomcat/bin/startup.psp
+  TOMCATDIR=${fp%bin/startup.psp}
+  LOGDIR=/var/tmp/Apache
+  PIDFILE=$LOGDIR/httpd.pid
+  APACHE_PORT=8080
+  TOMCAT_PORT=8007
+
+  vpath $VENDOR/openssl/EE/lib/libssl.so
+  LD_LIBRARY_PATH=`dirname $fp`:$LD_LIBRARY_PATH
+  vpath $VENDOR/Apache/EE/webserver/lib/libapr-1.so
+  LD_LIBRARY_PATH=`dirname $fp`:$LD_LIBRARY_PATH
+  vpath cc/init/proc/INHelloWorld.html
+  TESTFILE=$fp
+
+else
+  HTTPD='/vendorpackages/Apache/webserver/bin/httpd'
+  ROOTDIR=/vendorpackages/Apache/webserver
+  TOMCATDIR=/vendorpackages/Apache/tomcat
+  LOGDIR=$ROOTDIR
+  PIDFILE=$ROOTDIR/logs/httpd.pid
+  APACHE_PORT=80
+  TOMCAT_PORT=8007
+fi
+
+#This function is used to test Apache
+function getApache
+{
+if [ -n "$MYNODE" ]
+then
+    if [ `uname -s` = Linux ];then
+        echo -e "GET /ahe/INHelloWorld.html HTTP/1.0\n"
+    else
+        echo "GET /ahe/INHelloWorld.html HTTP/1.0\n"
+    fi
+else
+    if [ `uname -s` = Linux ];then
+        echo -e "GET /ahe/cgi-bin/webcheck HTTP/1.0\n"
+    else
+        echo "GET /ahe/cgi-bin/webcheck HTTP/1.0\n"
+    fi
+fi
+sleep 2
+}
+
+#This function is used to test Tomcat
+function getTomcat
+{
+  if [ `uname -s` = Linux ];then
+     echo -e "GET /test/jsp/HelloWorld.jsp HTTP/1.0\n"
+  else
+     echo "GET /test/jsp/HelloWorld.jsp HTTP/1.0\n"
+  fi
+sleep 2
+}
+
+
+ERROR=0
+
+if [ "x$1" = "xcheckApache" ]
+then
+	getApache | /usr/bin/telnet 127.0.0.1 $APACHE_PORT|grep "200 OK"|read INPUT
+	exit $?
+fi
+
+if [ "x$1" = "xcheckTomcat" ]
+then
+	getTomcat | /usr/bin/telnet 127.0.0.1 $TOMCAT_PORT|grep Hello|read INPUT
+	if [ "$INPUT" != "HelloWorld" ]; then
+                #echo "bad JSP check"
+                exit -1
+        fi
+	exit 0
+fi
+
+ 
+# attempt graceful shutdown Apache
+
+echo "Stopping Apache"
+cd $ROOTDIR/bin
+if [ -f "$ROOTDIR/bin/envvars" ]
+then
+	. $ROOTDIR/bin/envvars
+fi
+
+$HTTPD -d $ROOTDIR -k stop
+
+if [ "x$1" = "xstopApache" ]
+then
+    #On Linux do not need to call the ApacheSyncConfig
+    if [ `uname -s` != Linux ];then
+	# Synch up Apache configuration files between CCs
+        # only effective on Active-Active Machines
+        /cs/sn/init/ApacheSyncConfig || ( echo "ERROR: ApacheSyncConfig failed to sync files to ACTIVE CC, return code $?"; echo "    please fix the problem and retry." )
+    fi
+	#before exit, should wait for a while and pkill the httpd forcely if there has
+	pgrep httpd > /dev/null
+        if [ $? -eq 0 ]; then
+                echo "In stop apache pkill the httpd still running"
+                #kill  the httpd process forcingly
+                pkill -u 0 httpd
+		#for 5350 r6.0, kill the httpd process with user apache if have
+		pkill -u apache httpd >> /dev/null 2>&1
+        fi
+
+	exit 0
+fi
+
+echo "Cleanup Apache logs"
+rm -f $LOGDIR/logs/*
+
+echo "Cleanup rotatelogs"
+pkill -u 0 rotatelogs
+
+#check if there is still httpd process running
+pgrep httpd > /dev/null
+if [ $? -eq 0 ]; then
+        echo "In before start apche pkill the httpd still running"
+        #kill  the httpd process forcingly
+        pkill -u 0 httpd
+	#for 5350 r6.0, kill the httpd process with user apache if have
+        pkill -u apache httpd >> /dev/null 2>&1
+fi
+
+echo "Starting Apache"
+#Await old Apache process release all resources
+sleep 1
+
+# Counter of auto-retries
+retry_time=1
+
+if [ -n "$MYNODE" ]
+then
+echo starting...
+   rm -rf $LOGDIR
+   mkdir $LOGDIR; chmod 777 $LOGDIR
+   mkdir $LOGDIR/htdocs; chmod 777 $LOGDIR/htdocs
+   cp $TESTFILE $LOGDIR/htdocs; chmod 666 $LOGDIR/htdocs/*
+   echo "cp $TESTFILE $LOGDIR/htdocs"
+   #do not use SSL on EE
+
+   #auto-retries in case of restart failure
+   until [ "$retry_time" -gt "$total_retry_times" ]
+   do
+        $HTTPD -d $ROOTDIR -k start
+        if [ "$?" -eq "0"  ]
+        then
+                #Start Apache successfully and return
+                exit $?
+        else
+                #delay before the auto-retries
+                sleep `expr $retry_time \* $retry_interval`
+                retry_time=`expr $retry_time + 1`
+        fi
+    done
+    #fail on auto-retries
+    exit 1
+
+else
+   #On Linux do not need to call the ApacheSyncConfig
+   if [ `uname -s` != Linux ];then
+      # Synch up Apache configuration files between CCs
+      # only effective on Active-Active Machines
+      /cs/sn/init/ApacheSyncConfig || ( echo "ERROR: ApacheSyncConfig failed to sync files to ACTIVE CC, return code $?"; echo "    please fix the problem and retry." )
+  
+   fi
+
+   #auto-retries in case of restart failure
+   until [ "$retry_time" -gt "$total_retry_times" ]
+   do
+        $HTTPD -d $ROOTDIR -k start -DSSL
+        if [ "$?" -eq "0"  ]
+        then
+                #Start Apache successfully and return
+                exit $?
+        else
+                #delay before the auto-retries
+                sleep `expr $retry_time \* $retry_interval`
+                retry_time=`expr $retry_time + 1`
+        fi
+    done
+    #fail on auto-retries
+    exit 1
+fi
+
+exit $?

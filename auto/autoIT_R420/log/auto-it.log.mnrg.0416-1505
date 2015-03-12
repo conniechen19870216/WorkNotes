@@ -1,0 +1,26 @@
+spawn ssh hssit@135.252.181.13
+The authenticity of host '135.252.181.13 (135.252.181.13)' can't be established.
+RSA key fingerprint is 8e:e7:ec:05:aa:8d:05:d6:33:47:29:97:b2:0b:40:db.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '135.252.181.13' (RSA) to the list of known hosts.
+hssit@135.252.181.13's password: 
+Last login: Tue Apr  9 19:35:58 2013 from bl1245.cn.alcatel-lucent.com
+SCMCCASE configuration for BIC FT 
+[32mhssit@bl1013:[33m/home/hssit[0m> cd ~/auto-it/
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> cd ~/auto-it/
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> source /home/it40/jenkins_script/autoIT_R420/a uto-it_R420.env
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> setenv DISPLAY 135.252.181.13:1
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> ./auto-it.enh mnrg | tee auto-it.enh.mnrg.log
++ quit=false
++ SDMTARNAME=SDM420-service_logic.full.tar
++ OAMTARNAME=OAM420-service_logic.full.tar
++ PROXYNAME=PROXY420-service_logic.full.tar
++ OAMBETARNAME=OAMBE420-service_logic.full.tar
++ print 'INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...'
++ auto=yes
++ export auto
++ automodem
+INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...
+INFO: automodem : Start AUTO-IT for Multi NRG mode(1 FE+ 2BE) in /local/hssit/autoITm.
+INFO: ftpbldvm: Start: FTP the mCAS_r31_20130303_ddm_r90.00.03.03-02.el6_MultiNRG_FE_latest.tgz to /local/hssit/autoITm.
+ITERROR: ftpbldvm: End: FTP the mCAS_r31_20130303_ddm_r90.00.03.03-02.el6_MultiNRG_FE_latest.tgz to /local/hssit/autoITm failed: /home/hssit/auto-it/ftpVMbld: FTP fail.

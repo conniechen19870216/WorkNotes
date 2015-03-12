@@ -1,0 +1,20 @@
+query_addrrset
+        |
+		|
+		+----- dns_message_findname <<<<<< according to name and type >>>>>>>
+        |
+		|
+		+----- dns_message_addname(client->message, name, section)
+        |
+		|
+		+----- query_addrdataset(client, mname, rdataset)
+
+
+dns_db_findnode
+        |
+		|
+		+----- findnode
+                   |
+		           |
+		           +----- dns_rbt_findnode
+       

@@ -1,0 +1,51 @@
+#!/bin/ksh
+#set -x
+if [ $# != 2 ]; then
+	echo "Usage: ${0} directory vmware.tgz"
+	return 1
+fi
+
+cd ${1}
+vmnum=`ps -ef | grep -i "\-pilot" |wc -l`
+if [[ $vmnum -ge 2 ]]; then
+	if [[ $auto != "yes" ]]; then
+		echo "Hit Enter to continue.."
+		echo "Warning: There's existing VMware running, please STOP it before Continue"
+		read
+	else
+		echo "another VMware is running,try to kill"
+		pkill vmware
+		vmnum1=`ps -ef | grep -i "\-pilot" |wc -l`
+		if [[ $vmnum1 -ge 2 ]]; then
+			echo "another VMware is running,and can't be killed"
+			exit 1
+		fi
+	fi
+fi
+
+if [ -d "VM" ] || [ -d "VM10" ] || [ -d "VMCS" ] || [ -d "VMCS10" ]; then
+	if [[ $auto != "yes" ]]; then
+		read remove?"${1}/VM is existing. Remove it?(Y/N)"
+	else
+		remove="Y"
+	fi
+	if [[ $remove == "Y" ]]; then
+		rm -rf VM VM10 VMCS VMCS10
+	else
+	return 1
+	fi
+fi
+
+echo "tar xvfz ${2}"
+tar xvfz ${2}
+if [ $? != 0 ]; then
+	echo "Failed to untar the ${2}"
+	return $?
+fi
+
+cd VM*
+rm -r VM*-pilot-A/*.lck
+cat runVMs | awk '{ sub(/vmware/,"vmware -x");print }' | tee runVMs.auto
+chmod 755 runVMs.auto
+./runVMs.auto > /dev/null < /dev/null 2>&1 &
+return 0

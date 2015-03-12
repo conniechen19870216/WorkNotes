@@ -1,0 +1,20 @@
+1. configure farclli: check length (11 or 15), insert trknum if needed
+(1) ent/ed-trkgrp basic
+
+(2) while ed-trkgrp null or valid, configure all cics if ss7/bicc-trk configured
+
+(3) while ent-ss7/bicc-trk, configure the cic if farclli is present in trkgrp
+
+(4) while reboot, same as (3)
+
+2. configure clli
+(1) ent/ed-trkgrp basic
+
+(2) while ed-trkgrp null or valid
+(2.1) while ed-trkgrp valid, configure all cics if ss7/bicc-trk configured
+(2.2) while ed-trkgrp null, use atca-chassis clli configuration ******** difference ************
+
+(3) while ent-ss7/bicc-trk, configure the cic if clli is present in trkgrp.
+    Or use atca-chassis clli configuration
+
+(4) while reboot, same as (3)

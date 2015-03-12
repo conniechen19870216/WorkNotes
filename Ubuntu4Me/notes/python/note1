@@ -1,0 +1,220 @@
+1. #!/usr/bin/env python
+   #!/usr/bin/python
+
+2. 导入：import *
+         from A import B
+		 execfile('A.py')
+
+3. 重载：reload(*)
+         至少被导入过一次         
+
+4. 模块的属性: object.attribute
+   模块往往就是变量名的封装，被认作是命名空间。
+   在一个包的变量名就是所谓的属性； 也就是说，属性是绑定在特定的对象上的变量名。
+  
+5. Python 全景: 模块，语句，表达式，对象
+1) 程序由模块构成
+2) 模块包含语句
+3) 语句包含表达式
+4) 表达式建立并处理对象
+
+6. 内置对象预览
+1) 数字：不可变的
+>>> import math        
+>>> from math import pi
+>>> pi                 
+3.141592653589793      
+>>> print pi           
+3.14159265359          
+>>> math.sqrt(85)      
+9.219544457292887      
+>>> import random      
+>>> random.random()    
+0.18727352581612722    
+
+2) 字符串（序列的一种）-- 不可变性：在其创建后便不可以改变
+>>> S = 'kavon'
+>>> S[1]       
+'a'            
+>>> len(S)     
+5              
+>>> S[-1]      
+'n'            
+>>> S[-2]      
+'o'            
+
+>>> S[2:4]
+'vo'      
+>>> S[2:]
+'von'    
+>>> S[0:]
+'kavon'  
+>>> S[:3]
+'kav'    
+>>> S[:] 
+'kavon'  
+
+>>> S + 'ma'          
+'kavonma'             
+>>> S                 
+'kavon'               
+>>> S * 4             
+'kavonkavonkavonkavon'
+
+>>> S                                                   
+'kavon'                                                 
+>>> S[0] = 'm'                                          
+Traceback (most recent call last):                      
+  File "<stdin>", line 1, in <module>                   
+TypeError: 'str' object does not support item assignment
+>>> S = 'm' + S[1:]                                     
+>>> S                                                   
+'mavon'                                                 
+
+>>> S.find('on')            
+3                           
+>>> S.replace('on', 'majun')
+'mavmajun'                  
+>>> S                       
+'mavon'                     
+
+>>> S.upper()
+'MAVON'      
+>>> S.isalpha()
+True           
+
+>>> line = 'aaa,bbb,ccc,ddd'
+>>> line.split(',')         
+['aaa', 'bbb', 'ccc', 'ddd']
+>>> line                    
+'aaa,bbb,ccc,ddd'           
+
+>>> line = 'aaa,bbb,ccc,ddd\n'
+>>> line                      
+'aaa,bbb,ccc,ddd\n'           
+>>> line = line.rstrip()      
+>>> line                      
+'aaa,bbb,ccc,ddd'             
+
+>>> msg = """                                                
+... aaaaaaaa                                                 
+... bbb'''bbbbbbbbbb""bbbbbb'bb                              
+... cccccccccccccc"""                                        
+>>> msg                                                      
+'\naaaaaaaa\nbbb\'\'\'bbbbbbbbbb""bbbbbb\'bb\ncccccccccccccc'
+>>> print msg                                                
+                                                             
+aaaaaaaa                                                     
+bbb'''bbbbbbbbbb""bbbbbb'bb                                  
+cccccccccccccc                                               
+>>>                                                          
+
+Note 1: 通用型操作 -- len(X), X[0] (内置函数或者表达式)
+        特定型操作 -- aString.upper() (方法调用)
+
+Note 2: Seek help by myself: dir / help
+>>> dir(S)                                                                                     
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__g
+e__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__'
+, '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__redu
+ce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str
+__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'cen
+ter', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnu
+m', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower',
+ 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip'
+, 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfi
+ll']                                                                                           
+
+>>> help(S.replace)
+
+3) 列表
+>>> L = [123, 'kavon', 1.23] 
+>>> L
+[123, 'kavon', 1.23]
+>>> L[0]                     
+123
+>>> L[-1]                    
+1.23
+>>> L[:-1]
+[123, 'kavon']
+>>> L[:]                     
+[123, 'kavon', 1.23]
+>>> L + [4, 5, 6]            
+[123, 'kavon', 1.23, 4, 5, 6]
+>>> L
+[123, 'kavon', 1.23]
+>>> L.append('Ma')
+>>> L
+[123, 'kavon', 1.23, 'Ma']
+>>> L.pop(2)
+1.23
+>>> L
+[123, 'kavon', 'Ma']
+
+>>> M = ['cc', 'bb', 'aa']
+>>> M.sort()
+>>> M
+['aa', 'bb', 'cc']
+>>> M.reverse()
+>>> M
+['cc', 'bb', 'aa']
+
+>>> M = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> M
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> M[1][2]
+6
+>>> M[1]
+[4, 5, 6]
+
+>>> col2 = [row[1] for row in M]
+>>> col2
+[2, 5, 8]
+>>> M
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+>>> [row[1] + 1 for row in M]
+[3, 6, 9]
+>>> [row[1] for row in M if row[1] % 2 == 0]
+[2, 8]
+
+>>> diag = [M[i][i] for i in [0, 1, 2]]
+>>> diag
+[1, 5, 9]
+>>>
+>>> doubles = [c * 2 for c in 'spam']
+>>> doubles
+['ss', 'pp', 'aa', 'mm']
+
+4) 字典
+>>> D = {'food':'spam', 'quantity': 4, 'color': 'pink'}
+>>> D['food']
+'spam'
+>>> D['quantity'] += 1
+>>> D
+{'food': 'spam', 'color': 'pink', 'quantity': 5}
+
+>>> D = {}
+>>> D['name'] = 'Bob'
+>>> D['job'] = 'dev'
+>>> D['age'] = 40
+>>> D
+{'age': 40, 'job': 'dev', 'name': 'Bob'}
+
+>>> rec = {'name': {'first': 'Bob', 'last': 'Smith'},
+... 'job': ['dev', 'mgr'],
+... 'age': 40.5}
+
+7. Compile
+1) pyc: 跨平台的字节码，商业保密性，加载速度快，由python虚拟机来执行
+2) py_compile: For compiling single python source file
+   import py_compile
+   py_compile.compile(file)
+
+Or python -m py_compile file
+
+3) compileall: For compiling all python source files
+   import compileall
+   compileall.compile_dir(directory)
+   
+Or python -m compileall directory

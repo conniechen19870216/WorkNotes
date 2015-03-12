@@ -1,0 +1,8 @@
+1. ./overview: installation directory
+(from /usr/share/doc/bind9)
+
+2. ./arm: source distribution 
+doc/arm
+
+3. ./named: included in some programs 
+bin/named

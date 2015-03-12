@@ -1,0 +1,100 @@
+预处理 (.i) ——> 汇编 (.s) ——> 编译 (.o) ——> 链接 (a.out)
+
+*******************************************************************************************************************
+-E 
+　　只激活预处理,这个不生成文件,你需要把它重定向到一个输出文件里面。
+　　例子用法: 
+　　gcc -E hello.c >; pianoapan.txt 
+　　gcc -E hello.c | more 
+
+-S 
+　　只激活预处理和编译，就是指把文件编译成为汇编代码。 
+　　例子用法 
+　　gcc -S hello.c 
+　　将生成.s的汇编代码，你可以用文本编辑器察看
+
+-c 
+　　只激活预处理,汇编,和编译,也就是他只把程序做成obj文件 
+　　例子用法: 
+　　gcc -c hello.c 
+　　将生成.o的obj文件  
+
+-o 
+　　制定目标名称,缺省的时候,gcc 编译出来的文件是a.out,很难听。
+　　例子用法 
+　　gcc -o hello.exe hello.c 
+　　gcc -o hello.asm -S hello.c 
+
+*******************************************************************************************************************
+-include file 
+　　包含某个代码,简单来说,就是便以某个文件,需要另一个文件的时候,就可以用它设定,功能就相当于在代码中使用#include<filename>; 
+　　例子用法: 
+　　gcc hello.c -include /root/pianopan.h  
+
+-imacros file 
+　　将file文件的宏,扩展到gcc/g++的输入文件,宏定义本身并不出现在输入文件中 
+
+-Idir 
+　　在你是用#include"file"的时候,gcc/g++会先在当前目录查找你所制定的头文件,如果没有找到,他回到缺省的头文件目录找,如果使用-I制定了目录,他 
+　　会先在你所制定的目录查找,然后再按常规的顺序去找. 
+　　对于#include<file>, gcc/g++会到-I制定的目录查找,查找不到,然后将到系统的缺省的头文件目录查找 
+
+-llibrary 
+　　制定编译的时候使用的库 
+　　例子用法 
+　　gcc -lcurses hello.c 
+　　使用ncurses库编译程序 
+　　 
+-Ldir 
+　　制定编译的时候，搜索库的路径。比如你自己的库，可以用它制定目录，不然 
+　　编译器将只在标准库的目录找。这个dir就是目录的名称。  
+
+-Dmacro 
+　　相当于C语言中的#define macro 
+　　 
+-Dmacro=defn 
+　　相当于C语言中的#define macro=defn 
+　　 
+-Umacro 
+　　相当于C语言中的#undef macro  
+
+*******************************************************************************************************************
+-M 
+    gcc 将自动找寻源文件中包含的所有头文件,并生成文件的依赖关系。
+    gcc -M main.c
+	main.o: main.c /usr/include/stdio.h /usr/include/features.h \
+    /usr/include/i386-linux-gnu/bits/predefs.h \
+    /usr/include/i386-linux-gnu/sys/cdefs.h \
+    /usr/include/i386-linux-gnu/bits/wordsize.h \
+    /usr/include/i386-linux-gnu/gnu/stubs.h \
+    /usr/include/i386-linux-gnu/gnu/stubs-32.h \
+    /usr/lib/gcc/i686-linux-gnu/4.6.1/include/stddef.h \
+    /usr/include/i386-linux-gnu/bits/types.h \
+    /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+    /usr/include/_G_config.h /usr/include/wchar.h \
+    /usr/lib/gcc/i686-linux-gnu/4.6.1/include/stdarg.h \
+    /usr/include/i386-linux-gnu/bits/stdio_lim.h \
+    /usr/include/i386-linux-gnu/bits/sys_errlist.h
+
+-MD 
+　　和-M相同，但是输出将导入到.d的文件里面 
+　　 
+-MM
+    不需要在依赖关系中考虑标准库头文件
+    gcc -M main.c
+	main.o: main.c
+
+-MMD 
+　　和-MM相同，但是输出将导入到.d的文件里面  
+
+*******************************************************************************************************************
+-O0 
+-O1 
+-O2 
+-O3 
+　　编译器的优化选项的4个级别，-O0表示没有优化,-O1为缺省值，-O3优化级别最高　
+
+-g 
+　　只是编译器，在编译的时候，产生调试信息。  
+
+*******************************************************************************************************************

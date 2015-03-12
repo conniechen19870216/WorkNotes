@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+
+spawn -noecho subshl
+expect "<"
+log_file -noappend -a /tmp/opinit.log
+send "op:init\n"
+expect "OP INIT COMPLETED"
+log_file
+send "quit"

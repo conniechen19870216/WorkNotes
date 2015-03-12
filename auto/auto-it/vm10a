@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+
+spawn -noecho ssh ainet@vm10
+expect "password:"
+send "ainet1\n"
+interact

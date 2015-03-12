@@ -1,0 +1,47 @@
+(3) ccConE37S37: S37->S04
+FcLiFctInfoCollected (fic_bdy1.c)
+         |
+         |
+         +------ FicSendAR (fic_lib.c)
+                 |
+                 |
+                 +------ FcLiFctAnalyzeRoute (fic_ptli.c)
+                             |
+                             |
+                             +------ CcUiFctAnalyzeRoute (cc_bdy5.c)
+                                            |
+                                            +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E37S37 >>>>>>>>
+                                                           |
+                                                           +----- ccConE37S37 (cc_bdy2.c)
+                                                                        |
+                                                                        +----- ccRestoreCallStateOfAssociatedCalls (cc_lib.c)
+                                                                        |
+                                                                        +----- ccRestoreEvntHold (cc_bdy4.c)
+                                                                        |
+                                                                        +----- ccExtractAnalyzeRteParam (cc_bdy5.c)
+                                                                        |
+                                                                        +----- ccExtractSvcHeader (cc_bdy5.c)
+                                                                        |
+                                                                        +----- ccPopulateRtListFromMdpTgInfo (cc_bdy5.c)
+                                                                        |
+                                                                        +----- ccPostCallForwardProcessingAPI (cc_bdy5.c)
+                                                                        |
+                                                                        +----- ccIsRscRspReqd (cc_lib.c)
+                                                                        |
+                                                                        +----- ccCheckForInterfaces (cc_lib.c)
+                                                                        |
+                                                                        +----- ccRouteCall (cc_bdy2.c)
+                                                                                    |
+                                                                                    +----- ccRegisterEgressInterCcsCall (cc_lib.c) <<<<<<< Identify if inter ccs call >>>>>>>>
+                                                                                    |
+                                                                                    +----- CC_STATE_CHANGE(con, CCS_AWTRSCALOCCFM) <<<<<<< S37->S04 CCS_AWTRSPFORDPE3 -> CCS_AWTRSCALOCCFM >>>>>>>
+                                                                                    |
+                                                                                    +----- ccAllocateResourceArray (cc_bdy2.c): For Outgoing Call Leg -- CC_OUTGOING
+                                                                                                     |
+                                                                                                     +----- CcLiRmtAloc2WayPriReq (cc_ptli.c)
+                                                                                                                    |
+                                                                                                                    +----- RmUiRmtAloc2WayPriReq (rm_bdy1.c)
+                                                                                    				                            |
+                                                                                    				                            +----- RmUiRmtAloc2WayPriCfm (rm_ptui.c)
+                                                                                    				                                        |
+                                                                                                                                            +---- CcLiRmtAloc2WayPriCfm (cc_bdy1.c)

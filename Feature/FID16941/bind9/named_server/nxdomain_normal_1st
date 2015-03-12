@@ -1,0 +1,107 @@
+02-May-2013 16:07:18.400 general: debug 50: socket f7616130: dispatch_recv:  event f76281e8 -> task f761dd18
+02-May-2013 16:07:18.400 general: debug 60: socket f7616130: internal_recv: task f761dd18 got event f7616170
+02-May-2013 16:07:18.400 general: debug 60: socket f7616130 10.84.14.182#46522: packet received correctly
+02-May-2013 16:07:18.400 general: debug 90: socket f7616130: processing cmsg f75fe040
+02-May-2013 16:07:18.400 client: debug 3: client 10.84.14.182#46522: UDP request
+02-May-2013 16:07:18.400 client: debug 5: client 10.84.14.182#46522: using view '_default'
+02-May-2013 16:07:18.400 security: debug 3: client 10.84.14.182#46522: request is not signed
+02-May-2013 16:07:18.400 security: debug 3: client 10.84.14.182#46522: recursion available
+02-May-2013 16:07:18.400 client: debug 3: client 10.84.14.182#46522: query
+02-May-2013 16:07:18.400 client: debug 10: client 10.84.14.182#46522: ns_client_attach: ref = 1
+02-May-2013 16:07:18.400 security: debug 3: client 10.84.14.182#46522: query (cache) 'trkgrp100.qd.plexuslab.com/A/IN' approved
+02-May-2013 16:07:18.400 client: debug 3: client 10.84.14.182#46522: replace
+02-May-2013 16:07:18.400 general: debug 3: clientmgr @f761dfd8: createclients
+02-May-2013 16:07:18.400 general: debug 3: clientmgr @f761dfd8: recycle
+02-May-2013 16:07:18.400 resolver: debug 1: createfetch: trkgrp100.qd.plexuslab.com A
+02-May-2013 16:07:18.400 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): create
+02-May-2013 16:07:18.400 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): join
+02-May-2013 16:07:18.400 resolver: debug 3: fetch f75f8238 (fctx 084b6b28(trkgrp100.qd.plexuslab.com/A)): created
+02-May-2013 16:07:18.400 client: debug 3: client @0x85874e0: udprecv
+02-May-2013 16:07:18.401 general: debug 50: socket f7616130: socket_recv: event f7628878 -> task f761db60
+02-May-2013 16:07:18.401 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): start
+02-May-2013 16:07:18.401 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): try
+02-May-2013 16:07:18.401 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): cancelqueries
+02-May-2013 16:07:18.401 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): getaddresses
+02-May-2013 16:07:18.401 database: debug 50: findaddrinfo: new entry 0885b1e8
+02-May-2013 16:07:18.401 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): query
+02-May-2013 16:07:18.401 resolver: debug 3: resquery 084bdb28 (fctx 084b6b28(trkgrp100.qd.plexuslab.com/A)): send
+02-May-2013 16:07:18.401 dispatch: debug 90: dispatch f7614a58 response f75f6378 135.252.142.151#53: attached to task f76245e0
+02-May-2013 16:07:18.401 resolver: debug 3: resquery 084bdb28 (fctx 084b6b28(trkgrp100.qd.plexuslab.com/A)): sent
+02-May-2013 16:07:18.401 resolver: debug 3: resquery 084bdb28 (fctx 084b6b28(trkgrp100.qd.plexuslab.com/A)): senddone
+02-May-2013 16:07:18.402 general: debug 50: socket f762c258: dispatch_recv:  event f7628968 -> task f761dc10
+02-May-2013 16:07:18.402 general: debug 60: socket f762c258: internal_recv: task f761dc10 got event f762c298
+02-May-2013 16:07:18.402 general: debug 60: socket f762c258 135.252.142.151#53: packet received correctly
+02-May-2013 16:07:18.402 general: debug 90: socket f762c258: processing cmsg f75fe318
+02-May-2013 16:07:18.402 dispatch: debug 90: dispatch f7614a58: got packet: requests 1, buffers 1, recvs 1
+02-May-2013 16:07:18.402 dispatch: debug 92: dispatch f7614a58: got valid DNS message header, /QR 1, id 7214
+02-May-2013 16:07:18.402 dispatch: debug 90: dispatch f7614a58: search for response in bucket 6975: found
+02-May-2013 16:07:18.402 dispatch: debug 90: dispatch f7614a58 response f75f6378 135.252.142.151#53: [a] Sent event f76155a8 buffer 084ab5d8 len 4096 to task f76245e0
+02-May-2013 16:07:18.402 general: debug 50: socket f762c258: socket_recv: event f7628b48 -> task f761dc10
+02-May-2013 16:07:18.402 resolver: debug 3: resquery 084bdb28 (fctx 084b6b28(trkgrp100.qd.plexuslab.com/A)): response
+02-May-2013 16:07:18.402 resolver: debug 10: received packet:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id:   7214
+;; flags: qr aa rd ; QUESTION: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags: do; udp: 4096
+;; QUESTION SECTION:
+;trkgrp100.qd.plexuslab.com.	IN	A
+
+;; AUTHORITY SECTION:
+qd.plexuslab.com.	100	IN	SOA	root.qd.plexuslab.com. www.qd.plexuslab.com. 2008091807 80 100 1728000 120
+
+
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): noanswer_response
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): ncache_message
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): clone_results
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): cancelquery
+02-May-2013 16:07:18.402 dispatch: debug 90: dispatch f7614a58 response f75f6378 135.252.142.151#53: detaching from task f76245e0
+02-May-2013 16:07:18.402 dispatch: debug 90: dispatch f7614a58: detach: refcount 4
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): done
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): stopeverything
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): cancelqueries
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): sendevents
+02-May-2013 16:07:18.402 resolver: debug 3: fetch f75f8238 (fctx 084b6b28(trkgrp100.qd.plexuslab.com/A)): destroyfetch
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): shutdown
+02-May-2013 16:07:18.402 client: debug 3: client 10.84.14.182#46522: send
+02-May-2013 16:07:18.402 client: debug 3: client 10.84.14.182#46522: sendto
+02-May-2013 16:07:18.402 client: debug 3: client 10.84.14.182#46522: senddone
+02-May-2013 16:07:18.402 client: debug 3: client 10.84.14.182#46522: next
+02-May-2013 16:07:18.402 client: debug 10: client 10.84.14.182#46522: ns_client_detach: ref = 0
+02-May-2013 16:07:18.402 client: debug 3: client 10.84.14.182#46522: endrequest
+02-May-2013 16:07:18.402 dispatch: debug 90: dispatch f7614008: detach: refcount 2
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): doshutdown
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): stopeverything
+02-May-2013 16:07:18.402 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): cancelqueries
+02-May-2013 16:07:18.403 resolver: debug 3: fctx 084b6b28(trkgrp100.qd.plexuslab.com/A'): destroy
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 32
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 32
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 33
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 33
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 34
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 34
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 35
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 35
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 36
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 36
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 37
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 37
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 38
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 38
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 39
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 39
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 32
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 32
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 33
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 33
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 34
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 34
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 35
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 35
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 36
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 36
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 37
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 37
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 38
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 38
+02-May-2013 16:07:37.951 database: debug 100: cleaning name bucket 39
+02-May-2013 16:07:37.951 database: debug 100: cleaning entry bucket 39

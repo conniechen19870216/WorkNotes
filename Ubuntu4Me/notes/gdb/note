@@ -1,0 +1,17 @@
+p/xducf &buf/buf/*buf
+
+display i
+
+watch *(char *)buf
+
+b 10
+
+info breakpoints
+
+x/nfu (32xb/h/w/g)
+
+p x=4
+
+set &m=1
+
+call/p func(1,2)

@@ -1,0 +1,5 @@
+http://cnproxy.cn.alcatel-lucent.com/proxy.pac
+
+135.251.0.190:80
+135.2.77.29:8895
+

@@ -1,0 +1,53 @@
+1. 条件语句
+ifdef/ifndef
+ifeq/ifneq
+
+2. ifeq
+ifeq (ARG1, ARG2)
+ifeq 'ARG1' 'ARG2'
+ifeq "ARG1" "ARG2"
+ifeq "ARG1" 'ARG2'
+ifeq 'ARG1' "ARG2"
+注：通常会使用其判断一个变量的值是否为空
+ifeq ($(strip $(foo)),)
+...
+endif
+
+3. ifneq
+ifneq (ARG1, ARG2)
+ifneq 'ARG1' 'ARG2'
+ifneq "ARG1" "ARG2"
+ifneq "ARG1" 'ARG2'
+ifneq 'ARG1' "ARG2"
+
+4. ifdef
+ifdef VARIABLE-NAME
+例1:
+bar =
+foo = $(bar)
+ifdef foo
+frobozz = yes
+else
+	frobozz = no
+	endif
+例 2:
+foo =
+ifdef foo
+frobozz = yes
+else
+	frobozz = no
+	endif
+
+
+5. ifndef
+ifndef VARIABLE-NAME
+
+6. 标记测试的条件语句(+)
+archive.a: ...
+ifneq (,$(findstring t,$(MAKEFLAGS)))
+	+touch archive.a
+	+ranlib -t archive.a
+else
+	ranlib archive.a
+	endif
+

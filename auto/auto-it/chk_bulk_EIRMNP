@@ -1,0 +1,94 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+if {[llength $argv] != 2} {
+        puts "usage: $argv0 vm FE/BE/CMP"
+        return 1
+}
+
+set vm [lindex $argv 0]
+set spa [lindex $argv 1]
+
+puts "INFO: chk_bulk_EIRMNP: The following files are sending to $vm:/root"
+set tools [glob ~/auto-it/EIRMNP/*.xml]
+foreach tool $tools {
+	spawn -noecho scp $tool root@$vm:~
+	expect {
+        "password:" {
+                send "r00t\n"
+                }
+       "Are you sure*" {
+               send "yes\n"
+                expect "password:"
+                send "r00t\n"
+                }
+	}
+	log_user 1
+	expect eof
+	log_user 0
+}
+
+log_user 0
+
+set flags {EIR LTEEIR MNP}
+
+#foreach flag $flags {
+spawn -noecho ssh ainet@$vm
+expect {
+	"password:" {
+		send "ainet1\n"
+	}
+	"Are you sure*" {
+		send "yes\n"
+		expect "password:"
+		send "ainet1\n"
+	}
+}
+expect {
+	"Could not chdir to home directory" {
+		puts "Warning: The VMware is still booting.Please try later."
+		send "exit\n"
+		return 1
+	}
+	-glob "->" {
+	}
+}
+send "su -\n"
+expect "password:"
+send "r00t\n"
+log_user 1
+
+foreach flag $flags {
+#	log_user 1
+	send "/sn/sps/$spa/bulkenv/tools/bulk.csh /root/Create\_$flag\_bulk\_create.xml\n"
+	expect "Bulk Result Directory should be"
+	send "cd /root/Result\_*Create\_$flag\_bulk\_create\n"
+	expect -glob "-#"
+	send "gzip -cdv * \n"
+	expect {
+		"No such file" {
+			return 1
+			}
+	}
+	send "grep rror *\n"
+	expect {
+		"rror" {
+			puts "Error is thrown out when create $flag."
+			return 1
+		}
+		-glob "-#" {
+		}
+	}
+	log_user 1
+	expect eof
+#	log_user 0
+}
+
+send "exit\n"
+expect -glob "->"
+send "exit\n"
+expect eof
+log_user 0
+
+

@@ -1,0 +1,8 @@
+1. Internal Bicc: Event and apmStatus
+2. Feature:       FID16779.0
+3. Daemon:        ISUP further study
+                  System Servic: MTSS
+				  Libcstl
+4. Others:        Emma FID16367
+BiccUiBicctFacReq: biccCon
+BiccLiSntUDatInd:  MI_FACIL

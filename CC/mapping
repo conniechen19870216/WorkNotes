@@ -1,0 +1,116 @@
+1. Direct mapping
+(1) Incoming (not Ingress) Event type
+(2) Direction of the message
+(3) CcConCb (Connection Control Block)
+(4) Incoming and Outgoing Protocol
+
+2. Indirect mapping
+
+    ----------------                            ---------------
+    |  Protocol 1  |                            |  Protocol 2 |
+    ----------------                            ---------------
+           |                                           +
+           | <Step 1>                         <Step 4> |
+           +                                           |
+    -----------------                          -----------------
+    | Native ISUP 1 |                          | Native ISUP 2 |
+    -----------------                          -----------------
+           |                                           +
+           |                                           |
+           | <Step 2>                         <Step 3> | 
+           |             -----------------             |
+		   ------------+ |      GCC      | -------------
+                         -----------------
+
+3. Data Structure
+                                              +--------- CmHashListEnt mapTblHl
+                                              |
+                 +-----------CcMapEntry_t ----+--------- U32 protKey
+                 |                            |
+                 |                            +--------- CmQCp intwPath (double linked list queue)
+CcMapInfo_t -----+                                                 ++
+                 |                                                 ++
+				 |                            +--------- CmQEnt entry
+				 |                            | 
+				 +-----------CcIntwPath_t ----+--------- ProtType intwProt1/2
+                                              |
+                                              +--------- U16 mappingCategory
+
+4. Insert Entries
+
+CcMiLccCfgReq (cc_bdy1.c)
+      |
+      |
+	  |(CcMngmt) cfg->hdr->elmId.elmnt == STGEN
+      |
+      +------- ccGenCfg (cc_bdy4.c)
+	  |          |
+	  |			 |
+	  |			 +------- ccInitIntwBase (cc_map.c)
+	  |			               | (ccNatIsupTbl)
+	  |						   +------- 1) ccInitNatIsupTbl (cc_map.c) ******** CcNativeIsupBlock_t ********
+	  |			               | (ccMapTbl)
+	  |						   +------- 2) ccInitMapTbl (cc_map.c) ******* CcMapEntry_t ********
+      |
+      |
+	  |(CcMngmt) cfg->hdr->elmId.elmnt == STCCINTFC
+      |
+	  +------- ccINTFCSAPCfg (cc_bdy4.c)
+	             |
+	   			 |
+	   			 +------- 3) ccInsertDDIMapTblEntry (cc_bdy4.c)
+
+5. ccComputeIntwPath (cc_map.c)
+      |
+      |
+      +------ ccComputePathWhenIcIsISUPorBICC (cc_map.c)
+	  |       (1.1) ISUP/BICC -> GCC_COMMON_ISUP_PROTOCOL -> ISUP 
+	  |       (2.1) ISUP/BICC -> nativeISUPo -> NON-ISUP
+	  |       (2.2) ISUP/BICC -> GCC_COMMON_ISUP_PROTOCOL -> nativeISUPo -> NON-ISUP
+      |
+      +------ ccComputePathWhenIcIsNotISUPorBICC (cc_map.c)
+	          (3.1) NON-ISUP -> nativeISUPi -> ISUP
+	          (3.2) NON-ISUP -> nativeISUPi -> GCC_COMMON_ISUP_PROTOCOL -> ISUP
+	          (4.1) NON-ISUP -> nativeISUPi -> nativeISUPo -> NON-ISUP
+	          (4.2) NON-ISUP -> nativeISUPi -> GCC_COMMON_ISUP_PROTOCOL -> nativeISUPo -> NON-ISUP
+	          (5.1) SIPT -> GCC_COMMON_SIPT_PROTOCOL -> SIPT
+
+6. ccGetMappingIndex_real (cc_map.c)
+      |
+      |
+      |          case CC_SI:
+      |          case CC_SIPT:
+      |          case CC_BICC:
+      |            retIntfType = CC_SI_INTFC;
+      |          case CC_EXT_BICC:
+      |            retIntfType = CC_EXT_BICC_INTFC;
+      |
+      +------ 1) ifSwtch = ccGetIntfcIWSwtch (cc_bdy4.c)
+      |
+      |          ccIWSwtchCb table
+      |          {CC_SI_INTFC, CC_EXT_BICC_INTFC, SITOSI},      /* BICC to EXT_BICC */ 
+      |          {CC_SI_INTFC, CC_SI_INTFC, SITOSI},            /* ISUP-ISUP interworking */
+      |
+      +------ 2) evntType and subType if necessary
+      |
+      |
+      +------ INCTOOUT: con->iwSwtch = (U32) ((icProtType << 16) | ogProtType)
+      +------ OUTTOINC: con->iwSwtch = (U32) ((ogProtType << 16) | icProtType)
+
+              BICC/SIPT/DDI -> ISUP
+              case CC_BICCITU92 : /* BICC ITU 92 */
+                   retProtType = CC_SIITU92; 
+              case CC_SIPTITU92: /* SIPT ITU 92 */
+                   retProtType = CC_SIITU92;
+              default:
+                   if(CC_IS_DDI_VARIANT(protType))
+                   {
+                       retProtType = CC_GET_VARIANT(protType) + CC_SI;
+                   }
+                   else
+                   {     
+                       retProtType = protType;
+                   }     
+
+7. How to identify the internal BICC variant
+Function: ccConvertProtTypeToBiccProtType

@@ -1,0 +1,42 @@
+1. create/delete branch
+(1) git branch <new-branch> [<start-point>]: 创建分支
+(2) git branch -d <branch>: 删除本地分支
+    git branch -D <branch>:强制删除本地分支
+(3) git branch: 列出本地所有分支
+(4) git checkout -b <new-branch> [<start-point>]: 创建一个分支并切换到这个分支里面
+
+2. merge
+(1) git merge <branch>
+    Recommended: git merge --no-ff <feature-branch> 有助于回退整个特性，看到哪些commit对象构成了一个特性
+(2) merging methods:
+ a. fast forword: 在同一分支上，直接向下游后移指针
+ b. merge made recursive: 自动分析最佳的同源合并点plus分支的末端进行合并，生成新的提交对象
+    『简单的三方合并』
+ c. merge with conflicts: 
+    首先，只合并文件，并标记出冲突的地方;
+	然后，手动解决冲突；
+	再次，git add暂存解决冲突之后的快照；
+	最后，git commit提交更新，完成最终的合并。
+ d. git mergetool
+
+3. manage branch
+(1) git branch: 列出本地所有分支
+(2) git branch -v: 查看各个分支最后提交对象的信息
+(3) git branch --merged/--no-merged: 列出当前分支合并过和未合并过的分支
+(4) git branch -D <branch>:当某个分支修改没有合并到当前分支，若确信不需要则强制删除本地分支
+                           即在git branch -d <branch>的时候提示错误
+
+4. rebase
+(1) git checkout test
+    git rebase master [<test>]
+
+(2) Characteristics:
+    按照每行的修改次序重演一遍修改，而merge是将最终结果合在一起；
+    提交历史显得非常整洁，呈现出一条线
+
+(3) 跨越rebase
+    git rebase --onto master server client
+
+*****************************************************************************
+金科玉率：一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作。
+*****************************************************************************

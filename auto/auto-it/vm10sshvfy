@@ -1,0 +1,55 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+set timeout 5
+
+spawn -noecho ssh ainet@vm10
+#spawn ssh ainet@vm10
+expect { 
+	"Host key verification failed" {
+		exec echo "" > ~/.ssh/known_hosts
+		expect eof
+		spawn -noecho ssh ainet@vm10
+		expect {
+			"Are you sure*" {
+				send "yes\n"
+				}
+			}
+		}	
+	"Are you sure*" {
+		send "yes\n"
+		}
+	"password:" {
+		send "ainet1\n"
+		expect {
+			-glob "/u/ainet->" {
+			send "exit\n"
+			exit 0
+			}
+			"not chdir" {
+			puts "no home dir for ainet"
+			send "exit\n"
+			exit	1
+			}
+		}
+	}
+	timeout {
+	puts "timeout"
+	exit 1
+	}
+}
+expect "password:"
+send "ainet1\n"
+expect {
+	-glob "ainet->" {
+		send "exit\n"
+		exit 0
+	}
+         "not chdir" {
+                puts "no home dir for ainet"
+                send "exit\n"
+                exit 1
+        }
+}
+

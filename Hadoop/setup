@@ -1,0 +1,196 @@
+#!/bin/bash
+##################### 模式一：单机模式 #######################
+# Step 1: create a user and a user group
+sudo addgroup hadoop (rename a group: sudo groupmod -g GID -n hadoop_new hadoop)
+sudo adduser --ingroup hadoop hadoop_user
+sudo usermod -aG root hadoop_user
+sudo gedit /etc/sudoers
+hadoop_user  ALL=(ALL:ALL)  ALL
+
+# Step 2: start ssh without entering passwd
+sudo apt-get install openssh-server
+sudo /etc/init.d/ssh start/restart
+ps -e | grep ssh
+ssh-keygen -t rsa -P ""
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys 
+ssh localhost # type "yes"
+exit
+ssh localhost # login again to verify
+exit
+# Step 3: setup rsync
+sudo apt-get install rsync
+
+# Step 4: setup java
+sudo apt-get install openjdk-6-jdk
+java -version
+
+# Step 5: setup hadoop
+sudo tar -xzvf hadoop-1.1.2.tar.gz
+sudo mv hadoop-1.1.2 /usr/local/hadoop
+sudo chown -R hadoop_user:hadoop /usr/local/hadoop
+
+# Step 6: edit hadoop-env.sh
+vi /usr/local/hadoop/confhadoop-env.sh # add below
+#export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-i386
+#export HADOOP_HOME=/usr/local/hadoop
+#export PATH=$PATH:/usr/local/hadoop/bin
+source /usr/local/hadoop/conf/hadoop-env.sh 
+
+# Try MapReduce to verify whether success
+mkdir /usr/local/hadoop/input
+cp conf/* input 
+hadoop jar hadoop-examples-1.1.2.jar wordcount input output
+cat output/* 
+
+
+##################### 模式二：伪分布模式 #######################
+# Step 7: Edit 3 xml files under /usr/local/hadoop/conf
+mkdir tmp  
+mkdir hdfs  
+mkdir hdfs/name  
+mkdir hdfs/data  
+(1) core-site.xml: Hadoop Core的配置项，例如HDFS和MapReduce常用的I/O设置等
+<configuration>
+    <property>
+        <name>fs.default.name</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/usr/local/hadoop/tmp</value>
+    </property>
+</configuration>
+
+(2) hdfs-site.xml: Hadoop 守护进程的配置项，包括namenode，辅助namenode和datanode等
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>
+    <property>
+        <name>dfs.name.dir</name>
+        <value>/usr/local/hadoop/datalog1,/usr/local/hadoop/datalog2</value>
+    </property>
+    <property>
+        <name>dfs.data.dir</name>
+        <value>/usr/local/hadoop/data1,/usr/local/hadoop/data2</value>
+    </property>
+</configuration>
+
+(3) mapred-site.xml: MapReduce 守护进程的配置项，包括jobtracker和tasktracker
+<configuration>   
+    <property>  
+        <name>mapred.job.tracker</name>
+        <value>localhost:9001</value>   
+    </property>
+</configuration>
+
+# Step 8: 格式化HDFS
+source /usr/local/hadoop/conf/hadoop-env.sh 
+hadoop namenode -format
+
+13/12/25 21:34:22 INFO common.Storage: Storage directory /usr/local/hadoop/datalog2 has been successfully formatted.
+13/12/25 21:34:22 INFO namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1
+************************************************************/
+
+# Step 9: 启动Hadoop
+cd bin
+start-all.sh
+jps
+
+localhost: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hadoop_user-secondarynamenode-ubuntu.out
+starting jobtracker, logging to /usr/local/hadoop/logs/hadoop-hadoop_user-jobtracker-ubuntu.out
+localhost: Warning: $HADOOP_HOME is deprecated.
+localhost: 
+localhost: starting tasktracker, logging to /usr/local/hadoop/logs/hadoop-hadoop_user-tasktracker-ubuntu.out
+
+5623 JobTracker
+6033 Jps
+5542 SecondaryNameNode
+5821 TaskTracker
+5124 NameNode
+5339 DataNode
+
+# Step 10: 检查运行状态
+http://localhost:50030/ - Hadoop 管理介面
+http://localhost:50060/ - Hadoop Task Tracker 状态
+http://localhost:50070/ - Hadoop DFS 状态
+
+# Step 10: 在文件系统dfs运行WordCount，重新感受MapReduce过程
+hadoop dfs -mkdir input
+hadoop dfs -copyFromLocal conf/* input
+hadoop jar hadoop-examples-1.1.2.jar wordcount input output
+
+13/12/25 21:59:03 INFO input.FileInputFormat: Total input paths to process : 16
+13/12/25 21:59:03 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+13/12/25 21:59:03 WARN snappy.LoadSnappy: Snappy native library not loaded
+13/12/25 21:59:04 INFO mapred.JobClient: Running job: job_201312252147_0001
+13/12/25 21:59:05 INFO mapred.JobClient:  map 0% reduce 0%
+13/12/25 21:59:13 INFO mapred.JobClient:  map 6% reduce 0%
+13/12/25 21:59:14 INFO mapred.JobClient:  map 12% reduce 0%
+13/12/25 21:59:21 INFO mapred.JobClient:  map 25% reduce 0%
+13/12/25 21:59:26 INFO mapred.JobClient:  map 37% reduce 4%
+13/12/25 21:59:29 INFO mapred.JobClient:  map 37% reduce 8%
+13/12/25 21:59:31 INFO mapred.JobClient:  map 50% reduce 8%
+13/12/25 21:59:35 INFO mapred.JobClient:  map 62% reduce 12%
+13/12/25 21:59:40 INFO mapred.JobClient:  map 75% reduce 12%
+13/12/25 21:59:41 INFO mapred.JobClient:  map 75% reduce 25%
+13/12/25 21:59:44 INFO mapred.JobClient:  map 81% reduce 25%
+13/12/25 21:59:45 INFO mapred.JobClient:  map 87% reduce 25%
+13/12/25 21:59:49 INFO mapred.JobClient:  map 100% reduce 25%
+13/12/25 21:59:50 INFO mapred.JobClient:  map 100% reduce 29%
+13/12/25 21:59:53 INFO mapred.JobClient:  map 100% reduce 100%
+13/12/25 21:59:54 INFO mapred.JobClient: Job complete: job_201312252147_0001
+13/12/25 21:59:54 INFO mapred.JobClient: Counters: 29
+13/12/25 21:59:54 INFO mapred.JobClient:   Job Counters 
+13/12/25 21:59:03 INFO input.FileInputFormat: Total input paths to process : 16
+13/12/25 21:59:03 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+13/12/25 21:59:03 WARN snappy.LoadSnappy: Snappy native library not loaded
+13/12/25 21:59:04 INFO mapred.JobClient: Running job: job_201312252147_0001
+13/12/25 21:59:05 INFO mapred.JobClient:  map 0% reduce 0%
+13/12/25 21:59:13 INFO mapred.JobClient:  map 6% reduce 0%
+13/12/25 21:59:14 INFO mapred.JobClient:  map 12% reduce 0%
+13/12/25 21:59:21 INFO mapred.JobClient:  map 25% reduce 0%
+13/12/25 21:59:26 INFO mapred.JobClient:  map 37% reduce 4%
+13/12/25 21:59:29 INFO mapred.JobClient:  map 37% reduce 8%
+13/12/25 21:59:31 INFO mapred.JobClient:  map 50% reduce 8%
+13/12/25 21:59:35 INFO mapred.JobClient:  map 62% reduce 12%
+13/12/25 21:59:40 INFO mapred.JobClient:  map 75% reduce 12%
+13/12/25 21:59:41 INFO mapred.JobClient:  map 75% reduce 25%
+13/12/25 21:59:44 INFO mapred.JobClient:  map 81% reduce 25%
+13/12/25 21:59:45 INFO mapred.JobClient:  map 87% reduce 25%
+13/12/25 21:59:49 INFO mapred.JobClient:  map 100% reduce 25%
+13/12/25 21:59:50 INFO mapred.JobClient:  map 100% reduce 29%
+13/12/25 21:59:53 INFO mapred.JobClient:  map 100% reduce 100%
+13/12/25 21:59:54 INFO mapred.JobClient: Job complete: job_201312252147_0001
+13/12/25 21:59:54 INFO mapred.JobClient: Counters: 29
+13/12/25 21:59:54 INFO mapred.JobClient: Job Counters 
+13/12/25 21:59:54 INFO mapred.JobClient: Map output records=2615
+
+hadoop dfs -cat output/*
+stop-all.sh
+
+stopping jobtracker
+localhost: Warning: $HADOOP_HOME is deprecated.
+localhost: 
+localhost: stopping tasktracker
+stopping namenode
+localhost: Warning: $HADOOP_HOME is deprecated.
+localhost: 
+localhost: stopping datanode
+localhost: Warning: $HADOOP_HOME is deprecated.
+localhost: 
+localhost: stopping secondarynamenode
+
+
+##############################################################
+1. 在伪分布模式，可以通过hadoop dfs -ls 查看input里的内容
+
+2. 在伪分布模式，可以通过hadoop dfs -rmr 查看input里的内容
+
+3. 在伪分布模式，input和output都在hadoop dfs文件里
+##############################################################
+
+##################### 模式三：全分布模式 #######################

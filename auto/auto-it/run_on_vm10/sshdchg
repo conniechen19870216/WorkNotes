@@ -1,0 +1,8 @@
+#!/bin/ksh
+
+grep "^PermitRootLogin yes" /etc/ssh/sshd_config
+if [[ $? != "0" ]]; then
+	chmod 755 /etc/ssh/sshd_config
+        echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+	/etc/init.d/sshd restart
+fi

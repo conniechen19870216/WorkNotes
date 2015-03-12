@@ -1,0 +1,130 @@
+1. ccProcessForAddModify
+MgctMediaDesc *mediaDesc[2] = {icMediaDesc, ogMediaDesc};
+mediaDesc[1] = icMediaDesc;
+mediaDesc[0] = ogMediaDesc;
+
+for (i= 0; i<= 1; i++)
+{
+   ccUpdateMgQForAddOrModifyRsc_real
+              |
+              |
+              +------------- ccDumpMgctMediaDesc
+              |              MgctMediaDesc -> MgctStreamDesc -> MgctMediaParm
+              |              (1) MgctMediaDesc  mediaDesc
+              |              (2) MgctStreamDesc streamDesc:    mediaDesc->streamDescList
+              |              (3) MgctStreamParm mediaParmDesc: streamDesc->mediaParmList
+              |                      |
+              |                      |
+              |                      +--------- cmSdpPrint
+              |
+              |
+              | suCtxId = 0
+              +------------- SGetSBuf(ccInit.region, ccInit.pool, (Data **) &tmpMgCtx, (Size) sizeof(CcMgCtx_t));
+              |              cmMemset((U8 *) tmpMgCtx, 0, sizeof(CcMgCtx_t));
+              |              
+              |              tmpMgCtx->suCtxId   = ccGetNewsuCtxId();
+              |              tmpMgCtx->contextId = contextId;
+              |              tmpMgCtx->mgSapCb   = mgSapCb;
+              |              tmpMgCtx->mgBlock   = con->mgBlock;
+              |              tmpMgCtx->next      = NULLP;
+              | 
+              |              cmHashListInsert(&ccMgctInsTbl, (PTR) tmpMgCtx, (U8 *)&(tmpMgCtx->suCtxId), (U16)sizeof(U32));
+   
+              |              /* Link it to the tail of the mgBlock's mgCtx list */
+              |              if(con->mgBlock->mgCtx == NULLP)
+              |              {
+              |                CCDP(AIN_DBG_LEVEL_0, "First MgCtx in MgBlock!\n");
+              |                con->mgBlock->mgCtx       =  tmpMgCtx;
+              |                tmpMgCtx                  =  NULLP;
+              |                mgCtx                     =  con->mgBlock->mgCtx;
+              |              }
+              |              else
+              |              {
+              |                mgCtx = con->mgBlock->mgCtx;
+              |              
+              |                while(mgCtx && mgCtx->next)
+              |                {
+              |                  mgCtx = mgCtx->next;
+              |                }
+              |              
+              |                mgCtx->next               = tmpMgCtx;
+              |                tmpMgCtx                  = NULLP;
+              |                mgCtx                     = mgCtx->next;
+              |              }
+              |
+              |
+              |
+              |
+              | suCtxId != 0
+              +------------- cmHashListFind(&ccMgctInsTbl, (U8 *)&suCtxId, (U16)sizeof(U32), (U16)0, (PTR *)&mgCtx);
+              |
+              |
+              |
+              +------------- mgCmdQ = ccAllocateMgCmdQ(mgCtx); 
+}
+
+ccSendMgiQueue
+        |
+        |
+        +-------- MgiLiMgctTxnReq
+
+...
+
+MgiLiMgctTxnCfm
+
+2. ccHandleMgResponse
+        |
+		|
+		+-------- mgCmdPointer = ccFindMgCmdQFromCmdRspList(mgCtx, cmdRspList, replyList);
+        |
+		|
+		+-------- ccExecuteMgCmdQ_On_MgCtx(mgCtx, mgCmdPointer, cmdRspList, replyList, txnCfm->status);
+		|               |
+		|               |
+		|               +------- ccUpdateCcConCbForAddReq
+		|   			|                |
+		|   			|   			 |
+		|   			|   			 +-------- ret = cmHashListFind(&(mgCtx->mgSapCb->ccMgInsTbl), (U8 *)&(replyList->contextId),
+        |               |                |                              (U16)sizeof(U32), (U16)0, (PTR *)&tmpMgCtx);
+        |               |                |         if ((ret == ROK) && (tmpMgCtx != NULLP))
+        |               |                |         {
+        |               |                |           if ((mgCmdQ->bcm) && (mgCmdQ->bcm->mgCtx == NULLP))
+        |               |                |           {
+        |               |                |              mgCmdQ->bcm->mgCtx = tmpMgCtx;
+        |               |                |           }
+        |               |                |         }
+        |               |                |         else
+        |               |                |           ret = cmHashListInsert(&(mgCtx->mgSapCb->ccMgInsTbl), (PTR) mgCtx,
+        |               |                |                                  (U8 *)&(mgCtx->contextId),
+        |               |                |                                  (U16)sizeof(U32));
+        |               |                |
+        |               |                |
+        |               |                |
+        |               |                +-------- term = ccAllocateTerm(mgCtx);
+        |               |
+        |               |
+        |               |
+        |               +------- if(cmdRspList->cmdType != MGCT_CMD_SUB)
+        |                           ccDeleteElementFromCmdQ(mgCtx, mgCmdQ);
+        |
+        |
+        |
+        |
+        +------- cleanUpCtxMgQ(mgCtx);
+        |
+        |
+        |
+        +------- /* After processing the TxnCfm, GCC should not have anything in the mgCmdQ */
+        |        if (mgCtx->mgCmdQ)
+        |        {
+        |          ABORT_DEBUG;
+        |        } 
+        |
+        |
+        |
+        +------- if (mgCtx->term == NULLP)
+                 {
+                   CCDP(AIN_DBG_LEVEL_1, "mgCtx's term is NULLP, need to delete the mgCtx from the mgBlock\n");
+                   ccResetBcmMgCtx(mgCtx);
+                   ccDeleteMgCtxFromMgBlock(mgCtx);
+                 }

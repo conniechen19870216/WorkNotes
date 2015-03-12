@@ -1,0 +1,53 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+if {[llength $argv] != 2} {
+        puts "usage: $argv0 vm FE/BE/CMP"
+        return 1
+}
+
+set vm [lindex $argv 0]
+set conf [lindex $argv 1]
+
+puts "INFO: send2vm: The following files are sending to $vm:/tmp"
+set tools [glob ~/auto-it/run_on_vm10/*]
+foreach tool $tools {
+	spawn -noecho scp $tool ainet@$vm:/tmp/
+	expect {
+        "password:" {
+                send "ainet1\n"
+                }
+       "Are you sure*" {
+               send "yes\n"
+                expect "password:"
+                send "ainet1\n"
+                }
+	}
+	log_user 1
+	expect eof
+	log_user 0
+}
+
+log_user 0
+puts "INFO: send2vm: The following files are sending to $vm:/sn/cr/tracedir"
+#set flags [glob ~/auto-it/traceflag/*]
+if {$conf == "CMP"} {
+	set flags {OamCOMM_flags PDLSL1_flags PDLSU1_flags PDLSI1_flags SDM410_flags}	
+}
+if {$conf == "FE"} {
+	set flags {OamCOMM_flags PDLSI1_flags SDM410_flags PDLSL1_flags PDLSU1_flags}	
+}
+if {$conf == "BE"} {
+	set flags {OamCOMM_flags}	
+}
+
+foreach flag $flags {
+	spawn -noecho scp /home/$env(USER)/auto-it/traceflag/$flag ainet@$vm:/sn/cr/tracedir/
+	expect "password:"
+	send "ainet1\n"
+	log_user 1
+	expect eof
+	log_user 0
+}
+

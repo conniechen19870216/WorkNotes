@@ -1,0 +1,35 @@
+lm_bdy1.c ==> defines all the modules
+
+Normal flow:
+
+1. SLAM receive input from TL1, certain SLAM fsm is called
+2. In lm_bdy1.c, the TABLE_ID and TL1Key can be found. Also in IFSLAM(xxx), the xxx is the SLAM module fsm for this command.
+3. In the SLAM module fsm, data would be passed to DB or CLAM accordingly.
+4. SLAM will find CLAM ID for certain module, slAddClamId().
+5. Data (including TABLE_ID, event) Post to CLAM, cl_ex_ms.c will handle it.
+6. CLAM will read lm_bdy1.c, and determine which thread will be touched based on TABLE_ID and TL1Key.
+7. The real processing entrance can be found in cl_tb_mgsig.c/cl_tb_ccs.c/...
+
+How to find the CLAM/SLAM file through TL1 command:
+
+0. Find the xml file for TL1
+Under components directory: grep -i "ed-sg-protn" tl1/xml/*
+
+1. Go to tl1/src/user_impl.
+cd /home/yex/sandbox/BRANCH-8-0-4/TelicaRoot/components/tl1/src/user_impl
+
+2. Grep the TL1 command ("-" -> "_").
+grep "STG_SLKL3" *
+
+3. View the file that was grepped out to get the table_id
+vi agc_STG_NE_impl.c
+search STG_SLKL3
+Get the table id: tableId = STGMTP3LNK_TAB_ID;
+
+4. Search "STGMTP3LNK_TAB_ID" to get the file.
+
+5. For ED, 4 steps:
+- START /* Get the TL1 input */
+- DB_GET /* Retrieve info from DB */
+- DB_TEST /* Merge TL1 input and DB content */
+- DB_SET /* Continue to update DB and notify clam/layer */

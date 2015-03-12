@@ -1,0 +1,83 @@
+1. Delete TL1 Command
+siActvTskNew (si_ex_ms.c)
+      |
+      | [ pst->event = EVTLSICNTRLREQ ]
+      |
+      +------ cmUnpkLsiCntrlReq(SiMiLsiCntrlReq, pst, mBuf) (lsi.c)
+                   |
+                   |
+                   +------- SiMiLsiCntrlReq (si_bdy1.c)
+                                 |
+                                 | [ subAction = SAELMNT ]
+                                 |
+                                 +------- siCntrlElmnt (si_bdy6.c)
+                                              |
+											  | [ elmnt = SI_STPRFLISUPMOD ]
+											  |
+											  +------- siCntrlSiModPrflCb (si_mod.c)
+                                                          |
+                                                          | [ action = ADEL ]
+                                                          |
+								                          +------- siFindModPrflCb (si_mod.c)
+														  +------- siDelModPrfl (si_mod.c)
+
+inActvTskNew (in_ex_ms.c)
+      |
+      | [ pst->event = EVTLINCNTRLREQ ]
+	  |
+	  +------ cmUnpkLinCntrlReq(InMiLinCntrlReq, pst, mBuf) (lsi.c)
+	               |
+				   |
+				   +------- InMiLinCntrlReq (in_bdy1.c)
+	                             |
+				                 | [ elmnt = STDIGITMAP ] <<<<<< New Added >>>>>>
+				                 |
+								 V
+	                             |
+				                 | [ subAction = SAELMNT ]
+				                 |
+								 V
+	                             |
+				                 | [ action = ADEL ]
+				                 |
+								 V
+	                             |
+	                             |
+	                             |
+	                             +------ inSendCntrlCfm (in_bdy14.c)
+
+2. ENT/ED TL1 Command
+siActvTskNew (si_ex_ms.c)
+      |
+      | [ pst->event = EVTLSICFGREQ ]
+      |
+      +------ cmUnpkLsiCfgReq(SiMiLsiCfgReq, pst, mBuf) (lsi.c)
+                   |
+                   |
+                   +------- SiMiLsiCfgReq (si_bdy1.c)
+	                             |
+				                 | [ elmnt = ST_STPRFLISUPMOD ]
+	                             |
+				                 +------ siCfgSiModPrflCb (si_mod.c)
+				                               |
+								               |
+                                               |
+								               +------ siFindModPrflCb (si_mod.c)
+								               +------ siAddModPrflCb (si_mod.c)
+
+inActvTskNew (in_ex_ms.c)
+      |
+      | [ pst->event = EVTLINCFGREQ ]
+	  |
+	  +------ cmUnpkLinCfgReq(InMiLinCfgReq, pst, mBuf) (lsi.c)
+                   |
+                   |
+                   +------- InMiLinCfgReq (in_bdy1.c)
+	                             |
+				                 | [ elmnt = STDIGITMAP ]
+	                             |
+				                 V
+	                             |
+	                             |
+	                             |
+	                             +------ inSendCfgCfm (in_bdy14.c)

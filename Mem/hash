@@ -1,0 +1,133 @@
+0. Concepts 
+(1) hash key:               indirect index
+(2) hash function:          convert "hash key" into "hash index or bin"
+(3) hash index or hash bin: direct index into a table
+(4) hash table:             store data
+(5) overflow:               multiple hash keys mapped into the same hash index or bin
+(6) chaining:               used to store overflow data in the same hash index or bin
+Notes: The hash table control point is allocated by the protocol layer. 
+       However, the contents of hash table are not visible to the protocol layer and 
+	   managed by the hash table module.
+
+
+1. Important Hash Structures (cm_hash.x)
+
+(1) cmHashListCp
+
+/* hash list control point */
+
+struct cmHashListCp        /*  hash list control point */
+{                                                                                                                                                                                              
+   CmListEnt *hl;                  /* pointer to hash list bins */
+   Region region;                  /* memory region to allocate bins */
+   Pool pool;                      /* memory pool to allocate bins */
+   U32 nmbBins;                    /* number of hash list bins */
+   U16 binBitMask;                 /* number of bits if nmbBins is power of 2 */
+   U8  nmbBinBits;                 /* number of bits to represent nmbBins */
+   U32 nmbEnt;                     /* current number of entries */
+   U16 offset;                     /* offset of CmHashListEnt in entries */
+   Bool dupFlg;                    /* allow duplicate keys */
+   U16  keyType;                   /* key type for selecting hash functions */
+   CmHashFunc hashFunc;            /* hash function for this key type */
+};
+
+(2) cmHashListEnt
+
+/* hash list entry */
+   
+typedef struct cmHashListEnt       /* hash list entry */
+{
+   CmListEnt list;                 /* list pointers */ 
+   U8  *key;                       /* pointer to key */
+   U16 keyLen;                     /* length of key */
+   U16 hashVal;                    /* computed hash value */                                                                                                                                   
+} CmHashListEnt;
+********* Attention!!!!! must not be "CmListEnt *list;" **********
+因为，调用 cmHashListInsert 初始化的时候，会发生访问非法内存：
+list->prev = NULL;
+list->next = NULL: 
+所以，CmListEnt list;不会出现core的情况：
+list.prev = NULL;
+list.next = NULL: 
+
+(3) cmListEnt
+
+/* list entry */
+typedef struct cmListEnt CmListEnt;      /* list entry */
+struct cmListEnt                         /* list entry */
+{
+   CmListEnt *next;                /* next entry in list */
+   CmListEnt *prev;                /* prev entry in list */
+};
+
+2. Operation functions (cm_hash.c)
+
+(1) cmHashListInit:  Initializes a hash list（初始化nmbBins个cmHashListEnt）
+
+PUBLIC S16 cmHashListDeinit_real(hashListCp)
+
+*              hashListCp   control point for hash list
+*              nmbBins      number of bins in the hash list. Storage will
+*                           be allocated for them from the indicated memory
+*                           region and pool.
+*              offset       if the entries in this hash list are also going
+*                           to be attached to another hash list, they will
+*                           contain multiple hash list entry headers. The
+*                           offset indicates the offset of the entry header
+*                           for this hash list in the entry structure.
+*              dupFlg       whether entries with duplicate keys are allowed
+*                           to be inserted in the hash list.
+*              keyType      indicates type of key which can be used to select
+*                           different hash functions. Ignored in this
+*                           implementation.
+*              region       
+*              pool         for allocating storage for bins.
+
+Note1: cmHashListDeinit
+       cmHashListDelete
+	   cmListDelete
+Note2: /* initialize bin pointers */
+       hl = hashListCp->hl;
+       for(i = 0; i < nmbBins; i++) 
+           hl[i].next = hl[i].prev = &hl[i];
+	   
+(2) cmHashListInsert: Inserts a new entry in the hash list （在同一个Bin,只能说明通过HashFunc算出来的idx一样，不能说明key完全一样）
+
+PUBLIC S16 cmHashListInsert(hashListCp, entry, key, keyLen)
+
+
+*
+*              hashListCp   control point for hash list
+*              entry        pointer to new entry to add in the hash list
+*              key          pointer to key string in the new entry
+*              keyLen       length of key string
+*
+*       Ret:   ROK      - insertion successful
+*              ROKDUP   - insertion failed (duplicate key not allowed)
+*              RFAILED  - insertion failed (incorrect parameter values)
+
+Note1: hashListEnt->list.next = NULLP;
+       hashListEnt->list.prev = NULLP;
+Note2: (*hashListCp->hashFunc)(hashListCp, key, keyLen, &idx)
+Note3: cmListInsert(hashListCp->hl[idx].prev, &hashListEnt->list);
+	   
+(3) cmHashListFind: Finds an entry in the hash list (比较的是key是否相同)
+
+PUBLIC S16 cmHashListFind(hashListCp, key, keyLen, seqNmb, entry)
+
+*              hashListCp   control point for hash list
+*              key          pointer to key string for search
+*              keyLen       length of key string
+*              seqNmb       sequence number in case duplicates allowed
+*              entry        pointer to found entry
+*
+
+Note1: /* compare key lengths */
+       if (keyLen1 != keyLen2)
+          RETVALUE(RFAILED);
+                                                                                                                                          
+       /* compare key strings */
+       RETVALUE(cmMemcmp(key1, key2, (PTR) keyLen1));
+Note2: Searching for a Hash Key
+Note3: cmHashListGetNext(hashListCp, prevEnt, entry)
+       cmHashListQuery(hashListCp, queryType, result)

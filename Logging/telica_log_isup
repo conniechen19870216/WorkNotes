@@ -1,0 +1,36 @@
+1. ISUP Support
+(1) si.h
+#define ISUP_PE_THRESHOLD 1    
+#define ISUP_PE_TCHECK    60    /* seconds before send exception alarm */
+#define ISUP_PE_TGUARD    600   /* seconds */
+
+(2) si_bdy1.c
+PUBLIC S32 gIsupPELog;
+PUBLIC char gIsupPEData[] = "Check ISUP exception logs\n";
+PUBLIC void *pIsupPEData = (void *)&gIsupPEData[0];
+PUBLIC void pIsupPECallback(void *pUserData);
+
+(3) si_bdy5.c
+ExcLogInit(gIsupPELog, ISUP_PE_THRESHOLD, pIsupPEData, pIsupPECallback,ISUP_PE_TCHECK,ISUP_PE_TGUARD);
+
+2. Call Mechanism
+siActvInit (si_bdy5.c)
+         |
+		 |
+		 +------ gIsupPELog = MPlogInit (logsys.c)
+         |                |
+         |                +----- InitLogSys (logsys.c) >>>>>>>>>>>>>> LogSys.LoggingEnabled 
+         |                |
+         |                +----- AddLogComp (logsys.c)
+         |                            |
+         |                            +----- InitRtrvLogEntries (logsys.c) >>>>>>>>>>>>>>> RTRV-LOG
+         |
+		 |
+		 +------ ExcLogInit(gIsupPELog, ISUP_PE_THRESHOLD, pIsupPEData, pIsupPECallback,ISUP_PE_TCHECK,ISUP_PE_TGUARD);
+		         <mv_mplogUtils.c>
+
+3. How to write into a specific file?  <<<<<<<<<<<< Use logId >>>>>>>>>>>>>
+PROC_MPLOG_PE (mplogUtils.h)
+          -- MPprocLogMsg (logging.h)
+		           -- LogMsg (logsys.c)
+		                   -- VLogMsg (logsys.c)

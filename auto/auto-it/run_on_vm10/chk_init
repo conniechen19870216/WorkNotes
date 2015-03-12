@@ -1,0 +1,68 @@
+#!/bin/ksh
+# Created by Robert Wu - QD x5258
+OPINITFILE=/tmp/opinit.log
+PROCSTATFILE=/tmp/procstat.log
+RESETFILE=/tmp/reset.log
+PRMFILE=/opt/sn/tmp/log/PRMlog0
+PRMTMPFILE=/tmp/prmtmp.log
+OPINIT=/tmp/opinit
+
+>$OPINITFILE
+>$PROCSTATFILE
+>$RESETFILE
+>$PRMTMPFILE
+
+#echo "execute op:init"
+$OPINIT
+
+grep 0-0-1 $OPINITFILE | grep -v 'MAINT' |tee $PROCSTATFILE >/dev/null 2>1
+
+totalproc=`cat $PROCSTATFILE|wc -l`
+if [[ $totalproc == "0" ]]; then
+	echo "ERROR: no output from op:init!!!"
+	echo "---------------------------------------------------------"
+	return 1
+fi
+
+echo "OP:INIT report"
+echo "=============="
+okproc=`grep "STEADY  RUNNING" $PROCSTATFILE | wc -l`
+
+if [[ $totalproc != $okproc ]] ; then
+	echo "ERROR: Total PROC: $totalproc, RUNNING PROC: $okproc!!!"
+	grep -v "STEADY  RUNNING" $PROCSTATFILE
+	echo "---------------------------------------------------------"
+#	return 1
+else
+	echo "PROCS OK - Total PROC:  $totalproc, RUNNING PROC: $okproc"
+	echo "---------------------------------------------------------"
+fi
+	
+grep -A 5 "SYSTEM RESET HISTORY"  $OPINITFILE|tee  $RESETFILE >/dev/null 2>1
+resetfileline=`cat $RESETFILE | wc -l`
+if [[ $resetfileline == "0" ]]; then
+	echo "ERROR: no SYSTEM RESET HISTORY!!!"
+	echo "---------------------------------------------------------"
+	return 1
+else
+	cat  $RESETFILE
+	echo "---------------------------------------------------------"
+fi
+echo "PRM log"
+echo "=============="
+
+grep -A 3 "REPT INITIALIZATION COMPLETE" $PRMFILE |tee $PRMTMPFILE >/dev/null 2>1
+prmline=`cat $PRMTMPFILE | wc -l`
+if [[ $prmline == "0" ]]; then
+	echo "ERROR: no  REPT INITIALIZATION COMPLETE in $PRMFILE"
+	echo "---------------------------------------------------------"
+	return 1
+else
+	tail -n 4 $PRMTMPFILE
+	echo "---------------------------------------------------------"
+fi
+
+echo "fw lsndb"
+echo "=============="
+
+/usr/dhafw/tools/fw lsndb

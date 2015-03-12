@@ -1,0 +1,45 @@
+1. Brief descriptions
+
+In loose coupling:
+
+Interface primitives invoked from the source task are packed into messages that are sent to the destination task via System Services (SPstTsk).
+
+Control returns to the source task immediately after it posts the message, before the destination task has seen or processed the primitive. 
+Therefore, a loosely coupled interface is asynchronous. 
+
+2. DB
+typedef struct pst                /* parameters for SPstTsk */
+{
+   NBB_USHORT dstProcId;              /* destination processor id (U16) */
+   NBB_USHORT srcProcId;              /* source processor id      (U16) */
+
+   NBB_BYTE  dstEnt;                  /* destination entity       (U8)  */
+   NBB_BYTE  dstInst;                 /* destination instance     (U8)  */
+   NBB_BYTE  srcEnt;                  /* source entity            (U8)  */
+   NBB_BYTE  srcInst;                 /* source instance          (U8)  */
+
+   NBB_BYTE  prior;                   /* priority                 (U8)  */
+   NBB_BYTE  route;                   /* route                    (U8)  */
+   NBB_BYTE  event;                   /* event                    (U8)  */
+   NBB_BYTE  region;                  /* region                   (U8)  */
+
+   NBB_BYTE  pool;                    /* pool                     (U8)  */
+   NBB_BYTE  selector;                /* selector                 (U8)  */
+   NBB_SHORT spare1;                  /* spare 1                  (U16) */
+} Pst;
+
+
+(1) selector
+
+If the selector indicates tight coupling, the source layer primitive is translated into a
+direct function call in the destination layer.
+
+(2) region/pool, event(primitive type), dstEnt/dstInst/dstProcId, prior/route
+
+If the selector indicates loose coupling, the source layer primitive is translated into a
+function that packs the primitive into a message buffer. A message buffer is allocated
+from pst->region and pst->pool. The primitive parameters are packed into this
+message buffer. The primitive type is noted in the pst->event field. Then this buffer is
+handed to system services via the SPstTsk function. This gets it to the destination,
+pst->dstEnt, pst->dstInst and pst->dstProcId, at the specified priority,
+pst->prior, and route, pst->route.

@@ -1,0 +1,9 @@
+Please refer to eval.txt.
+
+1. %               current file name
+
+2. :p              expand to full path
+   :h              head (last path component removed)
+   :t              tail (last path component only)
+   :r              root (one extension removed)
+   :e              extension only

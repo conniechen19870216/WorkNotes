@@ -1,0 +1,118 @@
+1. Spectra2 enable: OOS to IS (LRM_MNT_BSY -> LRM_IDLE)
+
+clIbcSendInCtrl (cl_ibc2.c)
+    |
+    |
+    +---------- SmMiLinCntrlReq(&pst, &ctrl) (sminptmi.c)
+
+inActvTskNew (in_ex_ms.c)
+    |
+    | [pst->event = EVTLINCNTRLREQ]
+    |
+    +---------- InMiLinCntrlReq (in_bdy1.c)
+                  |
+                  |
+                  | [switch(cntrl->hdr.elmId.elmnt)]
+                  |
+                  |    STBCHNPROF        
+                  |********************  inCntrlBChan (in_bdy11.c)
+                                            |
+                                            |
+                                            | [switch(cntrl->t.cntrl.action)]
+                                            |
+                                            |     AUNINH = 9
+                                            |********************  inDisEnbChan (in_bdy11.c) (chn = 33)
+                                                                       |
+                                                                       |
+                                                                       +------ inHandleBChanReq (in_bdy11.c) (AVAIL)
+                                                                       |
+                                                                       |
+                                                                       +------ zqRunTimeUpd_real (zq_bdy1.c)
+                                                                                 |
+                                                                                 |
+                                                                                 +------ inGenBChanStaInd (in_bdy2.c)
+                                                                                               |
+                                                                                               |
+                                                                                               +------ InUiIntStaInd (in_ptui.c)
+                                                                                                          |
+                                                                                                          |
+                                                                                                          +------ QwLiIntStaInd (qw_bdy1.c)
+                                                                                						             |
+                                                                                						             |
+                                                                                						             +----- QwLiRmtDealocDss1Req (qw_ptli.c) (status = VAIL)
+                                                                                						                        |
+                                                                                						                        |
+                                                                                						                        +------ RmUiRmtDealocDss1Req (rm_bdy1.c)
+                                                                                                                                        |
+                                                                                                                                        +------ rmDealocDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  +--- rmValidateDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  +--- RM_DEC_ISDN_NUM_MNT_BUSY
+                                                                                                                                                  +--- chnlCb->rmDss1Intfc->cntMntChans--
+                                                                                                                                                  |
+                                                                                                                                                  +--- chnlCb->rmDss1Intfc->cntIdleChans++
+                                                                                                                                                  +--- chnlCb->state &= ~LRM_MNT_BSY
+                                                                                                                                                  +--- if (chnlCb->state == LRM_IDLE)
+                                                                                                                                                  +--- rmListInsert (rm_lib.c)
+                                                                                                                                                  +--- chnlCb->rmDss1Intfc->cntIdleChans++
+
+2. Spectra2 disable: IS to OOS (LRM_IDLE -> LRM_MNT_BSY)
+
+clIbcSendInCtrl (cl_ibc2.c)
+    |
+    |
+    +---------- SmMiLinCntrlReq(&pst, &ctrl) (sminptmi.c)
+
+inActvTskNew (in_ex_ms.c)
+    |
+    | [pst->event = EVTLINCNTRLREQ]
+    |
+    +---------- InMiLinCntrlReq (in_bdy1.c)
+                  |
+                  |
+                  | [switch(cntrl->hdr.elmId.elmnt)]
+                  |
+                  |    STBCHNPROF        
+                  |********************  inCntrlBChan (in_bdy11.c)
+                                            |
+                                            |
+                                            | [switch(cntrl->t.cntrl.action)]
+                                            |
+                                            |     AINH = 8
+                                            |********************  inDisEnbChan (in_bdy11.c) (chn = 33)
+                                                                       |
+                                                                       |
+                                                                       +------ inHandleBChanReq (in_bdy11.c) (OUT_SERVICE_NE)
+                                                                       |
+                                                                       |
+                                                                       +------ zqRunTimeUpd_real (zq_bdy1.c)
+                                                                                 |
+                                                                                 |
+                                                                                 +------ inGenBChanStaInd (in_bdy2.c)
+                                                                                               |
+                                                                                               |
+                                                                                               +------ InUiIntStaInd (in_ptui.c)
+                                                                                                          |
+                                                                                                          |
+                                                                                                          +------ QwLiIntStaInd (qw_bdy1.c)
+                                                                                						             |
+                                                                                						             |
+                                                                                						             +----- QwLiRmtAlocReq (qw_ptli.c) (status = MAINT_NE)
+                                                                                						                        |
+                                                                                						                        |
+                                                                                						                        +------ RmUiRmtAlocReq (rm_bdy1.c)
+                                                                                						                                |
+                                                                                						                                +------ rmAlocIdentDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  | <alocType = RMT_MNT(5)>
+                                                                                                                                                  |
+                                                                                                                                                  +--- rmValidateDss1Rsc (rm_bdy6.c)
+                                                                                                                                                  |
+                                                                                                                                                  +--- RM_INC_ISDN_NUM_MNT_BUSY
+                                                                                                                                                  +--- chnlCb->rmDss1Intfc->cntMntChans++
+                                                                                                                                                  +--- chnlCb->state |= LRM_MNT_BSY
+                                                                                                                                                  |
+                                                                                                                                                  +--- if (chnlCb->state == LRM_IDLE)
+                                                                                                                                                  +--- rmRemoveBChnl (rm_lib.c)
+                                                                                                                                                  +--- chnlCb->rmDss1Intfc->cntIdleChans--

@@ -1,0 +1,75 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 1
+
+set vm [ lindex $argv 0 ]
+set spa [ lindex $argv 1 ]
+set timeout 1200
+if { $spa == "" } {
+	send "Usage: inst_spa vm spa_name \n"
+	exit
+}
+
+#spawn -noecho subshl
+spawn -noecho ssh ainet@$vm
+expect "password:"
+send "ainet1\n"
+expect "bj*>"
+send "subshl\n"
+expect "<"
+#send "install:config,spa=$spa\n"
+#expect {
+#	"INSTALLATION COMPLETE" {
+#		puts "INFO: $argv0 install:config success for $spa"
+#		}	
+#	"FAILED*EXISTS)" {
+#		puts "INFO: $argv0 : install:config - $spa already exists, will continue the install"
+#		}
+#	"INSTALL*FAILED" {
+#		puts "ERROR: $argv0 : install:config failed for $spa"
+#		send "quit\n"
+#		send "exit\n"
+#		exit 1
+#		}
+#}
+#sleep 1
+#expect "<"
+send "install:proc,spa=$spa\n"
+expect {
+	"SPA*SUCCEEDED" {
+		puts "$argv0 install:proc success for $spa"
+		}	
+	"SPA NAME ALREADY EXISTS" {
+		puts "$argv0 INFO: install:proc - $spa already exists, will continue the install"
+		}
+	"INSTALL*FAILED" {
+		puts "$argv0 ERR: install:proc fail for $spa"
+		expect "<"
+		send "quit\n"
+		send "exit\n"
+		exit 1
+		}
+}
+expect "<"
+sleep 2
+send "rst:spa=$spa\n"
+expect {
+	"RST*SUCCESSFULLY" {
+		puts "INFO: $argv0 rst:spa success for $spa -- installation DONE"
+		}
+	"SPA ALREADY IN SERVICE" {
+		puts "INFO: $argv0 INFO: rst:spa, $spa ALREADY IN SERVICE"
+		}
+	"RST*FAILED" {
+		puts "ERROR: $argv0 : rst:spa fail for $spa"
+		expect "<"
+		send "quit\n"
+		send "exit\n"
+		exit 1
+		}
+}
+expect "<"
+send "quit\n"
+send "exit\n"
+exit 0

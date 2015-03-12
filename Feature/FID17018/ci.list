@@ -1,0 +1,23 @@
+1. ISUP
+ci_db.h si.x si_db.c si_bdy1.c si_bdy6.c mf_si_opt.c
+bicc_bdy5.c 
+sit.x sit.c 
+*****************************************************
+ci_db.h si_db.c si_bdy1.c mf_si_opt.c
+bicc_bdy5.c
+sit.x sit.c
+
+2. CC
+cc.x cc_bdy4.c cc_sipmap.c
+
+3. SIP
+sipw_bdy2.c sipw_bdy3.c 
+lsip.c sipt.x 
+sipa.h sipadef.h sipafunc.h sipastrc.h sipaiptrnk.c sipautls.c sipabuild.c sipacclsm.c sipaparse.c sipaparse2.c
+signaling/sip2.7/autogen/input
+signaling/sip2.7/autogen/output
+tokens.sip 
+siptoken.h sipptok3.h sipptok4.h 
+
+4. SIP-ADDED
+signaling/sip2.7/nbase/base/nbbglobl.c

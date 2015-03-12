@@ -1,0 +1,279 @@
+#################################################################################################################
+Appendix 1: alocType for incoming leg
+(1) QwLiIntConInd
+rsc.intfc.intfType = CC_IN_INTFC;
+/* Get the Interface Id which carries the Primary Signalling Channel for this
+   Interface
+*/       
+QWGETINTFCID(rsc.intfc.t.intfcId, primDChan);
+rsc.rscPres = FALSE;      /* B-Channel not identified here */
+/* Check if the Resource has been identified in the ConEvnt */
+/* Ideally it is identified in the ConInd always as Remote node or Protocol
+   layer would have filled it
+*/
+
+if (conEvnt->chanId.eh.pres != NOTPRSNT)
+{
+   rsc.rscPres = TRUE;                                                       
+   /* Fill the ISDN Resource */
+   cmMemcpy((U8 *) &rsc.t.dss1Rsc, (U8 *) &conEvnt->chanId, sizeof (ChanId));
+}
+
+(2) ccExtractRscInfo: always hit the 2nd condition (ChanId always present)
+/* Set the resource allocation type */
+if (con->icRscVal)                 
+    rscEvnt->alocType = RMT_RESERVE;
+else if (con->icRsc.rscPres)
+{
+    if (con->icRsc.t.dss1Rsc.prefExc.pres)
+    {
+        if (con->icRsc.t.dss1Rsc.prefExc.val == PE_EXCLSVE)
+            rscEvnt->alocType = RMT_VER;
+        else if (con->icRsc.t.dss1Rsc.prefExc.val == PE_PREFER)
+            rscEvnt->alocType = RMT_VER_AND_ALOC;
+    }
+}
+else
+    rscEvnt->alocType = RMT_ALOC;
+ccExtractINRscInfo(con, (ConEvnt *)event, rscEvnt);            
+
+Appendix 2: inNetE29S01 for sending Call Proceeding message (in_bdy6.c)
+cnStEvnt->chanId.prefExc.val = PE_EXCLSVE;
+
+Appendix 3: cause value (cc_bdy2.c)
+1. Incoming
+Preferred: 34 (ccConE09S01)
+Exclusive: 44 (ccConE09S01)
+
+#################################################################################################################
+1. Incoming Resource Allocation
+ccConE00S00 (cc_bdy2.c)
+      |
+      +----- ccAllocateResource(con, (CcConEvnt *)event, CC_INCOMING, RMT_DONTCARE) (cc_bdy3.c)
+                     |
+                     | <Target: RmAlocReqEvnt rscEvnt>
+                     |
+                     +----- ccExtractRscInfo (con, (CcConEvnt *)conEvnt, &rscEvnt) (cc_lib.c)
+                     |
+                     | <CC_IN>
+                     | <1. rscEvnt->tfcDesc.TrnMedReq> (Transmission Medium Requirement)
+                     | <2. rscEvnt->tfcDesc.cgPtyCat> (Calling Party Category)
+                     |
+                     +----- rscEvnt->alocType = RMT_VER(2) / RMT_VER_AND_ALOC(3)
+                     +----- ccExtractINRscInfo (con, (CcConEvnt *)event, rscEvnt) (cc_isdn.c)
+                     +----- cmMemcpy((U8 *)&con->tfcDsc, (U8 *)&rscEvnt.tfcDesc, sizeof(RmTfcDesc))
+                     |
+                     |
+                     +----- CcLiRmtAlocReq (cc_ptli.c) (&rmCb->pst, 
+                                 |                      rmCb->spId, 
+                                 |                      suConnId,
+                                 |                      protType            = CC_INETSI,            
+                                 |                      rscEvnt.alocType    = RMT_VER / RMT_VER_AND_ALOC,
+                                 |                      resource1           = &con->icRsc, (From CcLiCctConInd <= QwLiIntConInd)
+                                 |                                            [rsc.intfc.intfType = CC_IN_INTFC]
+                                 |                                            [rsc.rscPres = FALSE]
+                                 |                      tfcDesc             = &rscEvnt.tfcDesc,
+                                 |                      rscEvnt.otherRscReq = FALSE, 
+                                 |                      interface2          = NULLP,
+                                 |                      &con->icAddnlRscInfo,
+                                 |                      con->icRscMBuf);
+                                 |
+                                 +----- RmUiRmtAlocReq (rm_bdy1.c)
+                                             |
+                                             | <alocType = RMT_VER / RMT_VER_AND_ALOC>
+                                             |
+                                             | <rsrc1->intfc.intfType = CC_IN_INTFC>
+                                             |
+                                             | <Target: RmDss1Rsc>
+                                             +----- rmAlocDss1Rsc (rm_bdy6.c)
+                                             |
+                                             | <otherRscReq == FALSE>
+                                             |
+                                             +----- RmUiRmtAlocCfm (rm_ptui.c)
+                                                       |
+                                                       +----- CcLiRmtAlocCfm (cc_bdy1.c)
+                                                                 |
+                                                                 +----- ccCallStateMachine (cc_bdy2.c)
+                                                                          |
+                                                                          +----- CcConE09S01 (cc_bdy2.c) <<<<<< E09S01 (CCE_ALOCCFM=9) >>>>>>>>
+
+2. Outgoing Resource Allocation
+ccConE37S37 (cc_bdy2.c)
+      |
+      +----- ccExtractAnalyzeRteParam (cc_bdy5.c)
+      |              |
+      |              +----- ccExtractRouteList (cc_bdy5.c)
+      |                            |
+      |                            +----- ccInitRouteEvnt(con) (cc_lib.c)
+      |                            +----- if (routeList->numIntfcs)
+      |                            |      {
+      |                            |        if (con->routeEvnt == NULLP)
+      |                            |        {
+      |                            |          ret = SGetSBuf(ccInit.region, ccInit.pool, (Data **) &(con->routeEvnt),
+      |                            |                         (Size) sizeof(RtRteCfmEvnt1));
+      |                            |      
+      |                            |          if (ret != ROK)
+      |                            |          {
+      |                            |            CCLOGERR("Error: Memory Allocation failure\n");
+      |                            |            RETVALUE(RFAILED);
+      |                            |          }
+      |                            |        }
+      |                            |        cmMemset((U8 *)(con->routeEvnt), 0, sizeof(RtRteCfmEvnt1));
+      |                            |      }
+      |                            |
+      |                            |
+      |                            | <Target: RmInterface>
+      |                            |
+      |                            +----- con->routeEvnt->ogInterface[index].t.intfcType = routeList->routes[index].intfcType; <----------------------------+
+      |                            +----- con->routeEvnt->ogInterface[index].t.intfcId = bgn;                                                               |  
+      |                            |                                                                                                                        |
+      |                            +----- con->routeEvnt->ogPrtclType[index] = ogIntfcCb->protType;  <------------------------------------------------------+
+      |                            |                                                                                                                        |
+      |                            +----- con->routeEvnt->numOfOgInterfaces++;                                                                              |
+      |                            +----- con->routeEvnt->currentInterface == 0 (At the very beginning)                                                     |
+      |                                                                                                                                                     |
+      |                                                                                                                                                     |
+      |                                                                                                                                                     |
+      |                                                                                                                                                     |
+      |                                                                                                                                                     |
+      +----- ccRouteCall (cc_bdy2.c)                                                                                                                        |
+                     |                                                                                                                                      | 
+                     |                                                                                                                                      |
+                     +----- index = con->routeEvnt->currentInterface;                                                                                       |
+                     +----- numOfOgInterfaces = con->routeEvnt->numOfOgInterfaces - con->routeEvnt->currentInterface;                                       |
+                     |                                                                                                                                      |
+                     |                                                                                                                                      |
+                     +----- ccAllocateResourceArray (cc_bdy2.c) (con, (CcConEvnt *)con->ccEvntHold, (ccStoreEvnt Happened in CcLiCctConInd)                 |
+                                   |                             CC_OUTGOING, RMT_DONTCARE,                                                                 |
+                                   |                             &con->routeEvnt->ogInterface[index],                                                       |
+                                   |                             &con->routeEvnt->ogPrtclType[index],                                                       |
+                                   |                             numOfOgInterfaces);                                                                        |
+                                   |                                                                                                                        |
+                                   |                                                                                                                        |
+                                   |                                                                                                                        |
+                                   +----- rscEvnt->alocType = RMT_ALOC (== 1)                                                                               |
+                                   +----- CcLiRmtAloc2WayPriReq (cc_ptli.c) (&rmCb->pst,                                                                    |
+                                                  |                          rmCb->spId,                                                                    |
+                                                  |                          suConnId,                                                                      |
+                                                  |                          rscEvnt.alocType = RMT_ALOC,                                                   |
+                                                  |                          tfcDesc          = &con->tfcDsc,                                               |
+                                                  |                          ogInterface, ------------------------------------------------------------------+
+                                                  |                          ogPrtclType, ------------------------------------------------------------------+
+                                                  |                          numOfRscs        = numOfOgInterfaces,
+                                                  |                          con->ainInfo.MdpTrunkGroup.trnkId.val)                                          
+                                                  |
+                                                  |
+                                                  |
+                                                  +----- RmUiRmtAloc2WayPriReq (rm_bdy1.c)
+                                                            |
+                                                            | <alocType = RMT_ALOC>
+                                                            |
+                                                            | <rsrc1->intfc.intfType = CC_IN_INTFC>
+                                                            |
+                                                            +----- rmAlocDss1Rsc (rm_bdy6.c)
+                                                            |
+                                                            |
+                                                            +----- RmUiRmtAloc2WayPriCfm (rm_ptui.c)
+                                                                        |
+                                                                        +---- CcLiRmtAloc2WayPriCfm (cc_bdy1.c)
+
+
+3. Common Called Function (RmDss1Rsc rsrc->t.dss1Rsc, RmChnl chnlCbPtr)
+rmAlocDss1Rsc (rm_bdy6.c)
+      |
+	  | <Incoming Leg: alocType = RMT_VER / RMT_VER_AND_ALOC>
+      |
+      | <rsrc->rscPres = TRUE>
+      |
+      +---- rmAlocIdentDss1Rsc(alocType, rsrc, chnlCbPtr, mapdRscAlwd, tfcDesc) (rm_bdy6.c)
+      |           |
+      |           +---- rmValidateDss1Rsc(rsrc, chnlCbPtr) (rm_bdy6.c) 
+      |           |            |
+      |           |            |
+      |           |            |
+      |           |            +---- chnlNum = rmRsc->t.dss1Rsc.chanNmbSlotMap.val[0]
+      |           |            +---- if (rmPri->chnl[chnlNum].state != LRM_UNEQUIP)
+      |           |            +---- *chnlCb = &rmPri->chnl[chnlNum]
+      |           |
+      |           |
+      |           |
+      |           |
+      |           | <if validation success, or call will fail>
+      |           |
+      |           +---- rmDss1Intfc->alocReq++
+      |           |
+      |           | <alocType = RMT_VER>
+      |           |
+      |           +---- case 1: only if (chnlCb->state == LRM_IDLE)
+      |           |          { rmRemoveBChnl(chnlCb)
+      |           |            chnlCb->rmDss1Intfc->cntIdleChans--
+      |           |            chnlCb->state |= LRM_CP_BSY }
+      |           |          else 
+	  |           |
+      |           +---- case 2: call will fail
+      |           |
+      |           |
+      |           |
+      |           | <alocType = RMT_VER_AND_ALOC>
+      |           |
+      |           +---- case 1: same as above if chnlCb->state == LRM_IDLE
+      |           |
+      |           +---- case 2: get a free B-Channel (same as below)
+      |                         chnlCb->rmDss1Intfc->alocReq--;
+      |                         cmMemset((U8 *)&rsrc->t.dss1Rsc, 0, sizeof(RmDss1Rsc));
+      |                         ret = rmAlocFreeDss1Rsc(alocType, rsrc, chnlCbPtr, mapdRscAlwd, tfcDesc);
+      |                                                           ||
+      |                                                           ||
+      |                                                           ||
+      |                                                           || <alocType = RMT_VER / RMT_VER_AND_ALOC>
+      | <Outgoing Leg: alocType = RMT_ALOC>                       ||
+      |                                                           ||
+      | <rsrc->rscPres = FALSE>                                   ||
+      |                                                           VV
+      +---- rmAlocFreeDss1Rsc (alocType, rsrc, chnlCbPtr, mapdRscAlwd, tfcDesc) (rm_bdy6.c)
+                  | 
+                  | <step 1. find interface from hash list>
+                  | 
+                  +---- cmHashListFind(&rmDss1IntfcTbl, (U8 *)&rsrc->intfc.t.intfcId,  
+                  |              (U16) sizeof(U32), (U16) 0, (PTR *)&rmDss1Intfc)
+                  |
+                  | 
+                  +---- rmDss1Intfc->alocReq++ (alocType == RMT_ALOC)
+                  | 
+                  | <step 2. get a free B-Channel>
+                  | 
+                  +---- cmMemset((U8 *)&rsrc->t.dss1Rsc, 0, sizeof(RmDss1Rsc))
+                  +---- rmGetFreeBChnl(rmDss1Intfc, rsrc, chnlCbPtr, mapdRscAlwd, tfcDesc,
+                               |       RM_IN_ACTION_MODE) [accessType = LRM_PRI]
+                               |
+                               |
+                               | <(1) LRM_AM_LOWEST_AVAIL == 1>
+                               | 
+                               +---- rmListGetNext(&rmDss1Intfc->freeBchnlList, (PTR)NULLP, (PTR *)&chnlCb) (rm_lib.c)
+                               |
+                               |
+                               | <(2) LRM_AM_HIGHEST_AVAIL == 2>
+                               | 
+                               +---- rmListGetPrev(&rmDss1Intfc->freeBchnlList, (PTR)NULLP, (PTR *)&chnlCb) (rm_lib.c)
+                               |
+                               |
+                               | <(3) LRM_AM_CIRCULAR == 4>
+                               | <(4) LRM_AM_RANDOM   == 5>
+                               | 
+                               +---- if (rmDss1Intfc->toBeAlctdBChnl == NULLP)
+                               +---- rmListGetNext(&rmDss1Intfc->freeBchnlList, (PTR)NULLP, (PTR *)&rmDss1Intfc->toBeAlctdBChnl) (rm_lib.c)
+                               +---- chnlCb = rmDss1Intfc->toBeAlctdBChnl
+                               |
+                               |
+                               | <NOT FOUND>
+                               |
+                               +---- RETVALUE(RMT_RES_MNTC_BUSY)
+                               |
+                               |
+                               | <FOUND>
+                               |
+                               +---- (*chnlCbPtr)->state = LRM_CP_BSY (LRM_IDLE -> LRM_CP_BSY)
+							   +---- rmRemoveBChnl (rm_lib.c)
+                                             |
+                                             |
+                                             +---- cmAVLTreeDelete (cm_avl.c) ################### to be continued

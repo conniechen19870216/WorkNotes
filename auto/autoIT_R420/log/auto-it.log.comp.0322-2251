@@ -1,0 +1,21 @@
+spawn ssh hssit@135.252.181.13
+hssit@135.252.181.13's password: 
+Last login: Fri Mar 22 20:48:30 2013 from bl1245.cn.alcatel-lucent.com
+SCMCCASE configuration for BIC FT 
+[32mhssit@bl1013:[33m/home/hssit[0m> cd ~/auto-it/
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> cd ~/auto-it/
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> source /home/it40/jenkins_script/autoIT_R420/a uto-it_R420.env
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> setenv DISPLAY 135.252.181.13:1
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> ./auto-it.enh comp | tee auto-it.enh.comp.log
++ quit=false
++ SDMTARNAME=SDM420-service_logic.full.tar
++ OAMTARNAME=OAM420-service_logic.full.tar
++ PROXYNAME=PROXY420-service_logic.full.tar
++ OAMBETARNAME=OAMBE420-service_logic.full.tar
++ print 'INFO: Auto Installation mode for COMPACT config. START...'
+INFO: Auto Installation mode for COMPACT config. START...
++ auto=yes
++ export auto
++ automodec
+INFO: automodec : Start AUTO-IT for COMPACT mode in /local/hssit/autoIT.
+INFO: ftpbldvm: Start: FTP the mCAS_r30-20121107_ddm_r90.00.02.02-01.el6_VMCS10.tgz to /local/hssit/autoIT.

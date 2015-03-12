@@ -1,0 +1,69 @@
+00001(00075),00000(00000) 0x00000020 10-03 14:47:13.006 24229: ../rm_rum.c:1293 rumPrepareAndSendUpd: *** No Realms are configured *****
+00002(00075),00000(00000) 0x00000020 10-03 14:47:13.006 24229: ../rm_rum.c:1349 rumPrepareAndSendUpd: *** No Realms are configured *****
+00002(00075),00000(00000) 0x00000020 10-03 14:47:13.006 24229: ../rm_rum.c:1606 rumPrepareAndSendUpd: ** RUM will stop updates to RS untill there isa change in  resource status
+00001(00075),00000(00000) 0x00000020 10-03 14:47:19.406 24229: ../cc_bdy4.c:17510 ccGenericTmrEvent=2
+00001(00075),00000(00000) 0x00000020 10-03 14:47:19.406 24229: ../cc_lib.c:64891 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00075),00000(00000) 0x00000020 10-03 14:47:19.406 24229: ../cc_bdy4.c:17438 ccGenericStartTmr
+00001(00075),00000(00000) 0x00000020 10-03 14:47:29.406 24229: ../cc_bdy4.c:17510 ccGenericTmrEvent=2
+00001(00075),00000(00000) 0x00000020 10-03 14:47:29.406 24229: ../cc_lib.c:64891 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00075),00000(00000) 0x00000020 10-03 14:47:29.406 24229: ../cc_bdy4.c:17438 ccGenericStartTmr
+00003(00075),00000(00000) 0x00000020 10-03 14:47:29.406 24229: ../rm_rum.c:648 rumInactiveTimeOut: **** RUM Inactivity detected *****
+00001(00075),00000(00000) 0x00000020 10-03 14:47:39.406 24229: ../cc_bdy4.c:17510 ccGenericTmrEvent=2
+00001(00075),00000(00000) 0x00000020 10-03 14:47:39.406 24229: ../cc_lib.c:64891 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00075),00000(00000) 0x00000020 10-03 14:47:39.406 24229: ../cc_bdy4.c:17438 ccGenericStartTmr
+00001(00075),00000(00000) 0x00000020 10-03 14:47:41.149 23898: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00075),00000(00000) 0x00000020 10-03 14:47:41.149 23898: ../cl_rep1.c:156 replicating event to standby
+00002(00075),00000(00000) 0x00000020 10-03 14:47:41.149 23898: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00002(00075),00000(00000) 0x00000020 10-03 14:47:41.149 23898: ../cl_rep2.c:216 sent rep to peer for clEvtId:16780
+00001(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_rep2.c:368 got cfm proc = 0407, ent=D1, event=0F, status=2, reason = 0
+00002(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00002(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:16780
+00001(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_rep2.c:368 got cfm proc = 0407, ent=D1, event=0F, status=0, reason = 0
+00001(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_rep2.c:241 received second ack for clEvtId:16780
+00003(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_rep2.c:242 standby processed event:1
+00004(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:193 prflSdpProcessPlmEvt() recvd evt:1
+00005(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:236 clPrflSdpTl1Cfg entered
+00006(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy7.c:299 PRFLSDP-1:event:0 in state:0, next state:1
+00006(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:378 codec1:8
+00007(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:381 pType1.pres = 0
+00007(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:421 pType1 set to :8
+00008(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:426 codec2:0
+00009(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:429 pType2.pres = 0
+00010(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:469 pType2 set to :0
+00011(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:816 vbdCodec1[pres:0, val:0], vbdPType1[pres:0, val:0],vbdCodec2[pres:0, val:0], vbdPType2[pres:0, val:0]
+00012(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../../../sigcom/lcc.c:1822 cmPkMiLccCfgReq elmId8
+00013(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:905 sent CC SdpProf cfg request for sdpPrflId:75
+00014(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:911 codec1 8, codec2 0, codec3 0, codec4 0, codec5 0, codec6 0, codec7 0, codec8 0
+00015(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:918 ptype1 8, ptype2 0, ptype3 0, ptype4 0, ptype5 0, ptype6 0, ptype7 0, ptype8 0
+00015(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:920 amrMs 0, amrMcp 0, amrWbMs 0, amrWbMcp 0
+00016(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:924 pTime 0, maxpTime 0, silSup 0, toneRelay 0, rlyPldType 101, numCodecs 2
+00017(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:928 g726encode 0,  g723bitRate 63,  faxAction  0
+00018(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:931 localT38 0,  remoteT38 0
+00019(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:934 evrc0SilSup 1, evrc0DtxMax 32, evrc0DtxMin 12,evrc0Hangover 1
+00020(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:937 evrcb0SilSup 1, evrcb0DtxMax 32, evrcb0DtxMin 12,evrcb0Hangover 1
+00021(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: :394 ../cc_bdy4.c:17941 Entering ccSdpProfCfg: ID 75 
+ 00022(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:943 evrcb04SilSup 1, evrcb04DtxMax 32, evrcb04DtxMin 12,evrcb04Hangover 1
+00022(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:945 insertFaxModemInd 0
+00023(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_sdp.c:950 evrcbSilSup 1, evrcbDtxMax 32, evrcbDtxMin 12,evrcbHangover 1
+00024(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: :394 ../cc_bdy4.c:18012  0 codecType 8, pType 8
+00025(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: :394 ../cc_bdy4.c:18012  1 codecType 0, pType 0
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18061 insertFaxModemInd 0
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18074 ptime 0,silsup 0,toneRelay 0,rlypldtype 101, faxAction 0, localT38 0, remoteT38 0,g726Encode 0, g723BitRate 63, evrc0SilSup 1, evrc0DtxMax 32, evrc0DtxMin 12evrc0Hangover 1, evrcb0SilSup 1, evrcb0DtxMax 32, evrcb0DtxMin 12, evrcb0Hangover 1
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18084 maxpTime 0, amrModeSet 0, amrModeChgPrd 0, amrWBModeSet 0, amrWBModeChgPrd 0
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18089 EVRCB04-SilSup 1, DtxMax 32, DtxMin 12, Hangover 1
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18096 EVRCB-SilSup 1, DtxMax 32, DtxMin 12, Hangover 1
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18103 EVRCNW-SilSup 1, DtxMax 32, DtxMin 12, Hangover 1
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18206 sdpPrflId:75, PTime:0, SilSup:0, ToneRelay:0, NumCodec:2
+00027(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18211 0   CodecType:8, PayloadType:8
+00028(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18211 1   CodecType:0, PayloadType:0
+00028(00075),00000(00000) 0x00000020 10-03 14:47:41.150 24229: ../cc_bdy4.c:18215 NumVbdCodec:0
+00024(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy7.c:299 PRFLSDP-1:event:1 in state:1, next state:0
+00025(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy5.c:802 cleaning up stale transId:0x80004309 for module:88
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(135816) has null entry
+00026(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy6.c:207 sending back transId 0x21288  status = 0  reason = 0
+00027(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy2.c:1450 freeing input tables
+00027(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00028(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy5.c:763 cmHashListFind failed for 0x80004309
+00029(00075),00000(00000) 0x00000020 10-03 14:47:41.150 23898: ../cl_bdy5.c:714  can't free transId

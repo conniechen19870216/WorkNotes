@@ -1,0 +1,65 @@
+1. ******************** InitDigitCollection (sig_digits.c) *******************
+(1) Get the length of raw digit map string
+DialPlanLength = strlen(pDCD->DialingPlanString);
+
+(2) Strip '(' and ')'
+/* get rid of optional "(" and ")" for DialStringList case */
+if (pDCD->DialingPlanString[0] == '(')
+{
+  i = 1;    /* skip '(' */
+  if (pDCD->DialingPlanString[DialPlanLength-1] == ')')      
+  {
+    DialPlanLength --;      /* get rid of ')' */
+  }
+  else
+  { /* error */
+    Result = DIG_COLL_DIGIT_SYNTAX_ERROR;
+    return Result;
+  }
+}
+else
+{
+  i = 0;                                                                                     ---------------------------------------      
+}                                                                                            |       Digit_Collection_Data_t       |
+                                                                           -------------->   |       a) DialingPlanString          |
+(3) Divide candidates split by '|'                                         -------------->   |       b) Candidate[N]               |
+/* total dial plan string is from i to (DialPlanLength-1) */                                 |       c) OriginalNumberCandidates   |
+/* parse dialing plan into N eligible candidates patterns, and flag them                     ---------------------------------------
+ * as ACTIVE */
+for (j=0; i < DialPlanLength; i++,j++)
+{
+    if (j == 0) 
+    {       /* store beginning of the pattern address */
+      pDCD->Candidate[CandidateIndex].pattern = &(pDCD->DialingPlanString[
+    }
+
+    c = pDCD->DialingPlanString[i];
+
+    if (c == '|')
+    {
+        /* terminate Candidate Pattern, reset Pattern ptr j, flag ACTIVE *
+        pDCD->DialingPlanString[i] = '\0';
+        pDCD->Candidate[CandidateIndex].State      = DC_ACTIVE;
+        pDCD->Candidate[CandidateIndex].Len = j;
+
+        /* Some dial-patterns would have '|' as the last character even
+         * though there is no other pattern following it.  We don't want t
+         * increment the candidate count for this particular case. */
+        if (i != DialPlanLength - 1)
+        {
+           CandidateIndex++;        /* pt to next Candidate string */
+           j = -1;                  /* j++ in for loop will set to 0 */
+           pDCD->OriginalNumberCandidates++;
+        }
+    }
+}
+
+/* flag the last Pattern as active which was terminated by '"' not the '|'
+ * char also needs to be Null terminated and set to ACTIVE */
+pDCD->Candidate[CandidateIndex].State = DC_ACTIVE;
+
+D->DialingPlanString[i] = '\0';
+pDCD->Candidate[CandidateIndex].Len = j;
+
+/* all candidates are "eligible" when the race begins */
+pDCD->CurrEligibleCandidates = pDCD->OriginalNumberCandidates;

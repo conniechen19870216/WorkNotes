@@ -1,0 +1,51 @@
+########################################################
+             ###### Four Aspects ######
+########################################################
+Structure Change
+(1) InDigitMap: candidateList[]
+(2) DigitMapCandidate: noa
+
+1. ENT/ED-DIGITMAP 
+        => InMiLinCfgReq
+[ First, Validate configured NoA from TL1 ([0-7,128]) ] ==> Macro
+(1) if digitmap not present
+    a) inInitDigitMap: init candidate list ptr
+    b) inAddCandidateToList: insert into the specified candidate list based on NoA
+    c) SPutSBuf candidate if cmHashListInsert failed
+
+(2) else digitmap present
+    i) inFindCandidateInList: search all lists to find the candidate and return once found one
+       1) if candidate not present
+          a) <repeated> inAddCandidateToList: insert into the specified candidate list based on NoA
+
+       2) if candidate present
+          a) New function inUpdateCandidateList: change candidate owner
+		     if (newNoA != oldNoA)
+             {
+                 delete oldNoA list
+                 insert newNoA list
+             }
+
+2. DLT-DIGITMAP 
+        => InMiLinCntrlReq
+(1) inDelCandidateFromList: no change
+
+3. How to use digit map
+        => inNetE05S00 / inNetE19S02
+(1) if (remark == NPPL) && (NoA = TON_INT || TON_UNK)
+    {
+        ntc->check_info = FALSE
+    }
+    else
+    {
+        /* below */
+		(2), (3), (4)
+    }
+
+(2) [ First, Validate configured NoA from TL1 ([0-7,128]) ] ==> Macro
+
+(3) inResetDigitMap: reset the candidate list based on NoA
+
+(4) inCandStateChange and inDigitMapCheck: no code change
+
+(5) inGetMaxDigits: add one argument NoA

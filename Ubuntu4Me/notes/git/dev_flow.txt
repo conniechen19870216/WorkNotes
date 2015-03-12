@@ -1,0 +1,13 @@
+1. master:  仅在 master 分支中保留完全稳定的代码，即已经发布或即将发布的代码
+2. develop: develop 或 next 的平行分支，专门用于后续的开发，或仅用于稳定性测试 
+3. others:  可以同时拥有多个开放的分支，每个分支用于完成特定的任务
+(1) feature branch
+    来自于：develop branch
+	合并到：develop branch
+(2) release branch: release-x.y
+    来自于：develop branch
+	合并到：develop/master branch
+(3) hotfix branch: hotfix-*
+    来自于：develop branch
+	合并到：develop/master branch
+

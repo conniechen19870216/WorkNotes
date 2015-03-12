@@ -1,0 +1,41 @@
+#!/usr/bin/expect
+set timeout -1
+
+if {[llength $argv] != 3} {
+	puts "usage: $argv0 vm (source file) (destination dir)"
+	return 1
+}
+
+set vm [lindex $argv 0]
+set sdir [lindex $argv 1]
+set ddir [lindex $argv 2]
+
+log_user 0
+
+spawn -noecho scp $sdir ainet@$vm:$ddir
+#expect "password"
+#send "ainet1\n"
+expect {
+       "password:" {
+                send "ainet1\n"
+                }
+       "Are you sure*" {
+               send "yes\n"
+                expect "password:"
+                send "ainet1\n"
+                }
+        }
+expect {
+	"No such file*" {
+		puts "No such file"
+		return
+		}
+	"*denied" {
+		puts "Permission denied"
+		return
+		}
+	"*MB*" {
+		}
+}
+expect  eof
+puts "Done"

@@ -1,0 +1,31 @@
+spawn ssh hssit2@135.252.181.29
+hssit2@135.252.181.29's password: 
+Last login: Mon Nov 26 15:10:22 2012 from bl1245.cn.alcatel-lucent.com
+[32mhssit2@bl1029:[33m/home/hssit2[0m> cd ~/auto-it/
+[32mhssit2@bl1029:[33m/home/hssit2/auto-it[0m> cd ~/auto-it/
+setenv DISPLAY 135.252.181.29:5
+./auto-it.enh mnrg | tee auto-it.enh.mnrg.log
+[32mhssit2@bl1029:[33m/home/hssit2/auto-it[0m> source /home/it40/jenkins_script/autoIT_R420 /auto-it_R420.env
+[32mhssit2@bl1029:[33m/home/hssit2/auto-it[0m> setenv DISPLAY 135.252.181.29:5
+[32mhssit2@bl1029:[33m/home/hssit2/auto-it[0m> ./auto-it.enh mnrg | tee auto-it.enh.mnrg.lo g
++ quit=false
++ SDMTARNAME=SDM410-service_logic.full.tar
++ OAMTARNAME=OAM410-service_logic.full.tar
++ OAMBETARNAME=OAMBE410-service_logic.full.tar
++ print 'INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...'
+INFO: Auto Installation mode for Multi NRG(1FE + 2BE) config. START...
++ auto=yes
++ export auto
++ automodem
+INFO: automodem : Start AUTO-IT for Multi NRG mode(1 FE+ 2BE) in /local/hssit2/autoITm.
+INFO: ftpbldvm: Start: FTP the mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_FE_20121120_REBUILD.tgz to /local/hssit2/autoITm.
+INFO: ftpbldvm: mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_FE_20121120_REBUILD.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_FE_20121120_REBUILD.tgz to /local/hssit2/autoITm done.
+INFO: ftpbldvm: Start: FTP the mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_BE1_20121012.tgz to /local/hssit2/autoITm.
+INFO: ftpbldvm: mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_BE1_20121012.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_BE1_20121012.tgz to /local/hssit2/autoITm done.
+INFO: ftpbldvm: Start: FTP the mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_BE2_20121012.tgz to /local/hssit2/autoITm.
+INFO: ftpbldvm: mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_BE2_20121012.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r29su3-20121004_ddm_r80.00.01.46-10_MultiNRG_BE2_20121012.tgz to /local/hssit2/autoITm done.
+INFO: ftpspa: Start: FTP the 8650SDM-4.2.0-ATCAv2-2012-11-23-20-SDM-FE.tar to /local/hssit2/autoITm.
+ITERROR: ftpspa: End: FTP the 8650SDM-4.2.0-ATCAv2-2012-11-23-20-SDM-FE.tar to /local/hssit2/autoITm failed: /home/hssit2/auto-it/ftpVMbld: FTP fail.

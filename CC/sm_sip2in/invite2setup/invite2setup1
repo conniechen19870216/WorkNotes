@@ -1,0 +1,117 @@
+(1) E00S00: S00->S01                 
+CcLiCctConInd (cc_bdy1.c)
+       |
+       |
+       +------ ccInitCon (cc_bdy4.c)
+       |          |
+       |          |
+       |          +------ ccGetConn (cc_bdy4.c)
+       |                    | cmMemset((U8 *)(*con), 0, (sizeof(CcConCb) + (sizeof(CcProfile)*2)))
+       |                    |
+       |                    +---- initAinInfo: ainInfo
+       |                    |
+       |                    +---- initIcBcm: icBcm
+       |                    |
+       |                    +---- initOgBcm: ogBcm
+       |                    |
+       |                    +---- Allocate the mgBlock
+       |
+       |
+       +------ SAP related Initialization
+       |       /*
+       |              con->icSuConnId   = ccGetNewSuConnId(); 
+       |              con->origIcSuConnId = con->icSuConnId;
+       |
+       |              con->ogSuConnId   = ccGetNewSuConnId();
+       |              con->origOgSuConnId = con->ogSuConnId;
+       |
+       |              con->icSpConnId = spConnId;
+       |              con->icProtType = protType;
+       |              con->icSapCb    = pCb;
+       |              con->icSapCb->nmbActvConn++; 
+       |              con->uBuf       = uBuf;
+       |              uBuf            = NULL; /* Bug 44218 */
+       |              con->direction  = INCTOOUT;            
+       |      */
+       |
+       |
+       +------ ccStoreEvnt (cc_bdy4.c)
+       |          |
+       |          |
+       |          +------ cmMemcpy((U8 *) con->ccEvntHold, event, size)
+       |          |       con->evntHeld = evntId (CCE_IND)
+       |          |       con->evntTypeHeld = evntType (0)
+       |          |       con->directionHeld = ((con->directionHeld)&0xF0)|(con->direction)
+       |          |
+       |          +------ ccCopySipIdToEvntHold (cc_lib.c)
+       |
+       |
+       +------ ccBillUpdCdPtyNum (cc_bdy4.c)
+       |
+       +------ CC_TRACE_EVENTS (cc.h)
+       |          |
+       |          +------ CC_PRINT_CALL_INFO (cc.h)
+       |
+       |
+       +------ ccCallStateMachine (cc_bdy2.c) <<<<<< E00S00 (CCE_CONIND=0) >>>>>>>>
+                     |
+                     +------ ccConE00S00 (cc_bdy2.c)
+                                |
+                                +----- ccStartConTmr (cc_bdy4.c) <<<<<<< Timer: TMR_SETUP=2 >>>>>>>
+                                |
+                                +----- ccCopyCdPty2ClAddr (cc_bdy5.c): ainInfo.clAddrInfo
+                                |
+                                +----- Initialize the icBcm: icBcm.cc, icBcm.svcHeader.transId = = ccGetNewtransId()
+                                |      ccFillBCMInfo (cc_bdy5.c)
+                                |      cmHashListInsert (Hash Control Point: ccicBCMInsTbl, key: icBcm.svcHeader.transId)
+                                |
+                                +----- ccExtractSipCallId (cc_lib.c)
+                                |
+                                +----- ccExtractSpecialCallFromConInd (cc_lib.c)
+                                |
+                                +----- ccExtractProtSdp (cc_lib.c)
+                                |               |
+                                |               +--- cmSdpPrint(_real) (cm_sdp.c)
+                                |               |       |
+                                |               |       +--- cmMgctSdpPrint (cm_sdp.c)
+                                |               |                 |
+                                |               |                 +--- cmPrintLargeBuf (cm_sdp.c) <<<<<<<<<< print SDP >>>>>>>>>>
+                                |               |
+                                |               |
+                                |               +--- ccStoreBillingSdp (cc_lib.c)
+                                |               |
+                                |               |
+                                |               +--- cmStoreSdp (cc_lib.c)
+                                |
+                                |
+                                +----- ccExtractPChargingVectorFromConEvent (cc_lib.c)
+                                |
+                                +----- ccExtractSipMethodSupport (cc_lib.c)
+                                |
+                                +----- ccGeoExtractProtCri (cc_lib.c)
+                                |
+                                +----- ccExtractCallReferenceForIAM (cc_lib.c)
+                                |
+                                +----- ccExtractInfoFromConEvent (cc_lib.c)
+                                |
+                                +----- ccFindMgMapAddr (cc_lib.c)
+                                |
+                                +----- CC_STATE_CHANGE(con, CCS_AWTROUTERSC) <<<<<<< S00->S01 CCS_IDLE -> CCS_AWTROUTERSC >>>>>>>>>
+                                |
+                                |
+                                |
+                                +----- ccAllocateResource (cc_bdy3.c): For Incoming Call Leg -- CC_INCOMING
+                                                 |
+                                                 |
+                                                 +----- CcLiRmtAlocReq (cc_ptli.c)
+                                                             |
+                                                             +----- RmUiRmtAlocReq (rm_bdy1.c)
+                                                                         |
+                                                                         +----- RmUiRmtAlocCfm (rm_ptui.c)
+                                                                                   |
+                                                                                   +----- CcLiRmtAlocCfm (cc_bdy1.c)
+                                                                                             |
+                                                                                             +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E09S01 >>>>>>>>
+                                                                                                      |
+                                                                                                      +----- CcConE09S01 (cc_bdy2.c) <<<<<< E09S01 (CCE_ALOCCFM=9) >>>>>>>>
+                                                                                                      /* TO BE CONTINUED */

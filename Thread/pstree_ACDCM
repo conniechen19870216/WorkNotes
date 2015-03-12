@@ -1,0 +1,9 @@
+1. Common
+ccs/sipa/megaa
+sfed/sfedcl
+m2uasig/m2pasig/mtp3sig/sgsig
+ipagent/gdi_trans/xu
+
+2. Difference
+ACCM: sipr(sipa/sipcl), dist/router/x2sig, emf/slam/dbp/tl1agent/snmpagent/named
+ADCM: cm_mon

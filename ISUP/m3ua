@@ -1,0 +1,13 @@
+1. ACCM/ADCM process
+(1) SGSIG: M3UA
+(2) MTP3SIG: MTP3 and M2UA
+(3) M2UASIG: M2UA and MTP2
+
+2. process DIST only in ACCM
+(1) DIST: M3UA and DT
+
+3. Two modes
+(1) SGP/ASP mode
+    SGP: SGSIG
+    ASP: DIST
+(2) IPSP mode

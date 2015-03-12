@@ -1,0 +1,68 @@
+**************************************************************************************************************************
+Attentions: Please back up your own .vimrc before try my vimrc in case that you will restore your original configurations.
+**************************************************************************************************************************
+
+Plugin & Shortcut introduction
+
+Basic Overview: 
+a) configuration file: ~/.vimrc
+b) Plugin directory: ~/.vim (~/.vim/bundle)
+
+Part 1: Plugin list
+(1) pathogen: convienent to install and manage a vim plugin
+(2) TagList: <F3>
+(3) Tagbar: <F4>
+(4) WinManager: <F6>
+(5) supertab
+(6) minibufexplorer
+
+Part 2: mapping a stroke key and custom your own vim command
+(1) e.g. mapping a stroke key
+    a) map <F7> GoDate: <Esc>:read !date<CR>kJ
+    b) nmap <F4> :TagbarToggle<CR>
+	c) nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+	d) cscope stoke key
+	   nmap <F5>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+	   nmap <F5>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	   nmap <F5>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+       nmap <F5><F5>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5><F5>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5><F5>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5><F5>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5><F5>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
+	   nmap <F5><F5>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
+	   nmap <F5><F5>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	   nmap <F5><F5>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+
+(2) e.g. create a new command
+    a) command Annotation :!cvs ann % > %:r.ann;vi %:r.ann;rm %:r.ann
+    b) command Log :!cvs log % > %:r.log;vi %:r.log;rm %:r.log
+
+Part 3: Set-up Procedures
+1. mkdir ~/.vim (if not present)
+2. copy bundle and autoload to ~/.vim
+   cp -Rp bundle autoload ~/.vim
+3. copy vimrc ~/.vimrc
+
+Also in order to make tagbar take effect in your sandbox, you should upgrade ctags version.
+Because the existing ctags version in qdbuild3 is 5.4, the minimum requirement of ctags version
+for tagbar is 5.5.
+You can follow the below example to do it.
+e.g.
+1. in ctags-5.6 directory,
+   ./configure --prefix=/home/kavonm/bin/ctags
+   make 
+   make install
+2. ctags will be installed in the /home/kavonm/bin/ctags/bin directory
+3. At last, please don't forget to update your envionment variable PATH in .bash_profile and
+   add /home/kavonm/bin/ctags/bin before /usr/bin in PATH in order that ctags can be invoked
+   exactly from /home/kavonm/bin/ctags/bin/ctags.
+
+I hope that it can help improve your work efficiency. 
+Any comments are welcome and send email to kavon.ma@alcatel-lucent.com.

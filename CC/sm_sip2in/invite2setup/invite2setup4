@@ -1,0 +1,35 @@
+(4) ccConE09S04: S04->S39
+CcLiRmtAloc2WayPriCfm (cc_bdy1.c)
+         |
+         +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E09S04 >>>>>>>>
+                    |
+                    +----- ccConE09S04 (cc_bdy2.c)
+                                |
+                                +----- ccRestoreEvntHold (cc_bdy4.c)
+                                |
+                                +----- ccRegisterCurrentInterface (cc_lib.c)
+                                |
+                                +----- ccStopConTmr (cc_bdy4.c) <<<<<<< Timer: CC_TMR_AWAIT_COMPAT_ACK=36 >>>>>>>
+                                |
+                                +----- ccSendOrSkipTerminationAttempt (cc_lib.c)
+                                              |
+                                              +----- ccProcessONoAnswer (cc_bdy2.c)
+                                              |
+                                              +----- ogBcm.svcHeader.transId  = ccGetNewtransId()
+                                              |
+                                              +----- ccFillBCMInfo (cc_bdy5.c)
+                                              |
+                                              +----- ccFillSvcHeader (cc_bdy2.c)
+                                              |
+                                              +----- ccFillTermAttemptParam (cc_bdy5.c)
+                                              |
+                                              +----- CC_STATE_CHANGE(con, CCS_AWTRSPFORDPE20) <<<<<<< S04->S39  CCS_AWTRSCALOCCFM-> CCS_AWTRSPFORDPE20 >>>>>>>>>
+                                              |
+                                              +----- ccChangeCallStateOfAssociatedCalls (cc_lib.c)
+                                              |
+                                              +----- CcUiFctTerminationAttempt (cc_ptui.c)
+                                                                  |
+                                                                  +----- FcLiFctTerminationAttempt (fic_bdy1.c)
+                                                                  |
+                                                                  |
+                                                                  ... /* TO BE CONTINUED */

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# 1. output file name
+output=~/$1.diff
+shift
+
+# 2. cvs diff existing files
+while [ $# -ne 0 ]; do
+    cvs -d ${CVSROOT} diff -uN -U 30 $1 >> ${output}
+	shift
+done
+
+# 3. diff new added files
+newfiles=(
+isupTest.h
+)
+newnum=${#newfiles[*]}
+
+if [ -e nullfile ]; then
+	rm nullfile
+fi	
+
+if [ $newnum -ne 0 ]; then
+	touch nullfile 
+fi	
+
+for (( i=0; i<$newnum; i++ )); do
+	echo "Index: ${newfiles[$i]}" >> ${output}
+    echo "===================================================================" >> ${output}
+    echo "RCS file: /cvs/cvsroot/Repository/TelicaRoot/components/${newfiles[$i]},v" >> ${output}
+	echo "retrieving revision 1.0" >> ${output}
+    echo "diff -u -r1.0 ${newfiles[$i]}" >> ${output}
+    echo "--- ${newfiles[$i]}  `date`       1.0" >> ${output}
+	echo "+++ ${newfiles[$i]}  `date`" >> ${output}
+	echo "Hi, Kavon! Please delete me and the next two lines." >> ${output}
+
+	diff -u nullfile ${newfiles[$i]} >> ${output}
+done	

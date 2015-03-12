@@ -1,0 +1,27 @@
+options {
+
+	// If there is a firewall between you and nameservers you want
+	// to talk to, you may need to fix the firewall to allow multiple
+	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+	// If your ISP provided one or more IP addresses for stable 
+	// nameservers, you probably want to use them as forwarders.  
+	// Uncomment the following block, and insert the addresses replacing 
+	// the all-0's placeholder.
+
+	 // forwarders {
+	 // 	0.0.0.0;
+	 // };
+
+	directory "/var/cache/bind";  //数据库默认放置的目录所在
+	dump-file          "/var/cache/bind/data/cache_dump.db"; //一些统计信息
+	statistics-file    "/var/cache/bind/data/named_stats.txt";
+	memstatistics-file "/var/cache/bind/data/named_mem_stats.txt";
+	allow-query        { any; };     //可不设定，代表全部接受
+	recursion yes;                   //将自己视为客户端的一种查询模式
+	allow-transfer     { none; };    // 不许别人进行 zone 转移
+
+	auth-nxdomain no;    # conform to RFC1035
+	listen-on-v6 { any; };
+};
+

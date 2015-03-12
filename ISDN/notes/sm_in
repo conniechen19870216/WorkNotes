@@ -1,0 +1,85 @@
+1. Calling Party  
+(1) Receive SETUP (Connection Indication)
+
+                      E05 (MI_SETUP)       
+               S00 ----------------------> S01 
+            (ST_NULL)                 (ST_CALLINIT)
+
+(2) Send CALL PROCEEDING
+
+                      E26 (NMB_MSG + EI_CNST)                 
+                 S01 -------------------------> S03  
+            (CCS_CALLINIT)                (ST_OUTPROC)     
+
+(3) Send ALERTING
+
+                      E26 (NMB_MSG + EI_CNST)                
+               S03 -----------------------------> S04  
+           (ST_OUTPROC)                       (ST_CALLDEL)
+
+(4) Send CONNECT
+
+                       E25 (NMB_MSG + EI_CONRSP)            
+               S04 -------------------------------> S10 
+           (ST_CALLDEL)                         (ST_ACTVE)     
+
+(5) Receive DISCONNECT
+
+                            E14 (MI_DISC)                    
+               S10 ---------------------------> S11  
+           (ST_ACTVE)                       (ST_DISRQ)     
+
+
+(6) Send RELEASE
+
+                     E28 (NMB_MSG + EI_REL)                     
+               S11 ---------------------------> S19 
+           (ST_DISRQ)                       (ST_RELRQ)
+
+(7) CONNECT ACK Received Late (Not Acceptable)
+    Send Status Message (inGenStaMsg)
+		   
+
+(8) Receive RELEASE COMPLETE
+
+                         E16 (MI_RELCMPLT)                     
+               S19 ---------------------------> S00 
+           (ST_DELRQ)                       (ST_NULL)
+		   
+2. Called Party
+
+(1) Send SETUP (Connection Request)
+
+                    E24 (NMB_MSG+EI_CON)       
+               S00 ----------------------> S06 
+            (ST_NULL)                 (ST_CALLPRES)
+
+(2) Receive CALL PROCEEDING
+
+                      E01 (MI_CALLPROC)                 
+                 S06 -------------------> S09  
+            (CCS_CALLPRES)            (ST_INPROC)     
+
+(3) Receive ALERTING
+
+                      E00 (MI_ALERTING)                
+               S09 -------------------> S07  
+           (ST_INPROC)             (ST_CALLRECV)
+
+(4) Receive CONNECT (Send CONNECT ACK at the same time)
+
+                       E02 (MI_CONNECT)            
+               S07 -----------------------> S10 
+           (ST_CALLRECV)                 (ST_ACTVE)     
+
+(5) Send DISCONNECT
+
+                    E27 (NMB_MSG + EI_DISC)                    
+               S10 ---------------------------> S12  
+           (ST_ACTVE)                       (ST_DISCIN)     
+
+(6) RELEASE Received and RELEASE COMPLETE Sent
+
+                      E15 (MI_RELEASE)                     
+               S12 -----------------------> S00 
+           (ST_DISCIN)                   (ST_NULL)

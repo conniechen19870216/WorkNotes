@@ -1,0 +1,20 @@
+1. ISUP Upper primitives
+1) si_ptui.c
+   SiUiSitConInd
+   SiUiSitConCfm
+
+2) si_bdy1.c
+   SiUiSitConReq
+   SiUiSitConRsp   
+
+   SiLiSntStaInd
+   SiLiSntStaCfm
+
+2. PSIF-ISUP Lower primitives
+1) iw_ptli.h
+   IwLiSitConReq
+   IwLiSitConRsp
+
+2) iw_bdy1.c
+   IwLiSitConInd
+   IwLiSitConCfm

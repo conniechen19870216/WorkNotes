@@ -1,0 +1,16 @@
+net4conf_adm --action show_service_all
+service type accm, pool number 0, member number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.164.0, ifconfig yes
+service type accm, pool number 0, member number 1, IPv4 subnet number 0, NI type default, offset 1, IPv4 IP address 10.37.164.1, ifconfig yes
+service type adcm, pool number 0, member number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.165.0, ifconfig yes
+service type cnfg, pool number 0, member number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.130.0, ifconfig yes
+service type cnfg, pool number 0, member number 1, IPv4 subnet number 0, NI type default, offset 1, IPv4 IP address 10.37.130.1, ifconfig yes
+service type mi, pool number 0, member number 0, IPv4 subnet number 1, NI type default, offset 3, IPv4 IP address 135.251.91.131, ifconfig yes
+service type mi, pool number 0, member number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.131.0, ifconfig yes
+service type mi, pool number 0, member number 1, IPv4 subnet number 1, NI type default, offset 4, IPv4 IP address 135.251.91.132, ifconfig yes
+service type mi, pool number 0, member number 1, IPv4 subnet number 0, NI type default, offset 1, IPv4 IP address 10.37.131.1, ifconfig yes
+service type accm, pool number 0, floater number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.228.0, ifconfig yes
+service type adcm, pool number 0, floater number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.229.0, ifconfig yes
+service type cnfg, pool number 0, floater number 0, IPv4 subnet number 1, NI type default, offset 1, IPv4 IP address 135.251.91.129, ifconfig yes
+service type cnfg, pool number 0, floater number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.194.0, ifconfig yes
+service type mi, pool number 0, floater number 0, IPv4 subnet number 1, NI type default, offset 2, IPv4 IP address 135.251.91.130, ifconfig yes
+service type mi, pool number 0, floater number 0, IPv4 subnet number 0, NI type default, offset 0, IPv4 IP address 10.37.195.0, ifconfig yes

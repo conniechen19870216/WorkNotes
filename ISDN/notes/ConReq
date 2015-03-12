@@ -1,0 +1,70 @@
+<<<<<<<<<< InNtc is the bridge between InPCB (DLSAP) and InCb (TSAP) >>>>>>>>>>>>>>
+                       Upper TSAP:  tCb, ref, ntc
+                       Lower DLSAP: pcb, dCb, ref, ntc
+                       ntc controls both TSAP and DLSAP
+
+InUiIntConReq (in_bdy1.c): (S00->S06) null -> call present
+       |
+       |>>>>>>>>>> I. Upper TSAP: InNtc related with spId
+       +----- 1. tCb = inGetSapPtr(spId) (in_bdy14.c)
+       |      spId = 0x06
+       |
+       |
+       +----- 2. ref: inGetInstId(tCb, &ref) (in_bdy14.c)
+       |
+       | 
+       +----- 3. ntc = inGetNtc(tCb, ref) (in_bdy14.c): sizeof(InNtc) + sizeof(CalRefTbl)
+       |      ntc->tCallCb  = tCb
+       |      ntc->tCallRef = ref
+       |      ntc->state    = ST_NULL   /* present state for State Machine */
+       |
+       |
+       +----- 4. inInsCallRefEnt1(tcb->tCallCb, ntc) (in_bdy14.c) 
+       |      ntc->suInstId = suInstId (from GCC con->ogSuConnId)
+       |
+       |
+       |
+       |>>>>>>>>>> II. Lower DLSAP: CalRefTbl (dCb->inNtcPtr) controlled by InCb *dCb
+       +----- 1. InPCB *pcb = *(pcbLstPtr + dchNl)
+	   |      2. dCb = inGetCBPtr(suId/dchNl, cesVal) (in_bdy14.c)
+       |      Physical Control Block: InPCB *pcb = *(pcbLstPtr + suId)
+       |      CES Control Block:      InCb *dCb  = *(cesLst + cesVal)
+       |      suId = 0x03
+	   |      3. ctldPcb = *(ctldPcbLstPtr + pcb->suId)
+       |
+       |
+       +----- 4. inGetCalRef(dCb, &redirRef) (in_bdy14.c) >>>>>> dCb->suId >>>>>>
+       |          |
+       |          +----- inCallRefSearch (in_bdy14.c)
+       |
+       +----- 5. inInsCalRefEnt (in_bdy14.c)
+       |      ntc->dCallCb  = dCb
+       |      ntc->dCallRef = redirRef
+       |      ntc->sduSp    = (AllSdus *)conEvnt (Event From GCC)
+       |      ntc->ctldPcb  = ctldPcb
+       |
+       |
+       |
+       |
+       |>>>>>>>>>> Jump into state matrix
+       +----- inActNet (in_bdy9.c): Event: 23; State: 0
+                  |
+                  |
+                  +----- inNetE27S00 (in_bdy5.c): msgIdx = 5 (SETUP)
+                            |
+                            +----- STATE CHANGE: ntc->state = ST_CALLPRES (0->6: null -> call present)
+                            |
+                            +----- inInitPduHdr (in_bdy2.c)
+                            |
+                            +----- MFINITPDU (mf.h)
+                            |
+                            +----- inBldMsg (mf.c) >>>>> ntc->setUp = mBuf (encoded results)
+                            |          |
+                            |          +----- MFENCPDUHDR (mf.h)
+                            |          |
+                            |          +----- MFENCPDU (mf.h)
+                            |
+                            |
+                            +----- inSndMsg (in_bdy9.c)
+                                       |
+                                       +----- InLiDatDatReq (in_ptli.c)

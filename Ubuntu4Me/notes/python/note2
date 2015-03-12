@@ -1,0 +1,119 @@
+1. for 循环
+>>> D = {'a': 1, 'b': 2, 'c': 3}
+>>> Ks = D.keys()
+>>> Ks
+['a', 'c', 'b']
+>>> Ks.sort()
+>>> for key in Ks:
+...     print key, '=>', D[key]
+...
+a => 1
+b => 2
+c => 3
+
+>>> for c in 'spam':
+...     print c.upper()
+...
+S
+P
+A
+M
+
+>>> D
+{'a': 1, 'c': 3, 'b': 2}
+>>> for key in sorted(D):
+...     print key, '=>', D[key]
+...
+a => 1
+b => 2
+c => 3
+
+
+>>> squares = []
+>>> for x in [1, 2, 3, 4, 5]:
+...     squares.append(x ** 2)
+...
+>>> squares
+[1, 4, 9, 16, 25]
+
+2. if 测试
+>>> D
+{'a': 1, 'c': 3, 'b': 2}
+>>> D['f']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'f'
+>>> D.has_key('f')
+False
+>>> if not D.has_key('f'):
+...    print 'missing'
+...
+missing
+
+3. 元组 -- 不可变性
+>>> T = (1, 2, 3, 4)
+>>> len(T)
+4
+>>> T + (5, 6)
+(1, 2, 3, 4, 5, 6)
+>>> T(0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object is not callable
+>>> T[0]
+1
+
+4. 文件
+>>> f = open('file.txt', 'w')
+>>> f.write('Hello\n')
+>>> f.write('World\n')
+>>> f.close()
+
+>>> f = open('file.txt')
+>>> bytes = f.read()
+>>> bytes
+'Hello\nWorld\n'
+>>> print bytes
+Hello
+World
+
+>>> bytes.split()
+['Hello', 'World']
+
+5. 集合
+>>> X = set('spam')
+>>> Y = set(['h', 'a', 'm'])
+>>> X & Y
+set(['a', 'm'])
+>>> X | Y
+set(['a', 'p', 's', 'h', 'm'])
+>>> X , Y
+(set(['a', 'p', 's', 'm']), set(['a', 'h', 'm']))
+>>> X - Y
+set(['p', 's'])
+
+6. 十进制数
+>>> import decimal
+>>> d = decimal.Decimal('3.141')
+>>> d
+Decimal('3.141')
+>>> d + 1
+Decimal('4.141')
+
+7. 布尔值
+>>> 1 > 2, 2 > 1
+(False, True)
+>>> bool('spam')
+True
+
+8. 占位符
+>>> X = None
+>>> print X
+None
+>>> L = [None] * 4
+>>> L
+[None, None, None, None]
+>>> type(L)
+<type 'list'>
+>>> type(type(L))
+<type 'type'>

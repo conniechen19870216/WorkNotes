@@ -1,0 +1,44 @@
+1. Basic
+   header file: pthread.h
+   lib: libpthread.a
+
+2. structures
+   (1) pthread_t: typedef short tid_t;
+                  typedef tid_t pthread_t;
+
+3. functions
+   (1) pthread_create
+
+	   extern int pthread_create __P ((pthread_t *__thread, __const pthread_attr_t *__attr, void *(*__start_routine) (void *), void *__arg));
+	   第一个参数为指向线程标识符的指针。
+	   第二个参数用来设置线程属性。
+	   第三个参数是线程运行函数的起始地址。
+	   最后一个参数是运行函数的参数。
+
+	   若成功则返回0，否则返回出错编号
+	   否则，常见的错误返回代码为EAGAIN和EINVAL。
+	         前者表示系统限制创建新的线程，例如线程数目过多了；后者表示第二个参数代表的线程属性值非法
+
+   (2) pthread_join
+
+       extern int pthread_join __P ((pthread_t __th, void **__thread_return));
+       第一个参数为被等待的线程标识符。
+	   第二个参数为一个用户定义的指针，它可以用来存储被等待线程的返回值。
+       
+       一个线程阻塞的函数。
+	   在Linux中，默认情况下是在一个线程被创建后，必须使用此函数对创建的线程进行资源回收，但是可以设置Threads attributes来设置当一个线程结束时，直接回收此线程所占用的系统资源。
+	   代码中如果没有pthread_join主线程会很快结束从而使整个进程结束，从而使创建的线程没有机会开始执行就结束了。
+	   加入pthread_join后，主线程会一直等待直到等待的线程结束自己才结束，使创建的线程有机会执行。
+
+	   <附加说明>
+	   其实在Linux中，新建的线程并不是在原先的进程中，而是系统通过一个系统调用clone()。该系统copy了一个和原先进程完全一样的进程，并在这个进程中执行线程函数。
+	   不过这个copy过程和fork不一样。 copy后的进程和原先的进程共享了所有的变量，运行环境。这样，原先进程中的变量变动在copy后的进程中便能体现出来。
+
+   (3) pthread_exit
+       
+	   唯一的参数是函数的返回代码，只要pthread_join中的第二个参数thread_return不是NULL，这个值将被传递给thread_return。
+
+	   一个线程的结束有两种途径，一种是象我们上面的例子一样，函数结束了，调用它的线程也就结束了；另一种方式是通过函数pthread_exit来实现。
+       extern void pthread_exit __P ((void *__retval)) __attribute__ ((__noreturn__));
+
+	   最后要说明的是，一个线程不能被多个线程等待，否则第一个接收到信号的线程成功返回，其余调用pthread_join的线程则返回错误代码ESRCH。

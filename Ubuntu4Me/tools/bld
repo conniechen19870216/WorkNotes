@@ -1,0 +1,802 @@
+#!/bin/bash
+
+# Functions definition start
+# ==========================
+# DISABLE_ABORT_DEBUG=t  
+
+# usage: prompt usage
+usage()
+{
+    echo -e "\nUsage:"
+    echo -e "bld -option -platform [-ut]"
+    echo -e "\n-option could be:"
+    echo -e "\t-h:      usage"
+    echo -e "\t-cpu:    to build CPU"
+    echo -e "\t-cm:     to build CM"
+    echo -e "\t-slam:   to build SLAM"
+    echo -e "\t-tl1:    to build TL1"
+    echo -e "\t-dbp:    to build DBP"
+    echo -e "\t-ccs:    to build CCS"
+    echo -e "\t-sfedcl: to build SFEDCL"
+    echo -e "\t-megaa:  to build MEGAA"
+    echo -e "\t-mtp3sig:to build MTP3SIG"
+    echo -e "\t-rs:     to build Router"
+    echo -e "\t-sipa:   to build sipa"
+    echo -e "\t-sfed:   to build sfed"
+    echo -e "\t-testharness:   to build testharness"
+    echo -e "\t-reccs:  rebuild CCS"
+    echo -e "\t-dns:    to build dns"
+    # echo -e "\t-mgsig:  to build mgsig"
+    echo -e "\t-cputar: to build CPU tarball"
+    echo -e "\t-cmtar:  to build CM tarball"
+    echo -e "\t-clean:  to make clean all"
+    echo -e "\t-e:      to set build environment only"
+    echo -e "\n-platform could be:"
+    echo -e "\t-lgp:    build LGP platform"
+    echo -e "\t-atca:   build ATCA platform"
+    echo -e "\t-vcp:    build VCP platform"
+    echo -e "\n-ut:     build UT part"
+    echo -e "\n-bullseye:   build Bullseye"
+    echo -e "\nNote:"
+    echo -e "1. If code is 6.x Lynx, please use -lgp for platform."
+    echo -e "2. -cm is not available for ATCA platform."
+}
+
+# setEnv: set build environment
+setEnv()
+{
+    cd lynx
+    echo "setting build environment"
+    echo "========================="
+    ./telica.remove_symlinks >/dev/null
+    ./telica.make_symlinks >/dev/null
+    unset ENV_PREFIX
+    source SETUP.bash >/dev/null
+    echo "=============================="
+    echo "setting build environment done"
+    cd ..
+}
+
+# getCpuVer: get CPU version (ATCA version)
+getCpuVer()
+{
+    cpuVer=$(sed -n '/SW_CPU_VERSION/p' telica_common/inc/swcpuver.h | awk -F '\"' '{print $2}')
+}
+
+# getTgOS: get target OS, Lynx or Linux
+getTgOS()
+{
+    getCpuVer
+    var=$(echo $cpuVer | awk -F '.' '{print $1}')
+    if [ ${var} > 6 ]
+    then
+        tgOS="Linux"
+    else
+        tgOS="Lynx"
+    fi
+}
+
+# buildBasic: basic build
+buildBasic()
+{
+    # get target OS
+    getTgOS
+
+    echo "start to do basic build"
+    echo "you can also see build log in buildBasic.log under components directory"
+    echo "======================================================================="
+
+	# UT
+	if [ ${ut} -eq 1 ]
+    then
+	   cd UT
+       if [ ${platform} = ATCA ]
+	   then
+	   	  make TARGET_OS=RHX86 | tee buildBasic.log
+		  cd ..
+	   fi	
+	fi
+
+    # telica_common
+    cd telica_common
+    if [ ${platform} = ATCA ]
+    then
+        # don't use nohup because it needs to execute one by one
+        make SWATCA=t | tee buildBasic.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCM_APPS=t | tee buildBasic.log
+    fi
+
+    # GU, GU is only for LGP 7.x+, and ATCA.
+    cd ../GU
+    if [ ${platform} = ATCA ]
+    then
+	make SWATCA=t | tee buildBasic.log
+    elif [ ${platform} = LGP ]
+    then
+	make SWCPU=t | tee buildBasic.log
+    fi
+    
+    # ga
+    cd ../ga_dev
+    if [ ${platform} = ATCA ]
+    then
+        make SWATCA=t | tee -a buildBasic.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCPU=t | tee -a buildBasic.log
+    fi
+
+    # table_defs
+    cd ../table_defs
+    if [ ${platform} = ATCA ]
+    then
+        make SWATCA=t | tee -a buildBasic.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCPU=t | tee -a buildBasic.log
+    fi
+
+    # database
+    cd ../db
+    if [ ${platform} = ATCA ]
+    then
+        make SWATCA=t | tee -a buildBasic.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCPU=t | tee -a buildBasic.log
+    fi
+    
+    echo "================"
+    echo "basic build done"
+
+    # back to components directory
+    cd ..
+}
+
+# buildCpu: build SWCPU
+buildCpu()
+{
+    echo "start to build SWCPU"
+    echo "you can also see build log in buildCpu.log under components directory"
+    echo "====================================================================="
+
+    if [ ${platform} = ATCA ]
+    then
+	    if [ ${ut} -eq 1 ]
+        then
+        	make SWATCA=t ATCA_UT=t | tee -a buildCpu.log
+		elif [ ${bullseye} -eq 1 ]
+		then
+        	make SWATCA=t ATCA_COV=t | tee -a buildCpu.log
+		else
+        	make SWATCA=t | tee -a buildCpu.log
+		fi	
+
+    elif [ ${platform} = LGP ]
+    then
+        make SWCPU=t | tee -a buildCpu.log
+
+    elif [ ${platform} = VCP ]
+    then
+        make SWATCA=t BOARD=HP | tee -a buildCpu.log
+    fi
+
+    echo "================"
+    echo "build SWCPU done"
+}
+
+# buildCm: build SWCM
+buildCm()
+{
+    echo "start to build SWCM"
+    echo "you can also see build log in buildCm.log under components directory"
+    echo "===================================================================="
+
+    make SWCM=t | tee -a buildCm.log
+
+    echo "==============="
+    echo "build SWCM done"
+}
+
+# buildTl1: build TL1
+buildTl1()
+{
+    cd tl1
+
+    echo "start to build TL1"
+    echo "you can also see build log in buildTl1.log under tl1 directory"
+    echo "=============================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+        make SWATCA=t | tee -a buildTl1.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCPU=t | tee -a buildTl1.log
+    fi
+
+    echo "=============="
+    echo "build TL1 done"
+}
+
+# buildSlam: build SLAM
+buildSlam()
+{
+    cd signaling
+
+    echo "start to build SLAM"
+    echo "you can also see build log in buildSlam.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+        make SWSLAM=t TARGET_OS=RHX86 | tee buildSlam.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWSLAM=t TARGET_OS=MV7XX | tee buildSlam.log
+    fi
+
+    echo "==============="
+    echo "build SLAM done"
+}
+
+# buildDbp: build DBP
+buildDbp()
+{
+    cd signaling
+
+    echo "start to build DBP"
+    echo "you can also see build log in buildDbp.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+        make SWDBP=t TARGET_OS=RHX86 | tee buildDbp.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWDBP=t TARGET_OS=MV7XX | tee buildDbp.log
+    fi
+
+    echo "=============="
+    echo "build DBP done"
+}
+cleantestharness()
+{
+    echo "start to clean testharness"
+	cd test_harness
+	make clean
+	cd ../
+}
+cleansipa()
+{
+if [ ${platform} = ATCA ]
+then
+  echo "start to clean sipa"
+  cd GU
+  make SWATCA=t clean_all
+
+  cd ../telica_common
+  make SWATCA=t clean_all
+
+  cd ../ga_dev
+  make SWATCA=t clean_all
+
+  cd ../signaling/sip2.7/jobs/gnu
+  make SWATCA=t clean_all
+  cd ../../../../
+elif [ ${platform} = LGP ]
+then
+cd GU
+make SWCPU=t clean_all
+
+cd ../telica_common
+make SWCPU=t clean_all
+
+cd ../ga_dev
+make SWCPU=t clean_all
+
+cd ../signaling/sip2.7/jobs/gnu
+make SWCPU=t clean_all
+cd ../../../../
+
+fi
+
+}
+buildtestharness()
+{
+    cd test_harness 
+
+    echo "start to build testharness"
+    echo "you can also see build log in buildtestharness.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+	make
+
+    echo "=============="
+    echo "build testharness done"
+}
+buildsipa()
+{
+    cd signaling/sip2.7/jobs/gnu 
+
+    echo "start to build sipa"
+    echo "you can also see build log in buildsipa.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+        make SWATCA=t DISABLE_ABORT_DEBUG=t sipa | tee buildsipa.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCM_APPS=t DISABLE_ABORT_DEBUG=t sipa | tee buildsipa.log
+    fi
+
+    echo "=============="
+    echo "build sipa done"
+}
+buildsfed()
+{
+    cd signaling/sip2.7/jobs/gnu 
+
+    echo "start to build sfed"
+    echo "you can also see build log in buildsfed.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+        make SWATCA=t DISABLE_ABORT_DEBUG=t sfed | tee buildsfed.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCM_APPS=t DISABLE_ABORT_DEBUG=t sfed | tee buildsfed.log
+    fi
+
+    echo "=============="
+    echo "build sfed done"
+}
+buildmegaa()
+{
+    cd signaling/dclcode/dcl2.2/jobs/gnu
+
+    echo "start to build megaa"
+    echo "you can also see build log in buildmegaa.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+        make SWATCA=t DISABLE_ABORT_DEBUG=t megaa | tee buildmegaa.log
+    elif [ ${platform} = LGP ]
+    then
+        make SWCM_APPS=t DISABLE_ABORT_DEBUG=t megaa | tee buildmegaa.log
+    fi
+
+    echo "=============="
+    echo "build megaa done"
+}
+buildCcs()
+{
+    cd signaling
+
+    echo "start to build CCS"
+    echo "you can also see build log in buildCcs.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+	    if [ ${ut} -eq 1 ]
+        then
+        	make SWCCS=t TARGET_OS=RHX86 ATCA_UT=t | tee buildCcs.log
+	    elif [ ${bullseye} -eq 1 ]
+		then
+        	make SWCCS=t TARGET_OS=RHX86 ATCA_COV=t | tee buildCcs.log
+		else
+        	make SWCCS=t TARGET_OS=RHX86 | tee buildCcs.log
+		fi	
+    elif [ ${platform} = LGP ]
+    then
+        make SWCCS=t TARGET_OS=MV7XX | tee buildCcs.log
+        #make SWCCS=t |tee buildCcs.log
+    elif [ ${platform} = VCP ]
+    then
+        make SWCCS=t BOARD=HP TARGET_OS=RHX86 | tee buildCcs.log
+    fi
+
+    echo "=============="
+    echo "build CCS done"
+}
+buildSfedcl()
+{
+    cd signaling
+
+    echo "start to build SFEDCL"
+    echo "you can also see build log in buildSfedcl.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+	    if [ ${ut} -eq 1 ]
+        then
+        	make SWSFEDCL=t TARGET_OS=RHX86 ATCA_UT=t | tee buildSfedcl.log
+	    elif [ ${bullseye} -eq 1 ]
+		then
+        	make SWSFEDCL=t TARGET_OS=RHX86 ATCA_COV=t | tee buildSfedcl.log
+		else
+        	make SWSFEDCL=t TARGET_OS=RHX86 | tee buildSfedcl.log
+		fi	
+    elif [ ${platform} = LGP ]
+    then
+        make SWSFEDCL=t TARGET_OS=MV7XX | tee buildSfedcl.log
+        #make SWSFEDCL=t |tee buildSfedcl.log
+    elif [ ${platform} = VCP ]
+    then
+        make SWSFEDCL=t BOARD=HP TARGET_OS=RHX86 | tee buildSfedcl.log
+    fi
+
+    echo "=============="
+    echo "build SFEDCL done"
+}
+buildMtp3sig()
+{
+    cd signaling
+
+    echo "start to build MTP3SIG"
+    echo "you can also see build log in buildMtp3sig.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+	    if [ ${ut} -eq 1 ]
+        then
+        	make SWMTP3SIG=t TARGET_OS=RHX86 ATCA_UT=t | tee buildMtp3sig.log
+	    elif [ ${bullseye} -eq 1 ]
+		then
+        	make SWMTP3SIG=t TARGET_OS=RHX86 ATCA_COV=t | tee buildMtp3sig.log
+		else
+        	make SWMTP3SIG=t TARGET_OS=RHX86 | tee buildMtp3sig.log
+		fi	
+    elif [ ${platform} = LGP ]
+    then
+        make SWMTP3SIG=t TARGET_OS=MV7XX | tee buildMtp3sig.log
+        #make SWMTP3SIG=t |tee buildMtp3sig.log
+    elif [ ${platform} = VCP ]
+    then
+        make SWMTP3SIG=t BOARD=HP | tee buildMtp3sig.log
+    fi
+
+    echo "=============="
+    echo "build MTP3SIG done"
+}
+buildDns()
+{
+    cd bind9 
+
+    echo "start to build DNS"
+    echo "you can also see build log in buildDns.log under bind9 directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+		if [ ${bullseye} -eq 1 ]
+		then
+       	    make SWATCA=t TARGET_OS=RHX86 ATCA_COV=t | tee buildDns.log
+		else 
+       	    make SWATCA=t TARGET_OS=RHX86 | tee buildDns.log
+		fi
+    elif [ ${platform} = LGP ]
+    then
+       	make SWCPU=t TARGET_OS=MV7XX | tee buildDns.log
+    fi
+
+    echo "=============="
+    echo "build DNS done"
+}
+buildRouter()
+{
+    cd signaling
+
+    echo "start to build Router"
+    echo "you can also see build log in buildRs.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+	    if [ ${ut} -eq 1 ]
+        then
+        	make SWRS=t TARGET_OS=RHX86 ATCA_UT=t | tee buildRs.log
+		else
+        	make SWRS=t TARGET_OS=RHX86 | tee buildRs.log
+		fi	
+    elif [ ${platform} = LGP ]
+    then
+        make SWRS=t TARGET_OS=MV7XX | tee buildRs.log
+        #make SWRS=t |tee buildRs.log
+    fi
+
+    echo "=============="
+    echo "build Router done"
+}
+buildMgsig()
+{
+    cd signaling
+
+    echo "start to build Mgsig"
+    echo "you can also see build log in buildMgsig.log under signaling directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+        make SWMGSIG=t TARGET_OS=RHX86 | tee buildMgsig.log
+    elif [ ${platform} = LGP ]
+    then
+#          make SWMGSIG=t TARGET_OS=MV7XX CALLSIMULATOR=t |tee buildMgsig.log
+          make SWMGSIG=t |tee buildMgsig.log
+    fi
+
+    echo "=============="
+    echo "build MGSIG done"
+}
+
+# buildCpuTar: build CPU tarball. Suppose buildCpu has already been done.
+buildCpuTar()
+{
+    # get CPU version
+    getCpuVer
+
+    # delete Telica and old binary if it exists in release directory
+    cd ../release
+    if [ -d Telica ]
+    then
+        rm -rf Telica
+    fi
+
+    cd ../components
+    echo "start to build SWCPU tarball"
+    echo "you can also see build log in buildCpuTar.log under components directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+		if [ ${bullseye} -eq 1 ]
+		then
+        	make SWATCA=t ATCA_COV=t VERSION=${cpuVer} install | tee buildCpuTar.log
+		else
+            make SWATCA=t VERSION=${cpuVer} install | tee buildCpuTar.log
+		fi	
+    elif [ ${platform} = LGP ]
+    then
+        make SWCPU=t install VERSION=${cpuVer} | tee buildCpuTar.log
+    elif [ ${platform} = VCP ]
+    then
+        make SWATCA=t BOARD=HP install VERSION=${cpuVer} | tee buildCpuTar.log
+    fi
+
+    echo "========================"
+    echo "build SWCPU tarball done"
+}
+
+# buildCmTar: build CM tarball
+buildCmTar()
+{
+    # get CPU version
+    getCpuVer
+
+    # delete Telica and old binary if it exists in release directory
+    cd ../release
+    if [ -d Telica ]
+    then
+        rm -rf Telica
+    fi
+
+    cd ../components
+    echo "start to build SWCM tarball"
+    echo "you can also see build log in buildCmTar.log under components directory"
+    echo "====================================================================="
+    echo ""
+    make SWCM=t install VERSION=${cpuVer} | tee buildCmTar.log
+    echo "======================="
+    echo "build SWCM tarball done"
+}
+
+# buildClean: make clean all
+buildClean()
+{
+    echo "start to make clean all"
+    echo "you can also see build log in buildClean.log under components directory"
+    echo "====================================================================="
+    echo ""
+
+    if [ ${platform} = ATCA ]
+    then
+	    if [ ${ut} -eq 1 ]
+        then
+        	make SWATCA=t ATCA_UT=t clean_all | tee buildClean.log
+		else
+        	make SWATCA=t clean_all | tee buildClean.log
+		fi	
+    elif [ ${platform} = LGP ]
+    then
+	make SWCPU=t clean_all | tee buildClean.log
+    fi
+    echo "==================="
+    echo "make clean all done"
+}
+
+# ========================
+# Functions definition end
+
+
+
+# Main body:
+# ==========
+# arguments number should [1,3]
+if [ $# -lt 2 -o $# -gt 3 ]
+then
+    echo "wrong command format"
+    usage
+    exit
+fi
+
+# set UT and Bullseye flag
+if [ $# -eq 3 ]
+then	
+    if [ $3 = -ut ]
+    then
+    	ut=1
+    else
+    	ut=0
+    fi	
+
+    if [ $3 = -bullseye ]
+    then
+    	bullseye=1
+    else
+    	bullseye=0
+    fi	
+else
+	ut=0
+	bullseye=0
+fi
+
+# set correct platform
+case $2 in
+    -lgp)
+		platform="LGP"
+		;;
+    -atca)
+		platform="ATCA"
+		;;
+    -vcp)
+		platform="VCP"
+		;;
+    *)
+        echo "Wrong platform."
+        usage
+	exit
+esac
+
+# options
+case $1 in
+    -cputar)
+        setEnv
+        buildCpu
+        buildCpuTar
+        ;;
+    -cmtar)
+        setEnv
+        buildCm
+        buildCmTar
+        ;;
+    -clean)
+        setEnv
+        buildClean
+        ;;
+    -slam)
+        setEnv
+        buildBasic
+        buildSlam
+        ;;
+    -dbp)
+        setEnv
+        buildBasic
+        buildDbp
+        ;;
+    -ccs)
+        setEnv
+        buildBasic
+        buildCcs
+        ;;
+    -sfedcl)
+        setEnv
+        buildBasic
+        buildSfedcl
+        ;;
+    -megaa)
+        setEnv
+        buildBasic
+        buildmegaa
+        ;;
+    -mtp3sig)
+        setEnv
+        buildBasic
+        buildMtp3sig
+        ;;
+    -rs)
+        setEnv
+        buildBasic
+        buildRouter
+        ;;
+    -sipa)
+        setEnv
+        cleansipa
+        buildBasic
+        buildsipa
+        ;;
+    -sfed)
+        setEnv
+        cleansipa
+        buildBasic
+        buildsfed
+        ;;
+    -testharness)
+        setEnv
+        cleantestharness
+        buildBasic
+        buildtestharness
+        ;;
+    -cpu)
+        setEnv
+        buildCpu
+        ;;
+    -tl1)
+        setEnv
+        buildBasic
+        buildTl1
+        ;;
+    -mgsig)
+        setEnv
+        buildBasic
+        buildMgsig
+        ;;
+    -cm)
+		if [ ${platform} = ATCA ]
+		then
+	    	echo -e "ATCA doesn't have CM card. Wrong arguments!"
+	    	exit
+		fi
+        setEnv
+        buildCm
+        ;;
+    -reccs)
+        buildCcs
+        ;;
+    -dns)
+		setEnv
+		buildBasic
+		buildDns
+        ;;
+    -e)
+        setEnv
+        ;;
+    -h)
+        usage
+        ;;
+    *)
+        echo "Wrong option."
+        usage
+        ;;
+esac

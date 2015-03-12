@@ -1,0 +1,20 @@
+1. Overall rule
+(1) 以问题为导向
+好处：促进思考，使得知识结构更完整，更扎实，更灵活，更加全面
+(2) 不急不躁
+好处：不怕问题，不怕解决不了问题，不怕短时间内解决不了问题
+
+2. Working rule
+Scenarios: Usual Study, Bug Fix and Feature Development
+(1) 重现问题
+ATCA lab: Spectra2 
+VM   lab：SS7Sim, MGSim, Sipp
+(2) 解决问题
+Log Analysis: gdb
+Code Analysis: Itself, CppUTest, BullsEye
+
+3. 金字塔
+                            1. Feature Test
+					  2. Unit Test Leve2 (Virtual Lab)
+			   3. Unit Test Leve1 (CppUTest, BullsEye and Others)
+    	  4. Coding according to design or bug description or others

@@ -1,0 +1,21 @@
+2. ******************** ProcessDigitEvent (sig_digits.c) *******************
+(1) Get a dialed number
+/* store off recvd digit and increment sequence number */
+pDCD->CurrRcvdDigits[pDCD->CurrDigitSeqNum++] = Evt;     
+
+(2) String match
+for (i=0; i < pDCD->OriginalNumberCandidates; i++)
+{
+    /* check only Candidates that are still in the running
+     * or already have a FULL or UNAMBIGUOUS MATCH state ???
+     */
+    if ((pDCD->Candidate[i].State == DC_ACTIVE) ||
+        (pDCD->Candidate[i].State == DC_FULL_MATCH) ||
+        (pDCD->Candidate[i].State == DC_FAILED_AFTER_FULL_MATCH) ||
+        (pDCD->Candidate[i].State == DC_PARTIAL_MATCH)) {
+        Result = DigitCheck(pDCD, Evt, i); 
+    }
+}
+
+3. ******************** DigitCheck (sig_digits.c) *******************
+

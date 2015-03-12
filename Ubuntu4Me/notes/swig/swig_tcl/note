@@ -1,0 +1,40 @@
+1. Preparations
+kavonm@2013:test2$ ls
+main.c  main.i
+
+kavonm@2013:test2$ cat main.c
+#include <stdio.h>
+
+int kavon(int a, int b)
+{
+	        return a + b;
+}
+
+kavonm@2013:test2$ cat main.i
+%module kavon
+extern int kavon(int a, int b);
+
+2. compile
+kavonm@2013:test2$ gcc -fPIC -c main.c
+kavonm@2013:test2$ ls
+main.c  main.i  main.o
+
+kavonm@2013:test2$ swig -tcl main.i
+kavonm@2013:test2$ ls
+main.c  main.i  main.o  main_wrap.c
+
+kavonm@2013:test2$ gcc -fPIC -c main_wrap.c 
+kavonm@2013:test2$ ls
+main.c  main.i  main.o  main_wrap.c  main_wrap.o
+
+kavonm@2013:test2$ gcc -shared -o libkavon.so main.o main_wrap.o 
+kavonm@2013:test2$ ls
+libkavon.so  main.c  main.i  main.o  main_wrap.c  main_wrap.o
+
+3. execution
+kavonm@2013:test2$ tclsh
+% load libkavon.so
+% set a [kavon 1 2]
+3
+% puts $a
+3

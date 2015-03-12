@@ -1,0 +1,170 @@
+def 语句实际上是一个可执行的语句：当它运行的时候，它创建并将一个新的函数对象赋值给一个变量名。
+（Python中所有的语句都是实时运行的，没有像独立的编译时间这样的流程的）
+
+1. Example I:
+>>> def times(a, b):
+...     return a * b
+... 
+>>> times(2, 4)
+8
+>>> x = times(2, 10.4)
+>>> x
+20.8
+>>> times('kavon', 3)
+'kavonkavonkavon'
+
+2. Example II:
+>>> def intersect(seq1, seq2):
+...     res = []
+...     for x in seq1:
+...         if x in seq2:
+...             res.append(x)
+...     return res
+... 
+>>> intersect('kavon', 'colin')
+['o', 'n']
+>>> intersect([1, 2, 3], (2, 5))
+[2]
+
+3. Note: 本地变量（函数内部的所有变量）
+         函数充分体现了Python的多态
+
+4. 作用域
+>>> X = 99
+>>> def func(Y):
+...     Z = X + Y
+...     return Z
+...
+>>> func(1)
+100
+>>> X
+99
+
+5. global语句
+1) 全局变量是位于模块文件内部的顶层的变量名
+2) 全局变量如果是函数内被赋值的话，必须经过声明
+3) 全局变量名在函数的内部不经过声明也可以被引用
+
+6. 最小化文件间的修改
+1) version 1
+# first.py
+X = 99
+
+# second.py
+import first
+first.X = 88
+
+2) version 2
+# first.py
+X = 99
+
+def setX(new):
+    global X
+	X = new
+
+# second.py
+import first
+first.setX(88)
+
+7. 嵌套函数
+>>>
+>>> def f1():
+...     x = 88
+...     def f2():
+...         print x
+...     f2()
+...
+>>> f1()
+88
+
+8. 工厂函数
+>>> def maker(N):
+...     def action(X):
+...         return X ** N
+...     return action
+...
+>>> f = maker(2)
+>>> f(3)
+9
+>>> g = maker(3)
+>>> g(3)
+27
+
+9. 默认参数
+>>> def f(x=2):
+...     print x
+...
+>>> f()
+2
+>>> f(3)
+3
+
+
+>>> def f1():
+...     x = 88
+...     f2(x)
+...
+>>> def f2(x):
+...     print x
+...
+>>> f1()
+88
+
+10. lambda和嵌套作用域
+>>> def func():
+...     x = 4
+...     action = (lambda n: x ** n)
+...     return action
+...
+>>> x = func()
+>>> x(2)
+16
+
+11. 作用域与带有循环变量的默认参数相比较
+>>> def makeActions():
+...     acts = []
+...     for i in range(5):
+...         acts.append(lambda x: i ** x)
+...     return acts
+...
+>>> makeActions()
+[<function <lambda> at 0xb76d96f4>, <function <lambda> at 0xb76d972c>, <function <lambda> at 0xb76d9764>, <function <lambda> at 0xb76d979c>, <function <lambda> at 0xb76d97d4>]
+>>> acts = makeActions()
+>>> acts[0]
+<function <lambda> at 0xb76d980c>
+>>> acts[1]
+<function <lambda> at 0xb76d9844>
+>>> acts[2]
+<function <lambda> at 0xb76d987c>
+>>> acts[3]
+<function <lambda> at 0xb76d98b4>
+>>> acts[4]
+<function <lambda> at 0xb76d98ec>
+>>> acts[0](2)
+16
+>>> acts[1](2)
+16
+>>> acts[2](2)
+16
+>>> acts[3](2)
+16
+>>> acts[4](2)
+
+改进之后：
+>>> def makeActions():
+...     acts = []
+...     for i in range(5):
+...         acts.append(lambda x, i=i: i ** x)
+...     return acts
+...
+>>> acts = makeActions()
+>>> acts[0](2)
+0
+>>> acts[1](2)
+1
+>>> acts[2](2)
+4
+>>> acts[3](2)
+9
+>>> acts[4](2)
+16

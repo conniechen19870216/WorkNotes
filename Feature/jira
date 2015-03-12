@@ -1,0 +1,1 @@
+project = LGP AND issuetype in (Story) AND FID ~ "16884.1"

@@ -1,0 +1,766 @@
+00005(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_idmgcusta.c:765 STIDCLST: clstId: 0
+00006(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_idmgcusta.c:1000 AS message LID_AS_INACTIVE
+00007(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_idmgcusta.c:1012 LID_AS_INACTIVE, AS id: 0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_bdy6.c:595 clCb.ccsProcInfo.ChassisType:6
+00008(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00008(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00008(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_ilk1.c:1636 clIlkHandleIuaUsta: ignored AS message, type:2
+00008(01032),00000(00000) 0x00000020 12-25 08:46:37.530 11098: ../cl_ilk1.c:1652 clIlkHandleIuaUsta: calling clModCallBack()
+00003(01032),00000(00000) 0x00000020 12-25 08:46:39.281 11180: ../in_bdy9.c:1399 [Q931]:inStartCbTmr_real: INFO: start timer TMR_CON, rSuId=4425 cb=0xbd599fa4 from ../in_bdy2.c:7175
+00004(01032),00000(00000) 0x00000020 12-25 08:46:39.281 11180: ../in_ptli.c:612 [Q931]:sending DatConReq, dstProcId=0x447, lnkNmb=4425, sapi=0, ces=0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.181 11098: ../cl_idmgc1.c:907 clIdMgcTmrEvnt: entered event: 3
+00004(01032),00000(00000) 0x00000020 12-25 08:46:42.181 11098: ../cl_idmgc1.c:915 clIdMgcTmrEvnt: cb is lmEvt 0xf6e04774
+00005(01032),00000(00000) 0x00000020 12-25 08:46:42.181 11098: ../cl_idmgc1.c:931 clIdMgcTmrEvnt: CLIDMGC_TMR_H248 expired cb: 0xf6e04774
+00005(01032),00000(00000) 0x00000020 12-25 08:46:42.181 11098: ../cl_idmgc1.c:980 clIdMgcTmrEvnt: CLIDMGC_TMR_EVT_H248, send ASP_ACTIVE 
+00006(01032),00000(00000) 0x00000020 12-25 08:46:42.181 11098: ../cl_idmgc1.c:982 clIdMgcTmrEvnt: kicking-off LM_IUAMGC ASP ACTIVE FSM
+00007(01032),00000(00000) 0x00000020 12-25 08:46:42.181 11098: ../cl_idmgc2.c:3321 clIdMgcAspAc: entered
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.182 11098: ../cl_idmgc2.c:3379 clIdMgcAspAc: AspState[0]=0x402 AspState[1]=0x302
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.182 11098: ../cl_idmgc2.c:3397 clIdMgcAspAc: cmPkLidCntrlReq() ASP_ACTIVE OKAY, peer: 0, ret 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_idmgc2.c:4305 clIdMgcLayerCfm: cfm ACK proc = 0447, ent=99, event=0A, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_idmgc2.c:4383 clIdMgcLayerCfm: received state IUA_MGC_IDLE_ST
+00005(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_idmgc2.c:4386 clIdMgcLayerCfm: status LCM_PRIM_OK
+00005(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_idmgc2.c:4402 clIdMgcLayerCfm: event IUA_MGC_OK_CFM_EV
+00006(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_bdy7.c:299 IUAMGC-1:event:1 in state:0, next state:0
+00007(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_idmgc2.c:3958 clIdMgcDone: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_idmgc2.c:4103 clIdMgcDone: LM_USTA_EVT - Done
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_idmgc2.c:4127 clIdMgcDone: call clModCallBack(lmEvt: 0xf6e04774) SPutSBuf(cb: 0xbd59335c)
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_ilk1.c:1643 ignored AS message, event: 260
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_ilk1.c:1652 clIlkHandleIuaUsta: calling clModCallBack()
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.184 11098: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_bdy3.c:841 raising USTA event
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_idmgcusta.c:723 IUA Alarm. category: LCM_CATEGORY_PROTOCOL event: LID_EVENT_ASPM
+00004(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_idmgcusta.c:726 	cause: LID_CAUSE_MSG_RECEIVED status: LCM_PRIM_OK
+00005(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_idmgcusta.c:753 STIDPEER: peerId: 0
+00006(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_idmgcusta.c:815 ASPM message LID_ASP_ACTIVE_ACK, reason LCM_REASON_NOT_APPL
+00007(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_idmgcusta.c:921 LID_ASP_ACTIVE_ACK received, peerId: 0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_idmgcusta.c:928 clIuaHandleIdUsta: provState IS, done with peer: 0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_bdy6.c:595 clCb.ccsProcInfo.ChassisType:6
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_ilk1.c:1643 ignored AS message, event: 259
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.212 11098: ../cl_ilk1.c:1652 clIlkHandleIuaUsta: calling clModCallBack()
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.213 11179: ../id_b_asm.c:2753 B35519: idAsmUpdAsStatus: oldClstSt: 2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:42.213 11179: ../id_b_asm.c:2762 B35519: idAsmUpdAsStatus: peerId: 0 state: 1025
+00005(01032),00000(00000) 0x00000020 12-25 08:46:42.213 11179: ../id_b_asm.c:2779 B35519: idAsmUpdAsStatus: clstSta.nmbActPeer: 1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_bdy3.c:841 raising USTA event
+00003(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_idmgcusta.c:723 IUA Alarm. category: LCM_CATEGORY_PROTOCOL event: LID_EVENT_AS
+00004(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_idmgcusta.c:726 	cause: LID_CAUSE_MSG_RECEIVED status: LCM_PRIM_OK
+00005(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_idmgcusta.c:765 STIDCLST: clstId: 0
+00006(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_idmgcusta.c:1000 AS message LID_AS_ACTIVE
+00007(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_idmgcusta.c:1028 LID_AS_ACTIVE, AS id: 0
+00007(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_bdy6.c:595 clCb.ccsProcInfo.ChassisType:6
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:315 ILK: IUA USTA Evt 
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1434 clIlkHandleIuaUsta: entered
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1517 LID_AS_ACTIVE, AS id: 0
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1520 clIlkHandleIuaUsta: stopping CLILK_TMR_EVT_AS_DOWN
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1794 clIlkStopTmr: event: 1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00012(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1558 clIlkHandleIuaUsta: Found 1 Links in 2 Interface(s)
+00012(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1567 clIlkHandleIuaUsta: found IF 1 - 65535 type: 3 ifMntStatus: 0
+00013(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1567 clIlkHandleIuaUsta: found IF 3670 - 1 type: 3 ifMntStatus: 0
+00013(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1584 clIlkHandleIuaUsta: found 2 interfaces IS
+00013(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1624 clIlkHandleIuaUsta: starting AS_ACTIVE FSM ISDN IF: 1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:0, next state:1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk2.c:497 clIlkSelfPost: entered
+00014(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1624 clIlkHandleIuaUsta: starting AS_ACTIVE FSM ISDN IF: 3670
+00015(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_bdy7.c:273 ILK-1:new FSM with event:12 on hold
+00015(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk1.c:1630 clIlkHandleIuaUsta: started 2 FSMs
+00015(01032),00000(00000) 0x00000020 12-25 08:46:42.214 11098: ../cl_ilk2.c:2310 clIlkLayerCfm: entered
+00006(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2316 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00006(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2350 clIlkLayerCfm: received state: ISDN_LNK_AWT_SLFPST_ST
+00007(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2686 clIlkLayerCfm: set event: 12
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:1, next state:12
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:4019 clIlkAsActive: entered
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:4039 clIlkAsActive: primary and secondary signaling link for ifNmb=1 are NUM_NA (continue)
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:299 ILK-1:event:3 in state:12, next state:0
+00012(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:3858 clIlkAsActiveDone: AS_ACTIVE 1 to go
+00013(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:533 first FSM in hold Q:ILK-1:holdQ:1 runQ:0, maxInstances:1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:568 ILK-1:calling FSM, event:0xc
+00015(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:0, next state:1
+00016(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:497 clIlkSelfPost: entered
+00016(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2310 clIlkLayerCfm: entered
+00016(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2316 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00017(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2350 clIlkLayerCfm: received state: ISDN_LNK_AWT_SLFPST_ST
+00017(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2686 clIlkLayerCfm: set event: 12
+00018(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:299 ILK-1:event:12 in state:1, next state:12
+00018(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:4019 clIlkAsActive: entered
+00018(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00018(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00019(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:4055 clIlkAsActive: found rSuId of 4425 for 3670-1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:4118 cmPkLinCntrlReq sent PRI ABND_ENA: suId: 4425
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=5, transId=-2147430626, action=21, subaction=1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11180: ../in_bdy11.c:5899 [Q931]:inBndEnableSap rSuId=4425, spId=1, bndState=2, srcProcId=0000, srcEnt=10, dstProcId=0447, dstEnt=153, route=0, action = 21
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11180: ../in_bdy11.c:4943 [Q931]:Q931 got EnableSap cntrl req for rSuId=4425, spId=1
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2310 clIlkLayerCfm: entered
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2316 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2350 clIlkLayerCfm: received state: ISDN_LNK_AWT_AS_ACTIVE_ST
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2652 clIlkLayerCfm: set event: ISDN_LNK_CTL_CFM_EV
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:2686 clIlkLayerCfm: set event: 3
+00010(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:299 ILK-1:event:3 in state:12, next state:0
+00011(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_ilk2.c:3851 clIlkAsActiveDone: AS_ACTIVE done
+00009(01032),00000(00000) 0x00000020 12-25 08:46:42.215 11098: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:1 evtId: 0xad20
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:389 numBchanRows:15
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/1 gave binary termId is 0x482041
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/1 found
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 1th edit fsm intfcId.val:3670, memId.val:1 
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59f74c event: 0x2 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/2 gave binary termId is 0x482042
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/2 found
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 2th edit fsm intfcId.val:3670, memId.val:2 
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/3 gave binary termId is 0x482043
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/3 found
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 3th edit fsm intfcId.val:3670, memId.val:3 
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/4 gave binary termId is 0x482044
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/4 found
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 4th edit fsm intfcId.val:3670, memId.val:4 
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/5 gave binary termId is 0x482045
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/5 found
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 5th edit fsm intfcId.val:3670, memId.val:5 
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/6 gave binary termId is 0x482046
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/6 found
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 6th edit fsm intfcId.val:3670, memId.val:6 
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/7 gave binary termId is 0x482047
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/7 found
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 7th edit fsm intfcId.val:3670, memId.val:7 
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/8 gave binary termId is 0x482048
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/8 found
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 8th edit fsm intfcId.val:3670, memId.val:8 
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/9 gave binary termId is 0x482049
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/9 found
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 9th edit fsm intfcId.val:3670, memId.val:9 
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/10 gave binary termId is 0x48204A
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/10 found
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 10th edit fsm intfcId.val:3670, memId.val:10 
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/11 gave binary termId is 0x48204B
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/11 found
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 11th edit fsm intfcId.val:3670, memId.val:11 
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/12 gave binary termId is 0x48204C
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/12 found
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:440 starting 12th edit fsm intfcId.val:3670, memId.val:12 
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.148 11098: ../cl_ibc1.c:2185 TDM/9/1/1/13 gave binary termId is 0x48204D
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/13 found
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:440 starting 13th edit fsm intfcId.val:3670, memId.val:13 
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:2185 TDM/9/1/1/14 gave binary termId is 0x48204E
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/14 found
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:440 starting 14th edit fsm intfcId.val:3670, memId.val:14 
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:2185 TDM/9/1/1/15 gave binary termId is 0x48204F
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:2199 clIbcIsToStartEditFsm: termCb for TDM/9/1/1/15 found
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc1.c:440 starting 15th edit fsm intfcId.val:3670, memId.val:15 
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:273 IBC-1:new FSM with event:2 on hold
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=1, preCut=0, initState=0, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=1, preCut=0, initState=0, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 1
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430623, action=1, subaction=1
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=1
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=1, action=1 state=OUT_SERVICE_NE ntc=0x0
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:1588 get binary termId is 0x482041
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-1 on if-link-chn 3670-1-1, new mntState = 0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:888 IBC EDIT: 14 remaining 
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:14 runQ:0, maxInstances:1
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59b444 event: 0x2 lmEvt->lmEvtId: 0xad20
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/2
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=2, preCut=0, initState=0, rmPri->chnl[i].state=2
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=2, preCut=0, initState=0, rmPri->chnl[i].state=2
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 2
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430620, action=1, subaction=1
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=2
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=2, action=1 state=OUT_SERVICE_NE ntc=0x0
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:1588 get binary termId is 0x482042
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-2 on if-link-chn 3670-1-2, new mntState = 0
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:888 IBC EDIT: 13 remaining 
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:13 runQ:0, maxInstances:1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd595774 event: 0x2 lmEvt->lmEvtId: 0xad20
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/3
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.149 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=3, preCut=0, initState=0, rmPri->chnl[i].state=2
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=3, preCut=0, initState=0, rmPri->chnl[i].state=2
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00024(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 3
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430617, action=1, subaction=1
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=3
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=3, action=1 state=OUT_SERVICE_NE ntc=0x0
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00024(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:1588 get binary termId is 0x482043
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00024(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-3 on if-link-chn 3670-1-3, new mntState = 0
+00025(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:888 IBC EDIT: 12 remaining 
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:12 runQ:0, maxInstances:1
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00028(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00029(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59af1c event: 0x2 lmEvt->lmEvtId: 0xad20
+00029(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00029(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00030(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00033(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/4
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=4, preCut=0, initState=0, rmPri->chnl[i].state=2
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=4, preCut=0, initState=0, rmPri->chnl[i].state=2
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00033(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00033(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00034(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00033(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 4
+00033(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430614, action=1, subaction=1
+00034(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=4
+00035(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=4, action=1 state=OUT_SERVICE_NE ntc=0x0
+00036(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00036(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00036(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00037(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00037(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00037(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:1588 get binary termId is 0x482044
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-4 on if-link-chn 3670-1-4, new mntState = 0
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:888 IBC EDIT: 11 remaining 
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:11 runQ:0, maxInstances:1
+00041(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00041(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00042(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd591ebc event: 0x2 lmEvt->lmEvtId: 0xad20
+00041(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00041(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00042(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00043(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00044(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00044(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00045(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00045(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/5
+00044(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00044(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00044(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=5, preCut=0, initState=0, rmPri->chnl[i].state=2
+00045(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=5, preCut=0, initState=0, rmPri->chnl[i].state=2
+00045(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00045(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00042(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00042(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00042(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00043(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00043(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00043(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00041(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 5
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430611, action=1, subaction=1
+00041(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=5
+00041(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=5, action=1 state=OUT_SERVICE_NE ntc=0x0
+00042(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00042(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:1588 get binary termId is 0x482045
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-5 on if-link-chn 3670-1-5, new mntState = 0
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:888 IBC EDIT: 10 remaining 
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:10 runQ:0, maxInstances:1
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00040(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59e7d4 event: 0x2 lmEvt->lmEvtId: 0xad20
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00039(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00038(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/6
+00035(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=6, preCut=0, initState=0, rmPri->chnl[i].state=2
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=6, preCut=0, initState=0, rmPri->chnl[i].state=2
+00033(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00034(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00032(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00030(01032),00000(00000) 0x00000020 12-25 08:46:43.150 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 6
+00029(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430608, action=1, subaction=1
+00029(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=6
+00030(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=6, action=1 state=OUT_SERVICE_NE ntc=0x0
+00030(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00031(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00025(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:1588 get binary termId is 0x482046
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-6 on if-link-chn 3670-1-6, new mntState = 0
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:888 IBC EDIT: 9 remaining 
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:9 runQ:0, maxInstances:1
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00028(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59524c event: 0x2 lmEvt->lmEvtId: 0xad20
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00027(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00026(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/7
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=7, preCut=0, initState=0, rmPri->chnl[i].state=2
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=7, preCut=0, initState=0, rmPri->chnl[i].state=2
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 7
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430605, action=1, subaction=1
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=7
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=7, action=1 state=OUT_SERVICE_NE ntc=0x0
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:1588 get binary termId is 0x482047
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-7 on if-link-chn 3670-1-7, new mntState = 0
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:888 IBC EDIT: 8 remaining 
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:8 runQ:0, maxInstances:1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59a4cc event: 0x2 lmEvt->lmEvtId: 0xad20
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/8
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=8, preCut=0, initState=0, rmPri->chnl[i].state=2
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=8, preCut=0, initState=0, rmPri->chnl[i].state=2
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 8
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430602, action=1, subaction=1
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=8
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=8, action=1 state=OUT_SERVICE_NE ntc=0x0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:1588 get binary termId is 0x482048
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-8 on if-link-chn 3670-1-8, new mntState = 0
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:888 IBC EDIT: 7 remaining 
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:7 runQ:0, maxInstances:1
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd591994 event: 0x2 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/9
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=9, preCut=0, initState=0, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=9, preCut=0, initState=0, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 9
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430599, action=1, subaction=1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=9
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=9, action=1 state=OUT_SERVICE_NE ntc=0x0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.151 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:1588 get binary termId is 0x482049
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-9 on if-link-chn 3670-1-9, new mntState = 0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:888 IBC EDIT: 6 remaining 
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:6 runQ:0, maxInstances:1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd58f054 event: 0x2 lmEvt->lmEvtId: 0xad20
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/10
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=10, preCut=0, initState=0, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=10, preCut=0, initState=0, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 10
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430596, action=1, subaction=1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=10
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=10, action=1 state=OUT_SERVICE_NE ntc=0x0
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:1588 get binary termId is 0x48204A
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-10 on if-link-chn 3670-1-10, new mntState = 0
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:888 IBC EDIT: 5 remaining 
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:5 runQ:0, maxInstances:1
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59e2ac event: 0x2 lmEvt->lmEvtId: 0xad20
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/11
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=11, preCut=0, initState=0, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=11, preCut=0, initState=0, rmPri->chnl[i].state=2
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 11
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430593, action=1, subaction=1
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=11
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=11, action=1 state=OUT_SERVICE_NE ntc=0x0
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:1588 get binary termId is 0x48204B
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-11 on if-link-chn 3670-1-11, new mntState = 0
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:888 IBC EDIT: 4 remaining 
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:4 runQ:0, maxInstances:1
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd59ce0c event: 0x2 lmEvt->lmEvtId: 0xad20
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/12
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=12, preCut=0, initState=0, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=12, preCut=0, initState=0, rmPri->chnl[i].state=2
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 12
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430590, action=1, subaction=1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=12
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=12, action=1 state=OUT_SERVICE_NE ntc=0x0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.152 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1588 get binary termId is 0x48204C
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-12 on if-link-chn 3670-1-12, new mntState = 0
+00005(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:888 IBC EDIT: 3 remaining 
+00006(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:3 runQ:0, maxInstances:1
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd590a1c event: 0x2 lmEvt->lmEvtId: 0xad20
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/13
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=13, preCut=0, initState=0, rmPri->chnl[i].state=2
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=13, preCut=0, initState=0, rmPri->chnl[i].state=2
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00007(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00008(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 13
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430587, action=1, subaction=1
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=13
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=13, action=1 state=OUT_SERVICE_NE ntc=0x0
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00009(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00010(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1588 get binary termId is 0x48204D
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00011(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-13 on if-link-chn 3670-1-13, new mntState = 0
+00012(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:888 IBC EDIT: 2 remaining 
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:2 runQ:0, maxInstances:1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd592e34 event: 0x2 lmEvt->lmEvtId: 0xad20
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/14
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=14, preCut=0, initState=0, rmPri->chnl[i].state=2
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=14, preCut=0, initState=0, rmPri->chnl[i].state=2
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 14
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430584, action=1, subaction=1
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=14
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=14, action=1 state=OUT_SERVICE_NE ntc=0x0
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00013(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1588 get binary termId is 0x48204E
+00014(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-14 on if-link-chn 3670-1-14, new mntState = 0
+00015(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:888 IBC EDIT: 1 remaining 
+00016(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:533 first FSM in hold Q:IBC-1:holdQ:1 runQ:0, maxInstances:1
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:568 IBC-1:calling FSM, event:0x2
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:0, next state:1
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:2865 clIbcSelfPost: entered FsmCb 0xbd5904f4 event: 0x2 lmEvt->lmEvtId: 0xad20
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0xB1, status=0, reason = 0
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:2 in state:1, next state:2
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:771 *******  clIbcCtlRm entered   ********
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:826 holdStr =    portTerm = tdm/9/1/1
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:833 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/15
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:861 sent RM Bchan ctl request for intfcId:3670
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=15, preCut=0, initState=0, rmPri->chnl[i].state=2
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:849 End ED-ISDN-BCHAN: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=15, preCut=0, initState=0, rmPri->chnl[i].state=2
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_bdy6.c:960 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=0, cntMntChans=30, cntPcChans=0, cntPcOosChans=0
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00017(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00018(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:2, next state:5
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:522 sent B Chan control request for rSuId:4425, chan 15
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy1.c:13252 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147430581, action=1, subaction=1
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy11.c:7228 [Q931]:rSuId = 4425 action=1 chan=15
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../in_bdy11.c:7660 [Q931]:rSuId = 4425 bch->intId =1 chan=15, action=1 state=OUT_SERVICE_NE ntc=0x0
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../qw_bdy1.c:1767 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11180: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:937 got cfm proc = 0x0447, ent=0x0A, event=0x60, status=0, reason = 0
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:966 clIbcLayerCfm: cb->lmEvt: 0xf6e04774 lmEvtId: 0x0 lmEvt->lmEvtId: 0xad20
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_bdy7.c:299 IBC-1:event:4 in state:5, next state:0
+00019(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1588 get binary termId is 0x48204F
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00020(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00021(01032),00000(00000) 0x00000020 12-25 08:46:43.153 11098: ../cl_ibc2.c:1721 clUpdateIbcTermId updated bchan memId 3670-15 on if-link-chn 3670-1-15, new mntState = 0
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.154 11098: ../cl_ibc2.c:881 TL1 Edit complete for ISDN-IBC
+00022(01032),00000(00000) 0x00000020 12-25 08:46:43.154 11098: ../cl_ibc2.c:888 IBC EDIT: 0 remaining 
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.154 11098: ../cl_ibc2.c:891 edit complete for ISDN-IBC
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.154 11098: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(37508) has null entry
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.154 11098: ../cl_bdy6.c:207 sending back transId 0x9284  status = 0  reason = 0
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.154 11098: ../cl_bdy2.c:1450 freeing input tables
+00023(01032),00000(00000) 0x00000020 12-25 08:46:43.154 11098: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.181 11180: ../cc_bdy4.c:17333 ccGenericTmrEvent=2
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.181 11180: ../cc_lib.c:63305 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.181 11180: ../cc_bdy4.c:17261 ccGenericStartTmr
+00004(01032),00000(00000) 0x00000020 12-25 08:46:43.181 11180: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.181 11180: ../rm_rum.c:1431 rumPrepareAndSendUpd: type = 512, id = 3670, flags = 0, hunting = 0, numCics = 0, total = 30, precut = 0, oos = 30, free = 0, overflow = 0, busy = 0
+00003(01032),00000(00000) 0x00000020 12-25 08:46:43.181 11180: ../rm_rum.c:1638 rumPrepareAndSendUpd: numEntities:1, ccsId:2, versionId:10, flags:0 rumState:2, numRealms:0

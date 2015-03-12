@@ -1,0 +1,80 @@
+1. Important AVL Tree Structures (cm_avl.h)
+
+(1) cmAVTTreeCp
+
+/* avl tree control point */
+typedef struct CmAVLTreeCp_Tag CmAVLTreeCp;
+struct CmAVLTreeCp_Tag        /*  avl tree control point */
+{
+   CmAVLNode head;             /* pointer to root avl node */
+   CmAVLCmpFn avlCmpFn;        /* function to compare two avl nodes */
+   PTR cmpArg;                 /* Extra arg for comparison function */
+   U32 nmbEnt;                 /* current number of entries */
+   U16 offset;                 /* offset of CmAVLNode in bytes */
+};
+
+(2) cmAVLNode
+
+/* avl tree entry */
+typedef struct CmAVLNode_Tag CmAVLNode;
+struct CmAVLNode_Tag       /* avl tree entry */
+{
+    CmAVLNode *llink;
+    CmAVLNode *rlink;
+    U8  *key;             /* pointer to key */
+    U8 ltag;
+    U8 rtag;
+    S8 bal;               /* balance factor */
+    U8 spare;
+    U32 rank;             /* relative position of a node in its subtree */
+};
+   
+2. Operation functions (cm_avl.c)
+
+(1) cmAVLTreeInit:  Initializes a avl tree
+
+/* initialize control point fields */
+CM_AVL_NODE_INIT(&avlTreeCp->head);
+{
+(&avlTreeCp->head)->ltag      = AVL_TAG_THREAD;
+(&avlTreeCp->head)->llink     = AVL_NULL;      
+(&avlTreeCp->head)->rtag      = AVL_TAG_THREAD;
+(&avlTreeCp->head)->rlink     = AVL_NULL;      
+(&avlTreeCp->head)->key       = (U8 *)NULL;    
+(&avlTreeCp->head)->rank      = 0;             
+(&avlTreeCp->head)->bal       = 0;             
+}
+avlTreeCp->nmbEnt   = 0;
+avlTreeCp->offset   = offset;
+avlTreeCp->avlCmpFn = avlCmpFn;
+avlTreeCp->cmpArg   = cmpArg;
+
+(2) cmAVLTreeInsert_real: insert an entry into the avl tree
+Note: bank indicates the number of left entries including itself
+a) Check for empty tree
+if (avlTreeCp->head.rtag == AVL_TAG_THREAD)
+{
+    newNode->ltag      = AVL_TAG_THREAD;
+    newNode->llink     = AVL_NULL;
+    newNode->rtag      = AVL_TAG_THREAD;
+    newNode->rlink     = AVL_NULL;
+    newNode->key       = key;
+    newNode->rank      = 1;
+    newNode->bal       = 0;
+    avlTreeCp->head.rtag = AVL_TAG_SUBTREE;
+    avlTreeCp->head.rlink = newNode;
+    avlTreeCp->nmbEnt++;
+    return(ROK);
+}
+
+b) other cases
+
+3 levels move forward to keep it latest
+      => {
+          t 
+          s  
+          r 
+         }
+
+stage 1: p start from s (finally, q == new entry)
+stage 2: p start from r (p - q = 1 level and finally, p == q)

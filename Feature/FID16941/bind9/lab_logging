@@ -1,0 +1,55 @@
+## --------------------------------------------------------------------
+## named.conf
+## --------------------------------------------------------------------
+
+## --------------------------------------------------------------------
+acl internal-subnets {
+        192.168.0.0/16;
+};
+
+## --------------------------------------------------------------------
+options {
+        directory "/Telica/swCPU/CurrRel/apps/named";
+        pid-file "/var/run/named.pid";
+        version "ALU MGC-8";
+        listen-on port 53 { 127.0.0.1; };
+        notify explicit;
+        forwarders { 192.168.252.26; };
+        allow-recursion { 127.0.0.1; internal-subnets; };
+        auth-nxdomain no;
+        query-source address 127.0.0.1 port 0;
+        query-source-v6 address ::1 port 0;
+};
+
+zone "." {
+      type hint;
+      file "/Telica/swCPU/CurrRel/apps/named/root.servers";
+};
+
+## --------------------------------------------------------------------
+logging {
+        channel my_file {
+                file "/Telica/swCPU/CurrRel/log/named_server.log" versions 2 size 1m;
+                severity info;
+                print-category yes;
+                print-severity yes;
+                print-time yes;
+        };
+        category default { my_file; };
+        category general { my_file; };
+        category dispatch { my_file; };
+        category xfer-in { my_file; };
+        category client { my_file; };
+        category network { my_file; };
+};
+
+## --------------------------------------------------------------------
+controls {
+        inet 127.0.0.1 port 953 allow { 127.0.0.1; } keys { "rndc-key"; };
+};
+
+key "rndc-key" {
+        algorithm hmac-md5;
+        secret "PNvD4f6lck7Dt89spTDNcg==";
+};
+

@@ -1,0 +1,14 @@
+1. Cache types
+(1) regular cache
+    extended cache
+(2) negative cache
+    positive cache
+
+2. Internal DNS server mode
+   cache-only: only '.' zone and cache
+
+3. FID15942 cache the negative response NXDOMAIN
+   FID16941 on the basis of above, disable cache the NXDOMAIN;
+            search the last positive from extended cache
+
+4. How many negative types of response and whether they are all cached.

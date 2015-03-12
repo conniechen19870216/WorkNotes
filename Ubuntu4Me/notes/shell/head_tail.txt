@@ -1,0 +1,8 @@
+head -n N file: print the first N lines
+head -n -N file: print lines except the last N lines
+
+****************************************************
+
+tail -n N file: print the last N lines
+tail -n +(N+1) file: print the lines except the first N lines
+tail -f(--follow) file

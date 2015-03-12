@@ -1,0 +1,51 @@
+02-May-2013 16:13:01.884 general: debug 50: socket f7616130: dispatch_recv:  event f7628878 -> task f761db60
+02-May-2013 16:13:01.885 general: debug 60: socket f7616130: internal_recv: task f761db60 got event f7616170
+02-May-2013 16:13:01.885 general: debug 60: socket f7616130 10.84.14.182#45275: packet received correctly
+02-May-2013 16:13:01.885 general: debug 90: socket f7616130: processing cmsg f75fe040
+02-May-2013 16:13:01.885 client: debug 3: client 10.84.14.182#45275: UDP request
+02-May-2013 16:13:01.885 client: debug 5: client 10.84.14.182#45275: using view '_default'
+02-May-2013 16:13:01.885 security: debug 3: client 10.84.14.182#45275: request is not signed
+02-May-2013 16:13:01.885 security: debug 3: client 10.84.14.182#45275: recursion available
+02-May-2013 16:13:01.885 client: debug 3: client 10.84.14.182#45275: query
+02-May-2013 16:13:01.885 client: debug 10: client 10.84.14.182#45275: ns_client_attach: ref = 1
+02-May-2013 16:13:01.885 security: debug 3: client 10.84.14.182#45275: query (cache) 'trkgrp100.qd.plexuslab.com/A/IN' approved
+02-May-2013 16:13:01.885 client: debug 3: client 10.84.14.182#45275: send
+02-May-2013 16:13:01.885 client: debug 3: client 10.84.14.182#45275: sendto
+02-May-2013 16:13:01.885 client: debug 3: client 10.84.14.182#45275: senddone
+02-May-2013 16:13:01.885 client: debug 3: client 10.84.14.182#45275: next
+02-May-2013 16:13:01.885 client: debug 10: client 10.84.14.182#45275: ns_client_detach: ref = 0
+02-May-2013 16:13:01.885 client: debug 3: client 10.84.14.182#45275: endrequest
+02-May-2013 16:13:01.885 client: debug 3: client @0x85874e0: udprecv
+02-May-2013 16:13:01.885 general: debug 50: socket f7616130: socket_recv: event f7628878 -> task f761db60
+02-May-2013 16:13:07.958 database: debug 100: cleaning name bucket 120
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 120
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 121
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 121
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 122
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 122
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 123
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 123
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 124
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 124
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 125
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 125
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 126
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 126
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 127
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 127
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 120
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 120
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 121
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 121
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 122
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 122
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 123
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 123
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 124
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 124
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 125
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 125
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 126
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 126
+02-May-2013 16:13:07.959 database: debug 100: cleaning name bucket 127
+02-May-2013 16:13:07.959 database: debug 100: cleaning entry bucket 127

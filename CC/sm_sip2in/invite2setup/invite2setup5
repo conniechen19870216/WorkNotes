@@ -1,0 +1,83 @@
+(5) ccConE38S39: S39->S06
+FcLiFctTerminationAttempt (fic_bdy1.c)
+          |
+          +----- FicSendAT (fic_lib.c)
+                   |
+                   +---- FcLiFctAuthorizeTermination (fic_ptli.c)
+                           |
+                           +---- ccUiFctAuthorizeTermination (cc_bdy5.c)
+                                      |
+                                      +----- ccExtractAuthTermParam (cc_bdy5.c)
+                                      |
+                                      +----- ccExtractSvcHeader (cc_bdy5.c)
+                                      |
+                                      +----- ccCallStateMachine (cc_bdy2.c) <<<<<<< E38S39 >>>>>>>>
+                                                     |
+                                                     +------ ccConE38S39 (cc_bdy2.c)
+                                                                  |
+                                                                  +------ ccRestoreCallStateOfAssociatedCalls (cc_lib.c)
+                                                                  |
+                                                                  +------ ccProcessAuthorizeTermination (cc_lib.c)
+                                                                            |
+                                                                            +------ ccUpdBillRecPicAuthorizeCallSetup (cc_bdy4.c)
+                                                                            |         |
+                                                                            |         +------ ccUpdBillRecForTns (cc_bdy4.c)
+                                                                            |
+                                                                            +------ ccUpdateBcm (cc_bdy5.c)
+                                                                            |
+                                                                            +------ ccDeriveCcn (cc_lib.c)
+                                                                            |
+                                                                            +------ ccLocateLiInfo (cc_lib.c)
+                                                                            |
+                                                                            +------ ccProcessPostAuthorizeTermination (cc_lib.c)
+                                                                                      |
+                                                                                      +------ ccProcessAuthTermSwtReqFalse (cc_lib.c)
+                                                                                              |
+                                                                                              +----- CC_STATE_CHANGE(con, CCS_AWTOGRSC) <<<<<< S39->S06  CCS_AWTRSPFORDPE20 -> CCS_AWTOGRSC >>>>>>>>>
+                                                                                              |
+                                                                                              |
+                                                                                              +------ con->icEvnt = con->ccEvntHold;
+                                                                                              +------ con->ogEvnt = (CcAllSdus *) &ogEvnt;
+                                                                                              +------ ccMapEvent_real (cc_lib.c)
+                                                                                              |
+                                                                                              |
+                                                                                              ... /* Please see (5.1) INVITE -> SETUP */
+                                                                                              |           
+                                                                                              |
+                                                                                              +------ processAnsSupervisionFraudPrflId (cc_bdy5.c)
+                                                                                              |           
+                                                                                              +------ ccUpdInterCcsTermPbxSubId (cc_lib.c)
+                                                                                              |           
+                                                                                              +------ ccSaveProfileId (cc_lib.c)
+                                                                                              |           
+                                                                                              +------ ccProcessOCallSent (cc_bdy2.c)
+                                                                                              |           
+                                                                                              +------ ccStartConTmr (cc_bdy4.c) <<<<<<< Timer: CC_TMR_ANM=37 >>>>>>>
+                                                                                              |           
+                                                                                              +------ CcLiCctConReq (cc_ptli.c)
+                                                                                                          |
+                                                                                                          +------ ccChkCallTrc (cc_calltrc.c) <<<<<<< State Change Tracing Log >>>>>>>
+                                                                                                          |            |
+                                                                                                          |            +------- ccNeedsLogging (cc_calltrc.c)
+                                                                                                          |
+                                                                                                          |
+                                                                                                          +------ CC_TRACE_EVENTS_ID (cc.h)
+                                                                                                          |	
+                                                                                                          +------ QwUiCctConReq (qw_bdy1.c)
+                                                                                                                       |   
+                                                                                                                       +------- QwUiCctProfInd (qw_ptui.c)
+                                                                                                                       |   
+                                                                                                                       +------- InUiIntConReq (psif_iw.c)
+
+(5.1) INVITE -> SETUP
+ccMapEvent_real (cc_lib.c)
+          |
+          +------ ccGetMapTblEntry (cc_map.c)
+          |
+          +------ ccGetMappingIndex_real (cc_map.c)
+          |
+          +------ directMappingMatrix (cc_map.c) 
+                         |
+                         +------ SIP_TO_ISDN (cc_map.c)
+                                        |
+                                        +------ ccSIP2SIMapS23M00 (cc_sipmap.c)

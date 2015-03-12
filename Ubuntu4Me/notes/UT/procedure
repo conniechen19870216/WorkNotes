@@ -1,0 +1,616 @@
+                                       Step by Step to Add Unit Test Case on MGC-8 using CppUTest and Bullseye
+
+Following are the detailed steps with examples on how to add Unit Test case on MGC-8. Step 4 & 6 are somehow a little bit complicated, fortunately, these two steps are needed only once.
+
+1. Make sure the following was added to your bash
+export PATH=/usr/bin/Bullseye/bin:/usr/bin/Bullseye/gcc-links:$PATH
+
+2. Full build the sandbox with ATCA_UT.
+make SWATCA=t ATCA_UT=t
+
+3. If you are the 1st time user for the process (CCS, MTP3SIG and M2UASIG process has been done), go to step 4, otherwise, go to step 5.
+Take CCS as an example, if directory “signaling/ccs/Test” already exist, then it means the UT framework has been added for “CCS” process.
+
+4. Add makefile changes for the process.
+Following are the steps for adding UT framework for M2UASIG process, provided by Gavin Xu:
+
+a.   Modify signaling/makefile
+    ifdef SWM2UASIG
++   ifndef ATCA_COV
++   #ATCA_COV is used for official BullsEye build - disable UT report
++   ifdef ATCA_UT
++   ifeq ($(strip $(BULLSEYE_EXIST)), YES)
++   #Enable BullsEye Report for UT
++   UT_BULLSEYE     = YES
++   UT_BULLSEYECFG  = $(TOP)/components/signaling/m2uasig/Test/covc.cfg
++   endif
++   endif
++   endif
+…
+
+b.  Modify signaling/m2uasig/makefile
+    SUBDIRS = $(TARGET_OBJ_DIR)
++   ifdef ATCA_UT
++   SUBDIRS += Test
++   endif
+SUBDIR_TARGETS = $(SUBDIRS:%=%.subdir)
+
+c.  Modify signaling/m2uasig/m2ua_main.c
+    #include "GUpublic.h"
+
++   #ifdef UTEST_MAIN
++   #include "AllTest.h"
++   #endif
+…
++   #ifdef UTEST_MAIN
++   int main(int argc, char* argv[])
++   {
++      AllTest(argc, argv);
++      return 0;
++   }
++   #else
+int main(int argc, char* argv[])
+{
+    …
+    return 0;
+}
++   #endif
+
+d.  Make a new dir “Test” in signaling/m2uasig
+    mkdir Test
+
+e.  Create “covc.cfg” in the “Test” directory: signaling/m2uasig/Test/covc.cfg
++   -tNONEXIST.c
+
+Note: This file is used for BullsEye auto report, the function listed here will be included as part of the coverage report.
+
+f.  Create “makefile” in the “Test” directory: signaling/m2uasig/Test/makefile
++   TOP = ../../../..
++   include $(TOP)/build/telica_defs.mk
++   ifeq ($(TARGET_OS), RHX86)
++   SUBDIRS = $(TARGET_OBJ_DIR) AllTest
++   SUBDIR_TARGETS = $(SUBDIRS:%=%.subdir)
++   BUILD_TARGETS = $(SUBDIR_TARGETS)
++   include $(TOP)/build/telica_rules.mk
++
++   clean_all:
++       @for subdir in $(SUBDIRS); do \
++           $(ECHO) "Entering directory $$subdir"; \
++           $(MAKE) -C $$subdir clean_all; \
++       done
++   else
++   .PHONY: all
++   all:
++       @echo "No Unit Test for non-ATCA build"
++   endif
+
+g.  Make a new dir “rhx86” in signaling/m2uasig/Test
+    mkdir rhx86
+
+h.  Create “makefile” in the “rhx86” directory: signaling/m2uasig/Test/rhx86/makefile
+Note: this makefile is mostly the same as signaling/m2uasig/Lynx/makefile.
+
+The difference is highlighted in BLUE.
+
++   TOP =  ../../../../..
++   APPLICATION_ID_APP := m2uasig
++   APPLICATION_ID_TARGETDIR := /Telica/swCPU/CurrRel/apps/m2uasig
++   ifdef SWCM_APPS
++   APPLICATION_ID_TARGETDIR := /Telica/swCM_APPS/$(VERSION)/apps/m2uasig
++   endif
++   include $(TOP)/build/telica_application_id.mk
++   include $(TOP)/components/signaling/tsm/signaling_defs.mk
++   LOCAL_COPTIONS = $(APPLICATION_ID_DEFINES)
++   SGSOPTS=-DSB -DRY -DXU -DRY_ENBTCPSOCK -DSM -DMW -DTELICA_M2UA -DUTEST_MAIN
++   ifeq ($(strip $(BOARD)), ATCA)
++   SGSOPTS+=-DIC -DSD -DSA -DIPH
++   endif # if BOARD = ATCA
++   LOCAL_DEFINES += $(SSOPTS) $(STKOPTS) $(ENV) $(SGSOPTS)
++   ifdef BLDDBG
++   LAST_COPTIONS+=-g
++   OPTIMIZE_LEVEL=0
++   endif
++   ifeq ($(VARIANT),PPC750)
++   endif   # if VARIANT = PPC750
++   ifeq ($(strip $(BOARD)), ATCA)
++       LOCAL_INCLUDE = -I$(TOP)/components/signaling/mtss \
++       -I$(TOP)/components/signaling/amc/ss7_conv/Comm \
++       -I$(TOP)/components/signaling/amc/ss7_conv \
++       -I$(TOP)/components/signaling/mlfc \
++       -I$(TOP)/components/signaling/sigcom \
++       -I$(TOP)/components/GU/include \
++       -I$(TOP)/components/telica_common/inc \    
++       -I$(TOP)/components/signaling/tsm/tsmc \
++       -I$(TOP)/components/signaling/m2uasig \
++       -I$(DB_API_INC_DIR) \
++       -I$(TOP)/components/signaling/m2uasig/Test \
++       -I$(TOP)/components/signaling/m2uasig/Test/AllTest \
++       -I$(TOP)/components/signaling/lm/common \
++       -I$(DB_CORE_INC_DIR)
++   else
++   LOCAL_INCLUDE = -I$(TOP)/components/signaling/mtss \
++       -I$(TOP)/components/signaling/sigcom \
++       -I$(TOP)/components/GU/include \
++       -I$(TOP)/components/telica_common/inc \
++       -I$(TOP)/components/signaling/tsm/tsmc \
++       -I$(TOP)/components/signaling/m2uasig \
++       -I$(DB_API_INC_DIR) \
++       -I$(TOP)/components/signaling/lm/common \
++       -I$(DB_CORE_INC_DIR)
++   endif # if BOARD = ATCA
++   LOCAL_VPATH = ../../ ../../../sigcom
++   #
++   #  Library
++   #
++   LIB  = libm2uasig_test.a
++   #
++   # Default Libs
++   #
++   LIBS  =
++   LIBOPTS = -L$(ENV_PREFIX)/lib/thread
++   SRCS = \
++       m2ua_main.c \
++       m2ua_stub.c \
++       sm_ex_ms.c \
++       sm_bdy1.c
++   OBJS  = $(SRCS:.c=.o)
++   DEPEND_SRCS = $(SRCS)
++   #
++   # List of build targets (required).
++   #
++   BUILD_TARGETS = depend.mk $(LIB)
++   include $(TOP)/build/telica_rules.mk
++   $(LIB): $(OBJS)
++       @$(ECHO) "Archiving " $(LIB)
++       $(AR) -rsv $(LIB) $(OBJS)
++   show_srcs:
++       $(ECHO) $(SRCS)
++   clean_all: clean
++       $(RM) $(LIB)
+
+
+i.  Make a new dir “AllTest” in signaling/m2uasig/Test
+    mkdir AllTest
+
+j.  Create “makefile” in the “AllTest” directory: signaling/m2uasig/Test/AllTest/makefile
++   TOP = ../../../../..
++   include $(TOP)/build/telica_defs.mk
++   SUBDIRS = $(TARGET_OBJ_DIR)
++   SUBDIR_TARGETS = $(SUBDIRS:%=%.subdir)
++   BUILD_TARGETS = $(SUBDIR_TARGETS)
++   include $(TOP)/build/telica_rules.mk
++   clean_all:
++       @for subdir in $(SUBDIRS); do \
++           $(ECHO) "Entering directory $$subdir"; \
++           $(MAKE) -C $$subdir clean_all; \
++       done
+
+k.  Create “AllTest.h” in the “AllTest” directory: signaling/m2uasig/Test/AllTest/AllTest.h
++   #ifdef __cplusplus
++   extern "C"
++   {
++   #endif
++   extern int AllTest(int ac, char** av);
++   #ifdef __cplusplus
++   }
++   #endif
+
+l.  Create “AllTest.c” in the “AllTest” directory: signaling/m2uasig/Test/AllTest/AllTest.c
++   #include "CppUTest/CommandLineTestRunner.h"
++   #include "CppUTestExt/MockSupport.h"
++   #include "CppUTestExt/MockSupportPlugin.h"
++   #include "CppUTest/TestRegistry.h"
++   #include "AllTest.h"
++
++   int  AllTest(int ac, char** av)
++   {
++      MockSupportPlugin mockPlugin;
++      TestRegistry::getCurrentRegistry()->installPlugin(&mockPlugin);
++      return CommandLineTestRunner::RunAllTests(ac, av);
++   }
+
+m.  Make a new dir “rhx86” in signaling/m2uasig/Test/AllTest
+    mkdir rhx86
+
+n.  Create “makefile” in “rhx86” directory: signaling/m2uasig/Test/AllTest/rhx86/makefile
++   TOP =  ../../../../../..
++   include $(TOP)/components/signaling/tsm/signaling_defs.mk
++   LOCAL_COPTIONS = $(APPLICATION_ID_DEFINES)
++   SGSOPTS=-DSB -DRY -DRY_ENBTCPSOCK -DSM -DUTEST
++   ifdef BLDDBG
++   LAST_COPTIONS+=-g
++   OPTIMIZE_LEVEL=0
++   endif
++   ifeq ($(VARIANT),PPC750)
++   endif   # if VARIANT = PPC750
++   LOCAL_INCLUDE = -I$(TOP)/components/signaling/m2uasig/Test/AllTest
++   LOCAL_VPATH = ../
++   CPPUTEST_HOME = $(TOP)/components/UT/CppUTest
++   INCLUDE_DIRS = $(CPPUTEST_HOME)/include $(CPPUTEST_HOME)/include/CppUTest
++   TEST_INCLUDE = $(LOCAL_INCLUDE) $(foreach dir,$(INCLUDE_DIRS), -I $(dir))
++   LOCAL_DEFINES += $(SSOPTS) $(STKOPTS) $(ENV) $(SGSOPTS) $(TEST_INCLUDE)
++   #
++   #  Library
++   #
++   LIB  = libm2uasig_alltest.a
++
++   #
++   # Default Libs
++   #
++   LIBS  =
++
++   LIBOPTS = -L$(ENV_PREFIX)/lib/thread
++   SRCS = AllTest.c
++   OBJS  = $(SRCS:.c=.o)
++   DEPEND_SRCS = $(SRCS)
++   #
++   # List of build targets (required).
++   #
++   BUILD_TARGETS = depend.mk $(LIB)
++   CC = $(CCP)
++   COPTS = $(CPPOPTS) #USE g++ to compile.
++   WARNING_OPTIONS = -Wall $(TELICA_DEFS_WERROR_OPTION)
++   include $(TOP)/build/telica_rules.mk
+
++   $(LIB): $(OBJS)
++       @$(ECHO) "Archiving " $(LIB)
++       $(AR) -rsv $(LIB) $(OBJS)
++   show_srcs:
++       $(ECHO) $(SRCS)
++   clean_all: clean
++   $(RM) $(LIB)
+
+o.  Modify signaling/tsm/m2uasig_Lynx/makefile
+#
+#  Executable
+#
+EXE = m2uasig
++   TEST_EXE = test_m2uasig
++
+
+…
+
++   #ifeq ($(strip $(BOARD)), ATCA)
++   ifdef ATCA_UT
++   #
++   # For CppUTest
++   #
++   CPPUTEST_HOME = $(TOP)/components/UT/CppUTest
++   CPPUTEST_LIB = $(CPPUTEST_HOME)/lib/libCppUTest.a
++   CPPUTEST_EXT_LIB = $(CPPUTEST_HOME)/lib/libCppUTestExt.a
++   LD_LIBRARIES += -lstdc++ -lgcov
++
++   M2UASIGLIB = $(TOP)/components/signaling/m2uasig/$(TARGET_OBJ_DIR)/libm2uasig.a
++
++   M2UASIG_TEST_LIBS = \
++       $(TOP)/components/signaling/m2uasig/Test/$(TARGET_OBJ_DIR)/libm2uasig_test.a \
++   $(TOP)/components/signaling/m2uasig/Test/AllTest/$(TARGET_OBJ_DIR)/libm2uasig_alltest.a \
++
++   M2UASIG_TEST_LIBS  += $(filter-out $(MT2UASIGLIB), $(LIBS))
++   M2UASIG_TEST_LIBS  += $(CPPUTEST_LIB) $(CPPUTEST_EXT_LIB)
++   endif
+
+…
+
++   ifdef ATCA_UT
++   $(EXE)_final: $(EXE) $(TEST_EXE)
++       @if [[ "$(BINARY_OUT_SUBDIR)" != "." ]]; then \
++             mkdir -p $(BINARY_OUT_SUBDIR) > /dev/null 2>&1; \
++             $(ECHO) "COPY $(EXE) to $(BINARY_OUT_SUBDIR)"; \
++             $(CP) $(EXE) $(BINARY_OUT_SUBDIR); \
++         fi
++   $(TEST_EXE): $(OBJS) $(EXE)
++       @$(ECHO) "Linking " $(TEST_EXE)
++       $(CC) -o $(TEST_EXE)  $(OBJS) $(M2UASIG_TEST_LIBS) $(LIBOPTS) $(LD_LIBRARIES)
++   ifdef CPPUTEST_NOTRUN
++       @$(ECHO) "Not Running $(TEST_EXE)"
++   else
++       @$(ECHO) "Running $(TEST_EXE)"; ./$(TEST_EXE)
++   ifndef ATCA_COV
++   ifeq ($(strip $(BULLSEYE_EXIST)), YES)
++       @covfn
++       @echo "-tNONEXIST.c" > $(TOP)/components/covc.cfg
++       @mv $(TOP)/components/atca.cov $(TOP)/components/m2uasig_$(TARGET_OBJ_DIR).cov
++   endif
++   endif
++   endif
++   else
+   $(EXE)_final: $(EXE)
+
+…
+
+clean_all: clean
+$(RM) $(EXE)
++   ifdef ATCA_UT
++       $(RM) $(TEST_EXE)
++   endif
+…
+
+5.  If you are the 1st time user for the module (ISUP, GCC and STG module has been added) go to step 6, otherwise, go to step 7.
+    Take SCTP as an example, if directory “signaling/sctp/Test” already exist, then it means the UT framework has been added for “SCTP” module.
+
+6.  Add makefile changes for the module.
+    Following are the steps for adding UT framework for SCTP module, provided by Gavin Xu:
+
+a.  Modify signaling/sctp/makefile
++   ifdef ATCA_UT
++   SUBDIRS += Test
++   endif
+
+b.  Make a new dir “Test” in signaling/sctp
+mkdir Test
+
+c.  Create “makefile” in “Test” directory: signaling/sctp/Test/makefile
++   TOP = ../../../..
++   include $(TOP)/build/telica_defs.mk
++   ifeq ($(TARGET_OS), RHX86)
++   SUBDIRS = $(TARGET_OBJ_DIR)
++   SUBDIR_TARGETS = $(SUBDIRS:%=%.subdir)
++   BUILD_TARGETS = $(SUBDIR_TARGETS)
++   include $(TOP)/build/telica_rules.mk
++   clean_all:
++       @for subdir in $(SUBDIRS); do \
++           $(ECHO) "Entering directory $$subdir"; \
++           $(MAKE) -C $$subdir clean_all; \
++       done
++   else
++   .PHONY: all
++   all:
++       @echo "No Unit Test for non-ATCA build"
++   endif
+
+d.  Make a new dir “rhx86” in signaling/sctp/Test
+    mkdir rhx86
+
+e.  Create “makefile” in “rhx86” directory: signaling/sctp/Test/rhx86/makefile
+Note: this makefile is mostly the same as signaling/sctp/Lynx/makefile.
+The difference is highlighted in BLUE.
++   TOP =  ../../../../..
++   include $(TOP)/components/signaling/tsm/signaling_defs.mk
++
++   SBOPTS= -DCMFILE_REORG_1 -DCMFILE_REORG_2 -DSB_CHECKSUM \
++             -DHI_REL_1_2 -DHI_REL_1_3 -DHI -DRY -DSM -DSB \
++             -DLCSMSBMILSB -DLCLSB -DLCSCT -DLCSBMILSB -DLCSBUISCT \
++             -DLCSBLIHIT -DLCSBUISCT -DIT -DSCTP_10MS_TASK -DTELICA_10MSTMR \
++             -DSB_ACKDELAY_10MSTMR -DLSB3
++
++   WARNING_OPTIONS = -Wall -Werror -Wno-comment -Wcast-qual
++
++   CPPUTEST_HOME = $(TOP)/components/UT/CppUTest
++   INCLUDE_DIRS = $(CPPUTEST_HOME)/include $(CPPUTEST_HOME)/include/CppUTest
++   TEST_INCLUDE = $(foreach dir,$(INCLUDE_DIRS), -I$(dir))
++
++   LOCAL_DEFINES += $(SSOPTS) $(STKOPTS) $(ENV) $(SBOPTS) $(TEST_INCLUDE)
++
++   ifdef BLDDBG
++   LAST_COPTIONS+=-g
++   OPTIMIZE_LEVEL=0
++   endif
++   ifeq ($(VARIANT),PPC750)
++   endif   # if VARIANT = PPC750
++   LOCAL_INCLUDE = -I$(TOP)/components/signaling/mtss \
++                      -I$(TOP)/components/signaling/sigcom \
++                      -I$(TOP)/components/telica_common/inc \
++                      -I$(TOP)/components/signaling/tsm/tsmc \
++                      -I$(TOP)/components/signaling/sctp
++   LOCAL_VPATH = ../ ../.. ../../../sigcom
++   #
++   #  Library
++   #
++   LIB  = libsb_test.a
++   #
++   # Default Libs
++   #
++   LIBS  =
++   LIBOPTS = -L$(ENV_PREFIX)/lib/thread
++   SRCS = \
++           sbTest.c
++   OBJS  = $(SRCS:.c=.o)
++   DEPEND_SRCS = $(SRCS)
++   #
++   # List of build targets (required).
++   #
++   BUILD_TARGETS = depend.mk $(LIB)
++   CC    = $(CCP)
++   COPTS = $(CPPOPTS)
++   include $(TOP)/build/telica_rules.mk
++   $(LIB): $(OBJS)
++       @$(ECHO) "Archiving " $(LIB)
++       $(AR) -rsv $(LIB) $(OBJS)
++   show_srcs:
++       $(ECHO) $(SRCS)
++   clean_all: clean
++       $(RM) $(LIB)
+
+f.  Create a new c file for unit test: signaling/sctp/Test/sbTest.c
++   #include "CppUTest/TestHarness.h"
++   #include "CppUTestExt/MockSupport.h"
++   #include "CppUTestExt/MockSupportPlugin.h"
++   #include "CppUTest/MemoryLeakDetectorMallocMacros.h"
++   #include "CppUTest/MemoryLeakDetectorNewMacros.h"
++
++   TEST_GROUP(SctpTestGroup)
++   {
++       void setup ()
++       {
++       }
++
++       void teardown()
++       {
++       }
++   };
++
++   TEST(SctpTestGroup, FirstTest)
++   {
++       FAIL("Fail me!");
++   }
+
+g.  Modify signaling/tsm/m2uasig_Lynx/makefile
+…
+    $(TOP)/components/signaling/m2uasig/Test/AllTest/$(TARGET_OBJ_DIR)/libm2uasig_alltest.a \
++   $(TOP)/components/signaling/sctp/Test/$(TARGET_OBJ_DIR)/libsb_test.a
+…
+
+h.  Modify signaling/m2uasig/Test/AllTest/AllTest.h
++   IMPORT_TEST_GROUP(SctpTestGroup); #Import the test group you are running.
+
+i.  The test framework setup for SCTP is done.
+Try a build and check the result. E.g. Under signaling directory, try ” make SWM2UASIG=t ATCA_UT=t”
+
+7.  Add test for the function/class
+Following are the steps for adding unit test for function sbAcInsTsn(), provided by Gavin Xu:
+a.  Add the test case calling the real function
+    #include "CppUTest/TestHarness.h"
+    #include "CppUTestExt/MockSupport.h"
+    #include "CppUTestExt/MockSupportPlugin.h"
+    #include "CppUTest/MemoryLeakDetectorMallocMacros.h"
+    #include "CppUTest/MemoryLeakDetectorNewMacros.h"
+
+    TEST_GROUP(SctpTestGroup)
+    {
+        void setup ()
+        {
+        }
+ 
+        void teardown()
+        {
+        }
+    };
+
+    TEST(SctpTestGroup, FirstTest)
+    {
+        FAIL("Fail me!");
+    }
+
++   TEST(SctpTestGroup, sbAcInsTsn_DupTsn)
++   {
++       S16 ret;
++       SbSctAssocCb  assoc;
++       SbLocalAddrCb localConn;
++       SbTSapCb tsap, *tsap1;
++       SbSctSapCb sap, *sap1;
++  
++       tsap1 = &tsap;
++       sap1 = &sap;
++       sbGlobalCb.tSaps = &tsap1;
++       sbGlobalCb.sctSaps = &sap1;
++  
++       assoc.localConn = &localConn;
++       assoc.sbAcCb.tsnLst[0] = 1;
++       assoc.sbAcCb.tsnLst[1] = 3;
++       assoc.sbAcCb.tsnLstSz = 2;
++       assoc.sbAcCb.cumPeerTsn = 100;
++       assoc.sbAcCb.dupTsnLstSz = 0;
++       assoc.localConn->suId = 0;
++       assoc.spId = 0;
++  
++       ret = sbAcInsTsn(&assoc, 101);
++       CHECK(ROKDUP == ret);
++   }
+
+b.  Include header file
+Try a build and check the result. E.g. Under signaling/sctp/Test directory, try ” make SWM2UASIG=t ATCA_UT=t”. Normally the compile would fail because lacking of header files.
+Add the required header file to make it pass.
+    #include "CppUTest/TestHarness.h"
+    #include "CppUTestExt/MockSupport.h"
+    #include "CppUTestExt/MockSupportPlugin.h"
+    #include "CppUTest/MemoryLeakDetectorMallocMacros.h"
+    #include "CppUTest/MemoryLeakDetectorNewMacros.h"
+
++   /* header include files (.h) */
++   #include "envopt.h"        /* environment options */
++   #include "envdep.h"        /* environment dependent */
++   #include "envind.h"        /* environment independent */
++   #include "gen.h"           /* general */
++   #include "ssi.h"           /* system services */
++   #include "cm_hash.h"       /* common hashing */
++   #include "cm_llist.h"      /* common linked list */
++   #include "cm5.h"           /* common timer */
++   #include "cm_inet.h"       /* common network address */
++   #include "cm_tpt.h"        /* common transport defines */
++   #include "cm_dns.h"        /* Common DNS library */
++   #include "lsb.h"           /* layer management, SCTP  */
++   #include "sct.h"           /* SCT interface */
++   #include "hit.h"           /* HIT interface */
++   #include "sb_port.h"
++   #include "sb_mtu.h"
++   #include "sb.h"            /* SCTP internal defines */
++   #include "sb_err.h"        /* SCTP error */
++   #include "telica_abort.h"
++  
++   /* header/extern include files (.x) */
++   #include "gen.x"           /* general */
++   #include "ssi.x"           /* system services */
++   #include "cm_hash.x"       /* common hashing */
++   #include "cm_llist.x"      /* common linked list */
++   #include "cm_lib.x"        /* common library */
++   #include "cm5.x"           /* common timer */
++   #include "cm_inet.x"       /* common network address */
++   #include "cm_tpt.x"        /* common transport address */
+    TEST_GROUP(SctpTestGroup)
+    {
+…
+
+c.  Modify the “covc.cfg” in the “Test” directory: signaling/m2uasig/Test/covc.cfg
++   -tcomponents/signaling/sctp/sb_bdy3.c:sbAcInsTsn
+
+d.  Build and check the result.
+Under signaling directory, try ” make SWM2UASIG=t ATCA_UT=t”, the result would looks like:
+
+Running test_m2uasig
+OK (1 tests, 1 ran, 1 checks, 0 ignored, 0 filtered out, 0 ms)
+
+BullseyeCoverage Function Report 8.4.16 Linux-x64 License 8722
+Copyright (c) Bullseye Testing Technology 1990-2012
+Function                          Source                Line  FnCov           C/D Coverage
+--------------------------------  --------------------------  -----  ---------------------
+sbAcInsTsn(SbSctAssocCb*,SctTSN)  ../../sctp/sb_bdy3.c  2637  1 / 1      30 /    42 =  71%
+--------------------------------  --------------------------  -----  ---------------------
+Total                                                          100%      30 /    42 =  71%
+ 
+The detailed BullsEye output is stored under components directory: m2uasig_rhx86.cov
+Using CoverageBrowser will show the details.
+CoverageBrowser m2uasig_rhx86.cov &
+
+e. Add more cases and enjoy.
+
+8. Compile Error FAQ
+In step 7.b, there might be many compile errors. Which is because many header files are only wrote for C compiler, but CppUTest requires C++ compiler. Following are typical methods to resolve the errors.
+a. Add extern “C”
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+#include XXX
+#include YYY
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+b. Rename certain keyword
+In some cases, the C++ keywords (e.g. class) are used in some C files. It would better to rename it.
+If it is hard to rename, try following way:
+
+#define class class_variable
+// if class is only used in declarations, you can also do
+// #define class
+#include XXX
+#undef class
+
+c. Same name for Type and Variable
+C compiler allows same name for Type and Variable, but C++ does not. Please rename it.
+An example:
+typedef struct NdlShlfSt
+{
+…
+} NdlShlfSt;
+NdlShlfSt *NdlShlfSt;
+
+Modify it to:
+
+typedef struct Type_NdlShlfSt
+{
+…
+} Type_NdlShlfSt;
+Type_NdlShlfSt *NdlShlfSt;

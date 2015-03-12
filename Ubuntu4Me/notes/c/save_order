@@ -1,0 +1,42 @@
+1. Struct
+typedef struct url{
+	int   path1;
+	char  path2;
+	short path3;
+	int   path4;
+}Url;
+
+&Url = bfe00e44
+&Url.path1 = bfe00e44
+&Url.path2 = bfe00e48
+&Url.path3 = bfe00e4a
+&Url.path4 = bfe00e4c
+
+*************************************************************
+
+2. Union
+typedef union url{
+    int   path;
+    short path1; 
+}Url;
+
+kavon.path  = 0x01020304
+kavon.path1 =     0x0304
+
+*************************************************************
+
+3. Array
+from low to high
+
+*************************************************************
+
+4. Two problems
+(1) External: the address of the whole object -> the address of the lowest byte
+(2) Internal: the address of each member 
+                                       |
+									   +-> little endian (x86), big_endian (ibm, motorola)
+                                       |
+                      inside each member 
+
+5. Stack: from high to low
+   Heap:  from low to high

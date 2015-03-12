@@ -1,0 +1,13 @@
+1. PDU && SDU
+(1) NMB_ALLMSG => numPdus
+    MI_SETUP
+    ...
+(2) NMB_PRIM   => numSdus
+    PM_CONREQ = NMB_ALLMSG + 0
+    ...
+	PM_FAC
+
+2. Matrix of ISDN State Machine
+NMB_MSG: number of all used messages
+NMB_CON_EVNT = NMB_MSG + NMB_PRIM - 1
+NMB_CON_ST

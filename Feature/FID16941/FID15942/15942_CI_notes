@@ -1,0 +1,28 @@
+1. sprint I (3)
+http://build2.inse.lucent.com/codestriker/codestriker.pl?topic=9135042&action=view 
+User Story 3: Extended Cache Creation and Usage
+User Story 4: Extended Cache Guard Timer
+
+2. sprint II (2)
+http://build2.inse.lucent.com/codestriker/codestriker.pl?topic=1830883&action=view
+User Story 5:  Extended Cache hit interim TTL
+User Story 14: Prevent SIP stack resolver from doing external query for time-out
+
+3. sprint III (3)
+http://build2.inse.lucent.com/codestriker/codestriker.pl?topic=2184949&action=view
+User Story 2: Rotate RRs for Queued Queries
+User Story 7: Major Alarm for Extended Cache Use
+User Story 9: Provisioned Time-out value
+
+4. sprint IV (3)
+http://build2.inse.lucent.com/codestriker/codestriker.pl?topic=2571702&action=view
+User Story 8:  Critical Alarm for no Extended Cache hits
+User Story 10: Query retransmissions
+User Story 11: Back-off
+
+5. sprint V (1)
+http://build2.inse.lucent.com/codestriker/codestriker.pl?topic=6796428&action=view
+User Story 5: PM-DNS Stats
+
+6. Total： 2, 3, 4,  5,  7, 
+           8, 9, 10, 11, 14

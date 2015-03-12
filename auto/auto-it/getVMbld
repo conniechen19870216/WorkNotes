@@ -1,0 +1,52 @@
+#!/bin/ksh
+
+USAGE=" Usage: $0 -f filename (must input) \n
+		-p password (must input) \n
+		-h [ftp server,default is 135.252.181.52] \n
+		-u [user name, default is your user name] \n
+		-s [source/remote dir, default is /local/sdm400/vmware ] \n
+		-d [destination/local dir, default is /local/$USER ] \n
+	         "
+
+while getopts f:p:h:u:d:s: OPTION ;
+do
+	case "$OPTION" in
+		f) filename="$OPTARG" ;;
+		p) password="$OPTARG" ;;
+		h) host="$OPTARG" ;;
+		u) user="$OPTARG" ;;
+		s) sdir="$OPTARG" ;;
+		d) ddir="$OPTARG" ;;
+		\?) echo "$Usage"
+			exit 1
+		;;
+	esac
+done
+
+shift `echo "$OPTIND - 1" | bc`
+if [ -z "$filename" ] || [ -z "$password" ] ; then
+	echo "ERROR: $USAGE "
+	exit 1
+fi
+
+if [ -z "$host" ] ; then
+	host="135.252.181.52"
+fi
+
+if [ -z "$user" ] ; then
+	user=$USER
+fi
+
+if [ -z "$sdir" ] ; then
+	sdir="/local/sdm400/vmware"
+fi
+
+if [ -z "$ddir" ] ; then
+	ddir="/local/$USER"
+fi
+
+if [ ! -d "$ddir" ]; then
+        mkdir -p "$ddir"
+fi
+cd $ddir
+ftpVMbld $host $user $password $sdir $filename

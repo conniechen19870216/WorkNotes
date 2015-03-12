@@ -1,0 +1,393 @@
+1. Multi-MG
+2. Multi-CCS
+3. Multi-Media
+4. Mutli-Version (HUG)
+5. Bandwidth
+6. Y-Gateway
+7. IBCF
+8. IPv6
+
+Problems:
+a. Inter-Mg
+b. All scenarios of SIP call
+
+**************************************************************************************
+Four Basic Functions: ccExtractProtSdp, ccFillProtSdp, ccExtractMgctSdp, ccFillProtSdp
+**************************************************************************************
+CcLiCctConInd
+     |
+     |<Step 1: init icBcm and ogBcm>
+     +----- ccInitCon
+              |
+              |
+              +----- ccGetConn
+                        |
+                        |
+                        +------ initIcBcm(&(*con)->icBcm)
+                        |
+                        +------ initOgBcm(&(*con)->ogBcm)
+
+ccConE00S00
+      |
+      |<Step 2: parse remote SDP to con->icIpParam.rmtDesc>
+      +----- sdpRet = ccExtractProtSdp(ccInit.region, ccInit.pool, con,             
+      |                 |              &(((CcConEvnt *)event)->m.sipConEvnt.sdp));
+      |                 |
+      |                 |
+      |                 +------- sdp_parse
+      |
+      |
+      |<Step 3: update icBcm>
+      +----- ret = SGetSBuf(ccInit.region, ccInit.pool, (Data **) &(con->icBcm.cc),
+      |                     (Size) sizeof(AinCallConfig_t));
+      |      cmMemset((U8 *) (con->icBcm.cc), 0, sizeof(AinCallConfig_t));
+      |        
+      |      con->icBcm.svcHeader.transId = ccGetNewtransId();
+      |          
+      |      ret = ccFillBCMInfo(con, &(con->icBcm), con->icBcm.svcHeader.transId,  
+      |                          CiOriginatingSetup, PicONull, BtOBcm,
+      |                          DP_ORIGINATION_ATTEMPT);
+      |      con->icBcm.cc->legId01 = & (con->icBcm);
+      |          
+      |      ret = cmHashListInsert(&ccicBCMInsTbl, (PTR) &(con->icBcm),
+      |                             (U8 *)&(con->icBcm.svcHeader.transId),
+      |                             (U16)sizeof(UConnId));
+      |
+      |
+      |<Step 4>
+      +----- if ((CC_GET_PROTOCOL(con->icProtType) == CC_SIP)||
+      |          (CC_GET_PROTOCOL(con->icProtType) == CC_SIPT))
+      |      {               
+      |          FindMgMapAddr (con->icIpParam.rmtDesc, con);
+      |      }               
+      |
+      |
+      +----- ccFillicBcmIpVersion(&con->icBcm);
+
+
+ccSendOrSkipTerminationAttempt
+      |
+      |<Step 5: update icBcm and ogBcm>
+      | 
+      +----- if (con->icBcm.cc)
+      |      {
+      |        if ((con->icBcm.cc->ccId >= CiThreePartySetup) &&
+      |            (con->icBcm.cc->ccId <= CiRemoteTransferSetup))
+      |        {
+      |          con->icBcm.cc->legId2 = &(con->ogBcm);
+      |          CCDP(AIN_DBG_LEVEL_0, "con->mgBlock->mgCtx->suCtxId=%ld\n",
+      |                (con->mgBlock->mgCtx ? con->mgBlock->mgCtx->suCtxId : 0));
+      |        }
+      |        else
+      |        {
+      |          con->icBcm.cc->legId1 = &(con->ogBcm);
+      |          CCDP(AIN_DBG_LEVEL_0, "con->icBcm.cc->ccId=%d\n", con->icBcm.cc->ccI
+      |        }
+      |      }
+      |
+      |
+      +----- con->ogBcm.svcHeader.transId  = ccGetNewtransId();
+             ret = cmHashListInsert(&ccogBCMInsTbl, (PTR) &(con->ogBcm),
+                                    (U8 *)&(con->ogBcm.svcHeader.transId),
+                                    (U16)sizeof(UConnId));
+
+             FillBCMInfo(con, &(con->ogBcm), con->ogBcm.svcHeader.transId,
+                           CiTerminatingSetup, PicTNull, BtTBcm, DP_TERMINATION_ATTEMPT);
+             /* Update Call Configuration parameters */
+             if (con->ogBcm.cc)
+             {
+               con->ogBcm.cc->legId1 = &con->icBcm;
+               CCDP(AIN_DBG_LEVEL_0, "Updatated ogBcm.cc.legId, call Config need not"
+                    " be updated\n");
+             }
+
+ccProcessAuthorizeTermination
+      |
+      |
+      +----- ccDeriveCcn
+      |            |
+      |            |
+      |            +------ con->ogBcm.mgSpId = con->icBcm.mgSpId = ((CcGenSap *)(*ccSfSapLstPtr))->spId;
+      |
+      |                    if (icMgSpId != con->ogBcm.mgSpId)
+      |                    {                                                                                  
+      |                      ccInitAdj(BtOAdjBcm, &con->icAdjBcm, &con->icAdjIpParam, con, icMgSpId);
+      |                      ccInitAdj(BtTAdjBcm, &con->ogAdjBcm, &con->ogAdjIpParam, con, con->ogBcm.mgSpId);
+      |                        
+      |                      con->ccmCb.ccn = CCN_1;
+      |                    }   
+      |                    else
+      |                    {
+      |                      con->ccmCb.ccn = CCN_0;
+      |                    }        
+      |
+      |
+      |<Step 6: update ogBcm>
+      +----- ccUpdateBcm(con, PicAuthorizeTermination, CiTerminatingSetup, BtTBcm);
+
+
+ccProcessPostAuthorizeTermination
+      |
+      |<Step 7: bearerNAT>
+      +----- ccIsFeatureLicenseInstalled(con, &failCnd)
+      |             |
+      |             |
+      |             +------ ccIsIBCFCall(con)
+      |                           |
+      |                           |
+      |                           +----- ccIsMGInsertionNeeded(con, icProtType, ogProtType)
+      |                                       |
+      |                                       |
+      |                                       +----- ccIsBearerNATEgress(con)
+      |                                                  |
+      |                                                  |
+      |                                                  +----- ccIsBearerNATEgress(con)
+      |                                                  |
+      |                                                  +----- ccIsBearerNATIngress(con)
+      |
+      |
+      |
+      +------ IsSwtchingReqOk = ccIsSwtchingReqOk(con, con->icProtType, con->ogProtType);
+      |                           |
+      |                           |
+      |                           +----- /* + FID 14732.0 */
+      |                                  if ((ccIsBearerNATEgress(con) && !(CC_EGRESS_INTER_CCS_CALL(con))) ||
+      |                                      ((ccIsBearerNATIngress(con)) &&
+      |                                       (((!CC_INGRESS_INTER_CCS_CALL(con) && !CC_EGRESS_INTER_CCS_CALL(con))&&
+      |                                         (CC_IS_PROT_TYPE_CASORGR303(ogProtType) == FALSE)) ||
+      |                                        (con->ogIntfcCb->intfc.intfType == CC_SI_INTFC) ||/*72272*/
+      |                                        (con->ogIntfcCb->intfc.intfType == CC_EXT_BICC) || /* 81959 */
+      |                                        (con->ogIntfcCb->intfc.intfType == CC_IN_INTFC) ||/* FID 15374.0 */
+      |                                        (con->ogIntfcCb->intfc.intfType == CC_SIP_INTFC) /* SIP and SIPT*/
+      |                                       )
+      |                                      ) /* BUG:71472 */
+      |                                     )
+      |                                  {
+      |                                      /* MG will be inserted in following cases of "bearerNat":
+      |                                         1) Ingress MGW: SIP->SIP Intra-CCS with Ingress or Egress NAT==y
+      |                                         1b)Ingress MGW: SIP->SIP Inter-CCS with Ingress & Egress NAT==y(7-1)
+      |                                         2) Egress MGW : SIP->SIP Inter-CCS with Egress NAT==y
+      |                                         3) Egress MGW : ISUP->SIP Inter-CCS with Egress NAT==y
+      |                                         4) Ingress MGW: SIP->ISUP Inter-CCS with Ingress NAT==y
+      |                                         5) Ingress MGW: SIP->EXT_BICC Inter-CCS with Ingress NAT==y
+      |                                         6) Egress MGW : SIP(T)->ISUP/ISDN/EXT_BICC Inter-CCS with Ingress NAT==y (by bug89479)
+      |                                       */
+      |                                      CCDP(AIN_DBG_LEVEL_2,
+      |                                          "%s: MG allocation due to NAT on egress and/or ingress\n",
+      |                                              __FUNCTION__);
+      |                                      CC_SET_CALL_FLAG(con->flag, CC_FLAG_NAT);                                                
+      |                                      RETVALUE(TRUE);
+      |                                  }
+      |                                  /* - FID 14732.0 */
+      |
+      |
+      +----- if (con->icIpParam.rmtDesc&&IsSwtchingReqOk)
+      |      {
+      |          ccAllocateMultiMediaCb(con);              
+      |      }              |
+      |                     |
+      |                     |
+      |                     +------ ccCheckEnableMediaAgnostic
+      |                     |
+      |                     +------ ccDisableMediaAgnostic(con, 0)
+      |
+      |
+      +---- ccFillIpVersion
+      |         |
+      |         |
+      |         +----- ccFillIcOgBcmIpVersion(con, isSwReqTrue)
+      |
+      |
+      |<Step 8: get common sdp codec between remote SDP and PRFL-SDP>
+      +---- if (ccIsMGInsertionNeeded(con, icProtType, ogProtType) == TRUE)
+      |     {
+      |       if ((icProtType == CC_SIPT) || (icProtType == CC_SIP) ||
+      |           (realIcProtType == CC_SIPT) || (realIcProtType == CC_SIP))/* BUG:89646*/
+      |       {
+      |         CcSdpCb  *sdpCb  = (CcSdpCb  *)NULL;
+      |         Sdp      *rmtSdp = NULLP;
+      |     
+      |         if (!IS_MULTIMEDIA_NO_MEDIA_AWARE_4_BCM(&con->icBcm))                         
+      |         {
+      |           /* FID17160.0 For SteroMono need to check all the sdp which MGC received! */
+      |           rmtSdp = con->icIpParam.rmtDesc;
+      |           CHECK_REPLACE_SDP_4_BCM (&con->icBcm, rmtSdp);
+      |     
+      |           if (ccGetSdpPrfl (&con->icBcm, &sdpCb) == ROK)
+      |           {
+      |             if (ccGetCommonCodec (rmtSdp, sdpCb,
+      |                                   NULL, NULL) != ROK)
+      |             {
+      |               if (con->ogRscVal)
+      |               {
+      |                 ccDeallocateResource(con, CC_OUTGOING);
+      |                 con->ogRscVal = FALSE;
+      |               }
+      |               ccProcessFailCnd(con, FC_CODEC_NEG_FAIL, TRUE);
+      |               RETVOID;
+      |             }
+      |           }
+      |         }
+      |       ...
+      |       }
+      |     }
+      |     
+      |     
+      +---- con->ccmCb.state = CC_INGRESS_MG;
+
+ccProcessAuthTermSwtReqTrue
+      |
+      |
+      |     cmMemset((U8*) &icEvDesc, 0, sizeof(MgctEventsDescriptor));
+      |     cmMemset((U8*) &ogEvDesc, 0, sizeof(MgctEventsDescriptor));
+      |     
+      |     cmMemset((U8*) &icMediaDesc, 0, sizeof(MgctMediaDesc));
+      |     cmMemset((U8*) &ogMediaDesc, 0, sizeof(MgctMediaDesc));
+      |
+      |
+      |<Step 9: Prepare SDP>
+      +---- con->ccmCb.ccn = CCN_0
+            con->ccmCb.state = CC_INGRESS_MG
+
+            if (!(CC_INGRESS_INTER_CCS_CALL(con)))
+            {
+               if(con->icIpParam.rmtDesc)
+                  cmCopySdp(ccInit.region, ccInit.pool, &(con->ccHeldSdpForCfna),
+                            con->icIpParam.rmtDesc);
+            }
+
+            CC_DERIVE_BCMS(con, tmpBcm, tmpOgBcm);
+
+            cmMemset((U8*)&icTermStateDesc, 0, sizeof(MgctTermStateDesc));
+            cmMemset((U8*)&ogTermStateDesc, 0, sizeof(MgctTermStateDesc));
+
+<Target I: MgctTermStateDesc>
+            ccBuildT38TermStateDescInAddIfReqd(con, MGCT_CMD_ADD, &icTermStateDesc,
+                     &ogTermStateDesc, &icEvDesc, &ogEvDesc);                      
+            ccBuildXnqTermStateDescInAddIfReqd(con, MGCT_CMD_ADD, &icTermStateDesc,
+                     &ogTermStateDesc);
+
+
+<Target II: MgctMediaDesc>
+            pIcMediaDesc = &icMediaDesc;
+            pOgMediaDesc = &ogMediaDesc;
+            
+            if (CC_OFFANS_ICOFFER_PENDING(con) || CC_OFFANS_ICRMTANS_PENDING(con) ||
+                /* Bug# 71817 */ 
+                ccCheckIPAddressInRemoteIsZero(con)) 
+            {
+              if (tmpBcm->bcmType == BtOBcm)  /* FID 15261.0 */                     
+<icMode>        icMode = MGCT_MODE_RECV_ONLY;
+            }
+
+            if (ccIsIPResource(&con->icBcm) && (con->icIpParam.rmtDesc))
+            {
+                MediaStream_t* MsPtr = NULLP;
+                MsPtr = ccGetMediaStream_4_BCM(&con->icBcm, con->icIpParam.rmtDesc, SDP_MTYPE_AUDIO);
+            
+                /* Bug 90355 */
+                if ((MsPtr) && (MsPtr->m.voip.rtpInfo.mode.pres == PRSNT_NODEF)&&
+                      (MsPtr->m.voip.rtpInfo.mode.val == SDP_INACTIVE))
+                {
+                   icMode = MGCT_MODE_INACTIVE;
+                   /* Set the HoldState */
+                   (*HOLD_STATE(con)) = ccSetHoldState((*HOLD_STATE(con)), INCTOOUT, TRUE );
+                   (*HOLD_FLAG(con))  = SDP_INACTIVE;
+                }
+                else if (ccCheckIPAddressInRemoteIsZero(con) ||                                      
+                    ((MsPtr) && (MsPtr->m.voip.rtpInfo.mode.pres == PRSNT_NODEF) &&
+                     (MsPtr->m.voip.rtpInfo.mode.val == SDP_SENDONLY)))
+                {
+                    icMode = MGCT_MODE_RECV_ONLY;
+                    /* Set the HoldState */
+                    (*HOLD_STATE(con)) = ccSetHoldState((*HOLD_STATE(con)), INCTOOUT, TRUE );
+                    (*HOLD_FLAG(con))  = SDP_RECVONLY;
+                }
+            }
+
+            CC_LOCATE_RMT_SDP(con, rmtSdp);
+            CHECK_REPLACE_SDP (con, rmtSdp);
+            mgctMediaDesc(&(con->ctl), NOTPRSNT, icMode, ingrEchoPres, ingrEchoTail,
+                          ingrEchoCntrlNLP, ingrEchoCntrlType, 0, FALSE, 0, DSVal, NULLP,
+<pIcMediaDesc>            NULLP, pIcTermStateDesc, pIcMediaDesc);
+
+            mgctMediaDesc(&(con->ctl), NOTPRSNT, ogMode,  egrEchoPres, egrEchoTail,
+                          egrEchoCntrlNLP, egrEchoCntrlType, 0, FALSE, 0, DSVal, NULLP,
+<pOgMediaDesc>            NULLP, pOgTermStateDesc, pOgMediaDesc);
+
+
+
+
+ccSIP2SIPMapS28M00
+       |
+       |<Step 10: send SDP out>
+       +----- local = (con->ogIpParam.locDesc != NULL);
+                                                                       
+              if(local)
+              {
+                SdpPtr = con->ogIpParam.locDesc;
+              
+                if (SdpPtr && SdpPtr->numDecode)
+                { 
+                 int i;
+                 for (i=0;i<SdpPtr->numDecode;i++)
+                 {
+                   MAP_DP((MAP_SIP),"sdp.p[%d].ip= %s port=%lx\n",
+                         i, 
+                         ip_ntoa(&SdpPtr->p[i].address.ip.binary.val),
+                         SdpPtr->p[i].address.ip.port.val);
+                 }
+                } 
+              
+                cmCopySdp(ccInit.region, ccInit.pool, &(con->ccHeldSdpForCfna),
+                    con->ogIpParam.locDesc);
+                ccFillProtSdp(ccInit.region, ccInit.pool, &con->ogBcm, &ogSip->sdp);
+                /* restoring sdp */
+                cmGetCleanSdp(ccInit.region, ccInit.pool, &(con->ogIpParam.locDesc));
+                cmCpyAndFreeSdp(ccInit.region, ccInit.pool, con->ogIpParam.locDesc,
+                   &con->ccHeldSdpForCfna);
+              }
+              else
+              {
+                if (con->icIpParam.rmtDesc)
+                {
+                    SdpPtr = con->icIpParam.rmtDesc;
+            
+                    if (SdpPtr && SdpPtr->numDecode)
+                    {
+                       int i;
+                       for (i=0;i<SdpPtr->numDecode;i++)
+                       {
+                         MAP_DP((MAP_SIP),"sdp.p[%d].ip= %s port=%lx\n",
+                                i,
+                                ip_ntoa(&SdpPtr->p[i].address.ip.binary.val),
+                                SdpPtr->p[i].address.ip.port.val);                       
+                       }
+                    }
+            
+                    /* RmMgStatus is being used to determine if this is a SFEP */
+                    if ((RmMgStatus == RM_MG_OOS) && (CC_IS_ASSOCBLOCK_PRESENT(con)))
+                    {
+                       /* CRBT - For SFEP case, set mode to INACTIVE in the offer */
+                       SdpPtr->p[0].m.voip.rtpInfo.mode.pres = PRSNT_NODEF;
+                       SdpPtr->p[0].m.voip.rtpInfo.mode.val = SDP_INACTIVE;
+                    }
+            
+                    cmCopySdp(ccInit.region, ccInit.pool, &(con->ccHeldSdpForCfna),
+                        con->icIpParam.rmtDesc);
+                    ccFillProtSdp(ccInit.region, ccInit.pool, &con->ogBcm, &ogSip->sdp);
+                    /* restoring sdp */
+                    cmGetCleanSdp(ccInit.region, ccInit.pool, &(con->icIpParam.rmtDesc));
+                    cmCpyAndFreeSdp(ccInit.region, ccInit.pool, con->icIpParam.rmtDesc,
+                       &con->ccHeldSdpForCfna);
+               }
+            }
+
+ccFillProtSdp
+       |
+       |<step 11: encode to SipConEvnt>
+       +----- sdp_encode
+       |
+       |
+       |<Free con->ogBcm->con->IpParam.locDesc>
+       +----- cmFreeSdp(ccInit.region, ccInit.pool, srcSdp);

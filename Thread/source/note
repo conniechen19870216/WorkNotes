@@ -1,0 +1,7 @@
+1. pthread_cond_signal
+发送信号唤醒thread，但是不会unlock mutex；这需要接下来的pthread_mutex_unlock来解锁
+
+2. while判断的两个理由
+(1) 唤醒单线程的时候，可能数据没有被处理使得条件满足；
+(2) 唤醒多个线程的时候，通过设置不同的check条件来使得其中一部分线程继续执行任务；
+    因为唤醒不能保证各自的check条件能够满足

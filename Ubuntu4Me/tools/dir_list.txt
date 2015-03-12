@@ -1,0 +1,449 @@
+###############################################################################
+# This file contains list of directory, one directory per line, needed in 
+# making tags or cscope.out 
+# scripts 'mktags.sh' and 'mkcscope.sh' will use this list to make
+# tags or cscope.out respectively.
+#
+#  Each line in this file must be one of following.
+#        - dir name (relative to TelicaRoot/components), one dir per line only
+#        - Blank line
+#        - A commnet line, started with "#" with leading spaces permitted
+# Note:-  Directory lines can have trailing comments and also leading/trailing
+#         SPACE and TABS
+#
+###############################################################################
+
+# system files
+lynx/usr/include
+lynx/usr/include/sys
+lynx/usr/include/g++
+
+# common files
+telica_common/inc
+telica_common/src
+
+# table defintions
+table_defs
+table_defs/v_1
+table_defs/v_2
+table_defs/v_3
+table_defs/v_4
+table_defs/v_5
+table_defs/v_6
+table_defs/v_7
+table_defs/v_8
+table_defs/v_9
+table_defs/v_a
+table_defs/v_b
+table_defs/v_c
+table_defs/v_d
+table_defs/v_e
+
+#cm_mon
+cm_mon/inc
+cm_mon/src
+
+#db
+db/src
+db/inc
+db/gen
+
+#ipagent
+ipagent/src
+ipagent/inc
+
+ipfilt
+
+# TL1 stuff
+tl1/src/user_impl
+tl1/src/common
+tl1/src/telcode
+tl1/src/craft
+tl1/src/gencode
+tl1/src/radius
+tl1/inc/gencode
+tl1/inc/user_impl
+tl1/inc/common
+tl1/inc/telcode
+tl1/inc/craft
+tl1/inc/radius
+# TL1 UTest stuff
+tl1/Test/AllTest
+
+# sigcom, MTSS, Lynx
+signaling/sigcom
+signaling/mtss
+signaling/lynxdrvr
+
+# FTHA/PSF
+signaling/psf-core/msgrouter
+signaling/psf-core/sysagent
+signaling/psf-core/sysmgr
+
+# ATM
+signaling/Q.2140
+signaling/Q.SAAL
+signaling/sacl
+
+# relay, SCTP, TUCL
+signaling/relay
+signaling/sctp
+signaling/tucl
+
+# SS7 - MTP2, M2UA, M2PA, MTP3, M3UA, DMTP3
+signaling/mlfc
+signaling/ss7/mtp2
+signaling/m2ua
+signaling/m2pa
+signaling/ss7/mtp3
+signaling/ss7/psf-mtp3
+signaling/mtp3sig
+signaling/m2uasig
+signaling/sgsig
+signaling/m3ua
+signaling/m3ua/psf-m3ua
+signaling/m3ua1.7
+signaling/m3ua1.7/Comm
+signaling/m3ua1.7/psf-m3ua
+signaling/distributor
+signaling/distributor/Comm
+signaling/ss7/dmtp3/att_stl/include
+signaling/ss7/dmtp3/att_stl/src
+signaling/ss7/dmtp3/att_stl/src/ctime
+signaling/ss7/dmtp3/att_stl/src/ksh
+signaling/ss7/dmtp3/att_stl/src/libx
+signaling/ss7/dmtp3/att_stl/src/tm
+signaling/ss7/dmtp3/stg/include
+signaling/ss7/dmtp3/stg/src
+signaling/ss7/dmtp3/stg/tool
+signaling/ss7/dmtp3/lyr_intfc
+signaling/exchanger
+signaling/exchanger/Comm
+
+# Iphase - Convergence Layer, AMC driver
+signaling/amc/ss7_conv
+signaling/amc/ss7_conv/Comm
+signaling/amc/iphase_3639/include
+signaling/amc/iphase_3639/src
+
+# SCCP
+signaling/ss7/sccp
+signaling/ss7/psf-sccp
+signaling/dist/sccp
+
+# SS7 - ISUP
+signaling/ss7/isup
+signaling/ss7/psf-isup
+signaling/ss7/psif-isup
+
+# SS7 - BICC
+signaling/ss7/bicc
+signaling/ss7/psf-bicc
+signaling/ss7/psif-bicc
+
+# TCAP, INAP
+signaling/ss7/tcap
+signaling/ss7/psf-tcap
+signaling/ss7/inap
+signaling/ss7/is41
+
+# ISDN
+signaling/isdn/lapd
+signaling/isdn/psf-q931
+signaling/isdn/psif-q931
+signaling/isdn/q931
+signaling/iua
+signaling/iua/psf-iua
+
+# CAS
+signaling/cas/casiom
+signaling/cas/casmgc
+signaling/cas/casmg
+
+# GR303
+signaling/gr303/gap
+signaling/gr303/gem
+signaling/gr303/lapd
+signaling/gr303/psf-gr303
+signaling/gr303/psif-gr303
+signaling/gr303/q9
+signaling/gr303/util
+
+# CC
+signaling/cc/cc
+signaling/cc/psf-cc
+signaling/cc/rs
+
+# CC - services
+signaling/cc/fic
+signaling/cc/tufs
+signaling/cc/scpi
+signaling/cc/insl
+signaling/cc/insl/ansi
+signaling/cc/insl/ansi/src
+signaling/cc/insl/ansi/inc
+signaling/cc/insl/itu
+signaling/cc/insl/itu/src
+signaling/cc/insl/itu/inc
+signaling/cc/wfs
+
+
+# CCRM
+signaling/ccrm
+signaling/ccrm/ccrm-psf
+
+# MGRM
+signaling/mgrm
+signaling/mgrm/cam
+signaling/mgrm/mgrm-psf
+
+# signaling_iom files
+signaling/iom
+
+# TSM
+signaling/tsm/icc
+signaling/tsm/isdn
+signaling/tsm/pqLsm
+signaling/tsm/ss7
+signaling/tsm/ts
+
+# TSMC, GIT, PLM
+signaling/tsm/tsmc
+signaling/mgsig
+
+# SLAM/CLAM
+signaling/lm/slam/base
+signaling/lm/slam/unit
+signaling/lm/slam/psf-slam
+signaling/lm/clam
+signaling/lm/common
+signaling/lm/dbval
+
+# LMIC
+signaling/lmic
+
+# SDP
+signaling/sigcom/sdp
+
+# SIP
+signaling/sfedcl
+signaling/sip2.7/asn1
+signaling/sip2.7/comn
+signaling/sip2.7/config
+signaling/sip2.7/custom
+signaling/sip2.7/genilt
+signaling/sip2.7/intface
+signaling/sip2.7/nbase/portable
+signaling/sip2.7/nbase/base
+signaling/sip2.7/nbase/unix
+signaling/sip2.7/tools
+signaling/sip2.7/sip
+signaling/sip2.7/tools/sipapp
+signaling/sip2.7/tools/sipe
+signaling/sip2.7/tools/siptapp
+signaling/sip2.7/tools/telica_sipa
+signaling/sip2.7/tools/telica_sfed
+signaling/sip2.7/tools/telica_sfed/mib
+signaling/sip2.7/tools/telica_sfed/b2bua
+signaling/sip2.7/tools/telica_sfed/sub
+signaling/sip2.7/tools/sipz
+signaling/sip2.7/autogen/output
+signaling/sip2.7/stubs/sub
+
+# MGCP , gdixit5added 07/02/2004
+#signaling/sip2.7/mgcpa
+#signaling/sip2.7/mgcp
+#signaling/sip2.7/mgcpapp
+##signaling/sip2.7/mgcpapp2  # this may be redundent
+signaling/sip2.7/psf-sip
+signaling/sip2.7/psf-mgcp
+signaling/sip2.7/psif-mgcp
+
+# SIP-T
+signaling/sip/psif-sip
+
+# DBP
+signaling/dbproxy/src
+# DBP UTest stuff
+signaling/dbproxy/Test/AllTest
+
+# Database
+3rdParty/TimesTen/TimesTen4.5/32/include
+
+# Trillium extras - should be at the end because some redundant redefintions
+signaling/config/cm
+signaling/config/sm
+
+# 860, 8260 driver, should be in the end
+signaling/860_drv/product
+signaling/860_drv/sample
+signaling/8260_drv/product
+signaling/8260_drv/sample
+
+#ALCAP
+signaling/aal2
+
+#SP state machine (SPA/SPB failovers)
+ga_dev/solution/system/inc
+ga_dev/solution/system/src
+ga_dev/solution/observer
+ga_dev/solution/system
+ga_dev/test
+ga_dev/test/tester
+ga_dev/test/tester/inc
+ga_dev/test/tester/src
+ga_dev/test/disk_killer/src
+
+ga_dev/emf/src
+ga_dev/include
+ga_dev/solution/cluster
+ga_dev/solution/eqm/inc
+ga_dev/solution/eqm/src
+ga_dev/solution/fam/inc
+ga_dev/solution/fam/src
+ga_dev/solution/ga_source/inc
+ga_dev/solution/ga_source/src
+ga_dev/solution/observer/inc
+ga_dev/solution/observer/src
+ga_dev/solution/system/inc
+ga_dev/solution/system/src
+ga_dev/test/disk_killer/src
+ga_dev/test/tester/inc
+ga_dev/test/tester/src
+
+# Megaco DCL 
+signaling/dclcode/dcl1.2/megagw
+signaling/dclcode/dcl2.2/amh
+signaling/dclcode/dcl2.2/asn1
+signaling/dclcode/dcl2.2/autogen
+signaling/dclcode/dcl2.2/autogen/output
+signaling/dclcode/dcl2.2/comn
+signaling/dclcode/dcl2.2/comn/scmfs
+signaling/dclcode/dcl2.2/custom
+signaling/dclcode/dcl2.2/genilt
+signaling/dclcode/dcl2.2/intface
+signaling/dclcode/dcl2.2/libs
+signaling/dclcode/dcl2.2/libs/aall
+signaling/dclcode/dcl2.2/libs/ahl
+signaling/dclcode/dcl2.2/libs/ahll
+signaling/dclcode/dcl2.2/libs/ambl
+signaling/dclcode/dcl2.2/libs/atu
+signaling/dclcode/dcl2.2/libs/dummyaxl
+signaling/dclcode/dcl2.2/libs/raid
+signaling/dclcode/dcl2.2/libs/regex
+signaling/dclcode/dcl2.2/libs/rltr
+signaling/dclcode/dcl2.2/megaa
+signaling/dclcode/dcl2.2/mgcp
+signaling/dclcode/dcl2.2/mgi
+signaling/dclcode/dcl2.2/nbase
+signaling/dclcode/dcl2.2/nbase/base
+signaling/dclcode/dcl2.2/nbase/portable
+signaling/dclcode/dcl2.2/nbase/unix
+signaling/dclcode/dcl2.2/psf-megaa
+signaling/dclcode/dcl2.2/psif-mgcp
+signaling/dclcode/dcl2.2/rly
+signaling/dclcode/dcl2.2/sm
+signaling/dclcode/dcl2.2/sml
+signaling/dclcode/dcl2.2/stubs
+signaling/dclcode/dcl2.2/stubs/aps
+signaling/dclcode/dcl2.2/stubs/hm
+signaling/dclcode/dcl2.2/stubs/nmr
+signaling/dclcode/dcl2.2/stubs/nmr/ares
+signaling/dclcode/dcl2.2/stubs/sck
+signaling/dclcode/dcl2.2/stubs/sck/linux
+signaling/dclcode/dcl2.2/stubs/sck/unix
+signaling/dclcode/dcl2.2/tools
+signaling/dclcode/dcl2.2/tools/rltf
+signaling/dclcode/dcl2.2/tools/rlyapp
+
+#x2sig
+signaling/x2sig/src
+signaling/x2sig/inc
+
+#xu
+signaling/xu
+
+#enum
+signaling/cc/enum/src
+3rdParty/udns_resolv/src
+
+#bind9
+bind9/bin/named
+bind9/bin/named/include/named
+bind9/bin/rndc
+bind9/bin/rndc/include/rndc
+bind9/bin/nsupdate
+bind9/bin/nsupdate/include/nsupdate
+
+bind9/lib/bind9
+bind9/lib/bind9/include/bind9
+bind9/lib/dns
+bind9/lib/dns/rdata
+bind9/lib/dns/rdata/any_255
+bind9/lib/dns/rdata/ch_3
+bind9/lib/dns/rdata/generic
+bind9/lib/dns/rdata/hs_4
+bind9/lib/dns/rdata/in_1
+bind9/lib/dns/include/dns
+bind9/lib/dns/include/dst
+
+bind9/lib/isc
+bind9/lib/isc/include/isc
+bind9/lib/isc/mips/include/isc
+bind9/lib/isc/ia64/include/isc
+bind9/lib/isc/noatomic/include/isc
+bind9/lib/isc/nls
+bind9/lib/isc/nothreads
+bind9/lib/isc/nothreads/include/isc
+bind9/lib/isc/powerpc/include/isc
+bind9/lib/isc/pthreads 
+bind9/lib/isc/pthreads/include/isc
+bind9/lib/isc/sparc64/include/isc
+bind9/lib/isc/x86_32/include/isc
+bind9/lib/isc/x86_64/include/isc
+bind9/lib/isc/unix
+bind9/lib/isc/unix/include/isc
+
+bind9/lib/isccc
+bind9/lib/isccc/include/isccc
+
+bind9/lib/isccfg
+bind9/lib/isccfg/include/isccfg
+
+bind9/lib/lwres
+bind9/lib/lwres/include/lwres
+bind9/lib/lwres/unix/include/lwres
+
+# CppUTest
+signaling/mtss/mock
+
+signaling/ss7/isup/Test
+signaling/ss7/dmtp3/stg/Test
+signaling/isdn/q931/Test
+signaling/cc/cc/Test
+signaling/cc/rs/Test
+signaling/mgrm/Test
+
+signaling/ccs/Test
+signaling/ccs/Test/AllTest
+signaling/mtp3sig/Test
+signaling/mtp3sig/Test/AllTest
+signaling/router/Test
+signaling/router/Test/AllTest
+tl1/Test
+tl1/Test/AllTest
+signaling/dist/Test
+signaling/dist/Test/AllTest
+signaling/dbproxy/Test
+signaling/dbproxy/Test/AllTest
+signaling/billing/Test
+signaling/billing/Test/AllTest
+
+# main.c
+signaling/ccs
+signaling/router
+
+###############################################################################
+#                        End of dir_list File                                 #
+###############################################################################
+

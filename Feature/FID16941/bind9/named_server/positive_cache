@@ -1,0 +1,83 @@
+02-May-2013 16:22:32.694 general: debug 50: socket f7616130: dispatch_recv:  event f7628878 -> task f761db60
+02-May-2013 16:22:32.694 general: debug 60: socket f7616130: internal_recv: task f761db60 got event f7616170
+02-May-2013 16:22:32.694 general: debug 60: socket f7616130 10.84.14.182#38792: packet received correctly
+02-May-2013 16:22:32.694 general: debug 90: socket f7616130: processing cmsg f75fe040
+02-May-2013 16:22:32.694 client: debug 3: client 10.84.14.182#38792: UDP request
+02-May-2013 16:22:32.694 client: debug 5: client 10.84.14.182#38792: using view '_default'
+02-May-2013 16:22:32.694 security: debug 3: client 10.84.14.182#38792: request is not signed
+02-May-2013 16:22:32.694 security: debug 3: client 10.84.14.182#38792: recursion available
+02-May-2013 16:22:32.694 client: debug 3: client 10.84.14.182#38792: query
+02-May-2013 16:22:32.694 client: debug 10: client 10.84.14.182#38792: ns_client_attach: ref = 1
+02-May-2013 16:22:32.694 security: debug 3: client 10.84.14.182#38792: query (cache) 'trkgrp100.qd.plexuslab.com/A/IN' approved
+02-May-2013 16:22:32.694 client: debug 3: client 10.84.14.182#38792: send
+02-May-2013 16:22:32.694 client: debug 3: client 10.84.14.182#38792: sendto
+02-May-2013 16:22:32.694 client: debug 3: client 10.84.14.182#38792: senddone
+02-May-2013 16:22:32.694 client: debug 3: client 10.84.14.182#38792: next
+02-May-2013 16:22:32.695 client: debug 10: client 10.84.14.182#38792: ns_client_detach: ref = 0
+02-May-2013 16:22:32.695 client: debug 3: client 10.84.14.182#38792: endrequest
+02-May-2013 16:22:32.695 client: debug 3: client @0x85874e0: udprecv
+02-May-2013 16:22:32.695 general: debug 50: socket f7616130: socket_recv: event f7628878 -> task f761db60
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 72
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 72
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 73
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 73
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 74
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 74
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 75
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 75
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 76
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 76
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 77
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 77
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 78
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 78
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 79
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 79
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 72
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 72
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 73
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 73
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 74
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 74
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 75
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 75
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 76
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 76
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 77
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 77
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 78
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 78
+02-May-2013 16:22:34.772 database: debug 100: cleaning name bucket 79
+02-May-2013 16:22:34.772 database: debug 100: cleaning entry bucket 79
+02-May-2013 16:23:04.772 database: debug 100: cleaning name bucket 80
+02-May-2013 16:23:04.772 database: debug 100: cleaning entry bucket 80
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 81
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 81
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 82
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 82
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 83
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 83
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 84
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 84
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 85
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 85
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 86
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 86
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 87
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 87
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 80
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 80
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 81
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 81
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 82
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 82
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 83
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 83
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 84
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 84
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 85
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 85
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 86
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 86
+02-May-2013 16:23:04.773 database: debug 100: cleaning name bucket 87
+02-May-2013 16:23:04.773 database: debug 100: cleaning entry bucket 87

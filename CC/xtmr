@@ -1,0 +1,85 @@
+1. Defination from interface (signaling/sigcom/lcc.x)
+
+   ******************* CcSipPrflCfg ******************
+   Bool     xTmr;       /* FID 16521.0 */
+
+2. Pack/Unpack (signaling/sigcom/lcc.c)
+
+(1) Pack: cmPkMiLccCfgReq
+    CMCHKPKLOG(cmPkBool, cfg->t.cfg.s.ccSipPrflCfg.xTmr,
+               mbuf, ELCCXXX, pst); /* FID 16521.0 */ 
+(2) Unpack: cmUnpkMiLccCfgReq
+    CMCHKUNPKLOG(cmUnpkBool, &cfg.t.cfg.s.ccSipPrflCfg.xTmr,                                    
+                 mbuf, ELCCXXX, pst); /* FID 16521.0 */
+
+3. Defination from internal GCC (signaling/cc/cc/cc.x)
+   
+   ******************** CcSipPrflCb *******************
+   Bool xTmr;           /* FID 16521.0 */
+   
+4. Copy CcSipPrflCfg to CcSipPrflCb (signaling/cc/cc/cc_bdy4.c)
+
+   ********************* ccSipPrflCfg ******************
+   prflPtr->xTmr = cfgPtr->xTmr;
+   CCDP(AIN_DBG_LEVEL_2, "prflSipId[%d], xTmr[%d]\n", cfgPtr->prflId, prflPtr->xTmr);
+
+5. Mapping (signaling/cc/cc/cc_sipmap.c) 
+(1) ISUP2SIP: ccSI2SIPMapS20M00 -- SiConEvnt (sit.x) -> SipConEvnt (sipt.x)
+   if ((icProtType == CC_SIPT) && (sipPrflPtr) && (sipPrflPtr->xTmr))
+   {
+      CCDP(AIN_DBG_LEVEL_1, "%s: SIPT->SIP call and sip support XTMR!\n", __FUNCTION__);
+
+      if ((si->txMedReq.eh.pres) && (si->txMedReq.trMedReq.pres))
+      {                                                                                                                                                                                        
+         sip->trMedReq.pres = PRSNT_NODEF;
+         sip->trMedReq.val = si->txMedReq.trMedReq.val;
+         CCDP(AIN_DBG_LEVEL_2, "%s(): Mapping X-Transmission-Medium-Requirement from sipt to sip:%d\n",
+              __FUNCTION__, sip->trMedReq.val);
+      }     
+      else  
+      {     
+         CCDP(AIN_DBG_LEVEL_2, "%s(): XTMR not present for sipt-sip call!\n", __FUNCTION__);
+      }     
+   }
+
+(2) SIP2ISUP: ccSIP2SIMapS21M00  -- SipConEvnt (sipt.x) -> SiConEvnt (sit.x)
+   if ((ogProtType == CC_SIPT) && (sipPrflPtr) && (sipPrflPtr->xTmr))                                                         
+   {  
+      CCDP(AIN_DBG_LEVEL_1, "%s: SIP->SIPT call and sip support XTMR!\n", __FUNCTION__);
+
+      if (sip->trMedReq.pres)
+      {
+         si->txMedReq.eh.pres = PRSNT_NODEF;
+         si->txMedReq.trMedReq.pres = PRSNT_NODEF;
+         si->txMedReq.trMedReq.val = sip->trMedReq.val;
+         CCDP(AIN_DBG_LEVEL_2, "%s(): Mapping X-Transmission-Medium-Requirement from sip to sipt:%d\n",
+              __FUNCTION__, sip->trMedReq.val);
+      }
+      else    
+      {
+         CCDP(AIN_DBG_LEVEL_2, "%s(): XTMR not present for sipt-sip call!\n", __FUNCTION__);
+      }
+   }
+
+Call Types: SIPT2SIP,  ISUP2SIP
+
+			SIPT2SIPT, ISUP2ISUP, SIPT2ISUP, ISUP2SIPT
+			SIP2SIP
+
+1. SIP2SIPT,  SIP2ISUP
+SIP: intra CCS - SIP => SIPT/ISUP
+     inter CCS - SIP => BICC => ISUP
+
+2. Others 
+Macro defines: CC_IS_ACLI_PROT_TYPE
+
+
+Problem 1: con->ogIntfcCb->protType for actual egress protocal type
+
+Problem 2: SIPT/ISUP to SIP from header
+           ccTransIsupCgPtyNumToSipFrom
+		   sipwTransIsupCinToSipFrom
+
+Problem 3: SIP2ISUP inter ccs 
+
+Problem 4: egress ISUP button

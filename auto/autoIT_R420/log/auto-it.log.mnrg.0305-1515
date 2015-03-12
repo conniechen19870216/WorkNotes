@@ -1,0 +1,12 @@
+spawn ssh hssit@135.252.181.13
+The authenticity of host '135.252.181.13 (135.252.181.13)' can't be established.
+RSA key fingerprint is 8e:e7:ec:05:aa:8d:05:d6:33:47:29:97:b2:0b:40:db.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '135.252.181.13' (RSA) to the list of known hosts.
+hssit@135.252.181.13's password: 
+Last login: Tue Mar  5 14:19:11 2013 from bl1113.cn.alcatel-lucent.com
+cd ~/auto-it/
+cd ~/auto-it/
+source /home/it40/jenkins_script/autoIT_R420/auto-it_R420.env
+setenv DISPLAY 135.252.181.13:1
+./auto-it.enh mnrg | tee auto-it.enh.mnrg.log

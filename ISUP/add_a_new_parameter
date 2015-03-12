@@ -1,0 +1,38 @@
+1. siAllPduDefs / siAllSduDefs
+2. siPduDefs / siSduDefs
+3. Internal Bicc Pack / Unpack
+4. PDU <-> SDU
+ccCcConEvntToSiInitAddr (mf_si_opt.c)
+siInitAddrToCcConEvnt
+
+1. Defination from interface (signaling/sigcom/lsi.x)
+
+   *************************** SiTgpCfg **************************
+   Bool      isupAcli;          /* Indicates if ACLI in IAM is supported */
+
+2. Pack/Unpack (signaling/sigcom/lsi.c)
+(1) Pack: cmPkSiTgpCfg
+CMCHKUNPK(cmUnpkBool,         &siTgpCfg->isupAcli,         mBuf);
+
+(2) Unpack: cmUnpkSiTgpCfg
+CMCHKPK(cmPkBool,       siTgpCfg->isupAcli,          mBuf);
+
+3. Copy SiTgpCfg to SiTgpCb (signaling/ss7/isup/si_bdy6.c)
+
+   **************** siCfgSiTgpCb ***************
+   siTgpCb->cfg = cfg->t.cfg.s.siTgpCfg;
+
+
+clTgpSiTgpCfg (cl_tgp2.c)
+       |
+	   +----- SmMiLsiCfgReq (smsiptmi.c)
+	               |
+				   +----- SmMiLsiCfgReqMt (smsiptmi.c)
+				              |
+							  +----- cmPkLsiCfgReq (lsi.c)
+							             |
+										 +----- cmPkSiCfg (lsi.c)
+										            |
+													+----- cmPkSiTgpCfg (lsi.c)
+
+4. 2nd decode (BUG:91543)

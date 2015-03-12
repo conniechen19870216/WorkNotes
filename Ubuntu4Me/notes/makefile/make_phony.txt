@@ -1,0 +1,36 @@
+1. 应用场景一
+.PHONY: clean
+clean:
+	rm *.o temp
+说明：
+(1) 无论在当前目录下是否存在“clean”这个文件。我们输入“make clean”之后，“rm”命令都会被执行。
+(2) 当一个目标被声明为伪目标后,make 在执行此规则时不会去试图去查找隐含规则来创建它。
+(3) 不用担心由于目标和文件名重名而使我们的期望失败。
+
+2. 应用场景二
+SUBDIRS = foo bar baz
+.PHONY: subdirs $(SUBDIRS)
+subdirs: $(SUBDIRS)
+$(SUBDIRS):
+	$(MAKE) -C $@
+foo: baz
+优点：1) 出现错误时可以立即退出，有助于debug定位问题
+      2) 实现了make对目录的并行处理 (下面的循环方式由于是一条完整的shell命令，所以会顺序执行下去)
+
+SUBDIRS = foo bar baz
+subdirs:
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir; \
+	done
+
+*********************多个目标程序的习惯做法***********************
+#sample Makefile
+all : prog1 prog2 prog3
+.PHONY : all
+prog1 : prog1.o utils.o
+	gcc -o prog1 prog1.o utils.o
+prog2 : prog2.o
+	gcc -o prog2 prog2.o
+prog3 : prog3.o sort.o utils.o
+	gcc -o prog3 prog3.o sort.o utils.o
+****************************** end ********************************

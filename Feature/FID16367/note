@@ -1,0 +1,30 @@
+1. ISDN Layer
+(1) Original Data Format
+(2) DEC/ENC
+(3) State Machine
+(4) Primitives: In-Call Facility Indication/Request and Event
+
+2. PSIF-ISDN Layer
+(1) Primitives: In-Call Facility Indication/Request and Event
+
+3. CC Layer
+(1) Original Data Format
+(2) DEC/ENC
+(3) State Machine <<<<<<<<<< Important >>>>>>>>>>
+(4) Primitives: In-Call Facility Indication/Request and Event
+                302 Request and Event  
+
+4. PSIF-SIP Layer
+(1) Primitives: 302 Request and Event
+
+5. SIP Layer
+(1) Primitives: 302 Request and Event
+(2) Build 302 Message
+
+
+Next Problem:
+INTEGER Tag
+Invoke Component Format: DEC/ENC
+CC State Machine Design
+UT: CppUTest DEC/ENC 
+    SS7Sim

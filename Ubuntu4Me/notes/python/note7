@@ -1,0 +1,7 @@
+1. 包导入（模块包）
+import dir1.dir2.mod
+import dir1.dir2.mod as mod
+from dir1.dir2.mod import x
+from dir1.dir2 import mod 
+2. Resume
+__init__.py included in dir1 and dir2

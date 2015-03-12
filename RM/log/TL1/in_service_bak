@@ -1,0 +1,1376 @@
+00001(00993),00000(00000) 0x00000020 01-06 09:12:28.482 02619: ../cl_bdy2.c:1450 freeing input tables
+00001(00993),00000(00000) 0x00000020 01-06 09:12:28.482 02619: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:28.482 02619: ../cl_bdy5.c:763 cmHashListFind failed for 0x800007a4
+00001(00993),00000(00000) 0x00000020 01-06 09:12:28.482 02619: ../cl_bdy5.c:714  can't free transId
+00001(00993),00000(00000) 0x00000020 01-06 09:12:31.053 02642: ../cc_bdy4.c:17336 ccGenericTmrEvent=2
+00001(00993),00000(00000) 0x00000020 01-06 09:12:31.053 02642: ../cc_lib.c:63631 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00001(00993),00000(00000) 0x00000020 01-06 09:12:31.053 02642: ../cc_bdy4.c:17264 ccGenericStartTmr
+00001(00993),00000(00000) 0x00000001 01-06 09:12:31.053 02642: ccGetStandingCalls: 0 standing calls.
+00002(00993),00000(00000) 0x00000020 01-06 09:12:31.053 02642: ../cc_bdy4.c:23089 ccStartCcCongTimer
+00002(00993),00000(00000) 0x00000020 01-06 09:12:31.053 02642: ../rm_rum.c:648 rumInactiveTimeOut: **** RUM Inactivity detected *****
+00001(00993),00000(00000) 0x00000020 01-06 09:12:41.053 02642: ../cc_bdy4.c:17336 ccGenericTmrEvent=2
+00001(00993),00000(00000) 0x00000020 01-06 09:12:41.053 02642: ../cc_lib.c:63631 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00993),00000(00000) 0x00000020 01-06 09:12:41.053 02642: ../cc_bdy4.c:17264 ccGenericStartTmr
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:1 evtId: 0xcf
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc1.c:338 numBchanRows:1
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc1.c:348 numLnkRows:1
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1437 PrintIsdnData_Bchan: Entered.
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1440  tableId 4438  4438
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1442  intfcId 1  3670
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1444  memId 1  1
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1446  lnkId 0  0
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1449  numMemId 1  15
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1452  termId 1  TDM/9/1/1/1
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1454  bChanMntState 1  0
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1409 PrintIsdnData_LNK: Entered.
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1412  tableId 4437  4437
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1414  intfcId 1  3670
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1416  lnkId 1  1
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1418  termId 1  TDM/9/1/1
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1420  iuaId 1  1022
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1422  type 1  3
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1424  nfasLnkId 1  0
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1426  ly1SpId 1  4425
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1428  q931SuId 1  4425
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1430  remark 0  
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_isdn.c:1432  rowStatus 0  0
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc1.c:359 intfcId.val:3670, lnkId.val:1 
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_bdy7.c:299 IBC-1:event:0 in state:0, next state:1
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:2871 clIbcSelfPost: entered FsmCb 0xf650147c event: 0x0 lmEvt->lmEvtId: 0xcf
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0xB1, status=0, reason = 0
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6fcb054 lmEvtId: 0x0 lmEvt->lmEvtId: 0xcf
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_bdy7.c:299 IBC-1:event:0 in state:1, next state:4
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02642: ../in_bdy1.c:12801 [Q931]:got LinCfgReq, elmnt=146 transId=-2147481690
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0x59, status=0, reason = 0
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6fcb054 lmEvtId: 0x0 lmEvt->lmEvtId: 0xcf
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:709 kavon startChan = 1
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/1
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 1, memId.val = 1, chMemberId = 1
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726849(0x482041)
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/2
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 2, memId.val = 1, chMemberId = 2
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726850(0x482042)
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/3
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 3, memId.val = 1, chMemberId = 3
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726851(0x482043)
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/4
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 4, memId.val = 1, chMemberId = 4
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726852(0x482044)
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/5
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 5, memId.val = 1, chMemberId = 5
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726853(0x482045)
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/6
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 6, memId.val = 1, chMemberId = 6
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726854(0x482046)
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/7
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 7, memId.val = 1, chMemberId = 7
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726855(0x482047)
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/8
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 8, memId.val = 1, chMemberId = 8
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726856(0x482048)
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/9
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 9, memId.val = 1, chMemberId = 9
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726857(0x482049)
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/10
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 10, memId.val = 1, chMemberId = 10
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726858(0x48204a)
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/11
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 11, memId.val = 1, chMemberId = 11
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726859(0x48204b)
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/12
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 12, memId.val = 1, chMemberId = 12
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726860(0x48204c)
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/13
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 13, memId.val = 1, chMemberId = 13
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726861(0x48204d)
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/14
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 14, memId.val = 1, chMemberId = 14
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726862(0x48204e)
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/15
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:739 kavon i = 15, memId.val = 1, chMemberId = 15
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.416 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726863(0x48204f)
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:755 sent RM Bchan cfg request for intfcId:3670
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=0, cntIdleChans=0, cntMntChans=0, cntPcChans=0, cntPcOosChans=0
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=1, preCut=0, initState=2, rmPri->chnl[i].state=255
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726849(0x482041)
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/1
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/1, interface=512
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=1, channelId=1, state=2, termId.term=tdm/9/1/1/1
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=2, preCut=0, initState=2, rmPri->chnl[i].state=255
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726850(0x482042)
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/2
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/2, interface=512
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=2, channelId=2, state=2, termId.term=tdm/9/1/1/2
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=3, preCut=0, initState=2, rmPri->chnl[i].state=255
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726851(0x482043)
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/3
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/3, interface=512
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=3, channelId=3, state=2, termId.term=tdm/9/1/1/3
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=4, preCut=0, initState=2, rmPri->chnl[i].state=255
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726852(0x482044)
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/4
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/4, interface=512
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=4, channelId=4, state=2, termId.term=tdm/9/1/1/4
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=5, preCut=0, initState=2, rmPri->chnl[i].state=255
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726853(0x482045)
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/5
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/5, interface=512
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=5, channelId=5, state=2, termId.term=tdm/9/1/1/5
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=6, preCut=0, initState=2, rmPri->chnl[i].state=255
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726854(0x482046)
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/6
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/6, interface=512
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=6, channelId=6, state=2, termId.term=tdm/9/1/1/6
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=7, preCut=0, initState=2, rmPri->chnl[i].state=255
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726855(0x482047)
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/7
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/7, interface=512
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=7, channelId=7, state=2, termId.term=tdm/9/1/1/7
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=8, preCut=0, initState=2, rmPri->chnl[i].state=255
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726856(0x482048)
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/8
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/8, interface=512
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=8, channelId=8, state=2, termId.term=tdm/9/1/1/8
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=9, preCut=0, initState=2, rmPri->chnl[i].state=255
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726857(0x482049)
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/9
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/9, interface=512
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=9, channelId=9, state=2, termId.term=tdm/9/1/1/9
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=10, preCut=0, initState=2, rmPri->chnl[i].state=255
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726858(0x48204a)
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/10
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/10, interface=512
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=10, channelId=10, state=2, termId.term=tdm/9/1/1/10
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=11, preCut=0, initState=2, rmPri->chnl[i].state=255
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726859(0x48204b)
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/11
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/11, interface=512
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=11, channelId=11, state=2, termId.term=tdm/9/1/1/11
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=12, preCut=0, initState=2, rmPri->chnl[i].state=255
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726860(0x48204c)
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/12
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/12, interface=512
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=12, channelId=12, state=2, termId.term=tdm/9/1/1/12
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=13, preCut=0, initState=2, rmPri->chnl[i].state=255
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726861(0x48204d)
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/13
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/13, interface=512
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=13, channelId=13, state=2, termId.term=tdm/9/1/1/13
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=14, preCut=0, initState=2, rmPri->chnl[i].state=255
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726862(0x48204e)
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/14
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/14, interface=512
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=14, channelId=14, state=2, termId.term=tdm/9/1/1/14
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=15, preCut=0, initState=2, rmPri->chnl[i].state=255
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726863(0x48204f)
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/15
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/15, interface=512
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=15, channelId=15, state=2, termId.term=tdm/9/1/1/15
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02642: ../rm_bdy6.c:961 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=15, cntIdleChans=0, cntMntChans=15, cntPcChans=0, cntPcOosChans=0
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:943 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6fcb054 lmEvtId: 0x0 lmEvt->lmEvtId: 0xcf
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:1594 get binary termId is 0x482041
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482041
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-1 chanNum 1 on link 3670-1
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482042
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-2 chanNum 2 on link 3670-1
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482043
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-3 chanNum 3 on link 3670-1
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482044
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-4 chanNum 4 on link 3670-1
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482045
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-5 chanNum 5 on link 3670-1
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482046
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-6 chanNum 6 on link 3670-1
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482047
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-7 chanNum 7 on link 3670-1
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482048
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-8 chanNum 8 on link 3670-1
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482049
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-9 chanNum 9 on link 3670-1
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48204a
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-10 chanNum 10 on link 3670-1
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48204b
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-11 chanNum 11 on link 3670-1
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48204c
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-12 chanNum 12 on link 3670-1
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48204d
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-13 chanNum 13 on link 3670-1
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48204e
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-14 chanNum 14 on link 3670-1
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48204f
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-15 chanNum 15 on link 3670-1
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mgl.c:120 nodes inserted 15 nodes skipped 0
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_mmsl1.c:2357 cl_audit_termId
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:1683 clMglInsertTerm() returned, numInserted:15, numSkipped:0
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:1686 TL1 inserting 3670-1 ~ 3670-15 into Bhcan termId tree
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_ibc2.c:1830 TL1 cfg Enter complete for ISDN-IBC
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(10034) has null entry
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.417 02619: ../cl_bdy6.c:207 sending back transId 0x2732  status = 0  reason = 0
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy2.c:1450 freeing input tables
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc2.c:1935 sent B Chan control request for rSuId:4425, triggering D chan status report
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02642: (null):394 ../in_bdy1.c:13287 [Q931]:got LinCntrlReq, elmnt=13, transId=0, action=56, subaction=1
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl1.c:683 audit of specific termId
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02642: (null):394 ../in_bdy14.c:4191 ../in_bdy11.c:8127 Sending event=LCM_EVENT_UP for rSuId=4425
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl1.c:1930 starting audit for tdm/9/1/1/* cb f6500504
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy7.c:299 MMSL-1:event:0 in state:0, next state:1
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl2.c:257 termId tdm/9/1/1/* (482040) waiting for flow control wake up
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02642: (null):394 ../in_bdy1.c:13311 ISDN Bchannel state triggering succeeds! 
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_flcntrl.c:416 waking fsm for tdm/9/1/1/*, cb f6500504
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy7.c:299 MMSL-1:event:1 in state:1, next state:2
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl2.c:523 clMmslT1tmrWait (fast audit no wait)
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:2, next state:3
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl2.c:293 clMmslPingCC
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl1.c:743 number of total fsms 1
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy3.c:841 raising USTA event
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ilk1.c:310 ILK: Q931 USTA Evt 
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ilk1.c:1095 ILK:USTA Alarm Received Category:256 Event:260 Cause:285
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ilk1.c:1109 ILK: it's an artificial staInd for triggeringBchan state machine, Ignore it! 
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:10 evtId: 0xd1
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:285 IBC: Q931 USTA Evt 
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:1249 clUpdateIsdnBChanState: lmEvt: 0xf6fcb054 lmEvt->lmEvt: 0xa lmEvt->lmEvtId:0xd1
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:1320 clUpdateIsdnBChanState: megacoSta: IS trigger: ISDN_BCHAN_TGR_LNK_UP
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_isdn.c:1525 ClIsdnFindBch: find ISDN b-channel for 3670-1
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:1401 Handling BChan trigger:  ISDN_BCHAN_TGR_LNK_UP for ifNmb=3670, lnkNmb=1 lmEvtId: 0xd1
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:1469 IF_TYPE_PRI:  DLnkUp=1, DPort=OOS
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:1715 bchannel action 0 on ifNmb 3670, trigger=ISDN_BCHAN_TGR_LNK_UP.
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:1827 generated 0 FSMs on interface 3670 action: 0 EvtId: 0xd1
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_ibc1.c:1199 clIbcHandleUsta !ROK call clModCallBack() lmEvtId 0xd1
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:3, next state:4
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl2.c:685 sent to MMSL termId tdm/9/1/1/*, ctxt: 0, cb f6500504
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_mmsl2.c:702 sent to MMSL termId tdm/9/1/1/*, ctxt: ffffffff, cb f6500504
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy7.c:299 MMSL-1:event:3 in state:4, next state:4
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.418 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:4, next state:5
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.421 02619: ../cl_bdy3.c:841 raising USTA event
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.421 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.421 02619: ../cl_mmsl1.c:358 Usta event
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.421 02619: ../cl_flcntrl.c:193 clUpdateFlowControl: Entered function, wild card IS allowed.
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.421 02619: ../cl_flcntrl.c:219 ALL_CONTEXT /TDM/I9/T1
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.421 02619: ../cl_flcntrl.c:495 audit reply for termId 482040 came with errorCode 431
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.421 02619: ../cl_flcntrl.c:499 resp count 0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:262 AuditReply for tdm/9/1/1/1, numRepl 31, errC 0, ctx 0, state 0
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy3.c:841 raising USTA event
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:358 Usta event
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:193 clUpdateFlowControl: Entered function, wild card IS allowed.
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:212 NULL_CONTEXT /TDM/I9/T1
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:499 resp count 31
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[0].termId 482041 state IS
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[1].termId 482042 state IS
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[2].termId 482043 state IS
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[3].termId 482044 state IS
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[4].termId 482045 state IS
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[5].termId 482046 state IS
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[6].termId 482047 state IS
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[7].termId 482048 state IS
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[8].termId 482049 state IS
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[9].termId 48204a state IS
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[10].termId 48204b state IS
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[11].termId 48204c state IS
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[12].termId 48204d state IS
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[13].termId 48204e state IS
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[14].termId 48204f state IS
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[15].termId 482050 state IS
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[16].termId 482051 state IS
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[17].termId 482052 state IS
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[18].termId 482053 state IS
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[19].termId 482054 state IS
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[20].termId 482055 state IS
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[21].termId 482056 state IS
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[22].termId 482057 state IS
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[23].termId 482058 state IS
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[24].termId 482059 state IS
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[25].termId 48205a state IS
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[26].termId 48205b state IS
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[27].termId 48205c state IS
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[28].termId 48205d state IS
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[29].termId 48205e state IS
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:504 resp[30].termId 48205f state IS
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:541 cl_set_state termId 482041 numChan 31  state IS
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482041 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482042 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482043 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482044 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482045 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482046 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482047 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482048 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x482049 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x48204A from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x48204B from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x48204C from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x48204D from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x48204E from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2176 updating state of 0x48204F from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482050 state IS
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:326 got both AuditReplies completing fsm for cb f6500504
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:583 cl_process_audit_reply: Entered function, wild card IS allowed.
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:757 cl_replay_port numTerms is 16
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_flcntrl.c:803 (cl_replay_port) SVCcontrol start termId tdm/9/1/1/1 state IS numChan 16
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:368 handling SVC change, state:0
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482041
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482042
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482043
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482044
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482045
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482046
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482047
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482048
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482049
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x48204a
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x48204b
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x48204c
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x48204d
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x48204e
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x48204f
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:443 found termId:0x482050
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:451 found existing clEvt
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mgl.c:376 number of total terminations:16, numEvts:1
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_imt1.c:1992 no IMT on this termId:0x0000000000482041
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_cas1.c:94 casProcessLmEvt() recvd evt:14
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_cas1.c:205 Got SvcChange for lmEvt
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_cas1.c:1006 no CAS on this termId:0x0000000000482041
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:14 evtId: 0xd4
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1249 clUpdateIsdnBChanState: lmEvt: 0xf6e0d1ac lmEvt->lmEvt: 0xe lmEvt->lmEvtId:0xd4
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1285 termId 0x482041 trigger: ISDN_BCHAN_TGR_PORT_IS opState = 0 but lastOpstate = 1 tempBlock: 0
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1401 Handling BChan trigger:  ISDN_BCHAN_TGR_PORT_IS for ifNmb=3670, lnkNmb=1 lmEvtId: 0xd4
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1469 IF_TYPE_PRI:  DLnkUp=1, DPort=IS
+00054(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1715 bchannel action 1 on ifNmb 3670, trigger=ISDN_BCHAN_TGR_PORT_IS.
+00054(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1868 clIbcGetFsmCb: lnk 3670-1 event: UNBLOCK lmEvt: 0xf6e0d1ac lmEvt->lmEvt: 0xe lmEvt->lmEvtId: 0xd4
+00055(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1896 termId: 0x482041, wildcard type: 2, numChan: 16
+00055(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1915 0 termid opState:0, lastOpState:1, termId:0x482041
+00056(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1931 termId string: tdm/9/1/1/1
+00056(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1942 bchan number:1
+00056(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1915 1 termid opState:0, lastOpState:1, termId:0x482042
+00056(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1931 termId string: tdm/9/1/1/2
+00057(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1942 bchan number:2
+00057(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1953 This is a T1/E1 level state change, bchan number:33
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy7.c:299 IBC-1:event:11 in state:0, next state:1
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc2.c:2871 clIbcSelfPost: entered FsmCb 0xf6509564 event: 0xb lmEvt->lmEvtId: 0xd4
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:2091 clIbcGetFsmCb: isdn lnk 3670-1 started FSM for EvtId: 0xd4 delay: 0
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1747 bchannel action 1 on ifNmb 3670 lnk 1, trigger=ISDN_BCHAN_TGR_PORT_IS numLnk: 1
+00059(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1827 generated 1 FSMs on interface 3670 action: 1 EvtId: 0xd4
+00060(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:1835 clUpdateIsdnBChanState: ROK for EvtId: 0xd4
+00060(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc1.c:900 clIbcPortCtl: leave lmEvtId 0xd4 to run
+00060(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:5, next state:0
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl2.c:740 MG_HW_AUDIT_STATS: event: 0, evtType 0, HW_Blocks 0, HW_Unblocks 0
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cm_mgl_generic.c:910 ../cl_mmsl2.c:744 genMglTermStr2Bin: wildcard type/level 0 not supported.
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_mmsl2.c:745 Got all responses from MMSL for audit of tdm 
+00062(00993),00000(00000) 0x00000001 01-06 09:12:46.427 02619: AUDITFSM:1:EV_AUDIT_DONE, ST_FAST_AUDIT_IN_PRGS-->ST_AWT_START
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ba_audit.c:421 TermId Audit Processing Completed
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ba_audit.c:432 SlowAuditFsm logging restored to ERR
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0xB1, status=0, reason = 0
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6e0d1ac lmEvtId: 0x0 lmEvt->lmEvtId: 0xd4
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy7.c:299 IBC-1:event:11 in state:1, next state:8
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc2.c:2083 clIbcHwCtrl: cb->lmEvt: 0xf6e0d1ac lmEvtId: 0x0 lmEvt->lmEvtId: 0xd4
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_isdn.c:946 ClIsdnGetDchOpState: Get Dchan (link 3670-1) opState IS
+00065(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc2.c:2169 Info: (re)starting  evt=HW_UNBLOCK, ifNmb=3670, lnkNmb=1, rSuId=4425, spId=1, lnkType=ISDN_LNK_TYPE_D_PRI curChn = 33.
+00065(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_isdn.c:1314 bChanMntSt = 0x0 on link 3670-1
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc2.c:2389 sent B Chan control request action: 9 for rSuId:4425, chan 33
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02619: ../cl_ibc2.c:2391 clIbcSendInCtrl: cb->lmEvt: 0xf6e0d1ac lmEvtId: 0x0 lmEvt->lmEvtId: 0xd4
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.427 02642: ../in_bdy1.c:13287 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147481685, action=9, subaction=1
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7436 [Q931]:rSuId = 4425 action=9 chan=33
+
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=1, action=9 state=OUT_SERVICE_NE ntc=0x0
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=1
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:1, chMemberId=1, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=1, cntMntChans=14, cntPcChans=0, cntPcOosChans=0
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=2, action=9 state=OUT_SERVICE_NE ntc=0x0
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00065(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=2
+00066(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00066(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00067(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00067(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:2, chMemberId=2, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=2, cntMntChans=13, cntPcChans=0, cntPcOosChans=0
+00068(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00068(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=3, action=9 state=OUT_SERVICE_NE ntc=0x0
+00069(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00069(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=3
+00069(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00069(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00070(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00070(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:3, chMemberId=3, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=3, cntMntChans=12, cntPcChans=0, cntPcOosChans=0
+00071(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00071(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=4, action=9 state=OUT_SERVICE_NE ntc=0x0
+00072(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00072(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=4
+00072(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00073(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00074(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00074(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:4, chMemberId=4, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=4, cntMntChans=11, cntPcChans=0, cntPcOosChans=0
+00074(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00075(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=5, action=9 state=OUT_SERVICE_NE ntc=0x0
+00076(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00076(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=5
+00077(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00079(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:5, chMemberId=5, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=5, cntMntChans=10, cntPcChans=0, cntPcOosChans=0
+00079(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00079(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=6, action=9 state=OUT_SERVICE_NE ntc=0x0
+00080(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00080(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=6
+00081(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00081(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00082(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00082(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:6, chMemberId=6, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=6, cntMntChans=9, cntPcChans=0, cntPcOosChans=0
+00083(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00083(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=7, action=9 state=OUT_SERVICE_NE ntc=0x0
+00084(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00084(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=7
+00085(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00085(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00086(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00086(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:7, chMemberId=7, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=7, cntMntChans=8, cntPcChans=0, cntPcOosChans=0
+00087(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00087(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=8, action=9 state=OUT_SERVICE_NE ntc=0x0
+00088(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00088(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=8
+00089(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00090(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00090(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00090(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:8, chMemberId=8, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=8, cntMntChans=7, cntPcChans=0, cntPcOosChans=0
+00091(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00091(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=9, action=9 state=OUT_SERVICE_NE ntc=0x0
+00092(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00092(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=9
+00093(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00094(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00094(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00094(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:9, chMemberId=9, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=9, cntMntChans=6, cntPcChans=0, cntPcOosChans=0
+00095(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00095(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=10, action=9 state=OUT_SERVICE_NE ntc=0x0
+00096(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00096(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=10
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00098(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:10, chMemberId=10, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=10, cntMntChans=5, cntPcChans=0, cntPcOosChans=0
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=11, action=9 state=OUT_SERVICE_NE ntc=0x0
+00101(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00101(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=11
+00102(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00103(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00098(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:11, chMemberId=11, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=11, cntMntChans=4, cntPcChans=0, cntPcOosChans=0
+00098(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=12, action=9 state=OUT_SERVICE_NE ntc=0x0
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=12
+00098(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00098(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:12, chMemberId=12, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=12, cntMntChans=3, cntPcChans=0, cntPcOosChans=0
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=13, action=9 state=OUT_SERVICE_NE ntc=0x0
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=13
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00101(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00101(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00101(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:13, chMemberId=13, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=13, cntMntChans=2, cntPcChans=0, cntPcOosChans=0
+00102(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00102(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=14, action=9 state=OUT_SERVICE_NE ntc=0x0
+00103(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00103(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=14
+00103(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00104(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00105(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00105(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:14, chMemberId=14, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=14, cntMntChans=1, cntPcChans=0, cntPcOosChans=0
+00105(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00106(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=15, action=9 state=OUT_SERVICE_NE ntc=0x0
+00106(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00107(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=15
+00108(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00109(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00109(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00110(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_bdy6.c:3318  ChannelId:15, chMemberId=15, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=15, cntIdleChans=15, cntMntChans=0, cntPcChans=0, cntPcOosChans=0
+00110(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00111(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=16, action=9 state=IN_SERVICE ntc=0x0
+00111(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02642: ../in_bdy11.c:7668 [Q931]:inDisEnbChan: old status: 1 new status: 1
+00107(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0x60, status=0, reason = 0
+00107(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf6e0d1ac lmEvtId: 0x0 lmEvt->lmEvtId: 0xd4
+00108(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_bdy7.c:299 IBC-1:event:4 in state:8, next state:9
+00108(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2447 clIbcDelay: ifRstOpt delay: 0
+00109(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2474 clIbcDelay: No delay (0), move FSM
+00109(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_bdy7.c:299 IBC-1:event:7 in state:9, next state:0
+00110(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2490 clIbcHwCtrlDone hwctrl confirm ISDN-IBC cb 0xf6509564 lmEvtId 0x0 lmEvt->lmEvtId: 0xd4
+00110(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2729 clIbcClrBchanCtrl: IbcFsmCb: 0xf6509564 cb 0x0 NULLED, clFsmCb 0xf6509564 NULLED EvtId: 0x0 (0xd4) transId 0x800007ab
+00111(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2735 clIbcClrBchanCtrl: cb: transId 0x0 lmEvtId: 0x0 lmEvt->lmEvtId: 0x0
+00111(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2741 clIbcClrBchanCtrl: cb: transId 0x800007ab lmEvtId: 0x0 lmEvt->lmEvtId: 0xd4
+00112(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2506 clIbcHwCtrlDone IBC HWCTL: 0 FSM remaining lmEvtId: 0x0 (0xd4)
+00112(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ibc2.c:2511 clIbcHwCtrlDone IBC HWCTL complete for ISDN-IBC EvtId: 0x0 (0xd4)
+00112(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_casline1.c:91 casLineProcessLmEvt() recvd evt:14
+00113(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_casline1.c:163 Got SvcChange for lmEvt
+00114(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00114(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_casline1.c:901 No CAS Terminations found in the Service Change Evt
+00115(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_gr3chan1.c:115 gr3ChanProcessLmEvt() recvd evt:14
+00115(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_gr3chan1.c:195 Got SvcChange for lmEvt
+00116(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00117(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_gr3chan1.c:818 no GR-303 terminations on this termId:0x482041
+00117(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:94 ivtProcessLmEvt() recvd evt:14
+00118(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:155 Got SvcChange for lmEvt
+00118(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00119(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:0, entity:10, IvtTermFound:0
+00119(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:1, entity:10, IvtTermFound:0
+00120(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:2, entity:10, IvtTermFound:0
+00120(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:3, entity:10, IvtTermFound:0
+00121(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:4, entity:10, IvtTermFound:0
+00122(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:5, entity:10, IvtTermFound:0
+00122(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:6, entity:10, IvtTermFound:0
+00123(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:7, entity:10, IvtTermFound:0
+00123(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:8, entity:10, IvtTermFound:0
+00124(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:9, entity:10, IvtTermFound:0
+00124(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:10, entity:10, IvtTermFound:0
+00125(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:11, entity:10, IvtTermFound:0
+00126(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:12, entity:10, IvtTermFound:0
+00126(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:13, entity:10, IvtTermFound:0
+00127(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:14, entity:10, IvtTermFound:0
+00128(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1152 i:15, entity:9, IvtTermFound:0
+00128(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_ivttrk1.c:1157 No IVT Terminations found in the Service Change Evt
+00128(00993),00000(00000) 0x00000020 01-06 09:12:46.428 02619: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.453 02642: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.453 02642: ../rm_rum.c:1293 rumPrepareAndSendUpd: *** No Realms are configured *****
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.453 02642: ../rm_rum.c:1349 rumPrepareAndSendUpd: *** No Realms are configured *****
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.453 02642: ../rm_rum.c:1431 rumPrepareAndSendUpd: type = 512, id = 3670, flags = 0, hunting = 0, numCics = 0, total = 15, precut = 0, oos = 0, free = 15, overflow = 0, busy = 0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.453 02642: ../rm_rum.c:1638 rumPrepareAndSendUpd: numEntities:1, ccsId:1, versionId:10, flags:0 rumState:2, numRealms:0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.553 02642: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.553 02642: ../rm_rum.c:1293 rumPrepareAndSendUpd: *** No Realms are configured *****
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.553 02642: ../rm_rum.c:1349 rumPrepareAndSendUpd: *** No Realms are configured *****
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.553 02642: ../rm_rum.c:1606 rumPrepareAndSendUpd: ** RUM will stop updates to RS untill there isa change in  resource status
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:1 evtId: 0xd5
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc1.c:338 numBchanRows:1
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc1.c:348 numLnkRows:1
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1437 PrintIsdnData_Bchan: Entered.
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1440  tableId 4438  4438
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1442  intfcId 1  3670
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1444  memId 1  17
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1446  lnkId 0  0
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1449  numMemId 1  15
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1452  termId 1  TDM/9/1/1/17
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1454  bChanMntState 1  0
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1409 PrintIsdnData_LNK: Entered.
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1412  tableId 4437  4437
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1414  intfcId 1  3670
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1416  lnkId 1  1
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1418  termId 1  TDM/9/1/1
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1420  iuaId 1  1022
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1422  type 1  3
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1424  nfasLnkId 1  0
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1426  ly1SpId 1  4425
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1428  q931SuId 1  4425
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1430  remark 0  
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_isdn.c:1432  rowStatus 0  0
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc1.c:359 intfcId.val:3670, lnkId.val:1 
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_bdy7.c:299 IBC-1:event:0 in state:0, next state:1
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:2871 clIbcSelfPost: entered FsmCb 0xf65023f4 event: 0x0 lmEvt->lmEvtId: 0xd5
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0xB1, status=0, reason = 0
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf700063c lmEvtId: 0x0 lmEvt->lmEvtId: 0xd5
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_bdy7.c:299 IBC-1:event:0 in state:1, next state:4
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:614 *******  clIbcCfgIn SENDING REQ   ********
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:623 sent B Chan config request for rSuId:4425
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../in_bdy1.c:12801 [Q931]:got LinCfgReq, elmnt=146 transId=-2147481683
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0x59, status=0, reason = 0
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf700063c lmEvtId: 0x0 lmEvt->lmEvtId: 0xd5
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_bdy7.c:299 IBC-1:event:4 in state:4, next state:7
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:642 *******  clIbcCfgRm entered   ********
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:707 holdStr =    portTerm = tdm/9/1/1
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:709 kavon startChan = 17
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/17
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 17, memId.val = 17, chMemberId = 17
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726865(0x482051)
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/18
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 18, memId.val = 17, chMemberId = 18
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726866(0x482052)
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/19
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 19, memId.val = 17, chMemberId = 19
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726867(0x482053)
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/20
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 20, memId.val = 17, chMemberId = 20
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726868(0x482054)
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/21
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 21, memId.val = 17, chMemberId = 21
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726869(0x482055)
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/22
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 22, memId.val = 17, chMemberId = 22
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726870(0x482056)
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/23
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 23, memId.val = 17, chMemberId = 23
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726871(0x482057)
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/24
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 24, memId.val = 17, chMemberId = 24
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726872(0x482058)
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/25
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 25, memId.val = 17, chMemberId = 25
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726873(0x482059)
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/26
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 26, memId.val = 17, chMemberId = 26
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726874(0x48205a)
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/27
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 27, memId.val = 17, chMemberId = 27
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726875(0x48205b)
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/28
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 28, memId.val = 17, chMemberId = 28
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726876(0x48205c)
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/29
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 29, memId.val = 17, chMemberId = 29
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726877(0x48205d)
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/30
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 30, memId.val = 17, chMemberId = 30
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726878(0x48205e)
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:715 about to call cmMglTermStr2Bin for termId:tdm/9/1/1/31
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:739 kavon i = 31, memId.val = 17, chMemberId = 31
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:741 kavon wild.termId.term = 4726879(0x48205f)
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02619: ../cl_ibc2.c:755 sent RM Bchan cfg request for intfcId:3670
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:735 Started BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=15, cntIdleChans=15, cntMntChans=0, cntPcChans=0, cntPcOosChans=0
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=17, preCut=0, initState=2, rmPri->chnl[i].state=255
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726865(0x482051)
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/17
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/17, interface=512
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=17, channelId=17, state=2, termId.term=tdm/9/1/1/17
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=18, preCut=0, initState=2, rmPri->chnl[i].state=255
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726866(0x482052)
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/18
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/18, interface=512
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=18, channelId=18, state=2, termId.term=tdm/9/1/1/18
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=19, preCut=0, initState=2, rmPri->chnl[i].state=255
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726867(0x482053)
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/19
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/19, interface=512
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=19, channelId=19, state=2, termId.term=tdm/9/1/1/19
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=20, preCut=0, initState=2, rmPri->chnl[i].state=255
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726868(0x482054)
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/20
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/20, interface=512
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=20, channelId=20, state=2, termId.term=tdm/9/1/1/20
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=21, preCut=0, initState=2, rmPri->chnl[i].state=255
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726869(0x482055)
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/21
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/21, interface=512
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=21, channelId=21, state=2, termId.term=tdm/9/1/1/21
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=22, preCut=0, initState=2, rmPri->chnl[i].state=255
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726870(0x482056)
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/22
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/22, interface=512
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=22, channelId=22, state=2, termId.term=tdm/9/1/1/22
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=23, preCut=0, initState=2, rmPri->chnl[i].state=255
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726871(0x482057)
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/23
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/23, interface=512
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=23, channelId=23, state=2, termId.term=tdm/9/1/1/23
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=24, preCut=0, initState=2, rmPri->chnl[i].state=255
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726872(0x482058)
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/24
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/24, interface=512
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=24, channelId=24, state=2, termId.term=tdm/9/1/1/24
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=25, preCut=0, initState=2, rmPri->chnl[i].state=255
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726873(0x482059)
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/25
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/25, interface=512
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=25, channelId=25, state=2, termId.term=tdm/9/1/1/25
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=26, preCut=0, initState=2, rmPri->chnl[i].state=255
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726874(0x48205a)
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/26
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/26, interface=512
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=26, channelId=26, state=2, termId.term=tdm/9/1/1/26
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=27, preCut=0, initState=2, rmPri->chnl[i].state=255
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726875(0x48205b)
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/27
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/27, interface=512
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=27, channelId=27, state=2, termId.term=tdm/9/1/1/27
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.608 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=28, preCut=0, initState=2, rmPri->chnl[i].state=255
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726876(0x48205c)
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/28
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/28, interface=512
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=28, channelId=28, state=2, termId.term=tdm/9/1/1/28
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=29, preCut=0, initState=2, rmPri->chnl[i].state=255
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726877(0x48205d)
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/29
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/29, interface=512
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=29, channelId=29, state=2, termId.term=tdm/9/1/1/29
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=30, preCut=0, initState=2, rmPri->chnl[i].state=255
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726878(0x48205e)
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/30
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/30, interface=512
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=30, channelId=30, state=2, termId.term=tdm/9/1/1/30
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:748 Start: Print BChan config Req for PRI with intId=0, and for intfcId=3670:: i=31, preCut=0, initState=2, rmPri->chnl[i].state=255
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:942 kavon rmPri->chnl[i].termId.term = 4726879(0x48205f)
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4026 Info: ISDN resource to be inserted for term id=tdm/9/1/1/31
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy1.c:4060 Info: resource inserted for term id=tdm/9/1/1/31, interface=512
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:951 Config Req. for BChan with chMemberId=31, channelId=31, state=2, termId.term=tdm/9/1/1/31
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../rm_bdy6.c:961 Finished BChan config Req. for PRI with intId=0, and for intfcId=3670:: cntCfgdChans=30, cntIdleChans=15, cntMntChans=15, cntPcChans=0, cntPcOosChans=0
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:943 got cfm proc = 0x0000, ent=0x5B, event=0x3D, status=0, reason = 0
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf700063c lmEvtId: 0x0 lmEvt->lmEvtId: 0xd5
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:299 IBC-1:event:4 in state:7, next state:0
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:1594 get binary termId is 0x482051
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482051
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-17 chanNum 17 on link 3670-1
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482052
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-18 chanNum 18 on link 3670-1
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482053
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-19 chanNum 19 on link 3670-1
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482054
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-20 chanNum 20 on link 3670-1
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482055
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-21 chanNum 21 on link 3670-1
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482056
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-22 chanNum 22 on link 3670-1
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482057
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-23 chanNum 23 on link 3670-1
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482058
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-24 chanNum 24 on link 3670-1
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x482059
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-25 chanNum 25 on link 3670-1
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48205a
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-26 chanNum 26 on link 3670-1
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48205b
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-27 chanNum 27 on link 3670-1
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48205c
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-28 chanNum 28 on link 3670-1
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48205d
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-29 chanNum 29 on link 3670-1
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48205e
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-30 chanNum 30 on link 3670-1
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:154 inserting node in term tree, termId:0x48205f
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2798 clIbcTermCbFunc: inserted termCb of Bchannel 3670-31 chanNum 31 on link 3670-1
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2811 clIbcTermCbFunc: tempBlock FALSE
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mgl.c:120 nodes inserted 15 nodes skipped 0
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl1.c:2357 cl_audit_termId
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:1683 clMglInsertTerm() returned, numInserted:15, numSkipped:0
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:1686 TL1 inserting 3670-17 ~ 3670-31 into Bhcan termId tree
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:1830 TL1 cfg Enter complete for ISDN-IBC
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(10038) has null entry
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy6.c:207 sending back transId 0x2736  status = 0  reason = 0
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy2.c:1450 freeing input tables
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:1935 sent B Chan control request for rSuId:4425, triggering D chan status report
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl1.c:683 audit of specific termId
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl1.c:1930 starting audit for tdm/9/1/1/* cb f6500a2c
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:299 MMSL-1:event:0 in state:0, next state:1
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl2.c:257 termId tdm/9/1/1/* (482040) waiting for flow control wake up
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_flcntrl.c:416 waking fsm for tdm/9/1/1/*, cb f6500a2c
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:299 MMSL-1:event:1 in state:1, next state:2
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl2.c:523 clMmslT1tmrWait (fast audit no wait)
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: (null):394 ../in_bdy1.c:13287 [Q931]:got LinCntrlReq, elmnt=13, transId=0, action=56, subaction=1
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:2, next state:3
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl2.c:293 clMmslPingCC
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../in_bdy14.c:4191 ../in_bdy11.c:8127 Sending event=LCM_EVENT_UP for rSuId=4425
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl1.c:743 number of total fsms 1
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02642: ../in_bdy1.c:13311 ISDN Bchannel state triggering succeeds! 
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy3.c:841 raising USTA event
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ilk1.c:225 ilkProcessLmEvt: entered
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ilk1.c:234 ilkProcessLmEvt recvd evt:10
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ilk1.c:310 ILK: Q931 USTA Evt 
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ilk1.c:1095 ILK:USTA Alarm Received Category:256 Event:260 Cause:285
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ilk1.c:1109 ILK: it's an artificial staInd for triggeringBchan state machine, Ignore it! 
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:10 evtId: 0xd7
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:285 IBC: Q931 USTA Evt 
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1249 clUpdateIsdnBChanState: lmEvt: 0xf700063c lmEvt->lmEvt: 0xa lmEvt->lmEvtId:0xd7
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1320 clUpdateIsdnBChanState: megacoSta: IS trigger: ISDN_BCHAN_TGR_LNK_UP
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_isdn.c:1525 ClIsdnFindBch: find ISDN b-channel for 3670-1
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1401 Handling BChan trigger:  ISDN_BCHAN_TGR_LNK_UP for ifNmb=3670, lnkNmb=1 lmEvtId: 0xd7
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1469 IF_TYPE_PRI:  DLnkUp=1, DPort=IS
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1715 bchannel action 1 on ifNmb 3670, trigger=ISDN_BCHAN_TGR_LNK_UP.
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1868 clIbcGetFsmCb: lnk 3670-1 event: UNBLOCK lmEvt: 0xf700063c lmEvt->lmEvt: 0xa lmEvt->lmEvtId: 0xd7
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:299 IBC-1:event:11 in state:0, next state:1
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:2871 clIbcSelfPost: entered FsmCb 0xf65066fc event: 0xb lmEvt->lmEvtId: 0xd7
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:2091 clIbcGetFsmCb: isdn lnk 3670-1 started FSM for EvtId: 0xd7 delay: 0
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1747 bchannel action 1 on ifNmb 3670 lnk 1, trigger=ISDN_BCHAN_TGR_LNK_UP numLnk: 1
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1827 generated 1 FSMs on interface 3670 action: 1 EvtId: 0xd7
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1835 clUpdateIsdnBChanState: ROK for EvtId: 0xd7
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc1.c:1205 clIbcHandleUsta: leave lmEvtId 0xd7 to run
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:3, next state:4
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl2.c:685 sent to MMSL termId tdm/9/1/1/*, ctxt: 0, cb f6500a2c
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_mmsl2.c:702 sent to MMSL termId tdm/9/1/1/*, ctxt: ffffffff, cb f6500a2c
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.609 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0xB1, status=0, reason = 0
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf700063c lmEvtId: 0x0 lmEvt->lmEvtId: 0xd7
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_bdy7.c:299 IBC-1:event:11 in state:1, next state:8
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_ibc2.c:2083 clIbcHwCtrl: cb->lmEvt: 0xf700063c lmEvtId: 0x0 lmEvt->lmEvtId: 0xd7
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_isdn.c:804 ClIsdnFindLnkCb: found IntfcCb
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_isdn.c:824 ClIsdnFindLnkCb: found lnkCb for 3670-1
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_isdn.c:946 ClIsdnGetDchOpState: Get Dchan (link 3670-1) opState IS
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_ibc2.c:2169 Info: (re)starting  evt=HW_UNBLOCK, ifNmb=3670, lnkNmb=1, rSuId=4425, spId=1, lnkType=ISDN_LNK_TYPE_D_PRI curChn = 33.
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_isdn.c:1314 bChanMntSt = 0x0 on link 3670-1
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_ibc2.c:2389 sent B Chan control request action: 9 for rSuId:4425, chan 33
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_ibc2.c:2391 clIbcSendInCtrl: cb->lmEvt: 0xf700063c lmEvtId: 0x0 lmEvt->lmEvtId: 0xd7
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy1.c:13287 [Q931]:got LinCntrlReq, elmnt=13, transId=-2147481678, action=9, subaction=1
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7436 [Q931]:rSuId = 4425 action=9 chan=33
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=1, action=9 state=AVAIL ntc=0x0
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=1
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=2, action=9 state=AVAIL ntc=0x0
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=2
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=3, action=9 state=AVAIL ntc=0x0
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=3
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=4, action=9 state=AVAIL ntc=0x0
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=4
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=5, action=9 state=AVAIL ntc=0x0
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=5
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=6, action=9 state=AVAIL ntc=0x0
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=6
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=7, action=9 state=AVAIL ntc=0x0
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=7
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=8, action=9 state=AVAIL ntc=0x0
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=8
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=9, action=9 state=AVAIL ntc=0x0
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_bdy7.c:299 MMSL-1:event:3 in state:4, next state:4
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: (null):394 ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=9
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: (null):394 ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:4, next state:5
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: (null):394 ../rm_bdy6.c:3179 kavon MNT_REL defined
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=10, action=9 state=AVAIL ntc=0x0
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=10
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=11, action=9 state=AVAIL ntc=0x0
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=11
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=12, action=9 state=AVAIL ntc=0x0
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=12
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=13, action=9 state=AVAIL ntc=0x0
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=13
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=14, action=9 state=AVAIL ntc=0x0
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=14
+00054(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00054(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00055(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00055(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=15, action=9 state=AVAIL ntc=0x0
+00056(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00056(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=15
+00057(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 0
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3235 kavon return directly
+00059(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=16, action=9 state=IN_SERVICE ntc=0x0
+00059(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7668 [Q931]:inDisEnbChan: old status: 1 new status: 1
+00059(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=17, action=9 state=OUT_SERVICE_NE ntc=0x0
+00060(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00060(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=17
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:17, chMemberId=17, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=16, cntMntChans=14, cntPcChans=0, cntPcOosChans=0
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=18, action=9 state=OUT_SERVICE_NE ntc=0x0
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=18
+00065(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00066(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00067(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00068(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:18, chMemberId=18, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=17, cntMntChans=13, cntPcChans=0, cntPcOosChans=0
+00069(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00069(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=19, action=9 state=OUT_SERVICE_NE ntc=0x0
+00070(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00071(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=19
+00071(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00072(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00073(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00073(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:19, chMemberId=19, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=18, cntMntChans=12, cntPcChans=0, cntPcOosChans=0
+00073(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00074(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=20, action=9 state=OUT_SERVICE_NE ntc=0x0
+00074(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00075(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=20
+00076(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00077(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:20, chMemberId=20, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=19, cntMntChans=11, cntPcChans=0, cntPcOosChans=0
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=21, action=9 state=OUT_SERVICE_NE ntc=0x0
+00079(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00079(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=21
+00080(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00081(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00082(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00083(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:21, chMemberId=21, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=20, cntMntChans=10, cntPcChans=0, cntPcOosChans=0
+00083(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00083(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=22, action=9 state=OUT_SERVICE_NE ntc=0x0
+00084(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00084(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=22
+00085(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00085(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00086(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00086(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:22, chMemberId=22, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=21, cntMntChans=9, cntPcChans=0, cntPcOosChans=0
+00086(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00087(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=23, action=9 state=OUT_SERVICE_NE ntc=0x0
+00087(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00088(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=23
+00088(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00089(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00090(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00091(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:23, chMemberId=23, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=22, cntMntChans=8, cntPcChans=0, cntPcOosChans=0
+00091(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00092(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=24, action=9 state=OUT_SERVICE_NE ntc=0x0
+00092(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00093(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=24
+00093(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00094(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00094(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00095(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:24, chMemberId=24, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=23, cntMntChans=7, cntPcChans=0, cntPcOosChans=0
+00095(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00096(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=25, action=9 state=OUT_SERVICE_NE ntc=0x0
+00096(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=25
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00098(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.610 02642: ../rm_bdy6.c:3318  ChannelId:25, chMemberId=25, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=24, cntMntChans=6, cntPcChans=0, cntPcOosChans=0
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=26, action=9 state=OUT_SERVICE_NE ntc=0x0
+00101(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00102(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=26
+00103(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00104(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00104(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00105(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3318  ChannelId:26, chMemberId=26, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=25, cntMntChans=5, cntPcChans=0, cntPcOosChans=0
+00105(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00106(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=27, action=9 state=OUT_SERVICE_NE ntc=0x0
+00106(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00107(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=27
+00107(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00108(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00108(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00109(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3318  ChannelId:27, chMemberId=27, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=26, cntMntChans=4, cntPcChans=0, cntPcOosChans=0
+00109(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00110(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=28, action=9 state=OUT_SERVICE_NE ntc=0x0
+00110(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00111(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=28
+00111(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00112(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00112(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00113(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3318  ChannelId:28, chMemberId=28, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=27, cntMntChans=3, cntPcChans=0, cntPcOosChans=0
+00114(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00114(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=29, action=9 state=OUT_SERVICE_NE ntc=0x0
+00115(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00115(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=29
+00116(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00117(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00118(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00118(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3318  ChannelId:29, chMemberId=29, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=28, cntMntChans=2, cntPcChans=0, cntPcOosChans=0
+00119(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00119(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=30, action=9 state=OUT_SERVICE_NE ntc=0x0
+00120(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00120(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=30
+00121(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00122(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00122(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00122(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3318  ChannelId:30, chMemberId=30, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=29, cntMntChans=1, cntPcChans=0, cntPcOosChans=0
+00123(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00123(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../in_bdy11.c:7598 [Q931]:rSuId = 4425 bch->intId =1 chan=31, action=9 state=OUT_SERVICE_NE ntc=0x0
+00123(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../qw_bdy1.c:1769 [QW]:QwLiIntStaInd, SuId 6, dChan 1
+00123(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3088 rmDealocDss1: intfcId=3670, accessType=LRM_PRI, dealocType=10, intId=0, chan=31
+00124(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3177 kavon RMT_CP_AND_MNT = 10, chnlCb->state = 2
+00125(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3179 kavon MNT_REL defined
+00126(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00127(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_bdy6.c:3318  ChannelId:31, chMemberId=31, deallocated on PRI intId=0, and intfcId=3670:: cntCfgdChans=30, cntIdleChans=30, cntMntChans=0, cntPcChans=0, cntPcOosChans=0
+00127(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02642: ../rm_rum.c:391 rumSetUpdFlag: DID not start timer
+00125(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:943 got cfm proc = 0x0227, ent=0x0A, event=0x60, status=0, reason = 0
+00125(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:972 clIbcLayerCfm: cb->lmEvt: 0xf700063c lmEvtId: 0x0 lmEvt->lmEvtId: 0xd7
+00126(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_bdy7.c:299 IBC-1:event:4 in state:8, next state:9
+00127(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2447 clIbcDelay: ifRstOpt delay: 0
+00127(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2474 clIbcDelay: No delay (0), move FSM
+00128(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_bdy7.c:299 IBC-1:event:7 in state:9, next state:0
+00128(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2490 clIbcHwCtrlDone hwctrl confirm ISDN-IBC cb 0xf65066fc lmEvtId 0x0 lmEvt->lmEvtId: 0xd7
+00129(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2729 clIbcClrBchanCtrl: IbcFsmCb: 0xf65066fc cb 0x0 NULLED, clFsmCb 0xf65066fc NULLED EvtId: 0x0 (0xd7) transId 0x800007b2
+00129(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2735 clIbcClrBchanCtrl: cb: transId 0x0 lmEvtId: 0x0 lmEvt->lmEvtId: 0x0
+00130(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2741 clIbcClrBchanCtrl: cb: transId 0x800007b2 lmEvtId: 0x0 lmEvt->lmEvtId: 0xd7
+00130(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2506 clIbcHwCtrlDone IBC HWCTL: 0 FSM remaining lmEvtId: 0x0 (0xd7)
+00131(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_ibc2.c:2511 clIbcHwCtrlDone IBC HWCTL complete for ISDN-IBC EvtId: 0x0 (0xd7)
+00132(00993),00000(00000) 0x00000020 01-06 09:12:46.611 02619: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.613 02619: ../cl_bdy3.c:841 raising USTA event
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.613 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.613 02619: ../cl_mmsl1.c:358 Usta event
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.613 02619: ../cl_flcntrl.c:193 clUpdateFlowControl: Entered function, wild card IS allowed.
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.613 02619: ../cl_flcntrl.c:219 ALL_CONTEXT /TDM/I9/T1
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.613 02619: ../cl_flcntrl.c:495 audit reply for termId 482040 came with errorCode 431
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.613 02619: ../cl_flcntrl.c:499 resp count 0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_mmsl1.c:262 AuditReply for tdm/9/1/1/1, numRepl 31, errC 0, ctx 0, state 0
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_bdy3.c:841 raising USTA event
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_mmsl1.c:358 Usta event
+00004(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:193 clUpdateFlowControl: Entered function, wild card IS allowed.
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:212 NULL_CONTEXT /TDM/I9/T1
+00005(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:499 resp count 31
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[0].termId 482041 state IS
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[1].termId 482042 state IS
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[2].termId 482043 state IS
+00006(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[3].termId 482044 state IS
+00007(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[4].termId 482045 state IS
+00008(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[5].termId 482046 state IS
+00009(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[6].termId 482047 state IS
+00010(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[7].termId 482048 state IS
+00011(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[8].termId 482049 state IS
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[9].termId 48204a state IS
+00012(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[10].termId 48204b state IS
+00013(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[11].termId 48204c state IS
+00014(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[12].termId 48204d state IS
+00015(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[13].termId 48204e state IS
+00016(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[14].termId 48204f state IS
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.618 02619: ../cl_flcntrl.c:504 resp[15].termId 482050 state IS
+00017(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[16].termId 482051 state IS
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[17].termId 482052 state IS
+00018(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[18].termId 482053 state IS
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[19].termId 482054 state IS
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[20].termId 482055 state IS
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[21].termId 482056 state IS
+00019(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[22].termId 482057 state IS
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[23].termId 482058 state IS
+00020(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[24].termId 482059 state IS
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[25].termId 48205a state IS
+00021(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[26].termId 48205b state IS
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[27].termId 48205c state IS
+00022(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[28].termId 48205d state IS
+00023(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[29].termId 48205e state IS
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:504 resp[30].termId 48205f state IS
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:541 cl_set_state termId 482041 numChan 31  state IS
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482041 state IS
+00024(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482042 state IS
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482043 state IS
+00025(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482044 state IS
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482045 state IS
+00026(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482046 state IS
+00027(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482047 state IS
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482048 state IS
+00028(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482049 state IS
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x48204A state IS
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x48204B state IS
+00029(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x48204C state IS
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x48204D state IS
+00030(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x48204E state IS
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x48204F state IS
+00031(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2183 no state change for termId 0x482050 state IS
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482051 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00032(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482052 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482053 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00033(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482054 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00034(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482055 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00035(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482056 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00036(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482057 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00037(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482058 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x482059 from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x48205A from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x48205B from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00038(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x48205C from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x48205D from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x48205E from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl1.c:2176 updating state of 0x48205F from OOS to IS (0 IS : 1 OOS : 2 UEQ)
+00039(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:326 got both AuditReplies completing fsm for cb f6500a2c
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:583 cl_process_audit_reply: Entered function, wild card IS allowed.
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:757 cl_replay_port numTerms is 31
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_flcntrl.c:803 (cl_replay_port) SVCcontrol start termId tdm/9/1/1/1 state IS numChan 31
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:368 handling SVC change, state:0
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482041
+00040(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482042
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00041(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482043
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00042(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482044
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00043(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482045
+00044(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482046
+00045(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00046(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482047
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00047(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482048
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00048(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482049
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00049(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48204a
+00050(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48204b
+00051(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00052(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48204c
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00053(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48204d
+00054(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00054(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48204e
+00055(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00055(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48204f
+00056(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00057(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482050
+00057(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482051
+00058(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00059(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482052
+00060(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00060(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482053
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00061(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482054
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00062(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482055
+00063(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482056
+00064(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00065(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482057
+00066(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00066(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482058
+00066(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00067(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x482059
+00068(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00068(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48205a
+00069(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00070(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48205b
+00070(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00071(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48205c
+00071(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00072(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48205d
+00073(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00074(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48205e
+00075(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00075(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:443 found termId:0x48205f
+00076(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:451 found existing clEvt
+00077(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mgl.c:376 number of total terminations:31, numEvts:1
+00077(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00077(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_imt1.c:1992 no IMT on this termId:0x0000000000482041
+00078(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_cas1.c:94 casProcessLmEvt() recvd evt:14
+00079(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_cas1.c:205 Got SvcChange for lmEvt
+00080(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00080(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_cas1.c:1006 no CAS on this termId:0x0000000000482041
+00081(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ibc1.c:200 ibcProcessLmEvt() recvd evt:14 evtId: 0xda
+00081(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00082(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ibc1.c:1249 clUpdateIsdnBChanState: lmEvt: 0xf6e0d1ac lmEvt->lmEvt: 0xe lmEvt->lmEvtId:0xda
+00082(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:2
+00083(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ibc1.c:1276 trigger: ISDN_BCHAN_TGR_PORT_IS, termId 0x482041, no changes on opState, skip actions opState = lastOpstate = 0
+00083(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ibc1.c:894 clIbcPortCtl !ROK call clModCallBack() lmEvtId 0xda
+00084(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_casline1.c:91 casLineProcessLmEvt() recvd evt:14
+00084(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_casline1.c:163 Got SvcChange for lmEvt
+00085(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00086(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_casline1.c:901 No CAS Terminations found in the Service Change Evt
+00086(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_gr3chan1.c:115 gr3ChanProcessLmEvt() recvd evt:14
+00087(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_gr3chan1.c:195 Got SvcChange for lmEvt
+00087(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00088(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_gr3chan1.c:818 no GR-303 terminations on this termId:0x482041
+00088(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:94 ivtProcessLmEvt() recvd evt:14
+00089(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:155 Got SvcChange for lmEvt
+00089(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00090(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:0, entity:10, IvtTermFound:0
+00091(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:1, entity:10, IvtTermFound:0
+00091(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:2, entity:10, IvtTermFound:0
+00092(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:3, entity:10, IvtTermFound:0
+00092(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:4, entity:10, IvtTermFound:0
+00093(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:5, entity:10, IvtTermFound:0
+00093(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:6, entity:10, IvtTermFound:0
+00094(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:7, entity:10, IvtTermFound:0
+00095(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:8, entity:10, IvtTermFound:0
+00095(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:9, entity:10, IvtTermFound:0
+00096(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:10, entity:10, IvtTermFound:0
+00096(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:11, entity:10, IvtTermFound:0
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:12, entity:10, IvtTermFound:0
+00097(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:13, entity:10, IvtTermFound:0
+00098(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:14, entity:10, IvtTermFound:0
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:15, entity:9, IvtTermFound:0
+00099(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:16, entity:10, IvtTermFound:0
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:17, entity:10, IvtTermFound:0
+00100(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:18, entity:10, IvtTermFound:0
+00101(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:19, entity:10, IvtTermFound:0
+00102(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:20, entity:10, IvtTermFound:0
+00102(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:21, entity:10, IvtTermFound:0
+00103(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:22, entity:10, IvtTermFound:0
+00103(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1152 i:23, entity:10, IvtTermFound:0
+00104(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ivttrk1.c:1157 No IVT Terminations found in the Service Change Evt
+00104(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy7.c:299 MMSL-1:event:2 in state:5, next state:0
+00104(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl2.c:740 MG_HW_AUDIT_STATS: event: 0, evtType 0, HW_Blocks 0, HW_Unblocks 0
+00105(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cm_mgl_generic.c:910 ../cl_mmsl2.c:744 genMglTermStr2Bin: wildcard type/level 0 not supported.
+00105(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_mmsl2.c:745 Got all responses from MMSL for audit of tdm 
+00105(00993),00000(00000) 0x00000001 01-06 09:12:46.619 02619: AUDITFSM:1:EV_AUDIT_DONE, ST_FAST_AUDIT_IN_PRGS-->ST_AWT_START
+00106(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ba_audit.c:421 TermId Audit Processing Completed
+00106(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_ba_audit.c:432 SlowAuditFsm logging restored to ERR
+00107(00993),00000(00000) 0x00000020 01-06 09:12:46.619 02619: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.653 02642: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.653 02642: ../rm_rum.c:1293 rumPrepareAndSendUpd: *** No Realms are configured *****
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.653 02642: ../rm_rum.c:1349 rumPrepareAndSendUpd: *** No Realms are configured *****
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.653 02642: ../rm_rum.c:1431 rumPrepareAndSendUpd: type = 512, id = 3670, flags = 0, hunting = 0, numCics = 0, total = 30, precut = 0, oos = 0, free = 30, overflow = 0, busy = 0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.653 02642: ../rm_rum.c:1638 rumPrepareAndSendUpd: numEntities:1, ccsId:1, versionId:10, flags:0 rumState:2, numRealms:0
+00001(00993),00000(00000) 0x00000020 01-06 09:12:46.753 02642: ../rm_rum.c:607 rumUpdTimeOut: **** RUM re-scheduled *****
+00002(00993),00000(00000) 0x00000020 01-06 09:12:46.753 02642: ../rm_rum.c:1293 rumPrepareAndSendUpd: *** No Realms are configured *****
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.753 02642: ../rm_rum.c:1349 rumPrepareAndSendUpd: *** No Realms are configured *****
+00003(00993),00000(00000) 0x00000020 01-06 09:12:46.753 02642: ../rm_rum.c:1606 rumPrepareAndSendUpd: ** RUM will stop updates to RS untill there isa change in  resource status
+00001(00993),00000(00000) 0x00000020 01-06 09:12:51.053 02642: ../cc_bdy4.c:17336 ccGenericTmrEvent=2
+00001(00993),00000(00000) 0x00000020 01-06 09:12:51.053 02642: ../cc_lib.c:63631 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00993),00000(00000) 0x00000020 01-06 09:12:51.053 02642: ../cc_bdy4.c:17264 ccGenericStartTmr

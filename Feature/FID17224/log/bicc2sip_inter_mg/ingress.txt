@@ -1,0 +1,128 @@
+
+#########ingress##########
+00001(03063),00000(00000) 0x00000001 12-22 01:32:52.372 13044: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 64592 {
+  CONTEXT = $ {
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 $
+m=audio $ RTP/AVP 96 8 0 98
+a=rtpmap:96 AMR/8000
+a=fmtp:96 mode-change-capability=2
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    },
+    ADD = ip/$/$/$ {
+      EVENTS = 1392524452 { ctyp/dtone,
+                            gb/bncchange { TYPE = Est },
+                            bt/tind,
+                            g/cause },
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+a=codecconfig:0206808001
+        },
+        REMOTE {
+v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+a=codecconfig:0206808001
+        },
+        TERMINATIONSTATE { CTYP/CALLTYP = [ FAX, DATA ] },
+        LOCALCONTROL { MODE = SENDRECEIVE,
+                       BCP/BNCCHAR = IP/RTP,
+                       BT/TUNOPT = 2,
+                       THREEGUP/UPVERSIONS = 2,
+                       THREEGUP/MODE = SUPP,
+                       THREEGUP/DELERRSDU = YES,
+                       THREEGUP/INTERFACE = CN,
+                       THREEGUP/INITDIR = IN }
+      },
+      SIGNALS { bt/bit { BIT = 2020763D300D0A6F3D2D2030203020494E204950342031302E38342E31342E32350D0A733D4950424350205344500D0A633D494E204950342031302E38342E31342E32350D0A743D3020300D0A613D69706263703A3120526571756573740D0A6D3D617564696F203136373534205254502F415650203132300D0A613D7274706D61703A31323020564E442E334750502E497546502F31363030300D0A } }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(03063),00000(00000) 0x00000001 12-22 01:32:52.434 13044: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=64592{C=32758{A=ip/246/1/31780{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 47524 RTP/AVP 96 8 0 98
+a=rtpmap:96 AMR/8000
+a=rtpmap:98 CLEARMODE/8000
+a=fmtp:96 mode-change-capability=2; max-red=0
+a=ptime:20
+a=maxptime:80
+a=silenceSupp:off - - - -
+}}},A=ip/246/1/31788{M{L{v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(03063),00000(00000) 0x00000001 12-22 01:32:52.434 13044: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 T=554622{C=32758{N=ip/246/1/31788{OE=1392524452{20051110T21021499 : BT/TIND{BIT=2020763D300D0A6F3D2D2030203020494E204950342031302E38342E362E3138360D0A733D2D0D0A633D494E204950342031302E38342E362E3138360D0A743D3020300D0A613D69706263703A312041636365707465640D0A6D3D617564696F203437313938205254502F415650203132300D0A613D7274706D61703A31323020564E442E334750502E495546502F31363030300D0A}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(03063),00000(00000) 0x00000001 12-22 01:32:52.434 13044: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+REPLY = 554622 {
+  CONTEXT = 32758 {
+    NOTIFY = ip/246/1/31788
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(03063),00000(00000) 0x00000001 12-22 01:32:52.664 13044: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 64593 {
+  CONTEXT = 32758 {
+    MODIFY = ip/246/1/31780 {
+      MEDIA {
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    },
+    MODIFY = ip/246/1/31788 {
+      MEDIA {
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      },
+      SIGNALS { CG/RT { SIGNALTYPE = ONOFF } }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(03063),00000(00000) 0x00000001 12-22 01:32:52.691 13044: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=64593{C=32758{MF=ip/246/1/31780,MF=ip/246/1/31788}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(03063),00000(00000) 0x00000001 12-22 01:32:52.751 13044: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 64594 {
+  CONTEXT = 32758 {
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>

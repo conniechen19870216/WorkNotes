@@ -1,0 +1,31 @@
+************************************************************************
+1. 普通二叉树的存储结构
+http://www.cnblogs.com/abatei/archive/2008/05/23/1205707.html
+
+2. 遍历类型： 前序、中序、后序、层序
+http://www.cnblogs.com/unpolishedgem/archive/2012/05/10/2494527.html
+
+3. 二叉树的旋转
+http://www.cnblogs.com/zhangchaoyang/articles/2277591.html
+
+4. 初识红黑树
+http://www.cnblogs.com/unpolishedgem/archive/2012/05/17/2504350.html
+
+5. 红黑树的插入操作
+http://www.2cto.com/kf/201104/87324.html
+************************************************************************
+
+
+1. rbt: 
+               lib/dns/rbt.c: dns_rbt_t
+   rbt node: 
+               lib/dns/include/dns/rbt.h: dns_rbtnode_t
+   
+2. rbt db: 
+               /dns/rbtdb.c
+   rbtdb search:
+               lib/dns/rbtdb.c
+
+***************************************************************************************
+|     rbtdb_search_t -> dns_rbtdb_t -> dns_rbt_t -> dns_rbtnode_t -> data -> type     |
+***************************************************************************************

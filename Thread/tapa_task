@@ -1,0 +1,39 @@
+1. TAPA task -- TAPA layer
+As you learned in the Tapa Overview lesson, Trillium layers communicate with each other at the layer interfaces to exchange primitives. 
+A Trillium layer is also known as a TAPA task.
+
+A TAPA task is identified by:
+
+- Entity ID (Ent)
+
+- Instance ID (Inst -- may not be supported)
+
+- Processor ID (ProcId)
+
+- Task Type (TTNORM or TTPERM)
+
+2. System task (e.g. ccs, sgsig, router, etc.)
+A System task is a schedulable unit of execution in the underlying operating system.
+
+3. Relationship between TAPA task and System task
+A TAPA task must be attached to a System task in order to be activated.
+
+If a process consists of multiple TAPA tasks, all TAPA tasks can be attached to one system task, or each TAPA task can be attached to a separate system task
+
+4. Communication between TAPA tasks (e.g. Driver task)
+Each layer can also be implemented as a separate process. If this is the case, the two layers will need to communicate via a Driver Task.
+
+5. An activation function is an entry point into a TAPA task. The main types of activation functions are:
+
+- initialization (xxActvInit)
+
+- message handling (xxActvTsk)
+
+- timer (xxActvTmr)
+
+6. How to invoke xxAcvtyy functions?
+Thread process:
+SCreateSTsk for ssSTskEntry (ss_task.c) -- create a system task/thread
+    ssdCreateSTsk (mt_ss.c)
+        pthread_create (pthread.h)
+            mtTskHdlr (mt_ss.c)         -- start a thread

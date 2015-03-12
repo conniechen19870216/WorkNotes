@@ -1,0 +1,46 @@
+BiccUiBicctConReq (bicc_bdy1.c)
+       |
+       +----- 1. BiccUpSAPCb tCb = BICCUPSAP(spId)
+       |
+       |
+       |
+       +----- 2. key.k1.cirId = circuit
+       |         biccFindCir(&biccCb.cirHlCp, &cir, &key, 0, KEY_CIR)
+       |
+       |
+       +----- 3. biccFindIntf(&biccIntfCb, cir->key.k2.dstCcsId, 0, 0, 0, 0,BICCINTF_KEY_1);
+       |
+       |
+       |
+       +----- 4. biccGetInstId(&spInstId)
+       |
+       |
+       |
+       +----- 5. con = biccGetOutCon(cir, tCb)
+       |         con->key.k1.spInstId = spInstId
+       |
+       |
+       +----- 6. con->telicaPropBuf = biccOpt->mBuf
+       |
+       |
+       +----- 7. biccAddInst(&biccCb.conHlCp, con)
+       |
+       |
+       +----- 8. mCb = biccGetMCbPtr(tCb->cfg.swtch, tCb->cfg.ssf)
+       |         con->mCallCb = mCb
+       |
+       |
+       +----- 9. biccActDat(circuit, con, IEI_CONREQ)
+                             |
+                             |
+                             +----- biccOutE25S00
+                                          |
+                                          |
+                                          |
+                                          +----- con->cid = GetHiByte(GetHiWord(con->suInstId))
+                                          |
+                                          |
+										  +----- MFINITPDU
+                                          |
+                                          |
+										  +----- biccGenPdu

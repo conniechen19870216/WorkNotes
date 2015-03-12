@@ -1,0 +1,189 @@
+#!/usr/bin/ksh
+# Created by Robert Wu - QD x5258 2011/6
+quit="false"
+
+function mainmenu
+{
+print ""
+print "===================================="
+print "Steps to Install SDM4.0 on LincasePC"
+print "===================================="
+print "1 - Get the vmware build via ftp and Start the VM10"
+print "2 - Get the SDM400 and OAM400 tar via ftp"
+print "3 - Send tools and traceflags to VM10 - coretest, chk_init, traceflags"
+print "4 - ck_init"
+print "5 - install OAM400 spa"
+print "6 - install SDM400 spa"
+print "7 - op:status,spa=all"
+print "q - Quit"
+}
+
+function bktomm
+{
+print "Hit Enter to back to mainmenu...."
+read
+}
+
+while [[ $quit == "false" ]]
+do
+	mainmenu
+	print "Please select the operation to do (1-9, q-Quit):"
+	read option
+	case $option in
+	1)
+		clear
+#		 print "The ftp tool will look for the File under 135.252.181.52:/local/sdm400/vmware" 
+		read host?"ftp server(default 135.252.181.52)?   "
+		read username?"User name for ftp(default: $USER)?   "
+		read password?"Password of $USER(must input)?   "
+		read sdir?"Directory of the build on ftp server(default: /local/sdm400/vmware)?   "
+		read filename?"Filename(must input)?   "
+		read targetdir?"Where you want to put the file locally(Default: /local/$USER)?  "
+		if [[ -z $host ]]; then
+			host="135.252.181.52"
+		fi
+		if [[ -z $username ]]; then
+			username="$USER"
+		fi
+		if [[ -z $sdir ]]; then
+			sdir="/local/sdm400/vmware"
+		fi
+		if [[ -z $targetdir ]]; then
+			targetdir="/local/$USER"
+		fi
+		if [ ! -d "$targetdir" ]; then
+			mkdir -p "$targetdir"
+		fi
+		cd $targetdir
+		print "Download inprogress..."
+		rt=$(ftpVMbld $host $username $password $sdir $filename)
+		if [[ $rt == "ok" ]]; then
+			print " Download completed."
+			print ""
+			read inst?"Do you want to untar and run this VMware?(Y or N)"
+			if [[ $inst == "Y" ]]; then
+				startvm $targetdir $filename
+			fi
+		else
+			print " There's some problem to download the file, please check."
+		fi
+		bktomm
+	;;
+	
+	2)
+		clear
+#		 print "The ftp tool will look for the File under 135.252.181.52:/local/sdm400/vmware" 
+		read host?"ftp server(default 135.252.181.52)?   "
+		read username?"User name for ftp(default: $USER)?   "
+		read password?"Password of $USER(must input)?   "
+		read sdir?"Directory of the build on ftp server(default: /local/sdm400/application/)?   "
+		read filename?"Filename(must input)?   "
+		read targetdir?"Where you want to put the file locally(Default: /local/$USER)?  "
+		if [[ -z $host ]]; then
+			host="135.252.181.52"
+		fi
+		if [[ -z $username ]]; then
+			username="$USER"
+		fi
+		if [[ -z $sdir ]]; then
+			sdir="/local/sdm400/application/"
+		fi
+		if [[ -z $targetdir ]]; then
+			targetdir="/local/$USER"
+		fi
+		if [ ! -d "$targetdir" ]; then
+			mkdir -p "$targetdir"
+		fi
+		cd $targetdir
+		print "Download inprogress..."
+		rt=$(ftpVMbld $host $username $password $sdir $filename)
+		if [[ $rt == "ok" ]]; then
+			print " Download completed."
+			print ""
+		else
+			print " There's some problem to download the file, please check."
+		fi
+		bktomm
+	;;
+	
+	3)	
+		clear
+		vm10sshvfy
+		send2vm10
+		bktomm
+	;;
+	
+	4) 
+		clear
+		print "Please run step 3 to send the chk_init to vm10 first!!!"
+		print "Hit Enter to execute..."
+		read
+		vm10run "/tmp/chk_init"
+		bktomm
+	;;
+	5)
+		clear
+		read sdir?"Where is your OAM400 tar?   "
+		print "Sending to VM10..."
+		rt=$(scp2vm10 $sdir /etc/SU/OAM400-service_logic.full.tar)
+		if [[ $rt == "Done" ]]; then
+			print " Send completed."
+			vm10run "cp /etc/SU/OAM400-service_logic.full.tar /etc/SU/OAM400-service_logic.full.tar.bak"
+			print "A copy is saved to /etc/SU/OAM400-service_logic.full.tar.bak"
+		else
+			print " There's some problem to send the file, please check."
+			bktomm
+			continue
+		fi
+
+		print "install:config, install:proc, rst:spa will be done."
+		print "Hit Enter to execute..."
+		read
+		vm10run "/tmp/addhost"	
+		vm10run "chmod 755 /usr/dhafw/shlib/*"
+		vm10run "chmod -R 755 /usr/dhafw/data"
+		vm10run "chmod 755 /sn/cr/tracedir/"
+		inst_cfg OAM400	
+		vm10run "/sn/sps/OAM400/bin/post.install.LXSERVER_ACTL.sh"
+		inst_spa OAM400	
+		bktomm
+	;;
+		
+	6)
+		clear
+		read sdir?"Where is your SDM400 tar?   "
+		print "Sending to VM10..."
+		rt=$(scp2vm10 $sdir /etc/SU/SDM400-service_logic.full.tar)
+		if [[ $rt == "Done" ]]; then
+			print " Send completed."
+			vm10run "cp /etc/SU/SDM400-service_logic.full.tar /etc/SU/SDM400-service_logic.full.tar.bak"
+			print "A copy is saved to /etc/SU/SDM400-service_logic.full.tar.bak"
+		else
+			print " There's some problem to send the file, please check."
+			bktomm
+			continue
+		fi
+		print "install:config, install:proc, rst:spa will be done."
+		print "rcv 1.3,1.2 will insert SSN 311"
+		print "Hit Enter to execute..."
+		read
+		inst_cfg SDM400	
+		rcv_menu_1.3_insert 311
+		rcv_menu_1.2_insert SDM400 311 
+		inst_spa SDM400
+		bktomm
+	;;
+
+	7)	
+		clear
+		subshl "op:status,spa=all;"
+		bktomm
+	;;
+		
+		
+	q)
+		quit="true" ;;
+	*)
+		print "Invalid input. Please input a number or q to Quit" ;;
+	esac
+done

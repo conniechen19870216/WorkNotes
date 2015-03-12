@@ -1,0 +1,16 @@
+1. 最小的configure.in可能只有两行
+   AC_INIT
+   AC_OUTPUT
+2. 所有的参数都用中括号括起来：
+   In fact，
+           没有","，则[]可以省略；
+		   传递参数的话，需要用[[]]包裹起来。
+3. 本质是宏扩展，左圆括号紧跟宏名字后面，同时也可以有optional参数，不写参数可以不加圆括号
+4. 宏定义路径
+   /usr/share/autoconf/autoconf
+   e.g. AC_INIT: general.m4; 
+        AC_OUTPUT: status.m4
+5. Macros
+   AC_CHECK_LIB([pthread], [pthread_rwlock_init]): 检查lib库中是否存在指定的函数
+   AC_CONFIG_SRCDIR([src/main.c]): 用于确认目录是否存在，任选该目录下的一个文件即可
+   AC_CONFIG_HEADERS([config.h])

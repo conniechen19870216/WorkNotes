@@ -1,0 +1,762 @@
+cscope 15 $HOME/majun/Dev/git/WorkNotes/Feature/FID16779/UT -q 0000000084 0000003754
+	@AllTest/AllTest.c
+
+1 
+	~"CµUTe¡/CommªdLšeTe¡RuÂ”.h
+"
+
+2 
+	~"CµUTe¡Ext/MockSuµÜt.h
+"
+
+3 
+	~"CµUTe¡Ext/MockSuµÜtPlugš.h
+"
+
+4 
+	~"CµUTe¡/Te¡Regi¡ry.h
+"
+
+5 
+	~"AÎTe¡.h
+"
+
+7 
+	$maš
+(
+ac
+, ** 
+av
+)
+
+9  
+CommªdLšeTe¡RuÂ”
+::
+	`RunAÎTe¡s
+(
+ac
+, 
+av
+);
+
+10 
+	}
+}
+
+	@AllTest/AllTest.h
+
+3 
+IMPORT_TEST_GROUP
+(
+dig™M­Te¡Group
+);
+
+	@Test/digitMapTest.c
+
+1 
+	~"CµUTe¡/Te¡H¬Ãss.h
+"
+
+2 
+	~"CµUTe¡Ext/MockSuµÜt.h
+"
+
+3 
+	~"CµUTe¡Ext/MockSuµÜtPlugš.h
+"
+
+4 
+	~"CµUTe¡/MemÜyL—kD‘eùÜM®locMaüos.h
+"
+
+5 
+	~"CµUTe¡/MemÜyL—kD‘eùÜNewMaüos.h
+"
+
+12 
+	$TEST_GROUP
+(
+dig™M­Te¡Group
+)
+
+14 
+	`£tup
+()
+
+18 
+	`‹¬down
+()
+
+21 
+	}
+};
+
+23 
+	$TEST
+(
+dig™M­Te¡Group
+, 
+In™Dig™M­Te¡
+)
+
+25 
+	`FAIL
+("Fail me!");
+
+26 
+	}
+}
+
+	@main/kavon_main.c
+
+2 
+	~"g’.h
+"
+
+3 
+	~"dig™_m­.h
+"
+
+6 
+	~"g’.x
+"
+
+7 
+	~"dig™_m­.x
+"
+
+9 
+S8
+ 
+	g¿wDig™M­SŒ
+[
+NUM_DIGITMAP
+][
+MAX_DIGITMAP_LEN
+] = {
+
+16 
+S32
+ 
+	$maš
+()
+
+18 
+S16
+ 
+»t
+ = 
+RFAILED
+;
+
+19 
+Dig™M­
+ *
+pDig™M­
+ = 
+NULL
+;
+
+21 
+pDig™M­
+ = (
+Dig™M­
+ *)
+	`m®loc
+((DigitMap));
+
+22 
+	`mem£t
+(
+pDig™M­
+, 0, (
+Dig™M­
+));
+
+24 
+»t
+ = 
+	`In™Dig™M­
+(
+pDig™M­
+, 
+¿wDig™M­SŒ
+, 
+NUM_DIGITMAP
+);
+
+25 ià(
+ROK
+ =ğ
+»t
+)
+
+27 
+	`DP
+("InitDigitMap Success!\n");
+
+31 
+	`DP
+("InitDigitMap Failure!\n");
+
+34  
+ROK
+;
+
+35 
+	}
+}
+
+	@sigcom/include/gen.h
+
+1 #iâdeà
+GEN_H_
+
+
+2 
+	#GEN_H_
+
+
+	)
+
+4 
+	~<¡dio.h
+>
+
+5 
+	~<¡dlib.h
+>
+
+6 
+	~<m®loc.h
+>
+
+7 
+	~<¡ršg.h
+>
+
+8 
+	~<as£¹.h
+>
+
+10 
+	#ROK
+ 0
+
+	)
+
+11 
+	#RFAILED
+ -1
+
+	)
+
+13 
+	#NOTPRSNT
+ 0
+
+	)
+
+14 
+	#PRSNT_NODEF
+ 1
+
+	)
+
+16 
+	#MF_SIZE_TKNSTR
+ 132
+
+	)
+
+18 
+	#DP
+ 
+´štf
+
+
+	)
+
+	@sigcom/include/gen.x
+
+1 #iâdeà
+GEN_X_
+
+
+2 
+	#GEN_X_
+
+
+	)
+
+4 
+	tS8
+;
+
+5 
+	tU8
+;
+
+6 
+	tS16
+;
+
+7 
+	tU16
+;
+
+8 
+	tS32
+;
+
+9 
+	tU32
+;
+
+11 
+	stknSŒ
+
+
+13 
+U8
+ 
+	m´es
+;
+
+14 
+U8
+ 
+	mËn
+;
+
+15 
+U16
+ 
+	m¥¬e
+;
+
+16 
+U8
+ 
+	mv®
+[(
+MF_SIZE_TKNSTR
+ + 3) & 0xffc];
+
+17 } 
+	tTknSŒ
+;
+
+	@src1/digit_map.c
+
+2 
+	~"g’.h
+"
+
+3 
+	~"dig™_m­.h
+"
+
+6 
+	~"g’.x
+"
+
+7 
+	~"dig™_m­.x
+"
+
+9 
+S16
+ 
+	$In™Dig™M­
+(
+Dig™M­
+ *
+pDig™M­
+, 
+S8
+ 
+¿wDig™M­SŒ
+[][
+MAX_DIGITMAP_LEN
+], 
+U16
+ 
+num
+)
+
+11 
+	`as£¹
+(
+pDig™M­
+ !ğ
+NULL
+);
+
+12 
+	`as£¹
+(
+¿wDig™M­SŒ
+ !ğ
+NULL
+);
+
+13 
+	`as£¹
+(
+num
+ > 0);
+
+15 
+U8
+ 
+»t
+ = 
+ROK
+;
+
+16 
+U8
+ 
+Ën
+;
+
+17 
+U8
+ 
+i
+;
+
+20 
+pDig™M­
+->
+numb”Cªdid©es
+ = 
+num
+;
+
+21 
+pDig™M­
+->
+ÿndid©es
+ = (
+Dig™M­Cªdid©e
+ *)
+	`m®loc
+ÕDig™M­->
+numb”Cªdid©es
+ * (DigitMapCandidate));
+
+22 
+	`mem£t
+(
+pDig™M­
+->
+ÿndid©es
+, 0,…Dig™M­->
+numb”Cªdid©es
+*(
+Dig™M­Cªdid©e
+));
+
+26 
+i
+=0; i<
+pDig™M­
+->
+numb”Cªdid©es
+; i++)
+
+29 
+Ën
+ = 
+	`¡¾’
+(
+¿wDig™M­SŒ
+[
+i
+]);
+
+30 
+	`as£¹
+(
+Ën
+ > 0);
+
+31 
+	`¡ºıy
+(
+pDig™M­
+->
+ÿndid©es
+[
+i
+].
+·‰”n
+.
+v®
+, 
+¿wDig™M­SŒ
+[i], 
+Ën
+);
+
+32 
+pDig™M­
+->
+ÿndid©es
+[
+i
+].
+·‰”n
+.
+´es
+ = 
+PRSNT_NODEF
+;
+
+33 
+pDig™M­
+->
+ÿndid©es
+[
+i
+].
+·‰”n
+.
+Ën
+ =†en;
+
+36 
+pDig™M­
+->
+ÿndid©es
+[
+i
+].
+šdex
+ = 0;
+
+39 
+pDig™M­
+->
+ÿndid©es
+[
+i
+].
+¡©e
+ = 
+DM_ACTIVE
+;
+
+43  
+»t
+;
+
+44 
+	}
+}
+
+46 
+U8
+ 
+	$Dig™M­Check
+(
+Dig™M­
+ *
+pDig™M­
+, 
+U16
+ 
+šdex
+, 
+U8
+ 
+dig™
+)
+
+48 
+	`as£¹
+(
+pDig™M­
+ !ğ
+NULL
+);
+
+49 
+	`as£¹
+(
+šdex
+ >= 0);
+
+51 
+U8
+ 
+»t
+ = 0;
+
+53  
+»t
+;
+
+54 
+	}
+}
+
+	@src1/digit_map.h
+
+1 #iâdeà
+DIGIT_MAP_H_
+
+
+2 
+	#DIGIT_MAP_H_
+
+
+	)
+
+4 
+	#NUM_DIGITMAP
+ 4
+
+	)
+
+5 
+	#MAX_DIGITMAP_LEN
+ 64
+
+	)
+
+	@src1/digit_map.x
+
+1 #iâdeà
+DIGIT_MAP_X_
+
+
+2 
+	#DIGIT_MAP_X_
+
+
+	)
+
+4 
+	eDig™M­S‹_Tag
+
+
+6 
+	mDM_INACTIVE
+ = 0,
+
+7 
+	mDM_ACTIVE
+,
+
+8 
+	mDM_FAILED_MATCH
+,
+
+9 
+	mDM_PARTIAL_MATCH
+
+
+10 } 
+	tDig™M­S‹
+;
+
+12 
+	sdig™M­Cªdid©e
+
+
+14 
+Dig™M­S‹
+ 
+	m¡©e
+;
+
+15 
+TknSŒ
+ 
+	m·‰”n
+;
+
+16 
+U8
+ 
+	mšdex
+;
+
+17 } 
+	tDig™M­Cªdid©e
+;
+
+19 
+	sdig™M­
+
+
+21 
+Dig™M­Cªdid©e
+ *
+	mÿndid©es
+;
+
+22 
+U16
+ 
+	mnumb”Cªdid©es
+;
+
+23 } 
+	tDig™M­
+;
+
+25 
+S16
+ 
+In™Dig™M­
+(
+Dig™M­
+ *
+pDig™M­
+, 
+S8
+ 
+¿wDig™M­SŒ
+[][
+MAX_DIGITMAP_LEN
+], 
+U16
+ 
+num
+);
+
+26 
+U8
+ 
+Dig™M­Check
+(
+Dig™M­
+ *
+pDig™M­
+, 
+U16
+ 
+šdex
+, U8 
+dig™
+);
+
+	@
+1
+.
+0
+9
+167
+AllTest/AllTest.c
+AllTest/AllTest.h
+Test/digitMapTest.c
+main/kavon_main.c
+sigcom/include/gen.h
+sigcom/include/gen.x
+src1/digit_map.c
+src1/digit_map.h
+src1/digit_map.x

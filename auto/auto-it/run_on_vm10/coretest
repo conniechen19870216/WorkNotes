@@ -1,0 +1,49 @@
+#!/usr/bin/ksh
+
+ENV_CORE_NUM=0
+TIMESTONE=/tmp/timestone_coretest
+COREPROMPT=/tmp/coreprompt_coretest
+PROMPTWITHNAME=/tmp/promptwithname_coretest
+touch $TIMESTONE #this file is the time standard to compare with other new files
+notifycore ()
+{
+    $ENV_WARNING << WARNING
+`cat $PROMPTWITHNAME`
+WARNING
+}
+testcore ()
+{
+  while (true)
+  do
+    cat $COREPROMPT > $PROMPTWITHNAME
+    cd /sn/core/
+#    ENV_CORE_NUM=`find .  -size +500c  -newer $TIMESTONE -exec ls {} \; |grep "\/"|  tee -a $PROMPTWITHNAME |wc -l`    
+    ENV_CORE_NUM=`find . -name 'core*'  -newer $TIMESTONE 2>/dev/null |grep core |tee -a $PROMPTWITHNAME |wc -l`
+    if [ $ENV_CORE_NUM -gt 0 ]
+    then
+      notifycore
+    fi
+    touch $TIMESTONE
+    sleep 10
+  done
+}
+
+if [[ `uname` == "SunOS" ]]; then
+  ENV_WARNING=/usr/sbin/wall
+  ENV_ECHO="echo"
+else
+  ENV_WARNING=/usr/bin/wall
+  ENV_ECHO="echo -e"
+fi
+
+$ENV_ECHO "==========================" > $COREPROMPT
+$ENV_ECHO "There is a core!!!" >> $COREPROMPT
+$ENV_ECHO "==========================" >> $COREPROMPT
+$ENV_ECHO "corefile name : " >> $COREPROMPT
+
+if [ $USER != "ainet" ] && [ $USER != "root" ]
+then
+  echo "Need ainet to run"
+else
+  testcore
+fi

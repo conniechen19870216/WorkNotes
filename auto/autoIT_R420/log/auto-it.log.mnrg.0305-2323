@@ -1,0 +1,8 @@
+spawn ssh hssit@135.252.181.13
+hssit@135.252.181.13's password: 
+Last login: Tue Mar  5 15:15:48 2013 from bl1245.cn.alcatel-lucent.com
+cd ~/auto-it/
+cd ~/auto-it/
+source /home/it40/jenkins_script/autoIT_R420/auto-it_R420.env
+setenv DISPLAY 135.252.181.13:1
+./auto-it.enh mnrg | tee auto-it.enh.mnrg.log

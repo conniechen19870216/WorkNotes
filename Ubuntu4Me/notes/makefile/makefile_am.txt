@@ -1,0 +1,41 @@
+***************************************************AUTOMAKE_OPTIONS=foreignbin_PROGRAMS=helloworld
+helloworld_SOURCES=helloworld.c
+***************************************************
+
+(1) . 
+SUBDIRS=src/lib src/ModuleA/apple/shell src/ModuleA/apple/core 
+CURRENTPATH=$(shell /bin/pwd)
+INCLUDES=-I$(CURRENTPATH)/src/include -I$(CURRENTPATH)/src/ModuleA/apple/include 
+#CPFLAG:=$(DEFS)
+export INCLUDES 
+
+(2) src/lib
+noinst_LIBRARIES=libswap.a
+libswap_a_SOURCES=swap.c
+INCLUDES=-I$(top_srcdir)/src/include
+
+(3) src/ModuleA/apple/core
+noinst_PROGRAMS=test
+test_SOURCES=test.c 
+test_LDADD=$(top_srcdir)/src/ModuleA/apple/shell/apple.o $(top_srcdir)/src/lib/libswap.a 
+test_LDFLAGS=-D_GNU_SOURCE
+DEFS+=-D_GNU_SOURCE
+
+(4) src/ModuleA/apple/shell
+noinst_PROGRAMS=apple
+apple_SOURCES=apple.c
+DEFS+=-D_GNU_SOURCE
+
+****************************************************
+CC C compiler command
+CFLAGS C compiler flags
+CXX C++ compiler command
+CXXFLAGS C++ compiler flags
+LDFLAGS linker flags
+CPPFLAGS C/C++ preprocessor flags
+
+./configure --prefix ~/usr CC=gcc-3 \
+CPPFLAGS=-I$HOME/usr/include LDFLAGS=-L$HOME/usr/lib
+
+# AC_PROG_RANLIB                           ### Added if static libary used
+# AC_PROG_LIBTOOL                          ### Added if dynamic libary used

@@ -1,0 +1,10 @@
+#!/bin/ksh
+export DISPLAY=135.252.181.244:11
+#echo $SDMTOOLTARNAME 
+echo "start vm"
+cd /local/hssit/autoITtest/VMCS10
+./runVMs.auto  > /dev/null < /dev/null 2>&1 &
+#nohup xterm  > /dev/null < /dev/null 2>&1 &
+#xterm  >/dev/null </dev/null 2>&1 &
+~hssit/auto-it/test1
+##

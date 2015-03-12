@@ -1,0 +1,12 @@
+2nd decode ISUP message:
+
+SiUiSitCnStReq
+      |
+	  | <evntType == COMPAT>
+	  |
+	  +------- MFDECPDU
+	  |
+	  |
+	  +------- Copy decode results into SiPduUPV
+
+ccProcessCompatACK

@@ -1,0 +1,81 @@
+1. Procedures
+
+(1) MFDECPDUHDR()
+         |
+         +-- siMfDecPduHdr()
+                 |
+                 +-- siMfDecSS7Elmts()
+                          |
+                          +-- siMfDecTkns()
+                                  |
+                                  +-- siMfDecU8Enum()
+i) MFDECPDUHDR: Configurations
+    (ctlp)->mp    => Input:    Buffer   (ssmsgb)
+    (ctlp)->dup1  => Output:   SiPduHdr (ElmtHdr eh + TknU8 msgType)
+    (ctlp)->melp1 => DataBase: siPduHdrMsgDef
+
+ii) siMfDefSS7Elmts: Action
+    --------------------------------------
+    | Type of message element: MET_FIXED |
+    | message id:              ME_HEDR   |
+    | message internal index:  MEI_HEDR  |
+    --------------------------------------
+    a) Initialization => mep, fehp, ehp
+       mep  = *msgCtlp->melp1
+       fehp = msgCtlp->dup1
+       ehp  = msgCtlp->dup1
+    b) (ctlp)->exMandCnt = 1
+    c) dup1 points to msgType
+    fpAdd((PTR *) &msgCtlp->dup1, (U32) sizeof(ElmtHdr))
+    d) (ctlp)->elen = mep->maxLen
+    e) siMfDecTkns
+
+iii) siMfDecTkns
+    a) Initialization => telp, tep
+    b) siMfDecU8Enum
+
+iv) siMfDecU8Enum (TF_MAND | TF_LAST)
+    a) Initialization => tp
+    b) siChkMsgType (14): check the message type whether supported (MF_NA)
+    -----------------------------------------
+    | melp = siAllPduDefs1[i].melp;         |
+    | (ctlp)->mdbp = &siAllPduDefs1[i];     |
+    | (ctlp)->smelp1 = melp;                |
+    | (ctlp)->msgType = *c;                 |
+    | (ctlp)->msgIdx = siAllPduDefs1[i].idx;|
+    -----------------------------------------
+                    |||
+                     V
+                     V
+       (ctlp)->melp1 = (ctlp)->smelp1;
+
+(2) MFDECPDU()
+         |
+         +-- siMfDecPdu()
+                 |
+                 +-- siMfDecSS7Elmts()
+                          |
+                          +-- siMfDecTkns()
+                                  |
+                                  +-- siMfDecU16()
+                                  +-- siMfDecU8Enum()
+                                  +-- etc.
+
+i) MFDECPDU: Configurations
+    (ctlp)->mp        => Input:    Buffer   (ssmsgb)
+    (ctlp)->dup1      => Output:   SiAllPdus
+    (ctlp)->mdbp      => DataBase: siAllPduDefs
+    (ctlp)->(s)melp1  =>           siAllPduDefs[i].melp
+
+ii) siMfDefSS7Elmts: Action
+    a) Initialization => mep, fehp, ehp
+       mep  = *msgCtlp->melp1
+       fehp = msgCtlp->dup1
+       ehp  = msgCtlp->dup1
+    b) set (ctlp)->exMandCnt through element list
+    c) MET_FIXED -> MET_FIXED_PTR -> MET_VARIABLE -> MET_FIXED (end of optional)
+    d) keep melp, mep, dup1, ehp synced.
+
+iii) siMfDecTkns
+
+iv) siMfDecU8Enum/U16

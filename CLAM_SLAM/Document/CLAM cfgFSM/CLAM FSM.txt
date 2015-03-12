@@ -1,0 +1,19 @@
+signaling/lm/slam/base/sl_clam_boot_tables.h
+typedef S16 (*SlBootKeyModFn)(SlClamCb *context, DbMngmtReq *dbMngmtReq);
+typedef S16 (*SlBootModFn)(SlClamCb *context);
+typedef struct slClamGSDbTables
+{
+    TkU32 tableId;
+    TkU32 tableAction;
+    TkU32 specialAction;
+    TkU8  commitFlag;
+    /* function pointer */
+    void *keys[SL_GS_TABLES_KEYS_MAX];
+    SlBootKeyModFn func;
+} SlClamBootDbTables;
+
+typedef struct slClamBootDef
+{
+    SlBootModFn postProcess;
+    SlClamBootDbTables *bootTables;
+} SlClamBootDef;

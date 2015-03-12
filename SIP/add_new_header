@@ -1,0 +1,212 @@
+            CC
+		  	||
+         PSIF-SIP
+		    ||
+		    SIP
+
+1. Structures (sipt.x): SIPw <-> SIPa
+typedef struct sipwLiAllSdus         /* all sdu messages */
+{
+   union
+   {
+      SipwLiConEvnt    sipwLiConEvnt;      /* ISUP Connect Event */
+      SipwLiCnCfmEvnt  sipwLiCnCfmEvnt;    /* ISUP Connect Confirm Event */
+      SipwLiCnStEvnt   sipwLiCnStEvnt;     /* Connect Status Event */
+      SipwLiRelEvnt    sipwLiRelEvnt;      /* Release Event */
+      SipwLiAudReqEvnt sipwLiAudReqEvnt;   /* Audit Request */
+      SipwLiAudCfmEvnt sipwLiAudCfmEvnt;   /* Audit Confirm */
+      SipwLiCngEvnt    sipwLiCngEvnt;      /* Congestion Event */
+      SipwLiGeoCreateEvnt        sipwLiGeoCrtEvnt;    /* Sip GR create */
+      SipwLiGeoCreateCfmEvnt    sipwLiGeoCrtCfmEvnt; /* GR create confirm */
+      SipwLiGeoAudStChgReqEvnt    sipwLiGeoAudStChgReqEvnt;/* GR audit state change */
+      SipwLiGeoAudStChgIndEvnt    sipwLiGeoAudStChgIndEvnt; /* GR post audit status */
+      SipwLiNcEvnt      sipwLiNcEvnt;      /* Sip non-call events */
+   } m;
+} SipwLiAllSdus; 
+
+typedef struct sipAllSdus         /* all sdu messages */
+{  
+   union
+   {
+      SipConEvnt   sipwConEvnt;      /* ISUP Connect Event */                                                                           
+      SipCnStEvnt  sipwCnStEvnt;     /* Connect Status Event */
+      SipRelEvnt   sipwRelEvnt;      /* Release Event */
+#if 0 
+      SipFacEvnt   sipwFacEvnt;      /* facility event */
+      SipInfoEvnt  sipwInfoEvnt;     /* Information Event */
+      SipResmEvnt  sipwResmEvnt;     /* resume event */
+      SipStaEvnt   sipwStaEvnt;      /* Status Event */
+      SipSuspEvnt  sipwSuspEvnt;     /* suspend event */
+      SipFtzEvnt   sipwFtzEvnt;      /* FTZ utilities event */
+#endif
+   } m;
+} SipAllSdus; 
+
+
+2.  Call Flow: SIPw <-> SIPa
+(1) sipw_bdy2.c
+    a) cc -> sipw -> sipa
+    CcLiCctConReq (cc_ptli.c)
+           -- SipwUiCctConReq (sipw_bdy1.c)
+    	          -- sipwTransCctConReqToSipFormat ************************ (1) SipConEvnt -> SipwLiConEvnt *********************
+    		      -- SipwLiSipConReq (sipw_ptli.c)
+    					    -- sipwLiSipPostEvnt (sipw_ptli.c)
+    						       -- cmPkSipaLiConEvnt (lsip.c) ****************** (2) Pack *********************
+    						       -- SPstTsk(&sipwSipPst, mBuf)
+    
+    b) sipa processing
+    sipa_process_rly (siparcv_new.c)
+           -- case EVTSIPWCONREQ: sipa_unpk_SipwLiConEvnt (lsip.h) -> cmUnpkSipaLiConEvnt (lsip.c) *********************** (3) Unpack ************************
+    	         -- sipa_process_conreq (siparcv2.c) ********************** (4) SipwLiConEvnt -> SIPA_CC_INFO_CB *****************
+				           -- sipa_build_trans (sipabuild.c)
+						         -- ********************************* (4) or add a new build function ******************************
+
+    sipa_ccl_send_ips (sipacclsm.c) ************************ (5) ADD XTMR (SIPA_CC_INFO_CB !!!!!! nbb_mm_cb_data[]) ***************************
+    			    
+(2) sipw_bdy3.c
+    a) sipa processing and send messages to sipw    
+	main (sipamain.c)
+            -- sipc_initialize (sipainit.c) 
+			  ---------------------------------------------------------
+			 |   status = NBS_REGISTER(PCT_SIPU, &sipa_ua_proc_type);  |
+			 |   NBB_PROCESS_TYPE sipa_ua_proc_type =                  |                                                                             
+			 |   {                                                     |
+			 |       sipa_ua_create_proc,                              |
+			 |       sipa_ua_destroy_proc,                             | 
+			 |       NULL,                                             |
+			 |       sizeof(SIPA_LOCAL),                               |
+			 |       MEM_SIPA_LOCAL,                                   |
+			 |       sipa_pd,                                          |
+			 |       SIPA_PD_ARRAY_SIZE                                |
+			 |   };                                                    |
+              ---------------------------------------------------------
+			        -- sipa_ua_create_proc (sipamain.c)
+				           -- sipa_ccl_request_rx (sipacclsm.c)
+						         -- sipa_parse_message (sipaparse.c)
+								|       -- case SIP_TOKEN_INVITE: sipa_parse_invite (sipaparse2.c) ********************** (1) sipa_parse_XTMR called *************************
+								|  	      -- sipa_parse_XTMR (sipaparse.c) ************************* (2) add a new function ********************************
+                                |
+					             -- sipa_send_rlydata (siparcv_new.c)
+				                         -- sipa_pk_rlydata (sipapkunpk.c)
+					                            -- sipa_pk_SipwLiConEvnt (lsip.h) -> cmPkSipaLiConEvnt (lsip.c) ************************** (3) Pack **************************
+    b) sipw -> cc
+    sipwActvTskNew (sipw_ex_ms.c)
+           -- case EVTSIPWCONIND: cmUnpkSipaLiConEvnt (lsip.c) ****************************** (4) Unpack ******************************
+		           -- SipwLiSipConInd (sipw_bdy1.c) 
+                          -- sipwTransSipConIndToCctFormat ********************** (5) SipwLiConEvnt -> SipConEvnt ********************
+                    	          -- SipwUiCctConInd (sipw_ptui.c)
+                       			       -- CcLiCctConInd (cc_bdy1.c)
+    
+
+3. Get cust from TL1: PRFL-SIP
+
+sipaProcessConfigCmd (sipaconfig.c)
+              -- case SIP_ED_PRFLSIP: sipa_prfl_config (sipaiptrnk.c) ******************************** SipPrflData -> SIP_PRFL ******************************
+
+			        ******************************************************************************
+                    *      if(sipPrflData->cust1.pres)                                           *
+			  	    *      {                                                                     *
+				    *           sipPrflPtr->cust1 = sipa_parse_cust_val(sipPrflData->cust1.val); *
+				    *      }                                                                     *
+				    *      else                                                                  *
+			        *      {                                                                     *
+				    *           sipPrflPtr->cust1 = 0;                                           *
+				    *      }                                                                     *
+                    *      if(sipPrflData->cust2.pres)                                           *
+			  	    *      {                                                                     *
+				    *           sipPrflPtr->cust2 = sipa_parse_cust_val(sipPrflData->cust1.val); *
+				    *      }                                                                     *
+				    *      else                                                                  *
+			        *      {                                                                     *
+				    *           sipPrflPtr->cust2 = 0;                                           *
+				    *      }                                                                     *
+                    *      if(sipPrflData->cust3.pres)                                           *
+			  	    *      {                                                                     *
+				    *           sipPrflPtr->cust3 = sipa_parse_cust_val(sipPrflData->cust1.val); *
+				    *      }                                                                     *
+				    *      else                                                                  *
+			        *      {                                                                     *
+				    *           sipPrflPtr->cust3 = 0;                                           *
+				    *      }                                                                     *
+			        ******************************************************************************
+                         
+						 -- sipa_parse_cust_val (sipaiptrnk.c)
+
+
+Macro defines: sipadef.h
+(1) /* FID 17018.0 Kavon */
+#define SIPA_IS_ACLI_MAPPING_ACT(__prfl) \  
+        ((__prfl) && \
+         ( (__prfl->cust1 & SIP_CUST_ACLI_MAPPING)|| \
+           (__prfl->cust2 & SIP_CUST_ACLI_MAPPING)|| \
+           (__prfl->cust3 & SIP_CUST_ACLI_MAPPING) ) \
+         )
+
+(2) #define SIP_CUST_ACLI_MAPPING             0x00000004
+
+4. Add a new token in sipa
+SIP_TOKEN_X_ALU_AREA_ID
+
+New token for X-ALU-Area-ID needs to be added in the file as below:
+
+RCS file:
+
+/cvs/cvsroot/Repository/TelicaRoot/components/signaling/sip2.7/autogen/input/tokens.si
+
+p,v
+
+retrieving revision 1.9
+
+diff -r1.9 tokens.sip
+
+454a455,458
+
+> START_TOKEN X_ALU_AREA_ID
+
+> encoding = X-ALU-Area-ID
+
+> END_TOKEN
+
+> 
+
+In TelicaRoot/components/signaling/sip2.7, issue “perl ./tools/sipagen/sipagen.pl autogen/
+
+input/tokens.sip autogen/output/”.
+
+That will generates siptokens.h, sipptok3.h and sipptok4.h in Telica-
+
+Root/components/signaling/sip2.7/autogen/output/ directory.
+
+5. 422/302
+SIPA_TRANS_CB
+      |---- SIPA_CC_INFO_CB
+      |---- SIPA_CALL_CB 
+	           |------SIPC_CALL_CB
+	           |------SIPA_CON_INFO[2]
+      |---- SIPA_SESSION_CB
+
+sipa_ua_create_proc (sipamain.c)
+      -- sipa_ccl_response_rx (sipacclsm.c)
+	           -- case 302:
+	               -- sipa_pop_new_call_cb (sipautls.c)
+               -- case 422:
+	               -- sipa_reissue_invite (sipacclsm.c)
+				               -- sipa_copy_cc_info (sipautls.c) ********************** OS_MEMCPY ************************
+				               -- sipa_pop_new_call_cb (sipautls.c)
+
+6. PRFL-SIP
+sipa_prfl_config
+
+7. TRKGRP
+sipaProcessConfigCmd (sipaconfig.c)
+       |   
+       +----- sipa_trnk_config (sipa_trnk_config)
+
+********************************************************************************************************************************************************
+Problem 1: 422 received, whether X-ALU-ACLI can be included in INVITE
+Problem 2: Pass through 1 - ACLI
+           sip2sip, sipt2sipt, sipt2sip, sip2sipt
+
+           Pass through 2 - From 
+           sip2sip, sipt2sipt, sipt2sip, sip2sipt
+Problem 3: parse and build order

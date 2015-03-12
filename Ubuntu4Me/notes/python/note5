@@ -1,0 +1,94 @@
+1. 参数传递：通过对象引用进行传递
+(1) 不可变参数“通过值”进行传递
+(2) 可变参数“通过指针”
+>>> def changer(a, b)
+  File "<stdin>", line 1
+    def changer(a, b)
+                    ^
+SyntaxError: invalid syntax
+>>> def changer(a, b):
+...     a = 2
+...     b[0] = 'spam'
+...
+>>> X = 1
+>>> L = [1, 2]
+>>> changer(X, L)
+>>> X, L
+(1, ['spam', 2]
+
+2. 避免可变参数的修改
+X = 1
+L = [1, 2]
+changer(X, L[:])
+
+def changer(a, b):
+    b = b[:]
+    a = 2
+    b[0] = 'spam'
+
+X = 1
+L = [1, 2]
+changer(X, tuple(L))
+
+3. 输出参数模拟
+>>> def multiple(x, y):
+...     x = 2
+...     y = [3, 4]
+...     return x, y
+...
+>>> X = 1
+>>> L = [1, 2]
+>>> multiple(X, L)
+(2, [3, 4])
+>>> X, L
+(1, [1, 2])
+>>> X, L = multiple(X, L)
+>>> X, L
+(2, [3, 4])
+
+Note: 不可变性是指不能通过对其某一位置赋值而改变字符串，但是总可以以同一个变量名进行重新赋值
+      y = [3, 4]与x = 2一样，就是本地作用域，并不会改变调用者的X, L；只有在改变y[*]的时候才会影响调用者中的L
+
+4. 可变参数（函数定义）：合并
+(1) 元组
+>>> def f(*args): print args
+...
+>>> f()
+()
+>>> f(1)
+(1,)
+>>> f(1, 2)
+(1, 2)
+
+(2) 字典
+>>> def f(**args): print args
+...
+>>> f(a=1)
+{'a': 1}
+>>> f(a=1, b = 2)
+{'a': 1, 'b': 2}
+>>> f()
+{}
+
+(3) 混合
+>>> def f(a, *pargs, **kargs): print a, pargs, kargs
+...
+>>> f(1, 2, 3, x=1, y=2)
+1 (2, 3) {'y': 2, 'x': 1}
+
+5. 可变参数（函数调用）：分解
+(1) 元组
+>>> def f(a, b, c, d): print a, b, c, d
+...
+>>> args = (1, 2)
+>>> args += (3, 4)
+>>> f(*args)
+1 2 3 4
+
+(2) 字典
+>>> def f(a, b, c, d): print a, b, c, d
+...
+args = {'a': 1, 'b': 2, 'c': 3}
+>>> args['d'] = 4
+>>> f(**args)
+1 2 3 4

@@ -1,0 +1,7 @@
+#!/bin/ksh
+TDIR="/sn/sps/OAM400/bin/HSS/xml/hss/otherDomain/DBData/"
+TFILE="subscription--Subscription_local.xml"
+cp $TDIR/$TFILE $TDIR/$TFILE.ofc
+sed -e "s/<!-- ADD FOR 70294 -->/<!-- ADD FOR 70294>/" $TDIR/$TFILE > /tmp/$TFILE.tmp
+sed -e "s/<!-- ADD END 70294 -->/<ADD END 70294 -->/" /tmp/$TFILE.tmp > /tmp/$TFILE.tmp1
+cp /tmp/$TFILE.tmp1 $TDIR/$TFILE

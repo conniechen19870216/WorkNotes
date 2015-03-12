@@ -1,0 +1,59 @@
+一. 功能
+1. 设置断点
+2. 监视变量
+3. 单步执行
+4. 分析Core
+二. 命令
+1. Part I
+运行：r
+程序继续：c
+
+设断点：b func/line
+条件断点：condition 断点编号 条件
+临时断点：tbreak
+删除断点：d 【断点编号】（省略代表删除所有的断点）
+删除断点2：clear 行号
+
+单步进入：s
+单步跟踪：n
+
+查看变量值：p vara
+
+查看汇编代码：display /i $pc
+单步执行汇编代码：si
+
+修改变量：set [variable] *
+
+设置观察窗口：watch count>10
+
+退出：q
+
+2. Part II
+查看栈信息：bt [n/-n]
+定位栈层：f [n], up [n], down [n]
+查看当前栈信息：f, info f
+查看当前函数：info args
+查看当前函数中的局部变量值：info locals
+查看当前函数中的异常处理信息：info catch
+
+3. Part III
+显示第linenum周围的源程序：list <linenum>
+显示函数func的源程序：l func
+显示当前行后面的程序：l
+显示当前行前面的程序：l -
+显示从first到last之间的程序：l <first>,<last>
+显示从当前行到last之间的程序：l ,last
+
+4. Part IV
+查看表达式：p <expr>, p file::var, p function::var
+查看动态数组：p *array@len
+查看静态数组：p array
+
+自动显示：display <expr>
+取消自动显示：undisplay <dnum>
+	     delete display <dnum>
+使失效：disable display <dnum>
+使恢复：enable display <dnum>
+
+查看自动显示的设置：info display
+

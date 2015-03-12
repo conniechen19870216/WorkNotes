@@ -1,0 +1,16 @@
+1.  install bind9
+(1) sudo apt-get install bind9
+(2) sudo dpkg -L bind9
+(3) netstat -tunlp | grep 53
+
+2.  named.conf includes the following files:
+(1) /etc/bind/named.conf.options
+(2) /etc/bind/named.conf.default-zone
+(3) /etc/bind/named.conf.local
+
+3. start bind9 service and check status
+sudo /etc/init.d/bind9 restart
+vi /var/log/sysconfig
+
+4.  zone files
+directory: /var/cache/bind

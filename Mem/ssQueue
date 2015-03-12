@@ -1,0 +1,173 @@
+1. Structure defination (ssi.x)
+
+/* Queue data structure */
+typedef struct ssQueue            
+{
+     Buffer *head;                     /* head of queue */
+     /* add crnt to match structure in kernel (TSS) */
+     Buffer *crnt;
+     Buffer *tail;                     /* tail of queue */
+     QLen   crntSize;                  /* current szie of queue */
+} Queue;
+
+typedef struct sDmndQCong
+{
+     QLen enterThreshold;
+     QLen exitThreshold;
+     Bool currCong;
+     Queue *dmndQ;
+} SDmndQCong;
+
+2. Operations on the queue in ss_queue.c
+
+- SInitQueue()
+                   -----------------------------------------
+        		   |  head  |  tail  |  crnt  |  crntSize  |
+        		   -----------------------------------------
+				     (NULL)   (NULL)    (N/A)      (0)
+- SAddQueue()
+  (1) crntSize = 0
+                   -----------------------------------------
+        		   |  head  |  crnt  |  crntSize  |  tail  |
+        		   -----------------------------------------
+                        |                             | 
+				        |                             |
+				     	|     ------------------      |
+						----->|     mBuf       |<------
+				              ------------------
+							  <---------------->
+						'prev'                  'next'
+
+  (2) idx = 0, crntSize or between
+                   ------------------------------------------------------------------------------------------------------------
+        		   |             head            |           crnt            |        crntSize = N       |        tail        |
+                   ------------------------------------------------------------------------------------------------------------
+                     |                                                                                                  | 
+				     |                                                                                                  |
+				     |   -----------      ----------      ----------                ---------------      ------------   |
+				     --->|  mBuf0  |<---->|  mBuf1 |<---->|  mBuf2 |<---->....<---->|  mBuf(N-1)  |<---->|  mBuf(N) |<---
+				      +  -----------      ----------  +   ----------                ---------------      ------------  +
+                      |                               |                                                                |
+					  |                               |                                                                |
+                  -----------                     -----------                                                      -----------
+                  |  mBuf   |                     |  mBuf   |                                                      |  mBuf   |
+                  -----------                     -----------                                                      -----------
+- SRemQueue()
+  (1) First, consider the case that q->crntSize == 0 or idx >= crntSize.
+      if (idx >= q->crntSize)      
+      {                            
+	      *bufPtr = NULLP;
+	       RETVALUE(ROKDNA);
+	  }
+  (2) Next, there is no case about crntSize == 0
+      a) idx = 0
+
+         *bufPtr = q->head;        
+         if (q->crntSize == 1)
+	     {
+	         q->head = NULLP;
+	         q->tail = NULLP;
+         }
+         else
+         {
+             if (q->head != NULLP) 
+             {
+	             q->head         = q->head->b_next;
+	             q->head->b_prev = NULLP;
+	         }
+	     }
+
+	  b) idx = crntSize - 1
+
+	     *bufPtr = q->tail;
+	      q->tail = q->tail->b_prev;
+	      q->tail->b_next = NULLP;
+
+	  c) idx (0, crntSize-1)
+
+         tBuf = q->head;
+
+         for (i = 0; i < idx; i++) 
+         {    
+              tBuf = tBuf->b_next;
+         }    
+         *bufPtr = tBuf;                         
+											         
+		  tBuf->b_prev->b_next = tBuf->b_next;
+	      tBuf->b_next->b_prev = tBuf->b_prev;
+
+- SExamQueue(): similar to SRemQueue
+- SFndLenQueue(): return crntSize
+- SCatQueue(): concatenate q2 into q1 according to order (Q1Q2 or Q2Q1)
+   
+   if (q1->crntSize == 0)
+   {
+      q1->head       = q2->head;
+      q1->tail       = q2->tail;
+      q1->crntSize   = q2->crntSize;
+                                                                                                                                                                                               
+      q2->head       = NULLP;
+      q2->tail       = NULLP;
+      q2->crntSize   = 0; 
+     
+      RETVALUE(ROK);
+   }
+
+   if (q2->crntSize == 0)
+   {
+      RETVALUE(ROK);
+   }
+   
+   switch (order)
+   {
+      case Q1Q2:
+      {    
+         q1->tail->b_next = q2->head;
+         q2->head->b_prev = q1->tail;
+         q1->tail         = q2->tail;
+
+         break;
+      }
+
+      case Q2Q1:
+      {
+         q2->tail->b_next = q1->head;
+         q1->head->b_prev = q2->tail;
+         q1->head         = q2->head;
+
+         break;
+      }
+      default:
+         RETVALUE(RFAILED);
+   }
+
+   q1->crntSize  += q2->crntSize;
+
+   q2->head       = NULLP;
+   q2->tail       = NULLP;
+   q2->crntSize   = 0;
+
+- SFlushQueue() 
+
+   tBuf = q->head;
+   while (tBuf != NULLP)
+   {
+      mBuf = tBuf->b_next;
+      if (tBuf->b_datap->db_type == SS_M_PROTO)
+         SPutMsg(tBuf);
+      else                                                                                                                                                                                     
+      {
+         minfo = (SsMsgInfo *) tBuf->b_rptr;
+         SPutDBuf(minfo->region, minfo->pool, tBuf);
+      }
+      tBuf = mBuf;
+   }
+   q->crntSize = 0;
+   q->head     = NULLP;
+   q->tail     = NULLP;
+
+- ssInitDmndQ()
+- ssDestroyDmndQ()
+- ssDmndQPut()
+- ssDmndQGet()
+- ssFndLenDmndQ()

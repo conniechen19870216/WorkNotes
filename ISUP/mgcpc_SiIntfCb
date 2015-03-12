@@ -1,0 +1,25 @@
+clMgcPcSiCfg (cl_mgcpc2.c)
+    |
+    | 
+    |
+    +---------- SmMiLsiCfgReq (smsiptmi.c)
+
+
+
+siActvTskNew (si_ex_ms.c)
+    |
+    | [No.1: pst->event = EVTLSICFGREQ]
+    |
+    +---------- SiMiLsiCfgReq (si_bdy1.c)
+                    |
+                    | [No.2: switch(cfg->hdr.elmId.elmnt)]
+                    |
+                    |   SI_STINTF:     
+                    |**************  siCfgSiIntfCb (si_bdy6.c)
+                                          |
+                                          |
+                                          |
+                                          +--------- siAddIntf (si_bdy5.c)
+                                                     (1) SIINTF_KEY_1
+                                                     (2) SIINTF_KEY_2
+                                                     (3) SIINTF_KEY_3

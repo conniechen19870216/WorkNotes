@@ -1,0 +1,14 @@
+1. Basic Header files
+#include "CppUTest/TestHarness.h"
+#include "CppUTestExt/MockSupport.h"
+
+2. Simple Scenarios
+   (1) mock().expectOneCall("productionCode");
+   (2) mock().actualCall("productionCode");
+   (3) mock().checkExpectations();
+   (4) mock().clear();
+
+3. Using Parameters
+   (1) mock().expectOneCall("function").withParameter("p1", 2).withParameter("p2", "hah");
+   (2) Types: int, double, const char* or void*
+

@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 1
+set timeout -1
+
+spawn ssh-keygen -d
+expect "Enter file*"
+send "\n"
+expect "Overwrite*"
+send "y\n"
+expect "Enter passphrase*"
+send "\n"
+expect "Enter same*"
+send "\n"
+expect eof
+#exec scp2vm10 ~/.ssh/id_dsa.pub /tmp
+#exec vm10run "cat /tmp/id_dsa.pub >> /root/.ssh/authorized_keys"

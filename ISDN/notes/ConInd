@@ -1,0 +1,75 @@
+<<<<<<<<<< InNtc is the bridge between InPCB (DLSAP) and InCb (TSAP) >>>>>>>>>>>>>>
+
+InLiDatDatInd (in_bdy1.c): (S00->S01) null -> call initiated |
+       |
+       |>>>>>>>>>> I. Lower DLSAP: controlled by suId
+       +----- 1. pcb = *(pcbLstPtr + suId)
+       |
+       |
+       +----- 2. sigCtldPcb = *(ctldPcbLstPtr + suId)
+       |
+       |
+       +----- 3. cb = inGetCBPtr(suId, ces) (in_bdy14.c)
+       |
+       |
+       +----- SFndLenMsg(mBuf, &bufLen) (ss_msg.c)
+       +----- Length of calRef: SExamMsg(&hdr.calRefLen.val, mBuf, 1) (ss_msg.c)
+       |
+       |
+       +----- 4. MFDECPDUHDR (mf.h)
+       |
+       |
+       +----- callRef: hdr.callRefVal.val
+       +----- cb->callRefFlag (indicates whether it is original)
+       |
+       |
+       +----- 5. ntc = inGetNtc(cb, callRef) (in_bdy14.c): sizeof(InNtc) + sizeof(CalRefTbl) (Line 8949: DLSAP)
+       |                    |
+       |                    +----- inCallRefSearch (in_bdy14.c) <CalRefTbl with a callRef is a list>
+       |                    |
+       |                    +----- inInsCalRefEnt (in_bdy14.c) <TEL_INIT_CALL_REF: cb->inNtcPtr, cb->numCalRef++>
+       |                    |
+       |                    +----- >>>>>> ntc->dCallCb  = cb
+       |                           >>>>>> ntc->dCallRef = callRef
+       |                           >>>>>> ntc->tCallCb = NULLP
+       |                           >>>>>> ntc->tCallRef = 0
+       |                           >>>>>> ntc->suInstId = 0 (to be modified by GCC)
+       |
+       |
+       +----- pcb->cfg->swtch = SW_ETSI
+       |      a) ntc->state == ST_NULL
+       |      b) ntc->state != ST_NULL
+       |   => inChkMsgComp (in_bdy9.c): inNetMsgComp14 (Consider FACILITY Message)
+       |
+       |
+       +----- 6. MFDECPDU (mf.h)
+       +----- ntc->pduSp = &message
+       +----- ntc->ctldPcb = sigCtldPcb
+       |
+       |
+       +----- 7. inActDat (in_bdy9.c): Event: 5; State: 0
+                  |
+                  |
+                  +----- inNetE05S00 (in_bdy5.c): msgIdx = 5 (SETUP)
+                            |
+                            +----- inScreenCgPtyNum / inScreenCdPtyNum (in_bdy13.c)
+                            |
+                            |>>>>> II. Upper TSAP: controlled by pcb->cfg.tCbId
+                            +----- 1. tCb = inGetSapPtr(pcb->cfg.tCbId) (in_bdy14.c) <<<<<<<< pcb->cfg.tCbId = 6 (SW_ETSI) >>>>>>>>>
+                            |
+                            +----- 2. inGetInstId(tCb, &ref) (in_bdy14.c (in_bdy14.c) <<<<<< tCalRef >>>>>>>
+                            |
+                            |
+                            |      >>>>>>> ntc->tCallCb  = tCb
+                            |      >>>>>>> ntc->tCallRef = ref
+                            +----- 3. inInsCallRefEnt1(tcb->tCallCb, ntc) (in_bdy14.c)
+                            |
+                            |
+                            +----- 4. inGetBChan(ntc, chanId, intId, bearCap, causeDgn) (in_bdy12.c)
+                            |
+                            |
+                            +----- STATE CHANGE: ntc->state = ST_CALLINIT if ETSI (0->1: null -> call initiated) 
+                            |
+                            +----- MFINITSDU (mf.h) >>>>>>>> 3. ntc->pduSp to ntc->sduSp
+                            |
+                            +----- InUiIntConInd (in_ptui.c)

@@ -1,0 +1,45 @@
+CGB, CGBA, CGU, CGUA
+SiCirGrpSupMTypInd cgsmti;    /* circuit grp. Supervision Msg. Type Ind. */
+SiRangStat         rangStat;  /* range and status */
+
+SiLiSntUDatInd (si_bdy1.c)
+    |
+    | [nCb->mfMsgCtl.msgIdx]
+    |  MI_CIRGRPBLK
+    |  MI_CIRGRPBLKACK
+    |  MI_CIRGRPUBLK
+    |  MI_CIRGRPUBLKACK
+    |
+    +---------- siProcCirGrMsg (si_bdy4.c)
+                    |
+                    | typeInd => cirState => SICIR_MTLOCST, SICIR_HWLOCST, SICIR_MTREMST, SICIR_HWREMST
+                    | rangStat
+                    | cir->fsmEvnt => CGEI_CGB, CGEI_CGBRSP, CGEI_CGU, CGEI_CGURSP (6, 7, 8. 9)
+                    |
+                    +---------- siValidateRangStat (si_bdy4.c)
+                                      |
+                                      |
+                                      +----------- a) maxCir
+                                      +----------- b) maxValRange
+                                      +----------- c) status
+                                      |
+                                      |
+                                      |
+                                      |----------- cirGr = cir->cirGr[cirState] == NULLP
+                                      |                     |
+                                      |                     |
+                                      |                     |----------- cirGr = siGetCirGr (si_bdy5.c)
+                                      |                     +----------- cirGr->cir = cir
+                                      |                     +----------- cir->cirGr[cirState] = cirGr
+                                      |                     +----------- cirGr->cirState = cirState
+                                      |                     +----------- cirGr->state = STCG_ST_IDLE (0)
+                                      |                     +----------- cirGr->pduSp = allPdus
+                                      |
+                                      |
+                                      |
+                                      |----------- pCirGrActFunc = siCirGrFsm[cir->fsmEvnt][cirGr->state]
+                                      |----------- (*pCirGrActFunc)(cirGr)
+                                      |----------- CGEI_CGB = 6:    siCirGrE06S00
+                                      |----------- CGEI_CGBRSP = 7: siCirGrE07S00
+                                      |----------- CGEI_CGU = 8:    siCirGrE08S00
+                                      |----------- CGEI_CGURSP = 9: siCirGrE09S00

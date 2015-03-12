@@ -1,0 +1,33 @@
+1. add a new file
+cvs add file
+cvs ci -m "new file" file
+
+2. add a new directory
+cvs add dir dir/file
+cvs ci -m "new"
+
+3. delete a file
+rm file
+cvs remove file
+cvs ci -m "delete"
+
+4. delete a directory
+cd dir
+rm *
+cvs remove
+cvs ci -m "delete"
+cd ..
+cvs update -P
+
+5. rename a directory
+mkdir newdir
+cvs add newdir
+cp olddir/file newdir
+cvs remove olddir/file
+cvs add newdir/file
+cvs ci -m "rename" 
+cvs update -P
+
+6. cvs update
+cvs update -d -A dir (recursive)
+cvs update -d -l -A dir (no recursive)

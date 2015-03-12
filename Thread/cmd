@@ -1,0 +1,72 @@
+***********************************************************************
+I. 查看进程的命令
+1. ps 
+ps -elFL | grep -Ew 'LWP|keyword' | grep -v grep | awk '{print $2}'
+
+Show all threads for one process: top -H -p PID
+
+2. ptree
+ptree
+
+3. pgrep
+pgrep -f program_name
+pgrep -ln program_name (last one)
+pgrep -lo program_name (1st one)
+
+***********************************************************************
+II. 跟踪进程启动的过程
+1. strace 
+strace -tt ./helloworld
+
+2. LD_DEBUG=help ls
+Valid options for the LD_DEBUG environment variable are:
+
+libs        display library search paths
+reloc       display relocation processing
+files       display progress for input file
+symbols     display symbol table processing
+bindings    display information about symbol binding
+versions    display version dependencies
+all         all previous options combined
+statistics  display relocation statistics
+unused      determined unused DSOs
+help        display this help message and exit
+
+To direct the debugging output into a file instead of standard output
+a filename can be specified using the LD_DEBUG_OUTPUT environment variable.
+
+3. Comparisons
+（1）如果要查看一个进程启动过程中动态库的搜索和加载过程，那么无疑LD_DEBUG将更加直观；
+
+（2）如果要查看一个进程加载动态库所花费的时间，LD_DEBUG并没有提供类似的功能，只能通过strace -tt来完成。
+
+4. Process
+    # LD_DEBUG=libs ./hello  
+    432:     find library=libc.so.6; searching  
+    432:      search cache=/etc/ld.so.cache  
+    432: search path=/lib/tls/v6l:/lib/tls:/lib/v6l:  
+	/lib:/usr/lib/tls/v6l:/usr/lib/tls:/usr/lib/v6l: /usr/lib  
+	            (system search path)  
+    432:       trying file=/lib/tls/v6l/libc.so.6  
+    432:       trying file=/lib/tls/libc.so.6  
+    432:       trying file=/lib/v6l/libc.so.6  
+    432:       trying file=/lib/libc.so.6  
+    432:  
+    432:  
+    432:     calling init: /lib/libc.so.6  
+    432:  
+    432:  
+    432:     initialize program: ./hello  
+    432:  
+    432:  
+    432:     transferring control: ./hello 
+
+（1）搜索其所依赖的动态库。
+
+（2）加载动态库。
+
+（3）初始化动态库。
+
+（4）初始化进程。
+
+（5）将程序的控制权交给main函数。

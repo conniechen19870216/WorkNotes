@@ -1,0 +1,58 @@
+Refer to usr_40.txt
+
+1. list the user-defined commands, execute the following command
+   :command
+
+2. Define a new command, User-defined commands must start with a capital letter.
+   :command Yes :!source ~/.bashrc                                                                                           
+
+   :command -nargs=+ Say :echo "<args>"
+
+3. Arguments
+zero arguments is the default, you do not need to add 
+"-nargs=0".  The other values of -nargs are as follows:
+
+   -nargs=0        No arguments
+   -nargs=1        One argument
+   -nargs=*        Any number of arguments
+   -nargs=?        Zero or one argument
+   -nargs=+        One or more arguments
+
+4. (1) redefine the same command use the ! argument:
+   :command -nargs=+ Say :echo "<args>"
+
+   :command! -nargs=+ Say :echo <q-args>
+   
+   (2) To delete a user command use ":delcommand".  It takes a single argument, which
+   is the name of the command.  Example: >
+
+   :delcommand SaveIt
+
+   To delete all the user commands: >
+
+   :comclear
+
+
+5. Others
+(1) <q-args>
+   :Say he said "hello"
+
+   To get special characters turned into a string, properly escaped to use as an
+   expression, use "<q-args>": >
+
+   :command -nargs=+ Say :echo <q-args>
+
+   Now the above ":Say" command will result in this to be executed: >
+
+   :echo "he said \"hello\""
+
+(2) <f-args>
+	The <f-args> keyword contains the same information as the <args> keyword,
+	except in a format suitable for use as function call arguments.  For example:
+    :command -nargs=* DoIt :call AFunction(<f-args>)
+    :DoIt a b c
+
+	Executes the following command: 
+
+    :call AFunction("a", "b", "c")
+

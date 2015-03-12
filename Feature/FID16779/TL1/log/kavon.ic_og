@@ -1,0 +1,682 @@
+00005(00422),00000(00000) 0x00000020 12-04 09:11:53.237 02423: ../cl_bdy6.c:207 sending back transId 0x5e4f  status = 0  reason = 0
+00004(00422),00000(00000) 0x00000020 12-04 09:11:53.237 02423: ../cl_bdy2.c:1450 freeing input tables
+00005(00422),00000(00000) 0x00000020 12-04 09:11:53.237 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:11:55.824 02532: ../cc_bdy4.c:17333 ccGenericTmrEvent=2
+00001(00422),00000(00000) 0x00000020 12-04 09:11:55.824 02532: ../cc_lib.c:62834 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00422),00000(00000) 0x00000020 12-04 09:11:55.824 02532: ../cc_bdy4.c:17261 ccGenericStartTmr
+00001(00422),00000(00000) 0x00000020 12-04 09:12:05.824 02532: ../cc_bdy4.c:17333 ccGenericTmrEvent=2
+00001(00422),00000(00000) 0x00000020 12-04 09:12:05.824 02532: ../cc_lib.c:62834 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00422),00000(00000) 0x00000020 12-04 09:12:05.824 02532: ../cc_bdy4.c:17261 ccGenericStartTmr
+00003(00422),00000(00000) 0x00000020 12-04 09:12:05.824 02532: ../rm_rum.c:648 rumInactiveTimeOut: **** RUM Inactivity detected *****
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.682 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.682 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.682 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.682 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6590
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6590
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_rep2.c:241 received second ack for clEvtId:6590
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_rep2.c:242 standby processed event:1
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod1.c:94 Processing LM_ISUPPARAMMOD TL1 Event:1
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod1.c:159 numRows:1
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod1.c:166 paramModName:DPINANM1, kicking-off LM_ISUPPARAMMOD TL1-CFG FSM
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:0 in state:0, next state:1
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:213 paramModId:1,msgType:44,action:3,paramCode:18,paramBitOffset:0,bitRange:1,newBitLength:0,rlsCause:0
+00004(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[0]=0x00
+00004(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[1]=0x00
+00005(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[2]=0x00
+00006(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[3]=0x00
+00006(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[4]=0x00
+00006(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[5]=0x00
+00007(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[6]=0x00
+00008(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[7]=0x00
+00008(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[8]=0x00
+00009(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:246 value[9]=0x00
+00010(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:257 sent PRFL-SIP Cfg to ENTSI
+00011(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00009(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00008(00422),00000(00000) 0x00000001 12-04 09:12:13.683 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x16}
+)00007(00422),00000(00000) 0x00000001 12-04 09:12:13.683 02532: [ISUP 0x14:0] ../si_mod.c:3772 modUnitId[1] msgType[44] action[3] paramId[18]bitOffset[0] bitRange[1] match[0-0] rlsCause[0]
+00007(00422),00000(00000) 0x00000001 12-04 09:12:13.683 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00007(00422),00000(00000) 0x00000001 12-04 09:12:13.683 02532: [ISUP 0x14:0] ../si_mod.c:4459 Entry not found! key: 0001
+00008(00422),00000(00000) 0x00000001 12-04 09:12:13.683 02532: [ISUP 0x14:0] ../si_mod.c:3872 BYTE length: 0
+00009(00422),00000(00000) 0x00000001 12-04 09:12:13.683 02532: [ISUP 0x14:0] ../si_mod.c:4495 Entering siAddModUnitCb()
+00010(00422),00000(00000) 0x00000001 12-04 09:12:13.683 02532: [ISUP 0x14:0] ../si_mod.c:4501 Adding modCb, Key=0001 
+00006(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:1 in state:1, next state:0
+00006(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_isupparammod2.c:374 ENT-ISUPPARAMMOD Cfg complete for LM_ISUPPARAMMOD
+00007(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24149) has null entry
+00007(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy6.c:207 sending back transId 0x5e55  status = 0  reason = 0
+00006(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy2.c:1450 freeing input tables
+00005(00422),00000(00000) 0x00000020 12-04 09:12:13.683 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.838 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.838 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.838 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.838 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6591
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6591
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_rep2.c:241 received second ack for clEvtId:6591
+00004(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_rep2.c:242 standby processed event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod1.c:94 Processing LM_ISUPPARAMMOD TL1 Event:1
+00005(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod1.c:159 numRows:1
+00006(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod1.c:166 paramModName:DPINANM2, kicking-off LM_ISUPPARAMMOD TL1-CFG FSM
+00007(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:0 in state:0, next state:1
+00007(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:213 paramModId:2,msgType:44,action:3,paramCode:42,paramBitOffset:0,bitRange:1,newBitLength:0,rlsCause:0
+00008(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[0]=0x00
+00008(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[1]=0x00
+00009(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[2]=0x00
+00010(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[3]=0x00
+00010(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[4]=0x00
+00011(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[5]=0x00
+00012(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[6]=0x00
+00012(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[7]=0x00
+00013(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[8]=0x00
+00013(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:246 value[9]=0x00
+00011(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:257 sent PRFL-SIP Cfg to ENTSI
+00012(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00008(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00008(00422),00000(00000) 0x00000001 12-04 09:12:13.839 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x16}
+)00007(00422),00000(00000) 0x00000001 12-04 09:12:13.839 02532: [ISUP 0x14:0] ../si_mod.c:3772 modUnitId[2] msgType[44] action[3] paramId[42]bitOffset[0] bitRange[1] match[0-0] rlsCause[0]
+00007(00422),00000(00000) 0x00000001 12-04 09:12:13.839 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00007(00422),00000(00000) 0x00000001 12-04 09:12:13.839 02532: [ISUP 0x14:0] ../si_mod.c:4459 Entry not found! key: 0002
+00007(00422),00000(00000) 0x00000001 12-04 09:12:13.839 02532: [ISUP 0x14:0] ../si_mod.c:3872 BYTE length: 0
+00007(00422),00000(00000) 0x00000001 12-04 09:12:13.839 02532: [ISUP 0x14:0] ../si_mod.c:4495 Entering siAddModUnitCb()
+00007(00422),00000(00000) 0x00000001 12-04 09:12:13.839 02532: [ISUP 0x14:0] ../si_mod.c:4501 Adding modCb, Key=0002 
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:1 in state:1, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_isupparammod2.c:374 ENT-ISUPPARAMMOD Cfg complete for LM_ISUPPARAMMOD
+00001(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24155) has null entry
+00002(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy6.c:207 sending back transId 0x5e5b  status = 0  reason = 0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.839 02423: ../cl_bdy2.c:1450 freeing input tables
+00003(00422),00000(00000) 0x00000020 12-04 09:12:13.840 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.103 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.103 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.103 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.103 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6592
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00003(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6592
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_rep2.c:241 received second ack for clEvtId:6592
+00003(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_rep2.c:242 standby processed event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod1.c:94 Processing LM_ISUPPARAMMOD TL1 Event:1
+00005(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod1.c:159 numRows:1
+00006(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod1.c:166 paramModName:DPINANM3, kicking-off LM_ISUPPARAMMOD TL1-CFG FSM
+00007(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:0 in state:0, next state:1
+00008(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:213 paramModId:3,msgType:44,action:3,paramCode:46,paramBitOffset:0,bitRange:1,newBitLength:0,rlsCause:0
+00009(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[0]=0x00
+00010(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[1]=0x00
+00011(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[2]=0x00
+00012(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[3]=0x00
+00013(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[4]=0x00
+00014(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[5]=0x00
+00015(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[6]=0x00
+00015(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[7]=0x00
+00016(00422),00000(00000) 0x00000020 12-04 09:12:14.104 02423: ../cl_isupparammod2.c:246 value[8]=0x00
+00017(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_isupparammod2.c:246 value[9]=0x00
+00015(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_isupparammod2.c:257 sent PRFL-SIP Cfg to ENTSI
+00016(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00010(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00009(00422),00000(00000) 0x00000001 12-04 09:12:14.105 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x16}
+)00009(00422),00000(00000) 0x00000001 12-04 09:12:14.105 02532: [ISUP 0x14:0] ../si_mod.c:3772 modUnitId[3] msgType[44] action[3] paramId[46]bitOffset[0] bitRange[1] match[0-0] rlsCause[0]
+00009(00422),00000(00000) 0x00000001 12-04 09:12:14.105 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00009(00422),00000(00000) 0x00000001 12-04 09:12:14.105 02532: [ISUP 0x14:0] ../si_mod.c:4459 Entry not found! key: 0003
+00009(00422),00000(00000) 0x00000001 12-04 09:12:14.105 02532: [ISUP 0x14:0] ../si_mod.c:3872 BYTE length: 0
+00009(00422),00000(00000) 0x00000001 12-04 09:12:14.105 02532: [ISUP 0x14:0] ../si_mod.c:4495 Entering siAddModUnitCb()
+00009(00422),00000(00000) 0x00000001 12-04 09:12:14.105 02532: [ISUP 0x14:0] ../si_mod.c:4501 Adding modCb, Key=0003 
+00003(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:1 in state:1, next state:0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_isupparammod2.c:374 ENT-ISUPPARAMMOD Cfg complete for LM_ISUPPARAMMOD
+00003(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24161) has null entry
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_bdy6.c:207 sending back transId 0x5e61  status = 0  reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_bdy2.c:1450 freeing input tables
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.105 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.237 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.237 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.237 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.237 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6593
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6593
+00001(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_rep2.c:241 received second ack for clEvtId:6593
+00003(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_rep2.c:242 standby processed event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod1.c:94 Processing LM_ISUPPARAMMOD TL1 Event:1
+00005(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod1.c:159 numRows:1
+00006(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod1.c:166 paramModName:DPINANM4, kicking-off LM_ISUPPARAMMOD TL1-CFG FSM
+00007(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:0 in state:0, next state:1
+00007(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:213 paramModId:4,msgType:44,action:3,paramCode:54,paramBitOffset:0,bitRange:1,newBitLength:0,rlsCause:0
+00007(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[0]=0x00
+00008(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[1]=0x00
+00008(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[2]=0x00
+00008(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[3]=0x00
+00009(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[4]=0x00
+00009(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[5]=0x00
+00009(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[6]=0x00
+00010(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[7]=0x00
+00010(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[8]=0x00
+00010(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:246 value[9]=0x00
+00008(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:257 sent PRFL-SIP Cfg to ENTSI
+00008(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00005(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00005(00422),00000(00000) 0x00000001 12-04 09:12:14.238 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x16}
+)00005(00422),00000(00000) 0x00000001 12-04 09:12:14.238 02532: [ISUP 0x14:0] ../si_mod.c:3772 modUnitId[4] msgType[44] action[3] paramId[54]bitOffset[0] bitRange[1] match[0-0] rlsCause[0]
+00006(00422),00000(00000) 0x00000001 12-04 09:12:14.238 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00007(00422),00000(00000) 0x00000001 12-04 09:12:14.238 02532: [ISUP 0x14:0] ../si_mod.c:4459 Entry not found! key: 0004
+00007(00422),00000(00000) 0x00000001 12-04 09:12:14.238 02532: [ISUP 0x14:0] ../si_mod.c:3872 BYTE length: 0
+00008(00422),00000(00000) 0x00000001 12-04 09:12:14.238 02532: [ISUP 0x14:0] ../si_mod.c:4495 Entering siAddModUnitCb()
+00008(00422),00000(00000) 0x00000001 12-04 09:12:14.238 02532: [ISUP 0x14:0] ../si_mod.c:4501 Adding modCb, Key=0004 
+00006(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy7.c:299 ISUPPARAMMOD-1:event:1 in state:1, next state:0
+00006(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_isupparammod2.c:374 ENT-ISUPPARAMMOD Cfg complete for LM_ISUPPARAMMOD
+00006(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24167) has null entry
+00007(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy6.c:207 sending back transId 0x5e67  status = 0  reason = 0
+00007(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy2.c:1450 freeing input tables
+00006(00422),00000(00000) 0x00000020 12-04 09:12:14.238 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:15.824 02532: ../cc_bdy4.c:17333 ccGenericTmrEvent=2
+00001(00422),00000(00000) 0x00000020 12-04 09:12:15.824 02532: ../cc_lib.c:62834 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00422),00000(00000) 0x00000020 12-04 09:12:15.824 02532: ../cc_bdy4.c:17261 ccGenericStartTmr
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.102 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.102 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.102 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.102 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6594
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6594
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_rep2.c:241 received second ack for clEvtId:6594
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_rep2.c:242 standby processed event:1
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_isupmodprfl1.c:96 Processing LM_PRFLISUPMOD TL1 Event:1
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_isupmodprfl1.c:161 numRows:1
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_isupmodprfl1.c:169 prflId:1, paramModId:1, kicking-off LM_PRFLISUPMOD TL1-CFG FSM
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:0 in state:0, next state:1
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_isupmodprfl2.c:193 PrflId:1 ModID: 1 
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_isupmodprfl2.c:203 sent PRFL-ISUPMOD Cfg to ENTSI
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00001(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x15}
+)00001(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02532: ../si_mod.c:3451 entering siCfgSiModPrflCb()
+00001(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00002(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_mod.c:4465 Entry found! key: 0001
+00002(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_mod.c:4325 Entering siFindModPrflCb()
+00003(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_mod.c:4329 Entry not found! Key=012c
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_mod.c:3198 Entering siCalcMsgPreAction!
+00005(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_mod.c:4365 Entering siAddModPrflCb()
+00005(00422),00000(00000) 0x00000001 12-04 09:12:23.103 02532: [ISUP 0x14:0] ../si_mod.c:4371 Adding modCb, Key=012c 
+00006(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02532: ../si_mod.c:3713 prflCounter increased from 0 to 1!
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:1 in state:1, next state:0
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_isupmodprfl2.c:319 ENT-PRFLISUPMOD Cfg complete for LM_PRFLISUPMOD
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24173) has null entry
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy6.c:207 sending back transId 0x5e6d  status = 0  reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy2.c:1450 freeing input tables
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.103 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.237 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.237 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.237 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.237 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6595
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6595
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_rep2.c:241 received second ack for clEvtId:6595
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_rep2.c:242 standby processed event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_isupmodprfl1.c:96 Processing LM_PRFLISUPMOD TL1 Event:1
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_isupmodprfl1.c:161 numRows:1
+00006(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_isupmodprfl1.c:169 prflId:1, paramModId:2, kicking-off LM_PRFLISUPMOD TL1-CFG FSM
+00006(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:0 in state:0, next state:1
+00006(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_isupmodprfl2.c:193 PrflId:1 ModID: 2 
+00006(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_isupmodprfl2.c:203 sent PRFL-ISUPMOD Cfg to ENTSI
+00007(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00006(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00005(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x15}
+)00005(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02532: ../si_mod.c:3451 entering siCfgSiModPrflCb()
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_mod.c:4465 Entry found! key: 0002
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_mod.c:4325 Entering siFindModPrflCb()
+00005(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_mod.c:4335 Entry found! Key=012c
+00006(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_mod.c:4280 Entering siSearchActionList! modUnitId: 2
+00007(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_mod.c:4296 modUnitId: 2 not found!
+00007(00422),00000(00000) 0x00000001 12-04 09:12:23.238 02532: [ISUP 0x14:0] ../si_mod.c:3198 Entering siCalcMsgPreAction!
+00007(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02532: ../si_mod.c:3713 prflCounter increased from 0 to 1!
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:1 in state:1, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_isupmodprfl2.c:319 ENT-PRFLISUPMOD Cfg complete for LM_PRFLISUPMOD
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24179) has null entry
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy6.c:207 sending back transId 0x5e73  status = 0  reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy2.c:1450 freeing input tables
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.238 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.439 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.439 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.439 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.439 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6596
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.440 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.440 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.440 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6596
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_rep2.c:241 received second ack for clEvtId:6596
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_rep2.c:242 standby processed event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_isupmodprfl1.c:96 Processing LM_PRFLISUPMOD TL1 Event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_isupmodprfl1.c:161 numRows:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_isupmodprfl1.c:169 prflId:2, paramModId:3, kicking-off LM_PRFLISUPMOD TL1-CFG FSM
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:0 in state:0, next state:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_isupmodprfl2.c:193 PrflId:2 ModID: 3 
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_isupmodprfl2.c:203 sent PRFL-ISUPMOD Cfg to ENTSI
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00003(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x15}
+)00003(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02532: ../si_mod.c:3451 entering siCfgSiModPrflCb()
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00005(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_mod.c:4465 Entry found! key: 0003
+00006(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_mod.c:4325 Entering siFindModPrflCb()
+00007(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_mod.c:4329 Entry not found! Key=022c
+00007(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_mod.c:3198 Entering siCalcMsgPreAction!
+00007(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_mod.c:4365 Entering siAddModPrflCb()
+00008(00422),00000(00000) 0x00000001 12-04 09:12:23.441 02532: [ISUP 0x14:0] ../si_mod.c:4371 Adding modCb, Key=022c 
+00008(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02532: ../si_mod.c:3713 prflCounter increased from 0 to 1!
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:1 in state:1, next state:0
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_isupmodprfl2.c:319 ENT-PRFLISUPMOD Cfg complete for LM_PRFLISUPMOD
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24185) has null entry
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy6.c:207 sending back transId 0x5e79  status = 0  reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy2.c:1450 freeing input tables
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.441 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.710 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.710 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.710 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.710 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6597
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6597
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_rep2.c:241 received second ack for clEvtId:6597
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_rep2.c:242 standby processed event:1
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_isupmodprfl1.c:96 Processing LM_PRFLISUPMOD TL1 Event:1
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_isupmodprfl1.c:161 numRows:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_isupmodprfl1.c:169 prflId:2, paramModId:4, kicking-off LM_PRFLISUPMOD TL1-CFG FSM
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:0 in state:0, next state:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_isupmodprfl2.c:193 PrflId:2 ModID: 4 
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_isupmodprfl2.c:203 sent PRFL-ISUPMOD Cfg to ENTSI
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00003(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0x15}
+)00003(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02532: ../si_mod.c:3451 entering siCfgSiModPrflCb()
+00003(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_mod.c:4455 Entering siFindModUnitCb()
+00003(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_mod.c:4465 Entry found! key: 0004
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_mod.c:4325 Entering siFindModPrflCb()
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_mod.c:4335 Entry found! Key=022c
+00004(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_mod.c:4280 Entering siSearchActionList! modUnitId: 4
+00005(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_mod.c:4296 modUnitId: 4 not found!
+00005(00422),00000(00000) 0x00000001 12-04 09:12:23.711 02532: [ISUP 0x14:0] ../si_mod.c:3198 Entering siCalcMsgPreAction!
+00005(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02532: ../si_mod.c:3713 prflCounter increased from 0 to 1!
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy7.c:299 PRFLISUPMOD-1:event:1 in state:1, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_isupmodprfl2.c:319 ENT-PRFLISUPMOD Cfg complete for LM_PRFLISUPMOD
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24191) has null entry
+00002(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy6.c:207 sending back transId 0x5e7f  status = 0  reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy2.c:1450 freeing input tables
+00001(00422),00000(00000) 0x00000020 12-04 09:12:23.711 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:25.824 02532: ../cc_bdy4.c:17333 ccGenericTmrEvent=2
+00001(00422),00000(00000) 0x00000020 12-04 09:12:25.824 02532: ../cc_lib.c:62834 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00422),00000(00000) 0x00000020 12-04 09:12:25.824 02532: ../cc_bdy4.c:17261 ccGenericStartTmr
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.511 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.511 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.511 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.511 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6598
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.512 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.512 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.512 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6598
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_rep2.c:241 received second ack for clEvtId:6598
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_rep2.c:242 standby processed event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp1.c:157 processing LM_TGP TL1 Event:2
+00005(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp1.c:469 got 1 tgps
+00006(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp1.c:485 got 1 ITU/ETSI profiles
+00007(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp1.c:779 kicking-off LM_TGP TL1-CFG FSM tgp 6101, prflId 15
+00008(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_bdy7.c:299 TGP-1:event:0 in state:0, next state:1
+00008(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:258 sigType: 13
+00008(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:777 echoCntrlType:2, echoCntrlNLP:1
+00008(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:805 txPad:0, rxPad:0, remoteXferIn:0, remoteXferOut:0, referReplace:1
+00009(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:809 echoCntrlType:2, echoCntrlNLP:1
+00010(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:846 lataId sent to CC 0
+00011(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:887 tgService: 0
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:957 transPlan:0, useSwitchId:0, icDfltPrfl:0, icSuppPrfl:0, ogDfltPrfl:0, ogSuppPrfl:0, fraudPrfId:0
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:968 acmTmr.enb:1, acmTmr.val:0, ringBackTone:0
+00014(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:987 origPbxPrfl:len:0
+00015(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1006 termPbxPrfl:len:0
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1015 sndPrtCauseVal:0, rcvPrtCauseVal:0, signalingType:0
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1019 cdpnPopulation:0
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1034 tgp->colp.val=0
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1187 realmId.pres:0
+00017(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1215 ioi.pres:0
+00017(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1232 farEndArea.pres: 0, farEndArea.len:0
+00018(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1251 trkGrpName.pres: 0, trkGrpName.len: 0
+00018(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1259 passthruRuri:0
+00019(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1264 vbdEvtSupp[pres:1, val:0]
+00019(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1288 ret :0,sipDstFqdn:
+00020(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1295 grInterMgc:0
+00020(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1323 sipPstnXmlMap:0
+00021(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1333 uuiSupport:0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1342 termIoiSrc:0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1348 isupCF:0
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../../../sigcom/lcc.c:1723 cmPkMiLccCfgReq elmId6
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cm_cc.c:3439 cmPkDDIOption: iwBaseVariant=0
+ isupCompat=0
+ isStartT6OprCall=0
+ isStopT6TestCall=0
+optBNIWInd=0
+ optRateMultiplier=0
+ optRecommendation=0
+ optBitHOFCI=0
+ optBitHU2UInd=0
+optU2UIndType=0
+ optCirStaInd=0 optORISupported=0, optCallRefHdr=0 optCOLPSupported00021(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../../../sigcom/lcc.c:1999 cmPkMiLccCfgReq:origPbxPrflId = , termPbxPrflId = 
+ 00021(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../../../sigcom/lcc.c:2002 maxDelayCnt=0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../../../sigcom/lcc.c:2013 cmPkMiLccCfgReq:faxModemDetect = 0
+ 00022(00422),00000(00000) 0x00000001 12-04 09:12:33.513 02423: cmPkTrkAttr - ENTER - nmb= 0 name = 
+00021(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cm_cc.c:3067 BUG:47382 cmPkTrkAttr: ccTgCfgPtr->colpForSIP 0, ccTgCfgPtr->sipPlus 0, ccTgCfgPtr->presRestrictList 0
+00019(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../../../sigcom/lcc.c:2031 BUG:47382 cmPkMiLccCfgReq: colpForSIP = 0, sipPlus = 0
+00018(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_tgp2.c:1363 sent CC interface cfg request for tgpId:6101,intfcType:256,protType:257,sigType:13,destSap:0
+00019(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3238 cmUnpkTrkAttr: ccTgCfg->sipPlus = 0, ccTgCfg->colpForSIP = 0
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3246 cmUnpkTrkAttr: ccTgCfg->presRestrictList = 0
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3255 cmUnpkTrkAttr: Realm:: pres=0,len=0,val = 
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3258 cmUnpkTknU32: RealmId:: pres=0, val=0
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3266 cmUnpkTknU32: enLocConvert=0
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3270 cmUnpkBool: aoc=0
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3278 cmUnpkTrkAttr: ioi:: pres=0,len=0,val = 
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3283 cmUnpkTrkAttr: trkGrpName:: pres=0,len=0,val = 
+00014(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../../../sigcom/lcc.c:5941 BUG:47382 Unpk: colpForSIP = 0, sipPlus = 0
+00014(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../../../sigcom/lcc.c:5958 cmUnpkMiLccCfgReq:faxModemDetect = 0
+ 00014(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../../../sigcom/lcc.c:5968 maxDelayCnt=0
+ 00014(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../../../sigcom/lcc.c:5973 cmUnpkMiLccCfgReq:origPbxPrflId = , termPbxPrflId = 
+ 00014(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../../../sigcom/lcc.c:5988 SBLN 
+ 00015(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../../../sigcom/lcc.c:5993 origPbxPrflId  len:0
+ 00015(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../../../sigcom/lcc.c:5997 termPbxPrflId  len:0
+ 00014(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cm_cc.c:3499 cmUnpkDDIOption: optISUPCFSupported=0
+ optCDDNSupported=0
+ optSiptSFRCpgIw=0
+,optRedirInfo=0
+ optCOLPSupported=0
+ optCallRefHdr=0 optORISupported=0 optCirStaInd=0
+ optU2UIndType=0
+ optBitHU2UInd=0
+ optBitHOFCI=0
+optRecommendation=0
+ optRateMultiplier=0
+ o00011(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cc_bdy4.c:7984 ISUP INTF,  trkgrpId=6101
+00010(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cc_bdy4.c:8101 ccINTFCSAPCfg: forcedEcho=1, protType=257, echoCntrl=0, longDelay=0, faxModemDetect=0,echoCntrlVariant=0
+00010(00422),00000(00000) 0x00000020 12-04 09:12:33.513 02532: ../cc_bdy4.c:18096 ** ccTgCfg: Entering ccTgCfg 1 - 17d5
+ 00010(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18118 ** ccTgCfg: Update Existing 6101-256
+00005(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18224 ccTgCfg - sipIpAddr:(null)
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18243 cnam at CC 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:22119 ccGetSipPrfl prflId=0 **
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:22169 ccGetSipTPrfl prflId=0 **
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18287 orig pbx prflid.length-0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18306 term pbx prflid.length-0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:22119 ccGetSipPrfl prflId=0 **
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:22169 ccGetSipTPrfl prflId=0 **
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18346 ccTgCfg: tgAtt.netId=2, tgAtt.opc=14, tgAtt.dpc=15, tgAtt.intlInd=0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18420 grInterMgc 0, SignalingType 13
+00004(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18462 intfType 256, SignalingType 13, CotCheckFlag 1,CotFreq 0, Hunting 0, Direction 2, InitState 0,Farclli , LRN ,
+00005(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18488 TrunkProfileId 15, CasTrunkProfileId 0, SendTNS 0,SendCIP 0, SendOLI 0, RoutingIndicator 1, LataID 0,ValidateGap 1, ClassOfSvc 5, ScreenOLI -2, SBLN ,ainTrgListName[0] , ainTrgListName[1] , ainTrgListName[2] ,ainTrgListName[3] , ainTrgListName[4] , useSwi00005(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18491 ccSipProfileId: 0, acmTmr.enb=1, acmTmr.val=0, ringBackTone=0, faxModemDetect=0
+00006(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18571 RLT : 0, 0, 1, fqdnPres=0,passthruRuri=0
+00007(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18574 Realm:: realmId = 0
+00008(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18577 adid = 0, grInterMgc = 0, cdpnPopulation = 0
+00009(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18579 sipPstnXmlMap: 0 
+00010(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18581 termIoiSrc: 0 
+00011(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:18583 tgCb->tgAtt.isupCF: 0 
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8149 icOverlap = 0, minDigits=0,maxDigits = 0, minDigitTimer0, maxDigitTimer = 0, ogOverlap = 1
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8158 previous cutThrough=0
+00014(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8160 cutThrough=0
+00015(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8170 maxDelayCnt=0
+00015(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8181 icDfltPrfl = 0, icSuppPrfl=0,ogDfltPrfl = 0, ogSuppPrfl = 0, fraudPrfId = 0, protRelPrflId = 0
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8185 orig pbx prflid.length=0
+00017(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8205 term pbx prflid.length=0
+00018(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8255 vbdEventSup=0
+00018(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8265 sipPstnXML=0
+00019(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8270 uuiSupport=0
+00019(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8274 sipHdrColpMap=0
+00020(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8278 sipIsubMap=0
+00021(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8282 cfIwProc=0
+00021(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8286 callRerouting=0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8290 aoc=0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../cc_bdy4.c:8295 isdnIntfName pres=0 len=0 val=
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:1, next state:2
+00014(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:1949 configuring the guard timer =5
+00014(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:2005 rmTgCfg: tgrpId:6101, dpc:1, alocMeth:2, cntl:0d, sigType:2
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:2098 sent RM interface cfg request for tgn:6101
+00007(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../rm_bdy4.c:394 rmNbTgCfg: dpc=1, tg=6101, sigType=2, alocMethod=2, cntld=0 cicType=3, viaSatellite=0, cotChkFlag=1,echoCntrlFlag=0, tmr.guardTmr.val=5 cotFreq=0
+00007(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../rm_bdy4.c:524 rmNbTgCfg cotFreq is to 0
+00007(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../rm_bdy4.c:691 rmNbTgCfg: is Done 
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:2, next state:3
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:3, next state:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:3184 
+!!!Assigning new value for TRKGRP: ogOverlap = 1, ogMaxdgts = 16
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:3185 
+!!!Assigning new value for TRKGRP - updated value: ogOverlap = 1, ogMaxdgts = 16
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:3192 
+!!!Assigning new value for TRKGRP: accActive = 0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:4294 isupAcli:0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:4298 isupCF:0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:4309 sent SI TGP cfg request for tgn:6101
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00001(00422),00000(00000) 0x00000001 12-04 09:12:33.514 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0xc}
+)00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:4, next state:5
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:4575 sent CC interface cntrl enable request for intfcId/tgn:6101 intfType:256
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:5, next state:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_tgp2.c:4735 reconfigured 1 tgps
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy5.c:802 cleaning up stale transId:0x80003983 for module:11
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24198) has null entry
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy6.c:207 sending back transId 0x5e86  status = 0  reason = 0
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy2.c:1450 freeing input tables
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy5.c:763 cmHashListFind failed for 0x80003983
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.514 02423: ../cl_bdy5.c:714  can't free transId
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.660 02423: ../cl_bdy6.c:555 clCb.ccsProcInfo.CPUState:4
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.660 02423: ../cl_rep1.c:156 replicating event to standby
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.660 02423: ../cl_bdy7.c:299 REP-1:event:0 in state:0, next state:1
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.660 02423: ../cl_rep2.c:216 sent rep to peer for clEvtId:6599
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.661 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=2, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.661 02423: ../cl_bdy7.c:299 REP-1:event:1 in state:1, next state:2
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.661 02423: ../cl_rep2.c:232 received first ack (not done ack) for clEvtId:6599
+00001(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_rep2.c:368 got cfm proc = 0207, ent=D1, event=0F, status=0, reason = 0
+00002(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_bdy7.c:299 REP-1:event:2 in state:2, next state:0
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_rep2.c:241 received second ack for clEvtId:6599
+00003(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_rep2.c:242 standby processed event:1
+00004(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp1.c:157 processing LM_TGP TL1 Event:2
+00005(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp1.c:469 got 1 tgps
+00006(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp1.c:485 got 1 ITU/ETSI profiles
+00006(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp1.c:779 kicking-off LM_TGP TL1-CFG FSM tgp 6101, prflId 15
+00007(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_bdy7.c:299 TGP-1:event:0 in state:0, next state:1
+00008(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:258 sigType: 13
+00009(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:777 echoCntrlType:2, echoCntrlNLP:1
+00010(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:805 txPad:0, rxPad:0, remoteXferIn:0, remoteXferOut:0, referReplace:1
+00011(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:809 echoCntrlType:2, echoCntrlNLP:1
+00011(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:846 lataId sent to CC 0
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:887 tgService: 0
+00012(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:957 transPlan:0, useSwitchId:0, icDfltPrfl:0, icSuppPrfl:0, ogDfltPrfl:0, ogSuppPrfl:0, fraudPrfId:0
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:968 acmTmr.enb:1, acmTmr.val:0, ringBackTone:0
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:987 origPbxPrfl:len:0
+00014(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1006 termPbxPrfl:len:0
+00015(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1015 sndPrtCauseVal:0, rcvPrtCauseVal:0, signalingType:0
+00015(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1019 cdpnPopulation:0
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1034 tgp->colp.val=0
+00017(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1187 realmId.pres:0
+00017(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1215 ioi.pres:0
+00018(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1232 farEndArea.pres: 0, farEndArea.len:0
+00018(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1251 trkGrpName.pres: 0, trkGrpName.len: 0
+00019(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1259 passthruRuri:0
+00020(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1264 vbdEvtSupp[pres:1, val:0]
+00020(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1288 ret :0,sipDstFqdn:
+00021(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1295 grInterMgc:0
+00021(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1323 sipPstnXmlMap:0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1333 uuiSupport:0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1342 termIoiSrc:0
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1348 isupCF:0
+00024(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../../../sigcom/lcc.c:1723 cmPkMiLccCfgReq elmId6
+00025(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cm_cc.c:3439 cmPkDDIOption: iwBaseVariant=0
+ isupCompat=0
+ isStartT6OprCall=0
+ isStopT6TestCall=0
+optBNIWInd=0
+ optRateMultiplier=0
+ optRecommendation=0
+ optBitHOFCI=0
+ optBitHU2UInd=0
+optU2UIndType=0
+ optCirStaInd=0 optORISupported=0, optCallRefHdr=0 optCOLPSupported00026(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../../../sigcom/lcc.c:1999 cmPkMiLccCfgReq:origPbxPrflId = , termPbxPrflId = 
+ 00027(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../../../sigcom/lcc.c:2002 maxDelayCnt=0
+00027(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../../../sigcom/lcc.c:2013 cmPkMiLccCfgReq:faxModemDetect = 0
+ 00028(00422),00000(00000) 0x00000001 12-04 09:12:33.662 02423: cmPkTrkAttr - ENTER - nmb= 0 name = 
+00029(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cm_cc.c:3067 BUG:47382 cmPkTrkAttr: ccTgCfgPtr->colpForSIP 0, ccTgCfgPtr->sipPlus 0, ccTgCfgPtr->presRestrictList 0
+00029(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../../../sigcom/lcc.c:2031 BUG:47382 cmPkMiLccCfgReq: colpForSIP = 0, sipPlus = 0
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1363 sent CC interface cfg request for tgpId:6101,intfcType:256,protType:257,sigType:13,destSap:0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3238 cmUnpkTrkAttr: ccTgCfg->sipPlus = 0, ccTgCfg->colpForSIP = 0
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3246 cmUnpkTrkAttr: ccTgCfg->presRestrictList = 0
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3255 cmUnpkTrkAttr: Realm:: pres=0,len=0,val = 
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3258 cmUnpkTknU32: RealmId:: pres=0, val=0
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3266 cmUnpkTknU32: enLocConvert=0
+00023(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3270 cmUnpkBool: aoc=0
+00024(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3278 cmUnpkTrkAttr: ioi:: pres=0,len=0,val = 
+00025(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3283 cmUnpkTrkAttr: trkGrpName:: pres=0,len=0,val = 
+00026(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../../../sigcom/lcc.c:5941 BUG:47382 Unpk: colpForSIP = 0, sipPlus = 0
+00027(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../../../sigcom/lcc.c:5958 cmUnpkMiLccCfgReq:faxModemDetect = 0
+ 00028(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../../../sigcom/lcc.c:5968 maxDelayCnt=0
+ 00029(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../../../sigcom/lcc.c:5973 cmUnpkMiLccCfgReq:origPbxPrflId = , termPbxPrflId = 
+ 00030(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../../../sigcom/lcc.c:5988 SBLN 
+ 00030(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../../../sigcom/lcc.c:5993 origPbxPrflId  len:0
+ 00031(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../../../sigcom/lcc.c:5997 termPbxPrflId  len:0
+ 00030(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cm_cc.c:3499 cmUnpkDDIOption: optISUPCFSupported=0
+ optCDDNSupported=0
+ optSiptSFRCpgIw=0
+,optRedirInfo=0
+ optCOLPSupported=0
+ optCallRefHdr=0 optORISupported=0 optCirStaInd=0
+ optU2UIndType=0
+ optBitHU2UInd=0
+ optBitHOFCI=0
+optRecommendation=0
+ optRateMultiplier=0
+ o00029(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:7984 ISUP INTF,  trkgrpId=6101
+00028(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8101 ccINTFCSAPCfg: forcedEcho=1, protType=257, echoCntrl=0, longDelay=0, faxModemDetect=0,echoCntrlVariant=0
+00028(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18096 ** ccTgCfg: Entering ccTgCfg 1 - 17d5
+ 00028(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18118 ** ccTgCfg: Update Existing 6101-256
+00028(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18224 ccTgCfg - sipIpAddr:(null)
+00029(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18243 cnam at CC 0
+00030(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:22119 ccGetSipPrfl prflId=0 **
+00031(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:22169 ccGetSipTPrfl prflId=0 **
+00032(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18287 orig pbx prflid.length-0
+00033(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18306 term pbx prflid.length-0
+00034(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:22119 ccGetSipPrfl prflId=0 **
+00035(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:22169 ccGetSipTPrfl prflId=0 **
+00036(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18346 ccTgCfg: tgAtt.netId=2, tgAtt.opc=14, tgAtt.dpc=15, tgAtt.intlInd=0
+00037(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18420 grInterMgc 0, SignalingType 13
+00037(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18462 intfType 256, SignalingType 13, CotCheckFlag 1,CotFreq 0, Hunting 0, Direction 2, InitState 0,Farclli , LRN ,
+00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18488 TrunkProfileId 15, CasTrunkProfileId 0, SendTNS 0,SendCIP 0, SendOLI 0, RoutingIndicator 1, LataID 0,ValidateGap 1, ClassOfSvc 5, ScreenOLI -2, SBLN ,ainTrgListName[0] , ainTrgListName[1] , ainTrgListName[2] ,ainTrgListName[3] , ainTrgListName[4] , useSwi00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18491 ccSipProfileId: 0, acmTmr.enb=1, acmTmr.val=0, ringBackTone=0, faxModemDetect=0
+00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18571 RLT : 0, 0, 1, fqdnPres=0,passthruRuri=0
+00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18574 Realm:: realmId = 0
+00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18577 adid = 0, grInterMgc = 0, cdpnPopulation = 0
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18579 sipPstnXmlMap: 0 
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18581 termIoiSrc: 0 
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:18583 tgCb->tgAtt.isupCF: 0 
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8149 icOverlap = 0, minDigits=0,maxDigits = 0, minDigitTimer0, maxDigitTimer = 0, ogOverlap = 1
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8158 previous cutThrough=0
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8160 cutThrough=0
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8170 maxDelayCnt=0
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8181 icDfltPrfl = 0, icSuppPrfl=0,ogDfltPrfl = 0, ogSuppPrfl = 0, fraudPrfId = 0, protRelPrflId = 0
+00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8185 orig pbx prflid.length=0
+00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8205 term pbx prflid.length=0
+00038(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8255 vbdEventSup=0
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8265 sipPstnXML=0
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8270 uuiSupport=0
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8274 sipHdrColpMap=0
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8278 sipIsubMap=0
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8282 cfIwProc=0
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8286 callRerouting=0
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8290 aoc=0
+00041(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../cc_bdy4.c:8295 isdnIntfName pres=0 len=0 val=
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:1, next state:2
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:1949 configuring the guard timer =5
+00040(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:2005 rmTgCfg: tgrpId:6101, dpc:1, alocMeth:2, cntl:0d, sigType:2
+00039(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02423: ../cl_tgp2.c:2098 sent RM interface cfg request for tgn:6101
+00037(00422),00000(00000) 0x00000020 12-04 09:12:33.662 02532: ../rm_bdy4.c:394 rmNbTgCfg: dpc=1, tg=6101, sigType=2, alocMethod=2, cntld=0 cicType=3, viaSatellite=0, cotChkFlag=1,echoCntrlFlag=0, tmr.guardTmr.val=5 cotFreq=0
+00037(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02532: ../rm_bdy4.c:524 rmNbTgCfg cotFreq is to 0
+00037(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02532: ../rm_bdy4.c:691 rmNbTgCfg: is Done 
+00035(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:2, next state:3
+00035(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:3, next state:4
+00034(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:3184 
+!!!Assigning new value for TRKGRP: ogOverlap = 1, ogMaxdgts = 16
+00035(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:3185 
+!!!Assigning new value for TRKGRP - updated value: ogOverlap = 1, ogMaxdgts = 16
+00036(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:3192 
+!!!Assigning new value for TRKGRP: accActive = 0
+00036(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:4294 isupAcli:0
+00037(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:4298 isupCF:0
+00035(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:4309 sent SI TGP cfg request for tgn:6101
+00033(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02532: ../si_bdy1.c:17436 SiMiLsiCfgReq
+00033(00422),00000(00000) 0x00000001 12-04 09:12:33.663 02532: [ISUP 0x14:0] ../si_bdy1.c:17445 
+
+------------------------------------------------------------------
+
+SiMiLsiCfgReq(cfg->hdr{ent=0x14, inst=0, msgType=0x1, elmnt=0xc}
+)00023(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:4, next state:5
+00022(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy6.c:575 clCb.ccsProcInfo.ActiveSP:1
+00020(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:4575 sent CC interface cntrl enable request for intfcId/tgn:6101 intfType:256
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy7.c:299 TGP-1:event:1 in state:5, next state:0
+00017(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_tgp2.c:4735 reconfigured 1 tgps
+00017(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy5.c:802 cleaning up stale transId:0x80003988 for module:11
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy7.c:1039 clFreeTL1transId: transId-(24206) has null entry
+00016(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy6.c:207 sending back transId 0x5e8e  status = 0  reason = 0
+00013(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy2.c:1450 freeing input tables
+00011(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy7.c:528 no entries in the hold Q, holdQ:0, runQ:0
+00009(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy5.c:763 cmHashListFind failed for 0x80003988
+00010(00422),00000(00000) 0x00000020 12-04 09:12:33.663 02423: ../cl_bdy5.c:714  can't free transId
+00001(00422),00000(00000) 0x00000020 12-04 09:12:35.824 02532: ../cc_bdy4.c:17333 ccGenericTmrEvent=2
+00001(00422),00000(00000) 0x00000020 12-04 09:12:35.824 02532: ../cc_lib.c:62834 ccProcess10SecondTmrExpiry :No.ofOverload:0, currentMG_OverloadRate:0.000000, targetMG_OverloadRate:0.500000
+00002(00422),00000(00000) 0x00000020 12-04 09:12:35.824 02532: ../cc_bdy4.c:17261 ccGenericStartTmr
+00003(00422),00000(00000) 0x00000001 12-04 09:12:35.824 02532: ccGetStandingCalls: 0 standing calls.
+00004(00422),00000(00000) 0x00000020 12-04 09:12:35.824 02532: ../cc_bdy4.c:23068 ccStartCcCongTimer
+00005(00422),00000(00000) 0x00000020 12-04 09:12:35.824 02532: ../rm_rum.c:648 rumInactiveTimeOut: **** RUM Inactivity detected *****

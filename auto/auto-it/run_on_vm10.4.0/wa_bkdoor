@@ -1,0 +1,38 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 1
+
+spawn -noecho /usr/dhafw/tools/fw bd
+expect {
+	"login*" {
+		send "root\n"
+		expect "password*"
+		send "r00t\n"
+		}
+	"SUP*>" {
+		puts "\n"
+		}
+}
+expect "SUP*>"
+send "addplug -a cluster\n"
+expect "SUP*>"
+send "addplug -a gdmi mysgdmi\n"
+expect "SUP*>"
+send "setStaticInfos 5.1.2 5.1.2 STATION_A:2200 STATION_A:2200\n"
+expect "SUP*>"
+send "setDynamicInfos OK_RW OK_RW KO_MAINTENANCE 1\n"
+expect "SUP*>"
+send "clusterlist\n"
+expect "SUP*>"
+send "db = createDbClient hlr 8650 8650-06-01-01-01\n"
+expect "SUP*>"
+send "db.connect hlr\n"
+expect "SUP*>"
+send "encr equipmentStationId=0-0-1,applicationEquipmentId=bjlinc1247-0-0-1,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1\n"
+expect "SUP*>"
+send "\n"
+expect "SUP*>"
+send "setattr equipmentStationId=0-0-1,applicationEquipmentId=bjlinc1247-0-0-1,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1 activeApplicationsProfile 0x02 \n"
+expect "SUP*>"
+send "quit\n"

@@ -1,0 +1,27 @@
+kavonm@2013:shsource$ cat args.txt
+arg1
+arg2
+arg3
+kavonm@2013:shsource$ cat cecho.sh
+#!/bin/bash -e
+echo $@ '#'
+kavonm@2013:shsource$ cat args.txt | xargs -n 1 ./cecho.sh
+arg1 #
+arg2 #
+arg3 #
+kavonm@2013:shsource$ cat args.txt | xargs -n 2 ./cecho.sh
+arg1 arg2 #
+arg3 #
+kavonm@2013:shsource$ cat args.txt | xargs ./cecho.sh
+arg1 arg2 arg3 #
+kavonm@2013:shsource$ cat args.txt | xargs -I {} ./cecho.sh -p {} -l
+-p arg1 -l #
+-p arg2 -l #
+-p arg3 -l #
+
+1. find and xargs are a perfect couple.
+find . -type f -name "*.txt" -print0 | xargs -0 rm -rf
+
+2. Others:
+xargs -d x
+

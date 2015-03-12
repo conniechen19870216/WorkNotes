@@ -1,0 +1,27 @@
+1. SFndLenMsg
+(1) Return the length of a message: minfo->len
+(2) In detail:
+ /* get the SsMsgInfo */
+ minfo = (SsMsgInfo*) mBuf->b_rptr;
+
+ /* read length */
+ *lngPtr = minfo->len;
+
+2. SRemPstMsgMult_real
+(1) Copy the last cnt bytes to a buffer in the reverse order
+(2) Also at the same time, the size of message buffer will be decreased
+
+3. SPrntMsg
+Print message buffer in the normal order
+
+4. SAddPstMsgMult_real
+memcpy in the normal order
+
+5. SExamMsg
+return the specified byte address
+
+6. SRemPreMsgMult
+copy the first cnt bytes to a buffer in the normal order
+
+7. SRemPreMsgRevMult
+copy the first cnt bytes to a buffer in the reverse order

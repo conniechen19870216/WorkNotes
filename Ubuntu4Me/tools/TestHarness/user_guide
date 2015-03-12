@@ -1,0 +1,25 @@
+Overall: combine with hard-code to test
+
+1. Preparations
+(1) login
+(2) checkout codes (excluding TAG version)
+
+2. Compile
+(1) directory: components/testharness
+(2) command:   make / make all_debug
+
+3. Run cases
+(1) cd ./bin
+(2) ./siptest
+(3) displayon
+(4) runtest basiccall1.tc
+
+4. Log files
+
+5. Edit a new case
+(1) files: .tc, .xml and .cs (mocking input from cc or others)
+(2) directory: scripts/sip
+
+6. Documents
+(1) 79-3524
+(2) 79-3534 (*****)

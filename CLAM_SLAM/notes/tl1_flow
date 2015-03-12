@@ -1,0 +1,36 @@
+1. Entry into slam for TL1 commands
+slProcessTl1Evt
+S16 
+slProcessTl1Evt(TL1_CMD_BUF_t  *tl1Cmd, 
+                Pst *pst,
+			    TsTransId transId,                                                                                                                                                   
+			    TsTableId tableId, 
+			    TsSmiRowKey   *rowKey, 
+			    TsSmiColArray *colArray)
+
+(1) transaction ID: transId
+(2) cmd type: tl1Cmd
+(3) table: tableId -> rowKey -> colArray
+
+
+slGetNewTransIdCb(&transIdCb, transId) -> slGetNewTl1Cb(&slTl1Cb, transId) -> slTl1Cb->lmTl1Evt = LM_TL1_ED_EVT -> 
+slTl1CheckAllClams(&tl1Err, &errClamId) -> slFindEvMt(slTl1Cb) -> cmFsmQueueEvt
+
+2. Flow details
+ Slam Receive from TL1 agent via GA
+
+
+ slActvTsk()
+    --    pst.srcEnt = ENTGA; 
+    handleGaPst()
+        --    pst.event = SM_CMD_CLASS_INT
+        slHandleTL1Evt()
+		    --    pSmCmd->Tl1Cmd.Cmd = SM_ENT/ED/DLT/RTRV_REQUEST
+            slProcessTl1Evt() transfer tl1cmd to event (tl1FsmEvt )
+                slGetNewTransIdCb() -> Get new Transaction ID
+                slGetNewTl1Cb() -> Get slTl1Cb
+                slTl1CheckAllClams()-> Check clam status
+                slFindEvMt() -> Find corresponding LmEvtMt 
+                slGetNextTl1FsmInst() -> Get new FSM instance ID
+                cmFsmInstInit() -> Init FSM 
+                cmFsmQueueEvt() -> Start TL1 SLAM FSM(tl1FsmEvt )

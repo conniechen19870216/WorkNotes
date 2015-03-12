@@ -1,0 +1,63 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+# set the timeout to 3 hrs
+set timeout 10800 
+log_user 1
+
+#if {[llength $argv] != 1} {
+#        puts "usage: $argv0 [comp|dist]"
+#        return 1
+#}
+if {[lindex $argv 0] != "comp" && [lindex $argv 0] != "dist" && [lindex $argv 0] != "mnrg"} {
+        puts "usage: $argv0 comp|dist|mnrg"
+        return 1
+}
+
+set itmode [ lindex $argv 0 ]
+
+if {$itmode == "comp"} {
+	set ithost $env(ITHOST)
+	set itdisplay $env(ITDISPLAY)
+	set ituser $env(USERNAME)
+	set itpassword $env(PASSWORD)
+} else {
+	set ithost $env(ITHOSTD)
+	set itdisplay $env(ITDISPLAYD)
+	set ituser $env(USERNAMED)
+	set itpassword $env(PASSWORDD)
+}
+
+
+spawn ssh $ituser@$ithost
+expect {
+       "Are you sure*" {
+                send "yes\n"
+		expect "password:" {
+			send "$itpassword\n"
+			}
+                }
+
+	"password:" {
+		send "$itpassword\n"
+		}
+}
+expect "$ituser"
+send "cd ~/auto-it/\n"
+expect "auto-it"
+send "cd ~/auto-it/\n"
+#send "script auto-it.log\n"
+#expect "$ituser"
+send "source /home/it40/jenkins_script/autoIT_R420/auto-it_R420.env\n"
+expect "auto-it"
+send "setenv DISPLAY $itdisplay\n"
+send "./auto-it.enh $itmode | tee auto-it.enh.$itmode.log\n"
+expect {
+	"IT cases*" {
+	}
+	"ITERROR" {
+	}
+}
+send "exit\n"
+#expect "auto-it"
+#send "exit\n"

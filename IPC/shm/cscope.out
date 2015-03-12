@@ -1,0 +1,795 @@
+cscope 15 /cygdrive/e/Dev/git/WorkNotes/IPC/shm -q 0000000042 0000004384
+	@client.c
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<¡dlib.h
+>
+
+3 
+	~<¡ršg.h
+>
+
+4 
+	~<”ºo.h
+>
+
+5 
+	~<sys/c.h
+>
+
+6 
+	~<sys/shm.h
+>
+
+7 
+	~<sys/ty³s.h
+>
+
+8 
+	~"sh¬ed.h
+"
+
+10 
+	$maš
+()
+
+12 
+ruÂšg
+ = 1;
+
+13 
+shmid
+;
+
+14 *
+¡r
+;
+
+15 
+Exchªge
+ *
+exchg
+;
+
+17 
+shmid
+ = 
+	`shmg‘
+(
+IPC_KEY
+, 
+SHARED_MEM_SIZE
+, 
+IPC_CREAT
+ | 0644);
+
+18 if(
+shmid
+ == -1)
+
+20 
+	`³¼Ü
+("shmgetƒrror");
+
+21 
+	`ex™
+(1);
+
+23 
+	`´štf
+("client ipcs‡fter shmget\n");
+
+24 
+	`sy¡em
+("ipcs -m");
+
+26 
+exchg
+ = (
+Exchªge
+ *)
+	`shm©
+(
+shmid
+, 
+NULL
+, 0);
+
+27 if(
+exchg
+ == (*)-1)
+
+29 
+	`³¼Ü
+("shmat failed");
+
+30 
+	`ex™
+(1);
+
+33 
+	`´štf
+("client ipcs‡fter shmat\n");
+
+34 
+	`sy¡em
+("ipcs -m");
+
+36 
+ruÂšg
+)
+
+38 if(
+exchg
+->
+æag
+ == 1)
+
+40 
+	`´štf
+("þ›Á„eûivedexˆi %s\n", 
+exchg
+->
+‹xt
+);
+
+41 
+exchg
+->
+æag
+ = 0;
+
+43 if(
+	`¡ºcmp
+(
+exchg
+->
+‹xt
+, "end", 3) == 0)
+
+45 
+ruÂšg
+ = 0;
+
+50 if(
+	`shmdt
+(
+exchg
+) == -1)
+
+52 
+	`³¼Ü
+("client shmdt failed");
+
+53 
+	`ex™
+(1);
+
+55 
+	`´štf
+("client ipcs‡fter shmdt\n");
+
+56 
+	`sy¡em
+("ipcs -m");
+
+58 if(
+	`shmùl
+(
+shmid
+, 
+IPC_RMID
+, 
+NULL
+) == -1)
+
+60 
+	`³¼Ü
+("producer shmctl failed");
+
+61 
+	`ex™
+(1);
+
+63 
+	`´štf
+("producer ipcs‡fter shmctl\n");
+
+64 
+	`sy¡em
+("ipcs -m");
+
+67 
+	}
+}
+
+	@error.c
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<¡ršg.h
+>
+
+3 
+	~<”ºo.h
+>
+
+5 
+	$maš
+()
+
+7 
+i
+;
+
+8 
+i
+=0; i<256; i++)
+
+10 
+	`´štf
+("”ºo.%02d i %s\n", 
+i
+, 
+	`¡»¼Ü
+(i));
+
+14 
+	}
+}
+
+	@error_test.c
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<¡ršg.h
+>
+
+3 
+	~<”ºo.h
+>
+
+5 
+	$maš
+()
+
+7 
+	`³¼Ü
+("kavon");
+
+8 
+	`´štf
+("”ºØi %d (%s)\n", 
+”ºo
+, 
+	`¡»¼Ü
+(errno));
+
+11 
+	}
+}
+
+	@producer.c
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<¡dlib.h
+>
+
+3 
+	~<¡ršg.h
+>
+
+4 
+	~<”ºo.h
+>
+
+5 
+	~<sys/c.h
+>
+
+6 
+	~<sys/shm.h
+>
+
+7 
+	~<sys/ty³s.h
+>
+
+8 
+	~"sh¬ed.h
+"
+
+10 
+	$maš
+()
+
+12 
+ruÂšg
+ = 1;
+
+13 
+shmid
+;
+
+14 *
+¡r
+;
+
+15 
+Exchªge
+ *
+exchg
+;
+
+17 
+shmid
+ = 
+	`shmg‘
+(
+IPC_KEY
+, 
+SHARED_MEM_SIZE
+, 
+IPC_CREAT
+ | 0644);
+
+18 if(
+shmid
+ == -1)
+
+20 
+	`³¼Ü
+("shmgetƒrror");
+
+21 
+	`ex™
+(1);
+
+23 
+	`´štf
+("producer ipcs‡fter shmget\n");
+
+24 
+	`sy¡em
+("ipcs -m");
+
+26 
+exchg
+ = (
+Exchªge
+ *)
+	`shm©
+(
+shmid
+, 
+NULL
+, 0);
+
+27 if(
+exchg
+ == (*)-1)
+
+29 
+	`³¼Ü
+("shmat failed");
+
+30 
+	`ex™
+(1);
+
+33 
+	`´štf
+("producer ipcs‡fter shmat\n");
+
+34 
+	`sy¡em
+("ipcs -m");
+
+35 
+	`´štf
+("š™ŸÎy,ƒxchg->æag = %d\n", 
+exchg
+->
+æag
+);
+
+37 
+ruÂšg
+)
+
+39 
+exchg
+->
+æag
+ == 1)
+
+41 
+	`¦“p
+(2);
+
+42 
+	`´štf
+("waiting forhe client\n");
+
+45 
+	`sÿnf
+("%s", 
+¡r
+);
+
+46 
+	`¡rýy
+(
+exchg
+->
+‹xt
+, 
+¡r
+);
+
+47 
+exchg
+->
+æag
+ = 1;
+
+49 if(
+	`¡ºcmp
+(
+exchg
+->
+‹xt
+, "end", 3) == 0)
+
+51 
+ruÂšg
+ = 0;
+
+55 if(
+	`shmdt
+(
+exchg
+) == -1)
+
+57 
+	`³¼Ü
+("producer shmdt failed");
+
+58 
+	`ex™
+(1);
+
+60 
+	`´štf
+("producer ipcs‡fter shmdt\n");
+
+61 
+	`sy¡em
+("ipcs -m");
+
+64 
+	}
+}
+
+	@shared.h
+
+1 
+	#IPC_KEY
+ 1234
+
+	)
+
+2 
+	#SHARED_MEM_SIZE
+ 4096
+
+	)
+
+3 
+	#TEXT_SIZE
+ 2048
+
+	)
+
+5 
+	sexchªge
+
+
+7 
+	mæag
+;
+
+8 
+	m‹xt
+[
+TEXT_SIZE
+];
+
+9 } 
+	tExchªge
+;
+
+	@shm_fork.c
+
+2 
+	~<¡dio.h
+>
+
+3 
+	~<¡dlib.h
+>
+
+4 
+	~<¡ršg.h
+>
+
+5 
+	~<”ºo.h
+>
+
+6 
+	~<sys/c.h
+>
+
+7 
+	~<sys/shm.h
+>
+
+8 
+	~<sys/ty³s.h
+>
+
+10 
+	#SHARED_MEM_SIZE
+ 4096
+
+	)
+
+12 
+	$maš
+()
+
+14 
+shmid
+;
+
+15 
+pid_t
+ 
+pid
+;
+
+16 *
+¡r
+;
+
+18 
+shmid
+ = 
+	`shmg‘
+(
+IPC_PRIVATE
+, 
+SHARED_MEM_SIZE
+, 
+IPC_CREAT
+ | 0644);
+
+19 if(
+shmid
+ == -1)
+
+21 
+	`³¼Ü
+("shmgetƒrror");
+
+22 
+	`ex™
+(1);
+
+24 
+	`´štf
+("common ipcs‡fter shmget\n");
+
+25 
+	`sy¡em
+("ipcs -m");
+
+27 
+pid
+ = 
+	`fÜk
+();
+
+28 if(
+pid
+ == -1)
+
+30 
+	`³¼Ü
+("fork failed");
+
+31 
+	`ex™
+(1);
+
+34 if(
+pid
+ == 0)
+
+36 
+¡r
+ = 
+	`shm©
+(
+shmid
+, 
+NULL
+, 0);
+
+37 if(
+¡r
+ == (*)-1)
+
+39 
+	`³¼Ü
+("child shmat failed");
+
+40 
+	`ex™
+(1);
+
+43 
+	`¡rýy
+(
+¡r
+, "kavon shared memory\n");
+
+44 
+	`´štf
+("child ipcs‡fter shmat‡nd strcpy\n");
+
+45 
+	`sy¡em
+("ipcs -m");
+
+47 if(
+	`shmdt
+(
+¡r
+) == -1)
+
+49 
+	`³¼Ü
+("child shmdt failed");
+
+50 
+	`ex™
+(1);
+
+52 
+	`´štf
+("child ipcs‡fter shmdt\n");
+
+53 
+	`sy¡em
+("ipcs -m");
+
+57 
+	`¦“p
+(1);
+
+59 
+¡r
+ = 
+	`shm©
+(
+shmid
+, 
+NULL
+, 0);
+
+60 if(
+¡r
+ == (*)-1)
+
+62 
+	`³¼Ü
+("parent shmat failed");
+
+63 
+	`ex™
+(1);
+
+65 
+	`´štf
+("parent ipcs‡fter shmat\n");
+
+66 
+	`sy¡em
+("ipcs -m");
+
+68 
+	`´štf
+("%s", 
+¡r
+);
+
+69 if(
+	`shmdt
+(
+¡r
+) == -1)
+
+71 
+	`³¼Ü
+("parent shmdt failed");
+
+72 
+	`ex™
+(1);
+
+74 
+	`´štf
+("parent ipcs‡fter shmdt\n");
+
+75 
+	`sy¡em
+("ipcs -m");
+
+77 if(
+	`shmùl
+(
+shmid
+, 
+IPC_RMID
+, 
+NULL
+) == -1)
+
+79 
+	`³¼Ü
+("parent shmctl failed");
+
+80 
+	`ex™
+(1);
+
+82 
+	`´štf
+("parent ipcs‡fter shmctl\n");
+
+83 
+	`sy¡em
+("ipcs -m");
+
+87 
+	}
+}
+
+	@
+1
+.
+0
+6
+61
+client.c
+error.c
+error_test.c
+producer.c
+shared.h
+shm_fork.c

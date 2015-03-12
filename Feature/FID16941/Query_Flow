@@ -1,0 +1,35 @@
+Flow of a DNS query:
+SIPA -> Internal DNS -> regular cache
+If Regular cache empty: Internal DNS -> External DNS
+If first external server attempt times out: Internal DNS -> Second external DNS
+If second external server attempt times out: Internal DNS -> Extended cache
+If no match in extended cache: Internal DNS -> SIPA (Query failure)
+
+
+Query failure flow:
+
+SIPA -> Internal DNS +-> regular cache (1)
+ |         |         |        |
+ |         |         |        |
+ |         |         |        |'empty'
+ <---------+         |        |
+  'failure'|         |        +
+           |         +-> 1st external DNS server (2)
+           |         |        |
+           |         |        |
+           |         |        |'timeout'
+           |         |        |
+           |         |        +
+           |         +-> 2nd external DNS server (3)
+           |         |        |
+           |         |        |
+           |         |        |'timeout'
+           |         |        |
+           |         |        +
+           |         +-> extended cache (4)
+           |                  |
+           |                  |
+           |                  |
+           |                  |
+           <------------------+
+                'no match'

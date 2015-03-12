@@ -1,0 +1,21 @@
+1) cat 1 2 | sort | uniq
+2) cat 1 2 | sort | uniq -d
+3) cat 1 2 | sort | uniq -u
+
+kavonm@2013:~$ cat 1
+123
+456
+kavonm@2013:~$ cat 2
+456
+kavonm@2013:~$ cat 1 2
+123
+456
+456
+kavonm@2013:~$ cat 1 2 | sort | uniq
+123
+456
+kavonm@2013:~$ cat 1 2 | sort | uniq -d
+456
+kavonm@2013:~$ cat 1 2 | sort | uniq -u
+123
+ 

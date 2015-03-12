@@ -1,0 +1,63 @@
+(1) E06S06: S06->S09
+    E03S09: S09->S09
+
+InLiDatDatInd (in_bdy1.c)
+       |
+       |
+       +------ inActDat (in_bdy9.c) <<<<<< ISDN: E01S06 (Event: Call Proceeding Message; State: Call Present) >>>>>>>>
+                  |
+                  |
+                  +------ inNetE01S06 (in_bdy5.c) 
+ 	    		            |
+                            +---- InUiIntCnStInd (in_ptui.c)
+                                      |
+                                      +---- QwLiIntCnStInd (qw_bdy1.c)
+                                                |
+                                                +---- QwUiCctRscCfm (qw_ptui.c)
+                                                |        |
+                                                |        +---- CcLiCctRscCfm (cc_bdy1.c)
+                                                |                  |
+                                                |                  +---- ccCallStateMachine (cc_bdy2.c) <<<<<<< E06S06 >>>>>>>>
+                                                |                            |
+                                                |                            +---- ccConE06S06 (cc_bdy2.c) 
+                                                |                                     |
+                                                |                                     +---- CC_STATE_CHANGE(con, CCS_AWTANS) <<<<<< S06->S09  CCS_AWTOGRSC -> CCS_AWTANS >>>>>>>> 
+                                                |                                      
+                                                |                                      
+                                                |                                      
+                                                +---- QwUiCctCnStInd (qw_ptui.c)
+                                                         |
+                                                         +---- CcLiCctCnStInd (cc_bdy1.c)
+                                                                   |
+                                                                   +---- ccIsAlertingIndRcvd (cc_lib.c)
+                                                                   |
+                                                                   +---- ccChkSrvcForLi (cc_li_sm.c)
+                                                                   |
+                                                                   +---- ccCallStateMachine (cc_bdy2.c) <<<<<<< E03S09 >>>>>>>>
+                                                                             |
+                                                                             +---- ccConE03S09 (cc_bdy2.c) 
+                                                                                      |
+                                                                                      +---- ccStopConTmr (cc_bdy4.c) <<<<<<< Timer: CC_TMR_TOIW2=34 >>>>>>> 
+                                                                                      |
+                                                                                      +---- ccProcessOAlertingNoSwitching (cc_lib.c) 
+                                                                                                  |
+                                                                                                  +---- ccStartAwaitAnsTmrWhenRinging 
+                                                                                                  |
+                                                                                                  +---- ccMapEvent_real (cc_lib.c) 
+                                                                                                  |
+                                                                                                  |
+                                                                                                  +---- /* Please see (1.1) CALL PROCEEDING -> 183 */
+        
+(1.1) CALL PROCEEDING -> 183        
+ccMapEvent_real (cc_lib.c)
+          |   
+          +------ ccGetMapTblEntry (cc_map.c)
+          |   
+          +------ ccGetMappingIndex_real (cc_map.c)
+          |   
+          +------ directMappingMatrix (cc_map.c) 
+                         |   
+                         +------ ISDN_TO_SIP (cc_map.c)
+                                        |   
+                                        +------ ccSIP2SIMapS22M05 (cc_sipmap.c)        
+                                                (no mapping: CCIGNOREMAPPING)

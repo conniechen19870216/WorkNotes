@@ -1,0 +1,22 @@
+1. telica_sipa/main.c
+   SIPA_CB.* = MPlogInit(...)
+
+2. SIPA_TRACE2 (nbbos.h / sipadef.h)
+        |
+		|
+        +---- OS_PRINTF5 (nbbos.h / sipadef.h)
+                       |
+                 	   | <LOG_TYPE_DETAIIL>
+                 	   |
+                 	   +------ sipProcLogMsg (telica_sipa/main.c)
+					                |
+								    |
+									+------ MPprocLogMsg (logging.h)
+									             |
+												 |
+												 +------ LogMsg (logsys.c)
+												            |
+															|
+															+------ VLogMsg (logsys.c)
+
+3. nmr_process_response

@@ -1,0 +1,3 @@
+ContractData,ContractData,Cont_OAM_AppStartupConf
+appStartupConfId=LTE_EIR,equipmentStationId=ALL,applicationEquipmentId=ALL,contractDataId=1,customizationFunctionId=1,managedElementId=HSS1
+svcInstNum,1,REPLACE

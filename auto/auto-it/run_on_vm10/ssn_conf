@@ -1,0 +1,4 @@
+#!/bin/ksh
+# Created by Robert Wu - QD x5258
+psql -U scncraft -f /tmp/sig7.m3ua.sql
+/tmp/initproc

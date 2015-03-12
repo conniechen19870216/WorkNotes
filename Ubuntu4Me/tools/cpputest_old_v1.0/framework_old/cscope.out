@@ -1,0 +1,786 @@
+cscope 15 $HOME/majun/scripting/cpputest -q 0000000069 0000003934
+	@Test/kavon.h
+
+19 
+	~<°dio.h
+>
+
+21 
+	$hñlo
+()
+
+23 
+	`¥ötf
+("hello, kavon\n");
+
+24 
+	}
+}
+
+	@Test/kavonTest.c
+
+18 
+	~"CµUTe°/Te°H¨√ss.h
+"
+
+19 
+	~"CµUTe°Ext/MockSuµ‹t.h
+"
+
+20 
+	~"CµUTe°Ext/MockSuµ‹tPlugö.h
+"
+
+21 
+	~"CµUTe°/Mem‹yLókDëe˘‹MÆlocMa¸os.h
+"
+
+22 
+	~"CµUTe°/Mem‹yLókDëe˘‹NewMa¸os.h
+"
+
+26 
+	~"kav⁄.h
+"
+
+29 
+	#BOOL
+ 0
+
+	)
+
+30 
+i
+ = 0;
+
+31 
+	ga
+ = 1;
+
+32 
+	gb
+ = 2;
+
+34 
+	$TEST_GROUP
+(
+Fú°Te°Group
+)
+
+36 
+	`£tup
+()
+
+40 
+	`ã¨down
+()
+
+43 
+	}
+};
+
+45 
+	$TEST
+(
+Fú°Te°Group
+, 1
+°Te°
+)
+
+47 
+	`hñlo
+();
+
+48 
+	}
+}
+
+50 
+	$TEST
+(
+Fú°Te°Group
+, 2
+ndTe°
+)
+
+52 
+	`FAIL
+("Fail me!");
+
+53 
+	}
+}
+
+55 
+	$TEST
+(
+Fú°Te°Group
+, 3
+rdTe°
+)
+
+57 
+	`STRCMP_EQUAL
+("hello", "world");
+
+58 
+	}
+}
+
+60 
+	$TEST
+(
+Fú°Te°Group
+, 4
+thTe°
+)
+
+62 
+	`CHECK
+(
+BOOL
+);
+
+63 
+	}
+}
+
+65 
+	$TEST
+(
+Fú°Te°Group
+, 5
+thTe°
+)
+
+67 
+	`CHECK_EQUAL
+(
+BOOL
+, 1);
+
+68 
+	}
+}
+
+70 
+	$TEST
+(
+Fú°Te°Group
+, 6
+thTe°
+)
+
+72 
+	`CHECK_EQUAL
+(
+i
+, 0);
+
+73 
+	}
+}
+
+75 
+	$TEST
+(
+Fú°Te°Group
+, 7
+thTe°
+)
+
+77 
+	`LONGS_EQUAL
+(
+a
+, 
+b
+);
+
+78 
+	}
+}
+
+	@Test/kavonTestMock.c
+
+18 
+	~"CµUTe°/Te°H¨√ss.h
+"
+
+19 
+	~"CµUTe°Ext/MockSuµ‹t.h
+"
+
+20 
+	~"CµUTe°Ext/MockSuµ‹tPlugö.h
+"
+
+21 
+	~"CµUTe°/Mem‹yLókDëe˘‹MÆlocMa¸os.h
+"
+
+22 
+	~"CµUTe°/Mem‹yLókDëe˘‹NewMa¸os.h
+"
+
+26 
+	~<°dio.h
+>
+
+27 
+	~"hñlo.h
+"
+
+30 
+	$mock_add
+(
+a
+, 
+b
+)
+
+32 
+	`mock
+().
+	`a˘uÆCÆl
+("¥ötSum").
+	`wôhP¨amëî
+("a", 
+a
+);
+
+33 
+c
+ = 
+a
+ + 
+b
+ + 100;
+
+34  
+c
+;
+
+35 
+	}
+}
+
+37 
+Àvñ
+ 
+	$mock_add_Àvñ
+(
+Àvñ
+ *
+a
+,Üevñ *
+b
+)
+
+39 
+	`mock
+().
+	`a˘uÆCÆl
+("¥ötSumLevñ").
+	`wôhP¨amëî
+("Àvñ_a", 
+a
+);
+
+40 
+Àvñ
+ 
+c
+;
+
+41 
+c
+.
+poöts
+ = 
+a
+->poöt†+ 
+b
+->points + 100;
+
+42 
+c
+.
+m⁄ey
+ = 
+a
+->m⁄ey + 
+b
+->money + 100;
+
+43  
+c
+;
+
+44 
+	}
+}
+
+46 
+	$TEST_GROUP
+(
+MockTe°Group
+)
+
+48 
+	`£tup
+()
+
+50 
+	`UT_PTR_SET
+(
+add_±r
+, &
+mock_add
+);
+
+51 
+	`UT_PTR_SET
+(
+add_Àvñ_±r
+, &
+mock_add_Àvñ
+);
+
+54 
+	`ã¨down
+()
+
+56 
+	`mock
+().
+	`checkEx≥˘©i⁄s
+();
+
+57 
+	`mock
+().
+	`˛ór
+();
+
+59 
+	}
+};
+
+61 
+	$TEST
+(
+MockTe°Group
+, 
+Mock_Basic
+)
+
+63 
+	`mock
+().
+	`ex≥˘O√CÆl
+("¥ötSum").
+	`wôhP¨amëî
+("a", 2);
+
+64 
+	`¥ötSum
+();
+
+65 
+	}
+}
+
+67 
+	$TEST
+(
+MockTe°Group
+, 
+Mock_Add_Såu˘
+)
+
+69 
+	`mock
+().
+	`ex≥˘O√CÆl
+("¥ötSumLevñ").
+	`ign‹eOthîP¨amëîs
+();
+
+70 
+	`¥ötSumLevñ
+();
+
+71 
+	}
+}
+
+73 
+	$TEST
+(
+MockTe°Group
+, 
+Mock_D©a
+)
+
+75 
+	`mock
+().
+	`£tD©a
+("Kavon", 1);
+
+76 
+	`CHECK_EQUAL
+(2, 
+	`mock
+().
+	`gëD©a
+("Kav⁄").
+	`gëI¡VÆue
+())
+
+78 i‡(
+	`mock
+().
+	`hasD©a
+("Kavon"))
+
+80 
+	`¥ötf
+("Kavon isÑeady.\n");
+
+84 
+	`¥ötf
+("Kavon isÇotÑeady.\n");
+
+86 
+	}
+}
+
+	@bin/AllTest.c
+
+18 
+	~"CµUTe°/Comm™dLöeTe°Ru¬î.h
+"
+
+19 
+	~"CµUTe°Ext/MockSuµ‹t.h
+"
+
+20 
+	~"CµUTe°Ext/MockSuµ‹tPlugö.h
+"
+
+21 
+	~"CµUTe°/Te°Regi°ry.h
+"
+
+22 
+	~"AŒTe°.h
+"
+
+24 
+	$maö
+(
+ac
+, ** 
+av
+)
+
+26  
+Comm™dLöeTe°Ru¬î
+::
+	`RunAŒTe°s
+(
+ac
+, 
+av
+);
+
+27 
+	}
+}
+
+	@bin/AllTest.h
+
+21 
+IMPORT_TEST_GROUP
+(
+Fú°Te°Group
+);
+
+22 
+IMPORT_TEST_GROUP
+(
+MockTe°Group
+);
+
+	@src/hello.c
+
+28 
+	~<°dio.h
+>
+
+29 
+	~"hñlo.h
+"
+
+31 
+	gloˇl
+;
+
+33 
+	$add_‹i
+(
+a
+, 
+b
+)
+
+35 
+loˇl
+ = 0;
+
+36 
+	`¥ötf
+("loˇ»v¨: %d\n",
+loˇl
+);
+
+37 
+c
+ = 
+a
+ + 
+b
+;
+
+38  
+c
+;
+
+39 
+	}
+}
+
+41 (*
+add_±r
+)(
+a
+, 
+b
+Ë&
+add_‹i
+;
+
+43 
+	$¥ötSum
+()
+
+45 
+a
+ = 2;
+
+46 
+b
+ = 1;
+
+47 
+sum
+ = 
+	`add_±r
+(
+a
+,
+b
+);
+
+48 
+	`¥ötf
+("Sum i†%d\n", 
+sum
+);
+
+49 
+	}
+}
+
+53 
+Àvñ
+ 
+	$add_Àvñ_‹i
+(
+Àvñ
+ *
+a
+,Üevñ *
+b
+)
+
+55 
+Àvñ
+ 
+c
+;
+
+56 
+c
+.
+poöts
+ = 
+a
+->poöt†+ 
+b
+->points;
+
+57 
+c
+.
+m⁄ey
+ = 
+a
+->m⁄ey + 
+b
+->money;
+
+58  
+c
+;
+
+59 
+	}
+}
+
+61 
+	$Àvñ
+ (*
+add_Àvñ_±r
+)(
+Àvñ
+ *
+a
+,Üevñ *
+b
+Ë&
+add_Àvñ_‹i
+;
+
+63 
+	$¥ötSumLevñ
+()
+
+65 
+Àvñ
+ 
+ãmp
+ = {1, 3};
+
+66 
+Àvñ
+ *
+a
+ = &
+ãmp
+;
+
+67 
+Àvñ
+ *
+b
+ = &
+ãmp
+;
+
+68 
+Àvñ
+ 
+sum
+ = 
+	`add_Àvñ_±r
+(
+a
+,
+b
+);
+
+69 
+	`¥ötf
+("Poöt†¨ê%d,ánd M⁄ey i†%d\n", 
+sum
+.
+poöts
+, sum.
+m⁄ey
+);
+
+70 
+	}
+}
+
+	@src/hello.h
+
+28 #i‚de‡
+HELLO_H_
+
+
+29 
+	#HELLO_H_
+
+
+	)
+
+31 
+	sÀvñ
+
+
+33 
+	mpoöts
+;
+
+34 
+	mm⁄ey
+;
+
+35 }
+	tÀvñ
+;
+
+38 (*
+add_±r
+)(, );
+
+39 
+	`¥ötSum
+();
+
+41 
+Àvñ
+ 
+	`add_Àvñ_‹i
+(level *,Üevel *);
+
+42 
+	$Àvñ
+ (*
+add_Àvñ_±r
+)(
+Àvñ
+ *,Üevel *);
+
+43 
+	`¥ötSumLevñ
+();
+
+	@
+1
+.
+0
+7
+103
+Test/kavon.h
+Test/kavonTest.c
+Test/kavonTestMock.c
+bin/AllTest.c
+bin/AllTest.h
+src/hello.c
+src/hello.h

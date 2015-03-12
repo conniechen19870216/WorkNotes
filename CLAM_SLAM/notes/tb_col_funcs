@@ -1,0 +1,91 @@
+1. slDecodeSmiCols: decode TL1 request to cb->thE1 used for updating dbThE1
+(1) Defination:
+/**********************************************************************
+** slDecodeSmiCols
+**
+**     Desc:  Decode row to table structure 
+**
+**     Notes: 1. undecodedCols can be NULL
+**            2. input numCols in undecodedCols is the maximum number of 
+**               columns that undecodedCols can hold
+**            3. numCols in undecodedCols is set to the number of actual
+**               undecoded columns
+**            4. flags - indicates different treatment based on flag value
+**     Ret:    0  - OK
+**            >0 - see tb.h for a list of error codes
+**
+**********************************************************************/
+S16
+slDecodeSmiCols(U16 tableId, TsSmiColArray *colArray, void *row, 
+                TsSmiColArray *undecodedCols, U16 *column, U8 flags)
+
+context: SlTl1Cb
+cb: ThE1FsmCb
+
+tableId = cb->thE1->tableId
+colArray = context->colArray
+row = cb->thE1
+
+(2) Important Structures
+a) Control Block
+   SlTl1Cb / ThE1FsmCb
+b) Column: ThE1 / colArray
+   typedef struct thE1
+   {
+	   int      tableId;
+	   int      version;        /* Hot Upgrade support */
+	   TkU8     shelfId;
+	   TkU8     atcaSlot;
+	   TkU16    slotNum;
+	   TkU8     amcSlot;
+	   TkU8     portId;
+	   TkU8     montype;
+	   TkU32    thlev;
+	   TkU8     locn;
+	   TkU8     dirn;
+	   TkU8     tmper;
+   } ThE1; 
+
+   typedef struct tsSmiColArray {
+	       U8 numCols;             /* No. of columns in colArray set by agent. */
+	       TsSmiColObj *colArray;
+   } TsSmiColArray;
+
+   typedef struct tsSmiColObj {
+	       U8 columnId;
+		   TsSmiColValue value;
+   } TsSmiColObj;
+
+   typedef struct tsSmiColValue { 
+         TsSmiColType colType;         /* Selects a column type from union */
+	     union {
+		       U8 byteVal;
+   	         U16 shortVal;
+	       U32 longVal;
+         TsSmiOctetString stringVal;
+      TsSmiAlarmedResourceId alarmedResourceId;
+               } value;
+   } TsSmiColValue;
+
+2. tbUpdateRow: ret = tbUpdateRow(cb->thE1, cb->dbThE1);
+(1) Defination
+int tbUpdateRow(void *updateRow, void *dbRow)
+
+(2) Important DB
+typedef struct thE1FsmCb
+{
+	LmFsmInfo  fsmInfo;
+	U32        transId;
+	LmEvt      *lmEvt;
+	LmEvtId    lmEvtId;
+	ThE1       thE1;
+	U16        currIdx;
+} ThE1FsmCb;
+
+3. tbValidateRow: ret = tbValidateRow(cb->dbThE1, DB_UPDATE, &errorCol2);
+   #define tbValidateRow(row, flags, column) tbValRow(row, flags, column, NULL)
+***********************************************************************************
+   int tbValRow(void *row, int flags, int *column, char **errStr)
+           TB_VALIDATE
+		         call extra function to check the specified range
+***********************************************************************************

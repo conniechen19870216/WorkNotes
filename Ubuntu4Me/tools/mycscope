@@ -1,0 +1,4 @@
+#!/bin/bash
+find . -name "*.h" -o -name "*.x" -o -name "*.c" > cscope.files
+cscope -Rbkq -i cscope.files
+rm cscope.files

@@ -1,0 +1,7 @@
+1. Configuration:    
+(1) ENT-ISDN-BCHAN: clIbcCfgIn <= inBchCfgHandler (STBCHNCFG)
+                    IsdnBchan  <= InPhLnkCfg
+(2) ED-ISDN-BCHAN:  clIbcCtl   <= inCntrlBChan    (STBCHNPROF)
+                    IsdnBchan  <= InCntrl
+
+2. inNtc->direction

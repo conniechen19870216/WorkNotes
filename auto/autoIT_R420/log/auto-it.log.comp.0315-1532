@@ -1,0 +1,297 @@
+spawn ssh hssit@135.252.181.13
+hssit@135.252.181.13's password: 
+Last login: Thu Mar 14 16:35:21 2013 from cv0028782n0.ad4.ad.alcatel.com
+SCMCCASE configuration for BIC FT 
+[32mhssit@bl1013:[33m/home/hssit[0m> cd ~/auto-it/
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> cd ~/auto-it/
+setenv DISPLAY 135.252.181.13:1
+./auto-it.enh comp | tee auto-it.enh.comp.log
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> source /home/it40/jenkins_script/autoIT_R420/a uto-it_R420.env
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> setenv DISPLAY 135.252.181.13:1
+[32mhssit@bl1013:[33m/home/hssit/auto-it[0m> ./auto-it.enh comp | tee auto-it.enh.comp.log
++ quit=false
++ SDMTARNAME=SDM420-service_logic.full.tar
++ OAMTARNAME=OAM420-service_logic.full.tar
++ PROXYNAME=PROXY420-service_logic.full.tar
++ OAMBETARNAME=OAMBE420-service_logic.full.tar
++ print 'INFO: Auto Installation mode for COMPACT config. START...'
++ auto=yes
++ export auto
++ automodec
+INFO: Auto Installation mode for COMPACT config. START...
+INFO: automodec : Start AUTO-IT for COMPACT mode in /local/hssit/autoIT.
+INFO: ftpbldvm: Start: FTP the mCAS_r30-20121107_ddm_r90.00.02.02-01.el6_CS_20130305.tgz to /local/hssit/autoIT.
+INFO: ftpbldvm: mCAS_r30-20121107_ddm_r90.00.02.02-01.el6_CS_20130305.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r30-20121107_ddm_r90.00.02.02-01.el6_CS_20130305.tgz to /local/hssit/autoIT done.
+INFO: ftpspa: Start: FTP the 8650SDM-4.2.0-ATCAv2-2013-03-15-11-SDM-COMPACT.tar to /local/hssit/autoIT.
+INFO: ftpspa: End: FTP the 8650SDM-4.2.0-ATCAv2-2013-03-15-11-SDM-COMPACT.tar to /local/hssit/autoIT done.
+OAM420-service_logic.full.tar
+SDM420-service_logic.full.tar
+INFO: ftpspa: Start: FTP the 8650SDM-4.2.0-ATCAv2-2013-03-15-11-SDM-TOOLS.tar to /local/hssit/autoIT.
+INFO: ftpspa: End: FTP the 8650SDM-4.2.0-ATCAv2-2013-03-15-11-SDM-TOOLS.tar to /local/hssit/autoIT done.
+INFO: /home/hssit/auto-it/startvm1 Start: CMP Vmware will be started.
+tar xvfz mCAS_r30-20121107_ddm_r90.00.02.02-01.el6_CS_20130305.tgz
+rm: cannot remove `VM*-pilot-A/*.lck': No such file or directory
+vmware -x VMCS10-pilot-A/VMCS10-pilot-A.vmx
+INFO: /home/hssit/auto-it/startvm1 End: CMP Vmware is started.
+/usr/share/themes/Clearlooks/gtk-2.0/gtkrc:59: error: unexpected identifier `animation', expected character `}'
+/usr/share/themes/Clearlooks/gtk-2.0/gtkrc:59: error: unexpected identifier `animation', expected character `}'
+/usr/share/themes/Clearlooks/gtk-2.0/gtkrc:59: error: unexpected identifier `animation', expected character `}'
+INFO: vminitchk: Start: Check the vm10 is started: check if able to login via ssh; home dir for ainet is mounted.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+c3:40:e6:00:92:4d:c1:f4:54:45:b8:97:ac:1d:d5:ad.
+Please contact your system administrator.
+Add correct host key in /home/hssit/.ssh/known_hosts to get rid of this message.
+Offending key in /home/hssit/.ssh/known_hosts:2
+RSA host key for vm10 has changed and you have requested strict checking.
+Host key verification failed.
+The authenticity of host 'vm10 (172.25.126.10)' can't be established.
+RSA key fingerprint is c3:40:e6:00:92:4d:c1:f4:54:45:b8:97:ac:1d:d5:ad.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'vm10,172.25.126.10' (RSA) to the list of known hosts.
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Last login: Tue Mar  5 21:06:08 CST 2013 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now linux
+vm10-0-0-1:/u/ainet-> INFO: vminitchk: vm10 started
+INFO: send2vm: The following files are sending to vm10:/tmp
+
+coretest                                        0%    0     0.0KB/s   --:-- ETAcoretest                                      100% 1168     1.1KB/s   00:00    
+
+opinit                                          0%    0     0.0KB/s   --:-- ETAopinit                                        100%  241     0.2KB/s   00:00    
+
+chk_init                                        0%    0     0.0KB/s   --:-- ETAchk_init                                      100% 1867     1.8KB/s   00:00    
+
+addhost                                         0%    0     0.0KB/s   --:-- ETAaddhost                                       100%  500     0.5KB/s   00:00    
+
+cfg_sdm_tool                                    0%    0     0.0KB/s   --:-- ETAcfg_sdm_tool                                  100%  875     0.9KB/s   00:00    
+
+wa_oam                                          0%    0     0.0KB/s   --:-- ETAwa_oam                                        100%  355     0.4KB/s   00:00    
+
+wa_bkdoor                                       0%    0     0.0KB/s   --:-- ETAwa_bkdoor                                     100% 1043     1.0KB/s   00:00    
+
+cfg_sdm_tool1                                   0%    0     0.0KB/s   --:-- ETAcfg_sdm_tool1                                 100% 1268     1.2KB/s   00:00    
+
+gen_psw_apache                                  0%    0     0.0KB/s   --:-- ETAgen_psw_apache                                100%  541     0.5KB/s   00:00    
+
+sshdchg                                         0%    0     0.0KB/s   --:-- ETAsshdchg                                       100%  206     0.2KB/s   00:00    
+
+initproc                                        0%    0     0.0KB/s   --:-- ETAinitproc                                      100%  272     0.3KB/s   00:00    
+
+chg_initlist                                    0%    0     0.0KB/s   --:-- ETAchg_initlist                                  100% 1006     1.0KB/s   00:00    
+
+ssn_conf                                        0%    0     0.0KB/s   --:-- ETAssn_conf                                      100%   98     0.1KB/s   00:00    
+
+sig7.m3ua.sql                                   0%    0     0.0KB/s   --:-- ETAsig7.m3ua.sql                                 100% 1104     1.1KB/s   00:00    
+
+libssl.so.6                                     0%    0     0.0KB/s   --:-- ETAlibssl.so.6                                   100%  308KB 307.7KB/s   00:00    
+
+libcrypto.so.6                                  0%    0     0.0KB/s   --:-- ETAlibcrypto.so.6                                100% 1335KB   1.3MB/s   00:01    
+
+liblber-2.3.so.0                                0%    0     0.0KB/s   --:-- ETAliblber-2.3.so.0                              100%   58KB  57.7KB/s   00:00    
+
+libldap-2.3.so.0                                0%    0     0.0KB/s   --:-- ETAlibldap-2.3.so.0                              100%  240KB 239.7KB/s   00:00    
+
+libACE.so.5.6a_p10                              0%    0     0.0KB/s   --:-- ETAlibACE.so.5.6a_p10                             39% 5456KB   5.3MB/s   00:01 ETAlibACE.so.5.6a_p10                             68% 9552KB   5.2MB/s   00:00 ETAlibACE.so.5.6a_p10                            100%   14MB   4.5MB/s   00:03    
+
+OAMBE420                                        0%    0     0.0KB/s   --:-- ETAOAMBE420                                       33% 2384KB   1.2MB/s   00:03 ETAOAMBE420                                      100% 7060KB   2.3MB/s   00:03    
+
+webctl                                          0%    0     0.0KB/s   --:-- ETAwebctl                                        100% 6811     6.7KB/s   00:00    
+
+Oam_db.cfg                                      0%    0     0.0KB/s   --:-- ETAOam_db.cfg                                    100%  548     0.5KB/s   00:00    
+
+sshdchg_old                                     0%    0     0.0KB/s   --:-- ETAsshdchg_old                                   100%  199     0.2KB/s   00:00    
+INFO: send2vm: The following files are sending to vm10:/sn/cr/tracedir
+
+OamCOMM_flags                                   0%    0     0.0KB/s   --:-- ETAOamCOMM_flags                                 100%   21     0.0KB/s   00:00    
+
+PDLSL1_flags                                    0%    0     0.0KB/s   --:-- ETAPDLSL1_flags                                  100%  524     0.5KB/s   00:00    
+
+PDLSU1_flags                                    0%    0     0.0KB/s   --:-- ETAPDLSU1_flags                                  100%   21     0.0KB/s   00:00    
+
+PDLSI1_flags                                    0%    0     0.0KB/s   --:-- ETAPDLSI1_flags                                  100%  524     0.5KB/s   00:00    
+
+SDM410_flags                                  100%    0     0.0KB/s   00:00    
+INFO: mcasinitchk: Start: Check the MCAS of vm10 is started: check if all PROCs and MySql are up.
+INFO: mcasinitchk: MCAS of vm10 Init done.
+INFO: sendtar: Start: Sending application tars to VM.
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Last login: Fri Mar 15 15:45:41 CST 2013 from 172.25.126.1 on ssh
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now linux
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Mar 15 15:45:39 CST 2013 from station_a on ssh
+No mail for root
+Term type is now linux
+vm10-0-0-1:/root-# AM420-service _logic.full.tar.o                            <fc
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Last login: Fri Mar 15 15:45:42 CST 2013 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now linux
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Mar 15 15:45:58 CST 2013 from localhost.localdomain on ssh
+No mail for root
+Term type is now linux
+vm10-0-0-1:/root-# DM420-service _logic.full.tar.o                            <fc
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Last login: Fri Mar 15 15:45:58 CST 2013 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now linux
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Mar 15 15:45:59 CST 2013 from station_a on ssh
+No mail for root
+Term type is now linux
+vm10-0-0-1:/root-# /PROXY420-service _logic.full.t                            <ar.ofc
+cp: cannot stat `/etc/SU/PROXY420-service_logic.full.tar': No such file or directory
+vm10-0-0-1:/root-# 
+
+ITERROR: sendtar: There's some problem to send the Application Tars: rt= Done, rt1=Done, rt2=Done, rt3=Done, rt4=Done, please check.

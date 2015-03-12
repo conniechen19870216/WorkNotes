@@ -1,0 +1,11 @@
+1. vim 插件的安装方法 
+(1) 创建 .vim/；
+(2) 把下载的插件全部解压到.vim/目录里面。
+说明：.vim/目录下至少会有两个目录：doc/ 和 plugin/，
+      doc目录存放各插件的帮助文档，plugin目录存放各插件的功能实现vim 脚本。
+
+2. 插件的帮助文档加进vim的在线帮助系统
+(1) 切换到vim运行时目录然后打开vim：cd ~/.vim ; vim
+(2) 在命令模式下输入如下命令： ：helptags doc
+说明：查看一下lookupfile的帮助： :help lookupfile
+

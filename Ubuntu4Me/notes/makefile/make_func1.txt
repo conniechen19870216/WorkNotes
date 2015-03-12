@@ -1,0 +1,99 @@
+1. Common Rules
+(1) 函数的调用与变量的引用是一致的，用$表示一个引用
+(2) 语法格式：
+    $(FUNCTION ARGUMENTS)
+或者
+    ${FUNCTION ARGUMENTS}
+(3) 函数调用的语法规则说明：
+    a) 参数与函数名直接可以使用若干空格或者[Tab]分隔
+	b) 参数之间使用逗号","分隔
+	c) 建议变量引用和函数引用均使用统一的圆括号
+	   $(sort $(x))
+
+2. 文本处理函数
+(1) 字符串替换函数：$(subst FROM,TO,TEXT)
+    $(subst ee,EE,feet on the street)
+
+(2) 模式替换函数：$(patsubst PATTERN,REPLACEMENT,TEXT) 
+    $(objects:.o=.c) or $(objects:%.o=%.c)
+	$(patsubst %.o,%.c,$(objects))
+	注：第一个%作为模式来处理，之后出现的都作为普通%来处理。
+	    若想把第一个%作为普通字符来处理的话，需要用\进行转义。
+
+(3) 去空格函数：$(strip $(VAR))
+    功能：去掉开头，结尾以及其中多个连续空字符
+	返回值：无前导和结尾空字符，使用单一空格分隔的多单词字符串
+
+(4) 字符串查找函数：$(findstring IN,FIND ABC)
+    返回值：若找到，返回IN；否则，返回空
+	注：IN内可以包含空格或者Tab，是严格的文本匹配
+
+(5) 过滤函数：$(filter PATTERN...,TEXT)
+    功能：使用空格分隔的多个PATTERN，用来滤除不符合模式的字符串
+    sources := foo.c bar.c baz.s ugh.h
+	foo: $(sources)
+		cc $(filter %.c %.s,$(sources)) -o foo
+
+(6) 反过滤函数：$(filter-out PATTERN...,TEXT)
+    功能：与过滤函数功能相反
+	objects=main1.o foo.o main2.o bar.o
+	mains=main1.o main2.o
+		$(filter-out $(mains),$(objects))
+
+(7) 排序函数：$(sort LIST)
+    功能：给字符串LIST中的单词以首字母为准进行升序排序，并去掉重复的单词
+	$(sort foo bar lose foo)
+
+(8) 取单词函数：$(word N,TEXT) N>0
+	功能：取字串“TEXT”中第“N”个单词
+	$(word 2, foo bar baz)
+
+(9) 取字串函数：$(wordlist S,E,TEXT)
+    注：当“S”比“TEXT”中的字数大时,返回空。如果“E”大于“TEXT”字数,返回从“S”开始,到“TEXT”结束的单词串。如果“S”大于“E”,返回空
+    $(wordlist 2, 3, foo bar baz)
+
+(10)统计单词数目函数：$(words TEXT)
+    $(words, foo bar)
+	$(word $(words TEXT),TEXT): 返回TEXT中最后一个单词
+
+(11)取首单词函数：$(firstword NAMES)
+	相当于$(word 1,NAMES)
+
+3. 文件名处理函数
+(1) 取目录函数：$(dir NAMES)
+    $(dir src/foo.c hacks)
+    Output: src/ ./
+ 
+(2) 取文件名函数：$(notdir NAMES)
+    $(notdir src/foo.c hacks)
+	Output: foo.c hacks
+
+(3) 取后缀名函数：$(suffix NAMES)
+    $(suffix src/foo.c src-1.0/bar.c hacks)
+	Output: .c .c
+
+(4) 取前缀名函数：$(basename NAMES)
+	$(basename src/foo.c src-1.0/bar.c /home/jack/.font.cache-1 hacks)
+	Output: src/foo src-1.0/bar /home/jack/.font hacks
+
+(5) 添加后缀名函数：$(addsuffix SUFFIX,NAMES)
+    $(addsuffix .c,foo bar)
+	Output: foo.c bar.c
+
+(6) 添加前缀函数：$(addprefix PREFIX,NAMES)
+	$(addprefix src/,foo bar)
+	Output: src/foo src/bar
+
+(7) 单词连接函数：$(join LIST1,LIST2)
+    e.g. 1:
+	$(join a b , .c .o)
+	Output: a.c b.o
+	
+	e.g. 2:
+	$(join a b c , .c .o)
+	Output: a.c b.o c
+
+(8) 获取匹配模式文件名函数：$(wildcard PATTERN)
+    $(wildcard *.c)：使用在除规则（包括规则的目标、依赖和命令）的上下文中
+    注：通配符包括"*"、"."、[]。
+

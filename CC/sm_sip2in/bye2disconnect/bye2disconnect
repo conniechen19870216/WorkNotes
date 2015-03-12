@@ -1,0 +1,131 @@
+(1) E04S10: S10->S55               
+CcLiCctRelInd (cc_bdy1.c)  (relType = CC_REL_NRML_REM, Release Request with Normal Processing)
+       |
+       |
+       +------ ccCallStateMachine (cc_bdy2.c) <<<<<< E04S10 (CCE_RELIND=4) >>>>>>>>
+                     |
+                     +------ ccConE04S10 (cc_bdy2.c)
+                                |
+                                +----- ccStartConTmr (cc_bdy4.c) <<<<<<< Timer: CC_TMR_TIMEOUT=28 >>>>>>>
+                                |
+                                +----- ccGetRelCause (cc_lib.c)
+                                |               |
+                                |               +--- ccGetSIPRelCause (cc_sip.c)
+                                |                       |
+                                |                       +--- ccMapSipStatus2SiCause (cc_sipmap.c)
+                                |
+                                |
+                                +----- ccExtractSipwMBufFromRel (cc_lib.c)
+                                |               |
+                                |               +--- ccExtractSipwMBuf (cc_lib.c)
+                                |
+                                |
+                                +----- ccStoreEvnt (cc_bdy4.c)
+                                |               |
+                                |               +--- ccCopySipIdToEvntHold (cc_lib.c)
+                                |   			                                
+                                |   			                                
+                                +----- ccProcessDisconnectEvent (cc_bdy5.c)
+                                |
+                                +----- ccStartConTmr (cc_bdy4.c) <<<<<<< Timer: TMR_RELEASE=3 >>>>>>>
+                                |
+                                +----- CC_STATE_CHANGE(con, CCS_AWTSWTCFM_SENDONEREL) <<<<<<< S10->S55 CCS_ANSWERED -> CCS_AWTSWTCFM_SENDONEREL >>>>>>>>>
+                                |
+                                +----- ccSendMgiQueue (cc_bdy6.c)
+                                            |
+                                            +---- MgiLiMgctTxnReq (mgct.c)
+                                                     |
+                                                     +---- MgiLiMgctTxnReq_real (mgct.c)
+                                                             |
+                                                             +---- SPstTsk
+(2) E11S55: S55->S18        
+    E10S18: S18->S18        
+ccActvTsk (cc_ex_ms.c)
+          |
+          | pst->srcEnt = ENTMGI
+          | pst->event  = MGCT_EVT_TXN_CFM
+          |
+          +------ MgiUnpkMgctTxnCfm (mgct.c)
+                         |
+                         +------ MgiLiMgctTxnCfm (cc_bdy6.c)
+                                       |
+                                       +---- ccCallStateMachine (cc_bdy2.c) <<<<<<< E11S55 >>>>>>>>
+                                                 |
+                                                 +---- ccConE11S55 (cc_bdy2.c)
+                                                           |
+                                                           +---- ccRestoreReleaseInEvntHold (cc_bdy4.c)
+                                                           |
+                                                           +---- ccHandleMgResponse (cc_bdy6.c)
+                                                           |
+                                                           +---- ccRestoreCallStateOfAssociatedCalls (cc_lib.c)
+                                                           |
+                                                           +---- CC_STATE_CHANGE(CON, CCS_AWTRELCFM_OG) <<<<<< S55->S18 CCS_AWTSWTCFM_SENDONEREL -> CCS_AWTRELCFM_OG >>>>>>
+                                                           |
+                                                           +---- ccGuardOrDeallocResource (cc_bdy3.c)
+                                                           |           |
+                                                           |           +---- ccDeallocateResource(con,CC_INCOMING) (cc_bdy3.c)
+                                                           |                     |
+                                                           |                     +---- ccCloseOBcmTransaction (cc_bdy5.c)
+                                                           |                     |
+                                                           |                     +---- ccDecrementIntfcActvConn (cc_lib.c)
+                                                           |                     |
+                                                           |                     +---- CcLiRmtDealocReq (cc_ptli.c)
+                                                           |                                |
+                                                           |                                +----- RmUiRmtDealocReq (rm_bdy1.c)
+                                                           |                                         |
+                                                           |                                         | CC_SIP_INTFC
+                                                           |                                         |
+                                                           |                                         +----- rmDealocSipRsc (rm_bdy9.c)
+                                                           |                                         |        |
+                                                           |                                         |        +----- rmValidateSipRsc (rm_bdy9.c)
+                                                           |                                         |        |
+                                                           |                                         |        +----- DEALLOC SUCCESS (rm_bdy9.c)
+                                                           |                                         |
+                                                           |                                         |
+                                                           |                                         +---- RmUiRmtDealocCfm (cc_ptui.c)
+                                                           |                                                  |        
+                                                           |                                                  +----- CcLiRmtDealocCfm (cc_bdy1.c)
+                                                           |                                                           |        
+                                                           |                                                           +------ ccCallStateMachine (cc_bdy2.c) <<<<<< E10S18 (CCE_DEALOCCFM=10) >>>>>
+                                                           |                                                                    |
+                                                           |                                                                    +------ ccConE10S18 (cc_bdy2.c)
+                                                           |                                                  
+                                                           |
+                                                           +---- ccSendReleaseRsp (cc_bdy3.c) <<<<<<<< 200 OK BYE >>>>>>>
+                                                           |           |
+                                                           |           +---- ccGetRelRspEvent (cc_lib.c)
+                                                           |           |
+                                                           |           +---- CcLiCctRelRsp (cc_ptli.c)
+                                                           |                      |
+                                                           |                      +---- SipwUiCctRelRsp (sipw_bdy1.c)
+                                                           |
+                                                           |
+                                                           | Restore Map Info.
+                                                           | con->icEvnt = (CcAllSdus *)con->ccEvntHold
+                                                           | con->ogEvnt = (CcAllSdus *)&ogEvnt
+                                                           | con->direction = INCTOOUT
+                                                           |
+                                                           +----- ccMapEvent_real (cc_lib.c)
+                                                           |
+                                                           +----- /* Please see (2.1) BYE to DISCONNECT */
+                                                           |
+                                                           |
+                                                           +---- ccSendReleaseReq (cc_bdy3.c)
+                                                                       |
+                                                                       +---- CcLiCctRelReq (cc_ptli.c)
+                                                                                  |
+                                                                                  +---- QwUiCctRelReq (qw_bdy1.c)
+(2.1) BYE -> DISCONNECT    
+ccMapEvent_real (cc_lib.c)
+          |
+          +------ ccGetMapTblEntry (cc_map.c)
+          |
+          +------ ccGetMappingIndex_real (cc_map.c)
+          |
+          +------ directMappingMatrix (cc_map.c)
+                         |
+                         +------ SIP_TO_ISDN (cc_map.c)
+                                        |
+                                        +------ ccSIP2INMapS23M03 (cc_sipmap.c)
+                                                   |
+                                                   +------ ccMapSipStatus2SiCause (cc_sipmap.c)

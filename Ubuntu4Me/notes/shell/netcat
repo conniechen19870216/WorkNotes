@@ -1,0 +1,17 @@
+1. transfer a file
+server: nc -l 1567 < file
+client: nc 135.252.41.253 1567 > file
+
+server: nc -l 1567 > file
+client: nc 135.252.41.253 1567 < file
+
+2. transfer a directory 
+server: tar -czvf - hello_emma | nc -l 1567
+client: nc 135.252.33.171 1567 | tar -xzvf -
+
+server: nc -l 1567 | tar -xzvf -
+client: tar -czvf - hello_kavon | nc 135.252.33.171 1567
+
+3. Chat server
+server: nc -l 1567
+client: nc 135.252.41.253 1567

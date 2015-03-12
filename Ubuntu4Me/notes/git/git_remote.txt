@@ -1,0 +1,51 @@
+1. 查看当前的远程库
+git remote
+git remote -v
+
+2. 获取网络仓库有的，但本地仓库没有的信息
+git fetch [remote-name]
+
+3. 推送数据到远程仓库
+git push [remote-name] [branch-name]
+git push origin master
+注：如果在推数据前，已经有其他人推送过若干更新，那么推送操作就会被驳回；
+    必须先把他们的更新抓取到本地，合并到自己的项目中，然后才可以再次推送。
+git push origin serverfix
+git push origin refs/heads/serverfix:refs/heads/serverfix
+git push origin serverfix:serverfix
+
+git push origin serverfix:awesomebranch
+
+git push origin :serverfix
+
+4. 查看远程仓库信息
+git remote show origin
+
+5. 远程仓库的删除和重命名
+(1) 重命名
+git remote rename A B
+(2) 删除
+git remote rm A
+
+6. 跟踪远程分支(tracking branch)
+   从远程分支checkout出来的本地分支
+   So, git push/pull对于git来说，会自行推断应该向哪个server的哪个branch进行push或者pull
+*********************************************************************************
+(1) git checkout -b <new-branch> origin/serverfix
+
+(2) git branch <new-branch> origin/serverfix
+    git checkout <new-branch>
+
+(3) git checkout --track origin/serverfix
+*******************   注：master默认会跟踪origin/master分支    ******************
+
+(4) 删除远程分支
+    git push origin :serverfix
+
+Appendix:
+1. 远程分支是对远程仓库中的分支的索引，是一些无法移动的本地分支，
+   只有在 Git 进行网络交互时才会更新。
+2. 远程分支就像是书签，提醒着你上次连接远程仓库时上面各分支的位置。
+3. 一次 Git 克隆会建立你自己的本地分支 master 和远程分支 origin/master，
+   它们都指向 origin/master 分支的最后一次提交
+4. git fetch <remote>: 更新remote索引

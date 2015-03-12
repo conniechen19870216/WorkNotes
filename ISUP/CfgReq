@@ -1,0 +1,58 @@
+siActvTskNew (si_ex_ms.c)
+    |
+    | [pst->event = EVTLSICFGREQ]
+    |
+    +---------- SiMiLsiCfgReq (si_bdy1.c)
+                    |
+    			    | [switch(cfg->hdr.elmId.elmnt)]
+    			    |
+    			    | a) STGEN:        General configuration from cl_mgcsys2.c clMgcSysSiGenCfg
+    			    |****************  siCfgGen(pst, cfg) ----- SiGenCfg in SiCb
+    			    |                  <<<<<<<<<<<<<< read_ISUP_CUST >>>>>>>>>>>>>>
+    			    |                               |
+    			    |                               +------ nmbSaps = 4, nmbNSaps = 4 (Only 4 MGC-NETTYPEs)
+    			    |                               |
+    			    |                               +------ siCotInitSAP (while !cfgDone)
+    			    |
+    			    |
+    			    |
+    			    | b) STISAP:       Upper SAP configuration: SIUPSAP(sapId)
+    			    |****************  siCfgISAP(pst, cfg) ----- SiUpSAPCb (sapId = 0 from cl_mgcsys2.c clMgcSysSiSapCfg)
+    			    |                  <<<<<<<<<<<<<< MFINITPROF: cb->mfCfgProf (SiMfCfgProf) >>>>>>>>>>>>>>
+    			    |                  <<<<<<<<<<<<<< MFINITMSGCTL: cb->mfMsgCtl (SiMfMsgCtl) >>>>>>>>>>>>>>
+    			    |
+    			    |
+    			    |
+    			    | c) SI_STHPCSYS:  Hpc Sys configuration
+    			    |****************  siCfgSiHpcSys(pst, cfg) ----- siCb.gets (from cl_hpcsys2.c clHpcSysSiCfg)
+    			    |
+    			    |
+    			    |
+    			    | d) SI_CFGCPC:    ISUP CPC configuration
+    			    |****************  siCfgSiCpcDb(pst, cfg) ----- siCb.gets (from cl_hpcsys2.c clHpcSysSiCfg)
+    			    |
+    			    |
+    			    |
+    			    | e) STNSAP:       Network (Lower) SAP configuration (sapType = ISUP_SAP_TYPE): SIMTPSAP(nsapId)
+    			    |****************  siCfgNSAP(pst, cfg) ------ SiNSAPCb (nsapId = 0,..., spId = nsapId*3 from cl_atcamgcnettype2.c clMgcNwkSiNSapCfg)
+    			    | <MGC-NETTYPE>    <<<<<<<<<<<<<< MFINITPROF: cb->mfCfgProf (SiMfCfgProf) >>>>>>>>>>>>>>
+    			    |                  <<<<<<<<<<<<<< MFINITMSGCTL: cb->mfMsgCtl (SiMfMsgCtl) >>>>>>>>>>>>>>
+    			    |                          <<<<<<<<<<<<<< nsapId + 1 = netId >>>>>>>>>>>>>>
+    			    |
+    			    |
+    			    | f) SI_STINTF:    INTF configuration (inserted into hash list: siIntfKey) -- intfId starts from 1...
+    			    |****************  siCfgSiIntfCb(pst, cfg) ------ SiIntfCb (key1 = intfId / key2 = ssf, opc, dpc, variant / key3 = ssf, dpc, variant from cl_mgcpc2.c)
+    			    |    <MGC-PC>      <<<<<<<<<<<<<< siFindIntf(intfId, netId, phyDpc, swtch, ssf, opc) >>>>>>>>>>>>>>
+    			    |                  <<<<<<<<<<<<<< siAddIntf(&siCb.intfHlCp, siIntfCb): 3 hash lists >>>>>>>>>>>>>>
+    			    |
+    			    |
+    			    | g) SI_STTGP:     TGP configuration (also inserted into hash list: siTgpKey)
+    			    |****************  siCfgSiTgpCb(pst, cfg) ------ SiTgpCb (key1 = tgp from cl_tgp2.c)
+    			    |    <TRKTGP>      <<<<<<<<<<<<<< siFindTgp >>>>>>>>>>>>>>
+    			    |                  <<<<<<<<<<<<<< siAddTgp: 1 hash list >>>>>>>>>>>>>>
+    			    |
+    			    |
+    			    | h) STICIR:     Circuit configuration (also inserted into hash list: siCirKey)
+    			    |**************  siCfgSiCirCb(pst, cfg) ------ SiCirCb (key1 = cirId / key2 = cic, intfId / key3 = intfId / key4 = tgn from cl_imt2.c)
+    			        <SS7-TRK>    <<<<<<<<<<<<<< siFindCir >>>>>>>>>>>>>>
+    			                     <<<<<<<<<<<<<< siAddCir: 4 hash lists >>>>>>>>>>>>>>

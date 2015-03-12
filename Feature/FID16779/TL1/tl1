@@ -1,0 +1,60 @@
+Prefix: TL1 Background
+clIlkInDlsapCfg (cl_ilk2.c) >>>>>>> isdnIf = &cb->intfc (IlkFsmCb *cb) >>>>>>>
+      |
+	  |
+	  +------ clilkInFillDlsapCfg (cl_ilk2.c)
+1. Configuration
+(1) cl_ilk2.c: IsdnIntf -> InMngmt
+clilkInFillDlsapCfg
+****************************************************************
+if (isdnIf->remark.pres == TRUE)
+{
+   q931Cfg->t.cfg.s.inDLSAP.remark.length = (U8)cmStrlen(isdnIf->remark.val);
+   cmMemcpy(q931Cfg->t.cfg.s.inDLSAP.remark.strg, isdnIf->remark.val, q931Cfg->t.cfg.s.inDLSAP.remark.length);
+}
+else
+{
+   q931Cfg->t.cfg.s.inDLSAP.remark.length = 0;
+   q931Cfg->t.cfg.s.inDLSAP.remark.strg[0] = '\0';                                                            
+}
+****************************************************************
+
+Note: PrintIsdnData_IF (cl_isdn.c)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+LM_LOG(CLM_DBG, " remark %d  %s\n", IsdnIf->remark.pres,
+        IsdnIf->remark.val);                             
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(2) lin.c: cmPkLinCfgReq for STDLSAP
+>>>>>> Packing <<<<<<<
+CMCHKPKLOG(SPkU8, cfg->t.cfg.s.inDLSAP.remark.length, mBuf, ELINXXX, pst);
+for (i = (ADRLEN - 1); i>= 0; i--)                                        
+   CMCHKPKLOG(SPkU8, cfg->t.cfg.s.inDLSAP.remark.strg[i], mBuf,
+              ELINXXX, pst);
+
+>>>>>> Unpacking <<<<<<<
+for (i = 0; i < ADRLEN; i++)
+   CMCHKUNPKLOG(SUnpkU8, &cfg.t.cfg.s.inDLSAP.remark.strg[i], mBuf,
+             ELINXXX, pst);
+CMCHKUNPKLOG(SUnpkU8, &cfg.t.cfg.s.inDLSAP.remark.length, mBuf,
+             ELINXXX, pst);
+
+(3) in_bdy11.c: InMngmt -> InPCB
+inInitPcb
+inPartialRecfgDLSAP
+****************************************************************
+pcb->cfg.numPL = NONENP;
+if(cfg->t.cfg.s.inDLSAP.remark.length > 0)
+{
+   if (cmStrcmp("NPPL", cfg->t.cfg.s.inDLSAP.remark.strg) == 0)
+   {
+      pcb->cfg.numPL = NPPL;                                   
+   }
+} 
+****************************************************************
+
+2. Where to Use
+inNetE05S00
+inNetE19S02
+inNetE10S10 ??
+inScreenCdPtyNum

@@ -1,0 +1,17 @@
+#!/bin/ksh
+
+#grep "172.25.126.10	vm10" /etc/hosts
+#if [[ $? != "0" ]]; then
+#	chmod 755 /etc/hosts
+#	echo "172.25.126.10	vm10" >> /etc/hosts
+#fi
+grep APP /etc/hosts
+if [[ $? != "0" ]]; then
+	chmod 755 /etc/hosts
+	echo "172.25.126.1 vhost MME.LUCENT.COM AAA.LUCENT.COM APP.com LSS.LUCENT.COM S-CSCF4.TEST.COM APP1 iLB2 iLB1" >> /etc/hosts
+fi
+#grep min_free_kbytes /etc/sysctl.conf
+#if [[ $? != "0" ]]; then
+#	cp /etc/sysctl.conf /etc/sysctl.conf.ofc
+#	echo "vm.min_free_kbytes = 400000" >> /etc/sysctl.conf
+#fi

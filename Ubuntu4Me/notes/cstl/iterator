@@ -1,0 +1,19 @@
+1. Overview
+智能指针：实现容器和算法的分离
+   iterator_get_value(interator_t, void*);
+   void *iterator_get_pointer(iterator_t);
+   interator_t iterator_next(iterator_t);
+   bool_t iterator_equal(iterator_t, iterator_t);
+   bool_t iterator_not_equal(iterator_t, iterator_t);
+   =: 赋值运算符
+
+2. Iterator && Container
+xxxx_begin()
+   vector_iterator_t vector_begin(vector_t *);
+xxxx_end(): 最后一个数据的下一个位置
+   vector_iterator_t vector_end(vector_t *);
+
+3. 迭代器的种类
+a) 单向迭代器: slist_t
+b) 双向迭代器：list_t, set_t, multiset_t, map_t, multimap_t, hash_set_t, hash_multiset_t, hash_map_t, hash_multimap_t
+c) 随机访问迭代器: vector_t, deque_t

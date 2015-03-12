@@ -1,0 +1,18 @@
+1. Tight coupling
+Layers within a single process that share the same address space can invoke primitives (functions) in each other. 
+This method of inter-layer communication is called tight coupling.
+
+2. Loose coupling
+
+Other layers can use a generic message-passing method of inter-layer communication called loose coupling. Layers that must use loose coupling include:
+
+1) Layers in different processes that do not share a common address space
+
+2) Layers that are attached to different System tasks (even if they do share the same address space)
+
+Loose coupling can also be used between layers that do share the same address space and are attached to the same System task. 
+Loose coupling between layers within the same process enables asynchronous operations.
+
+These layers can use a generic message-passing method of inter-layer communication called loose coupling.
+
+3. A layer is always tightly coupled with System Services.

@@ -1,0 +1,57 @@
+Part I: SS7 ISUP
+1. CLAM Configuration
+imtSendIsupCfg (cl_imt2.c) -- ENT-SS7-TRK (ED-SS7-TRK calls imtSendIsupCtl)
+      |
+      |
+      |  <clli>
+      +---------+
+      |         |
+      |         | <lmEvt = LM_BOOT_EVT>
+      |         |
+      |         +------- siMngmt.t.cfg.s.siCir.clli
+      |                  <cmTbFndTbl(&clContext->lmEvt->Ev.lmBoot.mngmt.t.r.plbk.tblLst,
+      |                               TAB_ID_LOCALCLLI, 0, &numRows, (void **) &localCLLI)>
+      |
+      |
+      |
+      |
+      |
+      | <cvrTrkClli>
+      +---------+
+                | <farClliLen==11>
+                |
+                | <farClliLen==15>
+                |
+                +------- siMngmt.t.cfg.s.siCir.cvrTrkClli.length = 15
+                |
+                |
+                | <farClliLen != 11 && farClliLen != 15>
+                |
+                +------- siMngmt.t.cfg.s.siCir.cvrTrkClli.length = 0; 
+                         siMngmt.t.cfg.s.siCir.cvrTrkClli.strg[0] = 0;
+
+2. ISUP Configuration
+SiMiLsiCfgReq (si_bdy1.c)
+       |
+       | <STICIR>
+       |
+       +------- siCfgSiCirCb (si_bdy6.c)
+                1) siCir->cfg.clli: cfg->t.cfg.s.siCir.clli (SiCirCfg)
+                2) siCir->cfg.cvrTrkClli: cfg->t.cfg.s.siCir.cvrTrkClli (SiCirCfg)
+
+3. How to Use
+SiLiSntUDatInd (si_bdy1.c)
+       |
+       | <MI_CIRVALTEST>
+       |
+       +------- siValCir (si_bdy5.c)
+                1) allPdus.m.cirValRsp.clli: cir->cfg.clli (SiCirCfg)
+                2) allPdus.m.cirValRsp.cirIdName: cir->cfg.cvrTrkClli (SiCirCfg)
+
+Part II: BICC
+1. CLAM Configuration (similar to above)
+bicctrkSendIsupCfg (cl_bicctrk2.c) -- ENT-BICC-TRK (ED-BICC-TRK calls bicctrkSendIsupCtl)
+
+2. ISUP Configuration (same as above)
+
+3. How to Use (same as above)

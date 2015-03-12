@@ -1,0 +1,2 @@
+patch --dry-run -p0 < tomege.diff 
+patch -p0 < tomege.diff

@@ -1,0 +1,296 @@
+1. Defination
+gen.x: typedef ssmsgb Buffer;
+
+(1) Message block (ssi.x)
+
+    struct ssmsgb
+    {        
+       struct ssmsgb        *b_next;     /* next message */
+       struct ssmsgb        *b_prev;     /* previous message */
+       struct ssmsgb        *b_cont;     /* next message block */
+       U8                   *b_rptr;     /* 1st unread data byte of buffer */
+       U8                   *b_wptr;     /* 1st unwritten data byte of buffer */
+       struct ssdatab       *b_datap;    /* pointer to data block */
+    };
+    
+    typedef struct ssmsgb    SsMblk;
+
+(2) Data block (ss_strm.x)
+    struct ssdatab
+    {
+       struct ssfree_rtn    *db_frtnp;              /* free routine */
+       U8                   *db_base;               /* base of data buffer */
+       U8                   *db_lim;                /* limit of data buffer */
+       U8                   db_ref;                 /* reference count */
+       U8                   db_type;                /* type of data block */
+    };
+
+	typedef struct ssdatab   SsDblk;
+
+(3) Message information
+    typedef struct ssMsgInfo
+    {
+       Region       region;                         /* region id of the msg chain */
+       Pool         pool;                           /* pool id of the msg chain */
+       MsgLen       len;                            /* num of bytes in the msg */
+       Buffer       *endptr;                        /* ptr to last mblk in chain */
+       Buffer       *next;                          /* for SInitNxtDBuf() */
+       Pst          pst;                            /* post for this message */
+       SsEventInfo  eventInfo;                      /* event information */
+    } SsMsgInfo;
+
+2. Create a new buffer: SGetMsg_real (ss_msg.c)
+SGetMsg_real()
+   |
+   | - Allocate a message with size MSGSIZE = sizeof(SsMblk)
+                                            + sizeof(SsDblk)
+                                            + sizeof(SsMsgInfo)
+											  
+   | - INITB
+         |
+         | - INITMBLK (Init the msg block)
+               |
+               |   mp->b_next = NULLP;
+               |   mp->b_prev = NULLP;
+               |   mp->b_cont = NULLP;
+               |   mp->b_rptr = dat;
+               |   mp->b_wptr = dat;
+               |   mp->b_datap = dp;
+               |
+         | - INITDBLK (Init data block)
+               |
+               |   dp->db_frtnp = frtn;
+               |   dp->db_base = dat;
+               |   dp->db_lim = (dat == NULLP ? dat : (dat + size));
+               |   dp->db_ref = 1;
+               |   dp->db_type = SS_M_DATA;
+               |
+         |
+         |   dp->db_type = SS_M_PROTO;
+         |
+         |   mp->b_wptr = mp->b_rptr + sizeof(SsMsgInfo);
+         |
+         |   dat->len = 0;
+         |   dat->endptr = NULLP;
+         |   dat->eventInfo.event = SS_EVNT_DATA;
+
+After SGetMsg_real(), the mBuf is like below:
+                -------------------
+(SsMblk*) mBuf   -> | b_next  |                      NULLP
+                    -----------
+                    | b_prev  |                      NULLP
+                    -----------
+                    | b_cont  |                      NULLP
+                    -----------
+                    | b_rptr  | -----------------+   (Point to the start of Msg Info)
+                    ----------
+                    | b_wptr  | ------------+    |   (Point to the end of Msg Info)
+                    ----------              |    |
+                    | b_datap | -------+    |    |   (Point to the Data Block)
+                -------------------    |    |    |
+(SsDblk*) dp     -> | db_frtnp| <------+    |    |   NULLP
+                    -----------             |    |
+                    | db_base | ------------|----+   (Point to the start of Msg Info)
+					-----------             |    |
+					| db_lim  |             |    |   dat + MDBSIZE <Internal BUG> => dat + sizeof(SsMsgInfo)
+			        -----------             |    |
+					| db_ref  |             |    |   1
+                    -----------             |    |
+                    | db_type |             |    |   SS_M_PROTO
+                -------------------         |    |
+(SsMsgInfo*) dat -> | region  | <----------------+
+                    -----------             |
+                    | pool    |             |
+                    -----------             |
+                    | len     |             |        0
+                    -----------             |
+                    | endptr  |             |        NULLP
+                    -----------             |
+                    | next    |             |
+                    -----------             |
+                    | pst     |             |
+                    -----------             |
+                    |eventInfo| <-----------+        eventInfo.event = SS_EVNT_DATA
+			   -------------------
+
+3. Modify the existing buffer
+Existing functions: (In file ss_msg.c)
+- SPutMsg()               /* Return message */
+- SInitMsg()              /* Deallocate & Reinit message */
+- SAddPreMsg()            /* Add one byte to the beginning of the message */
+- SAddPstMsg()            /* Add one byte to the end of the message */
+- SAddPreMsgMult()        /* Add consecutive bytes to the beginning of the message */
+- SAddPstMsgMult()        /* Add consecutive bytes to the end of the message */
+- ...
+
+Take SAddPstMsg() as an example, in which a new buffer is allocated and appended to the original mBuf:
+
+                -------------------
+(SsMblk*) mBuf   -> | b_next  |                      NULLP
+                    -----------
+                    | b_prev  |                      NULLP
+                    -----------
+                    | b_cont  | --------------------------------------------------------+
+                    -----------                                                         |
+                    | b_rptr  | -----------------+   (Point to the start of Msg Info)   |
+                    -----------                  |                                      |
+                    | b_wptr  | ------------+    |   (Point to the end of Msg Info)     |
+                    -----------             |    |                                      |
+                    | b_datap | -------+    |    |   (Point to the Data Info)           |
+                -------------------    |    |    |                                      |
+(SsDblk*) dp     -> | db_frtnp| <------+    |    |   NULLP                              |
+                    -----------             |    |                                      |
+                    | db_base | ------------|----+   (Point to the start of Msg Info)   |
+                    -----------             |    |                                      |
+                    | db_lim  |             |    |                                      |
+                    -----------             |    |                                      |
+                    | db_ref  |             |    |   1                                  |
+                    -----------             |    |                                      |
+                    | db_type |             |    |   SS_M_PROTO                         |
+                -------------------         |    |                                      |
+(SsMsgInfo*) dat -> | region  | <----------------+                                      |
+                    -----------             |                                           |
+                    | pool    |             |                                           |
+                    -----------             |                                           |
+                    | len     |             |        len += New Added Data Length       |
+                    -----------             |                                           |
+                    | endptr  | ------------|----+   NULLP                              |
+                    -----------             |    |                                      |
+                    | next    |             |    |                                      |
+                    -----------             |    |                                      |
+                    | pst     |             |    |                                      |
+                    -----------             |    |                                      |
+                    |eventInfo| <-----------+    |   eventInfo.event = SS_EVNT_DATA     |
+                -------------------              |                                      |
+                                                 |                                      |
+                                                 |                                      |
+                -------------------              |                                      |
+(SsMblk*) newb   -> | b_next  | <----------------+--------------------------------------+
+                    -----------
+                    | b_prev  |                      NULLP
+                    -----------
+                    | b_cont  |                      NULLP
+                    -----------
+                    | b_rptr  | -----------------+   (Point to the start of real data)
+                    -----------                  |
+                    | b_wptr  | ------------+    |   (Point to the end of real data)
+                    -----------             |    |
+                    | b_datap | -------+    |    |   (Point to the Data info)
+                -------------------    |    |    |
+(SsDblk*) dp     -> | db_frtnp| <------+    |    |   NULLP
+                    -----------             |    |
+                    | db_base | ------------|----+   (Point to the start of DataBlock)
+                    -----------             |    |
+                    | db_lim  | -------+    |    |   (Point to the end of DataBlock)
+                    -----------        |    |    |
+                    | db_ref  |        |    |    |   1
+                    -----------        |    |    |
+                    | db_type |        |    |    |   SS_M_DATA
+                -------------------    |    |    |
+(Data*) data     -> | RealData| <------|----|----+   The size of data is defined as regp->poolTbl[pool].u.dpool.size
+                    | RealData|        |    |
+                    |         | <------|----+
+                    |         |        |
+                    |         |        |
+                    |         |        |
+                    |         | <------+
+                -------------------
+
+4. Overall figure of a real buffer
+                ------------------- ------------------- -------------------
+(SsMblk*) mBuf   -> | b_next  |    +--->| b_next  |    +--->| b_next  | <------- Last Buffer
+                    -----------    |    -----------    |    -----------
+                    | b_prev  |    |    | b_prev  |    |    | b_prev  |
+                    -----------    |    -----------    |    -----------
+                    | b_cont  |----+    | b_cont  |----+    | b_cont  |
+                    -----------         -----------         -----------
+                    | b_rptr  |         | b_rptr  |--+      | b_rptr  |-------+
+                    -----------         -----------  |      -----------       |
+                    | b_wptr  |         | b_wptr  |--|--+   | b_wptr  |---------+
+                    -----------         -----------  |  |   -----------       | |
+                 +--| b_datap |      +--| b_datap |  |  |+--| b_datap |       | |
+                -|----------------- -|---------------|--||-----------------   | |
+                 +->| db_frtnp|      +->| db_frtnp|  |  |+->| db_frtnp|       | |
+                    -----------         -----------  |  |   -----------       | |
+                    | db_base |         | db_base |--+  |   | db_base |--+    | |
+                    -----------         -----------  |  |   -----------  |    | |
+                    | db_lim  |         | db_lim  |--|--+   | db_lim  |--|--+ | |
+                    -----------         -----------  |  |   -----------  |  | | |
+                    | db_ref  |         | db_ref  |  |  |   | db_ref  |  |  | | |
+                    -----------         -----------  |  |   -----------  |  | | |
+                    | db_type |         | db_type |  |  |   | db_type |  |  | | |
+                ------------------- -----------------|--|----------------|--| | |
+                    | regine  |         |  data   |<-+  |   |  data   |<-+--|-+ |
+                    -----------         |  data   |     |   |  data   |     |   |
+                    | pool    |         |  data   |     |   |  data   |     |   |
+                    -----------         |  data   |     |   |  data   |     |   |
+                    | len     |         |  data   |     |   |         |<----|---+
+                    -----------         |  data   |     |   |         |     |
+Last Buffer <-------| endptr  |         |  data   |     |   |         |     |
+                    -----------         |  data   |     |   |         |     |
+                    | next    |         |  data   |     |   |         |     |
+                    -----------         |  data   |     |   |         |     |
+                    | pst     |         |  data   |     |   |         |     |
+                    -----------         |  data   |     |   |         |     |
+                    |eventInfo|         |  data   |<----+   |         |<----+
+                ------------------- ------------------- -------------------
+########################################################################################
+    Function
+<SAddPstMsg_real>        0                  1                    2
+<SAddPreMsg_real>        0                  2                    1
+########################################################################################
+
+
+5. Summary:
+
+mBuf would include several buffer block in a link list, the data size of each buffer block is defined by: 
+         osCp.regionTbl[region].poolTbl[pool].u.dpool.size
+
+The size is hard coded as:
+         MT_DBUF_DSIZE-(sizeof(SsMblk)+sizeof(SsDblk))
+
+The size is used for SAlloc() function specificly.
+
+mBuf->b_cont:    Point to the next buffer block
+
+mBuf->b_datap:   Point to the info of the data block
+
+mBuf->b_rptr:           Nosense. (First buffer block of mBuf)
+mBuf->b_cont->b_rptr:   Point to the start of data in this buffer block (NOT the first buffer block of mBuf)
+
+mBuf->b_wptr:           Nosense. (First buffer block of mBuf)
+mBuf->b_cont->b_wptr:   Point to the end of data in this buffer block (NOT the first buffer block of mBuf)
+
+mBuf->b_datap->db_base:           Point to the message information (First buffer block of mBuf)
+mBuf->b_cont->b_datap->db_base:   Point to the start of structure storing data (NOT the first buffer block of mBuf)
+
+mBuf->b_datap->db_lim:            Nosense. (First buffer block of mBuf)
+mBuf->b_cont->b_datap->db_lim:    Point to the end of structure storing data (NOT the first buffer block of mBuf)
+
+mBuf->b_datap->ref:     ???
+
+mBuf->b_datap->db_type:           SS_M_PROTO (First buffer block of mBuf)
+mBuf->b_cont->b_datap->db_type:   SS_M_DATA (NOT the first buffer block of mBuf)
+
+6. Illustrations
+(1) SAddPstMsgMult_real && SRemPstMsgMult_real
+                                                                                <Figure 1>
+---------------------------------                                      ---------------------------------                                    ---------------------------------
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |  ====== SAddPstMsgMult_real  ======> | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | ====== SRemPstMsgMult_real ======> | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 |
+---------------------------------                                      ---------------------------------                                    ---------------------------------
+
+(2) SAddPreMsgMult_real && SRemPreMsgMult_real
+                                                                                <Figure 2>
+---------------------------------                                    ---------------------------------                                    ---------------------------------
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | ====== SAddPreMsgMult_real ======> | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | ====== SRemPstMsgMult_real ======> | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 |
+---------------------------------                                    ---------------------------------                                    ---------------------------------
+
+(3) SAddPreMsgMult_real && SRemPreMsgRevMult
+																				<Figure 2>
+---------------------------------                                    ---------------------------------                                  ---------------------------------
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | ====== SAddPreMsgMult_real ======> | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | ====== SRemPstMsgMultRev ======> | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+---------------------------------                                    ---------------------------------                                  ---------------------------------
+
+7. Others
+SPkU8    => SAddPreMsg_real
+SUnpkU8  => SRemPreMsg

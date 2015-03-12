@@ -1,0 +1,45 @@
+1. Basic Format:
+target: prerequisits
+	commands
+(1) target: 规则的目标，目标文件或者动作名称（如clean）。
+(2) prerequisits: 规则的依赖
+(3) commands: 规则的命令行，每一条命令占一行，以[Tab]字符开始。
+(4) 规则：包含了文件之间的依赖关系和更新此规则目标所需要的命令
+
+edit: main.o kbd.o command.o display.o \
+      insert.o search.o files.o utils.o
+      cc -o edit main.o kbd.o command.o display.o \
+      insert.o search.o files.o utils.o
+注：反斜线\之后不能有空格
+(5) 伪目标(phony target): 没有依赖只有执行动作的目标
+a) 最完整的写法
+   防止已存在clean这个文件；忽略rm命令的执行错误
+.PHONY: clean
+clean:
+	-rm edit $(objects)
+b) 简洁写法
+clean:
+	rm edit $(objects)
+
+2. 使用变量
+objects = main.o kbd.o command.o display.o \
+          insert.o search.o files.o utils.o
+edit: $(objects/OBJECTS/objs/OBJS/obj/OBJ)
+      cc -o $(objects)
+	  ... ...
+	  ... ...
+clean:
+      rm edit $(objects)
+
+3. 隐含规则
+main.o: main.c a.h
+	gcc -c main.c -o main.o
+可以简化为=>
+main.o: a.h
+
+4. 一个完整的Makefile需要包含5个东西：
+(1) 显式规则
+(2) 隐含规则
+(3) 变量定义
+(4) 注释：#
+(5) 指示符: include/define

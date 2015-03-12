@@ -1,0 +1,4 @@
+ls -d */
+ls -F | grep "/$"
+ls -l | grep "^d"
+find . -type d -maxdepth 1 -print

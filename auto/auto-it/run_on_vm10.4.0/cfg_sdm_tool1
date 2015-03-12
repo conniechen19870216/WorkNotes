@@ -1,0 +1,22 @@
+#!/bin/ksh
+FDIR=/cust_use/SDM/SDM_tools/cfg/
+#FDIR=/cust_use/SDM/cfg/
+FNAME=SDM_General_Data.xml
+
+#cp /tmp/$FNAME $FDIR
+#chmod 755 $FDIR/$FNAME
+cp  $FDIR/$FNAME $FDIR/$FNAME.ofc
+sed -e "s/.*option name='SYSTEM_PREFIX'.*/            <option name='SYSTEM_PREFIX' value='$1'>/" $FDIR/$FNAME > /tmp/$FNAME
+cp /tmp/$FNAME $FDIR/$FNAME
+sed -e "s/.*option name='HARDWARE'.*/            <option name='HARDWARE' value='VM'>/" $FDIR/$FNAME > /tmp/$FNAME
+cp /tmp/$FNAME $FDIR/$FNAME
+
+#cp /etc/SDM_tools/security/SDScripts/checkCertificate.sh  /etc/SDM_tools/security/SDScripts/checkCertificate.sh.ofc
+#sed -e 's/bin_dir=\/etc\/SDM_tools\/SDScripts\//bin_dir=\/etc\/SDM_tools\/security\/SDScripts\//' /etc/SDM_tools/security/SDScripts/checkCertificate.sh > /tmp/checkCertificate.sh
+#cp /tmp/checkCertificate.sh /etc/SDM_tools/security/SDScripts/checkCertificate.sh
+
+#cp /tmp/application_configData.xml /etc/SU
+#chmod 755 /etc/SU/application_configData.xml
+#mkdir /etc/apache_file_prot/
+cd /cust_use/SDM/SDM_tools/security; ./ConfigSDMSecurity.py  -p $FDIR/$FNAME
+cd /cust_use/SDM/SDM_tools/oam_tool; ./install_oam_sys.sh

@@ -1,0 +1,21 @@
+top -p <pid>
+top -i: 不显示闲置或者僵尸进程
+top -c: 显示整个命令行而不是仅仅显示命令名
+
+
+? or h: help information
+k: kill a process (15 or 9)
+r: renice a process with a new priority
+q: quit
+f/F: delete/add to display
+c: command line
+i: idle tasks
+y: runing tasks
+
+
+<>: move
+x: sort
+b+x: bold and reverse
+z+x: bold and reverse
+H：show threads
+R: normal or reverse sort

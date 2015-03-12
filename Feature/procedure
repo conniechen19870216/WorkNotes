@@ -1,0 +1,12 @@
+1. Stage 1: Research
+(1) Materials
+(2) Seek advice from others
+(3) Call flow in codes
+
+2. Stage 2: Coding
+(1) CppUTest
+(2) BullsEye
+(3) Basic UT
+
+3. Stage 3: Before check in
+(1) Full build for both ATCA and LGP

@@ -1,0 +1,62 @@
+1. lib/dns/name.c
+static dns_name_t root =                                                                       
+{                                                                                              
+    DNS_NAME_MAGIC,                                                                            
+    root_ndata, 1, 1,                                                                          
+    DNS_NAMEATTR_READONLY | DNS_NAMEATTR_ABSOLUTE,                                             
+    root_offsets, NULL,                                                                        
+    {(void *)-1, (void *)-1},                                                                  
+    {NULL, NULL}                                                                               
+};
+
+LIBDNS_EXTERNAL_DATA dns_name_t *dns_rootname = &root; 
+
+2. (1) Attributes of 'dns_rdatatype_t'
+lib/dns/code.h
+
+#define RDATATYPE_ATTRIBUTE_SW \
+    switch (type) { \
+	    case 0: return (DNS_RDATATYPEATTR_RESERVED); \       
+	    case 1: return (RRTYPE_A_ATTRIBUTES); \
+	    case 2: return (RRTYPE_NS_ATTRIBUTES); \
+		...	
+
+(2) 'dns_rdatatype_t' enum types
+lib/dns/include/dns/enumtypes.h
+
+enum {
+	    dns_rdatatype_none = 0,
+	    dns_rdatatype_a = 1,
+	    dns_rdatatype_ns = 2, 
+		...
+
+3. lib/dns/rbtdb.c: dns_rbtdb_t
+
+   dns_db_t            common; 
+   
+4. lib/dns/include/dns/types.h 
+
+   typedef enum {
+       dns_dbtype_zone = 0, dns_dbtype_cache = 1, dns_dbtype_stub = 3 
+   } dns_dbtype_t; 
+
+5. lib/dns/include/dns/fixedname.h: dns_fixedname_t
+
+struct dns_fixedname {                                                                  
+    dns_name_t          name;
+    dns_offsets_t           offsets;
+    isc_buffer_t            buffer;
+    unsigned char           data[DNS_NAME_MAXWIRE];
+};
+
+6. name v.s. node
+#define NODENAME(node, name) \
+do { \
+    (name)->length = NAMELEN(node); \
+    (name)->labels = OFFSETLEN(node); \
+    (name)->ndata = NAME(node); \
+    (name)->offsets = OFFSETS(node); \              
+    (name)->attributes = ATTRS(node); \
+    (name)->attributes |= DNS_NAMEATTR_READONLY; \
+} while (0)
+

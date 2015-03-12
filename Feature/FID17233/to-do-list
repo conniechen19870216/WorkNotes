@@ -1,0 +1,61 @@
+####################### Action 1: Configuration of direction #######################
+####################### Action 2: Validate, Allocate, Report #######################
+Stage 1: Research
+1) Lab Testing
+   a. Synch with Conclusions
+
+   b. Prepare input data for Unit Testing
+
+2) Conclusions
+   a. <Done> TL1 Part: RmMiLrmCfgReq
+           |
+           |<cfg->hdr.elmId.elmnt>
+           |
+           V
+       ------------------
+      | 1. STRMDSS1INTFC |
+      | 2. STRMDSS1LNK   |
+      | 3. STRMDSS1BCHAN |
+       ------------------
+
+   b. RM Part: Allocation Methods (Including Incoming Validation)
+           |            |     
+           |<alocMeth>  |<DIRECTION>
+           |            |
+           V            V
+       ----------     --------
+      |ASCENDING |   |BOTHWAY |<Default>
+      |DESCENDING|   |INCOMING|
+      |CIRCULAR  |   |OUTGOING|
+      |RANDOM    |    --------
+       ---------- 
+	  <Done> Note: Along with AVL Tree Operations
+
+   c. RM Part: Overview of primitives
+   
+   d. RUM Part: Report the number of both-way and outgoing B-channels to Router
+
+
+3) Unit Testing
+   a. Focus on the kernel function
+
+Stage 2: Coding
+
+#########################################################
+Problem List:
+<Version 1>
+1) Identify the relationship with Incoming SETUP message
+2) Channel Identification IE
+3) Which message can include Channel Identification IE
+4) When an ISDN interface has B-channels with a non-default 
+   direction, set the indicated channel to “explicit”
+5) Why not report incoming B-channels to Router?
+   Available B-channels?
+
+<Version 2>
+1) Preferred/Exclusive for SETUP and Call Proceeding
+
+<Version 3>
+1) where to insert Free B-Channel and set LRM_IDLE state
+2) to be allocated B-Channel
+#########################################################

@@ -1,0 +1,80 @@
+【E03S09】ccConE03S09
+     |
+     | 
+     +------- 【DECODE】ccFacStr2FacInfo
+                     |
+                     |
+                     |   <FAIL>
+                     +---------------------------- 【ENCODE】Return Error Component
+                     |                  |
+                     |                  |
+                     |                  |
+                     |                  +---------  Send FACILITY Message
+                     |
+                     |
+                     |  <SUCCESS>
+                     |
+                     |
+                     +----------------------------  CC_IS_CONTEXT_PRESENT(con)
+                                         |
+                                         |
+                                         | <FALSE>
+                                         +-------- 【STATE CHANGE】S09 -> S19
+                                         |                      |
+                                         |                      |
+                                         |                      +------ 【FACILITY to 302 】ccMapEvent_real
+                                         |                      |
+                                         |                      |
+                                         |                      +------ 【Incoming RelReq】ccSendReleaseReq
+                                         |                      |
+                                         |                      |
+                                         |                      +------ 【Outging RelReq】ccSendRelease (cause = CCNORMUNSPEC)
+                                         |                                          |
+                                         |                                          |
+                                         |                                          +------- 【CC_IN】ccPrepareINRel
+                                         |                                                      |
+                                         |                                                      |
+                                         |                                                      +------- 【ENCODE】Return Result Component
+                                         |                                                      |
+                                         |                                                      |
+                                         |                                                      +-------  Send DISCONNECT Message         
+                                         |                  
+                                         |
+                                         | <TRUE>
+                                         |
+                                         |
+                                         +-------  ccStoreEvnt: FacEvnt
+                                         | 
+                                         |
+                                         | 
+                                         +------- 【STATE CHANGE】S09 -> S54
+                                                            |
+                                                            |
+                                                            +------- 【TxnReq】ccSendMgiQueue: SUB
+
+【E11S54】ccConE11S54
+      |
+      |
+      +------ 【STATE CHANGE】S54 -> S19  
+      |
+      |
+      |
+      +------  Restore FacEvnt for mapping
+      |
+      |
+      +------ 【FACILITY to 302 】ccMapEvent_real 
+      |
+      |
+      +------ 【Incoming RelReq】ccSendReleaseReq
+      |
+      |
+      +------ 【Outging RelReq】ccSendRelease (cause = CCNORMUNSPEC)
+                          |
+                          |
+                          +------- 【CC_IN】ccPrepareINRel
+                                      |
+                                      |                                         
+                                      +------- 【ENCODE】Return Result Component
+                                      |
+                                      |
+                                      +-------  Send DISCONNECT Message

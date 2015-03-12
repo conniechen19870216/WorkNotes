@@ -1,0 +1,146 @@
+init-+-HSPPhb
+     |-IPmonS---5*[{IPmonS}]
+     |-LCPlogLocal---6*[{LCPlogLocal}]
+     |-MIMonitor
+     |-MIvmstate
+     |-OSIcntl_agt
+     |-RCClogger
+     |-_plutorun-+-_plutoload
+     |           `-_plutorun---pluto-+-_pluto_adns
+     |                               `-7*[pluto]
+     |-2*[agetty]
+     |-aim---15*[{aim}]
+     |-cpm_agent---4*[{cpm_agent}]
+     |-cpm_monitor---8*[{cpm_monitor}]
+     |-crond
+     |-datablitz-+-datablitz_chkpt
+     |           |-datablitz_clean
+     |           |-datablitz_flush
+     |           |-datablitz_phys_
+     |           |-datablitz_recov
+     |           |-datablitz_repl_---7*[{datablitz_repl}]
+     |           `-dhserver---dhserver
+     |-dhcpd
+     |-emf:EMF-GoAhead-+-dbp:dbp-MAIN---75*[{dbp:dbp-MAIN}]
+     |                 |-slam:slam-MAIN---21*[{slam:slam-MAIN}]
+     |                 |-snmpagent:snmpa---10*[{snmpagent:snmp}]
+     |                 |-sp_slave:sp_sla-+-ccs10:ccs-MAIN---27*[{ccs10:ccs-MAIN}]
+     |                 |                 |-ccs11:ccs-MAIN---27*[{ccs11:ccs-MAIN}]
+     |                 |                 |-ccs12:ccs-MAIN---27*[{ccs12:ccs-MAIN}]
+     |                 |                 |-ccs1:ccs-MAIN---27*[{ccs1:ccs-MAIN}]
+     |                 |                 |-ccs2:ccs-MAIN---27*[{ccs2:ccs-MAIN}]
+     |                 |                 |-ccs3:ccs-MAIN---27*[{ccs3:ccs-MAIN}]
+     |                 |                 |-ccs4:ccs-MAIN---27*[{ccs4:ccs-MAIN}]
+     |                 |                 |-ccs5:ccs-MAIN---27*[{ccs5:ccs-MAIN}]
+     |                 |                 |-ccs6:ccs-MAIN---27*[{ccs6:ccs-MAIN}]
+     |                 |                 |-ccs7:ccs-MAIN---27*[{ccs7:ccs-MAIN}]
+     |                 |                 |-ccs8:ccs-MAIN---27*[{ccs8:ccs-MAIN}]
+     |                 |                 |-ccs9:ccs-MAIN---27*[{ccs9:ccs-MAIN}]
+     |                 |                 |-dist:dist-MAIN---22*[{dist:dist-MAIN}]
+     |                 |                 |-gdi_trans:gdi_t---12*[{gdi_trans:gdi_}]
+     |                 |                 |-ipagent:ipagent---10*[{ipagent:ipagen}]
+     |                 |                 |-m2pasig:m2pasig---15*[{m2pasig:m2pasi}]
+     |                 |                 |-m2uasig:m2uasig---15*[{m2uasig:m2uasi}]
+     |                 |                 |-megaa10:megaa-M---{megaa10:megaa-}
+     |                 |                 |-megaa11:megaa-M---{megaa11:megaa-}
+     |                 |                 |-megaa12:megaa-M---{megaa12:megaa-}
+     |                 |                 |-megaa1:megaa-MA---{megaa1:megaa-M}
+     |                 |                 |-megaa2:megaa-MA---{megaa2:megaa-M}
+     |                 |                 |-megaa3:megaa-MA---{megaa3:megaa-M}
+     |                 |                 |-megaa4:megaa-MA---{megaa4:megaa-M}
+     |                 |                 |-megaa5:megaa-MA---{megaa5:megaa-M}
+     |                 |                 |-megaa6:megaa-MA---{megaa6:megaa-M}
+     |                 |                 |-megaa7:megaa-MA---{megaa7:megaa-M}
+     |                 |                 |-megaa8:megaa-MA---{megaa8:megaa-M}
+     |                 |                 |-megaa9:megaa-MA---{megaa9:megaa-M}
+     |                 |                 |-mtp3sig:mtp3sig---14*[{mtp3sig:mtp3si}]
+     |                 |                 |-named:named-MAI---2*[{named:named-MA}]
+     |                 |                 |-router:router-M---18*[{router:router-}]
+     |                 |                 |-sgsig:sgsig-MAI---15*[{sgsig:sgsig-MA}]
+     |                 |                 |-sipa10:sipa-MAI---{sipa10:sipa-MA}
+     |                 |                 |-sipa11:sipa-MAI---{sipa11:sipa-MA}
+     |                 |                 |-sipa12:sipa-MAI---{sipa12:sipa-MA}
+     |                 |                 |-sipa13:sipa-MAI---5*[{sipa13:sipa-MA}]
+     |                 |                 |-sipa1:sipa-MAIN---{sipa1:sipa-MAI}
+     |                 |                 |-sipa2:sipa-MAIN---{sipa2:sipa-MAI}
+     |                 |                 |-sipa3:sipa-MAIN---{sipa3:sipa-MAI}
+     |                 |                 |-sipa4:sipa-MAIN---{sipa4:sipa-MAI}
+     |                 |                 |-sipa5:sipa-MAIN---{sipa5:sipa-MAI}
+     |                 |                 |-sipa6:sipa-MAIN---{sipa6:sipa-MAI}
+     |                 |                 |-sipa7:sipa-MAIN---{sipa7:sipa-MAI}
+     |                 |                 |-sipa8:sipa-MAIN---{sipa8:sipa-MAI}
+     |                 |                 |-sipa9:sipa-MAIN---{sipa9:sipa-MAI}
+     |                 |                 |-sipcl:sipcl-MAI---12*[{sipcl:sipcl-MA}]
+     |                 |                 |-x2sig:x2sig-MAI---16*[{x2sig:x2sig-MA}]
+     |                 |                 |-xu:xu-MAIN---8*[{xu:xu-MAIN}]
+     |                 |                 `-5*[{sp_slave:sp_sl}]
+     |                 |-tl1agent:tl1age---20*[{tl1agent:tl1ag}]
+     |                 `-45*[{emf:EMF-GoAhea}]
+     |-evlactiond
+     |-evlnotifyd
+     |-evlogd
+     |-evlsyslog
+     |-httpd---5*[httpd]
+     |-ipm---2*[{ipm}]
+     |-2*[java---35*[{java}]]
+     |-java---71*[{java}]
+     |-java---25*[{java}]
+     |-lighttpd
+     |-logger
+     |-lxprofile
+     |-mib2agt
+     |-6*[mingetty]
+     |-2*[monit---{monit}]
+     |-mysqld_safe---mysqld---36*[{mysqld}]
+     |-mysqld_safe---mysqld---73*[{mysqld}]
+     |-netsv
+     |-ntpd
+     |-plexus_monit.sh
+     |-pmon-+-FSAlarm_agt---2*[{FSAlarm_agt}]
+     |      |-FSInv_agt---3*[{FSInv_agt}]
+     |      |-MIMonitor---3*[{MIMonitor}]
+     |      |-RCCcntl_agt---2*[{RCCcntl_agt}]
+     |      |-RCCeventDisplay
+     |      |-RGmon
+     |      |-SSPcntl_agt---12*[{SSPcntl_agt}]
+     |      |-avcm
+     |      |-dbmon---{dbmon}
+     |      |-dns_actuator---8*[{dns_actuator}]
+     |      |-gcm
+     |      |-geninfomcast---6*[{geninfomcast}]
+     |      |-genrm---3*[{genrm}]
+     |      |-hanc---16*[{hanc}]
+     |      |-irisp---7*[{irisp}]
+     |      |-lanrm
+     |      |-lcm
+     |      |-lisp---6*[{lisp}]
+     |      |-mlogServer---8*[{mlogServer}]
+     |      |-olcServer---3*[{olcServer}]
+     |      |-pmCollector---8*[{pmCollector}]
+     |      |-pmServer---4*[{pmServer}]
+     |      |-pmonhelper
+     |      |-psaudit
+     |      |-rccevmgr---3*[{rccevmgr}]
+     |      |-remotedb---5*[{remotedb}]
+     |      |-smon
+     |      |-snhb---4*[{snhb}]
+     |      |-statesvr---23*[{statesvr}]
+     |      `-wimdb---12*[{wimdb}]
+     |-rccproxy
+     |-relmeas---5*[{relmeas}]
+     |-ripmd-+-ping
+     |       `-{ripmd}
+     |-rsyslogd---4*[{rsyslogd}]
+     |-sh---sleep
+     |-shutdown_alert.---sleep
+     |-slapd---17*[{slapd}]
+     |-smartd
+     |-snmpdm---2*[{snmpdm}]
+     |-8*[sshd]
+     |-sshd---10*[sshd]
+     |-tee---java---143*[{java}]
+     |-udevd---2*[udevd]
+     |-2*[vsftpd]
+     |-xinetd-+-in.telnetd---login---ksh---pstree
+     |        `-in.telnetd---login---ksh
+     `-xinetd

@@ -1,0 +1,367 @@
+#!/usr/bin/expect
+
+# \file Name: to
+# Created: Fang lungang 12/26/2008
+# Modified:Fang lungang 03/08/2012 17:24>
+
+# \brief This is a re-write of tn in TCL/expect
+
+# lgfang: modify this accordingly
+source /home/kavonm/bin/cmdline.tcl
+# seems 'source' instead of 'package require' makes it faster
+
+# set TCLLIB_PATH "/home/lungangfang/local/lib/tcllib1.11"
+# lappend auto_path $TCLLIB_PATH
+# package require cmdline
+
+set host {}
+set hostname {}
+set username root;              # default username
+set password plexus9000;        # default password
+set commands {}
+set tl1Port 2361;               # plexus specific
+set esc \033
+
+set synopsis {
+    Usage: to [-a] [-q|-f|-t|-s] 'host_nick_name'
+
+    host: The regexp which matches part of name/IP of destination
+    host.  The single quotes may be ommitted if no file name in PWD
+    matches the regexp.
+
+    for example, to telnet to TL1 of the lab named summer and act-user
+    automatically, you can:
+
+    to -a -t sum
+
+    *NOTE* however: due to limit of ::cmdline::getoption, you can't abbrev above
+    example as:
+
+    to -at sum
+
+    the translation from nick name to host address is done based on "~/.hosts".
+    ".hosts" may contain only one field, or 2,3,4 fileds or more. If presented:
+
+    Field 1 ==> host address
+    Field 2 ==> host nick name
+    Field 3 ==> login for that host (default is "root")
+    Field 4 ==> password (default is "plexus9000"), be cautious to put
+                password in your .hosts. Other ones might able read it.
+    Field 5 etc. ==> command to be executed after login
+
+    ".hosts" example:
+
+    # a record with addr only
+    gdcsr60.gdc.lucent.com
+    # a record with ip, nick name, login
+    135.252.41.248 qdbuild2 lungangfang
+    # a record with ip, nick name, login and passwd
+    135.252.135.68 qdi02-c04 root newsys
+    # a record which will run a command after login
+    135.252.152.115 loads public public send \r; send "cd /home/toaster/LCP \r"
+    # login to a sever via an intermediate host, like 'ssh -t middle ssh dest'
+    152.148.163.134 wf03-c01 root telica send \r; send "ssh 152.148.184.200\r"
+}
+
+set options {
+    {q  "query host address only"}
+    {a  "auto login, input username/password for you"}
+    {t  "telnet to TL1"}
+    {f  "ftp to the server"}
+    {s  "ssh to server"}
+    { i.arg "~/.hosts"  "input file, ~/.hosts if not specified"}
+}
+
+trap SIG_DFL SIGINT
+
+proc getHostInfo {target {query false} } {
+    global hostfile host hostname username password commands
+
+    set grep_cmd [concat {grep -v '[ \t]*#'} \
+                      " $hostfile | grep -i $target | " \
+                      {sed 's/[ \t][ \t]*/ /g'}]
+    # or " $hostfile | grep -iw $target | " ?
+    # sed line is for split later
+
+    if { [catch {set entries [split [exec bash -c $grep_cmd ] "\n"]}] } {
+        puts "grep fail, please contact author"
+        exit -3
+    }
+
+    if { ! [llength $entries] } {
+        puts "no match for $target"
+        exit -4
+    }
+
+    set x 1
+    foreach match $entries {
+        puts "$x,\t[lrange $match 0 1]"
+        incr x
+    }
+
+    if { $query } {exit 0}
+
+    set choice "X"
+    if { [expr [llength $entries] > 1] } {
+        set timeout -1
+        while { ! [string is integer $choice] || $choice > [llength $entries]} {
+            send "Make a choice (1): "
+            expect -re ".*\n"
+            set choice [string trim $expect_out(buffer)]
+
+            if { [string length $choice] == 0 } {
+                set choice 1
+            }
+        }
+
+        incr choice -1
+    } else {
+        set choice 0
+    }
+
+    set fields [split [string trim [lindex $entries $choice ]]]
+
+    set fieldNum [llength $fields]
+    if { $fieldNum >= 1 } {
+        set host [lindex $fields 0]
+    }
+
+    if { $fieldNum >= 2 } {
+        set hostname [lindex $fields 1]
+    } else {
+        set hostname $host
+    }
+
+    if { $fieldNum >= 3 } {
+            set username [lindex $fields 2]
+    }
+
+    if { $fieldNum >= 4 } {
+            set password [lindex $fields 3]
+    }
+    if { $fieldNum >= 5 } {
+            set commands [lrange $fields 4 end]
+    }
+}
+
+proc auto_telnet { } {
+    global username password commands
+    set timeout 10
+    expect -re "(user name|login):"
+    send -- "$username\r"
+    expect {
+        -re "\[Pp\]assword:" {send -- "$password\r"}
+        # for plex labs in case need no password and suppose PS1 is hostname#
+        -re ".*#" {send "\r"}
+    }
+    if { $commands != {} } {
+        expect {
+            -re "." {
+                eval "[join $commands]"
+            }
+        }
+    }
+}
+
+proc auto_ftp {} {
+    global username password
+    set timeout 30
+    puts "auto_ftp"
+    expect -re "Name (.*):"
+    send "$username\r"
+    expect -re "Password:"
+    send "$password\r"
+}
+
+proc auto_ssh {} {
+    global username password commands
+    set timeout 60
+    expect {
+        timeout {
+            exit
+        }
+        "continue connecting (yes/no)?" {
+            send "yes\r"
+            exp_continue
+        }
+        -re "\[Pp]assword:" {
+            send "$password\r"
+        }
+    }
+
+    if { $commands != {} } {
+        expect {
+            -re "." {
+                eval "[join $commands]"
+            }
+        }
+    }
+}
+
+proc auto_tl1 {} {
+    # this is a plexus specific function
+
+    set tl1Tries [list "telica" "plexntmctrl" "plexview" "plexview1"]
+    set timeout 30
+    global esc
+
+    expect {
+        timeout {send_user "timeout"; return }
+        "Connection refused" {return}
+        "Escape character is '^]'" { send "${esc}" }
+    }
+
+    expect ">"
+    foreach USERNAME $tl1Tries {
+        # password is same as user name
+        set PASSWORD $USERNAME
+        send "act-user::${USERNAME}:::${PASSWORD};"
+        expect {
+            timeout { puts "Timed out Waiting for COMPLD"; exit -1}
+            "DENY" { puts "try $USERNAME";  }
+            "COMPLD" {break}
+        }
+    }
+}
+
+
+# main
+if { [catch {array set params \
+                 [::cmdline::getoptions argv $options $synopsis]} res] } {
+    puts stderr $res
+    exit -1
+}
+
+if { [llength $argv] != 1 } {
+    puts stderr [::cmdline::usage $options $synopsis]
+    exit -2
+}
+
+set query false
+if { $params(q) } {set query true}
+set hostfile $params(i)
+if {! [file exists $hostfile] } {
+    puts "Erro: can't access $hostfile"
+    exit -1
+}
+
+getHostInfo [lindex $argv 0] $query
+
+if { $params(f) } {
+    set application ftp
+    spawn $application $host
+} elseif { $params(s) } {
+    set application ssh
+    if { $params(a) } {
+        spawn $application $username@$host
+    } else {
+        spawn $application $host
+    }
+
+} elseif { $params(t) } { # login tl1
+    set application tl1
+    spawn telnet $host $tl1Port
+} else {
+    set application telnet
+    spawn $application $host
+}
+
+expect_after eof {send_user "connection closed"; exit 1}
+
+if { $params(a) } {
+    eval auto_$application
+}
+
+if {[info exists ::env(TMUX)]} {
+    exec tmux rename-window $hostname
+}
+
+interact {
+    # add your own "hot-keys" here
+    # "${esc}OP" -> F1
+    # "${esc}OQ" -> F2
+    # "${esc}OR" -> F3
+    "${esc}OPtl1" {send "telnet 0 $tl1Port\r"; auto_tl1}
+    "${esc}OPcu" {send "CANC-USER;"}
+    "${esc}OPrs" {send "RTRV-ATCA-EQPT;"}
+    "${esc}OPr1" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-1;"}
+    "${esc}OPr2" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-2;"}
+    "${esc}OPr3" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-3;"}
+    "${esc}OPr4" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-4;"}
+
+	# A-LGP TL1 Commands
+    "${esc}OQleq"	{send "RTRV-EQPTSTATE;"}
+    "${esc}OQlinfo"	{send "RTRV-INFO-EQPT;"}
+    "${esc}OQlc"	{send "RTRV-INFO-EQPT::IOM-"}
+    "${esc}OQl1"	{send "RTRV-INFO-EQPT::IOM-1;"}
+    "${esc}OQl2"	{send "RTRV-INFO-EQPT::IOM-2;"}
+    "${esc}OQl3"	{send "RTRV-INFO-EQPT::IOM-3;"}
+    "${esc}OQl14"	{send "RTRV-INFO-EQPT::IOM-14;"}
+    "${esc}OQl15"	{send "RTRV-INFO-EQPT::IOM-15;"}
+    "${esc}OQlch"	{send "RTRV-CHASSIS-EQPT;"}
+
+	# ATCA TL1 Commands
+    "${esc}OQch"	{send "RTRV-ATCA-CHASSIS;"}
+    "${esc}OQeq" {send "RTRV-ATCA-EQPTSTATE;"}
+    "${esc}OQ3" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-3;"}
+    "${esc}OQ4" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-4;"}
+    "${esc}OQ5" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-5;"}
+    "${esc}OQ6" {send "RTRV-ATCA-EQPT::SHELF-0-ACM-6;"}
+
+    "${esc}ORv13" {send "ssh cd01-s00c03h0\r"}
+    "${esc}ORv51" {send "ssh cd05-s00c01h0\r"}
+    "${esc}ORv52" {send "ssh cd05-s00c02h0\r"}
+    "${esc}ORv53" {send "ssh cd05-s00c03h0\r"}
+    "${esc}ORv54" {send "ssh cd05-s00c04h0\r"}
+    "${esc}ORv55" {send "ssh cd05-s00c05h0\r"}
+    "${esc}ORv56" {send "ssh cd05-s00c06h0\r"}
+    "${esc}ORv61" {send "ssh cd06-s00c01h0\r"}
+    "${esc}ORv62" {send "ssh cd06-s00c02h0\r"}
+    "${esc}ORv63" {send "ssh cd06-s00c03h0\r"}
+    "${esc}ORv64" {send "ssh cd06-s00c04h0\r"}
+    "${esc}ORv65" {send "ssh cd06-s00c05h0\r"}
+    "${esc}ORv66" {send "ssh cd06-s00c06h0\r"}
+    "${esc}OR13" {send "ssh qd01-s00c03h0\r"}
+    "${esc}OR51" {send "ssh qd05-s00c01h0\r"}
+    "${esc}OR52" {send "ssh qd05-s00c02h0\r"}
+    "${esc}OR53" {send "ssh qd05-s00c03h0\r"}
+    "${esc}OR54" {send "ssh qd05-s00c04h0\r"}
+    "${esc}OR55" {send "ssh qd05-s00c05h0\r"}
+    "${esc}OR56" {send "ssh qd05-s00c06h0\r"}
+    "${esc}OR61" {send "ssh qd06-s00c01h0\r"}
+    "${esc}OR62" {send "ssh qd06-s00c02h0\r"}
+    "${esc}OR63" {send "ssh qd06-s00c03h0\r"}
+    "${esc}OR64" {send "ssh qd06-s00c04h0\r"}
+    "${esc}OR65" {send "ssh qd06-s00c05h0\r"}
+    "${esc}OR66" {send "ssh qd06-s00c06h0\r"}
+    "${esc}OR171" {send "ssh qd17-s00c01h0\r"}
+    "${esc}OR172" {send "ssh qd17-s00c02h0\r"}
+    "${esc}OR713" {send "ssh qd17-s00c13h0\r"}
+    "${esc}OR714" {send "ssh qd17-s00c14h0\r"}
+    "${esc}OR0" {send "telnet 0 $tl1Port\r"; auto_tl1}
+
+    "${esc}OQinit" {send "INIT-ATCA-SYS::"}
+	# VM Lab Commands
+
+    # Private input commands
+    "${esc}OQ1" {send "emacs\r"}
+    "${esc}OQas" {send "apps; cd named; grep active-named named.conf\r"}
+    "${esc}OQd" {send "./rndc -c rndc.conf dumpdb -cache\r"}
+    "${esc}OQr" {send "./rndc -c rndc.conf reload\r"}
+    "${esc}OQf" {send "./rndc -c rndc.conf flush\r"}
+    "${esc}OQf" {send "./rndc -c rndc.conf stats\r"}
+    "${esc}OQc" {send "vi named_dump.db\r"}
+    "${esc}OQ2" {send "telnet 135.252.41.253\r"}
+	
+    "${esc}OR3" {send "telnet vb3\r"}
+    "${esc}OR4" {send "telnet vb4\r"}
+    "${esc}ORc" {send "cd /var/named/chroot/etc\r"}
+    "${esc}ORz" {send "cd /var/named/chroot/var/named\r"}
+
+
+    # TODO: privide capability to search input history
+}
+
+if {[info exists ::env(TMUX)]} {
+    exec tmux set-window-option automatic-rename on
+}

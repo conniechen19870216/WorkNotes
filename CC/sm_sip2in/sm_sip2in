@@ -1,0 +1,52 @@
+1. GCC State Machine Overview
+
+(1) INVITE -> SETUP
+
+                    E00 (CCE_CONIND)         E09 (CCE_ALOCCFM)        E37 (CCE_ANALYZE_ROUTE)        E09 (CCE_ALOCCFM)        E38 (CCE_AUTHORIZE_TERMINATE)    
+               S00 -------------------> S01 -------------------> S37 -------------------------> S04 -------------------> S39 -------------------------------> S06
+            (CCS_IDLE)           (CCS_AWTROUTERSC)        (CCS_AWTRSPFORDPE3)            (CCS_AWTRSCALOCCFM)     (CCS_AWTRSPFORDPE20)                    (CCS_AWTOGRSC)
+
+(2) CALL PROCEEDING -> 183 (In fact no mapping)
+
+                    E06 (CCE_RSCCFM)         E03 (CCE_CNSTIND)               
+               S06 -------------------> S09 -------------------> S09 
+          (CCS_AWTOGRSC)            (CCS_AWTANS)             (CCS_AWTANS)     
+
+(3) ALERTING -> 183
+
+                    E03 (CCE_CNSTIND)         E11 (CCE_MGCTTXNCFM)               
+               S09 -------------------> S07 -----------------------> S09 
+          (CCS_AWTANS)            (CCS_AWTANSSWT)                (CCS_AWTANS)     
+
+(4) CONNECT -> 200 OK
+
+                    E66 (CCE_CLOSEFROMFIC)          E66 (CCE_CLOSEFROMFIC)            E01 (CCE_CONCFM)                 
+               S09 -----------------------> S09 --------------------------> S09  --------------------------> S10 
+           (CCS_AWTANS)                (CCS_AWTANS)                    (CCS_AWTANS)                    (CCS_ANSWERED)     
+
+(5) BYE -> DISCONNECT
+
+                      E04 (CCE_RELIND)            E11 (CCE_MGCTTXNCFM)                E10 (CCE_DEALOCCFM)                 
+               S10 -----------------------> S55 --------------------------> S18  --------------------------> S18 
+          (CCS_ANSWERED)          (CCS_AWTSWTCFM_SENDONEREL)          (CCS_AWTRELCFM_OG)              (CCS_AWTRELCFM_OG)     
+
+
+(6) RELEASE Received and RELEASE COMPLETE Sent
+
+                      E05 (CCE_RELCFM)             E10 (CCE_DEALOCCFM)                    
+               S18 -----------------------> S21 --------------------------> S00
+        (CCS_AWTRELCFM_OG)          (CCS_AWTDEALOCCFM)                   (CCS_IDLE)     
+
+2. File Info
+
+(1) Files related with INVITE to SETUP include from invite2setup1 to invite2setup5.
+
+(2) Files related with CALL PROCEEDING to 183 (no mapping) is callproceedingTo18x_nomapping.
+
+(3) Files related with ALERTING to 183 is alertingTo18x.
+
+(4) Files related with CONNECT to 200 OK is connectTo200OK.
+
+(5) Files related with BYE to DISCONNECT is bye2disconnect.
+
+(6) Files related with RELEASE received and then RELEASE COMPLETE sent from ISDN layer is rel_received_and_rlc_sent.

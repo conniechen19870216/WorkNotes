@@ -1,0 +1,19 @@
+rumStartUpd (rm_rum.c)
+      |
+      +----- rumPrepareAndSendUpd(&header, mBuf) (rm_rum.c)
+                     |
+                     |
+                     V
+      ifc->type = rumIntfc->intfc.intfcType;
+      ifc->id = rumIntfc->intfc.intfcId;
+      ifc->mgCcsId = rmCp.genCfg.ownCcsId; /* 15261.0 */
+      ifc->hunting = 0;
+      ifc->numCics = 0;
+      ifc->stats.total = isdnTg->cntCfgdChans;
+      /*Bug61692 Get PreCut Chans number */
+      ifc->stats.u.dfltRsc.precut =  isdnTg->cntPcChans;
+      ifc->stats.u.dfltRsc.oos = isdnTg->cntMntChans - isdnTg->cntPcOosChans
+      ifc->stats.u.dfltRsc.busy = 0; /* Bug 49646, PENDING */
+      ifc->stats.u.dfltRsc.free = rmListGetNmbEnt(&isdnTg->freeBchnlList);
+      ifc->stats.overflow = 0;
+

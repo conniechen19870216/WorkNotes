@@ -1,0 +1,19 @@
+1. CLAM
+clPrflSdpCcCfg (cl_sdp.c)
+cfg.t.cfg.s.ccSdpProf.codecTypes[cfg.t.cfg.s.ccSdpProf.numCodecType] = (U8) context->prflSdp.codec1.val;
+cfg.t.cfg.s.ccSdpProf.numCodecType++;
+cfg.t.cfg.s.ccSdpProf.codecTypes[cfg.t.cfg.s.ccSdpProf.numCodecType] = (U8) context->prflSdp.codec2.val;
+cfg.t.cfg.s.ccSdpProf.numCodecType++;
+
+2. GCC
+ccSdpProfCfg (cc_bdy4.c): CcSdpProfCfg -> CcSdpCb
+sdpCb->sdpAtt.NumCodec=ccSdpPtr->numCodecType;
+for( i = 0; i < ccSdpPtr->numCodecType ; i++)
+{
+   sdpCb->sdpAtt.CodecTypes[i]=ccSdpPtr->codecTypes[i];
+   sdpCb->sdpAtt.PayloadTypes[i]=ccSdpPtr->payloadTypes[i];
+   gitDebugPrint(__FILE__,__LINE__," %d codecType %d, pType %d\n",
+                 i,sdpCb->sdpAtt.CodecTypes[i],sdpCb->sdpAtt.PayloadTypes[i]);
+}
+
+3. How to use CcSdpCb

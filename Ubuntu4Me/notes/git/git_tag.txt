@@ -1,0 +1,26 @@
+1. 列出已有的标签
+git tag
+git tag -l 'v1.0'
+
+2. 新建标签: lightweight/annotated
+(1) annotated tag:
+git tag -a v1.0 -m "Comments0"
+git tag -s v1.0 -m "Comments1"
+(2) lightweight tag
+git tag v1.0-lw
+(3) specific
+git tag -a v1.0 9fceb02
+
+3. 分享标签: 默认情况下，不会将标签传送到remote服务器上
+git push origin v1.0
+git push origin --tags
+
+4. 删除标签
+(1) Local: git tag -d v1.0
+(2) Remote: git push origin :refs/tags/v1.0
+
+5. 查看相应标签的版本信息以及显示打标签时的提交对象
+git show v1.0
+
+6. 验证标签
+git tag -v v1.0

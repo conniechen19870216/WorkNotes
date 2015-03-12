@@ -1,0 +1,57 @@
+******************* rndc *********************
+1. 功能
+（1）实时修改配置文件，zone 文件；
+（2）检查DNS cache中的内容；
+（3）检查DNS 服务器运行状态；
+（4）停止DNS 服务。
+
+2. Procedures (cd /etc/bind)
+(1) 生成rndc.conf 文件
+    rndc-confgen > rndc.conf
+
+# (2) 生成rndc.key 文件
+#     rndc-confgen -a
+	
+(3) 加入rndc key 到named.conf
+    tail -n 10 rndc.conf | sed 's/# //g' | grep -v '^End' >> named.conf
+
+3. rndc.conf 组成部分
+(1) options  (2) server  (3) key
+options {
+	default-server localhost;
+	default-key samplekey;
+	default-port 953;             ###### 默认，可以省略
+};
+server localhost {
+	key samplekey;
+};
+server testserver {
+	key testkey;
+	addresses { localhost port 5353; };
+};
+key samplekey {
+	algorithm hmac-md5;
+	secret "6FMfj43Osz4lyb24OIe2iGEz9lf1llJO+lz";
+};
+key testkey {
+	algorithm hmac-md5;
+	secret "R3HI8P6BKw9ZwXwN3VZKuQ==";
+};
+
+4. 选项
+-b source-address 使用 source-address 作为连接服务器的源地址。允许多个实例设置 IPv4 和 IPv6 源地址。
+-c config-file 使用config-file 作为缺省的配置文件/etc/rndc.conf 的替代。
+-k key-file 使用 key-file 作为缺省的密钥文件/etc/rndc.key 的替代。如果
+config-file 不存在，/etc/rndc.key 中的密钥将用于认证发向服务器的命令。
+-s server server 是与 rndc 的配置文件中 server语句匹配的服务器的名字或地址。如果命令行没有提供服务器，会使用 rndc 配置文件中 options 语句中的 default-server子句所命名的主机。
+-p port 发送命令到 TCP端口 port，以取代 BIND 9 的缺省控制通道端口 953。
+-V 打开冗余日志。
+-y key_id 使用配置文件中的密钥 key_id。
+
+5. 命令
+rndc reload / reconfig
+rndc status
+rndc stats / resetstats
+rndc flush
+rndc trace / rndc trace n / rndc notrace
+rndc querylog

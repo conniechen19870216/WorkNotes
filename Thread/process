@@ -1,0 +1,123 @@
+I. init procedure
+1. /sbin/init (/etc/inittab)
+================================================================================
+# Default runlevel. The runlevels used are:
+#   0 - halt (Do NOT set initdefault to this)
+#   1 - Single user mode
+#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)
+#   3 - Full multiuser mode
+#   4 - unused
+#   5 - X11
+#   6 - reboot (Do NOT set initdefault to this)
+#
+id:3:initdefault:
+================================================================================
+Tools: telinit 0/1/2/3/4/5/6 (runlevel handover)
+
+2. /etc/rc.d/rc.sysinit: 
+   配置网络、配置内核参数、挂载root文件系统、检查文件系统、
+   设置系统时钟、配置机器、开启交换空间
+
+3. /etc/rc.d/rcX.d: => /etc/init.d/* (symbolic link)
+   首先终止K开头的服务(用来关闭一个服务)，然后启动S开头的服务(用来启动一个服务)
+   链接的名称在K与S后有一个数字，表示执行顺序，数字小的先执行
+
+4. /etc/rc.d/rc.local:
+   运行模式2,3,5都把/etc/rc.d/rc.local作为初始化脚本中的最后一个文件
+
+5. getty: 
+   设置终端类型、属性、速度和线路规程等
+   init进程为每个联机终端使用fork()创建一个子进程，并在子进程中运行getty程序，
+   init进程则调用wait()，进入等待子进程结束状态
+
+6. login: 启动登录界面（图形或字符界面），输入完用户名后，getty调用exec(not fork)来执行login程序
+   login程序读取/etc/passwd，根据用户输入的用户名，从口令文件passwd中取得对应用户的登录项，
+   然后调用getpass()以显示”password:”提示信息，读取用户键入的密码，然后使用加密算法对键入的密码进行加密处理，
+   并与口令文件中该用户项中pw_passwd字段作比较
+   (1) 若密码无效，login程序会以出错码1退出执行，此时父进程（进程init）的wait()会返回该退出进程的pid，
+       因此会根据记录下来的信息再次创建一个子进程，并在该子进程中针对该终端设备再次执行getty程序，重复上述过程
+   (2) 若密码正确，
+       a) login就会把当前工作目录修改成口令文件/etc/passwd中指定的起始工作目录
+       b) 对该终端设备的访问权限修改成用户读/写和组写，设置进程的组ID
+       c) 初始化环境变量信息：起始目录（HOME=）、使用的shell程序（SHELL=）、用户名（USER=和LOGNAME=）和
+          系统执行程序的默认路径序列（PATH=）
+       d) 显示/etc/motd文件（message-of-the-day）中的文本信息，并检查并显示该用户是否有邮件的信息
+          ==================================================================================
+          || WARNING!  This computer system and network is PRIVATE and PROPRIETARY        ||
+          || and may only be accessed by authorized users.  Unauthorized use of this      ||
+          || computer system or network is strictly prohibited and may be subject to      ||
+          || criminal prosecution, employee discipline up to and including discharge,     ||
+          || or the termination of vendor/service contracts.  The owner, or its agents,   ||
+          || may monitor any activity or communication on the computer system or network. ||
+          || The owner, or its agents, may retrieve any information stored within the     ||
+          || computer system or network.  By accessing and using this computer system     ||
+          || or network, you are consenting to such monitoring and information retrieval  ||
+          || for law enforcement and other purposes.  Users should have no expectation    ||
+          || of privacy as to any communication on or information stored within the       ||
+          || computer system or network, including information stored locally or remotely ||
+          || on a hard drive or other media in use with this computer system or network.  ||     
+          ==================================================================================
+       e) 最后login程序改变成登录用户的用户ID，并执行口令文件/etc/passwd中该用户项中指定的shell程序
+
+
+7. shell programmes: 如果用户名和口令正确，login调用exec执行shell命令行解释程序
+   登录shell会从/etc/profile文件以及$HOME/.bash_profile文件（或.bashrc文件，若存在的话）读取命令并执行
+   ============================================================================================================
+   * 运行shell时，原来的getty进程最终被替换成了bash进程，对应的getty,login,bash这三个程序也就具有相同的进程ID *
+   * 在成功登录到Linux系统后，你会发现（使用”top”或”ps –ax”命令）自己终端原来的getty进程已经找不到了。        *
+   * 因为getty进程执行了login程序，被替换成了login进程，并且最后被替换成你的登录shell进程。                   *
+   * 对于图形用户界面，login程序最后会被替换成图形界面进程（如gnome-session程序）                             *
+   ============================================================================================================
+
+8. Linux运行时：init进程会负责收取孤儿进程
+
+9. 用户注销：当某个终端或虚拟控制台上的用户注销之后，该终端上的所有进程都会被终止（killed），包括bash。
+   然后，init进程就会调用fork为该终端或虚拟控制台重新创建一个getty进程，以便能够让其他用户登录。
+   这是为什么呢？你应该发现，当用户登录时，“getty”用的是“exec”而不是“fork”系统调用来执行“login”，
+   这样，“login”在执行的时候会覆盖“getty”的执行环境（同理，用户注册成功后，“login”的执行环境也会被shell占用）。
+   所以，如果想再次使用同一终端，必须再启动一个“getty”。对于图形界面，用户注销后会回到图形登录界面。
+
+10. 系统关闭：init负责杀死所有其它的进程，卸载所有的文件系统并停止处理器的工作，以及任何其它被配置成要做的工作
+
+II. Process Overview
+================ ACCM ================
+1. sandbox: TelicaRoot/components/ga_dev/solution/fam/hostApp.xml
+2. lab:     /Telica/swCPU/CurrRel/schema
+
+
+================ ADCM ================
+1. sandbox: TelicaRoot/components/cm_mon/cmApp.xml
+2. lab:     /Telica/swCPU/CurrRel/schema
+
+III. How to Run Process
+TelicaRoot/components/patched_commands_rhx86/etc/rc.d/init.d/plexus_init
+        |
+        |
+        +--------- TelicaRoot/components/sp_system/scripts_rhx86/install/plexus_init.sh
+                       |
+                       |
+                       +---------- ACCM: TelicaRoot/components/ga_dev/emf/startemf
+                       +---------- ADCM: TelicaRoot/components/cm_mon/startcm
+
+
+
+/etc/rc.d/init.d/plexus_init
+        |
+        |
+        +--------- /Telica/swCPU/CurrRel/system/scripts/plexus_init.sh
+                       |
+                       |
+                       +---------- cd /Telica/swCPU/CurrRel/emf
+                       |           rm -f emfPid
+                       |           ./startemf: emf starts all the other processes per hostApp.xml
+                       |
+                       |
+                       +---------- cd /Telica/swCPU/CurrRel/apps/cm_mon
+                                   ./startcm: cm_mon starts all the other processes per cmApp.xml
+
+3. priorities of threads
+OalThreadCreate: lynx/usr/include/telica_priorities.h
+
+4. Inter-Process Communication Mechanism
+(1) Go Ahead: SubscribeEvent/PublishEvent
+(2) Relay: Shared Memory or TCP/IP: ry_config 

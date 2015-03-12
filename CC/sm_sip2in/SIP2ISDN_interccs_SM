@@ -1,0 +1,70 @@
+#define CC_INGRESS_INTER_CCS_CALL(con)   ((con) && (con->icBcm.interCcsCall))
+#define CC_EGRESS_INTER_CCS_CALL(con)    ((con) && (con->ogBcm.interCcsCall))
+1. ccRegisterIngressInterCcsCall: ccConE00S00
+2. ccRegisterEgressInterCcsCall:  ccRouteCall
+
+=====================================INTER CCS State Machine Overview BY EMMA=======================================
+
+ccs1
+(1) INVITE -> SETUP
+
+                    E00 (CCE_CONIND)         E09 (CCE_ALOCCFM)        E37 (CCE_ANALYZE_ROUTE)             E09 (CCE_ALOCCFM)              
+               S00 -------------------> S01 -------------------> S37 -------------------------> S04 -------------------> S09 
+            (CCS_IDLE)           (CCS_AWTROUTERSC)        (CCS_AWTRSPFORDPE3)            (CCS_AWTRSCALOCCFM)        (CCS_AWTANS)                        
+
+(2) CALL PROCEEDING -> 183 (In fact no mapping)
+
+                     E03 (CCE_CNSTIND)                  
+                S09 -------------------> S09
+           (CCS_AWTANS)             (CCS_AWTANS) 
+(3) ALERTING -> 183
+
+                    E03 (CCE_CNSTIND)               
+               S09 -------------------> S09 
+          (CCS_AWTANS)            (CCS_AWTANS) 
+
+(4) CONNECT -> 200 OK
+
+                      E01 (CCE_CONCFM)          E66 (CCE_CLOSEFROMFIC)                           
+               S09 ----------------------->S09 -----------------------> S10 
+           (CCS_AWTANS)               (CCS_AWTANS)                (CCS_ANSWERED)      
+
+(5) BYE -> DISCONNECT
+
+                      E04 (CCE_RELIND)            E10 (CCE_DEALOCCFM)                E05 (CCE_RELCFM)                    E10 (CCE_DEALOCCFM)  
+               S10 -----------------------> S17 --------------------------> S17  --------------------------> S21 -------------------------->S00
+          (CCS_ANSWERED)             (CCS_AWTRELCFM_IC)             (CCS_AWTRELCFM_IC)                 (CCS_AWTDEALOCCFM)                (CCS_IDLE)
+                                            Mapping ISUP REL to SIP BYE
+          
+ccs2:
+(1) INVITE -> SETUP
+
+                    E00 (CCE_CONIND)         E09 (CCE_ALOCCFM)        E09 (CCE_ALOCCFM)         E38 (CCE_AUTHORIZE_TERMINATE)         E06 (CCE_RSCCFM )  
+               S00 -------------------> S01 ------------------->  S04 -------------------> S39 -------------------------------> S06-------------------> S09 
+            (CCS_IDLE)           (CCS_AWTROUTERSC)        (CCS_AWTRSCALOCCFM)      (CCS_AWTRSPFORDPE20)                   (CCS_AWTOGRSC)            (CCS_AWTANS)
+
+(2) CALL PROCEEDING -> 183 (In fact no mapping)
+
+                    E03 (CCE_CNSTIND)               
+              S09 -------------------> S09 
+          (CCS_AWTANS)             (CCS_AWTANS)     
+
+(3) ALERTING -> 183
+
+                    E03 (CCE_CNSTIND)         E11 (CCE_MGCTTXNCFM)              
+               S09 -------------------> S07 -----------------------> S09
+          (CCS_AWTANS)            (CCS_AWTANSSWT)                (CCS_AWTANS)          
+                                       Maps ISDN ALERTING message to ISUP ACM or CPG                           
+(4) CONNECT -> 200 OK
+
+                    E03 (CCE_CNSTIND)      E01 (CCE_CONCFM)      E66 (CCE_CLOSEFROMFIC)              
+               S09------------------->S09 ------------------->S09 -----------------------> S10 
+            CCS_AWTANS)          (CCS_AWTANS)           (CCS_AWTANS)                (CCS_ANSWERED)     
+                                       
+(5) BYE -> DISCONNECT
+
+                      E04 (CCE_RELIND)            E11 (CCE_MGCTTXNCFM)                E10 (CCE_DEALOCCFM)            E05 (CCE_RELCFM)               E10 (CCE_DEALOCCFM)   
+               S10 -----------------------> S55 --------------------------> S17  --------------------------> S17 --------------------------> S21 --------------------------> S0
+          (CCS_ANSWERED)          (CCS_AWTSWTCFM_SENDONEREL)          (CCS_AWTRELCFM_IC)               (CCS_AWTRELCFM_IC)               (CCS_AWTDEALOCCFM)               (CCS_IDLE)   
+                                                                            Maps the ISDN DISCONNECT to ISUP REL
+ 

@@ -1,0 +1,228 @@
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:03:10.528 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=1651{C=-{AV=ROOT}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:05.797 13050: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 1652 {
+  CONTEXT = $ {
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+        },
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       BCP/BNCCHAR = IP/RTP,
+                       BT/TUNOPT = 2,
+                       THREEGUP/UPVERSIONS = 2,
+                       THREEGUP/MODE = SUPP,
+                       THREEGUP/DELERRSDU = YES,
+                       THREEGUP/INTERFACE = CN,
+                       THREEGUP/INITDIR = OUT }
+      }
+    },
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 $
+m=image $ udptl t38
+a=T38FaxVersion:0
+a=T38MaxBitRate:14400
+a=T38FaxRateManagement:transferredTCF
+a=T38FaxMaxBuffer:72
+a=T38FaxMaxDatagram:316
+a=T38FaxUdpEC:t38UDPRedundancy
+v=0
+c=IN IP4 $
+m=audio $ RTP/AVP 8
+a=ptime:20
+a=rtpmap:8 PCMA/8000
+a=silenceSupp:off - - - -
+        },
+        REMOTE {
+v=0
+c=IN IP4 10.84.2.11
+m=audio 6000 RTP/AVP 1
+a=rtpmap:1 PCMA/8000
+v=0
+c=IN IP4 10.84.2.11
+m=image 36545 udptl t38
+a=T38FaxVersion:0
+a=T38MaxBitRate:14400
+a=T38FaxRateManagement:transferredTCF
+a=T38FaxMaxBuffer:72
+a=T38FaxMaxDatagram:260
+a=T38FaxUdpEC:t38UDPRedundancy
+        },
+        LOCALCONTROL { MODE = SENDONLY }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:05.837 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=1652{C=21065{A=ip/73/1/14398{M{L{v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+}}},A=ip/73/1/14399{M{L{v=0
+c=IN IP4 10.84.6.186
+m=image 50507 udptl t38
+a=T38FaxVersion:0
+a=T38MaxBitRate:14400
+a=T38FaxRateManagement:transferredTCF
+a=T38FaxMaxBuffer:72
+a=T38FaxMaxDatagram:260
+a=T38FaxUdpEC:t38UDPRedundancy
+},R{v=0
+c=IN IP4 10.84.2.11
+m=image 36545 udptl t38
+a=T38FaxVersion:0
+a=T38MaxBitRate:14400
+a=T38FaxRateManagement:transferredTCF
+a=T38FaxMaxBuffer:72
+a=T38FaxMaxDatagram:260
+a=T38FaxUdpEC:t38UDPRedundancy
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:05.969 13050: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 1653 {
+  CONTEXT = 21065 {
+    MODIFY = ip/73/1/14398 {
+      EVENTS = 1409286199 { gb/bncchange { TYPE = Est },
+                            bt/tind,
+                            g/cause },
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+        },
+        REMOTE {
+v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+        }
+      },
+      SIGNALS { gb/estbnc }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:05.980 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=1653{C=21065{MF=ip/73/1/14398{M{L{v=0
+c=IN IP4 -
+m=audio - - -
+a=codecconfig:0101
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:05.980 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 T=203156{C=21065{N=ip/73/1/14398{OE=1409286199{20051002T04354977 : BT/TIND{BIT=2020763D300D0A6F3D2D2030203020494E204950342031302E38342E362E3138360D0A733D2D0D0A633D494E204950342031302E38342E362E3138360D0A743D3020300D0A613D69706263703A3120526571756573740D0A6D3D617564696F203336333732205254502F415650203132300D0A613D7274706D61703A31323020564E442E334750502E495546502F31363030300D0A}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:05.980 13050: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+REPLY = 203156 {
+  CONTEXT = 21065 {
+    NOTIFY = ip/73/1/14398
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:06.068 13050: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 1654 {
+  CONTEXT = 21065 {
+    MODIFY = ip/73/1/14398 {
+      MEDIA {
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      },
+      SIGNALS { bt/bit { BIT = 2020763D300D0A6F3D2D2030203020494E204950342031302E38342E362E3138360D0A733D2D0D0A633D494E204950342031302E38342E362E3138360D0A743D3020300D0A613D69706263703A312041636365707465640D0A6D3D617564696F203336333830205254502F415650203132300D0A613D7274706D61703A31323020564E442E334750502E495546502F31363030300D0A } }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:06.093 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=1654{C=21065{MF=ip/73/1/14398}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:06.098 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 T=203160{C=21065{N=ip/73/1/14398{OE=1409286199{20051002T04354989 : GB/BNCChange{Type=Est}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:06.098 13050: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+REPLY = 203160 {
+  CONTEXT = 21065 {
+    NOTIFY = ip/73/1/14398
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:09.089 13050: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 1655 {
+  CONTEXT = 21065 {
+    MODIFY = ip/73/1/14398 {
+      MEDIA {
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      }
+    },
+    MODIFY = ip/73/1/14399 {
+      MEDIA {
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:09.102 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=1655{C=21065{MF=ip/73/1/14398,MF=ip/73/1/14399}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:11.238 13050: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.134]:5018
+TRANSACTION = 1656 {
+  CONTEXT = 21065 {
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00086),00000(00000) 0x00000001 11-12 09:05:11.260 13050: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5018 P=1656{C=21065{S=ip/73/1/14398{SA{nt/dur=5438,nt/os=57591,nt/or=57024,rtp/ps=1029,rtp/pr=1019,rtp/pl=0.000000,rtp/jit=40,rtp/delay=0,rtp/dur=5438,rtp/os=57591,rtp/or=57024,tmanr/dp=0}},S=ip/73/1/14399{SA{nt/dur=5448,nt/os=0,nt/or=0,rtp/ps=0,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=5448,rtp/os=0,rtp/or=0,tmanr/dp=0}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+

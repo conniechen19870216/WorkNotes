@@ -1,0 +1,630 @@
+sigdbg:::::dest-b-ccs-0/13/1/1 ccDbg ccDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/13/1/1 ccDbg ainDbg0;
+sigdbg:::::dest-b-ccs-0/13/1/1 ccDbg ficDbg 0;
+sigdbg:::::dest-b-ccs-0/13/1/1 rmDbg rmDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/13/1/1 bicc msgtrace 3;
+SigDbg:::::dest-b-ccs-0/13/1/1 bicc FsmTrace 7;
+sigdbg:::::dest-b-ccs-0/13/1/1 isup msgtrace 3;
+SigDbg:::::dest-b-ccs-0/13/1/1 isup FsmTrace 7;
+SigDbg:::::dest-b-ccs-0/13/1/1 isup rxmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/13/1/1 isup txmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/13/1/1 isup dbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/13/1/1 isup silogmask 255;
+sigDbg:::::dest-b-ccs-0/13/1/1 isup dumpdpccic 8001 1;
+SigDbg:::::dest-b-ccs-0/13/1/1 bicc rxmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/13/1/1 bicc txmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/13/1/1 bicc dbgMask 0xffffffff;
+SigDbg:::::dest-b-ccs-0/13/1/1 mgsig mgidbg 1;
+SigDbg:::::dest-b-ccs-0/13/1/1 mgsig sfddbg 1;
+sigdbg:::::dest-b-ccs-0/13/1/1 sipa dbglvl 0;
+sigdbg:::::dest-b-ccs-0/13/1/1 sipw 0;
+sigdbg:::::dest-b-ccs-0/13/1/1 sipa ipstrc 1;
+sigdbg:::::dest-b-ccs-0/13/1/1 sipa dumpraw 1;
+sigdbg:::::dest-b-ccs-0/13/1/1 ccDbg ccIwDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/13/1/1 mmsldbg  0000ffff;
+sigdbg:::::dest-b-ccs-0/13/1/1 mmsldbg  startcapture;
+sigdbg:::::dest-b-ccs-0/13/1/1 mmsldbg  stopheartbeat;
+sigdbg:::::dest-b-ccs-0/13/1/1 csDbg debug 3;
+sigdbg:::::dest-b-ccs-0/13/1/1 ccDbg mgctDbg 3;
+SigDbg:::::dest-b-ccs-0/13/1/1 IW dbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/13/1/1 m3ua dbgMask 0xFFFFFFFF;
+SigDbg:::::dest-b-ccs-0/13/1/1 isup udataPrint 0x00000fff;
+sigdbg:::::dest-b-rs-0/13/1/1 rsDbg gen all high;
+
+sigdbg::::: dest-b-rs-0/13/1/1 clSetLogLevel -1 0xf;
+sigdbg::::: dest-b-rs-0/13/1/1 rsDbg gen all high;
+
+clam
+ccs.out
+sigdbg:::::dest-b-ccs-0/13/1/1 clSetLogLevel -1 0xf;
+sigdbg:::::dest-b-ccs-0/13/1/1 clSetLogLevel 9  0x1f;
+sigdbg:::::dest-b-ccs-0/13/1/1 clSetLogLevel 12  0x1f;	
+sigdbg:::::dest-a-ccs-0/13/1/1 clSetLogLevel -1  0x1f;   
+
+slam
+sigdbg:::::dest-b-slam  slamdbg level 0x1f;
+sigdbg:::::dest-b-slam dumpmem;
+
+tl1dbg:::::log-debug;
+
+tl1dbg:::::log-detail;
+
+tl1dbg:::::log-info;
+
+tl1dbg:::::log-warn;
+
+tl1dbg:::::log-error;
+
+ISDN:
+
+sta-capt::isdnif-2601:::,l3;
+sigdbg:::::dest-b-ccs-0/9/1/2 isdn msgtrace 3;
+sigdbg:::::dest-b-ccs-0/9/1/2 q931 inDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/9/1/2 q931 qwDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/9/1/2 q931 inDbgMask 3001-1 0xffffffff;
+sigdbg:::::dest-a-ccs-0/9/1/2 iuadbg idprint; 
+sigdbg:::::mgsig iua-idprint;
+sigdbg:::::dest-a-ccs-slave q931 isdn mflog_time 9999;
+
+sigtrace:
+sta-capt::lset-101:::,l3;
+
+##Open sigtrace on ACCM card.  
+Sta-capt::isdnif-8:::,l3;
+
+
+MTP3:
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace +all all;
+sigdbg:::::dest-b-m2uasig-0/9/1/2 stg sdi-setdbg-ffffffff;
+sigdbg:::::dest-b-mg-3 stg 0/9/1/2 conv conv-sdi-setdbg-ffffffff;
+sigdbg:::::dest-b-mg-3 stg 0/9/1/2 conv conv-sda-setdbg-ffffffff;
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace +all mtpl3 mtp_dist lk;
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace +user1 calltrace +msg_rtg mtpl3
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 stg dbgMask 0xffffffff
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace +all mtp_coc;
+sigdbg:::::dest-b-m2uasig-0/9/1/2 stg iph-setdbg-ffffffff;
+
+####turn off:
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace -all ss7_mltcp_q ltcp_mux ltcp_queue ltcp_ep gm cm;
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace -all nm_dist mtp_audit evt_comm_tr init_tr data_acc_tr;
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace -user5 nm_dist;
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace -ooa data_acc_tr;
+
+
+DIST:
+sigdbg:::::dest-b-dist-0/3/1/1 clSetLogLevel -1 0x1f;
+sigdbg:::::dest-b-dist-0/3/1/1 clSetLogLevel -1 0x1f;
+sigdbg:::::dest-b-dist-0/3/1/1 distSCCPDbg 1;
+sigdbg:::::dest-b-dist-0/3/1/1 distSCCPDbg 1;
+sigdbg:::::dest-b-dist-0/3/1/1 m3ua dbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-dist-0/3/1/1 m3ua dbgMask 0xFFFFFFFF;
+
+ 
+
+BTS CCS:
+sigdbg:::::dest-b-ccs-0/9/1/2 billdbg 1;
+sigdbg:::::dest-b-ccs-0/9/1/2 ccDbg ccDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/9/1/2 ccDbg ainDbg0;
+
+//IN
+sigdbg:::::dest-b-ccs-0/9/1/2 scpiDbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2 wfsDbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2 inapDbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2 inslDbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2 sccpDbg  0;
+sigdbg:::::dest-b-ccs-0/9/1/2 tcapDbg  0;
+sigdbg:::::dest-b-ccs-0/9/1/2 is41Dbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2 asnDbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2 mapDbg 3;
+sigdbg:::::dest-b-ccs-0/9/1/2 ficDbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2 scpiDbg 0;
+sigdbg:::::mgsig sgsctp sctp-setdbg-F000000;
+
+
+
+##BTS:
+sigdbg:::::dest-b-ccs-0/9/1/2 billdbg 1;
+sigdbg:::::dest-b-ccs-0/9/1/2 ccDbg ccDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/9/1/2 ccDbg ainDbg0;	
+
+sigdbg:::::dest-b-ccs-0/9/1/2 isup dumptgncic <tgn> <cic>; 
+sigdbg:::::dest-b-ccs-0/9/1/2 isup dumptgncic 11 1;
+sigdbg:::::dest-b-ccs-0/9/1/2 isup dumptgncic 11 2;
+
+
+ISUP on MGC:
+
+==Turn on==
+sigdbg:::::dest-b-ccs-0/9/1/2 isup msgtrace 3;
+sigdbg:::::dest-b-ccs-0/9/1/2 isup FsmTrace 7;
+sigdbg:::::dest-b-ccs-0/9/1/2 isup dbgMask 0xffffffff;
+
+M3UA ON STG:
+# enable/disable debug logging
+sigdbg:::::dest-b-sg-0/3/1/1 stg m3ua-setdbg-ffffffff;
+sigdbg:::::dest-b-sg-0/9/1/2 stg m3ua-setdbg-ffffffff;
+sigdbg:::::dest-b-sg-0/5/1/2 stg m3ua-setdbg-ffffffff;
+sigdbg:::::dest-b-sg-0/5/1/1 stg m3ua-setdbg-ffffffff;
+
+
+
+M3UA ON MGC
+
+sigdbg:::::dest-b-dist-0/14/1/1 m3ua dbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-dist-0/14/1/1 m3ua dbgMask 0xFFFFFFFF;
+
+DT on MGC (DT Only located on ACCMs, only instance 1)
+
+sigdbg:::::dest-b-dist-0/9/1/2 dt dbgMask 0xFFFFFFFF;    
+sigdbg:::::dest-b-ccs-0/9/1/2 dt dbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-dist-0/3/1/1 dt dbgMask 0xFFFFFFFF;   
+sigdbg:::::dest-b-ccs-0/3/1/1 dt dbgMask 0xFFFFFFFF;
+
+DMTP3 on STG
+==Turn on==
+sigdbg:::::dest-b-mtp3sig-0/5/1/1ss7trace +all all;
+sigdbg:::::dest-b-mtp3sig-0/5/1/2ss7trace +all all;
+sigdbg:::::dest-b-mtp3sig-0/9/1/2ss7trace +all all;
+sigdbg:::::dest-b-mtp3sig-0/3/1/1ss7trace +all all;
+==Turn off==
+sigdbg:::::dest-b-mtp3sig-0/6/1/1ss7trace -all ss7_mltcp_q ltcp_mux ltcp_queue ltcp_ep gm cm;
+sigdbg:::::dest-b-mtp3sig-0/6/1/1ss7trace -all ss7_mltcp_q ltcp_mux ltcp_queue ltcp_ep gm cm;
+sigdbg:::::dest-b-mtp3sig-0/6/1/1ss7trace -all ss7_mltcp_q ltcp_mux ltcp_queue ltcp_ep gm cm;
+sigdbg:::::dest-b-mtp3sig-0/6/1/1ss7trace -all ss7_mltcp_q ltcp_mux ltcp_queue ltcp_ep gm cm;
+
+=======colin========================================================================================
+
+sigdbg:::::dest-b-rs-0/9/1/2 rsDbg gen all high;
+
+sigdbg:::: dest-b-ccs-0/9/1/2 tufsDbg 0;
+
+sigdbg:::::dest-b-rs-0/9/1/2 rsDbg gen all off;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 clSetLogLevel -1 0xf;
+
+sigdbg:::::dest-b-dist-0/9/1/2 clSetLogLevel -1 0xf;
+
+sigdbg:::::dest-b-rs-0/9/1/2 clSetLogLevel -1 0xf;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 ccDbg ccDbgMask 0xFFFFFFFF;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 ccDbg ainDbg0;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 ficDbg 0;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 ccDbg ccIwDbgMask 0xffffffff;  
+
+sigdbg:::::dest-b-ccs-0/9/1/2 rmDbg rmDbgMask 0xFFFFFFFF;
+
+sigdbg:::::dest-b-slam  slamdbg level 0x1f;
+sigdbg:::::dest-b-slam dumpmem;
+
+##sigdbg:::::dest-b-slam  slamdbg level 0x07;##############DIS#########
+
+sigdbg:::::dest-b-dist-0/9/1/2 m3ua dbgMask 0xFFFFFFFF;
+
+sigdbg:::::dest-b-dist-0/9/1/2 clSetLogLevel -1 0xf;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 isup msgtrace 3;
+
+sigDbg:::::dest-b-ccs-0/9/1/2 isup FsmTrace 7;
+
+sigDbg:::::dest-b-ccs-0/9/1/2 isup dbgMask 0xffffffff;
+
+sigDbg:::::dest-b-ccs-0/9/1/2 isup rxmflog_time 9999 99;
+
+sigDbg:::::dest-b-ccs-0/9/1/2 isup txmflog_time 9999 99;
+
+sigDbg:::::dest-b-ccs-0/9/1/2 isup silogmask 255;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 ext_bicc msgtrace 3;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 mmsldbg 0000ffff;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 mmsldbg startcapture;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 mgidbg 1;
+
+sigdbg::::: dest-b-ccs-0/9/1/2 sipw 0;
+
+sigdbg::::: dest-b-ccs-0/9/1/2 sipa dumpraw 1;
+
+sigdbg::::: dest-b-ccs-0/9/1/2 sipa dbglvl 0;
+
+sigdbg::::: dest-b-ccs-0/9/1/2 sipa sttrc 1;
+
+sigdbg::::: dest-b-ccs-0/9/1/2 sipa ipstrc 1;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 bicc rxmflog_time 9999 99;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 bicc txmflog_time 9999 99;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 bicc silogmask 255;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 bicc dbgMask 0xffffffff;
+
+SigDbg:::::dest-b-ccs-0/9/1/2 isup udataPrint 0x00000fff;
+
+ 
+
+ 
+
+sigdbg:::::dest-b-ccs-0/9/1/2 isdn msgtrace 3;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 q931 inDbgMask 0xffffffff;
+
+sigdbg:::::dest-b-ccs-0/9/1/2 q931 qwDbgMask 0xffffffff;
+
+ 
+
+sigdbg:::::dest-b-m2uasig-0/9/1/2 stg sdi-setdbg-ffffffff;
+
+sigdbg:::::dest-b-mg-3 stg 0/9/1/2 conv conv-sdi-setdbg-ffffffff;
+
+sigdbg:::::dest-b-mg-3 stg 0/9/1/2 conv conv-sda-setdbg-ffffffff;
+
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace +all mtpl3 mtp_dist lk;
+
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace +user1 calltrace +msg_rtg mtpl3
+
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 stg dbgMask 0xffffffff
+
+sigdbg:::::dest-b-mtp3sig-0/9/1/2 ss7trace +all mtp_coc;
+
+sigdbg:::::dest-b-m2uasig-0/9/1/2 stg iph-setdbg-ffffffff;
+
+ 
+
+ 
+
+ 
+
+ 
+
+sigdbg::::: dest-b-ccs-0/9/1/2 ccDbg ccDbgMask 0xFFFFFFFF
+
+sigdbg::::: dest-b-ccs-0/9/1/2 ccDbg ainDbg0
+
+sigdbg::::: dest-b-ccs-0/9/1/2 ccDbg ccIwDbgMask 0xFFFFFFFF
+
+sigdbg::::: dest-b-ccs-0/9/1/2 ficDbg 0
+
+sigdbg::::: dest-b-ccs-0/9/1/2  inslDbg 0
+
+sigdbg:::::  dest-b-ccs-0/9/1/2 scpiDbg 0
+
+sigdbg::::: dest-b-ccs-0/9/1/2 billdbg 1
+
+sigdbg::::: dest-b-ccs-0/9/1/2 wfsDbg  0
+
+sigdbg::::: dest-b-ccs-0/9/1/2 wfsDbg  24
+
+sigdbg::::: dest-b-ccs-0/9/1/2  sccpDbg 0
+
+sigdbg::::: dest-b-ccs-0/9/1/2  tcapDbg 0 
+
+ 
+
+ 
+
+sigdbg:::::dbp log;
+
+sigdbg:::::dbp log ALL ALL commit;
+
+sigdbg:::::dbp log ALL ALL reset;
+
+sigdbg:::::dbp log ALL ALL;
+
+sigdbg:::::dest-a-dbp dbpdbg log ALL ALL;
+
+sigdbg:::::dest-a-slam  slamdbg level 0x1f;  
+
+
+##########LGP############
+
+//Router
+sigdbg:::::dest-b-rs-0/1/2/1 rsDbg gen all high;
+sigdbg:::::dest-b-rs-0/2/2/1 rsDbg gen all high;
+
+//ISUP
+
+sigdbg:::::dest-b-ccs-1/4/1 isup msgtrace 3;
+SigDbg:::::dest-b-ccs-1/4/1 isup FsmTrace 7;
+SigDbg:::::dest-b-ccs-1/4/1 isup rxmflog_time 9999;
+SigDbg:::::dest-b-ccs-1/4/1 isup txmflog_time 9999;
+SigDbg:::::dest-b-ccs-1/4/1 isup rxmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-1/4/1 isup txmflog_time 9999 99;
+sigdbg:::::dest-b-ccs-1/4/1 isup evtdump 255 254
+SigDbg:::::dest-b-ccs-1/4/1 isup dbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-1/4/1 isup dqcong 100 60 50 40;
+sigdbg:::::dest-b-ccs-1/4/1 isup dqcong 10 6 5 3;
+sigdbg:::::dest-b-ccs-1/4/1 isup dqcong 500 400 300 200;
+SigDbg:::::dest-b-ccs-1/4/1 isup isupModTrace 15;
+
+//BICC
+sigdbg:::::dest-b-ccs-1/4/1 bicc bicclogmask 255
+sigdbg:::::dest-b-ccs-1/4/1 bicc msgtrace 3;
+SigDbg:::::dest-b-ccs-1/4/1 bicc FsmTrace 7;
+SigDbg:::::dest-b-ccs-1/4/1 bicc rxmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-1/4/1 bicc txmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-1/4/1 bicc dbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-1/4/1 billdbg 1;
+
+//GCC & FIC
+sigdbg:::::dest-b-ccs-1/4/1 ccDbg ccIwDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-1/4/1 ccDbg ccDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-1/4/1 ccDbg ainDbg0;
+sigdbg:::::dest-b-ccs-1/4/1 rmDbg rmDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-1/4/1 ficDbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 csDbg debug 3;
+sigdbg:::::dest-b-ccs-1/4/1 ccDbg mgctDbg 3;
+SigDbg:::::dest-b-ccs-1/4/1 IW dbgMask 0xffffffff;
+
+//IN
+sigdbg:::::dest-b-ccs-1/4/1 scpiDbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 wfsDbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 inapDbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 inslDbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 sccpDbg  0;
+sigdbg:::::dest-b-ccs-1/4/1 tcapDbg  0;
+sigdbg:::::dest-b-ccs-1/4/1 is41Dbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 asnDbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 mapDbg 3;
+sigdbg:::::dest-b-ccs-1/4/1 ficDbg 0;
+sigdbg:::::dest-b-ccs-1/4/1 scpiDbg 0;
+
+
+
+//ISDN
+sigdbg:::::dest-b-ccs-1/4/1 isdn msgtrace 3;
+sigdbg:::::dest-b-ccs-1/4/1 q931 inDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-1/4/1 q931 qwDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-1/4/1 q931 isdn mflog_time 9999;
+
+//SIP
+sigdbg:::::dest-b-ccs-1/4/1 sipw 0;
+sigdbg:::::dest-b-ccs-1/4/1 sipa dumpraw 1;
+sigdbg:::::dest-b-ccs-1/4/1 sipa dbglvl 0;
+sigdbg:::::dest-b-ccs-1/4/1 sipa sttrc 1;
+sigdbg:::::dest-b-ccs-1/4/1 sipa ipstrc 1;
+
+//Megaa
+sigdbg:::::dest-b-ccs-1/4/1 mmsldbg  0000ffff;
+sigdbg:::::dest-b-ccs-1/4/1 mmsldbg startcapture;
+sigdbg:::::dest-b-ccs-1/4/1 mmsldbg  stopheartbeat;
+
+
+//SG sigtrace
+sta-capt::lset-12:::,l3;
+stp-capt::lset-1:::1;
+
+//decord sigtrace file on OAK:
+/telica/toaster/home/release/decoder/decoder_run_on_LINUX/decoder -v ANSI -f <filename>
+ 
+/telica/toaster/home/release/decoder/decoder_run_on_LINUX/decoder -v ITU -f <filename>
+
+//Capture ISDN message
+# Turn on
+* Enable these logs on MGC
+* Output of the following command is reflected in sigtrace.out on the SP.
+sta-capt::isdnif-4023:::,l3; 4023 is the ISDN interface ID
+# Turn off
+stp-capt::isdnif-4023:::1;
+ 
+
+
+
+ 
+#### For TL1
+slam
+slam.out
+sigdbg:::::dest-b-slam  slamdbg level 0x1f;
+
+ 
+clam
+ccs.out
+sigdbg:::::dest-b-ccs-1/4/1  clSetLogLevel -1 0xf;
+sigdbg:::::dest-b-ccs-1/4/1 clSetLogLevel 9  0x1f;
+sigdbg:::::dest-b-ccs-1/4/1 clSetLogLevel 12  0x1f;	
+sigdbg:::::dest-a-ccs-1/4/1 clSetLogLevel -1  0x1f;        
+
+# Disable:
+sigdbg:::::dest-b-ccs-1/4/1 clSetLogLevel 9  0x7;	
+sigdbg:::::dest-b-ccs-1/4/1 clSetLogLevel 12  0x7;           
+sigdbg:::::dest-a-ccs-1/4/1 clSetLogLevel -1  0x7;  
+sigdbg:::::dest-b-ccs-1/4/1 clSetLogLevel 12  0x7;   
+
+#Billing
+sigdbg:::::dest-b-ccs-3/1/1 billdbg 1;
+sigdbg:::::dest-b-gdi-2 gdi debug 4;
+
+
+EXEC-FTP-LOGS::iom-1-cpu-C:::152.148.163.126,lhe002,telica,/home2/lhe002/felyl/CRBTCORE/new100225_V2,,,,LOGS,INCLUDE;
+EXEC-FTP-LOGS::iom-2-cpu-B:::152.148.163.126,dapingl,plexus9000,/home2/lhe002/felyl/WINQUERY/new0206,,,,LOGS,INCLUDE;
+
+EXEC-FTP-LOGS::sp-a:::152.148.163.126,lhe002,telica,/home2/lhe002/SIPTODOMAIN,,,,LOGS,INCLUDE;
+EXEC-FTP-LOGS::sp-b:::152.148.163.126,lhe002,telica,/home2/lhe002/SIPTODOMAIN,,,,LOGS,INCLUDE;
+
+
+
+
+
+
+
+
+
+
+
+##########ATCA############
+
+
+sigdbg:::::dest-b-ccs-0/9/1/2   ccDbg ccDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/9/1/2   ccDbg ainDbg0;
+sigdbg:::::dest-b-ccs-0/9/1/2   ccDbg ficDbg 0;
+sigdbg:::::dest-b-ccs-0/9/1/2   rmDbg rmDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/9/1/2   bicc msgtrace 3;
+SigDbg:::::dest-b-ccs-0/9/1/2   bicc FsmTrace 7;
+sigdbg:::::dest-b-ccs-0/9/1/2   isup msgtrace 3;
+SigDbg:::::dest-b-ccs-0/9/1/2   isup FsmTrace 7;
+SigDbg:::::dest-b-ccs-0/9/1/2   isup rxmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/9/1/2   isup txmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/9/1/2   isup dbgMask 0xffffffff;
+SigDbg:::::dest-b-ccs-0/9/1/2   bicc rxmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/9/1/2   bicc txmflog_time 9999 99;
+SigDbg:::::dest-b-ccs-0/9/1/2   bicc dbgMask 0xffffffff;
+SigDbg:::::dest-b-ccs-0/9/1/2   mgsig mgidbg 1;
+SigDbg:::::dest-b-ccs-0/9/1/2   mgsig sfddbg 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dbglvl 0;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipw 0;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa ipstrc 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dumpraw 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   ccDbg ccIwDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dumpraw 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   mmsldbg  0000ffff;
+sigdbg:::::dest-b-ccs-0/9/1/2  mmsldbg  startcapture;
+sigdbg:::::dest-b-ccs-0/9/1/2  mmsldbg  stopheartbeat;
+sigdbg:::::dest-b-rs-0/2/1/1 rsDbg gen all high;
+
+
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dbglvl 0;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipw 0;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa ipstrc 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dumpraw 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   ccDbg ccIwDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dumpraw 1;
+
+
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dbglvl 0;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipw 0;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa ipstrc 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dumpraw 1;
+sigdbg:::::dest-b-ccs-0/9/1/2   ccDbg ccIwDbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/9/1/2   sipa dumpraw 1;
+
+
+//ATCA SG sigtrace
+sta-capt::lset-411:::,l3;
+sta-capt::lset-12:::,l3;
+stp-capt::lset-411:::1;
+
+EXEC-FTP-LOGS::SHELF-0-ACM-3:::135.252.41.246,lhe002,telica,/home2/lhe002/felyl/14216WITHCGPN,,,,LOGS,INCLUDE;
+EXEC-FTP-LOGS::SHELF-0-ACM-4:::152.148.100.82,lhe002,telica,/home2/lhe002/felyl/14216WITHCGPN,,,,LOGS,INCLUDE;
+EXEC-FTP-LOGS::SHELF-0-ACM-5:::152.148.100.82,lhe002,telica,/home2/lhe002/felyl/14216WITHCGPN,,,,LOGS,INCLUDE;
+EXEC-FTP-LOGS::SHELF-0-ACM-6:::152.148.100.82,lhe002,telica,/home2/lhe002/felyl/14216WITHCGPN,,,,LOGS,INCLUDE;
+
+
+Back up TL1:
+EXEC-BACKUP-CFG:::::169.254.32.16,root,newsys,/home/felyl;
+
+EXEC-RESTORE-CFG:firestone::100::135.252.41.248,lzhan034,telica,/home/lzhan034/firestone_SW8.1.0.2.0.5_SCHEMA8.1.0.0_20101018_1018;
+
+sigdbg:::::dest-b-slam dumpmem; 
+
+#M3ua MGC side 
+sigdbg:::::dest-b-ccs-1/3/2 m3ua dbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-dist-1/3/2 m3ua dbgMask 0xFFFFFFFF;
+
+sigdbg::com:::dest-b-ccs-0/9/1/2 isup dumptgncic 1444 22;
+
+ZHAO, Dustin (Dustin) [14:41]:
+sigdbg:::::dest-b-ccs-3/1/1 isup dumptgncic 2071 2221;
+ZHAO, Dustin (Dustin) [14:41]:
+sigdbg:::::dest-b-ccs-3/1/1 rmDbg rmDumpAllCics 2071 2221 1;
+
+BTS:
+sigdbg:::::dest-b-ccs-0/9/1/2 billdbg 1;
+sigdbg:::::dest-b-gdi-0/9/1/2 gdi debug 4;
+sigdbg:::::dest-a-ccs-0/9/1/2 billdbg 1;
+
+
+
+Enable log in dcLog.out:
+telnet BindIP debugPort
+?
+procLogMsgMask 0x18ff
+quit
+
+
+CC Key words.
+01064(06872),00000(00000) 0x00000020 10-31 14:07:08.522 22221: ../cc_ptli.c:1597 CcLiCctRelReq::suConnId=9ed0
+01065(06872),00000(00000) 0x00000020 10-31 14:07:08.522 22221: ../cc_sipmap.c:26320 Cause Value=41, loc=10
+01066(06872),00000(00000) 0x00000020 10-31 14:07:08.522 22221: ../cc_ptli.c:1626 ** Cause sent Out: 41 **
+01067(06872),00000(00000) 0x00000020 10-31 14:07:08.522 22221: ../cc_ptli.c:1627 ** SENDING RELEASE REQUEST TO LAYER-3 **
+01068(06872),00000(000
+
+remctrl -bootui yes
+
+
+
+
+
+
+tcpdump -i siga0 -s 1500 -w abc.pcap
+
+
+
+
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem \A8Cr;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dcb \A8Cr;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem \A8Cr;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dcb \A8Cr;
+
+
+############################################################
+#########memory leak
+##############################################################
+ALL:
+sigdbg:::::dest-b-ccs-0/9/1/2 dumpmem;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem \A8CeE;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dcb \A8Cs;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem -u;
+sigdbg:::::dest-b-ccs-0/9/1/2 dumpmem; 
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem \A8CeE;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dcb \A8Cs;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem -u;
+sigdbg:::::dest-b-slam dumpmem;
+
+
+SIPA :
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem \A8CeE;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dmem -u;
+sigdbg:::::dest-b-ccs-0/9/1/2 sipa dcb \A8Cs;
+
+CCS:
+sigdbg:::::dest-b-ccs-0/9/1/2 dumpmem; 
+
+
+
+slam:
+sigdbg:::::dest-b-slam dumpmem;
+
+
+/////////////////////add by nancy yang////////////////////////20120920
+//
+//          CCS log's sigdbg commands
+///////////////////////////////////////////////////////////////////
+sigdbg:::::dest-b-ccs-0/6/1/3 ccDbg ccDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/6/1/3 ccDbg ainDbg0;                   
+sigdbg:::::dest-b-ccs-0/6/1/3 ccDbg ccIwDbgMask 0xffffffff;         
+sigdbg:::::dest-b-rs-0/6/1/3 rsDbg gen all high;            
+sigdbg:::::dest-b-ccs-0/6/1/3 rmDbg rmDbgMask 0xFFFFFFFF;
+sigdbg:::::dest-b-ccs-0/6/1/3 ficDbg 0;            
+sigdbg:::::dest-b-ccs-0/6/1/3 bicc msgtrace 1;
+sigdbg:::::dest-b-ccs-0/6/1/3 bicc rxmflog_time 9999 99;
+sigdbg:::::dest-b-ccs-0/6/1/3 bicc txmflog_time 9999 99;
+sigdbg:::::dest-b-ccs-0/6/1/3 bicc silogmask 255;
+sigdbg:::::dest-b-ccs-0/6/1/3 bicc dbgMask 0xffffffff;      
+sigdbg:::::dest-b-ccs-0/6/1/3 isup msgtrace 1;
+sigdbg:::::dest-b-ccs-0/6/1/3 isup FsmTrace 7;
+sigdbg:::::dest-b-ccs-0/6/1/3 isup dbgMask 0xffffffff;
+sigdbg:::::dest-b-ccs-0/6/1/3 sipa dbglvl 0;
+sigdbg:::::dest-b-ccs-0/6/1/3 sipw 0;
+sigdbg:::::dest-b-ccs-0/6/1/3 mmsldbg  0000ffff;
+sigdbg:::::dest-b-ccs-0/6/1/3 sipa dumpraw 1;
+sigdbg:::::dest-b-ccs-0/6/1/3 clSetLogLevel 9  0x1f;
+sigdbg:::::dest-b-ccs-0/6/1/3 clSetLogLevel 12  0x1f;
+sigdbg:::::dest-b-ccs-0/6/1/3 clSetLogLevel -1  0x1f;
+sigdbg:::::dest-b-ccs-0/6/1/3 mmsldbg startcapture;
+sigdbg:::::dest-b-ccs-0/6/1/3 mmsldbg  stopheartbeat;
+sigdbg:::::dest-b-ccs-0/6/1/3 ccDbg mgctDbg 3;
+

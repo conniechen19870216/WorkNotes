@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "update BRANCH-9-0-1"
+cd /home/kavonm/sandbox/BRANCH-9-0-1
+coall BRANCH-9-0-1
+
+echo "update BRANCH-9-1-0"
+cd /home/kavonm/sandbox/BRANCH-9-1-0
+coall BRANCH-9-0-1
+
+echo "update Main"
+cd /home/kavonm/sandbox/Main
+coall main

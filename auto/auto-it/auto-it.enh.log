@@ -1,0 +1,1213 @@
+INFO: Auto Installation mode for COMPACT config. START...
+INFO: automodec : Start AUTO-IT for COMPACT mode in /local/hssit/autoIT.
+INFO: ftpbldvm: Start: FTP the mCAS_r29su2_ddm_r80.00.01.30-02_Aug_8_CS.tgz to /local/hssit/autoIT.
+INFO: ftpbldvm: mCAS_r29su2_ddm_r80.00.01.30-02_Aug_8_CS.tgz already exists, no need to ftp
+INFO: ftpbldvm: End: FTP the mCAS_r29su2_ddm_r80.00.01.30-02_Aug_8_CS.tgz to /local/hssit/autoIT done.
+INFO: ftpspa: Start: FTP the 8650SDM-4.0.0-ATCAv2-2011-09-02-COMPACT.tar to /local/hssit/autoIT.
+INFO: ftpspa: End: FTP the 8650SDM-4.0.0-ATCAv2-2011-09-02-COMPACT.tar to /local/hssit/autoIT done.
+OAM400-service_logic.full.tar
+SDM400-service_logic.full.tar
+SDM_tools.tar
+INFO: /home/hssit/auto-it/startvm1 Start: CMP Vmware will be started.
+tar xvfz mCAS_r29su2_ddm_r80.00.01.30-02_Aug_8_CS.tgz
+vmware -x VMCS10-pilot-A/VMCS10-pilot-A.vmx
+INFO: /home/hssit/auto-it/startvm1 End: CMP Vmware is started.
+/usr/share/themes/Clearlooks/gtk-2.0/gtkrc:59: error: unexpected identifier `animation', expected character `}'
+/usr/share/themes/Clearlooks/gtk-2.0/gtkrc:59: error: unexpected identifier `animation', expected character `}'
+/usr/share/themes/Clearlooks/gtk-2.0/gtkrc:59: error: unexpected identifier `animation', expected character `}'
+INFO: vminitchk: Start: Check the vm10 is started: check if able to login via ssh; home dir for ainet is mounted.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+e5:94:4e:3d:20:21:2c:e2:e9:0d:70:e6:51:c2:34:a3.
+Please contact your system administrator.
+Add correct host key in /home/hssit/.ssh/known_hosts to get rid of this message.
+Offending key in /home/hssit/.ssh/known_hosts:4
+RSA host key for vm10 has changed and you have requested strict checking.
+Host key verification failed.
+The authenticity of host 'vm10 (172.25.126.10)' can't be established.
+RSA key fingerprint is e5:94:4e:3d:20:21:2c:e2:e9:0d:70:e6:51:c2:34:a3.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'vm10,172.25.126.10' (RSA) to the list of known hosts.
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Mon Aug  8 11:58:11 CST 2011 from 172.25.126.1 on ssh
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+Could not chdir to home directory /u/ainet: No such file or directory
+INFO: no home dir for ainet, please wait for init complete.
+INFO: vminitchk: vm10 start in progress...
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:40:41 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> INFO: vminitchk: vm10 started
+INFO: send2vm: The following files are sending to vm10:/tmp
+
+coretest                                        0%    0     0.0KB/s   --:-- ETAcoretest                                      100% 1168     1.1KB/s   00:00    
+
+opinit                                          0%    0     0.0KB/s   --:-- ETAopinit                                        100%  241     0.2KB/s   00:00    
+
+chk_init                                        0%    0     0.0KB/s   --:-- ETAchk_init                                      100% 1867     1.8KB/s   00:00    
+
+addhost                                         0%    0     0.0KB/s   --:-- ETAaddhost                                       100%  422     0.4KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+cfg_sdm_tool                                    0%    0     0.0KB/s   --:-- ETAcfg_sdm_tool                                  100%  875     0.9KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+wa_oam                                          0%    0     0.0KB/s   --:-- ETAwa_oam                                        100%  355     0.4KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+wa_bkdoor                                       0%    0     0.0KB/s   --:-- ETAwa_bkdoor                                     100% 1043     1.0KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+SDM_Genernal_Data.xml                           0%    0     0.0KB/s   --:-- ETASDM_Genernal_Data.xml                         100%   66KB  65.9KB/s   00:01    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+cfg_sdm_tool1                                   0%    0     0.0KB/s   --:-- ETAcfg_sdm_tool1                                 100% 1026     1.0KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+gen_psw_apache                                  0%    0     0.0KB/s   --:-- ETAgen_psw_apache                                100%  541     0.5KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+sshdchg                                         0%    0     0.0KB/s   --:-- ETAsshdchg                                       100%  199     0.2KB/s   00:00    
+INFO: send2vm: The following files are sending to vm10:/sn/cr/tracedir
+
+Could not chdir to home directory /u/ainet: No such file or directory
+OamHSS_flags                                    0%    0     0.0KB/s   --:-- ETAOamHSS_flags                                  100%  220     0.2KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+SDM400_flags                                    0%    0     0.0KB/s   --:-- ETASDM400_flags                                  100%  450     0.4KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+OamCOMM_flags                                   0%    0     0.0KB/s   --:-- ETAOamCOMM_flags                                 100%  190     0.2KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+SAUCS1_flags                                    0%    0     0.0KB/s   --:-- ETASAUCS1_flags                                  100%   57     0.1KB/s   00:00    
+
+Could not chdir to home directory /u/ainet: No such file or directory
+PDLSI1_flags                                    0%    0     0.0KB/s   --:-- ETAPDLSI1_flags                                  100%  524     0.5KB/s   00:00    
+INFO: mcasinitchk: Start: Check the MCAS of vm10 is started: check if all PROCs and MySql are up.
+INFO: mcasinitchk : vm10 Init in progress...
+INFO: mcasinitchk : vm10 Init in progress...
+INFO: mcasinitchk : vm10 Init in progress...
+INFO: mcasinitchk : vm10 Init in progress...
+INFO: mcasinitchk: MCAS of vm10 Init done.
+INFO: sendtar: Start: Sending application tars to VM.
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:45:01 CST 2011 from 172.25.126.1 on ssh
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:45:01 CST 2011 on cron
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# AM400-service _logic.full.tar.o                            <fc
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:45:04 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:45:09 CST 2011 from station_a on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# DM400-service _logic.full.tar.o                            <fc
+vm10-0-0-1:/root-# 
+
+INFO: sendtar: Send Application Tars completed to VM.
+INFO: cfgsdmtool: Start: config SDMTOOL and some system configs.
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:45:14 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:45:29 CST 2011 from station_a on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# mkdir /cust _use/SDM
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:45:29 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:45:34 CST 2011 from vm10-0-0-1 on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# cp /tmp/SDM _tools.tar /cust _use/SDM/
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:45:38 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:45:40 CST 2011 from localhost.localdomain on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# cd /cust _use/SDM; tar xvf SDM _tools.tar
+./SDM_tools/
+./SDM_tools/ip_config/
+./SDM_tools/ip_config/defaultvalues.ini
+./SDM_tools/ip_config/siteinfo.template
+./SDM_tools/ip_config/DSCP_Builder.py
+./SDM_tools/ip_config/gen_siteinfo.py
+./SDM_tools/ip_config/XmlDomTools.py
+./SDM_tools/ip_config/logging.conf
+./SDM_tools/ip_config/SI_IPBuilder.py
+./SDM_tools/ip_config/ssh_expect
+./SDM_tools/cfg/
+./SDM_tools/cfg/SDM_General_Data.xml
+./SDM_tools/cfg/application_configData.xsd
+./SDM_tools/cfg/application_configData.xml
+./SDM_tools/readme
+./SDM_tools/security/
+./SDM_tools/security/ConfigSDMSecurity.py
+./SDM_tools/security/secuProc.sh
+./SDM_tools/security/SDScripts/
+./SDM_tools/security/SDScripts/LibCertificateCreator.sh
+./SDM_tools/security/SDScripts/LibTomixCA.sh
+./SDM_tools/security/SDScripts/checkCertificate.sh
+./SDM_tools/security/SDScripts/create_server_cert.log
+./SDM_tools/security/tomixca/
+./SDM_tools/security/tomixca/tomixca_cert.pem
+./SDM_tools/security/tomixca/tomixca_key.pem
+./SDM_tools/security/secChmod.sh
+./SDM_tools/security/Gen_Psw_Apache.sh
+./SDM_tools/subDataQuery/
+./SDM_tools/subDataQuery/Script/
+./SDM_tools/subDataQuery/Script/GdmiPython.so
+./SDM_tools/subDataQuery/Script/libGDMIPython.so
+./SDM_tools/subDataQuery/Script/libboost_python.so.1.45.0
+./SDM_tools/subDataQuery/Script/attr_info_process.py
+./SDM_tools/subDataQuery/Script/baseFwk.py
+./SDM_tools/subDataQuery/Script/db.cfg
+./SDM_tools/subDataQuery/Script/entry_list.cfg
+./SDM_tools/subDataQuery/Script/setenv
+./SDM_tools/subDataQuery/Script/subDataQueryTool-dataprofile.xml
+./SDM_tools/subDataQuery/Script/subDataQueryTool-dm.xml
+./SDM_tools/subDataQuery/Script/subDataQueryTool.py
+./SDM_tools/subDataQuery/Script/subscriberData_base.py
+./SDM_tools/subDataQuery/subDataQuery.sh
+./SDM_tools/merge_tool/
+./SDM_tools/merge_tool/upgrade_sdmtool.sh
+./SDM_tools/merge_tool/xml_validater.py
+./SDM_tools/merge_tool/xml_merger.py
+./SDM_tools/xmlEditor/
+./SDM_tools/xmlEditor/xmlEditor.jar
+./SDM_tools/xmlEditor/xmlEditor_readme.txt
+vm10-0-0-1:/cust_use/SDM-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:45:41 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:45:42 CST 2011 from station_a on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# /tmp/cfg _sdm _tool1 vm10
+###Start to read SECURITY MODULE from xml file!###
+###Support updating Cipher Suite available for negotiation in SSL handshake!###
+Creating the non-existing directory /diskless/release/credentials/http ...
+TRC - Launching >>> checkCertificat.sh server_name="{vm10}" apache_mode="{secured}" target="{/diskless/release/credentials/http}" 
+TRC - server_name = [ vm10 ]
+TRC - apache_mode = [ secured ] 
+TRC - target_dir  = [ /diskless/release/credentials/http ]
+TRC - server_certificate_file = [ server_cert.pem ]
+TRC - server_private_key_file = [ server_key.pem ]
+* WAR - mode is [ secured ] : Tomix can not generate server_cert.pem & server_key.pem
+* WAR - for [ secured ] mode, server_cert.pem & server_key.pem must be delivered /DELIV or
+		  and must be valid (not expired & rigth server name)
+-------> /cust_use/SDM/SDM_tools/security/SDScripts//../tomixca
+-------> tomixca_key.pem
+DBG - Generating new certificate and private key ....
+/LibCertificateCreator.sh vm10 /diskless/release/credentials/http
+entering /cust_use/SDM/SDM_tools/security/SDScripts/
+Generating certificate for server vm10...
+copying file /cust_use/SDM/SDM_tools/security/SDScripts/../tomixca/tomixca_cert.pem  into /diskless/release/credentials/http/forClientHostConfiguration/tomixca_cert.pem...
+
+Please, check the certificate creation by looking at log file : /cust_use/SDM/SDM_tools/security/SDScripts/create_server_cert.log
+more /cust_use/SDM/SDM_tools/security/SDScripts/create_server_cert.log
+
+You can check the certificate using the following command :
+openssl x509 -in /diskless/release/credentials/http/server_cert.pem -noout -text
+
+----------------------
+
+###Checking whether the output files exists!###
+###End of reading xml file!###
+dos2unix: converting file /vendorpackages/Apache/webserver/conf/httpd.conf to UNIX format ...
+dos2unix: converting file /etc/ssh/sshd_config to UNIX format ...
+###Start to implement SECURITY functions!###
+###Start to set ssh accesses' LogLevel!###
+###Start to set parameter's value named Ciphers!###
+###Start to redirect mail and authentication facilities eventin in local log file!###
+###Change /var/log access right to 755!###
+###Allow cron for root only!###
+###Allow at for root only!###
+###redirect event with priority emergency to a dedicated file!###
+###redirect event with priority info to a dedicated file!###
+###Linux logs has been stored in compressed format on the platform!###
+###End of security functions implementing!###!
+###Adding the SDM GUI Alias!###
+###Set the list of clients allowed to access to HTTP server!###
+###Adding directives ErrorDocument!###
+###Adding directives in HTTP config file!###
+###Updating httpd.conf for SECURE_CONNECTION_MODE_TO_SDM Login page!###
+###Setting the list of files protected by a password###
+###Setting an Apache banner!###
+###Allow links to heavy files from outsides!###
+###Set Apache ssl cipher configuration!###
+###Set servername!###
+###Change SSLCertificate!###
+###Turn Off the http request forward to https!###
+###Creating Help.properties###
+###chmod 755 /cust_use/SDM/###
+dos2unix: converting file /vendorpackages/Apache/webserver/conf/httpd.conf to UNIX format ...
+dos2unix: converting file /etc/ssh/sshd_config to UNIX format ...
+Shutting down system logger: [60G[[0;32m  OK  [0;39m]
+Starting system logger: [60G[[0;32m  OK  [0;39m]
+Adding password for user admin_root
+###Restart Apache Service !!!###
+###Restart Apache Successfully!###
+###End of the script!!!###
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:45:44 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:46:01 CST 2011 from vm10-0-0-1 on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# chmod 777 /cust _use/SDM
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:46:02 CST 2011 from 172.25.126.1 on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:46:02 CST 2011 on pts/1
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# /tmp/addhost
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:46:04 CST 2011 from 172.25.126.1 on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:46:07 CST 2011 from localhost.localdomain on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# /tmp/sshdchg
+/tmp/sshdchg
+Stopping sshd: [60G[[0;32m  OK  [0;39m]
+Starting sshd: /etc/ssh/sshd_config line 130: Deprecated option RhostsAuthentication
+[60G[[0;32m  OK  [0;39m]
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:46:07 CST 2011 from app.com on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:46:08 CST 2011 from station_a on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# chmod 755 /sn/cr/tracedir/
+chmod 755 /sn/cr/tracedir/
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:46:10 CST 2011 from app.com on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:46:10 CST 2011 on pts/1
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# ROL _ACTIVATED = 0/' /usr/dhafw                            <vm10-0-0-1:/root-# eric.cfg > /tmp/pf _generic.cfg
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:46:12 CST 2011 from app.com on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+Password: 
+Last login: Fri Sep  2 23:46:14 CST 2011 from vm10-0-0-1 on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# cp /tmp/pf _generic.cfg /usr/dhafw/data/pf _generic.cfg
+vm10-0-0-1:/root-# 
+
+INFO: cfgsdmtool: END: config SDMTOOL and some system configs.
+INFO: instOAM: Start: install config and proc for OAM400 on vm10 .
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:46:15 CST 2011 from app.com on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> subshl
+USLI TERMINAL IN SERVICE.
+Copyright (c) 1996-2007 Alcatel-Lucent - All rights reserved.
+< install:config,spa=OAM400 IP
+< 
+   +++ VM10 2011-09-02 23:47:46 MAINT /SA016 #000123 0-0-1 >
+M  INSTALL SPA=OAM400 CONFIG SPA INSTALLATION COMPLETE - SUMMARY REPORT:
+   
+                    OPERATION                           STATUS
+     ----------------------------------------  ------------------------
+     SPA FILE INSTALLATION:                    SUCCEEDED
+     DB CONFIGURATION:                         SUCCEEDED
+     MEASUREMENTS CONFIGURATION:               SUCCEEDED
+     DECISION GRAPH INSTALLATION:              N/A
+     VOICE FILE INSTALLATION:                  N/A
+     ASR GRAMMAR INSTALLATION:                 N/A
+     JAVA FILE INSTALLATION:                   N/A
+     ADDENDUM FILE INSTALLATION:               N/A
+     SNMP SUBAGENT INSTALLATION:               N/A
+     POST SCRIPT EXECUTION:                    SUCCEEDED
+     SPA FILE SYNCHRONIZATION:                 FAILED
+   
+   END OF REPORT #000123++-
+< INFO: /home/hssit/auto-it/inst_cfg1 install:config success for OAM400
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:46:18 CST 2011 from app.com on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+su - 
+Password: 
+Last login: Fri Sep  2 23:47:45 CST 2011 from station_a on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# /sn/sps/OAM400/bin/post.install.LXSERVER _ACTL.sh
+Launching ahe-add on
+executing timesten env script
+OAMHSS_ARGV = 
+OAMCOMM_ARGV = 
+/vendorpackages/Apache/lib/64:/vendorpackages/platdb/odbc64/lib:/sn/lib/64:/lib:/opt/sn/lib/64:/usr/lib::/sn/cslee/release/lib/64:/vendorpackages/ldapcsdk/lib/64:/sn/sps/OAM400/lib
+/opt/ace/sparc/lib:/usr/lib/lwp:/opt/usrlib:/vendorpackages/Apache/lib:/vendorpackages/platdb/odbc32/lib:/sn/lib:/lib:/opt/sn/lib:/usr/lib:/lib:/sn/cslee/release/lib:/vendorpackages/ldapcsdk/lib:/vendorpackages/Apache/lib/64:/vendorpackages/platdb/odbc64/lib:/sn/lib/64:/lib:/opt/sn/lib/64:/usr/lib::/sn/cslee/release/lib/64:/vendorpackages/ldapcsdk/lib/64:/sn/sps/OAM400/bin/lib:/usr/dhafw/shlib:/usr/mysql/lib/mysql
+Begin install Access Control ..
+Read Access Control XML config file /cust_use/SDM/SDM_tools/cfg/application_configData.xml ... 
+Locate SYSTEM_PREFIX Node in XML config file ...
+Search option Node SECURITY 
+Search option Node sshCiphers 
+Search option Node httpClientAllowed1 
+Search option Node SECURE_CONNECTION_MODE_TO_SDM 
+Search option Node sslCipherSuite 
+Search option Node httpRealm 
+Search option Node httpPasswordOnFiles 
+Search option Node apacheBanner 
+Search option Node httpForbidLinkFromOutsite 
+Search option Node CONFIGURATION 
+Search option Node HARDWARE 
+Search option Node SYSTEM_PREFIX 
+Found SYSTEM_PREFIX Node!!
+EXT_ORB_NAME = vm10
+
+
+Locate AccessControl Node in XML config file ...
+Search function Node AccessControl 
+Found AccessControl Node!!
+Parse AccessControlNode ...
+ACTL_DB_USER_NAME = actl_user
+ACTL_DB_NAME = actl_mib
+Try to create AccessControl config file /sn/sps/OAM400/bin/ACTL/cfg/ActlConf.cfg
+Generate AccessControl config file /sn/sps/OAM400/bin/ACTL/cfg/ActlConf.cfg !!
+Generate AccessControl config file /sn/sps/OAM400/bin/ACTL/cfg/ActlPswd.cfg !!
+Parse /cust_use/SDM/SDM_tools/cfg/application_configData.xml successfully
+Install OAM Access Control config files ..
+Install ACTL config files ...
+Install OAM Access Control config files Successfully!!
+Begin update Access Control ORB config file successfully!!
+old external OAM Hostname: vm10
+new external OAM hostname = vm10
+Update /sn/sps/OAM400/config/OamApiConfig.conf.Platform
+Update /sn/sps/OAM400/config/OamServerConfig.conf.Platform
+Update /sn/sps/OAM400/bin/LXSERVER_Naming
+Update Access Control ORB config file successfully!!
+update config file successfully
+Install Access Control Dictonary files ...
+Install Access Control Dictonary files successfully!!
+Install Access Control Database ...
+set db_name succeed: actl_mib!
+set db_user succeed: actl_user!
+Last login: Fri Sep  2 23:41:56 CST 2011
+su postgres succeed
+could not change directory to "/root"
+CREATE USER actl_user WITH NOSUPERUSER CREATEDB
+CREATE ROLE
+could not change directory to "/root"
+CREATE DATABASE actl_mib WITH OWNER actl_user
+CREATE DATABASE
+create actl user successfully!!!
+Last login: Fri Sep  2 23:41:56 CST 2011
+NOTICE:  CREATE TABLE will create implicit sequence "ds_actl_version_info_dsicursor_seq" for serial column "ds_actl_version_info.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_actl_version_info_dsicursor_key" for table "ds_actl_version_info"
+CREATE TABLE
+DELETE 0
+INSERT 0 1
+NOTICE:  CREATE TABLE will create implicit sequence "ds_user_access_dsicursor_seq" for serial column "ds_user_access.dsicursor"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "ds_user_access_pkey" for table "ds_user_access"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_user_access_dsicursor_key" for table "ds_user_access"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_user_profile_dsicursor_seq" for serial column "ds_user_profile.dsicursor"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "ds_user_profile_pkey" for table "ds_user_profile"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_user_profile_dsicursor_key" for table "ds_user_profile"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_domain_profile_dsicursor_seq" for serial column "ds_domain_profile.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_domain_profile_dsicursor_key" for table "ds_domain_profile"
+CREATE TABLE
+NOTICE:  CREATE TABLE will create implicit sequence "ds_sub_domain_profile_dsicursor_seq" for serial column "ds_sub_domain_profile.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_sub_domain_profile_dsicursor_key" for table "ds_sub_domain_profile"
+CREATE TABLE
+NOTICE:  CREATE TABLE will create implicit sequence "ds_interface_profile_dsicursor_seq" for serial column "ds_interface_profile.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_interface_profile_dsicursor_key" for table "ds_interface_profile"
+CREATE TABLE
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_authentication_controler_dsicursor_seq" for serial column "ds_authentication_controler.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_authentication_controler_dsicursor_key" for table "ds_authentication_controler"
+CREATE TABLE
+NOTICE:  CREATE TABLE will create implicit sequence "ds_ip_meths_dsicursor_seq" for serial column "ds_ip_meths.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_ip_meths_dsicursor_key" for table "ds_ip_meths"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_ip_meths_interfaceprofileld_key" for table "ds_ip_meths"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_up_up_dsicursor_seq" for serial column "ds_up_up.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_up_up_dsicursor_key" for table "ds_up_up"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_up_up_userprofileld_key" for table "ds_up_up"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_up_ua_dsicursor_seq" for serial column "ds_up_ua.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_up_ua_dsicursor_key" for table "ds_up_ua"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_up_ua_userprofileld_key" for table "ds_up_ua"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_up_dp_dsicursor_seq" for serial column "ds_up_dp.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_up_dp_dsicursor_key" for table "ds_up_dp"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_up_dp_userprofileld_key" for table "ds_up_dp"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_dp_sdp_dsicursor_seq" for serial column "ds_dp_sdp.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_dp_sdp_dsicursor_key" for table "ds_dp_sdp"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_dp_sdp_domainprofileld_key" for table "ds_dp_sdp"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_sdp_ip_dsicursor_seq" for serial column "ds_sdp_ip.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_sdp_ip_dsicursor_key" for table "ds_sdp_ip"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_sdp_ip_subdomainprofileld_key" for table "ds_sdp_ip"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_actl_netype_dsicursor_seq" for serial column "ds_actl_netype.dsicursor"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_actl_netype_dsicursor_key" for table "ds_actl_netype"
+CREATE TABLE
+NOTICE:  CREATE TABLE will create implicit sequence "ds_login_history_dsicursor_seq" for serial column "ds_login_history.dsicursor"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "ds_login_history_pkey" for table "ds_login_history"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_login_history_dsicursor_key" for table "ds_login_history"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_calendar_template_dsicursor_seq" for serial column "ds_calendar_template.dsicursor"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "ds_calendar_template_pkey" for table "ds_calendar_template"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_calendar_template_dsicursor_key" for table "ds_calendar_template"
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+NOTICE:  CREATE TABLE will create implicit sequence "ds_config_data_dsicursor_seq" for serial column "ds_config_data.dsicursor"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "ds_config_data_pkey" for table "ds_config_data"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_config_data_dsicursor_key" for table "ds_config_data"
+CREATE TABLE
+NOTICE:  CREATE TABLE will create implicit sequence "ds_actl_event_dsicursor_seq" for serial column "ds_actl_event.dsicursor"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "ds_actl_event_pkey" for table "ds_actl_event"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "ds_actl_event_dsicursor_key" for table "ds_actl_event"
+CREATE TABLE
+                    List of relations
+ Schema |            Name             | Type  |   Owner   
+--------+-----------------------------+-------+-----------
+ public | ds_actl_event               | table | actl_user
+ public | ds_actl_netype              | table | actl_user
+ public | ds_actl_version_info        | table | actl_user
+ public | ds_authentication_controler | table | actl_user
+ public | ds_calendar_template        | table | actl_user
+ public | ds_config_data              | table | actl_user
+ public | ds_domain_profile           | table | actl_user
+ public | ds_dp_sdp                   | table | actl_user
+ public | ds_interface_profile        | table | actl_user
+ public | ds_ip_meths                 | table | actl_user
+ public | ds_login_history            | table | actl_user
+ public | ds_sdp_ip                   | table | actl_user
+ public | ds_sub_domain_profile       | table | actl_user
+ public | ds_up_dp                    | table | actl_user
+ public | ds_up_ua                    | table | actl_user
+ public | ds_up_up                    | table | actl_user
+ public | ds_user_access              | table | actl_user
+ public | ds_user_profile             | table | actl_user
+(18 rows)
+
+Install Access Control Database successfully!!
+Begin install Access Control Sync Configuration ...
+Install Access Control Sync Configuration successfully!!
+Install Access Control Successfully!!
+
+vm10-0-0-1:/root-# 
+
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Warning: No xauth data; using fake authentication data for X11 forwarding.
+Last login: Fri Sep  2 23:47:50 CST 2011 from app.com on pts/1
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> subshl
+USLI TERMINAL IN SERVICE.
+Copyright (c) 1996-2007 Alcatel-Lucent - All rights reserved.
+< install:proc,spa=OAM400 IP
+< 
+   +++ VM10 2011-09-02 23:48:48 MAINT   #000132 0-0-1 >
+   INSTALL PROC SPA OAM400 IN PROGRESS
+   	0 of 1 COMPLETE
+   END OF REPORT #000132++-
+< 
+   +++ VM10 2011-09-02 23:50:18 MAINT   #000187 0-0-1 >
+   INSTALL PROC SPA OAM400 IN PROGRESS
+   	0 of 1 COMPLETE
+   END OF REPORT #000187++-
+< 
+   +++ VM10 2011-09-02 23:51:48 MAINT   #000197 0-0-1 >
+   INSTALL PROC SPA OAM400 IN PROGRESS
+   	0 of 1 COMPLETE
+   END OF REPORT #000197++-
+< 
+   +++ VM10 2011-09-02 23:53:18 MAINT   #000208 0-0-1 >
+   INSTALL PROC SPA OAM400 IN PROGRESS
+   	0 of 1 COMPLETE
+   END OF REPORT #000208++-
+< 
+   +++ VM10 2011-09-02 23:53:35 MAINT /SA036 #000222 0-0-1 >
+M  INSTALL PROC,SPA  OAM400 FAILED: REASON(INIT FAILED TO START SPA)
+   END OF REPORT #000222++-
+< /home/hssit/auto-it/inst_spa1 ERR: install:proc fail for OAM400
+ITERROR: instOAM : Install OAM400 spa failed

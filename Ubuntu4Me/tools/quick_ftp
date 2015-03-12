@@ -1,0 +1,5 @@
+#!/bin/bash
+
+BR=$1
+LOAD=$2
+proz -k=20 --no-getch --no-search --no-curses ftp://wilsonl:lucent1234@152.148.100.123//telica/toaster/home/release/$BR/swATCAwBTS/$LOAD

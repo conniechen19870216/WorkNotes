@@ -1,0 +1,9 @@
+resquery_response->
+                   ncache_message->
+                                   ncache_adderesult->
+                                                      dns_ncache_add->
+                                                                      dns_db_addrdataset->
+                                                                                          addrdataset
+
+
+http://www.faqs.org/rfcs/rfc2308.html

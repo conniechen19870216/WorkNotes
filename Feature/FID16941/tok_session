@@ -1,0 +1,32 @@
+1. Background
+MGC-8 internal DNS server is based on BIND-9 and has already supported dipping its extended cache
+for last positive cached response to proceed with the call when the DNS query is timeout in FID15942.0.
+
+2. Feature Description
+This feature is to enhance internal DNS server with following points:
+(1) The negative cache TTL could be set from 0 to 1440 minutes, and 180 minutes is default value.
+Note 1: MGC-8 will use this value to edit "max-ncache-ttl" in named.conf file.
+(2) NXDOMAIN or NXRRSET response can trigger dipping into internal DNS extended cache to use that last positive cached response 
+    only when the negative cache TTL is set to 0.
+Note 1: Also if the negative cache TTL is 0, it will disable the caching of NXDOMAIN and NXRRSET response and only the positive 
+response can be saved.
+(3) Positive response can overwrite negative response in the cache.
+Note 1: That is to say that there is only one record information whether positive or negative in the internal DNS cache.
+(4) A new log file "named_failed_queries.out" is created on active ACCM blade in order to record failed queries of internal DNS server.
+Note 1: The log file contains the FQDN that failed to resolve. Only one log is written into the log file if there are multiple failed queries 
+to the same FQDN in the past 5 seconds, but the log contains the number of logs discarded in the last 5 seconds due to throttle.
+Note 2: The log file contains maximum 2000 logs. After reaching the limit, the file will be saved as a zipped backup file whose name contains timestamp, 
+then the log file is emptied so that new logs can be written into it. 
+
+3. TL1 Changes
+
+4. Feature Mechanism
+SIPA initiates a DNS query to internal DNS server. If there is no positive result in the regular cache, MGC-8 will try to get query results from external
+DNS sever. The internal DNS server will receive a negative response (NXDOMAIN or NXRRSET) when the external DNS server can not provide a positive result.
+At this time, the internal DNS server will search its extended cache to find the result. If there is a match record, internal DNS server will send the 
+positive record to SIPA. Or the query will fail.
+
+SIPA query failures are written into new log file
+Print the records from log file to TL1 screen
+
+5. Log File

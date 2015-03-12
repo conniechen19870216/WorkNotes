@@ -1,0 +1,58 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+
+set spa [ lindex $argv 0 ]
+set ssn [ lindex $argv 1 ]
+
+if { $ssn == "" || $spa == "" } {
+        send "USAGE: $argv0 SPA SSN \n" 
+        exit
+}
+
+puts "$argv0: Start RCV1.2 insert SSN $ssn"
+spawn -noecho ssh ainet@vm10
+expect "password:"
+send "ainet1\n"
+expect "bj*>"
+send "subshl\n"
+expect "<"
+send "rcv:menu\r"
+expect -glob "->"
+send "1.2i\r"
+expect "SPA NAME"
+send "$spa\r"
+send "$ssn\r"
+expect {
+	"DUP*FORM" {
+		puts "$argv0: SPA $spa SSN $ssn already exists"
+		}
+	"NETWORK SSN\." {
+		send "0\r"
+		send "SPMAN\r"
+		expect "Enter Insert*"
+		send "i\r"
+		expect {
+			"Hit return" {
+				send "\n"
+				expect "Error"
+				send "\n"
+				puts "$argv0: ERR: error to insert the SPA $spa SSN $ssn"
+				expect "Enter Insert"
+				send "<\r"
+				}
+			"FORM INSERTED" {
+				puts "$argv0: insert the SPA $spa SSN $ssn success"
+				}
+			}	
+		}
+}
+expect "Service Pack*"
+send "<\r"
+expect -glob "->"
+send "!\r"
+expect "<"
+send "quit\r"
+send "exit\r"
+puts "$argv0: End RCV1.2 insert SPA $spa SSN $ssn"

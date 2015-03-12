@@ -1,0 +1,170 @@
+Overview:
+User Story 3
+Point 1 -- RBTDB_VIRTUAL
+Point 2 -- dboptions (ns_query) indicates whether exteneded cache is used.
+           #define XCACHEUSED(c)       (((c)->query.dboptions & \
+		                               DNS_DBFIND_USEXCACHE) != 0)
+
+Point 3 -- query_find/resume, ISC_R_TIMEDOUT case: set Extended Cache bit;
+                                                   adjust clients "now" time
+												   set 'want restart' bit and go to cleanup
+
+                              /* Try the Extended Cache. */
+							  client->query.dboptions |= DNS_DBFIND_USEXCACHE;
+        			          if (client->now == 0)
+	     			              isc_stdtime_get(&(client->now));
+					          client->now -= RBTDB_VIRTUAL;
+					          want_restart = ISC_TRUE;                                                 
+					          goto cleanup;
+
+		   Also prevent recursion when Extended Cache enabled
+           #if 1  /* Telica Added */
+   		       if (XCACHEUSED(client))
+ 	           return (ISC_R_DISABLED);
+           #endif
+
+Point 4 -- ICMP errors treated as TIMEDOUT
+(1) Calling function: ************************** resquery_senddone / resquery_connected *************************
+#if 1  /* Telica Added */
+       /* Remember the fact we are taking ICMP errors */
+       fctx->attributes |= FCTX_ATTR_ICMPERR;          
+#endif
+
+(2) Return ISC_R_TIMEDOUT: ***************************** fctx_getaddresses *********************************
+if 1  /* Telica Added */
+      /* Treat ICMP errors as timeouts */
+      if (fctx->attributes & FCTX_ATTR_ICMPERR)
+           return (ISC_R_TIMEDOUT);      
+#endif
+
+resquery_senddone / resquery_connected
+                      |
+					  |
+					  +-------> fctx_try
+					       |
+						   +-------> fctx_getaddresses
+
+
+User Story 4
+Point 5 -- Configuration of Extended Cache TTL
+           (1) load_configuration (server.c)
+
+		       obj = NULL;
+			   result = ns_config_get(maps, "xcache-ttl", &obj);
+			   INSIST(result == ISC_R_SUCCESS);
+			   ns_xcache_ttl = cfg_obj_asuint32(obj);
+						  
+           (2) namedconf.c 
+		       add new fields of 'cfg_clausedef_t'
+
+		   (3) config.c 
+		       add new fields for default configurations
+
+1. lib/isc/unix/include/isc/int.h
+
+   typedef char                isc_int8_t;
+   typedef unsigned char           isc_uint8_t;
+   typedef short               isc_int16_t;
+   typedef unsigned short          isc_uint16_t;
+   typedef int             isc_int32_t;
+   typedef unsigned int            isc_uint32_t;
+   typedef long long           isc_int64_t;                                        
+   typedef unsigned long long      isc_uint64_t;
+
+2. extended cache
+
+2.1 extended cache: <RBTDB_VIRTUAL>
+(1) lib/dns/rbtdb.c
+
+    #if 1  /* Telica Added */               
+    /* 
+     * This is being redefined as our Extended Cache.  The RBTDB_VIRTUAL
+     * symbol definition has been moved to dns/rbt.h.
+     */
+     isc_uint32_t ns_xcache_ttl;             
+    
+    #else
+    /*  
+     * Allow clients with a virtual time of upto 5 minutes in the past to see
+     * records that would have otherwise have expired.
+     */ 
+    #define RBTDB_VIRTUAL 300               
+    #endif
+
+(2) lib/dns/include/dns/rbt.h
+
+    #if 1  /* Telica Added */
+    extern isc_uint32_t ns_xcache_ttl;                                    
+        
+    #define RBTDB_VIRTUAL ns_xcache_ttl
+    #endif 
+
+2.2 extended cache: <dboptions> in 'ns_query' structure indicated whether extended cached is used.
+(1) bin/named/include/named/query.h
+
+    /*% nameserver query structure */
+    struct ns_query {
+        unsigned int            attributes;
+        unsigned int            restarts;
+        isc_boolean_t           timerset;
+        dns_name_t *            qname;
+        dns_name_t *            origqname;
+        unsigned int            dboptions;
+        unsigned int            fetchoptions;                                                                                                                                                      
+        dns_db_t *          gluedb;
+        dns_db_t *          authdb;
+        dns_zone_t *            authzone;
+        isc_boolean_t           authdbset;
+        isc_boolean_t           isreferral;
+        isc_mutex_t         fetchlock;
+        dns_fetch_t *           fetch;
+        isc_bufferlist_t        namebufs;
+        ISC_LIST(ns_dbversion_t)    activeversions;
+        ISC_LIST(ns_dbversion_t)    freeversions;
+    };
+(2) bin/named/query.c
+
+    #if 1  /* Telica Added */
+    /*% Extended Cache Used? */
+    #define XCACHEUSED(c)       (((c)->query.dboptions & \
+                      DNS_DBFIND_USEXCACHE) != 0)    
+    #endif
+
+3. query_find 
+(1) Recursive query
+    query_recurse
+      -- query_resume
+ 	       -- query_find (dns_fetchevent_t != NULL)
+		        -- query_recurse
+ 
+(2) Initial query
+    ns_query_start
+      -- query_find (dns_fetchevent_t == NULL)
+
+(3) input: ns_client_t, dns_fetchevent_t, dns_rdatatype_t
+
+(4) restart, db_find, resume, addauth, cleanup
+
+4. TTL Types
+(1) Negative Cache TTL: max-ncache-ttl 10800; /* 3 hours */
+(2) Positive Cache TTL: max-cache-ttl 604800; /* 1 week */
+    (Regular)
+
+(3) Extended Cache TTL: xcache-ttl 172800;  /* seconds */ /* Telica Added */ /* 48 hours */
+(4) Interim TTL:        interim-ttl 60;  /* seconds */  /* Telica Added */  /* 1 minute */
+
+(5) $TTL defined in zone file: Used by DNS server kicking off this query
+                               Regular Cache Real Time = min($TTL, max-cache-ttl)
+
+5. Query Order about zone file and cache
+   First,  local zone file
+   Second, local cache
+   Reason: Because if there is a match record in local zone file, there will be no need to cache the match record.
+
+   Additionally, Normal DNS query order is
+*********************************************************************************************************************
+   zone file -> regular cache (if present) -> external DNS server -> (if return failure) extended cache
+*********************************************************************************************************************
+
+6. ISC_R_TIMEDOUT
+

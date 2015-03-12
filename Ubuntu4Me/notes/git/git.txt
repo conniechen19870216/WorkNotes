@@ -1,0 +1,19 @@
+1. Global Setting
+git config --global user.name "kavon"
+git config --global user.email mjsc1023@gmail.com
+2. Build New Repository
+(1) Step1
+mkdir Ubuntu4Me
+cd Ubuntu4Me
+(2) Step2
+git init
+touch README.md
+(3) Step3
+git add README.md
+git commit -m "Ubuntu4Me README.md"
+(4) Step 4
+git remote add origin git@gitcafe.com:kavon/Ubuntu4Me.git
+git push -u origin master
+
+git remote add origin git@github.com:kavonm/Ubuntu4Me.git
+git push -u origin master

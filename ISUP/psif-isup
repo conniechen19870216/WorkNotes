@@ -1,0 +1,66 @@
+1. PSIF is always tightly coupled with the lower layer (ISUP).
+2. ISUP and PSIF-ISUP share a common entry point which is the ISUP entry point (siAcvtTskNew)
+3. Whenever there is a message for PSIF, it is sent to ISUP. The ISUP entry point (siActvTskNew) then
+   checks the message type, and if it is for PSIF, ISUP calls the PSIF activation function (iwActvTskNew).
+4. Each management primitive consists of a header structure followed by a structure specific to the type of primitive invoked.
+5. All primitives have the post structure as their first parameter, which is used to route the primitive from the source layer to the destination layer.
+6. Couples: suId, spConnId
+            spId, suConnId
+
+   suId, spId: Associate a received primitive with a specific SAP 
+   suConnId, spConnId: Associate a received primitive with a connection in a SAP 
+
+   suConnId = spConnId = 0 (Invalid)
+
+   In some cases, an invalid connection id must be distinguished from a valid one, when GCC
+   wants to release a connection (via XxYyCctRelReq) immediately after submitting a request
+   for its establishment (via XxYyCctConReq) and before receiving any response from PSIF (such
+   as XxYyCctConCfm). In this case, GCC cannot provide a valid spConnId for this connection to
+   PSIF. Therefore, the value 0 is used to denote an invalid suConnId or spConnId value.
+
+7. Prototypes:
+   (1) Primitives with LM are just like IwMiLiwStaReq(Pst *pst, IwMngmt *cntrl)
+   (2) Primitives with upper and lower layers
+   ********** PUBLIC S16 CcLiCctConReq(pst, spId, suConnId, rsc, protType, ccConEvnt, uBuf, con)
+              PUBLIC S16 IwUiCctConReq (pst, spId, suConnId, rsc, protType, conEvnt, uBuf)
+   ********** PUBLIC S16 CcLiCctConInd(pst, suId, spConnId, rsc, protType, ccConEvnt,ccProfile, uBuf)
+              PUBLIC S16 IwUiCctConInd (pst, suId, spConnId, rsc, protType, ccConEvnt,ccProfile, uBuf)
+   (3) Primitives with lower layers: IwLiRmtAlocReq
+
+8. protType
+   The protType is used to identify the protocol and the protocol variant. It is a unique ID for
+   each protocol (e.g., ISUP, B-ISUP, Q.931) and protocol variant (e.g., ITU, ANSI). 
+   (1) This ID is used to identify which part of the event union contains the data, since all the event structures
+       are a union of the possible events from the used protocol. 
+   (2) This ID is also used in GCC to identify which mapping (incoming to outgoing protocol) must be done.
+
+9. SAP control block
+   CcPsSap -> IwUpSap -> IwCcSap -> IwSiSap -> SiUpSAPCb -> SiNSAPCb
+
+                       ************* 
+                       |    ...    |
+                 ************************** 
+                 |    1. Gcc Layer        |
+                 ************************** 
+                       |  CcPsSap  |
+                       ************* 
+					         +
+							 |
+							 +
+                       ************* 
+                       |  IwCcSap  |
+                 ************************** 
+                 |    2. PSIF-ISUP        |
+                 ************************** 
+                       |  IwSiSap  |
+                       ************* 
+					         +
+							 |
+							 +
+                       ************* 
+                       | SiUpSAPCb |
+                 ************************** 
+                 |    3. ISUP Layer       |
+                 ************************** 
+                       |  SiNSAPCb |
+                       ************* 

@@ -1,0 +1,22 @@
+1. Static Lib
+kavon.o:    gcc -c kavon.c
+            <file kavon.o>
+
+libkavon.a: ar -rsv libkavon.a kavon.o
+            <ar -t libkavon.a>
+
+kavon:      gcc -o kavon main.c -L. -lkavon 
+            gcc -o kavon main.c libkavon.a
+            <readelf -a kavon>
+
+2. Dynamic Lib
+kavon.o:     gcc -fPIC -c kavon.c
+             <file kavon.o>
+            
+libkavon.so: gcc -shared -o libkavon.so kavon.o
+             <gcc -shared -fPIC -o libkavon.so kavon.c>
+
+kavon:       gcc -o kavon main.c -L. -lkavon
+             gcc -o kavon main.c libkavon.so
+             <export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH>
+             <ldd kavon>

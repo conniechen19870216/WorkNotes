@@ -1,0 +1,60 @@
+1. Source files
+telica_common/inc/logUtils.h
+              |
+  			  +--------- telica_common/inc/logging.h (not Logging.h)
+telica_common/src/logUtils.c
+
+telica_common/inc/mplogUtils.h
+telica_common/src/mv_mplogUtils.c
+
+2. Generated Path in the switch
+/Telica/swCPU/CurrRel/log
+
+3. Design specification (MP*)
+InitApp (initUtils_atca.c)
+   |
+   |
+   +--InitProcATCA (initUtils_atca.c)
+              |
+              +------ logInit(logsys.c)
+              |         |
+      	      |         +------ InitLogSys(logsys.c) >>>>>>>>>>>>>>>> LogServer: Thread name for each process <<<<<<<<<<<<<<<<<<
+      	      |
+              |
+      		  +------ procLogMsg >>>>>>>>>>>>>> LogSys <<<<<<<<<<<<<<<
+
+************************************* Old Below **************************************
+4. Data Structure: LOG_INFO_TAG >> LogInfo 
+typedef struct LOG_INFO_TAG
+{
+    char            LogFilePath[MAX_LOGFILE_PATHNAME];  /* Process name */
+    FILE            *DebugLogFile;    /* Debug Log File */
+    int             NumberEntries;
+    int             MaxEntries;       /* Maximum Entries in log prior to wrapping */
+    unsigned int    LogLevel;         /* For internal process tracing. */
+#ifdef USE_PRIO_INHERITANCE_SEMAPHORE /* liblynx.a not compatable with libc.a (sem_wait) */
+    int             ProcLogMsgMutex;                       
+    int             FreeQLock;
+    int             LogQLock;
+#else
+    OALTHREAD_MUTEX_t ProcLogMsgMutex;
+    OALTHREAD_MUTEX_t FreeQLock;
+    OALTHREAD_MUTEX_t LogQLock;
+#endif
+    OAL_FAST_CSEM_t LogSem;
+    QUEUE_t         FreeBufQ;
+    QUEUE_t         LogQ;
+    int             FreeQueueSize;
+    int             ShutdownThread;
+    int             ChangeLogFile;
+    THREAD_INFO_t   ThreadInfo;
+} LOG_INFO_t;
+
+5. Format
+QueueCount (MaxQueueCount), DroppedLogMsgs(MaxDroppedConsLogMsgs) log_level month-date Hour:Min:Sec.TimeMillitm processSessionID:MSG
+
+6. Instructions
+If logger thread is not started during initialization, the log message directly goes to log file in the log directory. Else
+logs are put in the message Q along with log-level, time-stamp, and session-ID information.
+
+7. RTRV-LOG / SET-ATTR-LOG =============>> mnmnt_cmds.h

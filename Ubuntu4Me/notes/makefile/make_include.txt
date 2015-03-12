@@ -1,0 +1,58 @@
+1. makefile文件的命名
+(1) Default
+GNUmakefile(only for GNU make)->makefile->Makefile
+(2) Options
+-f NAME
+--file=NAME
+--makefile=NAME
+注：可以指定多个，但需按照指定的顺序依次进行
+(3) 隐含规则
+make foo.o
+（前提是，当前目录存在foo.c文件）
+
+2. 指示符include
+(1) [可以有多个空格，默认被忽略]include FILENAMES[用空格或者Tab来分隔]
+(2) 若被包含的makefile存在变量或者函数的引用，它们将在包含其的makefile中展开。
+(3) 适用的场合
+a) 需要通用的变量定义或者模式规则；
+b) 保存自动产生的依赖关系。
+
+3. 自动产生依赖
+(1) Basic Principle
+gcc -M main.c
+gcc -MM main.c
+(2) Using Pattern
+%.d: %.c
+    gcc -MM $(CPPFLAGS) $< \
+    | sed 's/\($*\)\.o[ :]*/\1.o $@ : /g' > $@; \
+    [ -s $@ ] || rm -f $@
+注：$$$$表示当前的进程号
+
+4. 静态模式
+(1) TARGETS:TARGET-PATTERN:PREREQ-PATTERN
+		COMMANDS
+(2) e.g.
+    objects = foo.o bar.o
+	all: $(objects)
+	$(objects): %.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+注：$<表示第一个依赖文件；
+    $@表示规则中的目标文件。
+    两者均为自动化变量
+
+5. 普通多目标规则与模式多目标规则
+(1) 普通多目标规则示例 (静态模式一定程度上也算是普通多目标规则)
+foo.o : CFLAGS += -g
+foo.x : CFLAGS += -O2
+foo.o foo.x: foo.c
+	gcc $(CFLAGS) $< -o $@
+当执行make foo.o foo.x时，会同时创建foo.o和foo.x
+
+(2) 模式多目标规则示例：只匹配多个目标模式中的一个（同一个目标模式可能会有很多个类似目标）
+Objects = foo.o bar.o
+CFLAGS := -Wall
+%x : CFLAGS += -g
+%.o : CFLAGS += -O2
+%.o %.x : %.c
+	$(CC) $(CFLAGS) $< -o $@
+当执行make foo.o foo.x时，只会创建foo.o，而不会创建foo.x

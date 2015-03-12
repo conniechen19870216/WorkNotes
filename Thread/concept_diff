@@ -1,0 +1,29 @@
+1. Process (including main function)
+e.g. ccs, slam, etc.
+
+2. Thread == system task
+Thread process:
+tst (git_stack.c)
+   SCreateSTsk for ssSTskEntry (ss_task.c) -- create a system task/thread
+       ssdCreateSTsk (mt_ss.c)
+	       pthread_create (pthread.h)
+               mtTskHdlr (mt_ss.c)         -- start a thread
+			       
+
+3. TAPA task is not a thread, but can be attached to a specific system task.
+   SRegTTsk for ssTTskEntry
+   SCreateSTsk to create a new system task
+   SAttachTTsk used to attach ssTTskEntry into ssSTskEntry
+
+4. SsOs osCp;
+   SsOs
+      |
+	  +---- sTskTbl[SS_MAX_STSKS]
+	  |
+	  +---- tTskTbl[SS_MAX_TTSKS]
+
+5. Address space:
+   In one process, different threads share the address space.
+   栈是线程独有的，保存其运行状态和局部自动变量的。栈在线程开始的时候初始化，每个线程的栈互相独立。
+   ******************* 栈属于线程 *****************
+   ******************* 堆属于进程 *****************

@@ -1,0 +1,46 @@
+1. Glossary
+FIC       Feature Interaction Controller
+TUFS      Telica Universal Feature Server
+WFS       Wireless Feature Server
+INSL      Intelligent Networks Service Logic
+SCPI      SCP Interface
+CALEA     Law Enforcement Agency
+GCC       Generic Call Control
+
+2. Architecture
+                          -------------
+                          | INAP/TCAP |
+                          -------------
+                               | |
+                               | | <loosely coupled>
+                               | |
+		      ------------------------------------------                                             ----------
+			  | Service Control Point Interface	(SCPI) |                                             |  ENUM  |
+			  ------------------------------------------                                             ----------
+                                |                                                                         |                  
+                                | [tightly coupled]                                                       | <unknown>
+                                |                                                                         |                  
+        --------------------------------------------------------       ---------                      ----------
+		| 1. TUFS                2. WFS                3. INSL |       | CALEA |                      | ROUTER |
+        --------------------------------------------------------       ---------                      ----------
+		      |                | |                                          |                            | |                  
+	     FST  |  			   | | <loosely coupled>                        | [tightly coupled]          | | <loosely coupled>
+			  |  			   | |                                          |                            | |                  
+        --------------------------------------------------------------------------------------------------------
+        |                           Feature Interaction Controller (FIC)                                       |
+        --------------------------------------------------------------------------------------------------------
+                                                      |
+                                                      | [tightly coupled]  FCT
+                                                      |
+        --------------------------------------------------------------------------------------------------------
+        |                                 Generic Call Control (GCC)                                           |
+        --------------------------------------------------------------------------------------------------------
+
+3. Upper API Interface
+   Fc indicates the FIC; 
+   Fs indicates the Telica Universal Feature Server;
+   Sc indicates SCPI;
+   Cs indicates CALEA.
+
+4. The Service header: a part of every message that is sent between GCC and FIC.
+

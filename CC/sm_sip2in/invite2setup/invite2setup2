@@ -1,0 +1,27 @@
+(2) ccConE09S01: S01->S37
+ccCallStateMachine (cc_bdy2.c) <<<<<<< E09S01 >>>>>>>>
+     |
+     +----- ccConE09S01 (cc_bdy2.c) <<<<<< E09S01 (CCE_ALOCCFM=9) >>>>>>>
+                 |
+                 +----- ccChkCallTrc (cc_calltrc.c) <<<<<<< State Change Tracing Log >>>>>>>
+                 |           |
+                 |           +----- ccNeedsLogging (cc_calltrc.c)
+                 |
+                 +----- ccSendOrSkipInfoCollected (cc_lib.c)
+                             |
+                             +----- ccUpdateBcm (cc_bdy5.c)
+                             |
+                             +----- ccFillSvcHeader (cc_bdy5.c): MSG_Info_Collected
+                             |
+                             +----- ccFillInfoColltdParam (cc_bdy5.c): InfoCollected_t
+                             |
+                             +----- CC_STATE_CHANGE(con, CCS_AWTRSPFORDPE3) <<<<<<< S01->S37 CCS_AWTROUTERSC -> CCS_AWTRSPFORDPE3 >>>>>>>>>
+                             |
+                             +----- ccChangeCallStateOfAssociatedCalls (cc_lib.c)
+                             |
+                             +----- CcUiFctInfoCollected (cc_ptui.c)
+                                              |
+                                              +------ FcLiFctInfoCollected (fic_bdy1.c)
+                                              |
+                                              |
+                                              ... /* TO BE CONTINUED */

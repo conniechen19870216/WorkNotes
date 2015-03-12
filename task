@@ -1,0 +1,23 @@
+1. FID17066
+(1) SDP Parser coding
+(2) Key coding
+(3) Capture SIP2SIP logs
+
+2. Lottery
+   1) Python study
+   2) Record the lottery history
+
+Q1. stream & packet
+Q2. master key of answer different from that of offer
+Q3. whether to support MOD (normal and reroute scenarioes)
+Q4. m line and TL1 new option
+Q5. sip forking and pre-condition
+Q6. key generation
+
+
+
+I.   Inter-Mg
+II.  Multi-Media
+III. IBCF
+IV.  IPV6
+V.   HUG

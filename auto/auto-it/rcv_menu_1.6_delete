@@ -1,0 +1,43 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+
+set spa [ lindex $argv 0 ]
+set nodeid [ lindex $argv 1 ]
+set vmware [ lindex $argv 2 ]
+
+if { $nodeid == "" } {
+        send "USAGE: $argv0 spa nodeid \n" 
+        exit
+}
+
+puts "$argv0: Start RCV1.6 delete SPA: $spa, Node: $nodeid"
+spawn -noecho ssh ainet@$vmware
+expect "password:"
+send "ainet1\n"
+expect "bj*>"
+send "subshl\n"
+expect "<"
+send "rcv:menu\r"
+expect -glob "->"
+send "1.6d\r"
+expect "SPA NAME*"
+send "$spa\r"
+send "$nodeid\r"
+expect {
+	"NOT FOUND*" {
+		puts "$argv0: SPA: $spa, NodeID: $nodeid not found"
+		}
+	"Print:" {
+		send "d\r"
+		}
+}
+expect "SPA NAME"
+send "<\r"
+expect -glob "->"
+send "!\r"
+expect "<"
+send "quit\r"
+send "exit\r"
+puts "$argv0: End RCV1.6 delete SPA: $spa, NodeID: $nodeid"

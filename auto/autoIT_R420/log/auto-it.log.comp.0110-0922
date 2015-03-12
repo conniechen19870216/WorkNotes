@@ -1,0 +1,2 @@
+spawn ssh hssit@135.252.181.13
+ssh: connect to host 135.252.181.13 port 22: Connection refused

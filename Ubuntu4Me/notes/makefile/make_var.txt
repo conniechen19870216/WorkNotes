@@ -1,0 +1,87 @@
+1. 变量的引用
+(1) 符号
+${VARIABLE_NAME}
+$(VARIABLE_NAME)
+$A (Single Character)
+$$: 表示命令或者文件名中的$符号
+(2) 变量引用的展开过程是严格的文本替换过程
+
+2. 两种变量定义：定义方式与展开时机两方面
+(1) 递归展开式变量
+ a) 定义方式：通过"="或者使用指示符"define"定义
+ b) 展开时机：在引用的地方是严格的文本替换过程
+ c) 特点：可以引用之前没有定义的变量
+
+(2) 直接展开式变量
+ a) 定义方式：通过":="定义
+ b) 展开时机：在定义的地方被展开，不再包含任何变量的引用
+ c) 特点：不能实现对之后定义变量的引用，默认会把其值当成空
+
+3. 操作符"?="
+foo?=bar：如果foo在之前没定义，就给其赋值，否则不改变其值
+
+4. 变量的高级用法
+(1) 变量的替换引用
+$(VAR:A=B)
+$(VAR:%A=%B) (更加通用)
+替换VAR变量中所有结尾（空格之前）的A字符为B字符
+
+(2) 变量的嵌套引用
+x=y
+y=z
+a:=$($(x))
+或者
+x=y
+y=z
+z=Hello
+a:=$($($(x)))
+
+5. 追加变量值
+objects += another.o
+注：不会改变objects的定义方式（递归展开式变量和直接展开式变量）
+所以，objects = main.o foo.o bar.o utils.o
+      objects:= $(objects) another.o
+	  <=> objects += another.o
+
+6. override指示符：解决的是命令行与第一个makefile之间的关系，而不是parent makefile和child makefile之间的关系(因为默认情况下，命令行变量会覆盖makefile中的变量)
+(1) 声明定义方式
+override VARIABLE = VALUE
+override VARIABLE:= VALUE
+override VARIABLE+= VALUE (后续每次追加时，均需要带有override)
+override define VARIABLE
+...
+endef
+
+(1.1) define: 定义命令包
+define two-lines
+echo A
+echo B
+endef
+<=> two-lines = echo A; echo B
+(1.2) 使用define命令包
+$(two-lines)
+<=> echo A; echo B
+
+(2) 适用场景
+改变make命令行的同名变量值
+
+7. 系统的环境变量
+(1) 默认情况下，makefile中定义的同名变量会覆盖系统的环境变量
+(2) make -e: 系统的环境变量不会被makefile中定义的同名变量覆盖
+
+8. 目标指定变量(target-specific variable): 局部变量作用域为某个（些）目标的上下文范围（包括其子目标）
+(1) TARGETS: VARIABLE = value
+(2) TARGETS: override VARIABLE = value (Recommended 推荐使用此种方式)
+
+9. 模式指定变量(pattern-specific variable)
+(1) PATTERN: VARIABLE = value
+(2) PATTERN: override VARIABLE = value (Recommended 推荐使用此种方式)
+e.g. %.o: CFLAGS += -O
+(3) 模式字符：%
+
+10. makefile里面引用shell变量
+    需要使用两个$$，并且shell变量不能加括号
+for subdir in $(SUBDIRS); do \
+    $(ECHO) "Entering directory $$subdir"; \
+    $(MAKE) -C $$subdir clean_all; \                                                                                                                   
+done

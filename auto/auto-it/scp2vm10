@@ -1,0 +1,32 @@
+#!/usr/bin/expect
+
+if {[llength $argv] != 2} {
+	puts "usage: $argv0 (source file) (destination dir)"
+#	return "usage: $argv0 password filename"
+	return 1
+}
+
+set sdir [lindex $argv 0]
+set ddir [lindex $argv 1]
+
+set timeout -1
+log_user 0
+
+spawn -noecho scp $sdir ainet@vm10:$ddir
+expect "password"
+send "ainet1\n"
+expect {
+	"No such file*" {
+		puts "No such file"
+		return
+		}
+	"*denied" {
+		puts "Permission denied"
+		return
+		}
+	"*MB*" {
+		}
+}
+expect  eof
+puts "Done"
+

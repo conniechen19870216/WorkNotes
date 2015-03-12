@@ -1,0 +1,66 @@
+biccActvTskNew (bicc_ex_ms.c)
+    |
+    | [pst->event = EVTLSICFGREQ]
+    |
+    +---------- BiccMiLbiccCfgReq (bicc_bdy1.c)
+                    |
+    			    | [switch(cfg->hdr.elmId.elmnt)]
+    			    |
+    			    | a) STGEN:        General configuration from cl_mgcsys2.c clMgcSysBiccGenCfg
+    			    |****************  biccCfgGen(pst, cfg) ----- BiccGenCfg in BiccCb
+    			    |                               |
+    			    |                               +------ nmbSaps = 5, nmbNSaps = 4 (Only 4 MGC-NETTYPEs)
+    			    |
+    			    |
+    			    | b) BICC_STINTF:  INTF configuration from cl_mgcsys2.c clMgcSysBiccIntfCfg
+    			    |****************  biccCfgBiccIntfCb(pst, cfg) ------ Do Nothing
+    			    |
+    			    |
+    			    |
+    			    | c) STICIR:       Circuit configuration from cl_mgcsys2.c clMgcSysBiccCirCfg
+    			    |****************  biccCfgBiccCirCb(pst, cfg) ------ Do Nothing
+    			    |
+    			    |
+    			    |
+    			    | d) STISAP:       Upper SAP configuration: BICCUPSAP(sapId)
+    			    |****************  biccCfgISAP(pst, cfg) ----- BiccUpSAPCb (sapId = 0 from cl_mgcsys2.c clMgcSysBiccSapCfg)
+    			    |                  <<<<<<<<<<<<<< MFINITPROF: cb->mfCfgProf (SiMfCfgProf) >>>>>>>>>>>>>>
+    			    |                  <<<<<<<<<<<<<< MFINITMSGCTL: cb->mfMsgCtl (SiMfMsgCtl) >>>>>>>>>>>>>>
+    			    |
+    			    |
+    			    | e) STNSAP:       Network (Lower) SAP configuration (sapType = BICC_SAP_TYPE): BICCMTPSAP(nsapId)
+    			    |****************  biccCfgNSAP(pst, cfg) ------ BiccNSAPCb (nsapId = 0,..., spId = nsapId*3 + 2 from cl_mgcsys2.c clMgcNwkBiccNSapCfg)
+    			    |                  <<<<<<<<<<<<<< MFINITPROF: cb->mfCfgProf (SiMfCfgProf) >>>>>>>>>>>>>>
+    			    |                  <<<<<<<<<<<<<< MFINITMSGCTL: cb->mfMsgCtl (SiMfMsgCtl) >>>>>>>>>>>>>>
+    			    |                  <<<<<<<<<<<<<< BiccMiLbiccCntrlReq: element=STGRPNSAP, subAction=SAELMNT, action=ABND_ENA >>>>>>>>>>>>>>
+    			    |                                                          |
+    			    |                                                          V 
+    			    |                                                    biccBindMTPSAP (mocking)
+    			    |
+    			    |                  <<<<<<<<<<<<<< BiccMiLbiccCntrlReq: element=BICC_CCS_STATE, subAction=SAELMNT, no action >>>>>>>>>>>>>>
+    			    |                                                          | <changed to new state>
+    			    |                                                          V 
+    			    |                                                 biccCntrlBiccIntfCb
+    			    |                                                          |
+    			    |                                                          V 
+    			    |                                                  biccAddIntfCb (dstCcsId)
+    			    |                                                          |
+    			    |                                                          V 
+    			    |                                                  nCb = BICCMTPSAP(suId)
+    			    |                                                          |
+    			    |                                                          V 
+    			    |                                        tCb = biccGetCbPtr(nCb->cfg.swtch, nCb->cfg.ssf)
+    			    |                                                          |
+    			    |                                                          V 
+    			    |                                       biccProcIntfStatus(nCb, tCb, biccIntfCb, status, 0)
+    			    |
+    			    |
+    			    | f) BICC_STHPCSYS Hpc Sys configuration
+    			    |****************  biccCfgBiccHpcSys(pst, cfg) ----- biccCb.gets (from cl_hpcsys2.c clHpcSysBiccCfg)
+    			    |
+    			    |
+    			    | g) STNSAP:       Network (Lower) SAP configuration (sapType = BICC_SAP_TYPE): BICCMTPSAP(nsapId)
+    			    |****************  biccCfgNSAP(pst, cfg) ------ BiccNSAPCb (nsapId = 0,..., spId = nsapId*3 + 2 from cl_mgcsys2.c clMgcNwkBiccNSapCfg)
+                       MGC-NETTYPE
+    			                       <<<<<<<<<<<<<< MFINITPROF: cb->mfCfgProf (SiMfCfgProf) >>>>>>>>>>>>>>
+    			                       <<<<<<<<<<<<<< MFINITMSGCTL: cb->mfMsgCtl (SiMfMsgCtl) >>>>>>>>>>>>>>

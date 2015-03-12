@@ -1,0 +1,112 @@
+#!/bin/bash
+
+# Usage: cvsconf [-h] [-e] [-r PATH-TO-CVS] [-u UserName] [cvs-type(mirror or stein)] 
+function usage() {
+    echo "Usage: cvsconf [-h] [-e] [-r PATH-TO-CVS] [-u UserName] [cvs-type(mirror or stein)]"
+    echo '       [-h]: Print out the help information.'
+    echo '       [-e]: Just setup the CVSROOT, and do not modify the file */CVS/Root.'
+    echo '       [-r]: Specify where the source code is, such as ~/sandbox/main. Default is current directory ".".'
+    echo '       [-u]: Specify the username used to login the cvs, default is $(whoami) for STEIN'
+    echo "             and 'telica' for MIRROR. It is useful when you want to use other's CVS login." 
+    echo "       [cvs-type]: It can be 'mirror' or 'stein', default is mirror."
+    exit 1
+}
+# deal with the parameters 
+path="."
+user=$(whoami)
+changedir=true
+cvsserver=""
+currserver=""
+oldsever=""
+currdir=""
+mirrepo="/usr/local/cvsroot/Repository"
+sterepo="/cvs/cvsroot/Repository"
+curr=""
+old=""
+
+while getopts :r:u:eh opt
+do
+    case $opt in
+    r)  path=$OPTARG
+        ;;
+    u)  user=$OPTARG
+        ;;
+    e)  changedir=false
+        ;;
+    h)  usage
+        ;;
+    '?')    echo "$0: Invalid option -$OPTARG" >&2
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+case $# in
+1)  cvsserver=$1  
+    ;;
+0)  cvsserver="mirror"
+    ;;
+*)  echo "$0: Provided too much cvs server!" >&2
+    usage
+    ;;
+esac
+
+# 1st step: modify the CVSROOT
+case $cvsserver in
+mirror)  
+    currserver=":pserver:cvs@135.252.41.254"    
+    oldserver=":pserver:.*@stein.inse.lucent.com"
+    curr="$currserver:$mirrepo"
+    old="$oldserver:$sterepo"
+    ;;
+stein) 
+    currserver=":pserver:$user@stein.inse.lucent.com"
+    oldserver=":pserver:cvs@135.252.41.254"    
+    curr="$currserver:$sterepo"
+    old="$oldserver:$mirrepo"
+    ;;
+*)  
+    usage
+    ;;
+esac    
+
+#echo "I am here"
+if [ -f $HOME/.bash_profile ]
+then
+    sed -i '/^.*export.*CVSROOT=:pserver:.*/d' $HOME/.bash_profile
+else
+    touch $HOME/.bash_profile
+fi
+    echo "export CVSROOT=$curr" >> $HOME/.bash_profile
+
+source $HOME/.bash_profile
+# Delete the CVSROOT settings in ~/.profile
+if [ -f $HOME/.profile ]
+then
+    sed -i '/^[^#]*export.*CVSROOT=:pserver:.*/s/^/#/g' $HOME/.profile 
+fi
+# 2nd step: sync cvs info in your sandbox, you can specify the path, default path is the '.'
+case $changedir in 
+'true') 
+        echo "old is [$old], curr is [$curr]"
+        #find $path -path '*/CVS/Root' -print0 | xargs -0 -e sed -i "s/$old/$curr/"
+        find $path -path '*/CVS/Root' -print0 | xargs -0 -e sed -i "s#$old#$curr#"
+        echo "All of the file */CVS/Root under directory $path have been modified!"
+        ;;
+'false')    echo "Just setup CVSROOT !" 
+            ;; 
+esac
+
+# 3rd step: cvs login 
+grep -i "$currserver" ~/.cvspass > /dev/null 
+case $? in
+0)  echo "This username and password have existed in ~/.cvspass, you don't need to login again!"
+    ;;
+*)  echo $? 
+    cvs login  
+    ;;
+esac
+echo "Please run the following command to export the CVSROOT to the current shell:"
+echo "                 source ~/.bash_profile"
+exit 0

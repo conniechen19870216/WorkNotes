@@ -1,0 +1,39 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+set vm [ lindex $argv 0 ]
+set command [ lindex $argv 1 ]
+set timeout -1
+if { $command == "" } {
+	send "Usage: subshl vm [command to run]"
+	exit
+}
+spawn -noecho ssh ainet@$vm
+expect "password:"
+send "ainet1\n"
+expect {
+	"Could not chdir to home directory" {
+		puts "Warning: The VMware is still booting.Please try later."
+		send "exit\n"
+		return 1
+		}
+	-glob "->" {
+	}
+}
+send "subshl\n"
+expect "<"
+send "$command\n"
+log_user 1
+#expect {
+#	"not found" {
+#		puts "The command is not found"
+#		}
+#	}
+expect "<"
+log_user 0
+send "quit\n"
+expect -glob "->"
+send "exit\n"
+expect "eof"
+puts "\n"

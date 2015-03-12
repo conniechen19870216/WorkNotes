@@ -1,0 +1,85 @@
+1. FSM 
+(1) Clam: clCfgFsm / cl_fsm.c
+(2) Slam: slClamFsmMt / sl_clam_fsm.c
+
+2. Structures and Defines
+(1) CB: SlCb / sl.h, ClCb / cl.h
+(2) LmEvtMts: defined in lm_bdy1.c
+    {
+	    U16          mtId;
+	    S8           *mtStr;
+	    LmKey        lmkey[LM_MAX_MT_KEYS];
+	    U8           rollBack;
+#ifdef SLAMBLD
+	    slTl1Fp      preProcess;
+	    slTl1Fp      postProcess;
+#else
+	    lmMtFp       preProcess;
+	    lmMtFp       postProcess;
+#endif
+	    U8           numLevels;
+	    U16          mt[LM_MAX_LEVELS][LM_MAX_BROADCAST];
+	    slTl1Fp      slTl1Func;
+	    U8           lmTl1Class;
+	    slTl1DepChkFp slTl1DepChkFunc;
+	    void          *blkUnpkCallback; /* type = BlkUnpkCallback */
+	    U8          blockCmd; /* block command during Hot Upgrade */
+	}
+
+/* For example */
+LmEvtMt lmTl1MgcMgAssocEntMt =
+{   LM_TL1_MGASSOC_ENT_MT, "MGC-MGASSOC TL1 Ent",
+    {{LM_TL1_EVT, {tl1Key2: {MGC_MGASSOC_TAB_ID, LM_TL1_ENT_EVT}}}},
+    FALSE, /* rollback */
+    NULL, NULL, 
+    3,    
+    {
+        {1, LM_REP},
+        {1, LM_MGASSOC},
+        {1, LM_MGASSOCBIND},    /* FID15261 8-1 Dynamic CCS */
+    },    
+    IFSLAM(slTl1_ent_mgcMgAssoc_fsm),
+    LM_TL1_FSM_CLASS_1,
+};
+
+/* Important Defines */
+LM_TL1_MGASSOC_ENT_MT: lm.h
+MGC_MGASSOC_TAB_ID: table_defs/tb.h
+
+*************************lmEvtMt Matrix also defined in lm_bdy1.c********************************
+(3) Logical Clam Destinations
+enum 
+{
+    SL_TL1_ALL_CCS = (TELICA_MAX_CLAM_ID+1),
+    SL_TL1_ALL_CLAM,
+    SL_TL1_ALL_GDI,
+    SL_TL1_RS_CLAM,
+    SL_TL1_DBP_CLAM,
+    SL_TL1_SIP_REDIRECT_CLAM,
+    SL_TL1_BIC_PROXY_CLAM,
+    SL_TL1_DIST_CLAM,
+    SL_TL1_IPFLT_CLAM,
+    SL_TL1_MTP3SIG_CLAM,
+    SL_TL1_SGSIG_CLAM,                                                                                                          
+    SL_TL1_MGSIG_CLAM,
+    SL_TL1_M2PASIG_CLAM,
+    SL_TL1_DUMMY_CLAM,  /* used for the case when we have no destination to send to */
+    SL_TL1_X2SIG_CLAM,
+    SL_TL1_SIP_FED_CLAM,
+    SL_TL1_MAX_CLAM
+};
+
+
+3. Functions
+(1) slAddClamId_real
+    File: sl_tl1.c
+	DB:   slTl1Cb
+	      U8         addClamIdFlg
+	      ClamData   clamData[TELICA_MAX_CLAM_ID+1]
+		  typedef struct ccsData
+		  {
+			   U16        clamId;
+			   TsTransId  transId;
+			   SlMngmtLnk *slMngmtLnk;
+			   Bool       respRecvd;
+		  } ClamData;

@@ -1,0 +1,130 @@
+BiccLiSntUDatInd (bicc_bdy1.c)
+       |
+       +----- 1. SRemPreMsg(&tpAdded, mBuf)
+       |         BICC_TELPROF_YES, BICC_TELPROF_NO
+       |         BICC_TELPROF_YES_LOGGING, BICC_TELPROF_NO_LOGGING
+       |
+       |
+       |
+       +----- 2. if tpAdded == BICC_TELPROF_YES
+       |            SRemPreMsgMult((Data*)&msgLen, sizeof(MsgLen), mBuf) (2 bytes)
+       |            msgLen = BICC_SWAP2(msgLen)
+       |            SRemPreMsgMult(tmpBuf1, msgLen, mBuf)
+       |            SGetMsg(nCb->pst.region, nCb->pst.pool, &telicaPropBuf)
+       |            SAddPstMsgMult(tmpBuf1, msgLen, telicaPropBuf)
+       |
+       |
+       |
+       +----- 3. SRemPreMsgMult((Data*)&tmpSwtch, sizeof(Swtch), mBuf)
+       |         tmpSwtch = BICC_SWAP2(tmpSwtch)
+       |
+       |
+       |
+       +----- 4. SRemPreMsgMult(tmpBuf, (MsgLen) sizeof(BiccCic), mBuf)
+       |         BICCGETCICVAL(tmpBuf, &cic)
+       |
+       |
+       |
+       +----- 5. biccFindIntf(&biccIntfCb, cgAdr, 0, 0, 0, 0, BICCINTF_KEY_1)
+       |      => key.k1.cirId = cic
+	   |         biccFindCir(&biccCb.cirHlCp, &biccCir, &key, 0, KEY_CIR)
+       |         <<<<<<<<<<<< cgAdr == dstCcsId >>>>>>>>>>>
+       |
+       |
+       |******************** biccCb.internal == FALSE *****************
+       |************ Internal BICC: using biccUnpkPduHdr ***********
+       |
+       |
+       |
+       +----- 6. SRemPreMsg(&failCond.pres, mBuf)
+       |         SRemPreMsg(&failCond.val, mBuf)
+       |
+       |
+       +----- 7. SRemPreMsg(&uMsgFlag, mBuf)
+       |         if uMsgFlag == BICC_UMSG_NO: Recognized Message
+       |            biccUnpkPduHdr(&hdr, mBuf)
+       |            nCb->mfMsgCtl.msgType = hdr.msgType.val
+	   |            siGetMsgIdx(tmpSwtch, nCb->mfMsgCtl.msgType, &nCb->mfMsgCtl.msgIdx)
+       |         else if uMsgFlag == BICC_UMSG_YES Unrecognized Message
+       |            ...
+       |
+       |
+       |
+       +----- 8. if 1st msg received, create a new biccCir
+       |            BiccAlocGetCirCb (bicc_ccs.c)
+       |                      |
+       |                      |
+       |                      +----- biccAddCir: 
+	   |                             key.k1.cirId = cirId = cic; key.k2.dstCcsId = dstCcsId
+	   |                             biccCir->biccCon = NULLP
+       |    
+       |
+       |
+       +----- 9. if 1st msg received, create a new biccCon for biccCir
+       |            biccCon = biccGetIncCon(biccCir, nCb)
+       |                      |
+       |                      |
+       |                      +----- biccGetCon_real
+       |                                |
+       |                                |
+       |                                +----- BICCSTATECHNG(con->incC.conState, ST_IDLE)
+       |                                +----- BICCSTATECHNG(con->outC.conState, ST_IDLE)
+       |            biccGetLnkSel(nCb, &biccCon->lnkSel)
+       |
+       |
+       +----- 10. biccCon->telicaPropBuf = telicaPropBuf
+       |
+       |
+       |
+       +----- 11. biccChkifMsgExp(biccCir->cfg.cirId, biccCon, nCb->mfMsgCtl.msgIdx)
+       |          biccIncCompTbl[msgIdx][biccCon->incC.conState]
+       |          biccOutCompTbl[msgIdx][biccCon->outC.conState]
+       |
+       |
+       |
+       |******************** biccCb.internal == FALSE *****************
+       |************ Internal BICC: using biccUnpkPdu ***********
+       |
+       |
+       +----- 12. biccUnpkPdu
+       |          if uMsgFlag == BICC_UMSG_NO: Recognized Message
+       |             biccUnpkPdu(nCb->mfMsgCtl.msgIdx, cgAdr, &message, mBuf)
+       |             SRemPreMsg(&uBufAdded, mBuf)
+       |             if uBufAdded == BICC_UBUF_YES
+       |                ...
+       |          else if uMsgFlag == BICC_UMSG_YES Unrecognized Message
+       |             ...
+       |
+       |
+       +------ 13. switch (nCb->mfMsgCtl.msgIdx)
+                       |
+                       |
+                       +------ 1. biccActDat
+					   |       MI_INIADDR
+					   |       MI_ADDCOMP
+					   |       MI_ANSWER
+                       |             |
+                       |             |
+                       |             +------ biccIncE16S00 (biccGetInstId, biccAddInst)
+                       |
+                       |
+                       |
+                       +------ 2. Call BiccUiBicctCnStInd directly
+                       |       tCb = biccGetCbPtr(nCb->cfg.swtch, nCb->cfg.ssf);
+					   |       BIMFINITSDU(&tCb->mfMsgCtl, ret, MI_SDM, (U8) BICC_CNSTREQ, (ElmtHdr *) &message,
+					   |           (ElmtHdr *) &ev, (U8) NOTPRSNT, biccCir->swtch, (U32) MF_BICC, NULLP);
+					   |       BiccUiBicctCnStInd(&tCb->pst, tCb->suId, biccCon->suInstId,
+					   |                biccCon->key.k1.spInstId, biccCir->cfg.cirId, &ev.m.biccCnStEvnt, SDMMSG, NULLP);
+                       |
+                       |
+                       +------ 3. biccGenCnStInd(biccCir, &message, nCb->mfMsgCtl.msgIdx)
+                       |
+                       |
+                       +------ 4. Especially, case MI_APPTRANS
+                       |
+                       |
+                       +------ 5. siProcCirGrMsg (Please refer to file 'CirGrMsg')
+					           MI_CIRGRPBLK
+					           MI_CIRGRPBLKACK
+					           MI_CIRGRPUBLK
+					           MI_CIRGRPUBLKACK

@@ -1,0 +1,161 @@
+1. log.c                            log.h
+lib/isc/log.c               lib/isc/include/isc/log.h
+lib/dns/log.c               lib/dns/include/dns/log.h
+lib/isc/unix/syslog.c       lib/isc/unix/include/isc/syslog.h
+lib/isccfg/log.c            lib/isccfg/include/isccfg/log.h
+bin/nanmed/log.c            bin/named/include/named/log.h
+
+2. call relationship
+
+*******************************************************************************************************
+
+main (bin/named/main.c)
+  |
+  |
+  +--- setup (bin/named/main.c)
+         |
+		 |
+         +--- ns_log_init (named)
+         |     |
+         |     | <Step 1: Setup a logging context>
+         |     |
+         |     +---- (1) isc_log_create (isc)
+         |     |              |
+         |     |              +----------- mctx                 = ns_g_mctx
+         |     |              |            ns_g_lctx->logconfig = lcfg
+         |     |              |            lcfg->lctx           = ns_g_lctx
+         |     |              |
+         |     |              +----------- ns_g_lctx: isc_mem_get(mctx, sizeof(*lctx))
+         |     |              |
+         |     |              +----------- lcfg:      isc_mem_get(lctx->mctx, sizeof(*lcfg))
+         |     |
+         |     | <Step 2: Register nameserver categories and modules and Set context>
+         |     +--------> ns_g_lctx->categories = ns_g_categories: isc_log_registercategories
+         |     +--------> ns_g_lctx->modules    = ns_g_modules:    isc_log_registermodules 
+         |     +--------> isc_lctx = ns_g_lctx: isc_log_setcontext
+         |     |
+         |     |
+         |     | <Step 3: Concatenate dns categories and modules with above and Set context>
+         |     +---- (2) dns_log_init (dns)
+         |     |              |
+         |     |              +--------> dns_categories: isc_log_registercategories
+         |     |              |
+         |     |              +--------> dns_modules:    isc_log_registermodules 
+         |     +---- dns_lctx = ns_g_lctx: dns_log_setcontext
+         |     |
+         |     |
+         |     +---- (3) cfg_log_init (isccfg)
+         |     |              |
+         |     |              +--------> cfg_categories: isc_log_registercategories
+         |     |              |
+         |     |              +--------> cfg_modules:    isc_log_registermodules 
+         |     |
+         |     |
+         |     | <Step 4: Set default channels and categories>
+         |     +--------> ns_log_setdefaultchannels
+         |     |              |
+         |     |              +--------> isc_log_createchannel
+         |     |              |
+         |     |              +--------> isc_log_setdebuglevel: ns_g_lctx->debug_level = ns_g_debuglevel
+         |     |
+         |     +--------> ns_log_setdefaultcategory
+         |                    |
+         |                    +--------> isc_log_usechannel: ISC_LOGCATEGORY_DEFAULT
+         |                    
+         |                    
+         |                    
+         +--- ns_server_create (bin/named/server.c)
+               |
+               |
+               +---- run_server (bin/named/server.c)
+                           |
+                           |
+                           +----------> load_configuration (server.c)
+                                              |
+                                        	  +---- isc_logconfig_create (log.c) <<<<<<<<<<<<<<<<< isc_logconfig_t >>>>>>>>>>>>>>>>
+                                              |
+                                        	  +---- ns_log_configure (logconf.c)
+                                                          |
+                                                     	  +---- cfg_map_get(logstmt, "channel", &channels)
+                                                          |
+                                                     	  +---- channel_fromconf (M channels)
+                                                          |            |
+                                                          |            +---- channel name: cfg_obj_asstring
+                                                          |            |
+                                                          |            +---- cfg_map_get(channel, "file", &fileobj)
+                                                          |            |
+                                                          |            +---- cfg_tuple_get(fileobj, "file"/"size"/"versions")
+                                                          |            |
+                                                          |            +---- cfg_map_get(channel, "print-category", &printcat)
+                                                          |            +---- cfg_map_get(channel, "print-severity", &printsev)
+                                                          |            +---- cfg_map_get(channel, "print-time", &printtime)
+                                                          |            |
+                                                          |            +---- cfg_map_get(channel, "severity", &severity)
+                                                          |            |
+                                                          |            +---- isc_log_createchannel(lctx, channelname, type, level, &dest, flags) <<<<<<< isc_logchannel_t >>>>>>
+                                                          |            | < ISC_LIST_PREPEND(lcfg->channels, channel, link) >
+                                                          |            |
+                                                          |            [|                                       ]
+                                                          |            [+---- isc_syslog_facilyfromstring (unix)]==========>>> used for syslog only
+                                                          |
+                                                          |
+                                                     	  +---- cfg_map_get(logstmt, "category", &categories)
+                                                          |            
+                                        	              +---- category_fromconf (N categories)
+                                                                       |
+                                                                       +---- name: cfg_tuple_get(ccat, "name")
+                                                                       |
+                                                                       +---- isc_log_categorybyname
+                                                                       |
+                                                                       +---- destinations: cfg_tuple_get(ccat, "destinations")
+																	             |
+                                                                                 +---- isc_log_usechannel
+																				        |
+                                                                                        +---- assignchannel <<<<<<<<<<<<<<<<< isc_logchannellist_t >>>>>>>>>>>>>>>>>>
+                  
+
+3. logging mechanism
+
+                +---------> channel: 日志的输出方式
+                |
+logging --------+      
+                |
+                +---------> category: 日志的消息类别
+
+
+4. Problems to solve
+(1) repeated failed queries in the last 5 seconds
+(2) size limit
+(3) versions
+(4) how to write
+    isc_log_write
+         |
+		 |
+         +--- va_start(args, format)
+         |
+		 |
+         +--- isc_log_doit(lctx, category, module, level, ISC_FALSE, NULL, 0, 0, format, args)
+         |
+		 |
+         +--- va_end(args)
+	     
+(5) what to write
+a) <found> in regular or extended cache
+       |
+	   +---- regular cache (normal)
+	   |
+	   +---- extended cache (TIMEDOUT)
+	              |
+	    	      +---- NXDOMAIN / NXRRSET
+	              |
+	      	      +---- TIMEDOUT
+
+b) <not found>, but from external DNS server or extended cache
+       |
+	   +---- external DNS server
+       |
+	   +---- extended cache
+	             |
+	             +---- NXDOMAIN / NXRRSET
+	             |
+	   		     +---- TIMEDOUT

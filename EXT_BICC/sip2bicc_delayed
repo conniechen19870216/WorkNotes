@@ -1,0 +1,427 @@
+I. State Machine
+S00 -> S01 -> S37 -> S04 -> S39 -> S28 -> S09 -> S148 -> S09 -> S148 -> S09 -> S07
+ccConE00S00 -> .. -> ccConE11S28 -> ccConE03S09 -> ccConE11S148 -> ccConE62S148 -> ccConE03S09 -> ccConE11S148 -> ccConE62S148 -> ccConE03S09 -> ccConE11S07
+
+II. Bearer State
+        (Tx IAM)                   (Rx APM: AI_CONFWDNN)              (Tx APM)                     (Rx APM: AI_CONFWDNN)                (Rx MG Notify)
+CC_BICC_STATE_SENT_CONFWD -> CC_BICC_STATE_RCVD_CONFWD_NOTFY -> CC_BICC_STATE_SENT_IPBCPREQ -> CC_BICC_STATE_RCVD_IPBCPACCEPT -> CC_BICC_STATE_SENT_CONNECTED
+
+1. ccProcessAuthTermSwtReqTrue: Create Bicc Sdp
+if ( CC_GET_PROTOCOL(con->ogProtType) == CC_EXT_BICC )
+{
+    CCDP(AIN_DBG_LEVEL_4, "%s: og protType is cc_ext_bicc\n", __FUNCTION__);
+    ccCp.sts.totalOutExtBicc++;
+
+    if ( ccAllocExtBiccCb(&con->ogExtBiccCb) != ROK )
+    {
+        ccGenAlarm(LCM_CATEGORY_RESOURCE, LCC_EVENT_MEMALOC_FAILED,
+                                  LCC_CAUSE_MALLOC_FAIL, (U8 *) &ret);
+        CCLOGERR("%s, Failed to allocate memory for ogExtBiccCb\n", __FUNCTION__);
+        RETVOID;
+    }
+
+    CC_SET_EXTBICC_FLAVOR(con, OUTGOING, con->ogIntfcCb->ccTgCb->tgAtt.OgConnType);
+
+    if ( !CC_IS_EXTBICC_FLAVOR(con, OUTGOING, CC_BICC_FLAVOR_DELAYED_FWD))
+    {
+        CC_SET_EXTBICC_FLAVOR(con, OUTGOING, CC_BICC_FLAVOR_DELAYED_FWD);
+    }
+
+    CC_SET_EXTBICC_BEARERSTATE(con, OUTGOING, CC_BICC_STATE_NULL);
+
+    /* BUG: 81950 SIP to EXT_BICC call, SIP termination
+     * reservedValue is dependent on if INVITE include SDP.
+     * OFF for INVITE w/ SDP
+     * ON for INVITE w/o SDP
+     */
+    if(CC_OFFANS_ICOFFER_PENDING(con))
+    {
+       mgctSetReservedValueOn(con, pIcMediaDesc, &(con->ctl));
+    }
+    else
+    {
+        mgctSetReservedValueOff(con, pIcMediaDesc, &(con->ctl));
+    }
+
+    mgctMediaDesc(&(con->ctl), NOTPRSNT, icMode, ingrEchoPres, ingrEchoTail,
+                ingrEchoCntrlNLP, ingrEchoCntrlType, 0, FALSE, 0, DSVal, NULLP,
+                NULLP, pIcTermStateDesc, pIcMediaDesc);
+}
+
+
+if ( CC_GET_PROTOCOL(con->ogProtType) == CC_EXT_BICC &&
+     !(con->ccmCb.ccn == CCN_1 && con->ccmCb.state == CC_INGRESS_MG))
+{
+    /* build the local sdp with '-' */
+    Sdp * locBiccSdp = NULLP;
+    Sdp * rmtBiccSdp = NULLP;
+    U8 mediaType;
+
+    * FID 16747.0 EXT_BICCANSI support PCMU */
+    8  codecVal = (CC_OPT_IWBASEVARIANT(con->ogIntfcCb) == CC_BASE_ISUPANS92)?SDP_CODEC_PCMU:SDP_CODEC_PCMA;
+
+    if ( ccIsClearModePrefCodec(con->icIpParam.rmtDesc) )
+    {
+         mediaType = SDP_MTYPE_ATM_DAT;
+    }
+    else
+    {
+         mediaType = SDP_MTYPE_AUDIO;
+    }
+    cmCreateBiccSdp(ccInit.region, ccInit.pool, mediaType, 1, codecVal, &locBiccSdp);
+
+    /* build the local control descriptor for 3GUP */
+    mgctLocCtrlDescSet(con, &(con->ctl), pOgMediaDesc, MGCT_3GUP_INIT_DIR_OUT, MGCT_BCP_BNCCHAR_IPRTP);
+
+    /* BUG: 81950 SIP to EXT_BICC call, EXT_BICC termination Local control
+     * reservedValue default OFF as req FID15319.0-orig0005.
+     */
+    mgctSetReservedValueOff(con, pOgMediaDesc, &(con->ctl));
+
+    mgctMediaDesc(&(con->ctl), NOTPRSNT, ogMode,  egrEchoPres, egrEchoTail,
+                egrEchoCntrlNLP, egrEchoCntrlType, 0, FALSE, 0, DSVal, locBiccSdp,
+                rmtBiccSdp, pOgTermStateDesc, pOgMediaDesc);
+}
+
+2. ccConE11S28: Tx IAM
+if ( ogProtType == CC_EXT_BICC )
+{
+  /* populate the SiAppTrans */
+  BiccApmUserInfo apmUserInfo;
+  cmMemset((U8 *) &apmUserInfo, 0, sizeof(BiccApmUserInfo));
+  apmUserInfo.data.actInd.pres = PRSNT_NODEF;
+  apmUserInfo.data.actInd.val = AI_CONFWD;
+  apmUserInfo.data.bncChar.pres = PRSNT_NODEF;
+  apmUserInfo.data.bncChar.val = BC_IP_RTP;
+  apmUserInfo.data.bCntrlTun.pres = PRSNT_NODEF;
+  apmUserInfo.data.bCntrlTun.indicator = 1;
+  
+  if (((!isClearModePref) && (usrServInfoA) && (usrServInfoA->infoTranCap.val != ITC_UNRDIG)) ||
+       (bearCap && (bearCap->infoTranCap.pres) && (bearCap->infoTranCap.val != ITC_UNRDIG) ))
+  {
+      apmUserInfo.data.cdcLst.pres =  PRSNT_NODEF;
+      apmUserInfo.data.cdcLst.numCdcs = 1;
+      apmUserInfo.data.cdcLst.cdc[0].pres = PRSNT_NODEF;
+      apmUserInfo.data.cdcLst.cdc[0].orgId = OI_ITU_T;
+  
+      /* FID 16747.0 */
+      if(CC_IS_PROT_TYPE_ANSI_BICC(con->ogIntfcCb))
+      {
+          apmUserInfo.data.cdcLst.cdc[0].cdcInfo.cdcType = CT_G711_64K_M;
+      }
+      else
+      {
+          apmUserInfo.data.cdcLst.cdc[0].cdcInfo.cdcType = CT_G711_64K_A;
+      }
+  }
+  else
+  {
+      CCDP(AIN_DBG_LEVEL_1, "%s: Unsupported TransCap since EXTBICC only support G711\n", __FUNCTION__);
+  }
+
+  ccSetBiccAppTransParam(&con->ainInfo.appInfo);
+  
+  if ( ccEncdEncapAppInfo(&apmUserInfo, (U8 *)&con->ainInfo.appInfo.ApmUserInfo.val,
+              (U16 *)&con->ainInfo.appInfo.ApmUserInfo.len) == ROK )
+  {
+      con->ainInfo.appInfo.ApmUserInfo.pres = PRSNT_NODEF;
+      con->ainInfo.appInfo.eh.pres = PRSNT_NODEF;
+  
+      CC_SET_EXTBICC_BEARERSTATE(con,CC_OUTGOING,CC_BICC_STATE_SENT_CONFWD);
+      CC_STATE_CHANGE(con, CCS_AWTANS);
+  }
+}
+
+...
+
+ccSendConReqForOgIpCalls
+      |
+      |
+      +------ ret = ccMapEvent(con, CCE_CONIND, 0);
+      |             |
+      |             |
+      |             +------ ccSIP2SIMapS21M00 
+      |                     /* FID 14234.0 APP parameter */
+      |                     if(con->ainInfo.appInfo.eh.pres)
+      |                     {
+      |                         CCDP(AIN_DBG_LEVEL_2, "%s:ainInfo.appInfo present.\n", __FUNCTION__);
+      |                         cmMemcpy((U8 *)&(si->appTransParam),(U8 *)&(con->ainInfo.appInfo),sizeof(SiAppTrans));
+      |                         cmMemset((U8 *)&con->ainInfo.appInfo, 0, sizeof(SiAppTrans));
+      |                     }
+      |
+      |
+      +------ Tx IAM
+              /* SEND CONNECT REQUEST TO LOWER LAYER */
+              CcLiCctConReq (&con->ogSapCb->pst, con->ogSapCb->spId, con->ogSuConnId,
+                             &con->ogRsc, con->ogProtType, &ogEvnt, uBuf, con);
+
+3. ccConE03S09: Rx 1st APM (AI_CONFWDNN = 3)
+/* FID 14234.0 */
+con->icEvnt = (CcAllSdus *)event;
+if(con->icEvntType == CC_ET_APPTRAN)
+{
+    /* FID 15319.0 */
+    if(icProtType == CC_EXT_BICC)
+    {
+        ccHandleBiccSignalApm(con, INCTOOUT, &con->icEvnt->m.ccCnStEvnt.m.siCnStEvnt);
+        RETVALUE(ROK);
+    }
+    else if((ogProtType == CC_EXT_BICC) &&
+            (CC_IS_EXTBICC_BEARERSTATE_LESSTHAN(con,CC_OUTGOING,CC_BICC_STATE_SENT_CONNECTED))) <Final bearer state is that>
+    {
+        if (ccProcessOgExtBiccAPM(con, (CcAllSdus *)event) == ROK)
+        {
+            RETVALUE(ROK);
+        }
+    }
+    if(ccProcessOApm(&(con->icBcm)) == ROK)
+    {
+        CCDP(AIN_DBG_LEVEL_0,"ccProcessOApm success,requested event dected.\n");
+        RETVALUE(ROK);
+    }
+}
+
+<ccProcessOgExtBiccAPM>
+if (ccDecodeAndCheckAppInfo(&apmUserInfo, appTrans, &cause) == ROK)
+{
+  if(CC_IS_EXTBICC_BEARERSTATE(con,OUTGOING,CC_BICC_STATE_SENT_CONFWD))
+  {
+     if ((appInfo->actInd.pres == PRSNT_NODEF) &&
+          ((appInfo->actInd.val == AI_CONFWD) ||
+           (appInfo->actInd.val == AI_CONFWDNN) ||
+           (appInfo->actInd.val == AI_CONFWDPN) ||
+           (appInfo->actInd.val == AI_CONFWDNNSC) ||
+           (appInfo->actInd.val == AI_CONFWDPNSC )))
+     {
+        if ((appInfo->actInd.val == AI_CONFWDPN) || (appInfo->actInd.val == AI_CONFWDPNSC))
+        {
+            CC_SET_EXTBICC_NOTIFY(con,OUTGOING,TRUE); <Attention, please!>
+        }
+        CC_SET_EXTBICC_BEARERSTATE(con,OUTGOING,CC_BICC_STATE_RCVD_CONFWD_NOTFY);
+        /* send modify to get ipbcp req */
+        MgctMediaDesc  ogMediaDesc;
+        cmMemset((U8*) &ogMediaDesc, 0, sizeof(MgctMediaDesc));
+        
+        Sdp * locBiccSdp = NULLP;
+        Sdp * rmtBiccSdp = NULLP;
+        /* It is better not to check the ccEvntHold again at this step,
+         * and bicc termination's LD & RD is same
+         * LD will be always allocated in first ADD
+         * so copy the locDesc
+         */
+        cmCopySdp(ccInit.region, ccInit.pool, &(locBiccSdp),  con->ogIpParam.locDesc);
+        cmCopySdp(ccInit.region, ccInit.pool, &(rmtBiccSdp),  con->ogIpParam.locDesc);
+        
+        mgctMediaDesc(&(con->ctl), NOTPRSNT, MGCT_MODE_MAX, NOTPRSNT, 0,
+                 TGP_NLP_MAX, TGP_EC_MAX, FALSE, 0, TGP_EC_MAX, DSVal, locBiccSdp,
+                 rmtBiccSdp, NULLP, &ogMediaDesc);
+        
+        MgctEventsDescriptor    ogEvDesc;
+        cmMemset((U8*) &ogEvDesc, 0, sizeof(MgctEventsDescriptor));
+        
+        /* Bug 87950 */
+        ccReBuildT38EventDescInMod(&con->ogBcm, &ogEvDesc);
+        /* Bug 89925 */
+        if((CC_GET_PROTOCOL(con->ogProtType) == CC_EXT_BICC) &&
+            ((!CC_IS_CALL_MULTI_MG(con)) || ((CC_IS_CALL_MULTI_MG(con)) && (con->ccmCb.state == CC_EGRESS_MG))))
+        {
+          ccBuildMgctEventsDescriptorForBicc(con, con->ogSuConnId, MGCT_EVT_GB_BNCCHANGE_EST, TRUE, TRUE, &ogEvDesc);
+        }
+        MgctSignalsDescriptor sigDesc    = {0};
+        MgctSigOther          sigOther   = {0};
+        
+        mgctSigOther(&(con->ctl), MGCT_SIG_OTHER_TYPE_GB, NULLP, /*anno*/
+                 MGCT_SIG_ID_GB_ESTBNC,
+                 NULLP, &sigOther);
+        
+        mgctSignalDesc(&con->ctl, PRSNT_NODEF, MGCT_SIG_ID_GB_ESTBNC,
+                  MGCT_PACKAGE_ID_GB, SIG_SIGNAL_TYPE_MAX, 0, /* duration */
+                  &sigOther, NULLP, MGCT_KEEP_ACTIVE_MAX, &sigDesc) ;
+        /*FID 16458.0*/
+        ccUpdateMgQForAddOrModifyRsc(MGCT_MODE_MAX, MGCT_PACKAGE_ID_GB, MGCT_SIG_ID_GB_ESTBNC, MGCT_CMD_MODIFY,
+                          &con->ogBcm, &ogEvDesc, NULLP, &sigDesc, NULLP,
+                          &ogMediaDesc,
+                          con->ogBcm.mgCtx->suCtxId,
+                          MGCT_CONTEXT_CHOOSE, con);
+        
+        con->lastState = con->state;
+        CC_STATE_CHANGE(con, CCS_BICC_AWT_MGCT_CFMNOT);
+        con->mgBlock->con = con;
+        /*FID 16458.0*/
+        S16 ret = ccSendMgiQueue(con->ogBcm.mgCtx->suCtxId, con->mgBlock);
+     }
+  }
+}
+
+4. ccConE11S148: Ignored
+
+5. ccConE62S148: Notify and Tx APM
+if ( biccCb->bearerState == CC_BICC_STATE_RCVD_CONFWD_NOTFY )
+{
+  if (  kind == MGCT_NOTIFY_KIND_BT_TIND
+      && mgctGetObservedEventPkgBT(mgctTxnInd,(U8 *)&apmUserInfo.data.bCntrlInfo.vce,
+                                  &apmUserInfo.data.bCntrlInfo.length) == ROK )
+  {
+      CCDP(AIN_DBG_LEVEL_5, "receive valid BT TIND, len:%d,ipbcp:%s\n",
+           apmUserInfo.data.bCntrlInfo.length,apmUserInfo.data.bCntrlInfo.data);
+      apmUserInfo.data.bCntrlInfo.pres = PRSNT_NODEF;
+
+      BiccApmEncData * appInfo = &apmUserInfo.data;
+
+      appInfo->actInd.pres = PRSNT_NODEF;
+      appInfo->actInd.val = AI_NOIND;
+
+      appInfo->bCntrlTun.pres = PRSNT_NODEF;
+      appInfo->bCntrlTun.indicator = 1;
+
+      appInfo->sglCdc.pres = NOTPRSNT;
+      appInfo->cdcLst.pres = NOTPRSNT;
+
+      biccCb->bearerState = CC_BICC_STATE_SENT_IPBCPREQ;
+
+      /* SEND APM */
+      con->ogEvntType = CC_ET_APPTRAN;
+      ccSetBiccAppTransParam(&apmEvnt.m.siCnStEvnt.appTransParam);
+
+      ccSetAppApmUserInfo(&apmEvnt.m.siCnStEvnt, &apmUserInfo);
+
+      ccSendCnStReq(con, con->ogSapCb->suId, &con->ogSapCb->pst,
+                      con->ogSapCb->spId, con->ogSpConnId, con->ogSuConnId,
+                      con->ogProtType, con->ogEvntType, &apmEvnt, NULL);
+
+      CC_STATE_CHANGE(con, CCS_AWTANS);
+  }
+  else
+  {
+      CCDP(AIN_DBG_LEVEL_0, "%s:%ld,%ld,%ld BT/TIND IPBCP/Request invalid\n", __FUNCTION__, con->icSuConnId,
+                   con->ogSuConnId, con->mgBlock->mgCtx->suCtxId);
+      /* req: orig0023 */
+      cause = CCPROTERR;
+      ret = RFAILED;
+  }
+}
+
+6. ccConE03S09: Rx 2nd APM (AI_CONFWDNN = 3)
+/* FID 14234.0 */
+con->icEvnt = (CcAllSdus *)event;
+if(con->icEvntType == CC_ET_APPTRAN)
+{
+    /* FID 15319.0 */
+    if(icProtType == CC_EXT_BICC)
+    {
+        ccHandleBiccSignalApm(con, INCTOOUT, &con->icEvnt->m.ccCnStEvnt.m.siCnStEvnt);
+        RETVALUE(ROK);
+    }
+    else if((ogProtType == CC_EXT_BICC) &&
+            (CC_IS_EXTBICC_BEARERSTATE_LESSTHAN(con,CC_OUTGOING,CC_BICC_STATE_SENT_CONNECTED)))
+    {
+        if (ccProcessOgExtBiccAPM(con, (CcAllSdus *)event) == ROK)
+        {
+            RETVALUE(ROK);
+        }
+    }
+    if(ccProcessOApm(&(con->icBcm)) == ROK)
+    {
+        CCDP(AIN_DBG_LEVEL_0,"ccProcessOApm success,requested event dected.\n");
+        RETVALUE(ROK);
+    }
+}
+
+<ccProcessOgExtBiccAPM>
+if (ccDecodeAndCheckAppInfo(&apmUserInfo, appTrans, &cause) == ROK)
+{
+  if(CC_IS_EXTBICC_BEARERSTATE(con,OUTGOING,CC_BICC_STATE_SENT_IPBCPREQ))
+  {
+     if ((appInfo->bCntrlInfo.pres != NOTPRSNT) &&
+         (strlen(appInfo->bCntrlInfo.data)))
+     {
+        MgctSignalsDescriptor sigDesc    = {0};
+        MgctSigOther          sigOther   = {0};
+  
+        CCDP(AIN_DBG_LEVEL_0, "Adding { BT/BIT {BIT = IPBCP Accept} }\n");
+        mgctSigOther(&(con->ctl), MGCT_SIG_OTHER_TYPE_BT, NULLP, /*anno*/
+               appInfo->bCntrlInfo.length,
+               (U8 *)&appInfo->bCntrlInfo.vce, &sigOther);
+  
+        mgctSignalDesc(&con->ctl, PRSNT_NODEF, MGCT_SIG_ID_BT_BIT,
+               MGCT_PACKAGE_ID_BT, SIG_SIGNAL_TYPE_MAX, 0, /* duration */
+               &sigOther, NULLP, MGCT_KEEP_ACTIVE_MAX, &sigDesc) ;
+        /*FID 16458.0*/
+        ccUpdateMgQForAddOrModifyRsc(MGCT_MODE_SENDRECV, MGCT_PACKAGE_ID_BT, MGCT_SIG_ID_BT_BIT, MGCT_CMD_MODIFY,
+                          &con->ogBcm, NULLP, NULLP, &sigDesc, NULLP,
+                          NULLP,
+                          con->ogBcm.mgCtx->suCtxId,
+                          MGCT_CONTEXT_CHOOSE, con);
+  
+        CC_SET_EXTBICC_BEARERSTATE(con,OUTGOING,CC_BICC_STATE_RCVD_IPBCPACCEPT);
+  
+        con->lastState = con->state;
+        CC_STATE_CHANGE(con, CCS_BICC_AWT_MGCT_CFMNOT);
+        con->mgBlock->con = con;
+        /*FID 16458.0*/
+        S16 ret = ccSendMgiQueue(con->ogBcm.mgCtx->suCtxId, con->mgBlock);
+        if (ret != ROK)
+        {
+             CCLOGERR("ccSendMgiQueue : failed during Modify: %ld\n", con->icSuConnId);
+             ccRestoreCallStateOfAssociatedCalls(&(con->icBcm));
+             cleanUpMgQ(con);
+             ccHandleCleanUpConCb(con, TRUE, AM_CV_TMPFAIL);
+             RETVALUE(ROK);
+        }
+     }
+     else
+     {
+        cause = CCSERVNOTIMP;
+        CCDP(AIN_DBG_LEVEL_0, "Failed cause %d, actInd.pres:%d,actInd.val:%d,bCntrlInfo.pres:%d,bCntrlInfo.len:%d\n",
+              cause,appInfo->actInd.pres,appInfo->actInd.val,appInfo->bCntrlInfo.pres,strlen(appInfo->bCntrlInfo.data));
+  
+     }
+  }
+
+
+7. ccConE11S148: Ignored
+
+8. ccConE62S148: Notify (if notifyReq, Tx APM)
+if ( biccCb->bearerState == CC_BICC_STATE_RCVD_IPBCPACCEPT )
+{
+  if ( kind == MGCT_NOTIFY_KIND_GB_BNCCHANGE
+    && mgctTxnInd->u.notifyReq.observedEventsDesc.observedEventList->observedEventParameterList->u.eventOther.u.gbbncchange
+               ==  MGCT_EVT_GB_BNCCHANGE_EST )
+  {
+      CCDP(AIN_DBG_LEVEL_5, "receive valid BT TIND, len: %d\n", apmUserInfo.data.bCntrlInfo.length);
+      if ( biccCb->isNotifyNeed )
+      {
+          BiccApmEncData * appInfo = &apmUserInfo.data;
+          appInfo->actInd.pres = PRSNT_NODEF;
+          appInfo->actInd.val = AI_CONNECTED;
+
+          appInfo->sglCdc.pres = NOTPRSNT;
+          appInfo->cdcLst.pres = NOTPRSNT;
+
+          appInfo->bCntrlInfo.pres = NOTPRSNT;
+          appInfo->bCntrlTun.pres = NOTPRSNT;                             =====> Rely on whether 1st Rx APM action indicator
+      
+          /* SEND APM */
+          con->ogEvntType = CC_ET_APPTRAN;
+          ccSetBiccAppTransParam(&apmEvnt.m.siCnStEvnt.appTransParam);
+
+          ccSetAppApmUserInfo(&apmEvnt.m.siCnStEvnt, &apmUserInfo);
+
+          ccSendCnStReq(con, con->ogSapCb->suId, &con->ogSapCb->pst,
+                      con->ogSapCb->spId, con->ogSpConnId, con->ogSuConnId,
+                      con->ogProtType, con->ogEvntType, &apmEvnt, NULL);
+      }
+      biccCb->bearerState = CC_BICC_STATE_SENT_CONNECTED;
+      CC_STATE_CHANGE(con, CCS_AWTANS);
+
+      /* Bug 82786 Tell OG BICC layer bearer setup done via CC_ET_BICCBEARERDONE */
+      cmMemset((U8 *)&biccBearerDoneCnst, 0, sizeof(CcCnStEvnt));
+
+      con->ogEvntType = CC_ET_BICCBEARERDONE;
+
+      ccSendCnStReq(con, con->ogSapCb->suId, &con->ogSapCb->pst,
+                    con->ogSapCb->spId, con->ogSpConnId, con->ogSuConnId,
+                    con->ogProtType, con->ogEvntType, &biccBearerDoneCnst, NULL);
+  }
+
+9. ccConE03S09 -> ccConE11S07: Rx ACM

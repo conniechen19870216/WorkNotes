@@ -1,0 +1,18 @@
+clTgpSiTgpCfg (cl_tgp2.c)
+    |
+    | 
+    |
+    +---------- SmMiLsiCfgReq (smsiptmi.c)
+
+
+
+siActvTskNew (si_ex_ms.c)
+    |
+    | [No.1: pst->event = EVTLSICFGREQ]
+    |
+    +---------- SiMiLsiCfgReq (si_bdy1.c)
+                    |
+                    | [No.2: switch(cfg->hdr.elmId.elmnt)]
+                    |
+                    |   SI_STTGP:     
+                    |**************  siCfgSiTgpCb

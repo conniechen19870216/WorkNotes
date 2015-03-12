@@ -1,0 +1,287 @@
+FORMAT: QueueCount(MaxQueueCount),ConsDroppedMsgs(MaxConsDroppedMsgs)[TotalMsgsDropped] LogLevel ...
+LogSys Options-A: FileThreshold:0, FileMaxEntries:5000 Logname:/Telica/swCPU/CurrRel/log/sipa_protocol_trace_INST1.out FreeQSize:1377376
+LogSys Options-B: CompId[0x5] Level[0xff] Format[0x5] Dest[0x1000000]
+00001(00242),00000(00000) 0x00000001 08-09 16:47:01.962 26636: siph_rcv_sck_data_msg:  DATA_LEN:509 DATA_IN from 10.84.13.219:5060:
+INVITE sip:1234567@10.84.14.210:51000 SIP/2.0
+Via: SIP/2.0/UDP 10.84.13.219:5060;branch=z9hG4bK6fee008-d4186bef
+From: <sip:calling@10.84.13.219>;tag=301070674
+To: <sip:1234567@10.84.14.210:51000>
+Call-ID: 19067@10.84.13.219
+CSeq: 1 INVITE
+Contact: <sip:calling@10.84.13.219>
+Max-Forwards: 70
+Supported: 100rel
+Content-Length:    133
+Content-Type: application/sdp
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00187(00242),00000(00000) 0x00000001 08-09 16:47:01.966 26636: siph_snd_sck_data_msg:  DATA_LEN:378 DATA_OUT to 10.84.13.219:5060:
+SIP/2.0 100 Trying
+Call-ID: 19067@10.84.13.219
+CSeq: 1 INVITE
+From: <sip:calling@10.84.13.219>;tag=301070674
+To: <sip:1234567@10.84.14.210:51000>;tag=127.0.0.1+1+1090000+2e629de0
+Via: SIP/2.0/UDP 10.84.13.219:5060;branch=z9hG4bK6fee008-d4186bef
+Server: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+Content-Length: 0
+Contact: <sip:1234567@10.84.14.210:51000;transport=udp>
+
+
+
+00309(00309),00000(00000) 0x00000001 08-09 16:47:01.988 26636: siph_snd_sck_data_msg:  DATA_LEN:954 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:1234567@10.84.13.219:5061;user=phone;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+9843ca685227c9ee12aafbe3cc89e4411+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+5c7a234e
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 573993845 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00001(00309),00000(00000) 0x00000001 08-09 16:47:02.490 26636: siph_snd_sck_data_msg:  DATA_LEN:954 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:1234567@10.84.13.219:5061;user=phone;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+9843ca685227c9ee12aafbe3cc89e4411+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+5c7a234e
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 573993845 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00001(00309),00000(00000) 0x00000001 08-09 16:47:03.493 26636: siph_snd_sck_data_msg:  DATA_LEN:954 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:1234567@10.84.13.219:5061;user=phone;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+9843ca685227c9ee12aafbe3cc89e4411+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+5c7a234e
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 573993845 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00001(00309),00000(00000) 0x00000001 08-09 16:47:04.250 26636: siph_rcv_sck_data_msg:  DATA_LEN:465 DATA_IN from 10.84.13.219:5061:
+SIP/2.0 302 Moved Temporarily
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+9843ca685227c9ee12aafbe3cc89e4411+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+5c7a234e
+To: <sip:1234567@10.84.13.219:5061;user=phone>;tag=316585533
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+CSeq: 573993845 INVITE
+Contact: <sip:called@10.84.13.219:5061>
+Max-Forwards: 70
+Content-Length:      0
+
+
+
+00143(00309),00000(00000) 0x00000001 08-09 16:47:04.252 26636: siph_snd_sck_data_msg:  DATA_LEN:458 DATA_OUT to 10.84.13.219:5061:
+ACK sip:1234567@10.84.13.219:5061;user=phone;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+9843ca685227c9ee12aafbe3cc89e4411+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+5c7a234e
+To: <sip:1234567@10.84.13.219:5061;user=phone>;tag=316585533
+CSeq: 573993845    ACK
+Content-Length:   0
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+
+
+
+00147(00309),00000(00000) 0x00000001 08-09 16:47:04.252 26636: siph_snd_sck_data_msg:  DATA_LEN:928 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:called@10.84.13.219:5061 SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+ab7b4b113f40d23e4ca564f68d4ad6901+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+7ac28bc1
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 341349865 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00001(00309),00000(00000) 0x00000001 08-09 16:47:04.754 26636: siph_snd_sck_data_msg:  DATA_LEN:928 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:called@10.84.13.219:5061 SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+ab7b4b113f40d23e4ca564f68d4ad6901+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+7ac28bc1
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 341349865 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00001(00309),00000(00000) 0x00000001 08-09 16:47:05.756 26636: siph_snd_sck_data_msg:  DATA_LEN:928 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:called@10.84.13.219:5061 SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+ab7b4b113f40d23e4ca564f68d4ad6901+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+7ac28bc1
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 341349865 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00001(00309),00000(00000) 0x00000001 08-09 16:47:07.750 26636: siph_snd_sck_data_msg:  DATA_LEN:928 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:called@10.84.13.219:5061 SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+ab7b4b113f40d23e4ca564f68d4ad6901+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+7ac28bc1
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 341349865 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+
+00001(00309),00000(00000) 0x00000001 08-09 16:47:11.748 26636: siph_snd_sck_data_msg:  DATA_LEN:928 DATA_OUT to 10.84.13.219:5061:
+INVITE sip:called@10.84.13.219:5061 SIP/2.0
+Via: SIP/2.0/UDP 10.84.14.210:51000;branch=z9hG4bK+ab7b4b113f40d23e4ca564f68d4ad6901+127.0.0.1+1
+From: <sip:calling@10.84.14.210:51000>;tag=127.0.0.1+1+10b0000+7ac28bc1
+To: <sip:1234567@10.84.13.219:5061;user=phone>
+CSeq: 341349865 INVITE
+Expires: 180
+Min-SE: 90
+Session-Expires: 1800
+Supported: replaces, path, 100rel, timer
+Content-Length: 133
+Request-Disposition: fork, sequential
+Allow: INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+Call-ID: D2500E-54AF2B05MTKa0RI0PRgEH9tyrfssZnVyl2T5rqkDJud9Llx0Ce4KNYIEDAw2oS0YiiEYxoci0A
+Max-Forwards: 69
+Contact: <sip:calling@10.84.14.210:51000>
+Content-Type: application/sdp
+User-Agent: Alcatel-Lucent 5060 MGC-8 9.2.0.0.0.213
+
+v=0
+o=- 2890844526 1376038065 IN IP4 10.84.13.219
+s=-
+c=IN IP4 10.84.13.219
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+
+

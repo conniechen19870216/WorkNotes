@@ -1,0 +1,582 @@
+1. Structure
+(1) LmFsmCp
+typedef struct lmFsmCp
+{
+    CmHashListEnt   fsmCpHlEnt;
+    U8              fsmStr[LM_MOD_FSM_MAX_STR_LEN];
+    U16             modId;
+    U16             ptrOffset;
+    U16             lmEvtOffset;
+    EvalEvDepFp     evalEvDep;
+    FsmEvFp         fsmEvFp;
+    U8              sharedQ;
+    LmQCp           *fsmHoldQCp;
+    LmQCp           *fsmRunQCp;
+    U16             maxInst;
+    U8              numStates;
+    U8              numEvents;
+    LmFsmStateInfo  *states;
+    U8              timeoutEvt;
+    LmFsmRow        *fsmMt;
+} LmFsmCp;
+
+(2) LmQCp
+typedef struct LmQCp_t
+{
+    void *first;
+    void *last;
+    void *crnt;
+    U32  count;
+    U16  offset;
+    OffsetQFp offsetFn;
+    U32  userVar;
+} LmQCp;
+
+(3) LmFsmInfo
+typedef struct lmFsmInfo
+{
+    U8             event;
+    U8             state;
+    LmQPtr         fsmQPtr;
+    U8             qStatus;
+    LmFsmCp        *fsmCp;
+    U16            size;
+    LmFsmInstKey   key;
+    CmHashListEnt  fsmHlEnt;
+    CmTimer        timers[LM_FSM_MAX_TIMERS];
+    U32            transId; /* PLM_IN: used for self post */
+    LmFsmStateInfo tmrState; /* PLM_IN: Bug 20345 debug only */
+} LmFsmInfo;
+
+(4) LmFsmStateInfo
+typedef struct lmFsmStateInfo
+{
+    char *stateStr;
+    U16  timeout;
+} LmFsmStateInfo;
+
+LmFsmStateInfo imtStates[IMT_MAX_ST] =
+{
+    {"IMT_IDLE_ST", 0},
+    {"IMT_DT_CFG_ST", 300},
+    {"IMT_ISUP_CFG_ST", 300},
+    {"IMT_RM_CFG_ST", 300},
+    {"IMT_M3RT_CFG_ST", 300},
+    {"IMT_ISUP_DST_ST", 300},
+    {"IMT_RM_DST_ST", 300},
+    {"IMT_M3RT_DST_ST", 300},
+    {"IMT_DT_CTL_ST", 300},
+    {"IMT_ISUP_CTL_ST", 300},
+    {"IMT_ISUP_RTRV_ST", 300},
+    {"IMT_RM_RTRV_ST", 300},
+    {"IMT_RM_ED_ST", 300},
+    {"IMT_DT_DISTACTL_ST", 50},
+    {"IMT_DT_DISTBCTL_ST", 50},
+};
+
+(5) LmFsmRow
+typedef struct lmFsmRow
+{
+    void * outputFn;
+    U8  nextState;
+} LmFsmRow;
+
+(6) LmQPtr
+typedef struct LmQPtr_t
+{
+    void *prev;
+    void *next;
+} LmQPtr;
+
+2. clActvInit (cl_ex_ms.c)
+        |
+        |
+        +----- clInit() (cl_ex_ms.c)
+        |         |
+        |         |<Target: "lmEvtMt" => clCb.clEvtMt>
+        |         |
+        |         +----- clCb.clEvtMt = lmEvtMt
+        |         |
+        |         |<Target: "rtModLst[i].modDef" => clModLst => clCb.modLst>
+        |         |
+        |         +----- clInitModLst(rtModLst) => "rtModLst" => e.g. {LM_TGP, {tgpProcessLmEvt, clTgpModInit, CLM_LOG_DFLT}}
+        |         |             |
+        |         |             |
+        |         |             |
+        |         |             +----- for (i = 0; rtModLst[i].modId < LM_MODULE_MAX; i++)
+        |         |                    {
+        |         |                        DP (" Adding modId %ld \n", rtModLst[i].modId);
+        |         |                        clModLst[rtModLst[i].modId] = rtModLst[i].modDef;
+        |         |                    }
+        |         +----- clCb.modLst = clModLst
+        |         |
+        |         |
+        |         |<Target: LmQCp for each module>
+        |         +----- for (i=0;i < LM_MODULE_MAX ;i++)                         
+        |         |      {
+        |         |          clQInit(&clCb.modLst[i].modQ, 0, clGetModQOffset, i);
+        |         |      }
+        |         |
+        |         |
+        |         +----- /* initialize all CLM modules */
+        |         |      for (i=0;i <LM_MODULE_MAX ;i++)
+        |         |      {
+        |         |          if (clCb.modLst[i].initFn)
+        |         |          {
+        |         |              clCb.modLst[i].initFn(); => e.g. clTgpModInit (cl_tgp1.c)
+        |         |          }                                         |
+        |         |      }                                             |
+        |         |                                                    +----- clTgpInitGenFsm (cl_tgp2.c)
+        |         |                                                               |
+        |         |                                                               |
+        |         |                                                               +----- clModFsmInit (cl_tgp2.c)
+        |         |
+        |         |
+        |         |
+        |         +----- /* initialize the event matrix */
+        |         |      ret = cmHashListInit(&clCb.evtTbl, (U16) evtNumBins,
+        |         |                           (U16) offsetof(LmEvt, evtHl),
+        |         |                           (Bool)FALSE, (U16)CM_HASH_KEYTYPE_DEF,
+        |         |                           clCb.region, clCb.pool);
+        |         |
+        |         |
+        |         |<pair I: tableId and tl1Event>
+        |         |
+        |         +----- clValidateEvtMt() (cl_bdy2.c)
+        |         |
+        |         |<Target: LmEvtMtHlBlk => &clCb.mtHlBlks>
+        |         |
+        |         +----- clInitEvtMtHl() (cl_bdy2.c)
+        |         |            |
+        |         |            |
+        |         |            +----- clAllocEvtMtBlks(&clCb.mtHlBlks, &numBlks)
+        |         |            |
+        |         |            |
+        |         |            +----- cmHashListInit(&clCb.evtMtTbl, (U16) evtMtNumBins,
+		|         |            |                    (U16) offsetof(LmEvtMtHlBlk, evtMtHl),
+		|   	  |            |                    (Bool)FALSE, (U16)CM_HASH_KEYTYPE_DEF,
+		|   	  | 		   |                    CLM_REGION, CLM_POOL);
+        |         |            |
+        |         |            |
+        |         |            +----- numBlks=0;
+        |         |                   for (i=0;i<LM_EVT_MT_MAX;i++)
+        |         |                   {
+        |         |                       for (j=0;(j<LM_MAX_MT_KEYS) && clCb.clEvtMt[i]->lmkey[j].lmEvt;j++)
+        |         |                       {
+        |         |                           clCb.mtHlBlks[numBlks].mt =  clCb.clEvtMt[i];
+        |         |                           if ((ret = cmHashListInsert(&clCb.evtMtTbl, (PTR)&clCb.mtHlBlks[numBlks],
+        |         |                                                       (U8 *)&clCb.clEvtMt[i]->lmkey[j],
+        |         |                                                       (U16)sizeof(LmKey))) != ROK)
+        |         |                           {
+        |         |                               ...
+        |         |                           }
+        |         |                           numBlks++;
+        |         |                       }
+        |         |                   }
+        |         |
+        |         |
+        |         |      /* initialize timers */
+        |         +----- cmInitTimers(clCb.genTimers, CLM_MAX_GEN_TIMERS) (not used at present)
+        |         |      clCb.evtTqCp.nxtEnt = 0;
+        |         |      clCb.evtTqCp.tmrLen = CLM_EVT_TQ_NUM_ENT;
+        |         |      for (i=0;i<CLM_EVT_TQ_NUM_ENT;i++)
+        |         |      {  
+        |         |          clCb.evtTq[i].first = NULLP;
+        |         |      }  
+        |         |         
+        |         |      clCb.fsmTqCp.nxtEnt = 0;
+        |         |      clCb.fsmTqCp.tmrLen = CLM_FSM_TQ_NUM_ENT;
+        |         |      for (i=0;i<CLM_FSM_TQ_NUM_ENT;i++)
+        |         |      {
+        |         |          clCb.fsmTq[i].first = NULLP;
+        |         |      }
+        |         |      
+        |         |      clCb.genTqCp.nxtEnt = 0;
+        |         |      clCb.genTqCp.tmrLen = CLM_GEN_TQ_NUM_ENT;
+        |         |      for (i=0;i<CLM_GEN_TQ_NUM_ENT;i++)
+        |         |      {
+        |         |          clCb.genTq[i].first = NULLP;
+        |         |      }
+        |         |
+        |         |
+        |         |<Target: clCb.modFsmCpHlCp (key: modId), clCb.modFsmHlCp (key: modId + lmEvtId)>
+        |         +----- clModFsmHlInit()
+        |         |           |
+        |         |           |
+        |         |           +------ cmHashListInit(&clCb.modFsmCpHlCp, CLM_NUM_FSM_MT_HL_BINS, /* nmbBins */
+        |         |           |                      offsetof(LmFsmCp, fsmCpHlEnt), /* offset */
+        |         |           |                      TRUE, /* dupFlg */
+        |         |           |                      CM_HASH_KEYTYPE_U16, 
+        |         |           |                      CLM_REGION, CLM_POOL);
+        |         |           |
+        |         |           |
+        |         |           +------ cmHashListInit(&clCb.modFsmHlCp, CLM_NUM_FSM_HL_BINS, /* nmbBins */
+        |         |                                  offsetof(LmFsmInfo, fsmHlEnt), /* offset */
+        |         |                                  TRUE, /* dupFlg */
+        |         |                                  CM_HASH_KEYTYPE_DEF,
+        |         |                                  CLM_REGION, CLM_POOL);
+        |         |
+        |         |
+        |         |<Target: clCb.transHlCp.transIdHlCp (key: transId), clCb.transHlCp.evtIdModHlCp (key: modId + lmEvtId)>
+        |         +----- clTransIdInit()
+        |                     |
+        |                     |
+        |                     +----- cmHashListInit(&clCb.transHlCp.transIdHlCp, CLM_NUM_TRANS_HL_BINS, /* nmbBins */
+        |                     |                     offsetof(LmTransDesc, hlEnt.transIdHlEnt), /* offset */          
+        |                     |                     FALSE, /* dupFlg */
+        |                     |                     CM_HASH_KEYTYPE_DEF,
+        |                     |                     CLM_REGION, CLM_POOL);
+        |                     |
+        |                     +----- cmHashListInit(&clCb.transHlCp.evtIdModHlCp, CLM_NUM_TRANS_HL_BINS, /* nmbBins */
+        |                                           offsetof(LmTransDesc, hlEnt.evtIdHlEnt), /* offset */
+        |                                           TRUE, /* dupFlg */                                                
+        |                                           CM_HASH_KEYTYPE_DEF,
+        |                                           CLM_REGION, CLM_POOL);
+        |
+        |
+        |
+		+----- SRegTmr(ENTCLM, 0, CLM_TIMER_RES, clActvTmr): Register one basic timer
+        |
+        |
+        |
+        |/* Target Structure: CmFsmCp */
+        |
+        |
+        +----- /* Initialize the CLAM Cfg FSM */
+        |      cmFsmCpInit(&clCb.fsmCp, "CLM_CFGFSM", (U16)offsetof(ClCfgFsmCb, fsmEnt),
+        |                  clCfgFsmEvalDep, clCfgFsmDr, CLM_CFGFSM_MAX_INST, CL_MAX_FSM_ST,
+        |                  CL_MAX_FSM_EV, clCfgFsmStates, clCfgFsmEvents, CL_EV_TIMEOUT,
+        |                  CL_EV_TIMEOUT, &clCfgFsm[0][0], 0,0, ENTCLM, EVTCLRESCHED);
+        |                          |
+        |                          |<1. &fsmCp->instHlCp>
+        |                          |
+        |                          +------ cmHashListInit(&fsmCp->instHlCp, (1+maxInst/10),
+        |                          |                      offsetof(CmFsmEnt, instHlEnt),
+        |                          |                      FALSE, /* dupFlg */
+        |                          |                      CM_HASH_KEYTYPE_DEF,
+        |                          |                      region, pool);
+        |                          |
+        |                          |
+        |                          |<2. &fsmCp->instQCp>
+        |                          |
+        |                          +------ cmQInit(&fsmCp->instQCp, 0, offsetof(CmFsmEnt, instQEnt))
+        |                          |
+        |                          |<3. fsmCp->fsmTq>
+        |                          |
+        |                          +------ /* intialize timers */
+        |                          |       cmMemset((U8 *)fsmCp->fsmTq, 0, numTmrEnt*sizeof(CmTqType));
+        |                          |       for (i=0;i<numTmrEnt;i++)
+        |                          |       {
+        |                          |           fsmCp->fsmTq[i].first = NULLP;
+        |                          |       }
+        |                          |
+        |                          |
+        |                          |<4. fsmCp inserted into cmFsmHlCp>
+        |                          |
+        |                          +------ cmHashListInit(&cmFsmHlCp, CM_NUM_FSM_CP_BINS,
+        |                          |                      offsetof(CmFsmCp, fsmCpHlEnt), 
+        |                          |                      TRUE, /* dupFlg */
+        |                          |                      CM_HASH_KEYTYPE_DEF,
+        |                          |                      region, pool);
+        |                          |
+        |                          +------ cmHashListInsert(&cmFsmHlCp, (PTR)fsmCp,
+        |                                                   (U8 *)&fsmCp->entity, (U16) sizeof(Ent))
+        |
+        +----- clSetClamType() (cl_ex_ms.c) <LM_CLAM_TYPE_CCS>
+		|
+		|
+        |
+        |/* Target Structure (instance): CmFsmEnt (included in ClCfgFsmCb: clFsmCb) */
+        |
+        |
+        +----- /* initialize the only CfgFSM instance */
+        |      cmFsmInstInit(&clCb.fsmCp,              /* FSM control point */
+        |                    &clFsmCb,                 /* user context for FSM instance */
+        |                    clFsmCb.instId,           /* instance Id */
+        |                    NULL,                     /* name, instId by default */
+        |                    CLM_CFGFSM_INST_TIMEOUT,  /* cover timeout for this instance, 0 for infinite */
+        |                    CL_ST_OOS);               /* initial state for this FSM instance */
+        |                     |
+        |                     +------ fsmEnt->state = CL_ST_OOS;
+        |                     |
+        |                     |<1. &fsmCp->instHlCp>
+        |                     |
+        |                     +------ cmHashListInsert(&fsmCp->instHlCp, (PTR)fsmEnt, (U8 *)&fsmEnt->instId,
+        |                     |                        (U16)sizeof(U32));
+        |                     |
+        |                     |
+        |                     |
+        |                     |<2. &fsmCp->instQCp>
+        |                     |
+        |                     +------ cmQInsert(&fsmCp->instQCp, fsmEnt)
+        |                     |
+        |                     |
+        |                     |<3. fsmEnt->evtQCp>
+        |                     |
+        |                     +------ cmQInit(&fsmEnt->evtQCp, 0, offsetof(CmFsmEvtQCb, qEnt))
+        |                     |
+        |                     |
+        |                     |<4. timer>
+        |                     |
+        |                     +------ /* timer init */
+        |                             cmInitTimers(fsmEnt->timers, CM_FSM_MAX_TIMERS);
+        |                             
+        |                             /* start instance and state timers, if any */
+        |                             cmFsmStartTmr(fsmEnt, CM_FSM_INST_TMR_EVT);
+        |                             cmFsmStartTmr(fsmEnt, CM_FSM_STATE_TMR_EVT);
+        |                      
+        |
+        |/* Target Structure: CmFsmEvtQCb */
+        |                      
+        |                      
+        +----- /* deliver (queue) an event to an FSM instance */
+               cmFsmQueueEvt(&clCb.fsmCp, clFsmCb.instId, CL_EV_FSM_INIT, NULL, NULL, FALSE)
+                           |
+                           |
+                           +----- SGetSBuf(fsmCp->region, fsmCp->pool, (Data**)&evtQCb,
+                           |               sizeof(CmFsmEvtQCb));
+                           |      evtQCb->event = event;
+                           |      cmQInsert(&fsmEnt->evtQCp, evtQCb);
+                           |      evtQCb->evState = CM_FSM_EVT_QUEUED;
+                           |
+                           |
+                           |
+                           |
+                           +----- /* process the event queue for an FSM instance */
+                                  cmFsmProcessEvtQ(fsmEnt)
+                                          |
+                                          |
+										  |<"clCfgFsmEvalDep">
+										  +----- fsmCp->evalEvDep(evtQCb->event, context, &evtQCb->pst, evtQCb->mBuf, &hold)
+										  |
+                                          +----- cmFsmDriver(evtQCb)
+                                                      |
+                                                      |<"clCfgFsm">
+                                                      |
+                                                      +----- fsmRow = fsmCp->fsmMt+fsmEnt->state*fsmCp->numEvents+evtQCb->event;
+                                                             state = fsmEnt->state;
+                                                             
+                                                             if (fsmRow->nextState!=fsmCp->numStates)
+                                                             {
+                                                                 fsmEnt->lastState = fsmEnt->state;
+                                                                 fsmEnt->state = fsmRow->nextState;
+                                                             }
+
+                                                             if (fsmRow->outputFn)
+                                                             {
+                                                                 context = GET_CONTEXT_FROM_FSM_ENT(fsmEnt);
+                                                             
+                                                                 ret = fsmCp->fsmEvFp(fsmRow->outputFn, context); <"clCfgFsmDr">
+                                                             }
+
+3. Take TRKGRP as an example
+Part I:
+clActvTsk (cl_ex_ms.c)
+        |                 
+        |                 
+        |<srcEnt=ENTSLM>  
+        |                 
+        |<event=EVTSLCLTL1REQ>
+        |
+        |
+        +----- cmUnpkSlclTl1Req(clUiSlclTl1Req, pst, mBuf)
+                   |
+                   |
+				   +----- CMCHKUNPKLOG(SUnpkS32, &req.t.r.tl1.tableId, mBuf, ESLCLXXX, pst);
+				   |
+                   +----- cmUnpkTbCb_LSB(&req.t.r.tl1.tblLst, lBuf, pst) <SlclMngmt => SlclTl1Req>
+                   |          |
+                   |          |
+                   |          +------ cmTbInitCb (cm_tb.c)
+                   |          |          |
+                   |          |          |
+                   |          |          +------ cmQInit(&cmTbCb->tbLst, 0, offsetof(CmTbNode, lstEnt))
+                   |          |          
+                   |          +------ CMCHKUNPKLOG(SUnpkU32, (U32 *)&count, mBuf, ERROR_CM_TB_XXX, pst);
+                   |          |<Level 1: count (Tgp, IsupAnsiPrfl, ..., etc) CmTbNode> Please see ClTgpContext structure
+                   |          |<Level 2: numRows (e.g. Tgp) in one CmTbNode with the same version and tableId>
+				   |          |
+				   |          |
+                   |          +------ CMCHKUNPKLOG(SUnpkU32, (U32 *)&ver, mBuf, ERROR_CM_TB_XXX, pst);
+                   |          +------ CMCHKUNPKLOG(SUnpkU32, (U32 *)&tableId, mBuf, ERROR_CM_TB_XXX, pst);				   
+                   |          +------ CMCHKUNPKLOG(SUnpkU32, (U32 *)&numRows, mBuf, ERROR_CM_TB_XXX, pst)
+                   |          |          
+                   |          |          
+                   |          |<pair II: version and tableId>
+                   |          |          
+                   |          +------ tbFndVerDef(ver, tableId, &tabDef) => "tbVerCb" => "tableDefs" => "tgpDef"
+                   |          |                                                                  DbTableDef tgpDef =
+                   |          |                                                                  {
+                   |          |                                                                      STRFY(TGP_TAB_ID),
+                   |          |                                                                      1, /* keys */
+                   |          |                                                                      TGP_MAX_COLS,
+                   |          |                                                                      tgpCols,
+                   |          |                                                                      NULL, /* extra validation */
+                   |          |                                                                      "Tgp",
+                   |          |                                                                      sizeof(Tgp),
+                   |          |                                                                      TBLHNDLR_MGC,
+                   |          |                                                                      0,                          
+                   |          |                                                                      4,                          
+                   |          |                                                                      0,                          
+                   |          |                                                                      "TRKGRP"
+                   |          |                                                                  };
+                   |          |
+                   |          +------ size = numRows*tabDef->rowSize;
+                   |          |
+                   |          +------ SRemPreMsgRevMult((Data *)rowPtr, (MsgLen)numRowsFit*tabDef->rowSize, mBuf)
+                   |          |
+                   |          |
+                   |          +------ cmTbAddTbl(cmTbCb, tableId, numRows, rows, CM_TB_LIB_ALLOCATED)
+                   |
+                   |
+                   |
+                   |<entry point into CLAM for all TL1 req>
+                   |
+                   +------ clUiSlclTl1Req(pst, &req) (cl_bdy3.c)
+                              |
+                              |
+                              +------ clProcessTL1Evt(pst, req) (cl_bdy3.c)
+                                          |
+                                          |
+                                          +------ clGetNewEvt(&clEvt) (cl_bdy3.c)
+		           					      |        |
+		           					      |        |
+		           					      |        +------ SGetSBuf_real
+		           					      |        |
+		           					      |        +------ (*clEvt)->lmEvtId = ++clCb.lmEvtId
+		           					      |        |
+		           					      |        +------ cmMemset((U9 *)*clEvt, 0, sizeof(LmEvt))
+		           					      |        |
+		           					      |        +------ cmHashListInsert(&clCb.evtTbl, (PTR)*clEvt, (U8 *)&(*clEvt)->lmEvtId,
+                                          |        |                        (U16)sizeof(LmEvtId)))
+							              |        |
+							              |        +------ cmInitTimers((*clEvt)->transCb.timers, CLM_MAX_EVT_TIMER)
+                                          |
+                                          |
+                                          +------ clEvt->lmEvt = LM_TL1_EVT
+                                          |       cmMemcpy((U8*)&(clEvt->Ev.lmTl1.recvMsg),(U8*)req, sizeof(SlclMngmt))
+                                          |       clEvt->Ev.lmTl1.tableId = clEvt->Ev.lmTl1.recvMsg.t.r.tl1.tableId;
+                                          |       clEvt->Ev.lmTl1.transId = clEvt->Ev.lmTl1.recvMsg.hdr.transId;    
+                                          |       clEvt->Ev.lmTl1.recvMsg.hdr.msgType => clEvt->Ev.lmTl1.lmTl1Evt
+                                          |
+                                          |
+                                          +------ clFindEvMt(clEvt): LmEvtMtHlBlk => LmEvtMt
+                                          |        |
+                                          |        |
+                                          |        |<target: LmEvtMtHlBlk>
+                                          |        +------ /* build the key */
+                                          |                ret = clBuildEvKey(clEvt, i, &key);
+                                          |
+                                          |                cmHashListFind(&clCb.evtMtTbl,
+                                          |                               (U8 *)&key,
+                                          |                               (U16)sizeof(LmKey), 0,
+                                          |                               (PTR *)&tmpMtHlBlk);
+                                          |
+                                          |                clEvt->transCb.mtInfo = tmpMtHlBlk->mt;
+                                          |
+                                          |
+                                          +------ >>>>>>>>>>>>>>> kick off CLAM processing for a new event <<<<<<<<<<<<<<<
+                                                  clRaiseEvt(clEvt)
+                                                   |
+                                                   |
+                                                   +------ clEvt->transCb.set = CLM_SET; <CLM_SET == 1>
+                                                   |
+                                                   +------ clProcessLevel(clEvt) (Initially, clEvt->transCb.level == 0)
+                                                                  |
+                                                                  |
+                                                                  +----- mtInfo = clEvt->transCb.mtInfo;
+                                                                         level = clEvt->transCb.level;  
+
+                                                                         +----------------------------------------------------------------------+
+                                                                         |for (i=0;i<mtInfo->mt[level][0];i++)                                  |
+                                                                         |{                                                                     |
+                                                                         |    mod = mtInfo->mt[level][i+1];                                     |
+                                                                         |    if (mod >= LM_MODULE_MAX)                                         |
+                                                                         |    {                                                                 |
+                                                                         |        CLM_LOG(CLM_ERR, "bad module index:%d\n", mod);               |
+                                                                         |        return (RFAILED);                                             |
+                                                                         |    }                                                                 |
+                                                                         |    if (clCb.modLst[mod].entryFn != NULLP)                            |
+                                                                         |    {                                                                 |
+                                                                         |        (clCb.modLst[mod].entryFn)(clEvt, clEvt->transCb.set);        |
+                                                                         |    }                                                                 |
+                                                                         |    else                                                              |
+                                                                         |    {                                                                 |
+                                                                         |        CLM_LOG (CLM_ERR, "Entry fn null for %d, skipping.. \n", mod);|
+                                                                         |        clModCallBack(clEvt, mod, ROK);                               |
+                                                                         |    }                                                                 |
+                                                                         |}                                                                     |
+                                                                         +----------------------------------------------------------------------+
+                                                             
+                                                                         LmEvtMt lmTl1TgpEntMt =
+                                                                         {   LM_TL1_TGP_ENT_MT, "trunkgroups TL1 ent",
+                                                                             {{LM_TL1_EVT, {tl1Key2: {TGP_TAB_ID, LM_TL1_ENT_EVT}}}}, /* key */
+                                                                             TRUE, /* rollback */
+                                                                             NULL, NULL,
+                                                                             2,
+                                                                             {
+                                                                                 {1, LM_REP},
+                                                                                 {1, LM_TGP},
+                                                                             },
+                                                                             IFSLAM(slTl1_ent_tgp_fsm),
+                                                                             LM_TL1_FSM_CLASS_1,
+                                                                         };
+
+Part II:
+tgpProcessLmEvt
+      |
+      |
+      +------ clTgpTl1Ent(lmEvt)
+	               |
+	               |<ClTgpContext => lmEvt->modInfo[idx].modContext>
+	               |
+	               +------ clAllocModContext(lmEvt, LM_TGP, sizeof(ClTgpContext), (void **)&clTgpContext)
+	               |
+	               |
+	               |
+				   +------ cmTbFndTbl(&lmEvt->Ev.lmTl1.recvMsg.t.r.tl1.tblLst,
+                   |                  TGP_TAB_ID, 0, &clTgpContext->numTgps,
+                   |                  (void **)&clTgpContext->tgps);
+	               |
+	               |
+                   +------ cmTbFndTbl(&lmEvt->Ev.lmTl1.recvMsg.t.r.tl1.tblLst,                
+                   |                 MGC_ISUPANSIPRFL_TAB_ID, 0, &clTgpContext->numAnsiPrfls,
+                   |                 (void **)&clTgpContext->ansiPrfls);                     
+	               |
+	               |
+	               |<TgpFsmCb *context>
+	               +------ SGetSBuf(CLM_REGION, CLM_POOL, (Data**)&context, sizeof(TgpFsmCb));
+	               |       cmMemset((U8 *)context, 0, sizeof(TgpFsmCb));
+                   |       context->lmEvt         = lmEvt;
+                   |       context->tgpIdx        = 0;
+                   |       context->prflIdx       = 0;
+                   |       context->isupOptsIdx   = 0;
+                   |       
+                   |       context->fsmInfo.event = TGP_CONFIG_EV;
+	               |
+	               |
+	               |
+	               +------ clModFsmDriver(&tgpModCb.tgpFsmCp, context); (already initialized in clTgpModInit)
+                                 |
+                                 |
+                                 +------ fsmRow = fsmCp->fsmMt+cb->state*fsmCp->numEvents+cb->event
+                                 |       state = cb->state;
+                                 |       cb->state = fsmRow->nextState;
+                                 |
+                                 |
+                                 |<clTgpCcTgpCfg>
+                                 |
+                                 +------ if (fsmRow->outputFn)
+                                         {
+                                             ret = fsmCp->fsmEvFp(fsmRow->outputFn, context);
+                                         }
+
+Part III:
+clModCallBack (cl_bdy2.c) <<<<<< clTgpCfgDone >>>>>> clModCallBack(context->lmEvt, LM_TGP, ROK) <<<<<<
+      |
+      |
+      +------ clGetNextLevel(clEvt)
+      |
+      |
+      +------ clProcessLevel(clEvt)
+

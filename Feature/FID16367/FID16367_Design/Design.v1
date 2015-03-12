@@ -1,0 +1,71 @@
+1. Stage 1
+【E03S09】ccConE03S09
+     |
+     | 
+     +------- 【DECODE】ccFacStr2FacInfo
+                     |
+                     |
+                     |   <FAIL>
+                     +------------------------ 【ENCODE】Return Error Component
+                     |                  |
+                     |                  |
+                     |                  |
+                     |                  +----- 【CnStReq】CcLiCctCnStReq: Send FACILITY Message
+                     |
+                     |
+                     |  <SUCCESS>
+                     |
+                     |
+                     |
+                     +------------------------ ccStoreEvnt: FacEvnt
+                     | 
+                     |
+                     +------------------------ 【ENCODE】Return Result Component
+                     |
+                     |
+                     |    <No Alerting>
+                     +------------------------ 【STATE CHANGE】S09 -> S18
+                     |                  |
+                     |                  |
+                     |                  +----- 【RelReq】ccSendReleaseReq: Send DISCONNECT Message
+                     |
+                     |
+                     |
+                     |
+                     |   <Alerting Already>
+                     +------------------------ 【STATE CHANGE】S09 -> S55
+                                        |
+                                        |
+                                        +----- 【TxnReq】ccSendMgiQueue
+                                        |
+                                        |
+                                        +----- 【TxnCfm】ccConE11S55
+                                                          |
+                                                          |
+                                                          +------ 【STATE CHANGE】S55 -> S18  
+                                                          |
+                                                          |
+                                                          +------ 【RelReq】ccSendReleaseReq: Send DISCONNECT Message 
+
+2. Stage 2
+【E05S18】ccConE05S18
+        |
+        |
+        +--------- 【STATE CHANGE】S18 -> S21
+        |
+        +--------- ccDeallocateResource
+
+
+【E10S21】ccConE10S21
+        |
+        |
+        +--------- 【STATE CHANGE】S21 -> S00  
+        |
+        |
+        +--------- Restore Event for mapping
+        |
+        |
+        +--------- 【FACILITY to 302 】ccMapEvent_real 
+        |
+        |
+        +--------- Send 302 

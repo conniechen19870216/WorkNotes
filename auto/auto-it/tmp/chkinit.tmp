@@ -1,0 +1,70 @@
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+ainet@vm10's password: 
+Last login: Wed Aug 24 16:01:27 CST 2011 from 172.25.126.1 on pts/0
+
+                              WARNING! 
+This computer system and network is PRIVATE and PROPRIETARY and may 
+only be accessed by authorized users. Unauthorized use of this computer 
+system or network is strictly prohibited and may be subject to criminal 
+prosecution, employee discipline up to and including discharge, or the 
+termination of vendor/service contracts. The owner, or its agents, may 
+monitor any activity or communication on the computer system or network. 
+The owner, or its agents, may retrieve any information stored within the 
+computer system or network. By accessing and using this computer system 
+or network, you are consenting to such monitoring and information 
+retrieval for law enforcement and other purposes. Users should have no 
+expectation of privacy as to any communication on or information stored 
+within the computer system or network, including information stored 
+locally or remotely on a hard drive or other media in use with this 
+computer system or network.
+
+No mail for ainet
+Term type is now xterm
+vm10-0-0-1:/u/ainet-> su - 
+su - 
+Password: 
+Last login: Wed Aug 24 16:01:55 CST 2011 from station_a on ssh
+No mail for root
+Term type is now xterm
+vm10-0-0-1:/root-# /tmp/chk _init
+OP:INIT report
+==============
+PROCS OK - Total PROC:  41, RUNNING PROC: 41
+---------------------------------------------------------
+                        SYSTEM RESET HISTORY
+   
+   START:  Wed Aug 24 15:57:08 2011
+   FINISH: Wed Aug 24 15:58:55 2011
+        RECOVERY LEVEL:  LVL 5  RUN LEVEL: 100  PROC COUNT:  40
+        SOURCE:    IN_BOOT/"INIT"   ERROR:      0
+---------------------------------------------------------
+PRM log
+==============
+   ***** REPT INITIALIZATION COMPLETE *****
+      START TIME:  Wed Aug 24 15:57:08 2011
+      FINISH TIME: Wed Aug 24 15:58:55 2011
+      40 PROCS, SN_LV5, RUNLVL: 100, SOURCE: IN_BOOT/"INIT", err: 0
+---------------------------------------------------------
+fw lsndb
+==============
+Connected to Management Server at: STATION_A:2200
+Node 3: started (mysql-5.1.56 ndb-7.1.15)
+
+vm10-0-0-1:/root-# 
+

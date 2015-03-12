@@ -1,0 +1,25 @@
+ 1)字符串长度：
+   ${#var}     表示$var的长度
+   ${#2}         表示脚本的第二个参数的长度
+   ${#@}       表示脚本的所有参数的个数，等效于$#
+   另外，数组中某个元素的长度 ${#array[n]}
+
+2)字符串的前后截取，pattern一般是个命令行glob，匹配的即为被去掉的字符：
+  ${var#pattern}                   最短头匹配截取
+  ${var##Pattern}                 最大头匹配截取
+  ${var%Pattern}                  最短尾匹配截取
+  ${var%%Pattern}               最大尾匹配截取
+
+3)字符串位置，postion为第几个位置，此位置前面的字符为被匹配的（被删除的），length表示剩下的字符的长度：
+  ${var:postion}  # 从左往右看，匹配postion位置之左的，留下之后的
+  ${var:(-postion)} # 从右往左看，匹配postion位置之左的，()是为了避免和${var-default}冲突
+  ${var:postion:length} # 匹配postion位置之前的同时，显示之后的长度为length
+
+4)字符串替换，分第一个替换和全局替换，前缀替换后缀替换，同样支持glob：
+  ${var/Pattern/Replacement}            # 第一次匹配的被替换，类似：sed 's/Pattern/Replacement/'
+  ${var//Pattern/Replacement}          # 全局的匹配被替换，类似：sed 's/Pattern/Replacement/g'
+  ${var#/prefix/Replacement}             # 前缀替换
+  ${var%/suffix/Replacement}             # 后缀替换
+
+5)得到变量名，输出所有前缀一样的变量名，不支持glob：
+  ${!var_prefix*} 或 ${!var_prefix@}

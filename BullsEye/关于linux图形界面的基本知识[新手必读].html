@@ -1,0 +1,297 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<title>关于linux图形界面的基本知识[新手必读]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="Org-mode">
+<meta name="generated" content="2012-10-16 14:16:01 CST">
+<meta name="author" content="Fang lungang">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<link rel="stylesheet" type="text/css" href="%E5%85%B3%E4%BA%8Elinux%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%5B%E6%96%B0%E6%89%8B%E5%BF%85%E8%AF%BB%5D_files/lgfang.css">
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+<style id="huaban_Style">#huaban_Container {font-family: 'helvetica neue', arial, sans-serif; position: absolute; padding-top: 37px; z-index: 100000002; top: 0; left: 0; background-color: transparent; opacity: 1;hasLayout:-1;}#huaban_Overlay {position: fixed; z-index: 100000001; top: 0; right: 0; bottom: 0; left: 0; background-color: #f2f2f2; opacity: .95;}* html #huaban_Overlay {position: absolute;}#huaban_Control {position:relative; z-index: 100000; float: left; background-color: #fcf9f9; border: solid #ccc; border-width: 0 1px 1px 0; height: 200px; width: 200px; opacity: 1;}* html #huaban_Control {position:static;}#huaban_Control img {position: relative; padding: 0; display: block; margin: 82px auto 0; -ms-interpolation-mode: bicubic;}#huaban_Control a {position: fixed; z-index: 10001; right: 0; top: 0; left: 0; height: 24px; padding: 12px 0 0; text-align: center; font-size: 14px; line-height: 1em; text-shadow: 0 1px #fff; color: #211922; font-weight: bold; text-decoration: none; background: #fff url(http://huaban.com/img/fullGradient07Normal.png) 0 0 repeat-x; border-bottom: 1px solid #ccc; -mox-box-shadow: 0 0 2px #d7d7d7; -webkit-box-shadow: 0 0 2px #d7d7d7;}* html #huaban_Control a {position: absolute; width: 100%;}#huaban_Control a:hover {color: #fff; text-decoration: none; background-color: #1389e5; border-color: #1389e5; text-shadow: 0 -1px #46A0E6;}#huaban_Control a:active {height: 23px; padding-top: 13px; background-color: #211922; border-color: #211922; background-image: url(http://huaban.com/img/fullGradient07Inverted.png); text-shadow: 0 -1px #211922;}.huabanImagePreview {position: relative; padding: 0; margin: 0; float: left; background-color: #fff; border: solid #e7e7e7; border-width: 0 1px 1px 0; height: 200px; width: 200px; opacity: 1; z-index: 10002; text-align: center; overflow:hidden;}.huabanImagePreview .huabanVideoIcon {position:absolute;display:block;top:0;left:0;width:100%;height:100%;background:url(http://huaban.com/img/media_video.png) center center no-repeat;}.huabanImagePreview .huabanImg {border: none; height: 200px; width: 200px; opacity: 1; padding: 0;}.huabanImagePreview .huabanImg a {margin: 0; padding: 0; position: absolute; top: 0; bottom: 0; right: 0; left: 0; display: block; text-align: center;  z-index: 1;}.huabanImagePreview .huabanImg a:hover {background-color: #fcf9f9; border: none;}.huabanImagePreview .huabanImg .ImageToPin {max-height: 200px; max-width: 200px; width: auto !important; height: auto !important;}.huabanImagePreview img.huaban_PinIt {border: none; position: absolute; top: 82px; left: 42px; display: none; padding: 0; background-color: transparent; z-index: 100;}.huabanImagePreview img.huaban_vidind {border: none; position: absolute; top: 75px; left: 75px; padding: 0; background-color: transparent; z-index: 99;}.huabanDimensions { color: #000; position: relative; margin-top: 180px; text-align: center; font-size: 10px; z-index:10003; display: inline-block; background: white; border-radius: 4px; padding: 0 2px;}#huaban_Button { display: block; position: absolute; z-index: 999999999; color: #211922; background-color: #fff; text-shadow: 0 1px #eaeaea; border-radius: 5px; box-shadow: 0 0 2px #555; font: 12px/1 'Helvetica Neue',Helvetica,Arial,Sans-serif; text-align: center; padding: 5px 18px; cursor: pointer; border: 1px solid #555\9;}#huaban_Button:hover { background-image: -webkit-linear-gradient(top, #fefeff, #efefef); background-image: -moz-linear-gradient(top, #fefeff, #efefef); }#huaban_Button.huaban_Button_share {text-indent: -9999px; width: 86px; height: 24px; padding:0; background: url(http://huaban.com/img/sharebutton.png) no-repeat; background: url(http://huaban.com/img/sharebutton.png) no-repeat !important; }</style></head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="http://ihgpweb.ih.lucent.com/%7Elgfang/unix/index.html"> UP </a>
+ |
+ <a accesskey="H" href="http://ihgpweb.ih.lucent.com/%7Elgfang/index.html"> HOME </a>
+</div>
+
+<h1 class="title">关于linux图形界面的基本知识[新手必读]</h1>
+
+<p>
+（lgfang: 转自
+<a href="http://www.linuxforum.net/forum/gshowflat.php?Cat=&amp;Board=newbie&amp;Number=514545&amp;page=0&amp;view=collapsed&amp;sb=5&amp;o=all&amp;fpart">http://www.linuxforum.net/forum/gshowflat.php?Cat=&amp;Board=newbie&amp;Number=514545&amp;page=0&amp;view=collapsed&amp;sb=5&amp;o=all&amp;fpart</a>
+并稍作格式化。个别描述已过时或不准确。）
+</p>
+<p>
+很多LINUX的初学者分不清除linux和X之间,X和Xfree86之间,X和KDE,gnome等之间是什么关
+系.常常混淆概念,我想以比较易于理解的方式说明一下X,X11,XFREE,WM,KDE,GNOME等之间的
+关系.由于本人水平有限肯可能存在错误,请高手指正.
+</p>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Linux本身没有图形界面，Linux现在的图形界面的实现只是Linux下的应用程序实现的。 </a></li>
+<li><a href="#sec-2">2 X是协议,不是具体的某个软件 </a></li>
+<li><a href="#sec-3">3 X和XFree86的关系. </a></li>
+<li><a href="#sec-4">4 四,X和X11R6又是什么关系? </a></li>
+<li><a href="#sec-5">5 五,X服务器和WM(window manager 窗口管理器)之间是什么关系. </a></li>
+<li><a href="#sec-6">6 关于KDE和GNOME </a></li>
+<li><a href="#sec-7">7 七,linux图形界面层次关系总结 </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Linux本身没有图形界面，Linux现在的图形界面的实现只是Linux下的应用程序实现的。 </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  图形界面并不是linux的一部分,linux只是一个基于命令行的操作系统,linux和Xfree的关
+  系就相当于当年的DOS和 WINDOWS3.0一样,windows3.0不是独立的操作系统,它只是DOS的扩
+  充,是DOS下的应用程序级别的系统,不是独立的操作系统,同样XFree只是linux下的一个应
+  用程序而已.不是系统的一部分,但是X的处在可以方便用户使用电脑.WINDOWS95及以后的版
+  本就不一样了,他们的图形界面是操作系统的一部分,图形界面在系统内核中就实现了,没有
+  了图形界面windows就不成为windows了,但linux却不一样,没有图形界面linux还是linux,
+  很多装linux的WEB服务器就根本不装X服务器.这也WINDOWS和linux的重要区别之一.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> X是协议,不是具体的某个软件 </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>  
+  X是协议,就像HTTP协议,IP协议一样,这个概念很多初学者甚至学习LINUX有一定时间的人都
+  混淆,一个基于X的应用程序需要运行并显示内容时他就联接到X服务器,开始用X协议和服务
+  器交谈.比如一个X应用程序要在屏幕上输出一个圆那么他就用X协议对X服务器说:喂!我需
+  要在屏幕上画一个圆.X应用程序只负责告诉X服务器在屏幕的什么地方用什么颜色画一个多
+  大的圆,而具体的"画"的动作,比如这个圆如何生成,用什么显卡的驱动程序去指挥显卡完成
+  等等工作是由X服务器来完成的.X服务器还负责捕捉键盘和鼠标的动作,假设X服务器捕捉到
+  鼠标的左键被按下了,他就告诉X应用程序:亲爱的应用程序先生,我发现鼠标被按下了,您有
+  什么指示吗? 如果X应用程序被设计成当按下鼠标左健后再在屏幕上画一个正方形的话,X应
+  用程序就对X服务器说:请再画一个正方形,当然他会告诉服务器在什么地方用什么颜色画多
+  大的正方形,但不关心具体怎么画–那是服务器的事情.
+</p>
+<p>
+  那么协议是需要具体的软件来实现的,这就是下面我要讲的:
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> X和XFree86的关系. </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  有了协议就需要具体的软件来实现这个协议.就好比我们有了交通法规就需要交警去根据法
+  规维护交通秩序一样.XFree86就是这样一个去根据法规实现协议的"交警".他按照X协议的
+  规定来完成X应用程序提交的在屏幕上显示的任务.当然不仅仅是某个特定的交警才可以去
+  维护和实现这个法规,比如还可以由交通协管员来实现交通法规,必要的时候警察也可以介
+  入,当然前提是他们都要懂得交通法规,也就是要懂得协议.所以实现X协议的软件也并不只
+  有 XFree86,XFree86只是实现X协议的一个免费X服务器软件. 商业上常用MOTIF,现在还有
+  XORG,还有很多很小的由爱号者写的小的X服务器软件.甚至可以在WINDOWS上有X服务器运
+  行,这样你可以在linux系统上运行一个X应用程序然后在另一台windows系统上显示.多么神
+  气.你可以用google找到这样的X服务器软件. 只不过在LINUX上最常用的是XFree86.顺便说
+  一句,苹果电脑的图形界面用的也是X协议,而且被认为是做的最好的X协议图形界面,并且他
+  对X协议的实施是做在系统内核里的,所以性能明显好很多,这就是为什么很多大型三维图形
+  设计软件都是在苹果平台上的原因.
+</p>
+<p>
+  为了便于理解拿HTTP协议来比较:
+</p><ul>
+<li>协议是HTTP (hyper text transmission protocol)
+</li>
+<li>实现这个协议的常用服务器有:apache IIS 等
+</li>
+<li>请求这些服务器传输文件的客户有:IE ,MOZILLA ,NETSCAPE等.
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 四,X和X11R6又是什么关系? </h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+  不知道初学者有没有注意到/usr/X11R6这个目录,这是XFree的默认安装目录X11R6实际上是
+  X Protocol version 11 Release 6 (X协议第11版第六次发行)的意思,就是说目前用的X协
+  议是第11版的,然后经过了6次小的修正.不同版本的X协议是不能通信的.就象我们现在
+  IPV4和IPV6不能通信一样,不过不用担心,现在的X服务器软件和X应用程序都遵循X11R6.
+</p>
+<p>
+  另外XFree86 3.3.6 XFree86 4.3.6 等这些版本是实现X协议的软件XFree86的版本号.这是
+  初学者经常高混淆的概念.
+</p>
+<p>
+  协议版本和实现协议的软件的版本–这两个概念的区别你分清除了吗?
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 五,X服务器和WM(window manager 窗口管理器)之间是什么关系. </h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+  平时大家起动图形界面是怎么启动的呢?  如果你是一开己就进入图形界面那就太遗
+  憾了.应为你错过了了解X服务器起动过程的好时机.不过没关系.你打开一个XTERM输
+  入:
+</p><pre class="example">init 3
+</pre>
+
+
+<p>
+  就可以安全的回到字符界面.
+</p>
+<p>
+  好了,等做完以下实验你就完全明白X和WM(window manager 窗口管理器)之间是什么
+  关系了.
+</p>
+<p>  
+  先输入以下命令:
+</p><pre class="example">startx
+</pre>
+
+
+<p>
+  起动图形界面,你看到的是一个和平时使用一样的完整的图形界面操作环境.  你可
+  以最大化,最小化,移动,关闭窗口等.
+</p>
+<p>
+  按ctrl+alt+backspace反回字符界面.
+</p>
+<p>
+  输入:
+</p><pre class="example">xinit
+</pre>
+
+
+<p>
+  再次启动图形界面,你看到了什么,你看到一个XTERM.而且不能移动.但是你可以在这个
+  XTERM中输入命令打开X应用程序,如果我输入:
+</p><pre class="example">mozilla
+</pre>
+
+
+<p>
+  打开浏览器,你看到的浏览器和平时有什么不同吗?他在屏幕中间,不能移动,不能最小化,不
+  能最大化,没有边框.
+</p>
+<p>
+  为什么同样一个X应用程序会有这样的不通呢?因为我们用startx起动图形界面的时候同时
+  也启动了一个WM(即窗口管理器),如果你用KDE就起动了KDE,如果你用GNOME就起动了
+  GNOME.但是你用xinit起动图形界面的时候却没有起动WM.
+</p>
+<p>
+  现在你明白窗口管理器的作用了吗?他的作用就是最大化,最小化,移动,关闭窗口等.而这些
+  不是X服务器来负责完成的.
+</p>
+
+
+<p>
+  如果你用xinit起动图形界面并在xterm中输入twm,看看会有什么? xterm被加上了一个边
+  框,你可以通过这个边框移动,最大化,最小化这个xterm,twm就是XFree86中自带的窗口管理
+  器,是一个比较简陋的最简单的窗口管理器,但是他具有窗口管理器的全部特征.
+</p>
+<p>
+  如果你不输入twm而输入gnome-session就可以起动GNOME 或者输入startkde起动KDE.
+</p>
+<p>
+  通过以上的实验你就可以清楚的明白他们之间的关系.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 关于KDE和GNOME </h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+  KDE和GNOME是LINUX里最常用的图形界面操作环境,他们不仅仅是一个窗口管理器那么简单,
+  KDE是KING DESKTOP ENVIRMENT (桌面环境之王)的缩写.他不仅是一个窗口管理器,还有很
+  多配套的应用软件和方便使用的桌面环境,比如任务栏,开始菜单,桌面图标等等.
+</p>
+<p>
+  GNOME是GNU Network Object Model Envirment 的缩写.和KDE一样,也是一个功能强大的综
+  合环境.
+</p>
+<p>
+  另外在其它UNIX系统中,常常使用CDE作为这样一个环境.
+</p>
+<p>
+  其它的小型窗口管理器有: window maker,after step,blackbox,fvwm,fvwm2,等等都是常
+  用的优秀窗口管理器.REDHAT9中有 window maker 但是默认不安装,大家可以装来试试.只
+  要xinit再wmaker&amp;就可以用windowmaker了.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 七,linux图形界面层次关系总结 </h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+  linux本身 -&gt; X服务器 -&gt; 窗口管理器(综合桌面环境) -&gt;X应用程序.
+</p>
+
+<p>
+  以上就是linux图形界面的大概情况. 本人也是从各种书籍和资料上看来的,难免有理解错
+  和看错的地方.说的不对的地方欢迎大家交流.
+</p>
+<p>
+  email :win2linux@163.com author :gucuiwen
+</p></div>
+</div>
+<div id="postamble">
+<p class="author">Author: Fang lungang</p>
+<p class="creator">Org version 7.5 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+
+
+</body></html>

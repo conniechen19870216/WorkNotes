@@ -1,0 +1,44 @@
+export SPAVER=421
+export SPA_NAME=OAM
+export SPA_SPAVER=$SPA_NAME$SPAVER
+export SPA_TYPE=
+export SPA_FULLNAME=$SPA_NAME$SPA_TYPE$SPAVER
+export SPA_DIR=/sn/sps/$SPA_FULLNAME
+
+export CONTEXT_NAME=ems
+export ISSPA=Y
+export MSGHTIMERS=Y
+
+#export OAMHSS_ARGV="-NO_THREAD=1 -trace 1"
+#export OAMCOMM_ARGV="-NO_THREAD=1 -trace 1"
+#export OAMLIMGNT_ARGV="-NO_THREAD=1 -trace 1"
+#export OAMGNOTF_ARGV="-NO_THREAD=1 -trace 1"
+#export OAMEIR_ARGV="-NO_THREAD=1 -trace 1"
+#export OAMMNP_ARGV="-NO_THREAD=1 -trace 1"
+echo "OAMHSS_ARGV = $OAMHSS_ARGV"
+echo "OAMCOMM_ARGV = $OAMCOMM_ARGV"
+echo "OAMLIMGNT_ARGV = $OAMLIMGNT_ARGV"
+echo "OAMGNOTF_ARGV = $OAMGNOTF_ARGV"
+echo "OAMEIR_ARGV = $OAMEIR_ARGV"
+echo "OAMMNP_ARGV = $OAMMNP_ARGV"
+
+export NUM_OF_COMM=1
+export NUM_OF_GLOAD=1
+export NUM_OF_GSUITE=1
+export NUM_OF_GAUC=1
+export NUM_OF_DB=1
+export NUM_OF_ACTL=1
+export NUM_OF_SANEGW=0
+export NUM_OF_LIMGNT=1
+export NUM_OF_GNOTF=1
+export NUM_OF_EIR=1
+export NUM_OF_MNP=1
+
+#export DEPLOY_TYPE=PMGW
+#export CHASSIS_TYPE=PMGW
+
+LD_LIBRARY_PATH=/usr/lib/lwp:/opt/usrlib:$LD_LIBRARY_PATH:$SPA_DIR/bin/lib:/usr/dhafw/shlib:/usr/mysql/lib
+LD_LIBRARY_PATH=/opt/ace/sparc/lib:$LD_LIBRARY_PATH
+LD_LIBRARY_PATH_64=$LD_LIBRARY_PATH_64:$SPA_DIR/lib
+echo $LD_LIBRARY_PATH_64
+echo $LD_LIBRARY_PATH

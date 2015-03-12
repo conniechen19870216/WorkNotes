@@ -1,0 +1,16 @@
+1. 把zip包放在/storage/loads
+(1) scp sqapf@135.252.135.19:/home/toaster/Main/swATCAwBTS/ALGPV2.ATCA.9.4.0.0.0.97.zip .
+(2) scp ALGPV2.ATCA.9.4.0.0.0.97.zip vb2:/storage/loads
+
+2. unzip ALGPV2.ATCA.9.4.0.0.0.97.zip sbin/coldupgrade
+
+3. vi sbin/coldupgrade
+(1) ACCMs="vm11-s00c05h0 vm11-s00c06h0"
+    ADCMs=""
+
+4. ./sbin/coldupgrade -f ./ALGPV2.ATCA.9.4.0.0.0.97.zip
+
+
+Tips:
+cd /home/mgc8vm/blade5
+tail -f console.log

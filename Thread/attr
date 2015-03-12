@@ -1,0 +1,80 @@
+1. Structures
+   pthread_attr_t (pthread.h)
+   绑定
+   分离
+   优先级
+   堆栈大小
+   堆栈地址
+
+   typedef struct pattr {
+       st_attr_t st;
+       int pthread_attr_scope; 
+   } pthread_attr_t;
+ 
+   typedef struct st_attr {      
+	   int stksize;        /* thread stack size, in bytes */
+	   int prio;           /* thread priority */
+	   int inheritsched;   /* inherit scheduler from creator? */
+	   int state;          /* detatch or joinable state */                                                                                                            
+	   int sched;          /* Scheduler to run under (FIFO, RR, DEFAULT) */
+   } st_attr_t;
+
+   pthread_attr_init：属性值不能直接设置，须使用相关函数进行操作，初始化的函数为，这个函数必须在pthread_create函数之前调用。
+   属性对象：         主要包括是否绑定、是否分离、堆栈地址、堆栈大小、优先级。
+   默认的属性：       非绑定、非分离、缺省1M的堆栈、与父进程同样级别的优先级。
+
+2. 绑定
+   轻进程：牵涉到另外一个概念：轻进程（LWP：Light Weight Process）。轻进程可以理解为内核线程，它位于用户层和系统层之间。
+           系统对线程资源的分配、对线程的控制是通过轻进程来实现的，一个轻进程可以控制一个或多个线程。
+
+   非绑定：默认状况下，启动多少轻进程、哪些轻进程来控制哪些线程是由系统来控制的，这种状况即称为非绑定的。
+   绑定：  某个线程固定的"绑"在一个轻进程之上。
+           绑定的线程具有较高的响应速度，这是因为CPU时间片的调度是面向轻进程的，绑定的线程可以保证在需要的时候它总有一个轻进程可用。
+		   通过设置被绑定的轻进程的优先级和调度级可以使得绑定的线程满足诸如实时反应之类的要求。
+
+   pthread_attr_setscope: 设置线程绑定状态
+   第一个是指向属性结构的指针。
+   第二个是绑定类型，它有两个取值：PTHREAD_SCOPE_SYSTEM（绑定的）和PTHREAD_SCOPE_PROCESS（非绑定的）。
+
+   #include <pthread.h>
+
+   pthread_attr_t attr;
+   pthread_t tid;
+   
+   pthread_attr_init(&attr);
+   pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM);
+   pthread_create(&tid, &attr, (void *) my_function, NULL);
+
+3. 分离
+   分离状态：  决定一个线程以什么样的方式来终止自己，没有被其他的线程所等待，自己运行结束了，线程也就终止了，马上释放系统资源。
+   非分离状态：原有的线程等待创建的线程结束。只有当pthread_join（）函数返回时，创建的线程才算终止，才能释放自己占用的系统资源。
+
+   pthread_attr_setdetachstate（pthread_attr_t *attr, int detachstate）
+   PTHREAD_CREATE_DETACHED（分离线程）
+   PTHREAD _CREATE_JOINABLE（非分离线程）
+
+   线程同步问题：
+   如果设置一个线程为分离线程，而这个线程运行又非常快，它很可能在pthread_create函数返回之前就终止了，它终止以后就可能将线程号和系统资源移交给其他的线程使用，
+   这样调用pthread_create的线程就得到了错误的线程号。
+
+   避免这种情况可以采取一定的同步措施，最简单的方法之一是可以在被创建的线程里调用pthread_cond_wait函数，让这个线程等待一会儿，留出足够的时间让函数pthread_create返回。
+   设置一段等待时间，是在多线程编程里常用的方法。
+   但是注意不要使用诸如wait（）之类的函数，它们是使整个进程睡眠，并不能解决线程同步的问题。
+
+4. 优先级
+   pthread_attr_getschedparam和函数pthread_attr_setschedparam进行存放，一般说来，我们总是先取优先级，对取得的值修改后再存放回去。
+
+   #include <pthread.h>
+   #include <sched.h>
+
+   pthread_attr_t attr;
+   pthread_t tid;
+   sched_param param;
+   
+   int newprio=20;
+
+   pthread_attr_init(&attr);
+   pthread_attr_getschedparam(&attr, &param);
+   param.sched_priority=newprio;
+   pthread_attr_setschedparam(&attr, &param);
+   pthread_create(&tid, &attr, (void *)myfunction, myarg);

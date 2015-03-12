@@ -1,0 +1,46 @@
+Tool Build Server: 135.252.135.1
+Reference Bug: 79842
+
+1. check out files
+cvs co –r <branch> TelicaRoot/TestHarnessUpdate.
+./TelicaRoot/TestHarnessUpdate –r <branch>.
+
+2. file info
+test_harness:             common makefile
+test_harness/bin:         executable files
+test_harness/sipp1.1:     sipp source codes
+test_harness/lmgcc:       lm and gcc emulator
+test_harness/expect:      controller: expect controller
+test_harness/3rdparty:    all 3rd party tools
+test_harness/scripts/sip: all SIP test cases
+
+3. Build Test Harness
+cd test_harness
+make (or make all_debug)
+make clean
+
+4. Interactive Commands
+help
+scriptdir
+logdir
+lstc
+lsts
+runtest
+runtestsuite
+teststat
+stoptest
+exit
+displayon
+displayoff
+lsport
+lsproc
+
+5. Commands for manual testing
+runsipa [-A/-a/-s]
+stopsipa [-A/-a/-s]
+runsipp <XML file> [other arguments]
+stopsipp
+gdb on
+
+6. description of test cases
+./test_harness/scripts/sip/_scriptindex.txt

@@ -1,0 +1,14 @@
+#!/bin/bash
+FILE=TelicaRoot/TestHarnessUpdate
+VERSION=$1
+if [ -f ${FILE} ]; then
+	rm ${FILE}
+fi
+
+if [ ${VERSION} = "main" ]; then
+	cvs co -A ${FILE}
+	nohup ./${FILE} -A &
+else
+	cvs co -r ${VERSION} ${FILE}
+	nohup ./${FILE} -r ${VERSION} &
+fi

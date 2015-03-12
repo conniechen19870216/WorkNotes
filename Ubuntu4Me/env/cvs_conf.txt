@@ -1,0 +1,52 @@
+1. Check cvspserver is available
+   /etc/services
+   cvspserver 2401/tcp
+   cvspserver 2401/udp
+
+2. Start xinetd service
+   /etc/xietd.d/cvspserver(any name)
+   service cvspserver                                                                                                                      
+{
+    disable = no
+    port = 2401
+    socket_type = stream
+    instances = UNLIMITED
+    per_source = UNLIMITED
+    protocol = tcp 
+    wait = no
+    user = root
+    server = /usr/bin/cvs
+    server_args = -f  --allow-root=/home/kavonm/majun/cvsroot/Repository pserver
+    log_on_success += DURATION USERID
+    log_on_failure += USERID
+}
+
+3. Restart xinetd service
+   service xinetd restart
+
+4. Check cvs server already started
+   (1) telnet localhost(135.252.33.171) cvspserver
+   (2) netstat -l | grep cvspserver
+
+5. Initialize cvs server
+   cvs -d /home/kavonm/majun/cvsroot/Repository init 
+
+6. Add a cvs system user
+   groupadd cvs
+   useradd -g cvs -G cvs -d /home/kavonm/majun/cvsroot/Repository -s /bin/bash cvsroot
+
+7. Add cvs login
+   (1) cd /home/kavonm/majun/cvsroot/Repository/CVSROOT 
+   (2) vi passwdgen.pl
+       #!/usr/bin/perl                                                                                                                         
+       srand (time());
+       my $randletter = "(int (rand (26)) + (int (rand (1) + .5) % 2 ? 65 : 97))";
+       my $salt = sprintf ("%c%c", eval $randletter, eval $randletter);
+       my $plaintext = shift; my $crypttext = crypt ($plaintext, $salt);
+       print "${crypttext}\n";
+   (3) Generate encrypted passwd
+       ./passwdgen.pl anyword
+   (4) vi passwd
+       Format: kavon:encrypted passwd:cvsroot(added above)
+
+

@@ -1,0 +1,9 @@
+tr: translate
+1. Common
+echo "I am Kavon" | tr 'A-Z' 'a-z'
+2. Delete
+echo "I am 1 Kavon 2" | tr -d '0-9'
+3. Complement
+echo "I am 1 Kavon 2" | tr -d -c '0-9'
+4. Compress
+echo "I    am   Kavon    " | tr -s ' '

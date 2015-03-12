@@ -1,0 +1,85 @@
+Conclusions:
+(1) 默认值问题
+a) <未定义变量或定义为空>
+-/=: 仅限于变量未定义时使用，否则不会起作用
+:-/:=: 反之，加上冒号之后可以改变定义为空的情况
+换句话来说，前者适用于变量未定义的情况；而后者则适用于变量未定义或定义为空的情况下。
+
+b) <已经定义变量或定义为空>
++/:+  :相反，前者用于变量定义（包括定义为空）的情况下；而后者则适用于变量定义不为空的情况下。
+
+(2) 长度问题
+#前缀会返回长度大小
+${#var}; ${#2}; ${#@}<=>$@; ${#array[n]}或者${#array[*]}
+(By the way, 数组的定义方式为：array=(value1 value2 value3 ...))
+
+(3) 字符串过滤
+#/##,  %/%%
+
+(4) 字符串变量替换
+${var/a/b}：第一次匹配的被替换；
+${var//a/b}：全局替换；
+
+1. 变量替换
+[kavonm@ubuntu bin] $ unset a
+[kavonm@ubuntu bin] $ echo ${a-abc}
+abc
+[kavonm@ubuntu bin] $ echo ${a:-abc}
+abc
+[kavonm@ubuntu bin] $ a=
+[kavonm@ubuntu bin] $ echo ${a-abc}
+
+[kavonm@ubuntu bin] $ echo ${a:-abc}
+abc
+[kavonm@ubuntu bin] $ a=1
+[kavonm@ubuntu bin] $ echo ${a-abc}
+1
+[kavonm@ubuntu bin] $ echo ${a:-abc}
+1
+
+2. 变量设置已有变量替换
+[kavonm@ubuntu ~] $ unset a
+[kavonm@ubuntu ~] $ echo ${a=abc}
+abc
+[kavonm@ubuntu ~] $ echo $a
+abc
+[kavonm@ubuntu ~] $ unset a
+[kavonm@ubuntu ~] $ echo ${a:=abc}
+abc
+[kavonm@ubuntu ~] $ echo $a
+abc
+[kavonm@ubuntu ~] $ 
+[kavonm@ubuntu ~] $ a=
+[kavonm@ubuntu ~] $ echo ${a=abc}
+
+[kavonm@ubuntu ~] $ echo $a
+
+[kavonm@ubuntu ~] $ echo ${a:=abc}
+abc
+[kavonm@ubuntu ~] $ echo $a
+abc
+[kavonm@ubuntu ~] $ 
+[kavonm@ubuntu ~] $ 
+[kavonm@ubuntu ~] $ a=1
+[kavonm@ubuntu ~] $ echo ${a=abc}
+1
+[kavonm@ubuntu ~] $ echo ${a:=abc}
+1
+[kavonm@ubuntu ~] $ echo $a
+1
+
+3. 已有变量替换 (并未设置)
+[kavonm@ubuntu ~] $ unset a
+[kavonm@ubuntu ~] $ a=1
+[kavonm@ubuntu ~] $ echo ${a+abc}
+abc
+[kavonm@ubuntu ~] $ echo $a
+1
+
+[kavonm@ubuntu ~] $ unset b
+[kavonm@ubuntu ~] $ echo ${b+def}
+
+[kavonm@ubuntu ~] $ echo $b
+
+
+

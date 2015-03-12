@@ -1,0 +1,155 @@
+1. Receive REINVITE from egress and map REINVITE to ingress
+CcLiCnStInd: >>>>>>>>> CC_ET_XFERQRY <<<<<<<<<
+       |
+       |
+       +----- ccConE03S10
+                  |
+                  |
+       	          +------ ccMapEvent_real: ccSI2SIPMapS20M08
+				  |
+				  |
+				  +------ ccSendCnStReq: <<<<<<<<<<<<<< CCSIP_ET_XFER_QRY (re-invite) >>>>>>>>>>>>>
+
+
+2. receive ingress 200 OK and send INVITE to ingress
+CcLiCnStInd: 200 OK (ingress) >>>>>>>>>>> CCSIP_ET_XFER_QRY_RSP <<<<<<<<<<
+       |
+       |
+       +------ ccConE03S10
+                   |
+                   |
+                   +------- ccProcessQryRsp
+                                 |
+                                 |
+                                 +------ ccProcessQryRspPassThru
+                                             |
+                                             |<create 2 contexts>
+                                             |
+                                             +------ ccUpdateMgQForAddOrModifyRsc
+                                             |           |
+                                             |           |
+                                             |           +------ ccDumpMgctMediaDesc
+                                             |                          |
+                                             |                          |<10047>
+                                             |                          +------ suCtxId == 0
+                                             |                          |
+                                             |                          |
+                                             |                          +------ mgCmdQ = ccAllocateMgCmdQ(mgCtx); 
+                                             |
+                                             |
+                                             +------ ccUpdateMgQForAddOrModifyRsc
+                                             |           |
+                                             |           |
+                                             |           +------ ccDumpMgctMediaDesc
+                                             |                          |
+                                             |                          |<10048>
+                                             |                          +------ suCtxId == 0
+                                             |                          |
+                                             |                          |
+                                             |                          +------ mgCmdQ = ccAllocateMgCmdQ(mgCtx); 
+                                             |                           
+                                             |                           
+                                             |                           
+                                             +------ 10->14: CC_STATE_CHANGE(con, CCS_AWT_MGI_XFERQRYHOLD);
+                                             +------ ccSendMgiQueue (suCtxId = 10047)
+                                                         |
+                                                         |
+                                                         +-------- MgiLiMgctTxnReq
+
+
+3. send egress SIPT 200 OK reinvite
+ccConE11S14
+    |
+    |
+    +------- ccHandleMgResponse (Called by ccConE11S14)
+    |               |
+    |               |
+    |               +-------- mgCmdPointer = ccFindMgCmdQFromCmdRspList(mgCtx, cmdRspList, replyList);
+    |               |
+    |               |
+    |               +-------- ccExecuteMgCmdQ_On_MgCtx(mgCtx, mgCmdPointer, cmdRspList, replyList, txnCfm->status);
+    |               |               |
+    |               |               |
+    |               |               +------- ccUpdateCcConCbForAddReq
+    |               |               |                |
+    |               |               |                |
+    |               |               |                +-------- ret = cmHashListFind(&(mgCtx->mgSapCb->ccMgInsTbl), (U8 *)&(replyList->contextId),
+    |               |               |                |                              (U16)sizeof(U32), (U16)0, (PTR *)&tmpMgCtx);
+    |               |               |                |         if ((ret == ROK) && (tmpMgCtx != NULLP))
+    |               |               |                |         {
+    |               |               |                |           if ((mgCmdQ->bcm) && (mgCmdQ->bcm->mgCtx == NULLP))
+    |               |               |                |           {
+    |               |               |                |              mgCmdQ->bcm->mgCtx = tmpMgCtx;
+    |               |               |                |           }
+    |               |               |                |         }
+    |               |               |                |         else
+    |               |               |                |           ret = cmHashListInsert(&(mgCtx->mgSapCb->ccMgInsTbl), (PTR) mgCtx,
+    |               |               |                |                                  (U8 *)&(mgCtx->contextId),
+    |               |               |                |                                  (U16)sizeof(U32));
+    |               |               |                |
+    |               |               |                |
+    |               |               |                |
+    |               |               |                +-------- term = ccAllocateTerm(mgCtx);
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               +------- if(cmdRspList->cmdType != MGCT_CMD_SUB)
+    |               |                           ccDeleteElementFromCmdQ(mgCtx, mgCmdQ);
+    |               |
+    |               |
+    |               |
+    |               |
+    |               +------- cleanUpCtxMgQ(mgCtx);
+    |               |
+    |               |
+    |               |
+    |               +------- /* After processing the TxnCfm, GCC should not have anything in the mgCmdQ */
+    |               |        if (mgCtx->mgCmdQ)
+    |               |        {
+    |               |          ABORT_DEBUG;
+    |               |        } 
+    |               |
+    |               |
+    |               |
+    |               +------- if (mgCtx->term == NULLP)
+    |                        {
+    |                          CCDP(AIN_DBG_LEVEL_1, "mgCtx's term is NULLP, need to delete the mgCtx from the mgBlock\n");
+    |                          ccResetBcmMgCtx(mgCtx);
+    |                          ccDeleteMgCtxFromMgBlock(mgCtx);
+    |                        }
+	|
+	|
+	|
+	+------ 14->10: CC_STATE_CHANGE(con, CCS_ANSWERED);
+    |
+    |
+    +------ ccMapEvent_real: ccSIP2SIMapS21M09
+	|
+	|
+	+------ ccSendCnStReq: <<<<<<<<<<<<<< CC_ET_XFERQRYRESP (200 OK reinvite) >>>>>>>>>>>>>
+
+
+4. Receive egress SIPT ACK
+CcLiCnStInd: >>>>>>>>> CC_ET_ACK <<<<<<<<<
+       |
+       |
+       +----- ccConE03S10
+				  |
+				  |
+				  +------ ccProcessPrackOrAck
+                                  |
+                                  |
+                                  +------ ccUpdateMgQForAddOrModifyRsc
+                                  |              |
+                                  |              |<10048>
+                                  |              +------ suCtxId == 10048
+                                  |              |
+                                  |              |
+                                  |              +------ mgCmdQ = ccAllocateMgCmdQ(mgCtx); 
+	                              |
+	                              |
+	                              +------ 10->130: CC_STATE_CHANGE(con, CCS_AWTMGCTCFM_ACK);
+                                  +------ ccSendMgiQueue (suCtxId = 10048)
+
+ccConE11S130
+... 

@@ -1,0 +1,57 @@
+####################################################################################
+#                                                                                  # 
+#                      Start: Configuration of direction                           #
+#                                                                                  #
+####################################################################################
+rmDss1BChanCfg: ENT/ED-ISDN-BCHAN
+
+####################################################################################
+#                                                                                  # 
+#                      1. Select B Channel for PBX to MGC-8                        #
+#                                                                                  #
+####################################################################################
+1. Preferred
+(1) Normal Operations
+    a) ASCENDING                        
+    b) DESCENDING              
+
+(2) toBeAlctdBChnl
+    a) CIRCULAR
+    b) RANDOM
+
+2. Exclusive
+
+####################################################################################
+#                                                                                  # 
+#                      2. Select B Channel for MGC-8 to PBX                        #
+#                                                                                  #
+####################################################################################
+Preferred to Exclusive if B channels with direction=Incoming configured
+
+####################################################################################
+#                                                                                  # 
+#      End: Report the number of both-way and outgoing B-channels to Router        #
+#                                                                                  #
+####################################################################################
+1. ENT/ED/DLT-ISDN-BCHAN
+
+rumStartUpd (rm_rum.c)
+      |
+      +----- rumPrepareAndSendUpd(&header, mBuf) (rm_rum.c)
+                     |
+                     |
+                     V
+      ifc->type = rumIntfc->intfc.intfcType;
+      ifc->id = rumIntfc->intfc.intfcId;
+      ifc->mgCcsId = rmCp.genCfg.ownCcsId; /* 15261.0 */
+      ifc->hunting = 0;
+      ifc->numCics = 0;
+      ifc->stats.total = isdnTg->cntCfgdChans;
+      /*Bug61692 Get PreCut Chans number */
+      ifc->stats.u.dfltRsc.precut =  isdnTg->cntPcChans;
+      ifc->stats.u.dfltRsc.oos = isdnTg->cntMntChans - isdnTg->cntPcOosChans
+      ifc->stats.u.dfltRsc.busy = 0; /* Bug 49646, PENDING */
+      ifc->stats.u.dfltRsc.free = rmListGetNmbEnt(&isdnTg->freeBchnlList);
+      ifc->stats.overflow = 0;
+
+2. Print the count of Outgoing BCHAN

@@ -1,0 +1,19 @@
+Interim TTL
+
+1. load_configuration ************ set interim TTL ************
+
+ /* Set Interim TTL */
+ obj = NULL;                                                                     
+ result = ns_config_get(maps, "interim-ttl", &obj);
+ INSIST(result == ISC_R_SUCCESS);
+ ns_interim_ttl = cfg_obj_asuint32(obj);
+
+2. config.c ************ default values *************
+
+   interim-ttl 60;  /* seconds */  /* Telica Added */ \n\
+
+3. namedconf.c ********** for parsing to pass in load_configuration ***********
+
+ { "interim-ttl", &cfg_type_uint32, 0 },
+
+4. add xttl in rdatasetheader_t

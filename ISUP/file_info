@@ -1,0 +1,7 @@
+si_bdy1.c: interface primitive
+si_bdy2.c: incoming event/state
+si_bdy3.c: outgoing event/state
+si_bdy4.c: CIC related
+si_bdy5.c: serve si_bdy2.c and si_bdy3.c
+si_bdy6.c: internal configuration
+si_bdy7.c: timer related

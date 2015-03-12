@@ -1,0 +1,65 @@
+1. main.c
+(1) 启动和初始化阶段
+    a) 版本显示
+	b) 常见错误处理
+	c) 初始化
+	d) 解析初始指令
+	e) 告知配置错误
+	f) 告知内存申请错误
+	g) 开始启动
+
+(2) 运行阶段
+	a) 正常运行，应对两种请求
+	b) reload 请求
+	c) shutdown 请求
+
+(3) 退出阶段 
+    cleanup()
+
+2. server.c (ns_server_t)
+(1) 启动服务器流程
+    setup -> ns_server_create -> run_server -> load_configuration
+	                                           load_zones
+
+(2) 关闭服务器流程
+    shutdown_server
+
+(3) reload process
+    a) Normal Call Flow
+    -- control_recvmessage (controlconf.c)
+            -- ns_control_docommand (control.c)
+    		         -- ns_server_reloadcommand (server.c)
+    		         -- ns_server_reconfigcommand (server.c)
+    		         -- ns_server_refreshcommand (server.c)
+    		         -- ns_server_retransfercommand (server.c)
+    				 -- ...
+    
+    b) Reload Call Flow: ns_server_reloadcommand
+    (1) zone_from_args: 读取参数中的 zone 配置
+    (2) reload: 重新载入named.conf 配置和 zone 配置文件
+
+        loadconfig: load named.conf from disk
+    	load_zones: load zone files from disk
+
+    (3) dns_zone_detach: 重新载入 zone 配置
+
+3. query.c (ns_query_t / dns_message_t)
+Description: 'ns_query_start' called from outside to perform some queries
+
+client_request (client.c)
+      -- ns_query_start (query.c)
+	        -- query_find (query.c)
+			         -- query_send (query.c)
+
+(1) inc_stats: increment query statistics counter
+(2) query_send: send query results
+        -- inc_stats 
+		      -- ns_client_send (client.c)
+(3) query_error: send fault query results
+        -- inc_stats
+		      -- ns_client_error (client.c)
+			        -- ns_client_send (client.c)
+(4) query_next: perform next query
+        -- inc_stats
+		      -- ns_client_next (client.c)
+(5) ns_query_cancel: cancel the query

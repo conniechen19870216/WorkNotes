@@ -1,0 +1,34 @@
+1. Test Macros: TESTGROUP(group), TEST(group, name), etc.
+
+2. Assertions:  
+  (1) CHECK(boolen condition) 
+  (2) CHECK_EQUAL(expected, actual)
+  (3) STRCMP_EQUAL(expected, actual)
+  (4) BYTES_EQUAL(expected, actual)
+  (5) LONGS_EQUAL(expected, actual)
+  (6) DOUBLES_EQUAL(expected, actual)
+  (7) FAIL(text)
+
+3. Setup and Teardown: before/after each test
+TEST_GROUP(FooTestGroup)
+{
+   void setup()
+   {
+      // Init stuff
+   }
+
+   void teardown()
+   {
+     // Uninit stuff
+   }
+};
+
+4. Command Line Options
+   (1) -v: print each test case
+   (2) -r#: repeat the test case (-r means that the case is repeated twice by default. Or -r3 means the case is repeated 3 times.)
+
+5. Test Plugins
+   (1) Memory leak detector
+   (2) Pointer restore mechanism
+
+6. Initial Code Generation Scripts

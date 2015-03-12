@@ -1,0 +1,161 @@
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 600
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 600
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 601
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 601
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 602
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 602
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 603
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 603
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 604
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 604
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 605
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 605
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 606
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 606
+02-May-2013 16:55:34.838 database: debug 100: cleaning name bucket 607
+02-May-2013 16:55:34.838 database: debug 100: cleaning entry bucket 607
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 600
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 600
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 601
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 601
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 602
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 602
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 603
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 603
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 604
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 604
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 605
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 605
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 606
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 606
+02-May-2013 16:55:34.840 database: debug 100: cleaning name bucket 607
+02-May-2013 16:55:34.840 database: debug 100: cleaning entry bucket 607
+02-May-2013 16:55:42.504 general: debug 50: socket f7616130: dispatch_recv:  event f76281e8 -> task f761dd18
+02-May-2013 16:55:42.505 general: debug 60: socket f7616130: internal_recv: task f761dd18 got event f7616170
+02-May-2013 16:55:42.505 general: debug 60: socket f7616130 10.84.14.182#38603: packet received correctly
+02-May-2013 16:55:42.505 general: debug 90: socket f7616130: processing cmsg f75fe040
+02-May-2013 16:55:42.505 client: debug 3: client 10.84.14.182#38603: UDP request
+02-May-2013 16:55:42.505 client: debug 5: client 10.84.14.182#38603: using view '_default'
+02-May-2013 16:55:42.505 security: debug 3: client 10.84.14.182#38603: request is not signed
+02-May-2013 16:55:42.505 security: debug 3: client 10.84.14.182#38603: recursion available
+02-May-2013 16:55:42.505 client: debug 3: client 10.84.14.182#38603: query
+02-May-2013 16:55:42.505 client: debug 10: client 10.84.14.182#38603: ns_client_attach: ref = 1
+02-May-2013 16:55:42.505 security: debug 3: client 10.84.14.182#38603: query (cache) 'trkgrp100.qd.plexuslab.com/A/IN' approved
+02-May-2013 16:55:42.505 client: debug 3: client 10.84.14.182#38603: replace
+02-May-2013 16:55:42.505 general: debug 3: clientmgr @f761dfd8: createclients
+02-May-2013 16:55:42.505 general: debug 3: clientmgr @f761dfd8: recycle
+02-May-2013 16:55:42.505 resolver: debug 1: createfetch: trkgrp100.qd.plexuslab.com A
+02-May-2013 16:55:42.505 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): create
+02-May-2013 16:55:42.505 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): join
+02-May-2013 16:55:42.505 resolver: debug 3: fetch f75f81c0 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): created
+02-May-2013 16:55:42.505 client: debug 3: client @0x85874e0: udprecv
+02-May-2013 16:55:42.505 general: debug 50: socket f7616130: socket_recv: event f7628878 -> task f761db60
+02-May-2013 16:55:42.505 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): start
+02-May-2013 16:55:42.505 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): try
+02-May-2013 16:55:42.505 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): cancelqueries
+02-May-2013 16:55:42.505 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): getaddresses
+02-May-2013 16:55:42.505 database: debug 50: findaddrinfo: found entry 08824b08
+02-May-2013 16:55:42.505 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): query
+02-May-2013 16:55:42.505 resolver: debug 3: resquery 084fdb00 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): send
+02-May-2013 16:55:42.505 dispatch: debug 90: dispatch f7614a58 response f75f6378 135.252.142.151#53: attached to task f762a7f0
+02-May-2013 16:55:42.506 resolver: debug 3: resquery 084fdb00 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): sent
+02-May-2013 16:55:42.506 resolver: debug 3: resquery 084fdb00 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): senddone
+02-May-2013 16:55:42.906 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): timeout
+02-May-2013 16:55:42.906 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): try
+02-May-2013 16:55:42.906 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): cancelqueries
+02-May-2013 16:55:42.906 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): cancelquery
+02-May-2013 16:55:42.906 dispatch: debug 90: dispatch f7614a58 response f75f6378 135.252.142.151#53: detaching from task f762a7f0
+02-May-2013 16:55:42.906 dispatch: debug 90: dispatch f7614a58: detach: refcount 4
+02-May-2013 16:55:42.906 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): getaddresses
+02-May-2013 16:55:42.906 database: debug 50: findaddrinfo: found entry 08824b08
+02-May-2013 16:55:42.906 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): query
+02-May-2013 16:55:42.906 resolver: debug 3: resquery 084fdb00 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): send
+02-May-2013 16:55:42.906 dispatch: debug 90: dispatch f7614a58 response f75f6378 135.252.142.151#53: attached to task f762a7f0
+02-May-2013 16:55:42.906 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): too many timeouts, setting EDNS size to 512
+02-May-2013 16:55:42.906 resolver: debug 3: resquery 084fdb00 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): sent
+02-May-2013 16:55:42.907 resolver: debug 3: resquery 084fdb00 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): senddone
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): timeout
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): done
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): stopeverything
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): cancelqueries
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): cancelquery
+02-May-2013 16:55:43.307 dispatch: debug 90: dispatch f7614a58 response f75f6378 135.252.142.151#53: detaching from task f762a7f0
+02-May-2013 16:55:43.307 dispatch: debug 90: dispatch f7614a58: detach: refcount 4
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): sendevents
+02-May-2013 16:55:43.307 resolver: debug 3: fetch f75f81c0 (fctx 084f6b00(trkgrp100.qd.plexuslab.com/A)): destroyfetch
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): shutdown
+02-May-2013 16:55:43.307 client: debug 3: client 10.84.14.182#38603: send
+02-May-2013 16:55:43.307 client: debug 3: client 10.84.14.182#38603: sendto
+02-May-2013 16:55:43.307 client: debug 3: client 10.84.14.182#38603: senddone
+02-May-2013 16:55:43.307 client: debug 3: client 10.84.14.182#38603: next
+02-May-2013 16:55:43.307 client: debug 10: client 10.84.14.182#38603: ns_client_detach: ref = 0
+02-May-2013 16:55:43.307 client: debug 3: client 10.84.14.182#38603: endrequest
+02-May-2013 16:55:43.307 dispatch: debug 90: dispatch f7614008: detach: refcount 2
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): doshutdown
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): stopeverything
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): cancelqueries
+02-May-2013 16:55:43.307 resolver: debug 3: fctx 084f6b00(trkgrp100.qd.plexuslab.com/A'): destroy
+02-May-2013 16:56:04.838 database: debug 100: cleaning name bucket 608
+02-May-2013 16:56:04.839 database: debug 100: cleaning entry bucket 608
+02-May-2013 16:56:04.839 database: debug 100: cleaning name bucket 609
+02-May-2013 16:56:04.839 database: debug 100: cleaning entry bucket 609
+02-May-2013 16:56:04.839 database: debug 100: cleaning name bucket 610
+02-May-2013 16:56:04.839 database: debug 100: cleaning entry bucket 610
+02-May-2013 16:56:04.839 database: debug 100: cleaning name bucket 611
+02-May-2013 16:56:04.839 database: debug 100: cleaning entry bucket 611
+02-May-2013 16:56:04.839 database: debug 100: cleaning name bucket 612
+02-May-2013 16:56:04.839 database: debug 100: cleaning entry bucket 612
+02-May-2013 16:56:04.840 database: debug 100: cleaning name bucket 613
+02-May-2013 16:56:04.840 database: debug 100: cleaning entry bucket 613
+02-May-2013 16:56:04.840 database: debug 100: cleaning name bucket 614
+02-May-2013 16:56:04.840 database: debug 100: cleaning entry bucket 614
+02-May-2013 16:56:04.840 database: debug 100: cleaning name bucket 615
+02-May-2013 16:56:04.840 database: debug 100: cleaning entry bucket 615
+02-May-2013 16:56:04.841 database: debug 100: cleaning name bucket 608
+02-May-2013 16:56:04.841 database: debug 100: cleaning entry bucket 608
+02-May-2013 16:56:04.841 database: debug 100: cleaning name bucket 609
+02-May-2013 16:56:04.841 database: debug 100: cleaning entry bucket 609
+02-May-2013 16:56:04.841 database: debug 100: cleaning name bucket 610
+02-May-2013 16:56:04.841 database: debug 100: cleaning entry bucket 610
+02-May-2013 16:56:04.842 database: debug 100: cleaning name bucket 611
+02-May-2013 16:56:04.842 database: debug 100: cleaning entry bucket 611
+02-May-2013 16:56:04.842 database: debug 100: cleaning name bucket 612
+02-May-2013 16:56:04.842 database: debug 100: cleaning entry bucket 612
+02-May-2013 16:56:04.842 database: debug 100: cleaning name bucket 613
+02-May-2013 16:56:04.842 database: debug 100: cleaning entry bucket 613
+02-May-2013 16:56:04.842 database: debug 100: cleaning name bucket 614
+02-May-2013 16:56:04.842 database: debug 100: cleaning entry bucket 614
+02-May-2013 16:56:04.842 database: debug 100: cleaning name bucket 615
+02-May-2013 16:56:04.842 database: debug 100: cleaning entry bucket 615
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 616
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 616
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 617
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 617
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 618
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 618
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 619
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 619
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 620
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 620
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 621
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 621
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 622
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 622
+02-May-2013 16:56:34.841 database: debug 100: cleaning name bucket 623
+02-May-2013 16:56:34.841 database: debug 100: cleaning entry bucket 623
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 616
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 616
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 617
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 617
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 618
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 618
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 619
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 619
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 620
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 620
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 621
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 621
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 622
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 622
+02-May-2013 16:56:34.843 database: debug 100: cleaning name bucket 623
+02-May-2013 16:56:34.843 database: debug 100: cleaning entry bucket 623

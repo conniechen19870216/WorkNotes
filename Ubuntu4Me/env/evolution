@@ -1,0 +1,11 @@
+1.【接收电子邮件】
+imap.cn.alcatel-lucent.com  993
+SSL加密
+NTLM/SPA 记住密码
+2.【接收选项】
+前三个打勾
+最后一个打勾
+3.【发送电子邮件】
+smtp.cn.alcatel-lucent.com	25
+需要服务器认证
+TLS加密

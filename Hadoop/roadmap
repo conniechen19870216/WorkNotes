@@ -1,0 +1,19 @@
+1. 选定一个Hadoop版本，阅读文档了解Hadoop 
+
+2. 用三种不同的方式安装Hadoop
+
+3. Hadoop Commands，包括HDFS Commands和Job Commands
+
+4. Hadoop Files，掌握概念及其分布式特点，了解Reduce函数输出的文件
+
+5. 独立完成WordCount与Advanced WordCount
+
+6. Hadoop I/O in "Hadoop In Action"
+
+7. 编写Sort程序与MRBench程序
+
+8. 使用RandomTextWriter
+
+9. 编写自己的SequenceFileInputFormat，SequenceFileOutputFormat, SequenceFileRecordReader
+
+10. 参考资料：Yahoo Hadoop教程，Hadoop权威指南

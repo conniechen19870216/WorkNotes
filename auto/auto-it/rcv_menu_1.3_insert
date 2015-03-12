@@ -1,0 +1,40 @@
+#!/usr/bin/expect
+# Created by Robert Wu - QD x5258
+# To see detail log, change log_user to 1
+log_user 0
+
+set ssn [ lindex $argv 0 ]
+
+if { $ssn == "" } {
+        send "USAGE: $argv0 SSN \n" 
+        exit
+}
+
+puts "$argv0: Start RCV1.3 insert SSN $ssn"
+spawn -noecho ssh ainet@vm10
+expect "password:"
+send "ainet1\n"
+expect "bj*>"
+send "subshl\n"
+expect "<"
+send "rcv:menu\r"
+expect -glob "->"
+send "1.3i\r"
+expect "Enter a value*"
+send "$ssn\r"
+expect {
+	"DUP*FORM" {
+		puts "$argv0: SSN $ssn already exists"
+		}
+	"Enter a value*" {
+		send "*\r"
+		}
+}
+expect "SSN"
+send "<\r"
+expect -glob "->"
+send "!\r"
+expect "<"
+send "quit\r"
+send "exit\r"
+puts "$argv0: End RCV1.3 insert SSN $ssn"
