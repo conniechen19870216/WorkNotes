@@ -24,6 +24,7 @@
 (16) ncurses + gettext + prozilla
 (17) samba + smbclient
 (18) wync
+(19) sublime
 
 3. Config
 (1) auto mount Work disk: fstab
@@ -31,3 +32,14 @@
 (3) terminal: DejaVu Sans Mono/13  108/32 _ 黑底绿字
 (4) Config CVS server:cvs_conf.txt
 (5) proxy: Proxy.txt
+
+4. Sublime
+(1)Package Control
+(2) SVN
+(3) CTags
+(4) Git
+(5) SideBarEnhancements
+(6) All Autocomplete
+(7) SublimeCodeIntel
+(8) BracketHighlighter
+(9) ColorHighlighter
