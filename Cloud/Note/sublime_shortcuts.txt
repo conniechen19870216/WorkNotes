@@ -1,0 +1,19 @@
+Sublime 快捷键
+
+1. 基本快捷键
+(1) 文件搜索：ctrl+p
+(2) 函数搜索：ctrl+p @ / ctrl+r
+(3) 文本搜索：ctrl+p #
+(4) 行搜索：  ctrl+p : / ctrl+g
+(5) 词搜索：  ctrl+d
+
+2. 高级快捷键
+(1) 词的高亮选中操作：alt+f3
+(2) 选中行：ctrl+l
+(3) 将选中文字变成大写：ctrl+k ctrl+u
+
+3. ctags快捷键
+(1) 显示当前文件的符号：alt+s
+(2) 显示所有文件的符号: alt+shift+s
+(3) 切换到定义处：ctrl+shift+left_click
+(3) 回到原处：ctrl+shift+right_click
