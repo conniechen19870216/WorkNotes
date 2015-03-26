@@ -278,10 +278,10 @@ ccProcessForAddModify(con, tmpBcm, tmpOgBcm,
            |         pIcMediaDesc, pOgMediaDesc,
            |         pIcEvDesc, pOgEvDesc);
            |
-		   |
+           |
            |<1. BtTBcm, 2. BtOBcm>
            |
-		   +------- ccUpdateMgQForAddOrModifyRsc(mode[i], MGCT_PACKAGE_ID_CG, signal[i], mgiAction,
+           +------- ccUpdateMgQForAddOrModifyRsc(mode[i], MGCT_PACKAGE_ID_CG, signal[i], mgiAction,
                         |            pBcm[i], evDesc[i], NULLP, NULLP, NULLP,
                         |            mediaDesc[i], suCtxId,
                         |            MGCT_CONTEXT_CHOOSE, con);
