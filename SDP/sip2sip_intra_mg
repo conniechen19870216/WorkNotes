@@ -101,6 +101,19 @@ ccSendOrSkipTerminationAttempt
                     " be updated\n");
              }
 
+
+############################# +Summarize ###########################
+1. ccProcessAuthorizeTermination
+   multi-mg: ccDeriveCcn
+2. ccProcessPostAuthorizeTermination (CODECREORDER = agnostic or associate REALM with ccs)
+   multi-media: ccAllocateMultiMediaCb -> ccCheckEnableMediaAgnostic (only egress codecreorder)
+                ccEnableMediaAwareStream_4_BCM (only take care of egress codecreorder)
+3. ingress will be set to agnostic for inter-mg or inter-ccs no matter CODECREORDER in PRFL-SIP
+    egress will be set to agnostic for inter-mg for TDM2SIP
+4. egress CODECREORDER: all will be set to agnostic
+   associate REALM with ccs: support media aware mode
+############################# -Summarize ###########################
+
 ccProcessAuthorizeTermination
       |
       |
@@ -185,11 +198,49 @@ ccProcessPostAuthorizeTermination
       |      {
       |          ccAllocateMultiMediaCb(con);              
       |      }              |
-      |                     |
+      |                     |<CCN_0, CCN_1>
       |                     |
       |                     +------ ccCheckEnableMediaAgnostic
       |                     |
       |                     +------ ccDisableMediaAgnostic(con, 0)
+      |
+      |
+      |
+      +----------------------------- MultiMedia Branch Logic ------------------------------------
+      |    if (IS_MULTIMEDIA_4_BCM(&con->icBcm))
+      |    {
+      |      Sdp*                rmtSdp = NULLP;
+      |        
+      |      LOCATE_SDPOFFER(con, rmtSdp);
+      |      
+      |      if (rmtSdp)
+      |      { 
+      |        /* FID 14941.0 */
+      |        /* ccStoreMMBillingSdp is not invoked by ccExtractProtSdp for the initial offer */
+      |        ccStoreMMBillingSdp(&con->icBcm, FALSE, rmtSdp);
+      |        
+      |        MULTIMEDIACB_4_BCM(&con->icBcm)->StreamCount = rmtSdp->numDecode;
+      |                                                                                          
+      |        ccEnableMediaAwareStream_4_BCM (&con->icBcm, rmtSdp);
+      |      }
+      |    }
+      |    
+      |    if (IS_MULTIMEDIA_4_BCM(&con->ogBcm))
+      |    {
+      |      Sdp*                rmtSdp = NULLP;
+      |        
+      |      LOCATE_SDPOFFER(con, rmtSdp);
+      |      
+      |      if (rmtSdp)
+      |      {
+      |        MULTIMEDIACB_4_BCM(&con->ogBcm)->StreamCount = rmtSdp->numDecode;
+      |        ccEnableMediaAwareStream_4_BCM (&con->ogBcm, rmtSdp);
+      |      } else if(icProtType!=CC_SIP&&icProtType!=CC_SIPT)  /*90520*/
+      |      {
+      |        con->egressMultiMediaCb->StreamCount = 1;
+      |      }
+      |    }
+      +---------------------------- ccEnableMediaAwareStream_4_BCM ------------------------------
       |
       |
       +---- ccFillIpVersion
