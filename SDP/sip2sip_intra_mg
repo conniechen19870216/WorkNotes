@@ -112,6 +112,11 @@ ccSendOrSkipTerminationAttempt
     egress will be set to agnostic for inter-mg for TDM2SIP
 4. egress CODECREORDER: all will be set to agnostic
    associate REALM with ccs: support media aware mode
+5. Rules of disabling multi-media stream (mark with STREAM_DISABLED_SKIPPED)
+VIDEO:   BW4Video in REALM
+MESSAGE: BW4MSRP in REALM
+AUDIO/IMAGE: AddlAudioAgnostic in REALM
+<ccProcessAuthTermSwtReqTrue --> ccStoreStreamStatus(tmpBcm, rmtSdp, TRUE)>
 ############################# -Summarize ###########################
 
 ccProcessAuthorizeTermination
@@ -249,6 +254,17 @@ ccProcessPostAuthorizeTermination
       |         +----- ccFillIcOgBcmIpVersion(con, isSwReqTrue)
       |
       |
+      |
+      +---- if (IS_MULTIMEDIA_4_BCM(&con->icBcm))
+      |     {
+      |       Sdp *sdp = NULLP;
+      |       LOCATE_SDPOFFER(con, sdp);
+      |       if(sdp)
+      |         ccCheckToSkipStream(con, sdp);  
+      |     }
+      |
+      |
+      |
       |<Step 8: get common sdp codec between remote SDP and PRFL-SDP>
       +---- if (ccIsMGInsertionNeeded(con, icProtType, ogProtType) == TRUE)
       |     {
@@ -284,7 +300,7 @@ ccProcessPostAuthorizeTermination
       |     }
       |     
       |     
-      +---- con->ccmCb.state = CC_INGRESS_MG;
+      +---- <CCM_STATE: con->ccmCb.state = CC_INGRESS_MG;>
 
 ccProcessAuthTermSwtReqTrue
       |
