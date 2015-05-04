@@ -23,6 +23,7 @@ alias github='git push -u github master'
 alias kavon='to -a -s kavon'
 alias clean='build -clean -ut'
 alias ltr='./Lottery/bin/lottery/lottery > output'
+alias rmlog='rm -rf *log'
 
 #	Directory 
 alias kavon='cd /media/Work/Dev/git'
