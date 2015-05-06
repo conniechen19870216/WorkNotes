@@ -127,6 +127,9 @@
 # 7510 MG 4
 135.251.84.116 75104 diag -assured
 
+# 7510 MG 6
+135.251.84.118 75106 diag -assured
+
 # 7510 MG 8
 135.251.237.2 75108 diag -assured
 
@@ -396,3 +399,9 @@ calzone.inse.lucent.com calzone root telica
 
 # sustaining server
 135.252.41.243 sustaining sustain P9000.server
+
+# 225 server - stephen
+135.252.135.225 onelab_stephen stephenl zm9082311
+
+# 225 server - kavon
+135.252.135.225 onelab_kavon kavonm 123456
