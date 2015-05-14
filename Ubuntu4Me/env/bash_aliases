@@ -20,6 +20,7 @@ alias qd4='to -a -s qd4'
 alias local='to -a -s local'
 alias buildltr='bldUT -ltr -debug'
 alias ltr='./Lottery/bin/lottery/lottery > output'
+alias github='git push github master'
 
 #	Directory 
 alias sandbox='cd ~/sandbox'
@@ -74,8 +75,8 @@ alias cron='cd ~/bin/cron'
 alias bind9='cd ~/sandbox/Main/TelicaRoot/components/bind9'
 alias old='cd ~/tmp/Old_release'
 alias UT='cd ~/kavonUT'
-alias worknotes=`cd ~/opens/WorkNotes`
-alias ubuntu=`cd ~/opens/WorkNotes/Ubuntu4Me`
+alias worknotes='cd ~/opens/WorkNotes'
+alias ubuntu='cd ~/opens/WorkNotes/Ubuntu4Me'
 
 #   Temp Directory
 alias si_bdy1='cd ~/procedure/si_bdy1'
