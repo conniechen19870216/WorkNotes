@@ -1,0 +1,275 @@
+1. kernel
+     |                                   +-------retrict (permission, security)
+     |                                   |
+     +-----> Resource management---------+-------control access
+                   |
+                   |
+       +-----------+-------+----------+
+       |           |       |          |
+       CPU        RAM     Disk        Hardware
+     scheduling  paging  filesystems  devices
+
+2. kernel revision
+uname -r
+2.6.18-238.el5
+Main.Feature.bugfix.distribution.architeture
+uname -m
+uname -a
+
+old: 2.4
+common: 2.6 (old, stable) 2.6.0-35
+modern: 3.x (3.0-19)
+4.0 (=3.20)
+
+/boot
+vmlinuz-2.6.32-220.el6.x86_64: the core of kernel
+virtual memory, compressed
+
+loaded by boot loader
+uncompressed  in memory and loaded to the resident
+load any number of drivers -- /lib/modules/2.6.32-220.el6.x86_64/kernel
+
+file !$
+modinfo !$
+
+grub: boot loader
+
+config-2.6.32-220.el6.x86_64: define how to compile your own kernel
+
+3. kernel while scheduling, see only threads not process
+I. Process: 
+1) instance of a running program
+2) handles to resources -- VM image
+3) have at least
+II. Thread:
+1) instance of a running execution unit (task)
+2) for a given time, all register state of 
+       |
+       +--- set of register values        
+   All thread states point to the containing PROCESS
+   each thread as own stack and use the same head
+   Corruption:
+   Concurrency:
+
+   PID is TGID (thread group id), also the PID of the main thread
+   main thread ends up all other threads
+
+
+   ps 
+   ps -ef (PPID = 2)
+   ps aux | more  -- VSZ, MEM, RSS
+                     []
+   ps -L aux | more
+   ps -Lef
+
+4. 
+------------------------------------------------------------
+|                                                          |
+|          128 T (2^47)                                    |
+|       x  1GB reserved kernel space                       |
+--------|---------------------------------------------------
+|       |kernel- |                           |             |
+|       |mode    |                           |             |
+|    P1 x--x     |                           |   P2        |
+|          |user-|                           |             |
+|          |mode |                           |             |
+|          x     |                           |             |
+|                |                           |             |
+-----------------------------------------------------------
+
+5. 
+
+
+
+user program          --------          libraries
+     |                                      |
+     |                                      |
+     |                                      |
+     |                                      |
+     |                                      |
+         -------       kernel  ---------
+
+
+6. multitasking:
+more than one thread
+
+7.                     instruction cache
+                             |
+                            Domain
+                ----------------------------
+               ALU     FPU     Load       Store
+                            L1 cache
+                            L2 cache
+
+cat /proc/cpuinfo | grep processor
+
+8. top -- buffer/cached
+
+9. cpu governors
+
+10. /proc and /sys
+
+load avg:
+   - uptime
+   - w
+   - top
+   - /proc/loadavg
+
+   /sys/sysrq-trigger
+   - /proc/sys/kernel/sysrq: set bitmask
+     t - dump all threads
+
+11. -O0, -g2
+objdump -x a.g0
+strip -x -d *
+file *
+
+e.g.
+objdump -d * | more
+
+first, gcc -g2 
+then, objdump -S
+PROLOG/EPILOG are always generated for every function
+
+if (getenv("BREAKHERE")) {__asm("int $3");}
+
+ptrace
+
+signal (triggered by kill)
+
+12. top cmd
+Memory:
+   -- virtual memory 4(3)GB or 256(128)TB
+   -- vsize = totoal allocated
+              resident      swapped out         mmap(2)         
+              RSS       +   Swap              + FileMapped   +  lazy
+
+13. ls -F
+
+
+14. LD_PRELOAD
+_init
+
+#include <mcheck.h>
+void _init()
+{
+    mtrace();
+}
+
+void _fini()
+{
+    muntrace();
+}
+
+MALLOC_TRACE=/tmp/foo LD_PRELOAD=l.so ifconfig
+/proc/pid/maps
+/proc/pid/smaps
+
+VSZ = RSS   +    Swap    +    Lazy
+    USS   Shss
+   private shared
+
+RSS/n = PSS
+    
+15. OOM
+dmesg (-c)
+/proc/pid/oom_adj
+/proc/pid/oom_score
+
+16. *********** strace ***********
+strace/ptrace, ltrace
+strace -p *
+strace gdb -p *
+strace -i -p *
+strace -t(tt) -i -p *
+strace -f -t(tt) -i -p *
+strace -o /tmp/traced -f -t(tt) -i -p *
+strace -o /tmp/traced gdb -f -t(tt) -i -p *
+
+17. gdb
+kill -l
+-g2
+coredump_va_
+echo 0xff > /proc/$$/coredump_filter
+
+gdb -c *
+file *
+x/5i *
+dis
+disass h (function name)
+disass main
+info address *
+info reg
+shift+k for help function
+
+
+use signal to capture the maps
+int fd = open("/proc/self/maps, O_RDONLY);
+int bytes = read(fd, c, 40960);
+close(fd);
+write(2, c, bytes);
+
+stack overflow:
+x/5x $esp
+x/5x ($esp - 0x20)
+esp is totoally different from the ebp if not optimized.
+
+heap overflow
+destroy the beginning pointer of the heap
+strcpy 
+free
+
+Improvement Aspects:
+1. assembly
+2. scheduling
+3. core dump
+4. each signal meaning
+
+
+
+linux kernel development
+understanding the linux kernel
+professional linux kernel archetecture
+
+linux programming interface (outdated)
+
+reading the man and source codes
+man -k ptrace
+cd /usr/share/man
+strace
+
+
+only use VIM + GCC
+1. kernel: /proc/sys/kernel
+-rw-r--r-- 1 root root 0  5月 26 09:25 core_pattern
+-rw-r--r-- 1 root root 0  5月 26 09:26 core_pipe_limit
+-rw-r--r-- 1 root root 0  5月 26 09:26 core_uses_pid
+
+man 5 core
+
+2. user mode (ulimit -a)
+ulimit -c
+
+3. 
+/proc/$PID/coredump_filter
+0xFF
+/server/directory/core.%p.
+
+tips:
+/proc/sys/kernel/randomize_va_space 
+echo 0 > /proc/sys/kernel/randomize_va_space
+
+4. /proc/$$/fd
+   /proc/pid/maps
+   /proc/pid/stat
+   /proc/pid/status
+   
+   find data from man page: man 5 proc
+   thinking: how to do handle that data
+
+   prctl
+
+5. newandroidbook.com/index.php
+linux debugging
+linux programming interface
+mac os x ios internals
