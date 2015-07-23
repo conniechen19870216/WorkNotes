@@ -1,0 +1,218 @@
+1. 80x86: logic and physical address
+
+2. 16-bit registers (14):
+   AX/BX/CX/DX
+   CS/DS/ES/SS
+   BP/SP/SI/DI
+   FR
+   IP
+
+3. Instruction:     CS + IP
+   Stack Operation: SS + SP
+   Destination Operation Number: SS + DI
+   Source Operation Number: DS(/CS/ES/SS) + SI
+   Common Operation Number: DS(/CS/ES/SS) + *
+   Others: SS(/DS/CS/ES) + BP
+
+4. Rule: 高高低低 
+   e.g. 12340H     12h
+        12341H     34h
+        12342H     56h
+        12343H     78h
+   ==>  
+   word: 3412h
+   double words: 78563412h
+
+5. Addressing mechanisms
+   1）立即数寻址
+      MOV AX, 3412H
+
+   2）寄存器寻址
+      MOV DH, BL
+
+   3）直接寻址 (within 2^16 = 64K)
+      MOV BX, [1234H]
+      MOV ES:[1000H], AX
+
+   4）寄存器间接寻址
+      有效地址EA：SI, DI, BP, BX，其中
+      ★若有效地址用SI、DI和BX等之一来指定，则其缺省的段寄存器为DS；
+      ★若有效地址用BP来指定，则其缺省的段寄存器为SS(即：堆栈段)。
+      MOV BX,[DI]
+
+   5）寄存器相对寻址
+      有效地址EA：SI, DI, BP, BX，其中
+      ★若有效地址用SI、DI和BX等之一来指定，则其缺省的段寄存器为DS；
+      ★若有效地址用BP来指定，则其缺省的段寄存器为SS(即：堆栈段)。
+      MOV BX, [SI+100H]
+ 
+   6）基址加变址寻址
+      有效地址EA：BP/BX + SI/DI
+      MOV BX, [BX+SI]
+
+   7）相对基址加变址寻址
+      有效地址EA：BP/BX + SI/DI + 8-bit/16-bit
+      MOV AX, [BX+SI+1000H]
+      MOV AX, 1000H[BX+SI]
+      MOV AX, 1000H[BX][SI]
+      MOV AX, 1000H[SI][BX]
+
+6. 标识符和表达式
+   1）字节，字，双字以及多字变量的定义
+      [变量名] 数据定义符 表达式1[, 表达式2, …,表达式n] ;注释
+      COUNTER DB 6
+      Word1 DW 89H,1909H, -1
+      DW1 DD 12345678H,?
+
+   2）调整偏移量的伪指令
+      EVEN, ALIGN, ORG
+   
+   3）复合内存变量 -- 数组
+      count  DUP  (表达式, 表达式, …, 表达式)
+      e.g.
+      BUFFER  DB  100 DUP(?)
+
+   4）结构类型
+      a) 结构类型的定义 -- 结构体
+
+         结构名 STRUC [Alignment][, NONUNIQUE]
+         数据定义语句序列
+         结构名 ENDS
+
+         e.g.
+         COURSE STRUC
+                NO DD ?
+                CNAME DB 'Assembler'
+                SCORE DW 0
+         COURSE ENDS
+
+      b）结构变量的定义
+         COURSE1 COURSE <>
+         COURSE2 COURSE <1, 'Pascal', 60>
+         COURSE3 COURSE <2,,84>
+      
+      c）结构类型字段的引用
+	     option1: MOV AX, COURSE2.NO
+         option2: LEA SI, COURSE2
+		          MOV AX, [SI+4]
+	
+   5）联合类型UNION（与结构类型类似）
+	
+7. 标号，属性
+   1）标号：代码的具体位置
+   2）属性：SEG, OFFSET, TYPE, LENGTH, SIZE = TYPE * LENGTH
+      a）SEG:
+             SCORE DW ?
+             NAME DB 10 DUP(10)
+
+             MOV AX, SEG SCORE
+	     MOV BX, SEG NAME
+      b) OFFSET:
+             FIRST DD 12345678H, 0
+             SCORE DW ?, 12H
+             NAME DB 10 DUP(10)
+             …
+             MOV AX, OFFSET SCORE
+             MOV BX, OFFSET NAME
+      c) TYPE, LENGTH, SIZE = TYPE * LENGTH
+      d) PTR
+	    W1	DW 1234H, 5678H
+            B1	DB 2
+            	DB 5
+            D1	DD 23456789H
+            …
+            MOV	AX, WORD PTR B1	;把B1开始的二个字节拼接成一个字，执行后，(AX)=0502H
+            MOV	BH, BYTE PTR W1 	;把字W1的低字节传送给BH，执行后，(BH)=34H
+            MOV	CH, BYTE PTR W1+1	;把字W1的高字节传送给CH，执行后，(CH)=12H
+            MOV	WORD PTR D1, 12H 	;把双字D1的低字修改成0012H，执行后，(D1)=23450012H  
+   
+8. 1) 存储单元别名操作符
+   WBUFFER  EQU THIS WORD
+   BUFFER   DB  20 DUP(?)
+   2) 数值表达式
+      a）立即数
+      b）算术运算符
+         120+(321-90) mod 3，322*5/32，0abcdH+5，-590
+      c）关系运算符：返回值为0或者FFFFH
+         LT, GT, LE, GE, EQ, NE
+         120H LT 100H+3，21H LE 21H
+      d）逻辑运算符
+         AND, OR, SHL, SHR, NOT, XOR
+      e）其他操作符
+         HIGH, LOW
+         SEG, OFFSET
+         TYPE, LENGTH, SIZE
+         WIDTH, MASK
+   3）地址表达式
+      B1	DB	10H, 11H, 12H
+	        DB 	'ABCD'
+      W1	DW	1234H, 5678H
+
+      B1+1、B1+3和W1+2
+   => 11H、'A'和5678H
+   4）符号定义语句 -- 等价语句
+      a）符号名代表常量或者表达式
+         NUMBER	EQU	100
+      b）符号名代表字符串
+         GREETING EQU "How are you!"
+      c）助记符
+         MOVE EQU MOV
+      d）存储单元的别名  -- 等价于LABEL
+         WORD1	EQU THIS WORD	;给后面的字节存储单元取一个字属性的符号名
+         BYTE1	DB 12h, 21h
+         FLAG	DW 1234H
+         FLAG1	EQU byte ptr FLAG	;给FLAG的低字节取一个字节属性的符号名
+         FLAG2	EQU byte ptr FLAG+1	;给FLAG的高字节取一个字节属性的符号名
+
+         有了上述定义后，可编写如下语句：
+
+         MOV AX, WORD1 ;执行后，(AX)=2112H
+         MOV BL, FLAG1 ;执行后，(BL)=34H
+ 
+
+9. 进制伪指令RADIX
+   .RADIX  8
+   B1	DB	10, 11, 12
+		 
+10. 指令系统
+    1）MOV
+       a）两个操作数不能同时是段寄存器
+       b）CS不能做目的操作数，但可以做原操作数
+       c）立即数不能传给段寄存器
+       d）IP不能作为操作数
+
+    2) MOVSX/MOVZX
+       a）符号填充：MOVSX
+       b）零填充：MOVZX
+       MOVSX/MOVZX AX, CL
+
+    3）XCHG
+       XCHG AX, BX
+
+11. 程序的基本结构
+    1）段的定义
+       段名      SEGMENT
+       段名      ENDS
+
+    2）段寄存器的说明语句 -- 代码段的第一条语句
+       ASSUME CS:CODE DS:DATA
+       ASSUME ES:NOTHING
+  
+    3）堆栈段的说明
+       a) 一个完整的程序一般需要定义堆栈段 
+       b）若没有定义，系统会自动分配64KB的堆栈段
+                      系统会有警告信息：warning xxxx: no stack segment  (其中：xxxx是错误号)
+       c）堆栈段的定义
+          STACK1 SEGMENT STACK
+                 DB 256 DUP(?)
+                 TOP LABEL WORD
+          STACK1 ENDS
+
+12. 堆栈段的说明
+    1）向下生长（向低地址方向生长），并且向着SS的方向生长
+	2）堆栈存取以字为单位（16位）
+	3）SS：SP，SP初始化的时候，其值是堆栈的长度
+	4）堆栈长度不能超过64KB
+	5）栈顶和栈底：栈底就是最原始的栈顶。
+	
+	

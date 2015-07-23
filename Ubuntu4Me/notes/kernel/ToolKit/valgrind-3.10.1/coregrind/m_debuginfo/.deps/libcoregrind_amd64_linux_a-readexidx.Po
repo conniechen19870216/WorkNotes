@@ -1,0 +1,3 @@
+m_debuginfo/libcoregrind_amd64_linux_a-readexidx.o \
+  m_debuginfo/libcoregrind_amd64_linux_a-readexidx.o:  \
+ m_debuginfo/readexidx.c

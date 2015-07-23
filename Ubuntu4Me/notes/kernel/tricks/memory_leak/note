@@ -1,0 +1,24 @@
+1. file 
+2. objdump
+   1) -f --file-headers
+      e.g. objdump -f kavon 
+      kavon:     file format elf64-x86-64
+      architecture: i386:x86-64, flags 0x00000112:
+      EXEC_P, HAS_SYMS, D_PAGED
+      start address 0x0000000000400400
+      [Others]
+      -x: all headers
+      -h: all the section headers
+
+   2) -S intermix source code with disassembly
+      firstly, gcc -g2 -o kavon main.c
+      secondly, objdump -S kavon
+      [Others]
+      -d executable sections
+      -D all sections
+
+3. memory leak
+   please see makefile
+
+4. gcc -O0 -g2
+   objdump -S/-d/-D * | more

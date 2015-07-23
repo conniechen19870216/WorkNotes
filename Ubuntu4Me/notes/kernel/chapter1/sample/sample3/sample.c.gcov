@@ -1,0 +1,53 @@
+        -:    0:Source:sample.c
+        -:    0:Graph:sample.gcno
+        -:    0:Data:sample.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:void function1()
+       25:    4:{
+        -:    5:    int i;
+       25:    6:    for (i=0;i<1000000;i++);
+       25:    7:}
+        -:    8:
+        -:    9:void function2()
+       12:   10:{
+        -:   11:    int i;
+       12:   12:    for (i=0;i<1000000;i++);
+       12:   13:    function1();
+       12:   14:    for (i=0;i<2000000;i++);
+       12:   15:}
+        -:   16:
+        -:   17:void function3()
+        1:   18:{
+        -:   19:    int i;
+        1:   20:    function1();
+        1:   21:    function2();
+        1:   22:    for (i=0;i<3000000;i++);
+        1:   23:    function1();
+        -:   24:   
+        1:   25:}
+        -:   26:
+        -:   27:int main()
+        1:   28:{
+        -:   29:    int i;
+       11:   30:    for (i=0;i<10;i++)
+        -:   31:    {
+       10:   32:        function1();
+        -:   33:    }
+        -:   34:
+        1:   35:    for (i=0;i<5000000;i++);
+        -:   36:
+       11:   37:    for (i=0;i<10;i++)
+        -:   38:    {
+       10:   39:       function2();
+        -:   40:    }
+        -:   41:
+        1:   42:    for (i=0; i<13;i++);
+        1:   43:    function3();
+        1:   44:    function2();
+        1:   45:    function1();
+        -:   46:
+        1:   47:    return 0;
+        -:   48:}

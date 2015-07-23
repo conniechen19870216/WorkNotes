@@ -1,0 +1,118 @@
+1. resource limit
+   1) ulimit
+      ulimit -a [-S/-H]
+      ulimit -c unlimited
+
+note: By default, ulimit could set soft and hard limit at the same time.
+      So it would be better to use -S, or you must set the limit smaller and smaller.
+
+   2) struct rlimit {
+          rlim_t rlim_cur;
+          rlim_t rlim_max;
+      };
+   
+      #include <sys/resource.h>
+      int getrlimit(int resource, struct rlimit *rlim);
+      int setrlimit(int resource, const struct rlimit *rlim);
+   
+      RLIMIT_CORE: size of core file
+
+   e.g. Please see rlimit.c file for details.
+
+2. /proc/sys/kernel -- please see 'man 5 core'
+   1) core_pattern 
+      %p  PID of dumped process
+      %u  real UID of dumped process
+      %g  real GID of dumped process
+      %s  number of signal causing dump
+      %t  time of dump (seconds since 0:00h, 1 Jan 1970)
+      %h  hostname (same as ’nodename’ returned by uname(2))
+      %e  executable filename
+
+      e.g.
+      echo "/Telica/swCPU/CurrRel/cores/core.%e" > core_pattern
+
+      1.1) piping core dumps to a program
+           a) The program must immediately follow '|'. 
+           b) The process created to run the program runs as user and group root.
+           c) Command-line arguments can be supplied to the program.
+              %p, %u, %e, etc can also be supplied with space delimited.
+
+e.g.
+echo "|$PWD/core_pattern_pipe_test %p UID=%u GID=%g sig=%s" > /proc/sys/kernel/core_pattern
+
+       /* core_pattern_pipe_test.c */
+
+       #define _GNU_SOURCE
+       #include <sys/stat.h>
+       #include <fcntl.h>
+       #include <limits.h>
+       #include <stdio.h>
+       #include <stdlib.h>
+       #include <unistd.h>
+
+       #define BUF_SIZE 1024
+
+       int
+       main(int argc, char *argv[])
+       {
+           int tot, j;
+           ssize_t nread;
+           char buf[BUF_SIZE];
+           FILE *fp;
+           char cwd[PATH_MAX];
+
+           /* Change our current working directory to that of the
+              crashing process */
+
+           snprintf(cwd, PATH_MAX, "/proc/%s/cwd", argv[1]);
+           chdir(cwd);
+
+           /* Write output to file "core.info" in that directory */
+
+           fp = fopen("core.info", "w+");
+           if (fp == NULL)
+               exit(EXIT_FAILURE);
+
+           /* Display command-line arguments given to core_pattern
+              pipe program */
+
+           fprintf(fp, "argc=%d\n", argc);
+           for (j = 0; j < argc; j++)
+               fprintf(fp, "argc[%d]=<%s>\n", j, argv[j]);
+
+           /* Count bytes in standard input (the core dump) */
+
+           tot = 0;
+           while ((nread = read(STDIN_FILENO, buf, BUF_SIZE)) > 0)
+               tot += nread;
+           fprintf(fp, "Total bytes in core dump: %d\n", tot);
+
+           fclose(fp);
+           exit(EXIT_SUCCESS);
+       }
+
+   2) core_uses_pid => core.xxxx
+      e.g.
+      echo 0 > core_uses_pid
+      echo 1 > core_uses_pid
+   Note: if /proc/sys/kernel/core_pattern does not include "%p" and /proc/sys/kernel/core_uses_pid
+         is non-zero, then .PID will be appended to the core filename.
+    
+   3) core_pipe_limit => only when core_pattern begins with '|'
+    
+3. /proc/pid/coredump_filter
+   /proc/self/coredump_filter
+
+   ####### By default,bit 0, 1, 4 and 5 are set. ######
+
+   bit 0  Dump anonymous private mappings.
+   bit 1  Dump anonymous shared mappings.
+   bit 2  Dump file-backed private mappings.
+   bit 3  Dump file-backed shared mappings.
+   bit 4 (since Linux 2.6.24)
+          Dump ELF headers.
+   bit 5 (since Linux 2.6.28)
+          Dump private huge pages.
+   bit 6 (since Linux 2.6.28)
+          Dump shared huge pages.    

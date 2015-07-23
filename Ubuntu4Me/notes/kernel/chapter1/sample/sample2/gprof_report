@@ -1,0 +1,29 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+100.13      1.04     1.04    49999    20.83    20.83  test
+  0.00      1.04     0.00    49999     0.00    20.83  prime
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) for 0.96% of 1.04 seconds
+
+index % time    self  children    called     name
+                0.00    1.04   49999/49999       main [3]
+[1]    100.0    0.00    1.04   49999         prime [1]
+                1.04    0.00   49999/49999       test [2]
+-----------------------------------------------
+                1.04    0.00   49999/49999       prime [1]
+[2]    100.0    1.04    0.00   49999         test [2]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]    100.0    0.00    1.04                 main [3]
+                0.00    1.04   49999/49999       prime [1]
+-----------------------------------------------
+
+Index by function name
+
+   [1] prime                   [2] test
