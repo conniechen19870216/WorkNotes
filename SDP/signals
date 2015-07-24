@@ -1,0 +1,108 @@
+1. mgctSignalDesc function
+MgctSignalsDescriptor
+         |
+         |
+         |
+         +----- pres
+         +----- MgctSignalParm (list)
+                    |
+                    |
+                    +---- next
+                    +---- MgctSignalParmType
+                    +---- u.MgctSignalRequest
+                             |
+                             |
+                             +----- MgctSignalName
+                             +----- MgctSigParameter(list)
+                                     |
+                                     |
+                                     +----- next
+                                     +----- MgctSigParamterType
+                                     +----- MgctSigSignalType
+                                     +----- MgctSigDuration
+                                     +----- ...
+
+2. Specific Structures
+   1) MgctSignalName
+           |
+           +------ pkgId
+           |
+           +------ itemId.value
+      a) pkgId
+      typedef enum                                                                     
+      {                                                                                
+          MGCT_ITEM_ID_CG_NULL,                           /* null for Ajay's use */    
+          MGCT_SIG_ID_CG_DT,                              /* dial tone */              
+          MGCT_SIG_ID_CG_RT,                              /* ringing tone */           
+          MGCT_SIG_ID_CG_BT,                              /* busy tone */              
+          MGCT_SIG_ID_CG_CT,                              /* congestion tone */        
+          MGCT_SIG_ID_CG_SIT,                             /* special information tone */
+          MGCT_SIG_ID_CG_WT,                              /* warn tone (ROH) */        
+          MGCT_SIG_ID_CG_PRT,                             /* payphone recognition tone */
+          MGCT_SIG_ID_CG_CW,                              /* call waiting tone */
+          MGCT_SIG_ID_CG_CR,                              /* caller waiting tone */    
+          MGCT_SIG_ID_CG_FTMD,                            /* ftmd_dtmf */
+          MGCT_SIG_ID_CG_PT,                              /* tonegen/play-tone */
+          MGCT_ITEM_ID_CG_MAX                                                             
+      } MgctCallProgItemId_v_1_1;                         
+   
+      b) itemId.value
+      typedef enum
+      {
+          MGCT_ITEM_ID_CG_NULL,                           /* null for Ajay's use */
+          MGCT_SIG_ID_CG_DT,                              /* dial tone */
+          MGCT_SIG_ID_CG_RT,                              /* ringing tone */
+          MGCT_SIG_ID_CG_BT,                              /* busy tone */
+          MGCT_SIG_ID_CG_CT,                              /* congestion tone */
+          MGCT_SIG_ID_CG_SIT,                             /* special information tone */
+          MGCT_SIG_ID_CG_WT,                              /* warn tone (ROH) */
+          MGCT_SIG_ID_CG_PRT,                             /* payphone recognition tone */
+          MGCT_SIG_ID_CG_CW,                              /* call waiting tone */
+          MGCT_SIG_ID_CG_CR,                              /* caller waiting tone */
+          MGCT_SIG_ID_CG_FTMD,                            /* ftmd_dtmf */
+          MGCT_SIG_ID_CG_PT,                              /* tonegen/play-tone */
+          MGCT_ITEM_ID_CG_MAX                                                            
+      } MgctCallProgItemId_v_1_1;  
+
+      char *mgct_call_prog_item [MGCT_ITEM_ID_CG_MAX] =
+      {
+          "",
+          "CG/DT",
+          "CG/RT",
+          "CG/BT",
+          "CG/CT",
+          "CG/SIT",
+          "CG/WT",
+          "CG/PRT",
+          "CG/CW",
+          "CG/CR",
+          "CG/FTMD",
+          "CG/PT"
+      };     
+
+   2) MgctSigParameter.u.MgctSigSignalType
+      typedef enum   
+      {            
+          SIG_SIGNAL_TYPE_ON_OFF, 
+          SIG_SIGNAL_TYPE_TIMEOUT,
+          SIG_SIGNAL_TYPE_BRIEF,  
+          SIG_SIGNAL_TYPE_MAX
+      } MgctSigSignalType_v_1_1;
+
+3. mgi_build_amm_cmd 
+         |
+         |
+         |
+         +----- mgi_build_signals
+                         |
+                         |
+                         |
+                         +----- mgi_build_sig_name_and_parameters (mgi_send.c)
+                                         |
+                                         |
+                                         |
+                                         +----- mgi_get_pkgd_name
+                                         |
+                                         |
+                                         |
+                                         +----- mgi_build_sig_parameter
