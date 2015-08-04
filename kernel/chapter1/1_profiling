@@ -1,0 +1,13 @@
+1. rules:
+   In general, performance tuning consists of the following steps:
+   (1) Define the performance problem.
+   (2) Identify the bottlenecks by using monitoring and measurement tools. (This chapter focuses on measuring from the timing aspect.)
+   (3) Remove bottlenecks by applying a tuning methodology.
+   (4) Repeat steps 2 and 3 until you find a satisfactory resolution.
+[key words] performance tunning, bottleneck, tunning methodology, satisfactory resolution
+
+2. tools: 
+   (1) stopwatch, date, time: no changes to the program 
+   (2) clock, gettimeofday: changes to the program
+   (3) gprof/kprof => please see makefile for details
+       profile open source codes with gprof: make CFLAGS+=-pg LDFLAGS+=-pg

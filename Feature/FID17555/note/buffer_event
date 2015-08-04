@@ -1,0 +1,41 @@
+1. Structures
+typedef struct bufferedEvent_Tag
+{
+  U8                           evntType;
+  U8                           icEvntType;
+  struct   ccConCb            *con;
+  struct   AinBCM_Tag         *bcm;
+  PTR                          event;
+  PTR                          event2;
+  struct   bufferedEvent_Tag  *next;
+  U32                          size;
+  U32                          size2;
+  U32                          suConnId;
+  /* Bug: 31931 - Add uBuf in the Buffered Event - Required for
+   * Transiting Unrecognised message in International
+   * RV Suresh, 5.0, International 
+   */
+  Buffer                      *uBuf;
+} bufferedEvent_t;
+
+typedef struct bufferBlock_Tag
+{
+  Bool                      evntFromQ;
+  Bool                      evntQueued;
+  Bool                      qPresent;
+  bufferedEvent_t          *currentEvent;
+  bufferedEvent_t          *bufferedEvent;
+  bufferedEvent_t          *nextEvent;
+} bufferBlock_t;
+
+2. Functions
+ccBufferEventToQueue
+         |
+         |<con->bufferBlock.bufferedEvent>
+         |
+         +---- ccBufferEventAtTailOfQueue
+
+ccCallStateMachine
+         |
+         |
+         +---- ccProcessBufferedEvent

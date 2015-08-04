@@ -1,0 +1,6 @@
+1. lcc.h
+   add one state and also change the CCMAXSTATES
+
+2. cc_bdy2.c
+   update stateTable
+   update ccStateStr

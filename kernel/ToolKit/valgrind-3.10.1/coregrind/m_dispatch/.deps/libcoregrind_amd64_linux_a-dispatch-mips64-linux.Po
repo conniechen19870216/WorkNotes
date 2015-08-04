@@ -1,0 +1,3 @@
+m_dispatch/libcoregrind_amd64_linux_a-dispatch-mips64-linux.o \
+  m_dispatch/libcoregrind_amd64_linux_a-dispatch-mips64-linux.o:  \
+ m_dispatch/dispatch-mips64-linux.S

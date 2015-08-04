@@ -1,0 +1,11 @@
+1. sysctl: /proc/sys/*
+
+2. /proc include the following types of information:
+   1) view performance and memory 
+   2) view hardware information
+   3) view statistical information
+   4) view and modify run-time parameters
+   5) view and modify network information
+
+3. a map of /proc
+/* TODO */

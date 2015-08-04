@@ -1,0 +1,55 @@
+        -:    0:Source:sample.c
+        -:    0:Graph:sample.gcno
+        -:    0:Data:sample.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include <stdio.h>
+        -:    3:#include <math.h>
+        -:    4:
+        -:    5:void test ()
+    49999:    6:{
+        -:    7:    int i;
+    49999:    8:    for (i=0; i<10000; i++);
+    49999:    9:}
+        -:   10:
+        -:   11:int prime (int num);
+        -:   12:
+        -:   13:int main()
+        1:   14:{
+        -:   15:    int i;
+        1:   16:    int colcnt = 0;
+    50000:   17:    for (i=2; i <= 50000; i++)
+        -:   18:    {
+    49999:   19:        if (prime(i)) 
+        -:   20:        {
+     5133:   21:            colcnt++;
+     5133:   22:            if (colcnt%9 == 0) 
+        -:   23:            {
+      570:   24:                printf("%5d\n",i);
+      570:   25:                colcnt = 0;
+        -:   26:            }
+        -:   27:            else
+        -:   28:            {
+     4563:   29:                printf("%5d ", i);
+        -:   30:            }
+        -:   31:        }
+        -:   32:    }
+        -:   33:
+        1:   34:    putchar('\n');
+        1:   35:    return 0;
+        -:   36: }
+        -:   37:
+        -:   38:int prime (int num) 
+    49999:   39:{
+        -:   40:    /* check to see if the number is a prime? */
+    49999:   41:    test();
+        -:   42:    int i;
+  1061109:   43:    for (i=2; i<=sqrt(num); i++)
+  1055976:   44:    if (num %i == 0)
+        -:   45:    {
+    44866:   46:        return 0;
+        -:   47:    }
+        -:   48:
+     5133:   49:    return 1;
+        -:   50:}

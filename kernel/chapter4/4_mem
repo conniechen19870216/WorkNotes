@@ -1,0 +1,26 @@
+1. void *realloc (void *ptr, size_t size)
+   1) NULL is returned,
+      a) if the size is zero and the buffer argument is not NULL
+      -- free the previous memory
+      b) if there is not enough available memory to expand the block to the given size. 
+      -- keep the previous memory
+   2) new addr is returned
+      -- free the previous memory
+   3) addr unchanged
+
+2. other memory functions
+   1) void *malloc(size_t size)
+   2) void *calloc(size_t nmemb, size_t size)
+   3) void free(void *ptr)
+
+3. memory management checker
+   1) MEMWATCH
+   2) YAMD
+   3) Electric Fence
+   4) Valgrind
+
+4. MEMWATCH -- Please see the ToolKit demonstration
+
+5. YAMD / Electric Fence (skipped)
+
+6. Valgrind

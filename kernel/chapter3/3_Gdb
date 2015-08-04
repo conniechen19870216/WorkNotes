@@ -1,0 +1,76 @@
+1. Graphical user interface (GUIs) for gdb: 
+   1) Insight
+   2) Data Display Debugger (ddd) 
+
+2. start gdb
+   1) gdb program <=> gdb, and then 'file program'
+   2) gdb program process_id
+   3) gdb program core_file
+
+3. set variables
+   1) e.g. set var a=1000
+   2) run 10 20
+<=>3) set args 10 20
+      run
+
+4. breakpoints
+-- Common
+   1) group 1: info b 
+   2) group 2: clear / clear function / clear linenum / clear file:linenum / d[elete] breakpoint or range
+   3) group 3: 
+      a) dis[able] breakpoint or range / enable breakpoint or range
+      b) enable once breakpoint or range / enable delete breakpoint or range 
+
+-- Conditional breakpoints
+   1) b test.c:10 if value==5
+   2) condition 1 value==8
+   3) condition 1: clear the condition on the breakpoint 1
+   4) ignore breakpoint count
+
+-- Conditional breakpoints with commands
+   Format:
+   commands breakpoint or range
+   printf "x = %d\n", x
+   end
+
+5. watch points
+   1) watch expr
+   2) info watchpoints
+
+6. debug codes in order to change the call flow
+   1) run
+   2) next
+   3) step
+   4) finish
+   5) u[ntil] linenum
+
+   6) set var a=10
+   7) call func(args)
+   8) return 10
+   9) jump: reset the next starting point of program execution
+   10) info program
+
+   Note -- debug hints:
+       a) functional view
+          b linenum (that is the end of target function) 
+          p variables (any variables you want to check)
+       b) target line view
+          run the program and stop at some incorrect line which could cause core dump
+          list
+       c) system view
+          b main
+          run
+          step/next
+
+7. execute shell commands in gdb
+   1) shell ls
+
+8. strip debug symbols
+   strip -d/--strip-debug execution_binary
+   e.g.
+       [kavonm@qdbuild3 chapter3] $ gcc -g -o test test.c 
+       [kavonm@qdbuild3 chapter3] $ ls -al test
+       -rwxr-xr-x 1 kavonm group15 8904 Jul  7 09:41 test
+       [kavonm@qdbuild3 chapter3] $ strip --strip-debug test
+       [kavonm@qdbuild3 chapter3] $ ls -al test
+       -rwxr-xr-x 1 kavonm group15 6782 Jul  7 09:41 test

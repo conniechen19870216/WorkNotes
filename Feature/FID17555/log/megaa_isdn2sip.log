@@ -1,0 +1,167 @@
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00170),00000(00000) 0x00000001 07-21 08:33:08.297 26146: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:3166 P=62{C=-{AV=ROOT}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:04.150 26146: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.22.67]:3166
+TRANSACTION = 63 {
+  CONTEXT = $ {
+    ADD = tdm/1/1/1/1 {
+      MEDIA {
+        LOCALCONTROL { TDMC/EC = ON,
+                       MODE = SENDONLY }
+      }
+    },
+    ADD = ip/$/$/$ {
+      EVENTS = 184559379 { hangterm/thb
+        { timerx = 300 }
+      },
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 $
+m=audio $ RTP/AVP 0 96 97 98
+a=rtpmap:0 PCMU/8000
+a=rtpmap:96 Cisco-clear-channel/8000
+a=rtpmap:97 X-CCD/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:04.183 26146: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:3166 P=63{C=14{A=tdm/1/1/1/1,A=ip/14/1/11{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 32404 RTP/AVP 0 96 98
+a=rtpmap:96 Cisco-clear-channel/8000
+a=rtpmap:98 CLEARMODE/8000
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:off - - - -
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:04.688 26146: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.22.67]:3166
+TRANSACTION = 64 {
+  CONTEXT = 14 {
+    MODIFY = tdm/1/1/1/1 {
+      MEDIA {
+        LOCALCONTROL { TDMC/EC = ON,
+                       MODE = SENDONLY }
+      },
+      SIGNALS { CG/RT { SIGNALTYPE = ONOFF } }
+    },
+    MODIFY = ip/14/1/11 {
+      MEDIA {
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:04.730 26146: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:3166 P=64{C=14{MF=tdm/1/1/1/1,MF=ip/14/1/11}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:05.690 26146: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.22.67]:3166
+TRANSACTION = 65 {
+  CONTEXT = 14 {
+    MODIFY = tdm/1/1/1/1 {
+      MEDIA {
+        TERMINATIONSTATE { GRI/GRI = [ "LAYER:GCC VER:1-1 CCS:8 DIR:INGRESS PROT:514 TG:1203 CIC:1 CALLID:432713816-54581238DnHg07BfLgar36ckjbxXn5m0Kg1cmqgqen8EV9j6QVYhpA3YbBw16jpe1QSNHzDl0A INTIME:1437438904-1 NFASID:0 REALM:0 CCN:0", "LAYER:ISDN VER:1-1 CRF:17" ] },
+        LOCALCONTROL { TDMC/EC = ON,
+                       MODE = SENDRECEIVE }
+      },
+      SIGNALS { }
+    },
+    MODIFY = ip/14/1/11 {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 10.84.6.186
+m=audio 32404 RTP/AVP 0 96 97 98
+a=rtpmap:0 PCMU/8000
+a=rtpmap:96 Cisco-clear-channel/8000
+a=rtpmap:97 X-CCD/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        REMOTE {
+v=0
+o=- 1437439706 2890844527 IN IP4 10.84.13.132
+s=-
+c=IN IP4 10.84.13.132
+t=0 0
+m=audio 3456 RTP/AVP 8 0
+a=rtpmap:0 PCMU/8000
+        },
+        TERMINATIONSTATE { GRI/GRI = [ "LAYER:GCC VER:1-1 CCS:8 DIR:EGRESS PROT:2048 TG:5031 CIC:0 CALLID:432713816-54581238DnHg07BfLgar36ckjbxXn5m0Kg1cmqgqen8EV9j6QVYhpA3YbBw16jpe1QSNHzDl0A INTIME:1437438904-1 REALM:0 CCN:0,", "LAYER:SIP
+VER:1-1
+LOCADDR:<sip:unavailable@10.84.22.67:51008>;tag=127.0.0.1alUtKGp-05031+1+41040000+392cd8ac
+REMADDR:<sip:00123456789@10.84.13.132:5031;user=phone>;tag=6645333241
+LOCCONT:<sip:unavailable@10.84.22.67:51008>
+REMCONT:00123456789 <sip:00123456789@10.84.13.132:5031;user=phone>
+RT:
+LOCSEQ:294322633
+CALLID:432713816-54581238DnHg07BfLgar36ckjbxXn5m0Kg1cmqgqen8EV9j6QVYhpA3YbBw16jpe1QSNHzDl0A
+" ] },
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:05.733 26146: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:3166 P=65{C=14{MF=tdm/1/1/1/1,MF=ip/14/1/11{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 32404 RTP/AVP 0
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:off - - - -
+},R{v=0
+c=IN IP4 10.84.13.132
+m=audio 3456 RTP/AVP 0
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:off - - - -
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:06.385 26146: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.22.67]:3166
+TRANSACTION = 66 {
+  CONTEXT = 14 {
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00170),00000(00000) 0x00000001 07-21 08:35:06.401 26146: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:3166 P=66{C=14{S=tdm/1/1/1/1{SA{nt/dur=2234,nt/os=17600,nt/or=0}},S=ip/14/1/11{SA{nt/dur=2236,nt/os=5940,nt/or=0,rtp/ps=33,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=2236,rtp/os=5940,rtp/or=0,xnq/ntdegnet=0,xnq/ntdegjit=0,xnq/nes=0,xnq/nses=0,xnq/nvmaxdiff=0,xnq/nvrange=0,xnq/nvsum=0,xnq/nvcyc=0,xnq/njbevents=0,xnq/ncumpl=0,xnq/ftdegnet=0,xnq/ftdegjit=0,xnq/fes=0,xnq/fses=0,xnq/fvmaxdiff=0,xnq/fvrange=0,xnq/fvsum=0,xnq/fvcyc=0,xnq/fjbevents=0,xnq/fcumpl=0,xnq/rtdmin=0,xnq/rtdmax=0,xnq/rtdnow=0}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+

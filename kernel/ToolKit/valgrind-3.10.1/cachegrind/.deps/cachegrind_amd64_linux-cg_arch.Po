@@ -1,0 +1,34 @@
+cachegrind_amd64_linux-cg_arch.o cachegrind_amd64_linux-cg_arch.o:  \
+ cg_arch.c ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+  /usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stdarg.h \
+  ../include/pub_tool_libcassert.h ../include/pub_tool_basics.h \
+  ../include/pub_tool_libcbase.h ../include/pub_tool_libcprint.h \
+  ../include/pub_tool_options.h ../VEX/pub/libvex.h \
+  ../VEX/pub/libvex_basictypes.h ../VEX/pub/libvex_ir.h \
+  ../include/pub_tool_machine.h cg_arch.h
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stdarg.h:
+
+../include/pub_tool_libcassert.h:
+
+../include/pub_tool_basics.h:
+
+../include/pub_tool_libcbase.h:
+
+../include/pub_tool_libcprint.h:
+
+../include/pub_tool_options.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+../include/pub_tool_machine.h:
+
+cg_arch.h:

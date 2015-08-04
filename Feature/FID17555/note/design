@@ -1,0 +1,63 @@
+Stage 1: Implement the normal functions
+1) feature TL1 knob + no CDPN in SETUP message <<<<<<<<<<<< DONE >>>>>>>>>>>>>
+=> set one flag as the feature option (used in future)
+
+2) S156
+   a) E09S01 <<<<<<<<<<<< DONE >>>>>>>>>>>>
+      S01 -> S156
+      ADD Req (cg/dt)
+      return immediately
+   
+   b) E11S156 <<<<<<<<<<<< DONE >>>>>>>>>>>>
+      S156 -> S96
+      Send SetupAck with PI=8: CcLiCctRscRsp
+      return immediately
+
+3) S156 if INFO with digits
+   a) E02S96 <<<<<<<<<<<< DONE >>>>>>>>>>>>
+      S96 -> S156
+      SUB Req
+      return immediately anyway
+
+   ##############################
+      Buffer more info msgs
+              E02S156
+         return immediately
+   ##############################
+   
+   b) E11S156 <<<<<<<<<<<< DONE >>>>>>>>>>>>
+      handle buffered info msgs first <handled by ccCallStateMachine>
+      S156 -> S96/S37
+
+Stage 2: Handle the rainy cases
+1) buffer more info messages <<<<<<<<<<<< DONE >>>>>>>>>>>>
+2) handle release related calls <<<<<<<<<<<< DONE >>>>>>>>>>>>
+3) Negative response from 7510 <<<<<<<<<<<< DONE >>>>>>>>>>>>
+   a) negative ADD reply
+   b) negative SUB reply
+4) timer time out <<<<<<<<<<<< DONE >>>>>>>>>>>>
+   TMR_TMIN: no change
+   TMR_T302: buffer CC_ET_NMINFO event
+5) how to set ProgInd fields <<<<<<<<<<<< PARTIAL DONE >>>>>>>>>>>>
+
+########################################################
+1. ADD Req
+   1) Reference I
+   ccPlayToneOrRelease
+           |
+           |
+           +----- ccUpdateMgQForAddOrModifyRsc_real
+
+2. SUB Req
+   1) Reference I 
+      ccConE04S10
+           |
+           |
+           +---- ccQSubBasedOnCcn
+                      |
+                      |
+                      +---- ccUpdateMgQForSubRsc
+
+   2) Others
+   ccCleanMgCtxFromBcm(con->icBcm)
+

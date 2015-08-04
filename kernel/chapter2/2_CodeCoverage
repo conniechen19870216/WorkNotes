@@ -1,0 +1,3 @@
+1. gcc options: -fprofile-arcs -ftest-coverage
+2. use gdb to fullfill the 100% code coverage
+3. gcov can not find logic errors

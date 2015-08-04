@@ -1,0 +1,1 @@
+LD_PRELOAD=~/kernel/tricks/preload/libhack.so ./kavon pass
