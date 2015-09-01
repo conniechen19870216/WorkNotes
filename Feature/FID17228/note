@@ -1,0 +1,74 @@
+1. SIP2ISUP
+(1) Stage 1 - SIPA
+sipa_parse_pani (sipaparse.c) => SipwLiConEvnt
+
+(2) Stage 2 - SIPW
+sipwTransSipConIndToCctFormat => SipConEvnt
+/*
+memcpy (&ccCon->pAccessNetworkInfo, &con->pAccessNetworkInfo, sizeof(PsifSipANI));
+*/
+
+(3) Stage 3 - GCC
+/*
+ccConE00S00
+       |
+       |
+       +------- ccExtractSipAccessNetInfo (FID14382.4)
+*/
+
+Note: Structures
+SipConEvnt / SipwLiConEvnt
+       |
+       |
+       +------- PsifSipANI pAccessNetworkInfo
+
+                /* FID 14382.4 p-access-network-info*/
+                typedef struct psifSipANI{
+                   U8 pres;
+                   U8 aniValue[SIP_ACCESS_NETWORKINFO_LEN];
+                } PsifSipANI;
+
+
+2. ISUP2SIP
+(1) Stage 1 - GCC
+ccSI2SIPMapS20M00
+       |
+       |
+       +------- ccFormAnchorPANI
+
+(2) Stage 2 - SIPW
+sipwTransCctConReqToSipFormat
+       |
+       |
+       +------- /* FID16098 */
+                if(ccCon->pAccessNetworkInfo.pres)
+                {
+                    con->pAccessNetworkInfo.pres = ccCon->pAccessNetworkInfo.pres;
+                    memcpy(&con->pAccessNetworkInfo.aniValue,
+                           &ccCon->pAccessNetworkInfo.aniValue, SIP_ACCESS_NETWORKINFO_LEN);
+                    SIPW_DP(SIPW_DBG_LEVEL_0,"%s: p-access-network-info:%s\n",
+                            __FUNCTION__, con->pAccessNetworkInfo.aniValue );
+                }
+
+(3) Stage 3 - SIPA
+sipa_build_trans (sipabuild.c)
+       |
+       |
+       +------- /* FID 16098 check if p-access-network-info header present */
+                if (p_SipConEvntPtr->pAccessNetworkInfo.pres)
+                {
+                    if(OS_STRLEN(p_SipConEvntPtr->pAccessNetworkInfo.aniValue) >0)
+                    {
+                        OS_MEMCPY(&sipaCCInfoPtr->pani, &p_SipConEvntPtr->pAccessNetworkInfo.aniValue,
+                                  SIP_ACCESS_NETWORKINFO_LEN);
+                        SIPA_TRACE (NBB_DETAIL_TRC, ("%s: pani:%s \n", __FUNCTION__, sipaCCInfoPtr->pani));
+                    }
+                    else
+                    {
+                        SIPA_TRACE (NBB_ERROR_TRC, ("%s: p-access-network-info present but no data \n",__FUNCTION__));
+                    }
+                }
+                else
+                {
+                    SIPA_TRACE (NBB_DETAIL_TRC, ("%s: p-access-network-info no present \n", __FUNCTION__));
+                }
