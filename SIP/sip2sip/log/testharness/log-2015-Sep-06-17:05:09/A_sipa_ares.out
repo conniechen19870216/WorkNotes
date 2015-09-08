@@ -1,0 +1,8 @@
+FORMAT: QueueCount(MaxQueueCount),ConsDroppedMsgs(MaxConsDroppedMsgs)[TotalMsgsDropped] LogLevel ...
+LogSys Options-A: FileThreshold:0, FileMaxEntries:5000 Logname:./A_sipa_ares.out FreeQSize:1721376
+LogSys Options-B: CompId[0xa] Level[0xff] Format[0x5] Dest[0x1000000]
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.069 00000: ../../../../stubs/nmr/ares/ares_init.c-167 ares_init_options: optmask=0 flags=0
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.070 00000: ../../../../stubs/nmr/ares/ares_init.c-958 Error opening file: /resolv.plex error #2
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.070 00000: ../../../../stubs/nmr/ares/ares_init.c-321 ares_init_options: src_ip=0X00000000 src_port=0 internal=0, is_unreachable:0
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.070 00000: ../../../../stubs/nmr/ares/ares_init.c-323 ares_init_options: tcp_port=13568 udp_port=13568 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.070 00000: ../../../../stubs/nmr/ares/ares_init.c-325 ares_init_options: nservers=1 tries=4 timeout=5000

@@ -1,0 +1,82 @@
+<2015/09/06 17:07:37>[Info]: [COMMAND] runtest basiccall1.tc
+<2015/09/06 17:07:37>[Info]: 1 test cases are running (enter "stoptest" to stop running) ...
+<2015/09/06 17:07:46>[Info]: [COMMAND] tsleep 10
+<2015/09/06 17:07:56>[Info]: [COMMAND] global sipp_local_port ;#global variable storing "local port of sipp"
+<2015/09/06 17:07:56>[Info]: [COMMAND] global sipa_listen_port ;#global variable storing "Listening port of sipa"
+<2015/09/06 17:07:56>[Info]: [COMMAND] global hostip ;#global variable storing "Host IP" our tool runs on
+<2015/09/06 17:07:56>[Info]: [COMMAND] global scrDir ;#global variable storing "directory name script located"
+<2015/09/06 17:07:56>[Info]: [COMMAND] runtl1 {sigdbg:::::dest-a-ccs-slave sipa dbglvl 0};
+<2015/09/06 17:07:56>[Info]: [COMMAND] runtl1 {sigdbg:::::dest-a-ccs-slave sipa dumpraw 1};
+<2015/09/06 17:07:56>[Info]: [COMMAND] runtl1 {sigdbg:::::dest-a-ccs-slave sipa ipstrc 1};
+<2015/09/06 17:07:56>[Info]: [COMMAND] runtl1 ent-prfl-sip::1:::maxfwd=100,sip3xxhandling=release
+<2015/09/06 17:07:56>[Info]: Add 1st Event, type:3, handler:if {$tl1event==0}	{			quittest 4	} else {						quittest 5	}	
+<2015/09/06 17:07:58>[Info]: [MESSAGE] TL1 event: 0 - SUCCESS
+<2015/09/06 17:07:58>[Info]: Wait event successfully
+<2015/09/06 17:07:58>[Info]: [COMMAND] runtl1 ent-trkgrp::9999:::sip:siproutename=test,tgProfile=1,sipDstFqdn=$hostip,sipDstFqdnPort=${sipp_local_port}
+<2015/09/06 17:07:58>[Info]: Add new Event, type:3, handler:if {$tl1event==0}	{			quittest 4	} else {						quittest 5	}	
+<2015/09/06 17:08:00>[Info]: [MESSAGE] TL1 event: 0 - SUCCESS
+<2015/09/06 17:08:00>[Info]: Wait event successfully
+<2015/09/06 17:08:00>[Info]: [COMMAND] runtl1 ent-sip-tgmapaddr::ip-${hostip}-${sipp_local_port}-UDP-NOTPRSNT-NOTPRSNT:::tgn=9999
+<2015/09/06 17:08:00>[Info]: Add new Event, type:3, handler:if {$tl1event==0}	{			quittest 4	} else {						quittest 5	}	
+<2015/09/06 17:08:02>[Info]: [MESSAGE] TL1 event: 0 - SUCCESS
+<2015/09/06 17:08:02>[Info]: Wait event successfully
+<2015/09/06 17:08:02>[Info]: [COMMAND] set sipp_args "$hostip:$sipa_listen_port -mp $sipp_media_port -p $sipp_local_port -sf [getscriptdir]basiccall1.xml -inf [getscriptdir]reg.csv -m 1"
+<2015/09/06 17:08:02>[Info]: [COMMAND] schedule 5 {startupSIPp $sipp_args}
+<2015/09/06 17:08:02>[Info]: [COMMAND] tsleep 1
+<2015/09/06 17:08:03>[Info]: [COMMAND] runcs basiccall1.cs
+<2015/09/06 17:08:03>[Info]: [COMMAND] global CCEVNT     ;# global variable for call control event
+<2015/09/06 17:08:03>[Info]: [COMMAND] set state "IDLE"  ;# global variable storing "state"
+<2015/09/06 17:08:03>[Info]: [COMMAND] set event "null"  ;# global variable storing incoming event
+<2015/09/06 17:08:03>[Info]: [COMMAND] set conIndTime 40 ;#Wait for Connection Indication time out
+<2015/09/06 17:08:03>[Info]: [COMMAND] set relIndTime 100 ;#Wait for Release Indication time out
+<2015/09/06 17:08:03>[Info]: [COMMAND] waitforcond $conIndTime $CCEVNT {$event==$EVTSIPWCONIND}
+<2015/09/06 17:08:03>[Info]: Add new Event, type:1, handler:if {$event==$EVTSIPWCONIND}	{			quittest 4	}
+<2015/09/06 17:08:10>[Info]: [MESSAGE] GCC event: 5 - CONIND of call(0, 0x1060000)
+<2015/09/06 17:08:10>[Info]: Wait event successfully
+<2015/09/06 17:08:10>[Info]: [COMMAND] set sendCnStReq [SipwLiCnStEvnt]
+<2015/09/06 17:08:10>[Info]: [COMMAND] setGccPara SipwLiCnStEvnt $sendCnStReq "
+		suConnId $gcc_suConnId
+		sipInstId [getGccPara SipwLiConEvnt $sipwLiConInd sipInstId]
+		evntType.pres 1
+		evntType.val 180"
+<2015/09/06 17:08:10>[Info]: [COMMAND] sendMsg SipwLiCnStEvnt $sendCnStReq $EVTSIPWCNSTREQ
+<2015/09/06 17:08:10>[Info]: [COMMAND] tsleep 1
+<2015/09/06 17:08:11>[Info]: [COMMAND] set sendConRsp [SipwLiConEvnt]
+<2015/09/06 17:08:11>[Info]: [COMMAND] setGccPara SipwLiConEvnt $sendConRsp "
+		suConnId [getGccPara SipwLiCnStEvnt $sendCnStReq suConnId]
+		sipInstId [getGccPara SipwLiConEvnt $sipwLiConInd sipInstId]
+                sdp [dummySdpRaw]"
+<2015/09/06 17:08:11>[Info]: [COMMAND] sendMsg SipwLiConEvnt $sendConRsp $EVTSIPWCONRSP
+<2015/09/06 17:08:11>[Info]: [COMMAND] print "voice path established. $scriptline $scriptfile"
+<2015/09/06 17:08:11>[Info]: [SCRIPTS] voice path established. 27 ../scripts/sip/basiccall1.cs
+<2015/09/06 17:08:11>[Info]: [COMMAND] waitforcond $relIndTime $CCEVNT {$event==$EVTSIPWRELIND}
+<2015/09/06 17:08:11>[Info]: Add new Event, type:1, handler:if {$event==$EVTSIPWRELIND}	{			quittest 4	}
+<2015/09/06 17:08:17>[Info]: [MESSAGE] GCC event: 8 - RELIND of call(6, 0x1060000)
+<2015/09/06 17:08:17>[Info]: Wait event successfully
+<2015/09/06 17:08:17>[Info]: [COMMAND] tsleep 1
+<2015/09/06 17:08:18>[Info]: [COMMAND] set sendRelRsp [SipwLiRelEvnt]
+<2015/09/06 17:08:18>[Info]: [COMMAND] setGccPara SipwLiRelEvnt $sendRelRsp "
+                suConnId [getGccPara SipwLiCnStEvnt $sendCnStReq suConnId]
+                sipInstId [getGccPara SipwLiConEvnt $sipwLiConInd sipInstId]"
+<2015/09/06 17:08:18>[Info]: [COMMAND] sendMsg SipwLiRelEvnt $sendRelRsp $EVTSIPWRELRSP
+<2015/09/06 17:08:18>[Info]: [COMMAND] tsleep 3
+<2015/09/06 17:08:18>[Info]: [PROCESS] SIPp(29319) now exiting...
+<2015/09/06 17:08:24>[Info]: SIGCHLD arrived right after the process actions, need to wait for a short time.
+<2015/09/06 17:08:24>[Info]: SIGCHLD arrived right after the process actions, need to wait for a short time.
+<2015/09/06 17:08:24>[Info]: SIGCHLD arrived right after the process actions, need to wait for a short time.
+<2015/09/06 17:08:24>[Info]: [PROCESS] SIPA(29312) now exiting...
+<2015/09/06 17:08:24>[Info]: SIGCHLD arrived right after the process actions, need to wait for a short time.
+<2015/09/06 17:08:24>[Info]: [SCRIPTS] One TestCase Finished!
+<2015/09/06 17:08:24>[Info]: Test case (1/1) passed
+<2015/09/06 17:08:24>[Info]: 
+--------------- Test Result Statistics --------------
+<2015/09/06 17:08:24>[Info]:         	Total Test Cases:         1
+<2015/09/06 17:08:24>[Info]:         	Completed Test Cases:     1
+<2015/09/06 17:08:24>[Info]:         	Passed Test Cases:        1
+<2015/09/06 17:08:24>[Info]:         	Failed Test Cases:        0
+<2015/09/06 17:08:24>[Info]: 
+---------------------------------- Passed Cases ----------------------------------
+<2015/09/06 17:08:24>[Info]:   [TestCase 1 ] Script: passed.    SIPp: passed             SIPA: normal.   
+                Script file: ../scripts/sip/basiccall1.tc
+<2015/09/06 17:16:43>[Info]: [COMMAND] quit
+<2015/09/06 17:16:43>[Info]: Telnet service is closing...

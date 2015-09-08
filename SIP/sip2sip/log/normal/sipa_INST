@@ -1,0 +1,10 @@
+00012(00216),00000(00000) 0x00000001 09-01 02:29:44.495 10978: ../../tools/telica_sipa/sipautls.c-8713 sipa_check_unk_ip_q - qdCount:0
+00012(00216),00000(00000) 0x00000001 09-01 02:29:44.495 10978: ../../tools/telica_sipa/sipaiptrnk.c-1719 sipa_tgMapAddr_config: SIP_ENT_TGMAPADDR for 3
+00012(00216),00000(00000) 0x00000001 09-01 02:29:44.495 10978: ../../tools/telica_sipa/sipautls.c-8713 sipa_check_unk_ip_q - qdCount:0
+00001(00766),00000(00000) 0x00000001 09-01 02:36:57.881 10978: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa dbglvl 0
+00003(00766),00000(00000) 0x00000001 09-01 02:36:57.881 10978: sipaDbgLevel: New Debug Level: 0
+00001(00766),00000(00000) 0x00000001 09-01 02:36:58.281 10978: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa ipstrc 1
+00003(00766),00000(00000) 0x00000001 09-01 02:36:58.281 10978: sipaIpsTrc: IPS Tracing Enabled
+00001(00766),00000(00000) 0x00000001 09-01 02:36:58.481 10978: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa dumpraw 1
+00003(00766),00000(00000) 0x00000001 09-01 02:36:58.481 10978: sipaDumpRaw: ENABLED
+00001(00766),00000(00000) 0x00000001 09-01 02:37:25.300 10978: ../../stubs/sck/sckorig2.c-1828 sck_recv_hwm = 2

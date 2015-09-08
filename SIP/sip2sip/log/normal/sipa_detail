@@ -1,0 +1,1132 @@
+00001(00766),00000(00000) 0x00000001 09-01 02:40:10.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:40:20.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:40:30.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:40:40.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:40:50.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:00.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:10.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:20.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:30.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:40.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2371224 is invalid or trx_cnt is 0, then start trx_ratio timer again. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../custom/siphue.c-179 siph_received_message: SIPA_CB.numFilterSet:0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../sip/siptutil.c-918 sipt_utils_alloc_trx_cb: userDataPtr is NULL
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../stubs/sub/submain.c-96 sub_new_call: Request Method Token:188
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-953 sipGetLpocInfoFromTopRoute: No ROUTE Header Found
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-677 sipaIsMGC8TGRPPresInTopRoute: Top Route header not present.
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-7794 sipa_find_trk_for_request: Enter
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-677 sipaIsMGC8TGRPPresInTopRoute: Top Route header not present.
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-745 sipaIsCallFromGrPeer: Top Route header not present.
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipaparse.c-4346 sipa_parse_via: Via Transport: UDP
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-7923 sipa_find_trk_for_request: lookupKey=135.252.41.253
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipahash.c-668 In function sipaTrnkMapAddrEntryFind, lookupKey 135.252.41.253;8035;udp, len 23
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipahash.c-672 In function sipaTrnkMapAddrEntryFind, using hash key 4145
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipahash.c-683 In function sipaTrnkMapAddrEntryFind, find a hash entry for key 4145, tgMapAddrPtr is 0xf678f604
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-7291 sipaFindTrnkByIpOrFqdn: Find trkgrp - 8035
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-7294 sipaFindTrnkByIpOrFqdn list_index: 355
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-7985 sipa_find_trk_for_request: returning ip2trk_ptr = 0xf66bf194
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-7986 sipa_find_trk_for_request: Exit
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../stubs/sub/submain.c-210 sub_new_call: ip2TrnkPtr = 0xf66bf194
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-677 sipaIsMGC8TGRPPresInTopRoute: Top Route header not present.
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../tools/telica_sipa/sipautls.c-677 sipaIsMGC8TGRPPresInTopRoute: Top Route header not present.
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../stubs/sub/subasync.c-467 sub_receive_proc: Handling request as UA/proxy indialog
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../sip/siptuti2.c-1159 sipt_utils_new_call_cb: tracedIdTreeHandle:0x00000000 
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../custom/siptue.c-736 sipt_ue_set_tag_portion: FID 17202 - Orig tag string:127.0.0.1alUtKGp-08035:22
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../custom/siptue.c-754 sipt_ue_set_tag_portion: get trkGrp from userdata:8035 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.664 10978: ../../sip/siptua.c-925 sipt_ua_snd_rq_to_ua: Adding CRI to rq IPS. cri_sent: 0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../sip/siptutil.c-3425 sipt_utils_build_cri: Building CRI. call_id:                       
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../sip/siptutil.c-3499 sipt_utils_build_cri: Empty route set for 1-12560@135.252.41.253
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../sip/siptutil.c-3538 sipt_utils_build_cri: Cri buffer size=320
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../sip/siptutil.c-3578 sipt_utils_build_cri: CRI built in request. len=296, CRI:
+"LAYER:SIP
+VER:1-1
+LOCADDR:sut <sip:2018036@10.84.18.131:51000>;tag=127.0.0.1alUtKGp-08035+1+1460000+46962a6a
+REMADDR:sipp <sip:2018035@135.252.41.253:8035>;tag=1
+LOCCONT:<sip:2018036@10.84.18.131:51000>
+REMCONT:sip:2018035@135.252.41.253:8035
+RT:
+LOCSEQ:480946441
+CALLID:1-12560@135.252.41.253
+"
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipamem.c-1351 sipa_ccl_alloc_trans_cb: CCL call back to allocate trans CB 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-396 sipa_ccl_ood_requst_flag: Has NO To TAG. Mark ood_request as TRUE.
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipacclsm.c-4809 sipa_ccl_request_rx: Entry sipcCallPtr: 0xf66b98d4 sipcSessPtr: 0xf6740954 sipcTransPtr: 0xf678e844
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipacclsm.c-4828 sipa_ccl_request_rx: ood_request=TRUE. Session direction set to CALL_INFO_IN for sipaSessPtr=0xf6740954.
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipacclsm.c-4891 sipa_ccl_request_rx: Not call trace call
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipacclsm.c-4915 sipa_ccl_request_rx: get trkGrp from userdata:8035 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipacclsm.c-4923 sipa_ccl_request_rx: userDataPtr->elementFlag:1004 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-677 sipaIsMGC8TGRPPresInTopRoute: Top Route header not present.
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-745 sipaIsCallFromGrPeer: Top Route header not present.
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-4346 sipa_parse_via: Via Transport: UDP
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3300 sipa_parse_from: From:(44)			sipp <sip:2018035@135.252.41.253:8035>;tag=1
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3407 sipa_parse_from: uri:                               , rc:0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3416 sipa_parse_from: sip uri:                               , rc:0
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3439 From User name(7):2018035
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-17941 From hdr hostport (19):135.252.41.253:8035
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-19437 sipa_extract_cpc_tag: p_conEvntPtr == NUL or no cpc tag exist.
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-20944 sipa_get_from_tag fromTag len: 1 fromTag:1
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-2917 sipa_parse_to: To:(36)			sut <sip:2018036@10.84.18.131:51000>
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-12152 sipa_passthru_parse_uri, srcStr:sip:2018036@10.84.18.131:51000,dstStr:,tmpStr:,attachLen:0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-12250 sipa_passthru_parse_uri: srcStr is not started with MGC8PREFIX: sip:MGC-8COOKIE, no decode needed 
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3103 To Header SIP-URI:User name:2018036
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-17941 To hdr hostport (18):10.84.18.131:51000
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3579 Call Id:          1-12560@135.252.41.253
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3598 Call Id:1-12560@135.252.41.253 len:22
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-3693 CSEQ:          1
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-10249 sipa_parse_alertinfo: Get Alert-Info header.
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-10262 sipa_parse_alertinfo: No Alert-Info header to parse.
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-7614 sipa_parse_diversion: NO Diversion header present
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse2.c-193 sipa_parse_invite: Extract Supported header. callDir=1
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-10356 sipa_parse_supported: Get Supported header.
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-7752 sipa_parse_hist_info: max history-info hdr count: 10, limitHistInfoCause: 1
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-7972 sipa_parse_hist_info: hdr_cnt=0,bot_idx=-1,top_idx=-1,lst_idx=-1, redir_idx:-1, divert_idx:-1 fwd_cnt:0.
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-8136 sipa_parse_hist_info: first_index_num  = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-8213 sipa_parse_hist_info: div->eh.pres  = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-8239 sipa_parse_hist_info: RURI: sip:2018036@10.84.18.131:51000.
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-8417 sipa_parse_hist_info: Self hi_entry index:1 ruri:sip:2018036@10.84.18.131:51000 privacy:0.
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-445 URI:  scheme:sip(235)
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-12152 sipa_passthru_parse_uri, srcStr:sip:2018036@10.84.18.131:51000,dstStr:,tmpStr:,attachLen:0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-12250 sipa_passthru_parse_uri: srcStr is not started with MGC8PREFIX: sip:MGC-8COOKIE, no decode needed 
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-616 SIP_URI: phoneNum: 2018036 (7), reqUriVal: 2018036 (7)
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-731 sipa_parse_uri: rhostname(18):10.84.18.131:51000
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-17941 RURI hdr hostport (18):10.84.18.131:51000
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-750 SIP_URI: number: 2018036 (7), user:  method:  transport:  port: 51000 host_name: 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-760 sipa_parse_uri: check for announcement offset 4 len 7 anncURL ANNC url: 2018036@10.84.18.131:51000
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-1200 sipa_parse_uri: No need to parse TRUNK CTXT because TGRP info does not exist either
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-2168 sipa_parse_contact: Contact:(31)			sip:2018035@135.252.41.253:8035
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-2218 sipa_parse_contact: contactStr: sip:2018035@135.252.41.253:8035
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-2370 sipa_parse_contact: No need to parse TRUNK CTXT because TGRP info does not exist either
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-11499 sipa_parse_x_lu_call_type:X-LU-Call-Type header not needed
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-11565 sipa_parse_x_alu_overlap:X-ALU-OVERLAP header is not present
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-11631 sipa_parse_x_alu_area_id:X-ALU-Area-ID header is not present (offset == 0)
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-11756 sipa_parse_XTMR: final_rsp_to_first_inv == ATG_YES, or ip2TrkPtr->cfgInfo.sipProfilePtr->xTransMedRq = 0 
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-12214 sipa_parse_XFCI:X-Forward-Call-Indicator hdr ignored
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-22460 sipa_parse_XOFCI:X-optForward-Call-Indicator hdr ignored
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-12345 sipa_parse_XLN:X-Location-Number hdr ignored
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-4009 subject_len: 16
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-4010 Subject:             Performance Test
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse2.c-439 sipa_parse_invite: Extract P-Access-Network-info, callDir=1
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9257 sipa_parse_pani(P-Access-Network-Info).
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9270 sipa_parse_pani: Can't get P-Access-Network-Info.
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse2.c-500 sipa_parse_invite: reqURI in INVITE:sip:2018036@10.84.18.131:51000
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-13774 sipa_top_route_string: No ROUTE Header Found
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-352 sipa_parse_route: No Route Header present 
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-23050 sipa_parse_X_ALU_ACLI: X-ALU-ACLI hdr ignored
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-5144 ContentLen:             176
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-5701 sipa_parse_content Processing SIP_TOKEN_APPLICATION
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-5828 sipa_parse_content: Incoming SDP:
+v=0
+o=- 3447639570 3447639570 IN IP4 135.252.41.253
+s=-
+c=IN IP4 135.252.41.253
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=ptime:20
+a=rtpmap:0 PCMU/8000
+a=silenceSupp:off - - - -
+
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-6918 sipa_parse_rpid:There is no RPID header to parse
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-10666 sipa_parse_p_asserted_id: No P-Asserted-Id header.
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9219 Max-Forwards:     70
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse2.c-992 sipa_parse_invite(P-Charging): Extract pcharging info. callDir=1
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9576 sipa_parse_charging_info(P-Charging): Get p-charging vector.
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-6580 sipa_determine_dir: call direction determined to be: 1
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9676 sipa_parse_charging_info(P-Charging): Cannot get p-charging vector.
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9682 sipa_parse_charging_info(P-Charging): cannot parse NULL pcharging info.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9845 sipa_parse_p_early_media: Parse P-Early-Media header, method 188, statusCode 1, isRequest 1.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-9988 sipa_parse_p_early_media: No P-Early-Media header in message.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse2.c-1026 sipa_parse_invite: Extract Allow header. callDir=1
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-10306 sipa_parse_allow: Get Allow header.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse2.c-1064 sipa_parse_invite: INVITE statusCode: 1  ID: 1-12560@135.252.41.253 suConnId: 0 sipInstId: 0x00000000
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-13523 sipa_parse_message: SIPPLUS: 0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-13532 sipa_parse_message: SiptEnabled:0 SiptVariant:0x00
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-13556 sipa_parse_message Prfl (Id=35) bciIw=1
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-13563 sipa_parse_message Prfl (Id=35) fciIw=1
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipaparse.c-13570 sipa_parse_message Prfl (Id=35) nciIw=1
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: sipa_dump_conevt: ../../tools/telica_sipa/sipacclsm.c-5826 conEvnt Info
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:      suConnId:        0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:      sipInstId:       0x00000000
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     Req URI: pres: 1 val: 2018036 len: 7 type: 0, uriType:2
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     To: pres: 1 val: 2018036 len: 7 type: 0
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     From: pres: 1 val: 2018035 len: 7 type: 0
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     Remote Party ID eh: 0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:  FS IPAddr(from VIA): 135.252.41.253 - 135.252.41.253 len: 14 pres: 1
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     FS TrkGrp: pres: 1 val: 8035
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     Max Forwards: val: 70
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     refer: pres: 0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     Subject: val: Performance Test len: 16
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:     CSeq ID: val: 1
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:      sipOpt.ips_addr: 0x0, callHandle:0x0, sessId:0x0, bitMask:0x   0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978:      callPriority:   0x00
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipacclsm.c-5854 sipa_ccl_request_rx: CRI present in Invite. size: 296 ID: 1-12560@135.252.41.253 suConnId: 0 sipInstId: 0x00000000
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:2 direction:1 ip2TrkPtr:f66bf194
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[2].cumCount[1] to 6 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipadclif.c-4713 sipa_send_response: phoneNum: 2018036 Call ID: 1-12560@135.252.41.253 suConnId: 0 sipInstId: 0x00000000 Response Code: 100 IpVersion: 2 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipautls.c-7375 get_sfw_tgn_from_via: tgn 2
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.665 10978: ../../tools/telica_sipa/sipabuild.c-4763 URI:  scheme:sip(235)
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipadclif.c-6699 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipadclif.c-6751 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:100 direction:0 ip2TrkPtr:f66bf194
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[38].cumCount[0] to 6 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-503 sipa_ccl_send_ips: Entry sipcCallPtr:0xf66b98d4 sipcSessPtr:0xf6740954 sipcTransPtr:0xf678e844 ips_type=x38820004 token=188
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-784 sipa_ccl_send_ips Prfl (Id=35) hdr set not present
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-805 sipa_ccl_send_ips NMR User Data set to 0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-839 sipa_ccl_send_ips IPS sent with TOS/DSCP 0x0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-2846 sipa_ccl_send_ips: SIPPRFL ID 35, SIPPRFL_Ptr:0xf6755124, token:188/RSP, callDir:1t1:500, t2:4000, se:1800, minse:90
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-2872 sipa_ccl_send_ips: Fid16521.0 LGP-3556, token = 188, status_code = 100, sipaCallPtr = 0xf66b98d4
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-2897 sipa_ccl_send_ips:  token = 188, status_code = 100, sipaCallPtr = 0xf66b98d4
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-3041 sipa_ccl_send_ips: ips->ips_hdr.ips_type =948043780 status_code=100
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-3530 sipa_ccl_send_ips: hdrSet is NULL or hdrPassBitMask is 0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-3752 sipa_ccl_send_ips: No XML body added in outgoing response
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-3771 sipa_ccl_send_ips: No PSTN XML body added in outgoing response
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-3789 sipa_ccl_send_ips: No NSS body added in outgoing response
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-3809 sipa_ccl_send_ips: No Unknown body added in outgoing response 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-6346 sipa_ccl_request_rx: overlap_dialing:0, suConnId:0x00000000
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-6380 sipa_ccl_request_rx: INVITE with unsupported 100rel
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-6405 sipa_ccl_request_rx: INVITE received phoneNum: 2018036 Call ID: 1-12560@135.252.41.253 suConnId: 0 sipInstId: 0x01520000, headerSupportMask:0x00000000
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:0, numStanding:0, currState:0, newState:3, sipInstId:0x1520000
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipautls.c-7046 updateCallStateCounts - incr, numIncXientCalls:1, congLevel:0, currState:0, newState:3, sipInstId:0x1520000, ccFlags:0x0, sipFlags:0x0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-6473 sipa_ccl_request_rx: Saving SDP for re-invite
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipacclsm.c-6526 sipa_ccl_request_rx:  from_change_local_support= 0, remote_support= 4
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-975 sipa_send_rlydata: peerEnt:173 event:5 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1007 
+sipa_send_rlydata: sipConEvnt->sipInstId: 0x01520000 sipConEvnt->suConnId: 0x00000000
+
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipautls.c-3769 
+sipa_find_sess_call: p_conEvntPtr->sipInstId: 0x01520000 p_conEvntPtr->suConnId: 0x00000000
+
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipautls.c-3935 
+sipa_find_sess_call: sipaCallPtr: 0xf66b98d4  sipaSessPtr:  0xf6740954
+
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1096 sipa_send_rlydata: sdpInfo len=176: Data: v=0
+o=- 3447639570 3447639570 IN IP4 135.252.41.253
+s=-
+c=IN IP4 135.252.41.253
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=ptime:20
+a=rtpmap:0 PCMU/8000
+a=silenceSupp:off - - - -
+ 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1150 sipa_send_rlydata: No need to decode APM with aoc.
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1182 sipa_send_rlydata: No need to decode PSTNXML.
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1224 sipa_send_rlydata: sipXmlInfo data not exist
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1274 sipa_send_rlydata: XML sipXmlInfo data not exist
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1339 sipa_send_rlydata: UUS data not exist
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1425 sipa_send_rlydata: SIPT enabled=0 (p_event=5): sipInstId=0x01520000 suConnId=0x00000000
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1529 sipa_send_rlydata: len:22, callid:1-12560@135.252.41.253
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1733 =====hostport to GCC=====
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[0] len=18: Data: 10.84.18.131:51000 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[0] len=18 
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[1] len=18: Data: 10.84.18.131:51000 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[1] len=18 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[2] len=19: Data: 135.252.41.253:8035 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[2] len=19 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[3] len=0: Data:  
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[3] len=0 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[4] len=0: Data:  
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[4] len=0 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[5] len=0: Data:  
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[5] len=0 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[6] len=0: Data:  
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[6] len=0 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1739 hostSrc[7] len=0: Data:  
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1741 host_size[7] len=0 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1748 =====hostport to GCC=====
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-1768 sipa_send_rlydata: Cri present in EVTSIPWCONIND sipInstId: 0x01520000 suConnId: 0 size=296 CRI:
+"LAYER:SIP
+VER:1-1
+LOCADDR:sut <sip:2018036@10.84.18.131:51000>;tag=127.0.0.1alUtKGp-08035+1+1460000+46962a6a
+REMADDR:sipp <sip:2018035@135.252.41.253:8035>;tag=1
+LOCCONT:<sip:2018036@10.84.18.131:51000>
+REMCONT:sip:2018035@135.252.41.253:8035
+RT:
+LOCSEQ:480946441
+CALLID:1-12560@135.252.41.253
+"
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2139 sipa_send_rlydata: EVTSIPWCONIND: SipwLiConEvnt+raw_sdp+raw_isup: orig_size=9532, packed_size=542
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2143 sipa_send_rlydata: EVTSIPWCONIND: raw_sdp_size=176, raw_isup_size=0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2147 sipa_send_rlydata: reqUriStr_size data available len:30
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2303 sipa_send_rlydata: event:5, total data size: 964
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2383 sipa_send_rlydata: currIdx:366, sdp_size:176, isup_size:0, cri_size:296 callId_size:22, hi_size:0, total_host_size:55, hdrPass_size:0xmlBody_size:0, iriReport_size:0, contHdr_size:0,pstnXmlBody_size:0, callTrcId_size:0, uus_size:0,simservsXmlBody_size:0, inReplyTo_size:0, reqUriStr_size:30sip3xxContact_size:0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2390 sipa_send_rlydata: data_start:16, currIdx:366
+ 00002(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2464 sipa_send_rlydata: Sending callId (22:1-12560@135.252.41.253) to GCC.
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/siparcv_new.c-2838 sipa_send_rlydata: reqUriStr.pres:1, len:30, val:sip:2018036@10.84.18.131:51000
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../custom/siptue.c-1517 sipt_ue_update_msg: Entering
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../custom/siptue.c-1729 sipt_ue_update_msg: SIPA_CB.numFilterSet:0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.666 10978: ../../tools/telica_sipa/sipasorm.c-1509 sipa_handle_li_report_in_ue: userDataPtr is NULL
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-62 sipa_process_conreq: EVTSIPWCONREQ suConnId: 65 sipInstId: 0x00000000
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-65 sipa_process_conreq: CONREQ tgrpId is 1 / 8036
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-70 sipa_process_conreq: EVTSIPWCONREQ: raw_sdp_size=176, raw_isup_size=0
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: sipa_dump_conevt: ../../tools/telica_sipa/siparcv2.c-72 conEvnt Info
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:      suConnId:        65
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:      sipInstId:       0x00000000
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     Req URI: pres: 1 val: 2018036 len: 7 type: 0, uriType:2
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     To: pres: 1 val: 2018036 len: 7 type: 0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     From: pres: 1 val: 2018035 len: 7 type: 0
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     NPDI: val: 0
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     pAssertedId: 1
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     Ccode: pres: 1 val: 32 len: 2
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     Remote Party ID eh: 1
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     	 RPID-displayName: pres: 0 val:  len: 0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     	 RPID-addrSpec: pres: 1 val: 2018035 len: 7
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     	 RPID-rpiScreen: pres: 1 val: 1
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     	 RPID-rpiPtyType: pres: 1 val: 0
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     	 RPID-rpiIdType: pres: 1 val: 0
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     	 RPID-rpiPrivacy: pres: 1 val: 0
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:  FS IPAddr(from VIA): 135.252.41.253 - 135.252.41.253 len: 0 pres: 0
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     FS TrkGrp: pres: 1 val: 8036
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     Max Forwards: val: 69
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     refer: pres: 0
+00024(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     Subject: val: Performance Test len: 16
+00025(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:     SDP: raw pres: 1 
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:      sipOpt.ips_addr: 0x0, callHandle:0x1500000, sessId:0x1520000, bitMask:0x   0
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978:      callPriority:   0x00
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-76 sipa_process_conreq: conEvntPtr->headerSupportMask:0x00000028
+00029(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-338 sipa_process_conreq: callId = 8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A.
+00030(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-375 sipa_process_conreq: Using Active FS IpAddr=135.252.41.253 (the one from GCC ignored).
+00031(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-382 sipa_process_conreq: conEvntPtr->fs IpAddr=135.252.41.253
+00032(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-394 sipa_process_conreq: sipCpcStr(from GCC) is NULL, pres:0
+00033(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-408 sipa_process_conreq: conEvntPtr->cgPtyIsubAddr.eh.pres:0 
+00034(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-420 sipa_process_conreq: conEvntPtr->cdPtyIsubAddr.eh.pres:0 
+00035(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-436 sipa_process_conreq: sipTermTgrp/sipTermTrunkCtxt(from GCC) is NULL, pres:0
+00036(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/siparcv2.c-450 sipa_process_conreq: sipOrigTgrp/sipOrigTrunkCtxt(from GCC) is NULL, pres:0
+00037(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-5964 sipa_build_trans: p_ipAddrStr: 135.252.41.253 Len: 14
+00038(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-6234 sipa_build_trans: SipPlus option OFF: PLUS will be removed
+00039(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-8778 uriType:0xeb numType:44 srcStr:(7):2018036, destStr:sip:2018036
+00040(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-410 sipa_build_uri: ip2TrnkPtr->cfgInfo.sipProfilePtr->addTermTg.pres=1, ip2TrnkPtr->cfgInfo.sipProfilePtr->addTermTg.val=0 
+00041(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-6342 sipa_build_trans: Try to add route header....... 
+00042(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-6671 sipa_build_trans: farEndSessId: 0x01520000
+00043(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-8778 uriType:0xeb numType:44 srcStr:(7):2018036, destStr:<sip:2018036
+00044(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipautls.c-11154 sipaSetIPStrFromLocal: New IPStr:10.84.18.131 for ipVersion of 2, sipInterface:0
+00044(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-1032 sipa_build_from: srcAddrStr, 10.84.18.131:51000
+00045(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-1057 sipa_build_from: ignoreCgpnAPRI:0
+00046(00766),00000(00000) 0x00000001 09-01 02:41:45.676 10978: ../../tools/telica_sipa/sipabuild.c-8778 uriType:0xeb numType:44 srcStr:(7):2018035, destStr: <sip:2018035
+00047(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-1205 sipa_build_from: Not build cpc tag in From header
+00047(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-8778 uriType:0xeb numType:44 srcStr:(7):2018035, destStr:<sip:2018035
+00047(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipautls.c-11154 sipaSetIPStrFromLocal: New IPStr:<sip:2018035@10.84.18.131 for ipVersion of 2, sipInterface:0
+00047(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-7080 sipa_build_trans: Contact Header: <sip:2018035@10.84.18.131:51000
+00047(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-8778 uriType:0xeb numType:44 srcStr:(7):2018035, destStr:<sip:2018035
+00048(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-9689 sipa_build_p_asserted_id: Not build cpc tag in P_ASSERTED_ID header
+00048(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipautls.c-11154 sipaSetIPStrFromLocal: New IPStr:10.84.18.131 for ipVersion of 2, sipInterface:0
+00049(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-9755 sipa_build_p_asserted_id: IPStr:10.84.18.131 for ipVersion of 2, sipInterface:0
+00049(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-9914 sipa_build_p_asserted_id: Setting privacy to none with rpiPrivacy val = 0.
+00049(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-7246 sipa_build_trans: histInfo pres:1, div pres:0 useHistHdr: 0
+00050(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-7262 sipa_build_trans: Try to build Div hdr.
+00050(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-7379 sipa_build_trans:outgoing call id pres: 1
+00051(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-5774 sipa_build_XFCI: No need to add XFCI to outgoing Invite
+00051(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-5824 sipa_build_XOFCI: No need to add XOFCI to outgoing Invite
+00051(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-5556 sipa_build_XLN: No need to add XLN to outgoing Invite
+00052(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-10472 sipa_build_xmggroup: X-ALU-MG-Group content is not present.
+00052(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-7548 sipa_build_trans: p-access-network-info no present 
+00053(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipabuild.c-5881 sipa_build_X_ALU_ACLI: No need to add X-ALU-ACLI to outgoing Invite
+00053(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-530 sipa_process_conreq: allocCallCb:1
+00053(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-587 sipa_process_conreq: overlapEnable:0 from GCC
+00053(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-623 sipa_process_conreq hdrPassBitMask from GCC is 0x0000
+00053(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-692 sipa_process_rly(P-Charging): callDir=0, charging. pres: 0
+00054(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipautls.c-3102 sipaCopyCCSdp: Processing SDP_RAW
+00054(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipautls.c-3127 sipaCopyCCSdp: Allocate and copy SDP succeed. Address is 0xf678f104, length is 176. 
+00054(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-854 sipa_process_conreq: Call CB phoneNum- 2018036
+00055(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-938 sipa_process_conreq: Passthrough route header not present
+00055(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-964 sipa_process_conreq: acceptLangStr(language string from GCC) is not present
+00055(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-984 sipa_process_conreq: Not Both Ingress side and Egress side support sci xml. sciAcceptXml:0, sciXmlEnable:0.
+00056(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1004 sipa_process_conreq: Not Both Ingress side and Egress side support AoC. aocAcceptXml:0, aocXmlEnable:0.
+00057(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1049 sipa_process_conreq: Not Both Ingress side and Egress side support PSTN. pstnAcceptXml:0, pstnEnable:0.
+00058(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1069 sipa_process_conreq: Ingress side is not SIP. headerSupportMask:0x00000028, sciDecode:0.
+00059(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1094 sipa_process_conreq: preCond is OFF 
+ 00059(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1114 sipa_process_conreq: Ingress side is not SIP. headerSupportMask:0x00000028, pstnDecode:0.
+00060(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1157 sipa_process_conreq: ISDN XML body from GCC not exist. 
+00061(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1193 sipa_process_conreq: do not trace this called party
+00062(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1244 sipa_process_conreq: xAluOverlap:0 from GCC
+00062(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1247 sipa_process_conreq:  (ip2TrnkPtr->cfgInfo.sipProfilePtr->xTransMedRq) = 0, conEvntPtr->xTransMedRq.pres = 0, val = -144821732
+00062(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1261 sipa_process_conreq:  X-Transmission-Medium-Requirement header pres = 0, val = 0
+00063(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1264 sipa_process_conreq  (ip2TrnkPtr->cfgInfo.sipProfilePtr != NULL) = 1
+00063(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1269 sipa_process_conreq:  (sipPrflPtr->sipHdrColpMap.pres) = 0
+00063(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1289 sipa_process_conreq  sipaCallPtr->fromChangeFlag = 0)
+00063(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/siparcv2.c-1292 sipa_process_conreq: xAluOverlap:0 from GCC
+00064(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:1, numStanding:0, currState:0, newState:2, sipInstId:0x0
+00064(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipasorm.c-615 sipa_process_li_req: Li data does not present
+00063(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipahash.c-36 ../../tools/telica_sipa/sipadclif.c-139 sipaCallEntryAdd_real: Entry: handle: 65 dataPtr: 0xf66baf04 entryPtr: 0xf66bb754
+00063(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-146 
+00064(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-163 sipa_issue_call Request URI:  sip:2018036@135.252.41.253:8036;user=phone;transport=udp
+00064(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-179 sipa_issue_call To:  <sip:2018036@135.252.41.253:8036;user=phone>
+00065(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-195 sipa_issue_call From:   <sip:2018035@10.84.18.131:51000;user=phone>
+00066(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-212 sipa_issue_call P Asserted Id:  <sip:2018035@10.84.18.131;user=phone>
+00067(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-228 sipa_issue_call Contact:  <sip:2018035@10.84.18.131:51000>
+00068(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-328 sipa_issue_call: Calling: <sip:2018036@135.252.41.253:8036;user=phone> ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x00000000
+00069(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-330 sipa_issue_call Subject            :  Performance Test
+00069(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-335 sipa_issue_call Remote Party ID    :  
+00070(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-337 sipa_issue_call Privacy            :  none
+00070(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-339 sipa_issue_call Top Diversion      :  
+00071(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-340 sipa_issue_call Bottom Diversion   :  
+00071(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-341 sipa_issue_call P-Called-Party-ID  :  
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-360 sipa_issue_call Outgoing SDP       :  
+v=0
+o=- 3447639570 3447639570 IN IP4 135.252.41.253
+s=-
+c=IN IP4 135.252.41.253
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=ptime:20
+a=rtpmap:0 PCMU/8000
+a=silenceSupp:off - - - -
+
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipadclif.c-368 sipa_issue_call Outgoing ISUP      :  siptEnabled=0, isupVar=0
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../sip/sipcmain.c-958 sipc_initiate_session: Adding Privacy Hdr
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../sip/sipcmain.c-989 sipc_initiate_session: Adding P Asserted ID Hdr
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-503 sipa_ccl_send_ips: Entry sipcCallPtr:0xf66baf04 sipcSessPtr:0x00000000 sipcTransPtr:0xf678e484 ips_type=x38820003 token=188
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipautls.c-396 sipa_ccl_ood_requst_flag: Has NO To TAG. Mark ood_request as TRUE.
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipautls.c-6580 sipa_determine_dir: call direction determined to be: 0
+00072(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-784 sipa_ccl_send_ips Prfl (Id=36) hdr set not present
+00073(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-805 sipa_ccl_send_ips NMR User Data set to 0
+00073(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-860 sipa_ccl_send_ips IPS sent with TOS/DSCP 0x0
+00073(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-1031 sipa_ccl_send_ips: Allocate userDataPtr present
+00074(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-1040 sipa_ccl_send_ips: Set Trunk for call :8036
+00074(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-1085 sipa_ccl_send_ips: SIPPRFL ID 36, SIPPRFL_Ptr:0xf6754e0c, t1:500, t2:4000
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-1112 sipa_ccl_send_ips: Sending an INVITE request. callDir: 0 sipaCallPtr->conInfo[callDir].state: 2
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-1159 sipa_ccl_send_ips:  sipHdrColpMap.pres = 0, fromChangeFlag = 0, token = 188,sipaCallPtr = 0xf66baf04, sipaSessPtr = 0x00000000
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-1172 sipa_ccl_send_ips: from_change_local_support= 0, remote_support= 0
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-1239 sipa_ccl_send_ips: SIPPRFL_Ptr:0xf6754e0c, t1:500, t2:4000, tout:180, se:1800, minse:90, timer_b:32000
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-3530 sipa_ccl_send_ips: hdrSet is NULL or hdrPassBitMask is 0
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipamutls.c-61 sipa_add_sdp: Outgoing SDP (len=176):
+v=0
+o=- 3447639570 3447639570 IN IP4 135.252.41.253
+s=-
+c=IN IP4 135.252.41.253
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=ptime:20
+a=rtpmap:0 PCMU/8000
+a=silenceSupp:off - - - -
+
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-3752 sipa_ccl_send_ips: No XML body added in outgoing response
+00076(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-3771 sipa_ccl_send_ips: No PSTN XML body added in outgoing response
+00077(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-3789 sipa_ccl_send_ips: No NSS body added in outgoing response
+00077(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-3809 sipa_ccl_send_ips: No Unknown body added in outgoing response 
+00078(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-3915 sipa_ccl_send_ips: put trkGrp in SIP_REQUEST, trkGrp:8036
+00078(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-3920 sipa_ccl_send_ips: set flag USER_DATA_FQDN_IN_VIA 
+00079(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipacclsm.c-4107 sipa_ccl_send_ips: UA sets nothing for SIGA.
+00078(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:2 direction:0 ip2TrkPtr:f66bdb64
+00079(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[2].cumCount[0] to 6 
+00079(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../sip/siptutil.c-918 sipt_utils_alloc_trx_cb: userDataPtr is NULL
+00079(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../sip/siptuti2.c-1159 sipt_utils_new_call_cb: tracedIdTreeHandle:0x00000000 
+00079(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../custom/siptue.c-736 sipt_ue_set_tag_portion: FID 17202 - Orig tag string:127.0.0.1alUtKGp-08036:22
+00079(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../custom/siptue.c-754 sipt_ue_set_tag_portion: get trkGrp from userdata:8036 
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../custom/siptue.c-1517 sipt_ue_update_msg: Entering
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../custom/siptue.c-1729 sipt_ue_update_msg: SIPA_CB.numFilterSet:0
+00075(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../sip/siptrout.c-415 sipt_rt_cmn_out_rq: slchi_tport:321
+00070(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../sip/siptsl.c-1098 sipt_sl_ch_ref: sl_transport:321, sl_port:8036
+00066(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../sip/siptbld3.c-720 sipt_bld_rq_via: sl_transport:321
+00063(00766),00000(00000) 0x00000001 09-01 02:41:45.677 10978: ../../tools/telica_sipa/sipasorm.c-1518 sipa_handle_li_report_in_ue: user data does not take iri report
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../custom/siphue.c-179 siph_received_message: SIPA_CB.numFilterSet:0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-1296 sipa_match_string_in_header_n: get the 1 header,Header string: SIP/2.0/UDP 10.84.18.131:51000;branch=z9hG4bK+4ae5cb1df251f62758c3a8672fa0810b1+127.0.0.1+1.
+ 00001(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../custom/siphue.c-179 siph_received_message: SIPA_CB.numFilterSet:0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-1296 sipa_match_string_in_header_n: get the 1 header,Header string: SIP/2.0/UDP 10.84.18.131:51000;branch=z9hG4bK+4ae5cb1df251f62758c3a8672fa0810b1+127.0.0.1+1.
+ 00002(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../sip/siptua.c-1239 sipt_ua_snd_rsp_to_ua:invite Session CB
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../sip/siptua.c-1251 sipt_ua_snd_rsp_to_ua: Adding CRI to rsp IPS, cri_sent: 0
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../sip/siptutil.c-3425 sipt_utils_build_cri: Building CRI. call_id:                                                                                   
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../sip/siptutil.c-3499 sipt_utils_build_cri: Empty route set for 8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../sip/siptutil.c-3538 sipt_utils_build_cri: Cri buffer size=401
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../sip/siptutil.c-3587 sipt_utils_build_cri: CRI built in response. len=377, CRI:
+"LAYER:SIP
+VER:1-1
+LOCADDR:<sip:2018035@10.84.18.131:51000;user=phone>;tag=127.0.0.1alUtKGp-08036+1+1480000+1f2a9bf4
+REMADDR:<sip:2018036@135.252.41.253:8036;user=phone>;tag=1
+LOCCONT:<sip:2018035@10.84.18.131:51000>
+REMCONT:<sip:135.252.41.253:8036;transport=UDP>
+RT:
+LOCSEQ:945334613
+CALLID:8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+"
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipacclsm.c-7794 sipa_ccl_presponse_rx: Entry sipcCallPtr: 0xf66baf04 sipcSessPtr: 0xf6742024 sipcTransPtr: 0xf678e484
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:180 direction:1 ip2TrkPtr:f66bdb64
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[39].cumCount[1] to 6 
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3300 sipa_parse_from: From:(89)			<sip:2018035@10.84.18.131:51000;user=phone>;tag=127.0.0.1alUtKGp-08036+1+1480000+1f2a9bf4
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3407 sipa_parse_from: uri:                                         , rc:0
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3416 sipa_parse_from: sip uri:                                         , rc:0
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3439 From User name(7):2018035
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-17941 From hdr hostport (18):10.84.18.131:51000
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-19437 sipa_extract_cpc_tag: p_conEvntPtr == NUL or no cpc tag exist.
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-2917 sipa_parse_to: To:(50)			<sip:2018036@135.252.41.253:8036;user=phone>;tag=1
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-390 sipa_ccl_ood_requst_flag: Has a To TAG. Mark ood_request as FALSE.
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3103 To Header SIP-URI:User name:2018036
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-17941 To hdr hostport (19):135.252.41.253:8036
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3579 Call Id:          8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3598 Call Id:8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A len:82
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-3693 CSEQ:          945334612
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-10249 sipa_parse_alertinfo: Get Alert-Info header.
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-10262 sipa_parse_alertinfo: No Alert-Info header to parse.
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse2.c-193 sipa_parse_invite: Extract Supported header. callDir=0
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-10356 sipa_parse_supported: Get Supported header.
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-7752 sipa_parse_hist_info: max history-info hdr count: 10, limitHistInfoCause: 1
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-7972 sipa_parse_hist_info: hdr_cnt=0,bot_idx=-1,top_idx=-1,lst_idx=-1, redir_idx:-1, divert_idx:-1 fwd_cnt:0.
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-2168 sipa_parse_contact: Contact:(39)			<sip:135.252.41.253:8036;transport=UDP>
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-2218 sipa_parse_contact: contactStr: sip:135.252.41.253:8036;transport=UDP
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-2370 sipa_parse_contact: No need to parse TRUNK CTXT because TGRP info does not exist either
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-22773 sipa_parse_XBCI: ip2TrkPtr->cfgInfo.sipTEnable = 0, (sipaConInfoPtr->state) = 2, supportXBCI = 0
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-22775 sipa_parse_XBCI: statusCode = 180, method_token = 188
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-22783 sipa_parse_XBCI:X- Backward-Call-Indicator hdr ignored
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-22922 sipa_parse_XOBCI: ip2TrkPtr->cfgInfo.sipTEnable = 0, (sipaConInfoPtr->state) = 2, supportXOBCI = 0
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-22924 sipa_parse_XOBCI: statusCode = 180, method_token = 188
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-22932 sipa_parse_XOBCI:X-Optbackward-Call-Indicator hdr ignored
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-5144 ContentLen:             0
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-5148 sipa_parse_content: No Content to parse.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-6918 sipa_parse_rpid:There is no RPID header to parse
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-10666 sipa_parse_p_asserted_id: No P-Asserted-Id header.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse2.c-992 sipa_parse_invite(P-Charging): Extract pcharging info. callDir=0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-9576 sipa_parse_charging_info(P-Charging): Get p-charging vector.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-6580 sipa_determine_dir: call direction determined to be: 0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-9623 sipa_parse_charging_info: As there was no P-Charging-Vector in outgoing INVITE, ignore the header in 180 response.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-9845 sipa_parse_p_early_media: Parse P-Early-Media header, method 188, statusCode 180, isRequest 0.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-9895 sipa_parse_p_early_media: Not parse the header, sipProfilePtr 0xf6754e0c, sipTEnable 0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-9901 sipa_parse_p_early_media: pEarlyMedia 0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse2.c-1026 sipa_parse_invite: Extract Allow header. callDir=0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-10306 sipa_parse_allow: Get Allow header.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse2.c-1064 sipa_parse_invite: INVITE statusCode: 180  ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-13523 sipa_parse_message: SIPPLUS: 0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-13532 sipa_parse_message: SiptEnabled:0 SiptVariant:0x00
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-13556 sipa_parse_message Prfl (Id=36) bciIw=1
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-13563 sipa_parse_message Prfl (Id=36) fciIw=1
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaparse.c-13570 sipa_parse_message Prfl (Id=36) nciIw=1
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipacclsm.c-8201 sipa_ccl_presponse_rx: farEndCallId is 0 
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipacclsm.c-8320 sipa_ccl_presponse_rx: CRI present in prsp. size -377 ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:1, numStanding:0, currState:2, newState:10, sipInstId:0x1550000
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipacclsm.c-8351 sipa_ccl_presponse_rx: fromChangeFlag = 0,rpid.eh.pres = 0, pAssertedId = 0 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaccif.c-652 sipa_cc_18x_ind: conEvntPtr.bkwdCallInd.eh.pres = 0
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaccif.c-659 sipa_cc_18x_ind: conEvntPtr.optBwdCallInd.eh.pres = 0
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaccif.c-718 sipa_cc_18x_ind: farEndBitMask is 0 
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaccif.c-745 sipa_cc_18x_ind INVITE response hdr pass rule is not set, farEndBitMask:0x0000
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaccif.c-858 sipa_cc_18x_ind: CRI present in 18x rsp, size=377 suConnId: 65 sipInstId: 0x01550000
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipaccif.c-904 sipa_cc_18x_ind: chargeInd pres:0, val:0
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-975 sipa_send_rlydata: peerEnt:173 event:6 
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1007 
+sipa_send_rlydata: sipConEvnt->sipInstId: 0x01550000 sipConEvnt->suConnId: 0x00000041
+
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-3987 
+sipa_find_overlap_sess_call: p_conEvntPtr->sipInstId: 0x01550000 p_conEvntPtr->suConnId: 0x00000041
+
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-3997 
+sipa_find_overlap_sess_call: sipaSessPtr: 0xf6742024
+
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-4025 sipa_find_overlap_sess_call: overlap_dialing:0
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/sipautls.c-4122 
+sipa_find_overlap_sess_call: sipaCallPtr: 0xf66baf04  sipaSessPtr:  0xf6742024
+
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1150 sipa_send_rlydata: No need to decode APM with aoc.
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1182 sipa_send_rlydata: No need to decode PSTNXML.
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1224 sipa_send_rlydata: sipXmlInfo data not exist
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1274 sipa_send_rlydata: XML sipXmlInfo data not exist
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1339 sipa_send_rlydata: UUS data not exist
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1425 sipa_send_rlydata: SIPT enabled=0 (p_event=6): sipInstId=0x01550000 suConnId=0x00000041
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1529 sipa_send_rlydata: len:0, callid:8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.682 10978: ../../tools/telica_sipa/siparcv_new.c-1733 =====hostport to GCC=====
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-1746 None
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-1748 =====hostport to GCC=====
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-1808 sipa_send_rlydata: Cri present in EVTSIPWCNSTIND sipInstId: 0x01550000 suConnId: 65 size=377 CRI:
+"LAYER:SIP
+VER:1-1
+LOCADDR:<sip:2018035@10.84.18.131:51000;user=phone>;tag=127.0.0.1alUtKGp-08036+1+1480000+1f2a9bf4
+REMADDR:<sip:2018036@135.252.41.253:8036;user=phone>;tag=1
+LOCCONT:<sip:2018035@10.84.18.131:51000>
+REMCONT:<sip:135.252.41.253:8036;transport=UDP>
+RT:
+LOCSEQ:945334613
+CALLID:8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+"
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-2165 sipa_send_rlydata: EVTSIPWCNSTIND: SipwLiCnStEvnt+raw_sdp+raw_isup: orig_size=3888, packed_size=105
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-2169 sipa_send_rlydata: EVTSIPWCNSTIND: raw_sdp_size=0, raw_isup_size=0
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-2303 sipa_send_rlydata: event:6, total data size: 500
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-2383 sipa_send_rlydata: currIdx:105, sdp_size:0, isup_size:0, cri_size:377 callId_size:0, hi_size:0, total_host_size:0, hdrPass_size:0xmlBody_size:0, iriReport_size:0, contHdr_size:0,pstnXmlBody_size:0, callTrcId_size:0, uus_size:0,simservsXmlBody_size:0, inReplyTo_size:0, reqUriStr_size:0sip3xxContact_size:0
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/siparcv_new.c-2390 sipa_send_rlydata: data_start:16, currIdx:105
+ 00009(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipamem.c-1935 sipa_free_ips_real:CRI memory freed - 0xf6765244
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../custom/siphue.c-179 siph_received_message: SIPA_CB.numFilterSet:0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipautls.c-1296 sipa_match_string_in_header_n: get the 1 header,Header string: SIP/2.0/UDP 10.84.18.131:51000;branch=z9hG4bK+4ae5cb1df251f62758c3a8672fa0810b1+127.0.0.1+1.
+ 00001(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../sip/siptua.c-1239 sipt_ua_snd_rsp_to_ua:invite Session CB
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../sip/siptua.c-1257 sipt_ua_snd_rsp_to_ua: Not adding CRI to rsp IPS, cri_sent: 1
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipacclsm.c-8856 sipa_ccl_response_rx: Entry sipcCallPtr: 0xf66baf04 sipcSessPtr: 0xf6742024 sipcTransPtr: 0xf678e484
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:200 direction:1 ip2TrkPtr:f66bdb64
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[43].cumCount[1] to 11 
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3300 sipa_parse_from: From:(89)			<sip:2018035@10.84.18.131:51000;user=phone>;tag=127.0.0.1alUtKGp-08036+1+1480000+1f2a9bf4
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3407 sipa_parse_from: uri:                                         , rc:0
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3416 sipa_parse_from: sip uri:                                         , rc:0
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3439 From User name(7):2018035
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-17941 From hdr hostport (18):10.84.18.131:51000
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-19437 sipa_extract_cpc_tag: p_conEvntPtr == NUL or no cpc tag exist.
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-2917 sipa_parse_to: To:(50)			<sip:2018036@135.252.41.253:8036;user=phone>;tag=1
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipautls.c-390 sipa_ccl_ood_requst_flag: Has a To TAG. Mark ood_request as FALSE.
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3103 To Header SIP-URI:User name:2018036
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-17941 To hdr hostport (19):135.252.41.253:8036
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3579 Call Id:          8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3598 Call Id:8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A len:82
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-3693 CSEQ:          945334612
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse2.c-193 sipa_parse_invite: Extract Supported header. callDir=0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-10356 sipa_parse_supported: Get Supported header.
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-7752 sipa_parse_hist_info: max history-info hdr count: 10, limitHistInfoCause: 1
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-7972 sipa_parse_hist_info: hdr_cnt=0,bot_idx=-1,top_idx=-1,lst_idx=-1, redir_idx:-1, divert_idx:-1 fwd_cnt:0.
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-2168 sipa_parse_contact: Contact:(39)			<sip:135.252.41.253:8036;transport=UDP>
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-2218 sipa_parse_contact: contactStr: sip:135.252.41.253:8036;transport=UDP
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-2370 sipa_parse_contact: No need to parse TRUNK CTXT because TGRP info does not exist either
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-22773 sipa_parse_XBCI: ip2TrkPtr->cfgInfo.sipTEnable = 0, (sipaConInfoPtr->state) = 10, supportXBCI = 0
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-22775 sipa_parse_XBCI: statusCode = 200, method_token = 188
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-22783 sipa_parse_XBCI:X- Backward-Call-Indicator hdr ignored
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-22922 sipa_parse_XOBCI: ip2TrkPtr->cfgInfo.sipTEnable = 0, (sipaConInfoPtr->state) = 10, supportXOBCI = 0
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-22924 sipa_parse_XOBCI: statusCode = 200, method_token = 188
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-22932 sipa_parse_XOBCI:X-Optbackward-Call-Indicator hdr ignored
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse2.c-792 sipa_parse_invite: Extract P-Access-Network-info, callDir=0
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-9257 sipa_parse_pani(P-Access-Network-Info).
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-9270 sipa_parse_pani: Can't get P-Access-Network-Info.
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-5144 ContentLen:             173
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-5701 sipa_parse_content Processing SIP_TOKEN_APPLICATION
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-5828 sipa_parse_content: Incoming SDP:
+v=0
+o=- 2890844526 2890842807 IN IP4 127.0.0.1
+s=-
+c=IN IP4 135.252.41.253
+t=0 0
+m=audio 6600 RTP/AVP 0 96
+a=rtpmap:0 PCMU/8000
+a=rtpmap:96 Cisco-clear-channel/8000
+
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-6918 sipa_parse_rpid:There is no RPID header to parse
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-10666 sipa_parse_p_asserted_id: No P-Asserted-Id header.
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse2.c-992 sipa_parse_invite(P-Charging): Extract pcharging info. callDir=0
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-9576 sipa_parse_charging_info(P-Charging): Get p-charging vector.
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipautls.c-6580 sipa_determine_dir: call direction determined to be: 0
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-9623 sipa_parse_charging_info: As there was no P-Charging-Vector in outgoing INVITE, ignore the header in 200 response.
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-9845 sipa_parse_p_early_media: Parse P-Early-Media header, method 188, statusCode 200, isRequest 0.
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-9874 sipa_parse_p_early_media: ignore P-Early-Media, final_rsp_to_first_inv 1
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse2.c-1026 sipa_parse_invite: Extract Allow header. callDir=0
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-10306 sipa_parse_allow: Get Allow header.
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse2.c-1064 sipa_parse_invite: INVITE statusCode: 200  ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-13523 sipa_parse_message: SIPPLUS: 0
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-13532 sipa_parse_message: SiptEnabled:0 SiptVariant:0x00
+00024(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-13556 sipa_parse_message Prfl (Id=36) bciIw=1
+00024(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-13563 sipa_parse_message Prfl (Id=36) fciIw=1
+00024(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipaparse.c-13570 sipa_parse_message Prfl (Id=36) nciIw=1
+00025(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: sipa_dump_conevt: ../../tools/telica_sipa/sipacclsm.c-9046 conEvnt Info
+00025(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:      suConnId:        0
+00025(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:      sipInstId:       0x00000000
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:     To: pres: 1 val: 2018036 len: 7 type: 0
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:     From: pres: 1 val: 2018035 len: 7 type: 0
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:     Remote Party ID eh: 0
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipautls.c-278  ***** sipa_inet_ntoa: invalid ipVersion=0 ****
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:  FS IPAddr(from VIA): (null) -  len: 0 pres: 0
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:     FS TrkGrp: pres: 1 val: 8036
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:     refer: pres: 0
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:     CSeq ID: val: 945334612
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:      sipOpt.ips_addr: 0x0, callHandle:0x0, sessId:0x0, bitMask:0x   0
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978:      callPriority:   0x00
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipacclsm.c-9920 sipa_ccl_response_rx:  get sipaCallPtr->conInfo[0].sipInstId: 0x01550000
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipacclsm.c-9971 sipa_ccl_response_rx: conEvnt.bkwdCallInd.eh.pres = 0
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipacclsm.c-10012 sipa_ccl_response_rx: conEvnt.optBwdCallInd.eh.pres = 0
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipacclsm.c-10088 sipa_ccl_response_rx: Saving SDP for re-invite
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:1, numStanding:0, currState:10, newState:14, sipInstId:0x1550000
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:1 direction:0 ip2TrkPtr:f66bdb64
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[1].cumCount[0] to 1 
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipautls.c-7024 updateCallStateCounts - connected, outgoing, numIncXientCalls:1, congLevel:0, currState:10, newState:14, sipInstId:0x1550000, ccFlags:0x1, sipFlags:0x8001
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:32 direction:0 ip2TrkPtr:f66bdb64
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[32].cumCount[0] to 6 
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.683 10978: ../../tools/telica_sipa/sipacclsm.c-503 sipa_ccl_send_ips: Entry sipcCallPtr:0xf66baf04 sipcSessPtr:0xf6742024 sipcTransPtr:0xf678e484 ips_type=x38820006 token=184
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-784 sipa_ccl_send_ips Prfl (Id=36) hdr set not present
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-805 sipa_ccl_send_ips NMR User Data set to 0
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-860 sipa_ccl_send_ips IPS sent with TOS/DSCP 0x0
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-3530 sipa_ccl_send_ips: hdrSet is NULL or hdrPassBitMask is 0
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-3752 sipa_ccl_send_ips: No XML body added in outgoing response
+00028(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-3771 sipa_ccl_send_ips: No PSTN XML body added in outgoing response
+00029(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-3789 sipa_ccl_send_ips: No NSS body added in outgoing response
+00029(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-3809 sipa_ccl_send_ips: No Unknown body added in outgoing response 
+00029(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-3915 sipa_ccl_send_ips: put trkGrp in SIP_REQUEST, trkGrp:8036
+00029(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-3920 sipa_ccl_send_ips: set flag USER_DATA_FQDN_IN_VIA 
+00029(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-4107 sipa_ccl_send_ips: UA sets nothing for SIGA.
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipaparse.c-15088 sipa_get_call_id_params callId   len 82 8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipaparse.c-15089 sipa_get_call_id_params fromtag  len 41 127.0.0.1alUtKGp-08036+1+1480000+1f2a9bf4
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipaparse.c-15090 sipa_get_call_id_params totag    len 1 1
+00027(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipahash.c-511 build key 8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A 82 xec69c8aa
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipahash.c-182 sipaReferCallEntryAdd_real: Entry: key: 0xec69c8aa dataPtr: 0xf66baf04 entryPtr: 0xf66bb7b4
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-10231 sipa_ccl_response_rx: Saving SDP for re-invite
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparses.c-501 Entering sipa_session_pack_len
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparses.c-648 sipa_session_init_size_array. subscription_len:0
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparses.c-712 Entering: sipa_session_pack
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparses.c-715 Entering pack
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparses.c-648 sipa_session_init_size_array. subscription_len:0
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparses.c-841 sipa_session_pack: sipaLiNotPtr:0x00000000
+00026(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparses.c-891 sipa_session_pack: Subscripton CB PTR. sipaRepSessPtr 0xf69f159c
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-10318 sipa_ccl_response_rx: CRI not present in rsp. ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-10372 sipa_ccl_response_rx: farEndBitMask is 0 
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-10400 sipa_ccl_response_rx INVITE response hdr pass rule is not set, farEndBitMask:0x0000
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-10406 sipa_ccl_response_rx  from_change_remote_support = 188, status_code = 65, event_subtype = 22347776
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-975 sipa_send_rlydata: peerEnt:173 event:7 
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1007 
+sipa_send_rlydata: sipConEvnt->sipInstId: 0x01550000 sipConEvnt->suConnId: 0x00000041
+
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipautls.c-3769 
+sipa_find_sess_call: p_conEvntPtr->sipInstId: 0x01550000 p_conEvntPtr->suConnId: 0x00000041
+
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipautls.c-3935 
+sipa_find_sess_call: sipaCallPtr: 0xf66baf04  sipaSessPtr:  0xf6742024
+
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1096 sipa_send_rlydata: sdpInfo len=173: Data: v=0
+o=- 2890844526 2890842807 IN IP4 127.0.0.1
+s=-
+c=IN IP4 135.252.41.253
+t=0 0
+m=audio 6600 RTP/AVP 0 96
+a=rtpmap:0 PCMU/8000
+a=rtpmap:96 Cisco-clear-channel/8000
+ 
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1150 sipa_send_rlydata: No need to decode APM with aoc.
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1182 sipa_send_rlydata: No need to decode PSTNXML.
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1224 sipa_send_rlydata: sipXmlInfo data not exist
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1274 sipa_send_rlydata: XML sipXmlInfo data not exist
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1339 sipa_send_rlydata: UUS data not exist
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1425 sipa_send_rlydata: SIPT enabled=0 (p_event=7): sipInstId=0x01550000 suConnId=0x00000041
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1529 sipa_send_rlydata: len:82, callid:8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1733 =====hostport to GCC=====
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1746 None
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1748 =====hostport to GCC=====
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-1793 sipa_send_rlydata: No CRI in EVTSIPWCONCFM sipInstId: 0x01550000 suConnId: 65 size: 0
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-2154 sipa_send_rlydata: EVTSIPWCONCFM: SipwLiCnCfmEvnt+raw_sdp+raw_isup: orig_size=3705, packed_size=258
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-2158 sipa_send_rlydata: EVTSIPWCONCFM: raw_sdp_size=173, raw_isup_size=0
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-2303 sipa_send_rlydata: event:7, total data size: 356
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-2383 sipa_send_rlydata: currIdx:85, sdp_size:173, isup_size:0, cri_size:0 callId_size:82, hi_size:0, total_host_size:0, hdrPass_size:0xmlBody_size:0, iriReport_size:0, contHdr_size:0,pstnXmlBody_size:0, callTrcId_size:0, uus_size:0,simservsXmlBody_size:0, inReplyTo_size:0, reqUriStr_size:0sip3xxContact_size:0
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-2390 sipa_send_rlydata: data_start:16, currIdx:85
+ 00022(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-2464 sipa_send_rlydata: Sending callId (82:8341012-548F8EE9WxUp0JWMg25L1592KxD5qRGPF1jAEds0aNPBWaNCCgO3LluVixpxOvoTW9T0MMpn0A) to GCC.
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacclsm.c-10457 sipa_ccl_response_rx: Call <sip:2018036@135.252.41.253:8036;user=phone>;tag=1 Active. phoneNum: 2018036 Call ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../sip/siptutil.c-918 sipt_utils_alloc_trx_cb: userDataPtr is NULL
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../custom/siptue.c-1517 sipt_ue_update_msg: Entering
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../custom/siptue.c-1729 sipt_ue_update_msg: SIPA_CB.numFilterSet:0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../sip/siptrout.c-415 sipt_rt_cmn_out_rq: slchi_tport:321
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../sip/siptsl.c-1098 sipt_sl_ch_ref: sl_transport:321, sl_port:8036
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../sip/siptbld3.c-720 sipt_bld_rq_via: sl_transport:321
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipasorm.c-1518 sipa_handle_li_report_in_ue: user data does not take iri report
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipautls.c-3987 
+sipa_find_overlap_sess_call: p_conEvntPtr->sipInstId: 0x01520000 p_conEvntPtr->suConnId: 0x00000040
+
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipautls.c-3997 
+sipa_find_overlap_sess_call: sipaSessPtr: 0xf6740954
+
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipautls.c-4025 sipa_find_overlap_sess_call: overlap_dialing:0
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipautls.c-4122 
+sipa_find_overlap_sess_call: sipaCallPtr: 0xf66b98d4  sipaSessPtr:  0xf6740954
+
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-3309 sipa_process_rly: sipaCallPtr: 0xf66b98d4 sipaSessPtr: 0xf6740954
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv_new.c-3702 sipa_process_rly: EVTSIPWCNSTREQ suConnId: 64 sipInstId: 0x01520000 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-1373 sipa_process_cnstreq: EVTSIPWCNSTREQ suConnId: 64 sipInstId: 0x01520000
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: sipa_dump_cnstevt: ../../tools/telica_sipa/siparcv2.c-1375 CnStEvent Data:
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      suConnId:        64
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      sipInstId:       0x01520000
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      evntInfo:    val: 180
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      evntInfo:    val: 180
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      sipa Call State:: 0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      invRep: pres: 0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      sipOpt.ips_addr: 0x0, callHandle:0x0, sessId:0x0, bitMask:0x   0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978:      callPriority:   0x00
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipahash.c-36 ../../tools/telica_sipa/siparcv2.c-1431 sipaCallEntryAdd_real: Entry: handle: 64 dataPtr: 0xf66b98d4 entryPtr: 0xf66baac4
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-1661 sipa_process_cnstreq: CCS ask us to remove precondition attribute 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-1752 sipa_process_cnstreq: XML body from GCC not exist. 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-1792 sipa_process_cnstreq: ISDN XML body from GCC not exist. 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-1845 sipa_process_cnstreq: x-session-info from GCC not exist or evntType is not SIPCNSTS_INFO_OVERLAP. 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-1879 sipa_process_cnstreq(P-Charging): charging. pres: 0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-2053 sipa_process_cnstreq: History-Info not supported
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacallst.c-1279 sipa_next_action: Entry p_ccEvent: 180 p_state: CS_WAIT_CC_18X
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipacallst.c-1417 sipa_next_action: Exit p_state: CS_WAIT_CC_18X newEvent: CE_CC_18X_RSP newAction: ACT_SEND_SIP_18X
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-2383 sipa_process_cnstreq: Issue Session 18x
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-2416 sipa_process_cnstreq SIPA_CB.xBackWardCallInd = 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10542 sipa_build_XBCI: pBkwdCallInd->eh.pres = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10547 sipa_build_XBCI: ip2TrnkPtr->cfgInfo.sipTEnable = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10548 sipa_build_XBCI: ip2TrnkPtr->cfgInfo.sipProfilePtr->supportXBCI = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10596 sipa_build_XBCI: No need to add XBCI to outgoing Invite
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-2419 sipa_process_cnstreq SIPA_CB.xOptBackWardCallInd = 
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10623 sipa_build_XOBCI: pOptBkwdCallInd->eh.pres = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10628 sipa_build_XOBCI: ip2TrnkPtr->cfgInfo.sipTEnable = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10629 sipa_build_XOBCI: ip2TrnkPtr->cfgInfo.sipProfilePtr->supportXOBCI = 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipabuild.c-10661 sipa_build_XOBCI: No need to add XOBCI to outgoing Invite
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:1, numStanding:1, currState:3, newState:8, sipInstId:0x1520000
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/siparcv2.c-2497 sipa_process_cnstreq: non support/require precond mask or preCond is OFF 
+ 00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipadclif.c-4513 sipa_session_18x: Sending 180 ID 1-12560@135.252.41.253 suConnId: 64 sipInstId: 0x01520000
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipadclif.c-4570 sipa_session_18x: Will NOT add Reason header to 180 response
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.684 10978: ../../tools/telica_sipa/sipadclif.c-4713 sipa_send_response: phoneNum: 2018036 Call ID: 1-12560@135.252.41.253 suConnId: 64 sipInstId: 0x01520000 Response Code: 180 IpVersion: 2 
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipadclif.c-4757 sipa_send_response: Sending a provisional INVITE response suConnId: 64 sipInstId: 0x01520000
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipadclif.c-4776 sipa_send_response: Remote end does not support 100rel. suConnId: 64 sipInstId: 0x01520000
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipautls.c-7375 get_sfw_tgn_from_via: tgn 2
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipabuild.c-4763 URI:  scheme:sip(235)
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipabuild.c-3877 sipa_build_hi_entries_by_ips: histInfoFlag: 0, last_hdr_offset: 0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipadclif.c-6699 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipadclif.c-6751 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:180 direction:0 ip2TrkPtr:f66bf194
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[39].cumCount[0] to 6 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-503 sipa_ccl_send_ips: Entry sipcCallPtr:0xf66b98d4 sipcSessPtr:0xf6740954 sipcTransPtr:0xf678e844 ips_type=x38820004 token=188
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-784 sipa_ccl_send_ips Prfl (Id=35) hdr set not present
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-805 sipa_ccl_send_ips NMR User Data set to 0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-839 sipa_ccl_send_ips IPS sent with TOS/DSCP 0x0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-2846 sipa_ccl_send_ips: SIPPRFL ID 35, SIPPRFL_Ptr:0xf6755124, token:188/RSP, callDir:1t1:500, t2:4000, se:1800, minse:90
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-2872 sipa_ccl_send_ips: Fid16521.0 LGP-3556, token = 188, status_code = 180, sipaCallPtr = 0xf66b98d4
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-2879 sipa_ccl_send_ips:Fid16521.0 LGP-3556,  len = 0, SIPA_CB.xBackWardCallInd =  
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-2897 sipa_ccl_send_ips:  token = 188, status_code = 180, sipaCallPtr = 0xf66b98d4
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-2904 sipa_ccl_send_ips:Fid16521.0 LGP-3556,  len = 0, SIPA_CB.xOptBackWardCallInd =  
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-3041 sipa_ccl_send_ips: ips->ips_hdr.ips_type =948043780 status_code=180
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-3530 sipa_ccl_send_ips: hdrSet is NULL or hdrPassBitMask is 0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-3752 sipa_ccl_send_ips: No XML body added in outgoing response
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-3771 sipa_ccl_send_ips: No PSTN XML body added in outgoing response
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-3789 sipa_ccl_send_ips: No NSS body added in outgoing response
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipacclsm.c-3809 sipa_ccl_send_ips: No Unknown body added in outgoing response 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../custom/siptue.c-1517 sipt_ue_update_msg: Entering
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../custom/siptue.c-1729 sipt_ue_update_msg: SIPA_CB.numFilterSet:0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.685 10978: ../../tools/telica_sipa/sipasorm.c-1509 sipa_handle_li_report_in_ue: userDataPtr is NULL
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-3987 
+sipa_find_overlap_sess_call: p_conEvntPtr->sipInstId: 0x01520000 p_conEvntPtr->suConnId: 0x00000040
+
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-3997 
+sipa_find_overlap_sess_call: sipaSessPtr: 0xf6740954
+
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-4025 sipa_find_overlap_sess_call: overlap_dialing:0
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-4122 
+sipa_find_overlap_sess_call: sipaCallPtr: 0xf66b98d4  sipaSessPtr:  0xf6740954
+
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv_new.c-3309 sipa_process_rly: sipaCallPtr: 0xf66b98d4 sipaSessPtr: 0xf6740954
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv_new.c-3769 sipa_process_rly: EVTSIPWCONRSP suConnId: 64 sipInstId: 0x01520000 
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3377 sipa_process_conrsp: EVTSIPWCONRSP suConnId: 64 sipInstId: 0x01520000
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: sipa_dump_conevt: ../../tools/telica_sipa/siparcv2.c-3379 conEvnt Info
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978:      suConnId:        64
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978:      sipInstId:       0x01520000
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978:     Remote Party ID eh: 0
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978:     refer: pres: 0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978:     SDP: raw pres: 1 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978:      sipOpt.ips_addr: 0x0, callHandle:0x0, sessId:0x0, bitMask:0x   0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978:      callPriority:   0x00
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3386 sipa_process_conrsp: EVTSIPWCONRSP: raw_sdp_size=173, raw_isup_size=0
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3390 EVTSIPWCONRSP SDP:   pres:1 raw len 173 
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3456 sipa_process_conrsp: callId no present in conrsp 
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-3102 sipaCopyCCSdp: Processing SDP_RAW
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-3127 sipaCopyCCSdp: Allocate and copy SDP succeed. Address is 0xf678e984, length is 173. 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3572 sipa_process_conrsp: XML body from GCC not exist. 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3604 sipa_process_conrsp: Pstn XML body from GCC not exist. 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3697 sipa_process_conrsp SIPA_CB.xBackWardCallInd = 
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipabuild.c-10542 sipa_build_XBCI: pBkwdCallInd->eh.pres = 0
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipabuild.c-10547 sipa_build_XBCI: ip2TrnkPtr->cfgInfo.sipTEnable = 0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipabuild.c-10548 sipa_build_XBCI: ip2TrnkPtr->cfgInfo.sipProfilePtr->supportXBCI = 0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipabuild.c-10596 sipa_build_XBCI: No need to add XBCI to outgoing Invite
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3704 sipa_process_conrsp(P-Charging): charging. pres: 0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3795 sipa_process_conrsp: sipProfilePtr = 0xf6755124
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3799 sipa_process_conrsp: sipIsubMap = 0
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/siparcv2.c-3933 sipa_process_conrsp supportFromChange 0 
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipadclif.c-4399 sipa_accept_session: Sending 200 ID 1-12560@135.252.41.253 suConnId: 64 sipInstId: 0x01520000
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipadclif.c-4713 sipa_send_response: phoneNum: 2018036 Call ID: 1-12560@135.252.41.253 suConnId: 64 sipInstId: 0x01520000 Response Code: 200 IpVersion: 2 
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-7375 get_sfw_tgn_from_via: tgn 2
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipabuild.c-4763 URI:  scheme:sip(235)
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipabuild.c-3877 sipa_build_hi_entries_by_ips: histInfoFlag: 0, last_hdr_offset: 0
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipadclif.c-6699 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipadclif.c-6751 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:200 direction:0 ip2TrkPtr:f66bf194
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[43].cumCount[0] to 11 
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipadclif.c-6894 sipa_send_response: Free invite_ips
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipamem.c-1923 sipa_free_ips_real:CRI memory freed - 0xf677f1e4
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-503 sipa_ccl_send_ips: Entry sipcCallPtr:0xf66b98d4 sipcSessPtr:0xf6740954 sipcTransPtr:0xf678e844 ips_type=x38820004 token=188
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-784 sipa_ccl_send_ips Prfl (Id=35) hdr set not present
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-805 sipa_ccl_send_ips NMR User Data set to 0
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-839 sipa_ccl_send_ips IPS sent with TOS/DSCP 0x0
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-2846 sipa_ccl_send_ips: SIPPRFL ID 35, SIPPRFL_Ptr:0xf6755124, token:188/RSP, callDir:1t1:500, t2:4000, se:1800, minse:90
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-2872 sipa_ccl_send_ips: Fid16521.0 LGP-3556, token = 188, status_code = 200, sipaCallPtr = 0xf66b98d4
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-2879 sipa_ccl_send_ips:Fid16521.0 LGP-3556,  len = 0, SIPA_CB.xBackWardCallInd =  
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-2897 sipa_ccl_send_ips:  token = 188, status_code = 200, sipaCallPtr = 0xf66b98d4
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-3041 sipa_ccl_send_ips: ips->ips_hdr.ips_type =948043780 status_code=200
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-3530 sipa_ccl_send_ips: hdrSet is NULL or hdrPassBitMask is 0
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipamutls.c-61 sipa_add_sdp: Outgoing SDP (len=173):
+v=0
+o=- 2890844526 2890842807 IN IP4 127.0.0.1
+s=-
+c=IN IP4 135.252.41.253
+t=0 0
+m=audio 6600 RTP/AVP 0 96
+a=rtpmap:0 PCMU/8000
+a=rtpmap:96 Cisco-clear-channel/8000
+
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-3752 sipa_ccl_send_ips: No XML body added in outgoing response
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-3771 sipa_ccl_send_ips: No PSTN XML body added in outgoing response
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-3789 sipa_ccl_send_ips: No NSS body added in outgoing response
+00024(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipacclsm.c-3809 sipa_ccl_send_ips: No Unknown body added in outgoing response 
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipamem.c-1381 sipa_free_trans_cb: Free SIPA_TRANS_CB. 
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:1, numStanding:1, currState:8, newState:21, sipInstId:0x1520000
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../custom/siptue.c-1517 sipt_ue_update_msg: Entering
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../custom/siptue.c-1729 sipt_ue_update_msg: SIPA_CB.numFilterSet:0
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.687 10978: ../../tools/telica_sipa/sipasorm.c-1509 sipa_handle_li_report_in_ue: userDataPtr is NULL
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../custom/siphue.c-179 siph_received_message: SIPA_CB.numFilterSet:0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../sip/siptutil.c-918 sipt_utils_alloc_trx_cb: userDataPtr is NULL
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../sip/siptutil.c-1838 sipt_utils_free_trx_cb: ua.correlator is NULL 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../sip/siptutil.c-1854 sipt_utils_free_trx_cb: tracedIdTree in trx_cb is NULL, will be free once the call is freed.
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../sip/siptutil.c-1865 sipt_utils_free_trx_cb: tracedIdTreeHandle in trx_cb is 0, will be free once the call is freed.
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipacclsm.c-4343 sipa_ccl_ack_rx: Entry sipcCallPtr: 0xf66b98d4 sipcSessPtr: 0xf6740954 sipcTransPtr: 0x00000000
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipacclsm.c-4346 sipa_ccl_ack_rx: Entering
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:32 direction:1 ip2TrkPtr:f66bf194
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[32].cumCount[1] to 6 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse2.c-1462 sipa_parse_ack: Entry parse_params_ptr: 0xf75e69e4
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-9219 Max-Forwards:     70
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-5144 ContentLen:             0
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-5148 sipa_parse_content: No Content to parse.
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-3579 Call Id:          1-12560@135.252.41.253
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-3598 Call Id:1-12560@135.252.41.253 len:22
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-445 URI:  scheme:sip(235)
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-390 sipa_ccl_ood_requst_flag: Has a To TAG. Mark ood_request as FALSE.
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-616 SIP_URI: phoneNum: 2018036 (7), reqUriVal: 2018036 (7)
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-17905 Type: 0
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-731 sipa_parse_uri: rhostname(18):10.84.18.131:51000
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-17941 RURI hdr hostport (18):10.84.18.131:51000
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-750 SIP_URI: number: 2018036 (7), user:  method:  transport:  port: 51000 host_name: 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-1200 sipa_parse_uri: No need to parse TRUNK CTXT because TGRP info does not exist either
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13523 sipa_parse_message: SIPPLUS: 0
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13532 sipa_parse_message: SiptEnabled:0 SiptVariant:0x00
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13556 sipa_parse_message Prfl (Id=35) bciIw=1
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13563 sipa_parse_message Prfl (Id=35) fciIw=1
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13570 sipa_parse_message Prfl (Id=35) nciIw=1
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipacclsm.c-4460 sipa_ccl_ack_rx: Call Active. phoneNum: 2018036 ID: 1-12560@135.252.41.253 suConnId: 64 sipInstId: 0x01520000
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:1, numStanding:1, currState:21, newState:14, sipInstId:0x1520000
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:1 direction:0 ip2TrkPtr:f66bf194
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[1].cumCount[0] to 1 
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-7016 updateCallStateCounts - connected, decr, numIncXientCalls:0, congLevel:0, currState:21, newState:14, sipInstId:0x1520000, ccFlags:0xc, sipFlags:0x88000
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-15088 sipa_get_call_id_params callId   len 22 1-12560@135.252.41.253
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-15089 sipa_get_call_id_params fromtag  len 1 1
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-15090 sipa_get_call_id_params totag    len 41 127.0.0.1alUtKGp-08035+1+1460000+46962a6a
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipahash.c-511 build key 1-12560@135.252.41.253 22 x97c7b507
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipahash.c-182 sipaReferCallEntryAdd_real: Entry: key: 0x97c7b507 dataPtr: 0xf66b98d4 entryPtr: 0xf66bab24
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparses.c-501 Entering sipa_session_pack_len
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparses.c-648 sipa_session_init_size_array. subscription_len:0
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparses.c-712 Entering: sipa_session_pack
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparses.c-715 Entering pack
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparses.c-648 sipa_session_init_size_array. subscription_len:0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparses.c-841 sipa_session_pack: sipaLiNotPtr:0x00000000
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparses.c-891 sipa_session_pack: Subscripton CB PTR. sipaRepSessPtr 0xf69f159c
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipacclsm.c-4582 sipa_ccl_ack_rx: UpdateFrom.pres 0, UpdateFrom.len 0 UpdateFrom.val . 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../custom/siphue.c-179 siph_received_message: SIPA_CB.numFilterSet:0
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../sip/siptutil.c-918 sipt_utils_alloc_trx_cb: userDataPtr is NULL
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipamem.c-1351 sipa_ccl_alloc_trans_cb: CCL call back to allocate trans CB 
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-390 sipa_ccl_ood_requst_flag: Has a To TAG. Mark ood_request as FALSE.
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipacclsm.c-4809 sipa_ccl_request_rx: Entry sipcCallPtr: 0xf66b98d4 sipcSessPtr: 0xf6740954 sipcTransPtr: 0xf678e844
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipacclsm.c-4891 sipa_ccl_request_rx: Not call trace call
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse2.c-1176 sipa_parse_bye: Entry parse_params_ptr: 0xf75e30e4
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-5144 ContentLen:             0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-5148 sipa_parse_content: No Content to parse.
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13523 sipa_parse_message: SIPPLUS: 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13532 sipa_parse_message: SiptEnabled:0 SiptVariant:0x00
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13556 sipa_parse_message Prfl (Id=35) bciIw=1
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13563 sipa_parse_message Prfl (Id=35) fciIw=1
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaparse.c-13570 sipa_parse_message Prfl (Id=35) nciIw=1
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: sipa_dump_conevt: ../../tools/telica_sipa/sipacclsm.c-5826 conEvnt Info
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:      suConnId:        0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:      sipInstId:       0x00000000
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:     Remote Party ID eh: 0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-278  ***** sipa_inet_ntoa: invalid ipVersion=0 ****
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:  FS IPAddr(from VIA): (null) -  len: 0 pres: 0
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:     FS TrkGrp: pres: 1 val: 8035
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:     refer: pres: 0
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:      sipOpt.ips_addr: 0x0, callHandle:0x0, sessId:0x0, bitMask:0x   0
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978:      callPriority:   0x00
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:6 direction:1 ip2TrkPtr:f66bf194
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[6].cumCount[1] to 6 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipacclsm.c-7086 sipa_ccl_request_rx: BYE received. phoneNum: 2018036 Call ID: 1-12560@135.252.41.253 suConnId: 64 sipInstId: 0x01520000
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:0, numStanding:2, currState:14, newState:23, sipInstId:0x1520000
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaccif.c-201 sipa_cc_rel_ind_real: sipwLiRelEvnt.sipUuiData.pres:0
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipaccif.c-328 sipa_cc_rel_ind_real: Called from ../../tools/telica_sipa/sipacclsm.c:7155. Releasing suConnId: 64 sipInstId: 0x01520000 causeVal=1 do_not_free: 0x00000001
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-975 sipa_send_rlydata: peerEnt:173 event:8 
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1007 
+sipa_send_rlydata: sipConEvnt->sipInstId: 0x01520000 sipConEvnt->suConnId: 0x00000040
+
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-3987 
+sipa_find_overlap_sess_call: p_conEvntPtr->sipInstId: 0x01520000 p_conEvntPtr->suConnId: 0x00000040
+
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-3997 
+sipa_find_overlap_sess_call: sipaSessPtr: 0xf6740954
+
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-4025 sipa_find_overlap_sess_call: overlap_dialing:0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/sipautls.c-4122 
+sipa_find_overlap_sess_call: sipaCallPtr: 0xf66b98d4  sipaSessPtr:  0xf6740954
+
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1150 sipa_send_rlydata: No need to decode APM with aoc.
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1182 sipa_send_rlydata: No need to decode PSTNXML.
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1224 sipa_send_rlydata: sipXmlInfo data not exist
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1274 sipa_send_rlydata: XML sipXmlInfo data not exist
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1339 sipa_send_rlydata: UUS data not exist
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1425 sipa_send_rlydata: SIPT enabled=0 (p_event=8): sipInstId=0x01520000 suConnId=0x00000040
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1733 =====hostport to GCC=====
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1746 None
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-1748 =====hostport to GCC=====
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-2176 sipa_send_rlydata: EVTSIPWRELIND: SipwLiRelEvnt+raw_sdp+raw_isup: orig_size=2156, packed_size=67
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-2180 sipa_send_rlydata: EVTSIPWRELIND: raw_sdp_size=0, raw_isup_size=0
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-2303 sipa_send_rlydata: event:8, total data size: 84
+00022(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-2383 sipa_send_rlydata: currIdx:67, sdp_size:0, isup_size:0, cri_size:0 callId_size:0, hi_size:0, total_host_size:0, hdrPass_size:0xmlBody_size:0, iriReport_size:0, contHdr_size:0,pstnXmlBody_size:0, callTrcId_size:0, uus_size:0,simservsXmlBody_size:0, inReplyTo_size:0, reqUriStr_size:0sip3xxContact_size:0
+00023(00766),00000(00000) 0x00000001 09-01 02:41:45.690 10978: ../../tools/telica_sipa/siparcv_new.c-2390 sipa_send_rlydata: data_start:16, currIdx:67
+ 00001(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipautls.c-3987 
+sipa_find_overlap_sess_call: p_conEvntPtr->sipInstId: 0x01520000 p_conEvntPtr->suConnId: 0x00000040
+
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipautls.c-3997 
+sipa_find_overlap_sess_call: sipaSessPtr: 0xf6740954
+
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipautls.c-4025 sipa_find_overlap_sess_call: overlap_dialing:0
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipautls.c-4122 
+sipa_find_overlap_sess_call: sipaCallPtr: 0xf66b98d4  sipaSessPtr:  0xf6740954
+
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/siparcv_new.c-3309 sipa_process_rly: sipaCallPtr: 0xf66b98d4 sipaSessPtr: 0xf6740954
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/siparcv_new.c-3977 sipa_process_rly: EVTSIPWRELRSP suConnId: 64 sipInstId: 0x01520000 
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/siparcv2.c-5195 sipa_complete_relrsp: EVTSIPWRELRSP CS_HANGUP Complete BYE processing suConnId: 64 sipInstId: 0x01520000
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:7 direction:0 ip2TrkPtr:f66bf194
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[7].cumCount[0] to 6 
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipadclif.c-4713 sipa_send_response: phoneNum: 2018036 Call ID: 1-12560@135.252.41.253 suConnId: 64 sipInstId: 0x01520000 Response Code: 200 IpVersion: 2 
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipautls.c-7375 get_sfw_tgn_from_via: tgn 2
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipabuild.c-4763 URI:  scheme:sip(235)
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipabuild.c-3877 sipa_build_hi_entries_by_ips: histInfoFlag: 0, last_hdr_offset: 0
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipadclif.c-6699 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipadclif.c-6751 sipa_send_response: addXml:0, Not add XML body in outgoing response. 
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:200 direction:0 ip2TrkPtr:f66bf194
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[43].cumCount[0] to 12 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-503 sipa_ccl_send_ips: Entry sipcCallPtr:0xf66b98d4 sipcSessPtr:0xf6740954 sipcTransPtr:0xf678e844 ips_type=x38820004 token=185
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-784 sipa_ccl_send_ips Prfl (Id=35) hdr set not present
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-805 sipa_ccl_send_ips NMR User Data set to 0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-839 sipa_ccl_send_ips IPS sent with TOS/DSCP 0x0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-2846 sipa_ccl_send_ips: SIPPRFL ID 35, SIPPRFL_Ptr:0xf6755124, token:185/RSP, callDir:1t1:500, t2:4000, se:1800, minse:90
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-2872 sipa_ccl_send_ips: Fid16521.0 LGP-3556, token = 185, status_code = 200, sipaCallPtr = 0xf66b98d4
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-2897 sipa_ccl_send_ips:  token = 185, status_code = 200, sipaCallPtr = 0xf66b98d4
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-3041 sipa_ccl_send_ips: ips->ips_hdr.ips_type =948043780 status_code=200
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-3530 sipa_ccl_send_ips: hdrSet is NULL or hdrPassBitMask is 0
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-3752 sipa_ccl_send_ips: No XML body added in outgoing response
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-3771 sipa_ccl_send_ips: No PSTN XML body added in outgoing response
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-3789 sipa_ccl_send_ips: No NSS body added in outgoing response
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipacclsm.c-3809 sipa_ccl_send_ips: No Unknown body added in outgoing response 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-1381 sipa_free_trans_cb: Free SIPA_TRANS_CB. 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-192 sipa_ccl_destroy_session: Destroy Session 0xf6740954 
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-352 sipa_ccl_destroy_session BYE/CANCEL request hdr pass rule is not set, farEndBitMask:0x0000
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-435 sipa_ccl_destroy_session: sipaSessPtr: 0xf6740954 removing reference to sipaCallPtr: 0xf66b98d4
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../sip/sipcutil.c-1878 sipc_term_call_cb: Freeing: sipaCallPtr: 0xf66b98d4
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-619 entering function: sipa_free_session_cb  
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/siparcv2.c-5260 sipa_complete_relrsp: free bye_ips: 0xf69b17c4
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/siparses.c-107 sipa_session_op_done: delete Operation done 
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../sip/sipcinb.c-1954 sipc_release_session_state: destroy session handle:0x 1520000
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipautls.c-6580 sipa_determine_dir: call direction determined to be: 1
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-1167 sipa_free_call_cb: Freeing sipaCallPtr: 0xf66b98d4 
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-1334 sipa_free_call_cb: fakeErrorHdr.sequence = 0x00000000
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../sip/sipcinb.c-1975 sipc_release_session_state: reset state_on_backup 
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-619 entering function: sipa_free_session_cb  
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.691 10978: ../../tools/telica_sipa/sipamem.c-809 sipa_free_session_cb: Free Session 0xf6740954 
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../custom/siptue.c-1517 sipt_ue_update_msg: Entering
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../custom/siptue.c-1729 sipt_ue_update_msg: SIPA_CB.numFilterSet:0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipasorm.c-1509 sipa_handle_li_report_in_ue: userDataPtr is NULL
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipautls.c-3987 
+sipa_find_overlap_sess_call: p_conEvntPtr->sipInstId: 0x01550000 p_conEvntPtr->suConnId: 0x00000041
+
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipautls.c-3997 
+sipa_find_overlap_sess_call: sipaSessPtr: 0xf6742024
+
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipautls.c-4025 sipa_find_overlap_sess_call: overlap_dialing:0
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipautls.c-4122 
+sipa_find_overlap_sess_call: sipaCallPtr: 0xf66baf04  sipaSessPtr:  0xf6742024
+
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-3309 sipa_process_rly: sipaCallPtr: 0xf66baf04 sipaSessPtr: 0xf6742024
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-3827 sipa_process_rly: EVTSIPWRELREQ suConnId: 65 sipInstId: 0x01550000 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv2.c-4252 sipa_process_relreq: user-to-user header no present in relreq 
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv2.c-4280 sipa_process_relreq: ISDN XML body from GCC not exist in relreq. 
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv2.c-4396 sipa_process_relreq: sipAllowEvnt.pres:0, sipAllowEvnt.val:0
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv2.c-4410 sipa_process_relreq: relReqPtr: minNumLen.pres:0, minNumLen.val:0
+sipaCallPtr: minNumLen.pres:0, minNumLen.val:0
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv2.c-4417 sipa_process_relreq: EVTSIPWRELREQ sipStatus: 1 phoneNum: 2018036 Call ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipaccif.c-424 sipa_cc_rel_cfm: conInfoPtr->sipaSessPtr:0xf6742024
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipaccif.c-451 sipa_cc_rel_cfm: Confirm suConnId: 65 sipInstId: 0x01550000 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-975 sipa_send_rlydata: peerEnt:173 event:9 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1007 
+sipa_send_rlydata: sipConEvnt->sipInstId: 0x01550000 sipConEvnt->suConnId: 0x00000041
+
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipautls.c-3769 
+sipa_find_sess_call: p_conEvntPtr->sipInstId: 0x01550000 p_conEvntPtr->suConnId: 0x00000041
+
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipautls.c-3935 
+sipa_find_sess_call: sipaCallPtr: 0xf66baf04  sipaSessPtr:  0xf6742024
+
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1150 sipa_send_rlydata: No need to decode APM with aoc.
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1182 sipa_send_rlydata: No need to decode PSTNXML.
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1224 sipa_send_rlydata: sipXmlInfo data not exist
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1274 sipa_send_rlydata: XML sipXmlInfo data not exist
+00011(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1339 sipa_send_rlydata: UUS data not exist
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1425 sipa_send_rlydata: SIPT enabled=0 (p_event=9): sipInstId=0x01550000 suConnId=0x00000041
+00012(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1733 =====hostport to GCC=====
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1746 None
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-1748 =====hostport to GCC=====
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-2187 sipa_send_rlydata: EVTSIPWRELCFM: SipwLiRelEvnt+raw_sdp+raw_isup: orig_size=2156, packed_size=65
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-2191 sipa_send_rlydata: EVTSIPWRELCFM: raw_sdp_size=0, raw_isup_size=0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-2303 sipa_send_rlydata: event:9, total data size: 84
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-2383 sipa_send_rlydata: currIdx:65, sdp_size:0, isup_size:0, cri_size:0 callId_size:0, hi_size:0, total_host_size:0, hdrPass_size:0xmlBody_size:0, iriReport_size:0, contHdr_size:0,pstnXmlBody_size:0, callTrcId_size:0, uus_size:0,simservsXmlBody_size:0, inReplyTo_size:0, reqUriStr_size:0sip3xxContact_size:0
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/siparcv_new.c-2390 sipa_send_rlydata: data_start:16, currIdx:65
+ 00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipadclif.c-906 sipa_issue_hangup: Terminating Call ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000 sipaSessPtr=0xf6742024 callState=14
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipautls.c-6855 updateCallStateCounts - congLevel:0, numIncXientCalls:0, numStanding:1, currState:14, newState:23, sipInstId:0x1550000
+00013(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-503 sipa_ccl_send_ips: Entry sipcCallPtr:0xf66baf04 sipcSessPtr:0xf6742024 sipcTransPtr:0xf678efc4 ips_type=x38820003 token=185
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-784 sipa_ccl_send_ips Prfl (Id=36) hdr set not present
+00014(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-805 sipa_ccl_send_ips NMR User Data set to 0
+00015(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-860 sipa_ccl_send_ips IPS sent with TOS/DSCP 0x0
+00016(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-1085 sipa_ccl_send_ips: SIPPRFL ID 36, SIPPRFL_Ptr:0xf6754e0c, t1:500, t2:4000
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-2031 sipa_ccl_send_ips: Sending an BYE. callDir: 0 sipaCallPtr->conInfo[callDir].state: 23
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-2044 sipa_ccl_send_ips: Setting t1: 500, t2:4000
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-2054 sipa_ccl_send_ips: Setting t1: 500, t2:4000
+00017(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-3530 sipa_ccl_send_ips: hdrSet is NULL or hdrPassBitMask is 0
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-3752 sipa_ccl_send_ips: No XML body added in outgoing response
+00018(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-3771 sipa_ccl_send_ips: No PSTN XML body added in outgoing response
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-3789 sipa_ccl_send_ips: No NSS body added in outgoing response
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-3809 sipa_ccl_send_ips: No Unknown body added in outgoing response 
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-3915 sipa_ccl_send_ips: put trkGrp in SIP_REQUEST, trkGrp:8036
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-3920 sipa_ccl_send_ips: set flag USER_DATA_FQDN_IN_VIA 
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipacclsm.c-4107 sipa_ccl_send_ips: UA sets nothing for SIGA.
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:6 direction:0 ip2TrkPtr:f66bdb64
+00021(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[6].cumCount[0] to 6 
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../sip/siptutil.c-918 sipt_utils_alloc_trx_cb: userDataPtr is NULL
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../custom/siptue.c-1517 sipt_ue_update_msg: Entering
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../custom/siptue.c-1729 sipt_ue_update_msg: SIPA_CB.numFilterSet:0
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../sip/siptrout.c-415 sipt_rt_cmn_out_rq: slchi_tport:321
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../sip/siptsl.c-1098 sipt_sl_ch_ref: sl_transport:321, sl_port:8036
+00020(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../sip/siptbld3.c-720 sipt_bld_rq_via: sl_transport:321
+00019(00766),00000(00000) 0x00000001 09-01 02:41:45.692 10978: ../../tools/telica_sipa/sipasorm.c-1518 sipa_handle_li_report_in_ue: user data does not take iri report
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../custom/siphue.c-179 siph_received_message: SIPA_CB.numFilterSet:0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipautls.c-1296 sipa_match_string_in_header_n: get the 1 header,Header string: SIP/2.0/UDP 10.84.18.131:51000;branch=z9hG4bK+5938587761835daec4626382ca3bb1601+127.0.0.1+1.
+ 00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../custom/siptue.c-1394 sipt_ue_neg_rsp: Entering
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../custom/siptue.c-1450 sipt_ue_neg_rsp: parms->response_code: 200 retry: 0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipacclsm.c-8856 sipa_ccl_response_rx: Entry sipcCallPtr: 0xf66baf04 sipcSessPtr: 0xf6742024 sipcTransPtr: 0xf678efc4
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:200 direction:1 ip2TrkPtr:f66bdb64
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[43].cumCount[1] to 12 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse2.c-1176 sipa_parse_bye: Entry parse_params_ptr: 0xf75e2544
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse.c-5144 ContentLen:             0
+00001(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse.c-5148 sipa_parse_content: No Content to parse.
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse.c-13523 sipa_parse_message: SIPPLUS: 0
+00002(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse.c-13532 sipa_parse_message: SiptEnabled:0 SiptVariant:0x00
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse.c-13556 sipa_parse_message Prfl (Id=36) bciIw=1
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse.c-13563 sipa_parse_message Prfl (Id=36) fciIw=1
+00003(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaparse.c-13570 sipa_parse_message Prfl (Id=36) nciIw=1
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: sipa_dump_conevt: ../../tools/telica_sipa/sipacclsm.c-9046 conEvnt Info
+00004(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:      suConnId:        0
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:      sipInstId:       0x00000000
+00005(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:     Remote Party ID eh: 0
+00006(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipautls.c-278  ***** sipa_inet_ntoa: invalid ipVersion=0 ****
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:  FS IPAddr(from VIA): (null) -  len: 0 pres: 0
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:     FS TrkGrp: pres: 1 val: 8036
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:     refer: pres: 0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:      sipOpt.ips_addr: 0x0, callHandle:0x0, sessId:0x0, bitMask:0x   0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978:      callPriority:   0x00
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipacclsm.c-12866 sipa_ccl_response_rx: BYE response received. Response code = 200, response string = OK. Call ID: 8341012-548F8EE9WxUp0JWMg25L1592 suConnId: 65 sipInstId: 0x01550000.
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipastats.c-671 sipa_increment_stats reqRspCode:7 direction:1 ip2TrkPtr:f66bdb64
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipastats.c-722 sipa_increment_stats Updating sipReqRespStat[7].cumCount[1] to 6 
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipaccif.c-416 sipa_cc_rel_cfm: Release indication/confirm already sent to CC for suConnId: 65 sipInstId: 0x01550000 Reason: 0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-192 sipa_ccl_destroy_session: Destroy Session 0xf6742024 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-352 sipa_ccl_destroy_session BYE/CANCEL request hdr pass rule is not set, farEndBitMask:0x0000
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-435 sipa_ccl_destroy_session: sipaSessPtr: 0xf6742024 removing reference to sipaCallPtr: 0xf66baf04
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../sip/sipcutil.c-1878 sipc_term_call_cb: Freeing: sipaCallPtr: 0xf66baf04
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-619 entering function: sipa_free_session_cb  
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-1381 sipa_free_trans_cb: Free SIPA_TRANS_CB. 
+00007(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/siparses.c-107 sipa_session_op_done: delete Operation done 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../sip/sipcinb.c-1954 sipc_release_session_state: destroy session handle:0x 1550000
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-1381 sipa_free_trans_cb: Free SIPA_TRANS_CB. 
+00008(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipautls.c-6580 sipa_determine_dir: call direction determined to be: 0
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-1167 sipa_free_call_cb: Freeing sipaCallPtr: 0xf66baf04 
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-1334 sipa_free_call_cb: fakeErrorHdr.sequence = 0x00000000
+00009(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../sip/sipcinb.c-1975 sipc_release_session_state: reset state_on_backup 
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-619 entering function: sipa_free_session_cb  
+00010(00766),00000(00000) 0x00000001 09-01 02:41:45.694 10978: ../../tools/telica_sipa/sipamem.c-809 sipa_free_session_cb: Free Session 0xf6742024 
+00001(00766),00000(00000) 0x00000001 09-01 02:41:50.144 10978: ../../tools/telica_sipa/sipatimer.c-1769 sipa_trx_ratio_timeout Error - trx_memory:2402272 is invalid or trx_cnt is 0, then start trx_ratio timer again. 

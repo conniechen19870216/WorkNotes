@@ -1,0 +1,247 @@
+FORMAT: QueueCount(MaxQueueCount),ConsDroppedMsgs(MaxConsDroppedMsgs)[TotalMsgsDropped] LogLevel ...
+LogSys Options-A: FileThreshold:0, FileMaxEntries:5000 Logname:./A_sipa_config.out FreeQSize:1721376
+LogSys Options-B: CompId[0x7] Level[0xff] Format[0x5] Dest[0x1000000]
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-101 sipa_yamb_create_proc: sm_pid: 0x01100000
+00003(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-102 sipa_yamb_create_proc: Signaling ip_address 135.252.135.1
+00005(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-103 sipa_yamb_create_proc: Signaling ip_address of SIGC 127.0.0.1
+00007(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-108 sipa_yamb_create_proc: Signaling local_name sipa
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.395 00000: ../../tools/telica_sipa/sipayamb.c-1191 sipa_yamb_timer_proc: calling sipa_yamb_script LINE 1191
+00004(00010),00000(00000) 0x00000001 09-06 17:07:43.395 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 0 
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.626 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00010),00000(00000) 0x00000001 09-06 17:07:43.626 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 1 
+00004(00010),00000(00000) 0x00000001 09-06 17:07:43.627 00000: ../../tools/telica_sipa/sipayamb.c-1552 sipa_yamb_create_ch: Using UNCONNECTED UDP sockets:2
+00006(00010),00000(00000) 0x00000001 09-06 17:07:43.627 00000: ../../tools/telica_sipa/sipayamb.c-1554 sipa_yamb_create_ch: Using UNCONNECTED UDP sockets:2
+00002(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 2 
+00005(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1377 sipa_yamb_create_tm: serverName: 135.252.135.1:51021
+00007(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1398 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_INB_POOL_SIZE: 0
+00009(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1403 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_POOL_SIZE : 0
+00011(00011),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1408 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_BLD_PL_SZ: 65536
+00013(00013),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1413 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_NB_CRYPT_PL_SZ: 65536
+00015(00015),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1418 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_TB_CRYPT_PL_SZ: 65536
+00017(00017),00000(00000) 0x00000001 09-06 17:07:44.597 00000: ../../tools/telica_sipa/sipayamb.c-1422 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_NMR_PL_SZ: 65536
+00019(00019),00000(00000) 0x00000001 09-06 17:07:44.597 00000: ../../tools/telica_sipa/sipayamb.c-1427 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_NHR_PL_SZ: 65536
+00021(00021),00000(00000) 0x00000001 09-06 17:07:44.597 00000: ../../tools/telica_sipa/sipayamb.c-1432 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_FK_POOL_SIZE: 65536
+00002(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-365 sipt_mib_entity_store_set: Updating inb_pool_size was 100, now 0
+00003(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-377 sipt_mib_entity_store_set: Updating outb_pool_size was 1000, now 0
+00005(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-389 sipt_mib_entity_store_set: Updating outb_bld_pool_size was 100, now 65536
+00007(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-401 sipt_mib_entity_store_set: Updating inb_cryptopool_size was 100, now 65536
+00009(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-413 sipt_mib_entity_store_set: Updating outb_cryptopool_size was 100, now 65536
+00010(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-425 sipt_mib_entity_store_set: Updating outb_nmr_pool_size was 100, now 65536
+00012(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-437 sipt_mib_entity_store_set: Updating outb_nhr_pool_size was 100, now 65536
+00002(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-365 sipt_mib_entity_store_set: Updating inb_pool_size was 100, now 0
+00003(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-377 sipt_mib_entity_store_set: Updating outb_pool_size was 1000, now 0
+00005(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-389 sipt_mib_entity_store_set: Updating outb_bld_pool_size was 100, now 65536
+00007(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-401 sipt_mib_entity_store_set: Updating inb_cryptopool_size was 100, now 65536
+00009(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-413 sipt_mib_entity_store_set: Updating outb_cryptopool_size was 100, now 65536
+00010(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-425 sipt_mib_entity_store_set: Updating outb_nmr_pool_size was 100, now 65536
+00012(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-437 sipt_mib_entity_store_set: Updating outb_nhr_pool_size was 100, now 65536
+00002(00021),00000(00000) 0x00000001 09-06 17:07:48.867 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00021),00000(00000) 0x00000001 09-06 17:07:48.867 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 3 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:49.263 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00004(00021),00000(00000) 0x00000001 09-06 17:07:49.263 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 4 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:49.571 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00004(00021),00000(00000) 0x00000001 09-06 17:07:49.571 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 5 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.095 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.095 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 6 
+00004(00021),00000(00000) 0x00000001 09-06 17:07:50.095 00000: ../../tools/telica_sipa/sipayamb.c-1832 sipa_yamb_listen: LOCAL.local_addr: 135.252.135.1
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.382 00000: ../../tools/telica_sipa/sipayamb.c-496 sipa_yamb_receive_proc: AMB_SET successful for local_addr, no local_addr3, try local_addr_ipv6.
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.382 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00005(00021),00000(00000) 0x00000001 09-06 17:07:50.382 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 8 
+00006(00021),00000(00000) 0x00000001 09-06 17:07:50.383 00000: ../../tools/telica_sipa/sipayamb.c-2216 sipa_yamb_listen_ipv6: LOCAL.local_addr_ipv6: 0:0:0:0:0:0:0:1
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.617 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.617 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 9 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.691 00000: ../../tools/telica_sipa/sipamain.c-328 sipa_ua_create_proc: Congestion Levels: congTrigger[0]:1800 congTrigger[1]:2100congAbate[0]:1700 congAbate[1]:1900
+00002(00021),00000(00000) 0x00000001 09-06 17:07:51.517 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00004(00021),00000(00000) 0x00000001 09-06 17:07:51.517 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 10 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:51.698 00000: ../../tools/telica_sipa/sipaiptrnk.c-1875 sipa_restart_options_timers: Restart Options Timer
+00002(00021),00000(00000) 0x00000001 09-06 17:07:51.747 00000: ../../tools/telica_sipa/sipaconfig.c-1496 sipaTelicaCapabilities: Added SIPA_ALLOW_STR INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+00003(00021),00000(00000) 0x00000001 09-06 17:07:51.747 00000: ../../tools/telica_sipa/sipaconfig.c-1503 sipaTelicaCapabilities: Sending set_capabilities signal to TM 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa dbglvl 0
+00004(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+sipa
+00006(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+dbglvl
+00008(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+0
+00010(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00011(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00013(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: sipaDbgLevel: New Debug Level: 0
+00002(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa dumpraw 1
+00004(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+sipa
+00006(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+dumpraw
+00008(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+1
+00010(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00012(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00014(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: sipaDumpRaw: ENABLED
+00002(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa ipstrc 1
+00004(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+sipa
+00006(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+ipstrc
+00008(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+1
+00010(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00012(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00013(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: sipaIpsTrc: IPS Tracing Enabled
+00002(00021),00000(00000) 0x00000001 09-06 17:07:56.437 00000: ../../tools/telica_sipa/sipaconfig.c-89 sipaProcessConfigCmd: cmd: 0x0000001a idx: 0x00000000
+00004(00021),00000(00000) 0x00000001 09-06 17:07:56.437 00000: ../../tools/telica_sipa/sipaconfig.c-96 sipaProcessConfigCmd: Set sipa_config_flag to 1, sipa_config_tid:29314
+00006(00021),00000(00000) 0x00000001 09-06 17:07:56.437 00000: ../../tools/telica_sipa/sipaiptrnk.c-2460 sipa_prfl_config: ENTERING 
+00008(00021),00000(00000) 0x00000001 09-06 17:07:56.437 00000: ../../tools/telica_sipa/sipaiptrnk.c-2496 sipa_prfl_config: Create New Entry for Sip Profile: 1.
+00010(00021),00000(00000) 0x00000001 09-06 17:07:56.437 00000: ../../tools/telica_sipa/sipaiptrnk.c-2410 sipa_add_prfl: Add p_prflId: 1 (prflType=0) profile to list
+00002(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2370 sipa_parse_cust_val: str is 0, return value is 0x00000000
+00004(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2370 sipa_parse_cust_val: str is 0, return value is 0x00000000
+00006(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2557 sipa_prfl_config:sipPrflData->sipFedMode.pres = 0, val = 0
+00008(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2563 sipa_prfl_config:sipPrflData->sipFedReplaces.pres = 0, val = 0
+00010(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2654 sipa_prfl_config: sipPrecondition: 0
+00012(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2667 sipa_prfl_config: divInfo.pres: 0
+00014(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2709 sipa_prfl_config:SipPrfl config. hdrPassSetName: 
+00016(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2774 sipa_prfl_config: addpCharging pres 0, val 0
+00018(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2802 sipa_prfl_config: pEarlyMedia pres 0, val 0
+00020(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2887 sipa_prfl_config:sipPrflPtr->udpOnly= 0 
+00022(00022),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2926 sipa_prfl_config:sipPrflData->sipUuiFormat pres = 0, val = 0
+00024(00024),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2940 sipa_prfl_config:sipPrflData->sipHdrColpMap.pres = 0, val = 0
+00026(00026),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2949 sipa_prfl_config:sipPrflData->sipHdrColpMap.pres = 0
+00028(00028),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2952 sipa_prfl_config:sipPrflData->ttir1.pres = 0, val = 0
+00030(00030),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2967 sipa_prfl_config:sipPrflPtr->waitUpdateTimer.pres = 0, val = 0
+00032(00032),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2975 sipa_prfl_config: sipIsubMap:0
+00033(00033),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2984 sipa_prfl_config: sipPrflPtr->cfIwProc:0
+00035(00035),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2996 sipa_prfl_config: passthruFrom: 0
+00037(00037),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3007 sipa_prfl_config: passthruTo: 0
+00039(00039),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3018 sipa_prfl_config: passthruPAID: 0
+00041(00041),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3029 sipa_prfl_config: passthruContact: 0
+00043(00043),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3042 sipa_prfl_config: sipPrflData->xTmr.pres: 0, val: 0
+00045(00045),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3054 sipa_prfl_config: sipPrflData->xBci.pres: 0, val: 0
+00047(00047),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3066 sipa_prfl_config: sipPrflPtr->supportXBCI: 0
+00049(00049),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3068 sipa_prfl_config: sipPrflData->xObci.pres: 0, val: 0
+00051(00051),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3091 sipa_prfl_config: sipPrflPtr->supportXOBCI: 0
+00053(00053),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3093 sipa_prfl_config: sipPrflData->xOfci.pres: 0, val: 0
+00055(00055),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3134 sipa_prfl_config:sipPrflPtr->sipFedOut= 0 
+00057(00057),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3146 sipa_prfl_config:sipPrflData->rphEmergencyMap.pres = 0, val = 0
+00059(00059),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3156 sipa_prfl_config:sipPrflPtr->routePassThru= 0 
+00061(00061),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3167 sipa_prfl_config:sipPrflPtr->contactIncludeCgpn= 0 
+00063(00063),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3178 sipa_prfl_config:sipPrflPtr->xAcli= 0 
+00065(00065),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3189 sipa_prfl_config:sipPrflPtr->sip302Map= 0 
+00067(00067),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3226 sipa_prfl_config:sipPrflData->chargeBciMap.pres = 0, val = 0
+00069(00069),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3232 sipa_prfl_config: sipPrflData->isupNcrMap.pres = 0, val = 0 
+00071(00071),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3270 sipa_prfl_config:sipPrflPtr->suppressInbandInfo= 0 
+00073(00073),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3273 sipa_prfl_config: sipPrflPtr->sciXml: 0
+00075(00075),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3274 sipa_prfl_config: sipPrflPtr->aocXml: 0
+00077(00077),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3277 sipa_prfl_config: sipPrflPtr->supportXOFCI: 0
+00079(00079),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3279 sipa_prfl_config: getsErrorLog: 0
+00081(00081),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3283 sipa_prfl_config:  SipPrfl Id=1 Ptr:0xb715d738 optionsAsHBT (val=0)
+00083(00083),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3287 sipa_prfl_config: SipPrfl Id=1 Ptr:0xb715d738 (refCnt=0):
+00085(00085),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3289 sipa_prfl_config:   bciIwProc (pres=1,val=1)
+00087(00087),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3291 sipa_prfl_config:   fciNpdiIwProc (pres=1,val=1)
+00089(00089),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3293 sipa_prfl_config:   nciIwProc (pres=1,val=1)
+00091(00091),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3295 sipa_prfl_config:   isupT7Timer (pres=0,val=0)
+00092(00092),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3297 sipa_prfl_config:   fciNpdiIwProc (pres=1,val=1)
+00094(00094),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3299 sipa_prfl_config:   sip181Handling (pres=0,val=0)
+00096(00096),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3301 sipa_prfl_config:   sip182Handling (pres=0,val=0)
+00098(00098),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3303 sipa_prfl_config:   sip183Handling (pres=0,val=0)
+00100(00100),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3305 sipa_prfl_config:   sip3xxHndlng (pres=1,val=1)
+00102(00102),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3307 sipa_prfl_config:   sipFciIwProc (pres=1,val=1)
+00104(00104),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3309 sipa_prfl_config:   useCallType (pres=1,val=1)
+00106(00106),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3311 sipa_prfl_config:   addSdpAfterRel18x(pres=1,val=1)
+00108(00108),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3313 sipa_prfl_config:   supportXFCI (pres=0,val=0)
+00110(00110),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3316 sipa_prfl_config:   supportXLN(pres=0,val=0)
+00112(00112),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3318 sipa_prfl_config:   sip422rspHandling(pres=1,val=0)
+00114(00114),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3322 sipa_prfl_config:   addTermTg(pres=1,val=0)
+00116(00116),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3326 sipa_prfl_config: UsePrack:0
+00118(00118),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3327 sipa_prfl_config: SessionExpires:0
+00120(00120),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3328 sipa_prfl_config: MinSE:0
+00122(00122),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3329 sipa_prfl_config: t1:500
+00124(00124),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3330 sipa_prfl_config: t2:4000
+00126(00126),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3331 sipa_prfl_config: InviteRetry:6
+00128(00128),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3332 sipa_prfl_config: InviteTimeOut:180
+00130(00130),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3336 sipa_prfl_config:   sendPriority(pres=1,val=0)
+00132(00132),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3338 sipa_prfl_config:   priorityLevel(pres=1,val=4)
+00134(00134),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3340 sipa_prfl_config:   acceptPriority(pres=1,val=1)
+00136(00136),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3342 sipa_prfl_config:   rscPriorityTag(pres=1,val=1)
+00138(00138),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3346 sipa_prfl_config:   sendByeForEarlyDialog(pres=0,val=0)
+00140(00140),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3349 sipa_prfl_config:   useHistHdr: 0
+00142(00142),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3350 sipa_prfl_config:   maxHistHdrCnt: 10
+00144(00144),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3351 sipa_prfl_config:   limitHistInfoCause: 1
+00146(00146),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3355 sipa_prfl_config:   cpcTag(pres=1,val=0)
+00148(00148),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3357 sipa_prfl_config:   filterSetId: 0
+00149(00149),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3360 sipa_prfl_config:   addpCharging 0
+00151(00151),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3362 sipa_prfl_config: multiRpidMap:0
+00153(00153),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3364 sipa_prfl_config: DNSQueryType:0
+00155(00155),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3367 sipa_prfl_config:   pEarlyMedia 0
+00157(00157),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3371 sipa_prfl_config:   nonInviteProxy 0
+00159(00159),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3374 sipa_prfl_config:   transitInDialogueRefer 0
+00161(00161),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3381 sipa_prfl_config:   featureTagName:(null)
+00163(00163),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3390 sipa_prfl_config:   featureTagValue:(null)
+00165(00165),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3392 sipa_prfl_config:   treatOptionsAsHeartbeat 0
+00167(00167),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3397 sipa_prfl_config:   priIpSrc:0
+00169(00169),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3408 sipa_prfl_config:   rtName:0
+00171(00171),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3422 sipa_prfl_config:   origTrkgrp(pres=1,val=0)
+00173(00173),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3425 sipa_prfl_config:   rtId (pres=0,val=0)
+00175(00175),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3427 sipa_prfl_config:   rtPrimKey (pres=1,val=0)
+00177(00177),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3429 sipa_prfl_config:   rtPrimKeyVal (pres=1,val=0)
+00179(00179),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3431 sipa_prfl_config:   max3xxAddrs (pres=1,val=3)
+00181(00181),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3434 sipa_prfl_config: cust1:0x00000000
+00183(00183),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3436 sipa_prfl_config: cust2:0x00000000
+00185(00185),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3438 sipa_prfl_config: cust3:0x00000000
+00187(00187),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3445 sipa_prfl_config: sipHdrCliMap is: 0 
+00189(00189),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3456 sipa_prfl_config: pChargeInfo: 0x0 
+00191(00191),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3462 sipa_prfl_config: gnumIwProcExt: 0x00000000
+00193(00193),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3477 sipa_prfl_config: uuiMap: 0 
+00195(00195),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3493 sipa_prfl_config: support diversion header in 181: 0 
+00197(00197),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3498 sipa_prfl_config: paidPrecedence:(pres=0,val=0)
+00199(00199),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3501 sipa_prfl_config dai:val=0
+00201(00201),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3505 sipa_prfl_config: histInfoFmt:(pres=0,val=0)
+00203(00203),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaiptrnk.c-3509 sipa_prfl_config: accMbit=0
+00204(00204),00000(00000) 0x00000001 09-06 17:07:56.443 00000: ../../tools/telica_sipa/sipaconfig.c-1043 sipaProcessConfigCmd: Set sipa_config_flag to 0
+00003(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaconfig.c-89 sipaProcessConfigCmd: cmd: 0x0000000e idx: 0x00000000
+00005(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaconfig.c-96 sipaProcessConfigCmd: Set sipa_config_flag to 1, sipa_config_tid:29314
+00007(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaiptrnk.c-397 sipa_trnk_config: ENTERING 
+00008(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaiptrnk.c-444 sipa_trnk_config: convert sipSigIP 135.252.135.1 to binary --ipVersion 2 
+00010(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaiptrnk.c-450 sipa_trnk_config: No Trunk group found: 9999. Adding new trunk group 
+00012(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaiptrnk.c-263 sipa_add_trnk:  p_trnk: 9999 p_ipId: 1 p_desc: (null) p_priIpAddrStr: 135.252.135.1 Pres: 1 
+00002(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-316 sipa_add_trnk:  ipTrnkInfoPtr->ipAddr.val.ipVersion 2
+00004(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-469 sipa_trnk_config: sigType:2048, 
+00006(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-642 Error: Found prfl 1 type 0 prflptr:0xb715d73800008(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-887 SIP_URI_TYPE (rcvd sip:0, tel:1):0
+00010(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-910 sipa_trnk_config:   siptMimeVer(pres=1,val=)
+00012(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-917 sipa_trnk_config:   isupCompat(pres=1,val=0)
+00014(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-925 sipa_trnk_config:   transitMsg(pres=1,val=0)
+00016(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-934 sipa_trnk_config:   bnIwInd(pres=0,val=0)
+00017(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-942 sipa_trnk_config:   rateMultiplier(pres=0,val=0)
+00019(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-950 sipa_trnk_config:   ofCiBiTh(pres=0,val=0)
+00021(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-958 sipa_trnk_config:   uuiBiTh(pres=0,val=0)
+00023(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-966 sipa_trnk_config:   reCommendAtion(pres=0,val=0)
+00025(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-974 sipa_trnk_config:   validateUUI(pres=0,val=0)
+00027(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-982 sipa_trnk_config:   chkCirStaInd(pres=0,val=0)
+00029(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-990 sipa_trnk_config:   isupCF(pres=0,val=0)
+00031(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1012 sipa_trnk_config:   callRefHeader(pres=0,val=0)
+00033(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1023 sipa_trnk_config:   siptMimeCtl(pres=0,val=0)
+00035(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1035 sipa_trnk_config:   cddn(pres=0,val=0)
+00037(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1043 sipa_trnk_config:   aoc(pres=1,val=0)
+00039(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1051 sipa_trnk_config:   isupAcli(pres=0,val=0)
+00041(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1059 sipa_trnk_config:   isupCF(pres=0,val=0)
+00043(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1072 sipa_trnk_config:   icModPrfl(pres=0,val=0)
+00045(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1080 sipa_trnk_config:   mlppWpsMap(pres=0,val=0)
+00047(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1091 sipa_trnk_config:   icOverlap(pres=1,val=0)
+00049(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1100 sipa_trnk_config:   maxDgtTmr(pres=1,val=0)
+00051(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1107 Use host pref to build RURI:0
+00053(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1133 farEndTrustDomain: 1
+00055(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1340 sipa_trnk_config: Updated sipHrtBtTmr to 0, trkGrpNum:9999
+00057(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaconfig.c-1043 sipaProcessConfigCmd: Set sipa_config_flag to 0
+00003(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaconfig.c-89 sipaProcessConfigCmd: cmd: 0x00000016 idx: 0x00000000
+00005(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaconfig.c-96 sipaProcessConfigCmd: Set sipa_config_flag to 1, sipa_config_tid:29314
+00007(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1658 sipa_tgMapAddr_config: ENTERING 
+00009(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1538 sipaGetLookupKeyForTgMapAddr: ENTERING 
+00010(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1541 sipaGetLookupKeyForTgMapAddr sipTgMapAddrPtr->tgn=9999 sipTgMapAddrPtr->addrs={1|135.252.135.1} sipTgMapAddrPtr->port={1|51023} sipTgMapAddrPtr->transport={1|1} sipTgMapAddrPtr->tgrp={0|NOTPRSNT} sipTgMapAddrPtr->tgContext={0|NOTPRSNT}
+00012(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1710 sipa_tgMapAddr_config: cmd:22 lookupKey:135.252.135.1;51023;udp
+00014(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1713 sipa_tgMapAddr_config: cmd:22 tgmapaddr_number:1
+00016(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1719 sipa_tgMapAddr_config: SIP_ENT_TGMAPADDR for 0
+00007(00205),00000(00000) 0x00000001 09-06 17:08:00.552 00000: ../../tools/telica_sipa/sipaconfig.c-1043 sipaProcessConfigCmd: Set sipa_config_flag to 0

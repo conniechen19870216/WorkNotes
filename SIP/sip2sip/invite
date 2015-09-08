@@ -1,0 +1,321 @@
+Call Flow:
+SCK -> SIPH(SIPM) -> SIPT -> SUB -> SIPT -> SIPA(SIPC) -> SIPW
+
+1. SIPH: From sockets stub to connection handler, and then from connection handler to transaction manager
+   siph_receive_proc (siphrcv.c)
+           |
+           |
+           |<from qid: SCK_TO_APPL_Q>
+           +------ siph_sck_receive_proc (siphrcv.c)
+                          |
+                          |
+                          |<from ips->ips_type: IPS_ATG_SCK_DATA_MSG>
+                          +------ siph_rcv_sck_data_msg (siphrcv.c)
+                                       |            
+                                       |
+                                       +------ siph_parse_message (siphpars.c)
+                                                    |
+                                                    |
+                                                    +------ SIPM_PARSE_MESSAGE
+                                                    |       sipm_parse_message (sipmpars.c)
+                                                    |                  |
+                                                    |                  |
+                                                    |                  |<to ips->ips_type: IPS_SIP_CH_REQUEST>
+                                                    |                  +------ sipm_parse_first_line
+                                                    |
+                                                    |
+                                                    +------ SIPH_REVEIVED_MESSAGE
+                                                    |       siph_received_message (siphue.c)
+                                                    |
+                                                    |
+                                                    +------ siph_prep_send_parsed_message (siphutl2.c)
+                                                                       |
+                                                                       |
+                                                                       |<to qid: CH_TO_TM_Q>
+                                                                       +------ siph_send_parsed_message (siphpars.c)
+                                                                                      |
+                                                                                      |
+                                                                                      +------ siph_snd_msg_to_tm (siphpars.c)
+
+/********************************* please ignore here
+                          +------ siph_snd_sck_data_msg_tm (siphsnd.c)
+                          |            |
+                          |            |
+                          |            |<to ips->ips_type: IPS_SIP_CH_MESSAGE>
+                          |            +------ siph_snd_msg_to_tm (siphsnd.c)
+                          |                         |
+                          |                         |
+                          |                         |<to qid: CH_TO_TM_Q>
+                          |                         +------ NBB_SEND_IPS(tmj_cb->tm_pid, CH_TO_TM_Q, ips)
+                          |
+                          |
+                          |
+                          +------ siph_parse_message (siphpars.c)
+                                       |
+                                       |
+                                       +------ SIPH_REVEIVED_MESSAGE
+                                               siph_received_message (siphue.c)
+*/
+
+2. SIPT: From CH to TM, and then from TM to SUB (Subscriber Stub)
+sipt_receive_proc (siptrcv.c)
+           |
+           |
+           |<from qid: CH_TO_TM_Q>
+           +------ sipt_ch_receive_proc (siptch.c)
+                          |
+                          |
+                          |<from ips->ips_type: IPS_SIP_CH_REQUEST>
+                          +------ sipt_ch_in_rq (siptch.c)
+                                      |
+                                      |
+                                      +------ sipt_utils_alloc_trx_cb (siptutil.c)
+                                      |
+                                      |
+                                      +------ sipt_utils_init_trx_cbp (siptutil.c)
+                                      |
+                                      |
+                                      +------ sipt_tl_in_rq (sipttrx.c)
+                                                    |
+                                                    |
+                                                    +----- sipt_tl_fsm (sipttrx2.c)
+                                                                 |
+                                                                 |
+                                                                 |<FSM: sipt_tl>
+                                                                 +----- EXECUTE_FSM(sipt_tl,           
+                                                                 |                  SIPT_TL_NUM_INPUTS,
+                                                                 |                  SIPT_TL_NUM_STATES,
+                                                                 |                  input,
+                                                                 |                  trx_cb->tl.state,  
+                                                                 |                  action);
+                                                                 | 
+                                                                 | 
+                                                                 |<action: ACT_BA for INVITE>
+                                                                 +----- sipt_val_in_rq (siptvald.c)
+                                                                              |
+                                                                              |
+                                                                              +----- sipt_ss_new_call (siptsub.c)
+                                                                                         |
+                                                                                         |
+                                                                                         |<to ips->ips_type: IPS_SIP_SUB_NEW_CALL>
+                                                                                         +----- sipt_ss_new_call (siptsub.c)
+                                                                                                         |
+                                                                                                         |
+                                                                                                         |<to qid: TM_TO_SUB_Q>
+                                                                                                         +------ SIPT_SS_REQ
+                                                                                                                 sipt_ss_async_req (siptsub.c)
+ 
+
+3. SUB: From TM to SUB, and then from SUB back to TM
+sub_receive_proc (subasync.c)
+              |
+              |
+              |<from qid: TM_TO_SUB_Q>
+              |<from ips->ips_type: IPS_SIP_SUB_NEW_CALL>
+              +------ sub_new_call (submain.c)
+              |           |
+              |           |
+              |           +------ sipGetLpocInfoFromTopRoute (sipautls.c)
+              |           |
+              |           +------ sipaIsMGC8TGRPPresInTopRoute (sipautls.c)
+              |           |
+              |           +------ sipa_find_trk_for_request (sipautls.c) <<<<<<>>>>>>>
+              |           |              |
+              |           |              |
+              |           |              +------ sipa_parse_via (sipaparse.c)
+              |           |              |                |
+              |           |              |                +------ sipaIsMGC8TGRPPresInTopRoute (sipautls.c)
+              |           |              |                |
+              |           |              |                +------ sipaIsCallFromGrPeer (sipautls.c)
+              |           |              |
+              |           |              |
+              |           |              +------ sipaFindTrnkByIpOrFqdn (sipautls.c)
+              |           |                               |
+              |           |                               |
+              |           |                               +----- sipaTrnkMapAddrEntryFind (sipahash.c)
+              |           |
+              |           |
+              |           +------ sipaIsMGC8TGRPPresInTopRoute (sipautls.c)
+              |
+              |
+              |
+              |<to qid: SUB_TO_TM_Q>
+              |<to ips->ips_type: IPS_SIP_SUB_NEW_CALL>
+              +------ NBB_SEND_IPS(sub_join_cb->haf_cb.partner_main_pid,
+                                   SUB_TO_TM_Q,
+                                   new_call);
+
+4. SIPT: From SUB to TM, and then from TM to UA
+sipt_receive_proc (siptrcv.c)
+              |
+              |
+              |<from qid: SUB_TO_TM_Q>
+              +------ sipt_ss_receive_proc (submain.c)
+                         |
+                         |
+                         |<from ips->ips_type: IPS_SIP_SUB_NEW_CALL>
+                         +------ sipt_ss_new_call_rsp (siptsub.c)
+                                        |
+                                        |
+                                        +------ sipt_ss_continue (siptsub.c)
+                                                      |
+                                                      |
+                                                      |<create new dialog>
+                                                      +------- sipt_ss_new_ua_cbs (siptsub.c)
+                                                      |             |
+                                                      |             +------ sipt_utils_new_call_cb (siptuti2.c)
+                                                      |             |
+                                                      |             +------ sipt_utils_find_ua_dlg_in_call (siptuti4.c)
+                                                      |
+                                                      |
+                                                      +------- sipt_val_ua_in_rq (siptvald.c)
+                                                                    |
+                                                                    |
+                                                                    |<method: INVITE>
+                                                                    +------- sipt_val_ua_in_rq_invite (siptvald.c)
+                                                                    |               |
+                                                                    |               |
+                                                                    |               +------- sipt_utils_new_inv_sess_cb (siptuti5.c)
+                                                                    |                
+                                                                    |                
+                                                                    +------- sipt_ua_fsm_in_rq (siptua.c)                
+                                                                                    |
+                                                                                    |
+                                                                                    |<method: INVITE>
+                                                                                    +------- sipt_ua_sess_fsm (siptsesf.c)
+                                                                                                  |
+                                                                                                  |
+                                                                                                  |<Action N>
+                                                                                                  +------- sipt_ua_dlg_fsm (siptdlgf.c)
+                                                                                                               |
+                                                                                                               |
+                                                                                                               |<Action I>
+                                                                                                               +------- sipt_rt_msg_ext_route (siptrout.c)
+                                                                                                               |
+                                                                                                               +------- sipt_rt_ext_contact_in_rq (siptrout.c)
+                                                                                                               |
+                                                                                                               +------- sipt_prk_ua_in_rq (siptprk.c)
+                                                                                                                         |
+                                                                                                                         |
+                                                                                                                         +------ sipt_st_ua_in_rq (siptstim.c)
+                                                                                                                                  |
+                                                                                                                                  |
+                                                                                                                                  +----- sipt_ua_in_rq_method (siptua.c)
+/* TO be continued */
+sipt_ua_in_rq_method (siptua.c)
+        |
+        |
+        +------- sipt_can_ua_in_rq (siptcan.c)
+                        |
+                        |
+                        +------- sipt_ua_snd_rq_to_ua (siptua.c)
+                                       |
+                                       |
+                                       |<to ips->ips_type: IPS_SIP_REQUEST>
+                                       +------- sipt_utils_build_cri (siptutil.c)
+                                       |
+                                       |
+                                       +------- sipt_cmn_snd_ips_to_ua (siptua3.c)
+                                                       |
+                                                       |
+                                                       |<to qid: TM_TO_UA_Q>
+                                                       +-------- NBB_SEND_IPS
+
+5. SIPA: From TM to UA
+sipa_ua_create_proc (sipamain.c)
+        |
+        |
+        |<from qid: TM_TO_UA_Q>
+        +------ SIPC_PROCESS_IPS
+                sipc_prcess_ips (sipcmain.c)
+                     |
+                     |
+                     |<from ips->ips_type: IPS_SIP_REQUEST>
+                     +------ sipc_process_request (sipcinb.c)
+                                    |
+                                    |
+                                    +------ sipc_alloc_trans_cb (sipcinb.c)
+                                    |             |
+                                    |             |
+                                    |             +------ sipc_init_trans_cb (sipcutil.c)
+                                    |              
+                                    |              
+                                    +------ sipc_find_call_cb (sipcutil.c)              
+                                    |              
+                                    |              
+                                    +------ sipc_alloc_call_cb (sipcutil.c)              
+                                    |             |
+                                    |             |
+                                    |             +------ sipc_init_call_cb (sipcutil.c)
+                                    |
+                                    |
+                                    +------ sipc_put_call_in_tree (sipcutil.c)
+                                    |
+                                    |
+                                    +------ sipc_find_session_cb (sipcutil.c)
+                                    |
+                                    |
+                                    +------ sipc_alloc_session_cb (sipcinb.c)
+                                    |             |
+                                    |             |
+                                    |             +------ sipc_init_session_cb (sipcutil.c)
+                                    |              
+                                    |              
+                                    +------ sipc_process_first_msg_on_sessn (sipcuti2.c)              
+                                    |              
+                                    |              
+                                    +------ sipc_callback_user (sipcinb.c)              
+                                    |             |
+                                    |             |
+                                    |             +------ sipa_ccl_new_session (sipamem.c)
+                                    |              
+                                    |              
+                                    +------ sipc_put_trx_in_tree (sipcutil.c)
+                                                  |
+                                                  |
+                                                  +------ sipa_ccl_request_rx (sipacclsm.c)
+                                                                  |
+                                                                  |
+                                                                  +------ sipa_ccl_ood_requst_flag (sipautls.c)
+                                                                  |             |
+                                                                  |             |
+                                                                  |             +------ SIPM_HEADER_FIND
+                                                                  |             |       sipm_header_find (sipmmain.c)
+                                                                  |             |
+                                                                  |             |
+                                                                  |             +------ SIPM_NAME_ADDR_COPY_OUT
+                                                                  |             |       SIPM_OBJ_COPY_OUT
+                                                                  |             |       sipm_obj_copy_out (sipmmain.c)
+                                                                  |             |
+                                                                  |             |
+                                                                  |             |
+                                                                  |             +------ sipp_obj_reparse (sippobj2.c)
+                                                                  |             |            |
+                                                                  |             |            |
+                                                                  |             |            +------ sipp_parseinfo_init (sipppar2.c)
+                                                                  |             |            |
+                                                                  |             |            |
+                                                                  |             |            +------ sipp_parse_collection (sipppars.c)
+                                                                  |             |             
+                                                                  |             |             
+                                                                  |             |             
+                                                                  |             +------ SIPP_NAME_ADDR_TERM
+                                                                  |                     SIPP_OBJ_TERM
+                                                                  |                     sipp_obj_term (sippterm.c)
+                                                                  |
+                                                                  |
+                                                                  |
+                                                                  +------ sipa_parse_via (sipaparse.c)
+                                                                  |
+                                                                  |
+                                                                  +------ sipa_parse_message (sipaparse.c)
+                                                                  |            |
+                                                                  |            +------ sipa_parse_from (sipaparse.c)
+                                                                  |
+                                                                  |<send out response messages>
+                                                                  +------ sipa_send_response (sipadclif.c)
+                                                                  |            <sipa_ccl_send_ips (sipacclsm.c)>
+                                                                  |
+                                                                  |
+                                                                  |<send event to GCC>
+                                                                  +------ sipa_send_rlydata (siparcv_new.c)

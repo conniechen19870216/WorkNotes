@@ -1,0 +1,3 @@
+FORMAT: QueueCount(MaxQueueCount),ConsDroppedMsgs(MaxConsDroppedMsgs)[TotalMsgsDropped] LogLevel ...
+LogSys Options-A: FileThreshold:0, FileMaxEntries:5000 Logname:./A_sipa_filter.out FreeQSize:1721376
+LogSys Options-B: CompId[0x9] Level[0xff] Format[0x5] Dest[0x1000000]

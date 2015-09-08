@@ -1,0 +1,557 @@
+FORMAT: QueueCount(MaxQueueCount),ConsDroppedMsgs(MaxConsDroppedMsgs)[TotalMsgsDropped] LogLevel ...
+LogSys Options-A: FileThreshold:0, FileMaxEntries:10000 Logname:./A_sipa.out FreeQSize:1721376
+LogSys Options-B: CompId[0x0] Level[0xff] Format[0x5] Dest[0x1000000]
+00001(00001),00000(00000) 0x00000001 09-06 17:07:41.286 00000: 
+
+00002(00002),00000(00000) 0x00000001 09-06 17:07:41.286 00000: **************  SIP Version 2.7  **************
+00003(00003),00000(00000) 0x00000001 09-06 17:07:41.286 00000: We are Primary
+00004(00004),00000(00000) 0x00000001 09-06 17:07:41.286 00000: Increasing File Descriptor(Socket) limit to 2048
+00005(00005),00000(00000) 0x00000001 09-06 17:07:41.286 00000: Using 3261
+00006(00006),00000(00000) 0x00000001 09-06 17:07:41.286 00000: Built With DISABLE_ABORT_DEBUG Flag NOT Enabled
+00007(00007),00000(00000) 0x00000001 09-06 17:07:41.286 00000: Location index: 30 1 
+00008(00008),00000(00000) 0x00000001 09-06 17:07:41.286 00000: SIPA start as LGP mode: 0 
+00008(00008),00000(00000) 0x00000001 09-06 17:07:41.286 00000: Failed to open /dev/sysinfo
+00009(00009),00000(00000) 0x00000001 09-06 17:07:41.286 00000: ../../nbase/base/nbbini.c-169 N-BASE: Using random seed 506797661.
+00010(00010),00000(00000) 0x00000001 09-06 17:07:41.292 00000: ../../nbase/base/nbbini.c-1208 nbb_get_default_init_parms: tcp_keep_alive:1, tcp_keep_idle:10, tcp_keep_intvl:5, tcp_keep_cnt:2.
+00001(00010),00000(00000) 0x00000001 09-06 17:07:41.997 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1100000, type=0x16010000, created_process->pcc_location_index = 0x1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:42.505 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1101000, type=0x3070000, created_process->pcc_location_index = 0x1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:42.505 00000: ../../stubs/hm/ashmmain.c-87 ashm_create_proc: our_pid: 0x01101000  mibm_pid: 0x01100000 location_capable: 1 ft_capable: 1 location_index: 1 location_group_index: 1 hardware_location: 1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:42.547 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1102000, type=0x2b100000, created_process->pcc_location_index = 0x1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:42.548 00000: ../../genilt/geniltmain.c-62 genilt_init: Entering
+00001(00010),00000(00000) 0x00000001 09-06 17:07:42.579 00000: ../../genilt/geniltutil.c-787 genilt_add_remote_loc: Adding remote location index: 2 
+00001(00010),00000(00000) 0x00000001 09-06 17:07:42.880 00000: ../../stubs/hm/ashmmain.c-164 ashm_create_proc: relay process id: 17833984
+00002(00010),00000(00000) 0x00000001 09-06 17:07:42.880 00000: ../../stubs/hm/ashmutil.c-775 Entering ashm_rly_register
+00001(00010),00000(00000) 0x00000001 09-06 17:07:42.886 00000: ../../stubs/hm/ashmutil.c-846 ashm_rly_register: dstProcId = 3e03, srcProcId = 3c03
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.312 00000: ../../genilt/genilte.c-99 genilt_ilt_create_proc: proc_type 0x03050000 location_index 1 
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.312 00000: ../../genilt/genilte.c-111 genilt_ilt_create_proc: proc_type 0x03050000 local_index 1 == target index 1 
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1103000, type=0x3050000, created_process->pcc_location_index = 0x1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-101 sipa_yamb_create_proc: sm_pid: 0x01100000
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-102 sipa_yamb_create_proc: Signaling ip_address 135.252.135.1
+00004(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-103 sipa_yamb_create_proc: Signaling ip_address of SIGC 127.0.0.1
+00006(00010),00000(00000) 0x00000001 09-06 17:07:43.331 00000: ../../tools/telica_sipa/sipayamb.c-108 sipa_yamb_create_proc: Signaling local_name sipa
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.359 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x2901-7   -:-------- F:00000002
+ambsmmpi.c 168 :at SCM initialized successfully.
+
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.376 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1601-72  -:-------- F:00000002
+asemain.c 999 :at Primary System Manager instance started.
+Location index                 = 1
+
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.394 00000: ../../tools/telica_sipa/main.c-253 sipaStartWdogThread: Starting 
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.394 00000: Failed to open /dev/sysinfo
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.395 00000: ../../tools/telica_sipa/sipayamb.c-1191 sipa_yamb_timer_proc: calling sipa_yamb_script LINE 1191
+00003(00010),00000(00000) 0x00000001 09-06 17:07:43.395 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 0 
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.525 00000: ../../stubs/hm/ashmrcv.c-95 ashm_receive_proc: Recieved message on SM_TO_HM_Q
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.526 00000: ../../genilt/genilthutl.c-252 genilt_hm_get_target_location: No control block for remote_idx: 1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.526 00000: ../../stubs/hm/ashmrcv.c-278 ashm_rcv_hm_ips: SM -> ATG_HM_GET_LOCATION_INFO
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.526 00000: ../../stubs/hm/ashmrcv.c-921 ashm_rcv_get_location_info
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.536 00000: ../../stubs/hm/ashmrcv.c-1351 ashm_rcv_rly_ips: IPS_ATG_RLY_REGISTER
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.536 00000: ../../stubs/hm/ashmutil.c-1058 ashm_open_rly_socket chan 0, chan_type 0, l_addr 0x0, l_port 51024, r_addr 0x0, r_port 0
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.551 00000: ../../stubs/hm/ashmutil.c-1058 ashm_open_rly_socket chan 1, chan_type 2, l_addr 0x87fc8701, l_port 51026, r_addr 0x87fc8701, r_port 51028
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.565 00000: ../../stubs/hm/ashmrcv.c-1595 ATG_RLY_CHAN_SERVER
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.565 00000: ../../stubs/hm/ashmutil.c-1058 ashm_open_rly_socket chan 2, chan_type 1, l_addr 0x87fc8701, l_port 51024, r_addr 0x87fc8701, r_port 7903
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.626 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00002(00010),00000(00000) 0x00000001 09-06 17:07:43.626 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 1 
+00003(00010),00000(00000) 0x00000001 09-06 17:07:43.627 00000: ../../tools/telica_sipa/sipayamb.c-1552 sipa_yamb_create_ch: Using UNCONNECTED UDP sockets:2
+00005(00010),00000(00000) 0x00000001 09-06 17:07:43.627 00000: ../../tools/telica_sipa/sipayamb.c-1554 sipa_yamb_create_ch: Using UNCONNECTED UDP sockets:2
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.720 00000: ../../rly/rlyrecv.c-426 rly server chan 2 open
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.814 00000: ../../genilt/genilte.c-261 genilt_ilt_create_async_proc: proc_type 0x38010000 location_index 1 
+00001(00010),00000(00000) 0x00000001 09-06 17:07:43.832 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1104000, type=0x38010000, created_process->pcc_location_index = 0x1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:44.261 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3801-1   I:00000022 F:00000002
+siphmain.c 319 :at The SIP Connection Handler has initialized successfully.
+Process ID                = 0X01104000
+Interface index           = 1
+
+00001(00010),00000(00000) 0x00000001 09-06 17:07:44.272 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-1   I:00000026 F:00000000
+axlutil.c 89 :at Initialization of the translation layer has completed
+Native build level              = 0
+Native format                   = 0X00000100
+Conversion supported for formats: 
+   00010000 
+Native flags:                     
+   010000
+Conversion supported for flags:   
+   010000
+
+00001(00010),00000(00000) 0x00000001 09-06 17:07:44.302 00000: ../../stubs/hm/ashmrcv.c-1639 ashm_rcv_rly_ips: IPS_ATG_RLY_COMM_UP_IND. Relay Chan 1
+00001(00010),00000(00000) 0x00000001 09-06 17:07:44.308 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-1   I:00000027 F:00000000
+axlutil.c 89 :at Initialization of the translation layer has completed
+Native build level              = 0
+Native format                   = 0X00000100
+Conversion supported for formats: 
+   00010000 
+Native flags:                     
+   010000
+Conversion supported for flags:   
+   010000
+
+00001(00010),00000(00000) 0x00000001 09-06 17:07:44.330 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:00000027 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00010),00000(00000) 0x00000001 09-06 17:07:44.352 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:00000028 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 2 
+00004(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1377 sipa_yamb_create_tm: serverName: 135.252.135.1:51021
+00006(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1398 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_INB_POOL_SIZE: 0
+00008(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1403 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_POOL_SIZE : 0
+00010(00010),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1408 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_BLD_PL_SZ: 65536
+00012(00012),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1413 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_NB_CRYPT_PL_SZ: 65536
+00014(00014),00000(00000) 0x00000001 09-06 17:07:44.596 00000: ../../tools/telica_sipa/sipayamb.c-1418 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_TB_CRYPT_PL_SZ: 65536
+00016(00016),00000(00000) 0x00000001 09-06 17:07:44.597 00000: ../../tools/telica_sipa/sipayamb.c-1422 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_NMR_PL_SZ: 65536
+00018(00018),00000(00000) 0x00000001 09-06 17:07:44.597 00000: ../../tools/telica_sipa/sipayamb.c-1427 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_OUTB_NHR_PL_SZ: 65536
+00020(00020),00000(00000) 0x00000001 09-06 17:07:44.597 00000: ../../tools/telica_sipa/sipayamb.c-1432 sipa_yamb_create_tm: Setting AMB_OID_TM_ENT_FK_POOL_SIZE: 65536
+00001(00021),00000(00000) 0x00000001 09-06 17:07:44.678 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1601-24  I:0000003a F:00000002
+aseinfmu.c 276 :at A join has been created.
+Master entity type             = 0X38010000
+Master entity index            = 
+   01000000 
+Slave entity type              = 0X03030000
+Slave entity index             = 
+   01000000 
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:44.690 00000: ../../genilt/genilte.c-261 genilt_ilt_create_async_proc: proc_type 0x03030000 location_index 1 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:44.702 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1105000, type=0x3030000, created_process->pcc_location_index = 0x1
+00001(00021),00000(00000) 0x00000001 09-06 17:07:44.707 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x2910-0   I:0000003a F:00000002
+iplcinit.c 113 :at IP Library successfully initialized.
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:44.886 00000: ../../genilt/genilte.c-261 genilt_ilt_create_async_proc: proc_type 0x38020000 location_index 1 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:44.898 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1106000, type=0x38020000, created_process->pcc_location_index = 0x1
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.225 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3802-133 I:0000003d F:00000002
+siptmain.c 592 :at The SIP Transaction Manager has initialized successfully.
+Process ID                = 0X01106000
+Interface index           = 1
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.317 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-1   I:00000046 F:00000000
+axlutil.c 89 :at Initialization of the translation layer has completed
+Native build level              = 0
+Native format                   = 0X00000100
+Conversion supported for formats: 
+   00010000 
+Native flags:                     
+   010000
+Conversion supported for flags:   
+   010000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.340 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:00000046 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.356 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-1   I:00000047 F:00000000
+axlutil.c 89 :at Initialization of the translation layer has completed
+Native build level              = 0
+Native format                   = 0X00000100
+Conversion supported for formats: 
+   00010000 
+Native flags:                     
+   010000
+Conversion supported for flags:   
+   010000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.379 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:00000047 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.400 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:00000048 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.428 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:00000049 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-365 sipt_mib_entity_store_set: Updating inb_pool_size was 100, now 0
+00002(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-377 sipt_mib_entity_store_set: Updating outb_pool_size was 1000, now 0
+00004(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-389 sipt_mib_entity_store_set: Updating outb_bld_pool_size was 100, now 65536
+00006(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-401 sipt_mib_entity_store_set: Updating inb_cryptopool_size was 100, now 65536
+00008(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-413 sipt_mib_entity_store_set: Updating outb_cryptopool_size was 100, now 65536
+00009(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-425 sipt_mib_entity_store_set: Updating outb_nmr_pool_size was 100, now 65536
+00011(00021),00000(00000) 0x00000001 09-06 17:07:48.760 00000: ../../sip/siptmem2.c-437 sipt_mib_entity_store_set: Updating outb_nhr_pool_size was 100, now 65536
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-365 sipt_mib_entity_store_set: Updating inb_pool_size was 100, now 0
+00002(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-377 sipt_mib_entity_store_set: Updating outb_pool_size was 1000, now 0
+00004(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-389 sipt_mib_entity_store_set: Updating outb_bld_pool_size was 100, now 65536
+00006(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-401 sipt_mib_entity_store_set: Updating inb_cryptopool_size was 100, now 65536
+00008(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-413 sipt_mib_entity_store_set: Updating outb_cryptopool_size was 100, now 65536
+00009(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-425 sipt_mib_entity_store_set: Updating outb_nmr_pool_size was 100, now 65536
+00011(00021),00000(00000) 0x00000001 09-06 17:07:48.810 00000: ../../sip/siptmem2.c-437 sipt_mib_entity_store_set: Updating outb_nhr_pool_size was 100, now 65536
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.817 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3802-419 I:00000067 F:00000002
+siptmem3.c 194 :at The system is allocating buffer pools.
+Use MIB configured buffer pool sizes   = True
+Buffer pool sizes where zero means unbounded:
+Inbound data buffer pool               = 0
+Outbound data buffer pool              = 0
+Outbound message building buffer pool  = 65536
+Outbound NMR stub buffer pool          = 65536
+Outbound next hop routing buffer pool  = 65536
+Forking data buffer pool               = 65536
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.835 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3802-420 I:00000067 F:00000002
+siptmem3.c 281 :at The system is allocating buffer pools.
+Use MIB configured buffer pool sizes   = True
+Buffer pool sizes where zero means unbounded:
+Inbound crypto request buffer pool     = 65536
+Outbound crypto request buffer pool    = 65536
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.841 00000: ../../custom/siptue.c-1348 sipt_ft_event: TM promoted to primary.
+00001(00021),00000(00000) 0x00000001 09-06 17:07:48.867 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00002(00021),00000(00000) 0x00000001 09-06 17:07:48.867 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 3 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.039 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1601-24  I:00000072 F:00000002
+aseinfmu.c 276 :at A join has been created.
+Master entity type             = 0X38020000
+Master entity index            = 
+   01000000 
+Slave entity type              = 0X38040000
+Slave entity index             = 
+   01000000 
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.051 00000: ../../genilt/genilte.c-261 genilt_ilt_create_async_proc: proc_type 0x38040000 location_index 1 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.067 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1107000, type=0x38040000, created_process->pcc_location_index = 0x1
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.263 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00021),00000(00000) 0x00000001 09-06 17:07:49.263 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 4 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.336 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-1   I:0000007a F:00000000
+axlutil.c 89 :at Initialization of the translation layer has completed
+Native build level              = 0
+Native format                   = 0X00000100
+Conversion supported for formats: 
+   00010000 
+Native flags:                     
+   010000
+Conversion supported for flags:   
+   010000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.359 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:0000007a F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.390 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:0000007d F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.536 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1601-24  I:00000083 F:00000002
+aseinfmu.c 276 :at A join has been created.
+Master entity type             = 0X38020000
+Master entity index            = 
+   01000000 
+Slave entity type              = 0X38010000
+Slave entity index             = 
+   01000000 
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.571 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00021),00000(00000) 0x00000001 09-06 17:07:49.571 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 5 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.932 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1601-24  I:0000009a F:00000002
+aseinfmu.c 276 :at A join has been created.
+Master entity type             = 0X38020000
+Master entity index            = 
+   01000000 
+Slave entity type              = 0X03060000
+Slave entity index             = 
+   01000000 
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.944 00000: ../../genilt/genilte.c-261 genilt_ilt_create_async_proc: proc_type 0x03060000 location_index 1 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:49.956 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1108000, type=0x3060000, created_process->pcc_location_index = 0x1
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.095 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.095 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 6 
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.095 00000: ../../tools/telica_sipa/sipayamb.c-1832 sipa_yamb_listen: LOCAL.local_addr: 135.252.135.1
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.155 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-1   I:000000a1 F:00000000
+axlutil.c 89 :at Initialization of the translation layer has completed
+Native build level              = 0
+Native format                   = 0X00000100
+Conversion supported for formats: 
+   00010000 
+Native flags:                     
+   010000
+Conversion supported for flags:   
+   010000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.178 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:000000a1 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.230 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:000000a3 F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.307 00000: ../../sip/siphmuti.c-350 siph_send_udp_listen: udp_cb SIPH_SCK_ACTIVATING local_inet_addr: 0x0187fc87 local_port: 51021
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.307 00000: ../../sip/siphmuti.c-353 siph_send_udp_listen: udp_cb SIPH_SCK_ACTIVATING socket_sig->appl_data_pid: 0x01104000 socket_sig->appl_data_qid: 0x04000000
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.312 00000: ../../sip/siphmuti.c-530 siph_send_conn_listen: ATG_SCK_SO_KEEPALIVE num_setsockopts:2, emb_sockopt:b74480c8 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.312 00000: ../../sip/siphmuti.c-539 siph_send_conn_listen: ATG_SCK_TCP_KEEPIDLE num_setsockopts:3, emb_sockopt:b74480dc 
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.312 00000: ../../sip/siphmuti.c-548 siph_send_conn_listen: ATG_SCK_TCP_KEEPINTVL num_setsockopts:4, emb_sockopt:b74480f0 
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.312 00000: ../../sip/siphmuti.c-557 siph_send_conn_listen: ATG_SCK_TCP_KEEPCNT num_setsockopts:5, emb_sockopt:b7448104 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.342 00000: ../../stubs/sck/sckrecv.c-2182 sck_process_sock_fill_and_open: 31
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.346 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:65536, opt=7, rc=0   
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.346 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:2097152, opt=8, rc=0   
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.346 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:1, opt=2, rc=0   
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.346 00000: ../../stubs/sck/sckrecv.c-1338 sck_process_socket: calling sck_action_bind
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.347 00000: ../../stubs/sck/sckrecv.c-2755 sck_action_bind: try to bind the socket 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.351 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x0303-7   I:000000ac F:00000002
+sckrecv.c 1681 :at Processed an ATG_SCK_SOCKET IPS OK.
+Socket ID           = 31
+Socket type         = 0X00000002
+Socket family       = 0X00000002
+Socket protocol     = 0X00000000
+Application handle  = 0X015B0000
+Stub socket handle  = 0X015E0000
+Local inet address  = 135.252.135.1
+Local port          = 51021
+Remote inet address = 
+   (none)
+Remote port         = 0
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.356 00000: ../../stubs/sck/sckrecv.c-152 received IPS_ATG_SCK_LISTEN_SOCKET
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:1, opt=2, rc=0   
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-453 sck_set_embedded_sol_opt: hit  SO_KEEPALIVE   
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:1, opt=9, rc=0   
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-1123 sck_set_embedded_tcp_opt: TCP_KEEPIDLE sock_val:10 
+00004(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-1159 sck_set_embedded_tcp_opt: SetSockOpt sock_val:10 opt:4  rc:0  
+00005(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-1127 sck_set_embedded_tcp_opt: TCP_KEEPINTVL sock_val:5 
+00005(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-1159 sck_set_embedded_tcp_opt: SetSockOpt sock_val:5 opt:5  rc:0  
+00006(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-1130 sck_set_embedded_tcp_opt: TCP_KEEPCNT  sock_val:2 
+00007(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-1159 sck_set_embedded_tcp_opt: SetSockOpt sock_val:2 opt:6  rc:0  
+00007(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:16384, opt=7, rc=0   
+00008(00021),00000(00000) 0x00000001 09-06 17:07:50.366 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:65536, opt=8, rc=0   
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.371 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x0303-75  I:000000ad F:00000002
+sckrecv4.c 539 :at New listening socket opened.
+Socket ID           = 32
+Socket type         = 0X00000001
+Socket family       = 0X00000002
+Socket protocol     = 0X00000000
+IF index            = 0X00000000
+Local IP address    = 135.252.135.1
+Local port          = 51021
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.382 00000: ../../tools/telica_sipa/sipayamb.c-496 sipa_yamb_receive_proc: AMB_SET successful for local_addr, no local_addr3, try local_addr_ipv6.
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.382 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00004(00021),00000(00000) 0x00000001 09-06 17:07:50.382 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 8 
+00006(00021),00000(00000) 0x00000001 09-06 17:07:50.383 00000: ../../tools/telica_sipa/sipayamb.c-2216 sipa_yamb_listen_ipv6: LOCAL.local_addr_ipv6: 0:0:0:0:0:0:0:1
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.429 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3801-50  I:000000b1 F:00000000
+siphlfsm.c 220 :at A listen socket has successfully activated.
+Address:             135.252.135.1
+Port:                51021
+Protocol:            0X00000003
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.553 00000: ../../sip/siphmuti.c-350 siph_send_udp_listen: udp_cb SIPH_SCK_ACTIVATING local_inet_addr: 0x00000000 local_port: 51021
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.553 00000: ../../sip/siphmuti.c-353 siph_send_udp_listen: udp_cb SIPH_SCK_ACTIVATING socket_sig->appl_data_pid: 0x01104000 socket_sig->appl_data_qid: 0x04000000
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.558 00000: ../../sip/siphmuti.c-530 siph_send_conn_listen: ATG_SCK_SO_KEEPALIVE num_setsockopts:2, emb_sockopt:b74480c8 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.558 00000: ../../sip/siphmuti.c-539 siph_send_conn_listen: ATG_SCK_TCP_KEEPIDLE num_setsockopts:3, emb_sockopt:b74480dc 
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.558 00000: ../../sip/siphmuti.c-548 siph_send_conn_listen: ATG_SCK_TCP_KEEPINTVL num_setsockopts:4, emb_sockopt:b74480f0 
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.558 00000: ../../sip/siphmuti.c-557 siph_send_conn_listen: ATG_SCK_TCP_KEEPCNT num_setsockopts:5, emb_sockopt:b7448104 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.580 00000: ../../stubs/sck/sckrecv.c-2182 sck_process_sock_fill_and_open: 33
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.583 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:65536, opt=7, rc=0   
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.583 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:2097152, opt=8, rc=0   
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.584 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:1, opt=2, rc=0   
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.584 00000: ../../stubs/sck/sckrecv.c-1338 sck_process_socket: calling sck_action_bind
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.584 00000: ../../stubs/sck/sckrecv.c-2755 sck_action_bind: try to bind the socket 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.586 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x0303-7   I:000000bd F:00000002
+sckrecv.c 1681 :at Processed an ATG_SCK_SOCKET IPS OK.
+Socket ID           = 33
+Socket type         = 0X00000002
+Socket family       = 0X0000000A
+Socket protocol     = 0X00000000
+Application handle  = 0X01630000
+Stub socket handle  = 0X01670000
+Local inet address  = ::1
+Local port          = 51021
+Remote inet address = 
+   (none)
+Remote port         = 0
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.591 00000: ../../stubs/sck/sckrecv.c-152 received IPS_ATG_SCK_LISTEN_SOCKET
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:1, opt=2, rc=0   
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-453 sck_set_embedded_sol_opt: hit  SO_KEEPALIVE   
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:1, opt=9, rc=0   
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-1123 sck_set_embedded_tcp_opt: TCP_KEEPIDLE sock_val:10 
+00003(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-1159 sck_set_embedded_tcp_opt: SetSockOpt sock_val:10 opt:4  rc:0  
+00004(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-1127 sck_set_embedded_tcp_opt: TCP_KEEPINTVL sock_val:5 
+00005(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-1159 sck_set_embedded_tcp_opt: SetSockOpt sock_val:5 opt:5  rc:0  
+00005(00021),00000(00000) 0x00000001 09-06 17:07:50.600 00000: ../../stubs/sck/sckutil3.c-1130 sck_set_embedded_tcp_opt: TCP_KEEPCNT  sock_val:2 
+00006(00021),00000(00000) 0x00000001 09-06 17:07:50.601 00000: ../../stubs/sck/sckutil3.c-1159 sck_set_embedded_tcp_opt: SetSockOpt sock_val:2 opt:6  rc:0  
+00007(00021),00000(00000) 0x00000001 09-06 17:07:50.601 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:16384, opt=7, rc=0   
+00007(00021),00000(00000) 0x00000001 09-06 17:07:50.601 00000: ../../stubs/sck/sckutil3.c-580 sck_set_embedded_sol_opt: SetSockOpt val:65536, opt=8, rc=0   
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.605 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x0303-75  I:000000be F:00000002
+sckrecv4.c 539 :at New listening socket opened.
+Socket ID           = 34
+Socket type         = 0X00000001
+Socket family       = 0X0000000A
+Socket protocol     = 0X00000000
+IF index            = 0X00000000
+Local IP address    = ::1
+Local port          = 51021
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.617 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00002(00021),00000(00000) 0x00000001 09-06 17:07:50.617 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 9 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.635 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3801-50  I:000000c2 F:00000000
+siphlfsm.c 220 :at A listen socket has successfully activated.
+Address:             ::1
+Port:                51021
+Protocol:            0X00000003
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.679 00000: ../../genilt/genilte.c-261 genilt_ilt_create_async_proc: proc_type 0x38070000 location_index 1 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.690 00000: ../../nbase/base/nbbproc.c-856 Created created_process->pcc_process_id=0x1109000, type=0x38070000, created_process->pcc_location_index = 0x1
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.691 00000: ../../tools/telica_sipa/sipamain.c-328 sipa_ua_create_proc: Congestion Levels: congTrigger[0]:1800 congTrigger[1]:2100congAbate[0]:1700 congAbate[1]:1900
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.696 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3808-0   I:000000c4 F:00000002
+sipcmain.c 223 :at The SIP Call Control Library has initialized successfully.
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:50.848 00000: ../../tools/telica_sipa/sipaixl.c-49 sipa_ixl_rep_cb_init00001(00021),00000(00000) 0x00000001 09-06 17:07:51.027 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x3807-1   I:000000c4 F:00000002
+sipamain.c 811 :at The DC-SIP Test UA has initialized successfully.
+Process ID                = 0X01109000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.089 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-1   I:000000cc F:00000000
+axlutil.c 89 :at Initialization of the translation layer has completed
+Native build level              = 0
+Native format                   = 0X00000100
+Conversion supported for formats: 
+   00010000 
+Native flags:                     
+   010000
+Conversion supported for flags:   
+   010000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.112 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:000000cc F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.183 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1a03-2   I:000000cd F:00000000
+axlpart.c 622 :at Negotiation for translation has succeeded
+Partner build level              = 0
+Translation required             = False
+Active format in use             = 0X00000100
+Flags indicating conversions required: 
+   000000
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.210 00000: ../../tools/telica_sipa/sipafti.c-67 Entering: sipa_fti_action_callback action: 0
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.214 00000: ../../tools/telica_sipa/sipafti.c-67 Entering: sipa_fti_action_callback action: 2
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.305 00000: ../../tools/telica_sipa/siparcv_new.c-478 sipa_ua_receive_proc: sipa completed relay registration SIPA_CB.rly_pid: 1102000  SIPA_CB.rly_qid: 4
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.417 00000: ../../tools/telica_sipa/siparcv_new.c-478 sipa_ua_receive_proc: sipa completed relay registration SIPA_CB.rly_pid: 1102000  SIPA_CB.rly_qid: 8
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.499 00000: ../../stubs/hm/ashmrcv.c-95 ashm_receive_proc: Recieved message on SM_TO_HM_Q
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.506 00000: ../../stubs/hm/ashmrcv.c-569 Entering: ashm_complete_start_location
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.517 00000: ../../tools/telica_sipa/sipayamb.c-502 sipa_yamb_receive_proc: calling sipa_yamb_script LINE 502
+00003(00021),00000(00000) 0x00000001 09-06 17:07:51.517 00000: ../../tools/telica_sipa/sipayamb.c-956 sipa_yamb_script: mib_state: 10 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.572 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1601-24  I:000000e3 F:00000002
+aseinfmu.c 276 :at A join has been created.
+Master entity type             = 0X38070000
+Master entity index            = 
+   01000000 
+Slave entity type              = 0X38020000
+Slave entity index             = 
+   01000000 
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.612 00000: ../../nbase/base/nbbpd.c-1316 AUDIT     0x1601-57  I:000000e4 F:00000001
+asercv4.c 204 :at System Manager failed to start an N-BASE location.
+Location index                 = 2
+Location group index           = 1
+Hardware location              = 2
+Return code                    = 1
+
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.679 00000: ../../tools/telica_sipa/sipafti.c-261 Entering: sipa_mj_action_callback action: 0
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.679 00000: ../../tools/telica_sipa/sipafti.c-391 Entering: sipa_snd_sip_reg_or_unreg IPS_TYPE: 948043777
+00002(00021),00000(00000) 0x00000001 09-06 17:07:51.679 00000: ../../tools/telica_sipa/sipafti.c-474 sipa_snd_sip_reg_or_unreg: Send message to CLAM to tell we are ready to process messages. 
+00003(00021),00000(00000) 0x00000001 09-06 17:07:51.679 00000: ../../tools/telica_sipa/sipaccif.c-1669 sipa_send_ustatus: Sending ENTCLM SIP_CLAM_STANDBY_READY_EVT
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.698 00000: ../../tools/telica_sipa/sipaiptrnk.c-1875 sipa_restart_options_timers: Restart Options Timer
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.714 00000: ../../tools/telica_sipa/siparcv_new.c-162 sipa_ua_receive_proc: Registration has completed
+00002(00021),00000(00000) 0x00000001 09-06 17:07:51.714 00000: ../../tools/telica_sipa/siparcv_new.c-172 sipa_ua_receive_proc: Setting Telica Capabilities after TM join 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.747 00000: ../../tools/telica_sipa/sipaconfig.c-1496 sipaTelicaCapabilities: Added SIPA_ALLOW_STR INVITE, BYE, REGISTER, ACK, OPTIONS, CANCEL, SUBSCRIBE, NOTIFY, PRACK, INFO, REFER, UPDATE, PUBLISH, MESSAGE
+00003(00021),00000(00000) 0x00000001 09-06 17:07:51.747 00000: ../../tools/telica_sipa/sipaconfig.c-1503 sipaTelicaCapabilities: Sending set_capabilities signal to TM 
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.756 00000: ../../tools/telica_sipa/siparcv_new.c-245 sipa_ua_receive_proc: Starting congestion timer
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.756 00000: ../../tools/telica_sipa/siparcv_new.c-253 sipa_ua_receive_proc: Starting buffer pool congestion timer
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.756 00000: ../../tools/telica_sipa/siparcv_new.c-261 sipa_ua_receive_proc: Starting trx ratio timer for memory validation
+00001(00021),00000(00000) 0x00000001 09-06 17:07:51.921 00000: ../../tools/telica_sipa/siparcv_new.c-389 sipa_ua_receive_proc: System capabilities Complete
+00001(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa dbglvl 0
+00003(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+sipa
+00005(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+dbglvl
+00007(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+0
+00009(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00011(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00012(00021),00000(00000) 0x00000001 09-06 17:07:56.340 00000: sipaDbgLevel: New Debug Level: 0
+00002(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa dumpraw 1
+00003(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+sipa
+00005(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+dumpraw
+00007(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+1
+00009(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00011(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00013(00021),00000(00000) 0x00000001 09-06 17:07:56.368 00000: sipaDumpRaw: ENABLED
+00002(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1226  sigdbg value: sipa ipstrc 1
+00003(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+sipa
+00005(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+ipstrc
+00007(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+1
+00009(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00011(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: ../../tools/telica_sipa/sipasigdbg.c-1272 
+
+00012(00021),00000(00000) 0x00000001 09-06 17:07:56.411 00000: sipaIpsTrc: IPS Tracing Enabled
+00009(00021),00000(00000) 0x00000001 09-06 17:07:56.437 00000: ../../tools/telica_sipa/sipaiptrnk.c-2410 sipa_add_prfl: Add p_prflId: 1 (prflType=0) profile to list
+00001(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2370 sipa_parse_cust_val: str is 0, return value is 0x00000000
+00003(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2370 sipa_parse_cust_val: str is 0, return value is 0x00000000
+00013(00021),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-2709 sipa_prfl_config:SipPrfl config. hdrPassSetName: 
+00058(00058),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3156 sipa_prfl_config:sipPrflPtr->routePassThru= 0 
+00060(00060),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3167 sipa_prfl_config:sipPrflPtr->contactIncludeCgpn= 0 
+00066(00066),00000(00000) 0x00000001 09-06 17:07:56.442 00000: ../../tools/telica_sipa/sipaiptrnk.c-3226 sipa_prfl_config:sipPrflData->chargeBciMap.pres = 0, val = 0
+00007(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaiptrnk.c-444 sipa_trnk_config: convert sipSigIP 135.252.135.1 to binary --ipVersion 2 
+00009(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaiptrnk.c-450 sipa_trnk_config: No Trunk group found: 9999. Adding new trunk group 
+00011(00205),00000(00000) 0x00000001 09-06 17:07:58.486 00000: ../../tools/telica_sipa/sipaiptrnk.c-263 sipa_add_trnk:  p_trnk: 9999 p_ipId: 1 p_desc: (null) p_priIpAddrStr: 135.252.135.1 Pres: 1 
+00003(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-469 sipa_trnk_config: sigType:2048, 
+00042(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1072 sipa_trnk_config:   icModPrfl(pres=0,val=0)
+00050(00205),00000(00000) 0x00000001 09-06 17:07:58.492 00000: ../../tools/telica_sipa/sipaiptrnk.c-1107 Use host pref to build RURI:0
+00013(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1713 sipa_tgMapAddr_config: cmd:22 tgmapaddr_number:1
+00015(00205),00000(00000) 0x00000001 09-06 17:08:00.546 00000: ../../tools/telica_sipa/sipaiptrnk.c-1719 sipa_tgMapAddr_config: SIP_ENT_TGMAPADDR for 0
+00004(00205),00000(00000) 0x00000001 09-06 17:08:00.552 00000: ../../tools/telica_sipa/sipautls.c-8713 sipa_check_unk_ip_q - qdCount:0
+00001(00205),00000(00000) 0x00000001 09-06 17:08:07.877 00000: ../../stubs/sck/sckorig.c-195 Allocate 64k udp buffer for BIG SIP message: 0xb60b4070
+00001(00205),00000(00000) 0x00000001 09-06 17:08:07.896 00000: ../../stubs/sck/sckorig2.c-1828 sck_recv_hwm = 1
