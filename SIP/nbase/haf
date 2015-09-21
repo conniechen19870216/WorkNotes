@@ -1,0 +1,88 @@
+1. Brief Introduction.
+   High Availability Framework (HAF) defines an architecture for managing 
+   an N-BASE system which is required to be resilient over hardware and 
+   software failures.
+
+2. Functionalities (provided by System Manager and HAF Library)
+   1) manage primary and backup instances of N-BASE products
+   2) replicate the configuration and internal state from primary to backup
+      instances of N-BASE products
+   3) activate a backup instance of N-BASE product when a failure in the
+      N-BASE system has compromised the active instance of N-BASE products
+
+3. Focus: N-BASE product && HAF
+   1) customer: integrate the HAF-enable products with their own hardware and software
+      <Focus on the interfaces used to create System Manager and the MIB family 
+      to configure the whole system>
+   2) engineer: write an N-BASE product that is HAF-enabled.
+      <Focus on the interfaces to the product specific System Manager extensions 
+      (HAF SMX Interface)>
+
+
+4. Relationships
+   System Manager && Hardware Manager 
+   System Manager && HAF Library
+   System Manager && Extensions
+   HAF Libraries  && N-BASE products
+   HAF Libraries using IPS
+
+5. One complete model
+                                                --------------------------                ------------------
+                                                |Administration Component|                |Hardware Manager|
+                                                --------------------------                ------------------
+                                                            ^                                     ^
+                                                            |                                     |
+                                                            V                                     V
+                                                     --------------                         -----------
+|----------|                                         |  MIB Stub  |                         | HM Stub |
+|          |                                         --------------                         -----------
+|          |                                               ^^                                    ^^
+|  System  |    |--------|                                 ||                                    ||
+|          |    |System  |                                 VV                                    VV
+|   Init   |    |Manager |  HAF SMX Interface  ----------------------------------------------------------
+|          |    |Specific| <=================> |                      System Manager                    |
+|          |    |Ext(SMX)|                     ----------------------------------------------------------
+|          |    |        |                                                ^^
+|          |    |------- |                                                || HAF FTI Interface
+|          |                                                              VV
+|          |                                                      --------------------                        ---------------------------
+|          |                                                      |   HAF Library    | <====================> |     N-BASE product      |
+|          |                                                      --------------------  HAF Library Interface ---------------------------
+|----------|              
+
+Notations:  ------------------------------------------------------------------------------------------------------------------------------------    
+                
+                          ^ ^                                                                                               ^
+                          | |                                      <=================>                                      |
+                          V V                                                                                               V
+               HAF message-based interface                       HAF procedural interface                        Customer defined interface
+
+6. Interfaces
+   1) SM management interface
+      used by System Initialization to create SM 
+
+   2) MIB interface - IPS based
+      between SM and MIB stub
+
+   3) HM interface - IPS based
+      between SM and HM stub
+
+   4) ILT interface - CALL && CALLBACK
+      between ILT and N-BASE product
+
+   5) HAF SMX interface - CALL && CALLBACK
+      define the capabilities of the Fault Tolerant Entity (FTE) to SM
+      CALL: SMX; CALLBACK: SM
+
+   6) HAF Library interface - CALL && CALLBACK
+      FTI CALL:     use it to initialize the HAF library and define the services that HAF library should provide to the FTI
+      HAF CALLBACK: use it to control the FTI itself
+      
+   7) HAF FTI interface - IPS based
+      between SM and HAF library
+      all signals sent from or to SM, and there is no signal that flow directly between parter FTIs
+      a) establish, maintain and bring down the joins between parter FTIs
+      b) control the state of primary and backup FTIs
+
+   8) HAF Replication interface - IPS based
+      between the HAF Library on the primary FTI and the HAF Library on the backup FTI

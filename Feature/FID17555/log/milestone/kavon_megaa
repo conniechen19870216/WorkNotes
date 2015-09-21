@@ -1,0 +1,222 @@
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:41:20.483 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=157{C=7646{S=tdm/9/1/1/1{SA{nt/dur=5052,nt/os=40000,nt/or=0}},S=ip/222/1/16368{SA{nt/dur=5054,nt/os=44280,nt/or=0,rtp/ps=246,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=5054,rtp/os=44280,rtp/or=0,xnq/ntdegnet=0,xnq/ntdegjit=0,xnq/nes=0,xnq/nses=0,xnq/nvmaxdiff=0,xnq/nvrange=0,xnq/nvsum=0,xnq/nvcyc=0,xnq/njbevents=0,xnq/ncumpl=0,xnq/ftdegnet=0,xnq/ftdegjit=0,xnq/fes=0,xnq/fses=0,xnq/fvmaxdiff=0,xnq/fvrange=0,xnq/fvsum=0,xnq/fvcyc=0,xnq/fjbevents=0,xnq/fcumpl=0,xnq/rtdmin=0,xnq/rtdmax=0,xnq/rtdnow=0}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:42:46.043 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 158 {
+  CONTEXT = $ {
+    ADD = tdm/9/1/1/1 {
+      MEDIA {
+        LOCALCONTROL { MODE = SENDONLY }
+      },
+      SIGNALS { CG/DT { SIGNALTYPE = ONOFF } }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:42:46.071 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=158{C=7647{A=tdm/9/1/1/1}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:42:46.624 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 159 {
+  CONTEXT = 7647 {
+    SUBTRACT = tdm/9/1/1/1
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:42:46.633 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=159{C=7647{S=tdm/9/1/1/1{SA{nt/dur=580,nt/os=0,nt/or=0}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:01.613 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 160 {
+  CONTEXT = $ {
+    ADD = tdm/9/1/1/1 {
+      MEDIA {
+        LOCALCONTROL { TDMC/EC = ON,
+                       MODE = SENDONLY }
+      }
+    },
+    ADD = ip/$/$/$ {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 $
+m=audio $ RTP/AVP 0 96 97 98
+a=rtpmap:0 PCMU/8000
+a=rtpmap:96 Cisco-clear-channel/8000
+a=rtpmap:97 X-CCD/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:01.640 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=160{C=7648{A=tdm/9/1/1/1,A=ip/224/1/16369{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 32900 RTP/AVP 0 96 98
+a=rtpmap:96 Cisco-clear-channel/8000
+a=rtpmap:98 CLEARMODE/8000
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:off - - - -
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:01.653 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 161 {
+  CONTEXT = 7648 {
+    MODIFY = tdm/9/1/1/1 {
+      MEDIA {
+        LOCALCONTROL { TDMC/EC = ON,
+                       MODE = SENDONLY }
+      },
+      SIGNALS { CG/RT { SIGNALTYPE = ONOFF } }
+    },
+    MODIFY = ip/224/1/16369 {
+      MEDIA {
+        LOCALCONTROL { MODE = RECEIVEONLY,
+                       RESERVEDVALUE = ON }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:01.715 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=161{C=7648{MF=tdm/9/1/1/1,MF=ip/224/1/16369}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:01.717 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 162 {
+  CONTEXT = 7648 {
+    MODIFY = tdm/9/1/1/1 {
+      MEDIA {
+        LOCALCONTROL { TDMC/EC = ON,
+                       MODE = SENDRECEIVE }
+      },
+      SIGNALS { }
+    },
+    MODIFY = ip/224/1/16369 {
+      MEDIA {
+        LOCAL {
+v=0
+c=IN IP4 10.84.6.186
+m=audio 32900 RTP/AVP 0 96 97 98
+a=rtpmap:0 PCMU/8000
+a=rtpmap:96 Cisco-clear-channel/8000
+a=rtpmap:97 X-CCD/8000
+a=rtpmap:98 clearmode/8000
+a=silenceSupp:off - - - -
+        },
+        REMOTE {
+v=0
+o=- 2890844527 3651208981 IN IP4 10.84.7.133
+s=-
+c=IN IP4 10.84.7.133
+t=0 0
+m=audio 6000 RTP/AVP 0
+a=rtpmap:0 PCMU/8000
+        },
+        LOCALCONTROL { MODE = SENDRECEIVE }
+      }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:01.757 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=162{C=7648{MF=tdm/9/1/1/1,MF=ip/224/1/16369{M{L{v=0
+c=IN IP4 10.84.6.186
+m=audio 32900 RTP/AVP 0
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:off - - - -
+},R{v=0
+c=IN IP4 10.84.7.133
+m=audio 6000 RTP/AVP 0
+a=ptime:20
+a=maxptime:30
+a=silenceSupp:off - - - -
+}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:05.106 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 163 {
+  CONTEXT = - {
+    AUDITVALUE = tdm/9/1/1/* {
+      AUDIT { MEDIA }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00007(00048),00000(00000) 0x00000001 09-14 08:43:05.106 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 164 {
+  CONTEXT = * {
+    AUDITVALUE = tdm/9/1/1/* {
+      AUDIT { MEDIA }
+    }
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:05.109 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=164{C=7648{AV=tdm/9/1/1/1{M{TS{SI=IV,BF=off},ST=1{O{MO=SR,RV=off,RG=off,tdmc/ec=on,tdmc/gain=0}}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:05.113 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=163{C=-{AV=tdm/9/1/1/2{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/3{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/4{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/5{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/6{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/7{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/8{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/9{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/10{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/11{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/12{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/13{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/14{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/15{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/16{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/17{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/18{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/19{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/20{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/21{00001(00048),00000(00000) 0x00000001 09-14 08:43:05.113 21706: M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/22{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/23{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/24{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/25{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/26{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/27{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/28{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/29{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/30{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}},AV=tdm/9/1/1/31{M{TS{SI=IV,BF=off},ST=1{O{MO=IN,RV=off,RG=off,tdmc/ec=off,tdmc/gain=0}}}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:06.662 21706: 
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+MEGACO/1 [10.84.18.131]:5634
+TRANSACTION = 165 {
+  CONTEXT = 7648 {
+    SUBTRACT = *
+  }
+}
+>>>>>>>>>>>>>>> Tx Msg >>>>>>>>>>>>>>>>>>>>
+
+00001(00048),00000(00000) 0x00000001 09-14 08:43:06.685 21706: 
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+ !/1 [135.251.84.113]:5634 P=165{C=7648{S=tdm/9/1/1/1{SA{nt/dur=5050,nt/os=39680,nt/or=0}},S=ip/224/1/16369{SA{nt/dur=5052,nt/os=44164,nt/or=0,rtp/ps=245,rtp/pr=0,rtp/pl=0.000000,rtp/jit=0,rtp/delay=0,rtp/dur=5052,rtp/os=44164,rtp/or=0,xnq/ntdegnet=0,xnq/ntdegjit=0,xnq/nes=0,xnq/nses=0,xnq/nvmaxdiff=0,xnq/nvrange=0,xnq/nvsum=0,xnq/nvcyc=0,xnq/njbevents=0,xnq/ncumpl=0,xnq/ftdegnet=0,xnq/ftdegjit=0,xnq/fes=0,xnq/fses=0,xnq/fvmaxdiff=0,xnq/fvrange=0,xnq/fvsum=0,xnq/fvcyc=0,xnq/fjbevents=0,xnq/fcumpl=0,xnq/rtdmin=0,xnq/rtdmax=0,xnq/rtdnow=0}}}}
+<<<<<<<<<<<<<<< Rx Msg <<<<<<<<<<<<<<<<<<<<
+

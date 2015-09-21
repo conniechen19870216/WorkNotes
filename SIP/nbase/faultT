@@ -1,0 +1,52 @@
+1. Requirements
+   1) software failure
+   2) hardware failure
+   3) controlled hardware replacement
+
+2. DC-SIP is not required to support hot upgrade of individual component.
+   DC-SIP is not required to support fault tolerance at the level of individual component within one N-BASE location.
+   DC-SIP is required to support fault tolerance of individual N-BASE locations.
+   DC-SIP is required to start backup instances of components automatically.
+   DC-SIP is required to restart components automatically when there is no backup instance already running.
+     If primary instance of System Manager fails and there is no backup instance of System Manager running,
+   then management action is required to restart the system. (including restarting SM and all DC-SIP components)
+     If a DC SIP component fails then the whole N BASE instance fails, with all the DC SIP components running 
+   within it.
+
+3. System Manager: control the fault tolerant state of DC-SIP components
+   1) create instances of CH, TM and stubs
+   2) informing that instance whether it should run as a primary or a backup
+   3) promoting and demoting instances between primaries and backups after failures or external management requests
+   4) informing that instance of the existence of a partner, or of a partner failing
+
+   TM and CH themselves are responsible for replication of insternal state information and resynchronization of state
+   information with a partner.
+
+   A second description of responsibilities:
+   1) create MIB stub
+   2) create HM stub
+   3) receive location information, entity and instance information (SM MIB requests or others)
+   4) create, destroy and manipulate FTIs (SM MIB requests or others)
+   5) provide fail-over for FTEs and System Manager
+   6) receive indications from the hardware stub to signal that a given location is available or not...
+
+4. Hardware model
+   1) duplicate processor cards
+   2) duplicate network cards
+   3) duplicate network connections
+
+5. Software model
+   1) Concepts: Locations, Fault Tolerant Entities (FTE), Fault Tolerant Instance (FTI) and joins between FTIs
+   2) Fault Tolerant System consists of a number of FT Locations
+      An FT Location is an instance of N-BASE
+   3) FTEs: CH, TM, UA, IP Routing stub, IP Socket stub, Name Resolution stub and CRY/SUB stub
+      Each FTE consist of one process.
+   4) Join: Interfaces between FTIs
+      Master && Slave
+
+6. Distribution Models
+   a) Processor Card Only: SM, TM, CH, stubs
+   b) Network Card Only: SM on processor card, and others on one network card
+   c) Multiple Network Cards: SM on processor card, and others distributed on multiple network cards
+   d) Split Single Network Card: SM, TM, stubs on processor card, and CH, IP socket stub on one network card
+   e) Split Multiple Network Cards: SM, TM, stubs on processor card, and CH, IP socket stub on multiple network cards

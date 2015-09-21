@@ -1,0 +1,221 @@
+1. receive proc
+siph_receive_proc
+sipt_receive_proc
+sck_receive_proc
+nmr_receive_proc
+sipa_ua_receive_proc
+      |
+      +----- sipc_process_ips
+
+2. High Level Apis
+(1) message build and manipulation APIs
+    sipb
+    sipm
+    sipp
+(2) SIPC
+
+3. Files and Structures
+(1) Start From Stratch: nbase.h (dir: signaling/sip2.7/intface)
+(2) nbbxtype.h
+    a) NBB_BYTE,  NBB_CHAR, 
+       NBB_SHORT, NBB_USHORT, 
+       NBB_INT,   NBB_UINT,
+       NBB_LONG,  NBB_ULONG, 
+       NBB_BOOL,  NBB_VOID
+    
+    b) NBB_CXT_T  NBB_VOID *
+       NBB_CCXT_T , NBB_VOID *
+       NBB_CXT    nbb_thread_global_data
+       NBB_CCXT   , nbb_thread_global_data
+
+       ***********************************************
+       typedef struct nbb_thread_global_data
+       {
+       } NBB_THREAD_GLOBAL_DATA;
+
+       NBB_THREAD_GLOBAL_DATA *nbb_thread_global_data;
+       ***********************************************
+
+4. Process
+(1) Process Management
+    a) NBB_CREATE
+       NBB_CREATE_FTI
+       --> nbb_create
+    
+    b) NBB_CREATE_ASYNC
+       --> nbb_create_async
+    ...
+
+########## Note: 'sxa_haf_lite_init' #########
+
+(2) Process Scheduling Procedures
+    a) create procedure
+    b) receive procedure
+    c) timer procedure
+    d) memory verification procedure
+    e) destroy procedure
+
+typedef NBB_BOOL(NBB_CREATE_PROC) (NBB_PROC_ID, NBB_VOID *  NBB_CCXT_T);
+typedef NBB_VOID(NBB_RECEIVE_PROC) \
+                                  (struct nbb_ips *, NBB_QUEUE_ID  NBB_CCXT_T);
+typedef NBB_VOID(NBB_VERIFICATION_PROC) (NBB_CXT_T);
+typedef NBB_VOID(NBB_DESTROY_PROC) (NBB_CXT_T);
+typedef NBB_VOID(NBB_TIMER_PROC) (struct nbb_timer_data *  NBB_CCXT_T);
+typedef NBB_VOID(NBB_LOG_CXT_OUTPUT_PROC)(NBB_ULONG, NBB_VOID *  NBB_CCXT_T);
+
+(3) IPS
+    a) Processes communicate by sending inter-process signals to each other 
+       using queues associated with the receiving process.  
+       A process can have up to 16 receive queues when it is created. 
+    
+    b) NBB_SEND_IPS
+       NBB_SEND_IPS fails if and only if
+       i) a signal is sent to a closed queue
+       ii) a signal is sent to a process ID that is NULL or does not match any known process
+       iii) the target process is unreachable (because it is being, or has been, destroyed)
+  
+(4) Input management
+    i) 
+    NBB_OPEN_QUEUES
+    NBB_CLOSE_QUEUES
+    NBB_ENABLE_QUEUES
+    NBB_DISABLE_QUEUES
+  
+    ii)
+    NBB_SET_RECEIVE
+    NBB_EMPTY_QUEUES
+
+(5) Timers
+    NBB_TIMER_DATA: timer_proc, duration, repeat (only these fields can be modified)
+    NBB_INIT_TIMER
+    NBB_SET_TIMER: start one timer
+    <If the owning N BASE process is running when the timer expires, 
+     the timer_proc is not called until the process has reached a 
+     consistent state (that is, it is runnable or blocked)>
+
+    NBB_CANCEL_TIMER
+
+5. Problem Determination Functions
+   1) problem reporting for a production system
+      a) Problem:     NBB_PROBLEM   -> NBB_PD_LOG(NBB_PD_PROBELM, ARGS)
+      b) Exception:   NBB_EXCEPTION -> NBB_PD_LOG(NBB_PD_EXCEPTION, ARGS)
+      c) Audit:       NBB_AUDIT     -> NBB_PD_LOG(NBB_PD_AUDIT, ARGS)
+      d) Development: NBB_DEV       -> NBB_PD_LOG(NBB_PD_DEV, ARGS)
+
+   2) memory verification
+   3) internal tracing for development systems
+   4) internal checking for development systems
+
+6. Memory Verification
+   NBB_VERFIY_MEMORY
+   NBB_VERIFY_BUFFER
+   NBB_VERIFY_BUF_POOL
+
+7. Internal Tracing
+   NBB_TRC_STATISTICS
+   NBB_TRC_INTERFACE
+   NBB_TRC_FLOW
+   NBB_TRC_DETAIL
+   NBB_TRC_ENTRY
+   NBB_TRC_EXIT
+   NBB_TRC_BYTE_ARRAY
+
+8. Internal Checking
+   NBB_ASSERT
+   NBB_ASSERT_INVALID_BRANCH
+   NBB_ASSERT_MEMORY
+   NBB_ASSERT_HANDLE
+   NBB_ASSERT_LOCK_HELD
+   NBB_ASSERT_LOCK_NOT_HELD
+   NBB_ASSERT_POINTER
+
+9. Programming Support
+   1) buffer management
+      NBB_GET_BUFFER
+      NBB_FREE_BUFFER
+      NBB_CREATE_BUF_POOL
+      NBB_DESTROY_BUF_POOL
+      NBB_POST_POOL_BUFFER <NBB_POST_DATA> <NBB_POSTED_BUFFER>
+      NBB_QUERY_BUF_POOL
+      NBB_TRANSFER_BUFFER
+      ...
+   2) non-contiguous buffer access support
+      NBB_PKT_DATA
+      NBB_PKT_GETB
+      NBB_PKT_GETS
+      NBB_PKT_GETL
+      NBB_PKT_GETT
+      NBB_PKT_PUTB
+      NBB_PKT_PUTS
+      NBB_PKT_PUTL
+      NBB_PKT_PUTT
+      NBB_PKT_COPY_OUT
+      NBB_PKT_COPY_IN
+      NBB_PKT_PKT_COPY
+      NBB_PKT_PKT_MOVE
+      NBB_PKT_MOVE_DATA
+      ...
+
+   3) memory management
+      NBB_MM_ALLOC
+      NBB_MM_FREE
+      NBB_MM_REALLOC
+
+   4) handle management
+      NBB_HANDLE
+      NBB_HANDLE_TABLE
+      NBB_CREATE_HANDLE
+      NBB_DESTROY_HANDLE
+      NBB_VALIDATE_HANDLE
+
+   5) queue management
+      NBB_QE
+      NBB_Q_ROOT
+      NBB_INIT_Q_ROOT
+      NBB_ADD_TO_Q_HEAD
+      NBB_ADD_TO_Q_TAIL
+      NBB_GET_Q_HEAD
+      NBB_GET_REMOVE_NEXT_FROM_Q
+      NBB_Q_HEAD
+      NBB_Q_NEXT
+
+   6) list management
+      NBB_LQE
+      NBB_INIT_ROOT
+      NBB_LIST_ROOT
+      NBB_EMPTY_LIST
+      NBB_IN_LIST
+      NBB_NEXT_IN_LIST
+      NBB_PREV_IN_LIST
+      NBB_INSERT_AFTER
+      NBB_INSERT_BEFORE
+      NBB_REMOVE_FROM_LIST
+
+   7) time functions
+      NBB_GET_DATE_TIME
+      NBB_GET_MTIME
+      ...
+
+   8) locks
+      NBB_CREATE_LOCK
+      NBB_DESTROY_LOCK
+      NBB_GET_LOCK
+      NBB_RELEASE_LOCK
+
+   9) utilities
+      NBB_PUT_LONG
+      NBB_GET_LONG
+      NBB_PUT_TRIPLET
+      NBB_GET_TRIPLET
+      NBB_GET_SHORT
+      NBB_PUT_SHORT
+      NBB_MAX
+      NBB_MIN
+      NBB_MEMCHR
+      NBB_MEMCMP
+      ....
+
+   10) file access
+       NBB_OPEN
+       NBB_CLOSE
+       NBB_WRITE

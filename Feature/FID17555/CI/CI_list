@@ -1,0 +1,8 @@
+signaling/cc/cc/cc.h
+signaling/cc/cc/cc_bdy1.c
+signaling/cc/cc/cc_bdy2.c
+signaling/cc/cc/cc_bdy2_2.c
+signaling/isdn/q931/in.h
+signaling/isdn/q931/in_bdy5.c
+signaling/isdn/q931/in_bdy6.c
+signaling/sigcom/lcc.h

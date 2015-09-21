@@ -154,7 +154,7 @@ sipt_receive_proc (siptrcv.c)
                          |
                          |
                          |<from ips->ips_type: IPS_SIP_SUB_NEW_CALL>
-                         +------ sipt_ss_new_call_rsp (siptsub.c)
+                         +------ sipt_ss_new_call (siptsub.c)
                                         |
                                         |
                                         +------ sipt_ss_continue (siptsub.c)
@@ -226,11 +226,11 @@ sipa_ua_create_proc (sipamain.c)
         |
         |
         |<from qid: TM_TO_UA_Q>
+        |<from ips->ips_type: IPS_SIP_REQUEST>
         +------ SIPC_PROCESS_IPS
                 sipc_prcess_ips (sipcmain.c)
                      |
                      |
-                     |<from ips->ips_type: IPS_SIP_REQUEST>
                      +------ sipc_process_request (sipcinb.c)
                                     |
                                     |
