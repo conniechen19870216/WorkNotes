@@ -1,0 +1,55 @@
+1. the fields of location location
+   1) location_id
+   2) location_group_id
+   3) hardware_location_id
+   4) role
+   5) sm_location
+   6) admin_status
+   7) oper_status
+
+2. Hardware Management Interface
+   1) IPSs
+      ATG_HM_START_LOCATION        SM->HM    Start an N-BASE location
+                                   HM->SM    Response
+      ATG_HM_STOP_LOCATION         SM->HM    Stop an N-BASE location
+                                   HM->SM    Response
+      ATG_HM_SET_LOCATION_INFO     SM->HM    Set information of an N-BASE location
+                                   HM->SM    Response
+      ATG_HM_GET_LOCATION_INFO     SM->HM    Get information of an N-BASE location
+                                   HM->SM    Response
+      ATG_HM_LOCATION_STATUS_IND   HM->SM    Notify SM of N-BASE location status
+      ATG_HM_HARDWARE_STATUS_IND   HM->SM    Notify SM of hardware location status
+
+3. System Manager Startup (e.g. sipamain.c)
+   1) initialize N-BASE
+   2) initialize N-BASE products
+   3) create System Manager
+   4) Spin the N-BASE scheduler
+
+4. When System Manager is started in primary location, it can receive
+   1) MIB messages from MIB stub
+   2) HM messages from HM stub
+   3) HAF/SM signals from the HAF Library for all FTIs
+   4) Replication response from a backup SM
+
+5. When System Manager is started in backup location, it can receive
+   1) Replication request from a primary SM
+   2) HM indications from HM stub
+
+As a backup, System Manager does not create or manage any FTEs. 
+Backup FTIs are always managed by the primary instance of SM.  
+It does not receive any MIB requests (the MIB stub is only created when SM is running as a primary).
+
+6. System Manager Replication 
+   1) Catch-up replication
+      a) primary SM sends a START_REPLICATION Request to backup SM
+      b) backup SM sends a START_REPLICATION Response to primary SM
+      c) primary SM sends replication signals to backup SM. (location, entity, instance and join control blocks)
+      d) primary SM sends a REPLICATION_COMPLETE Request to backup SM
+      e) backup SM sends a REPLICATION_COMPLETE Response to primary SM
+
+   2) Dynamic replication
+      location, entity, instance and join control block states
+
+7. System Manager Failover
+   Please refer to Doc 'DC-SIP Fault Tolerance Functional Overview'

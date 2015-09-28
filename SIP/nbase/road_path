@@ -7,8 +7,8 @@ Target:
 
 2. haf overall <Done>  && fault tolerant <Done>
 
-3. each module: SM (start from stratch)
+3. each module: SM <Done>
 
 4. nbase debugging skills
 
-5. example reference: sxa
+5. application example reference: tools/sixa

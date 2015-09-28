@@ -1,0 +1,39 @@
+1. BUG info
+a) 47425: (core dump after forking)
+diagnostics
+call back
+core file
+code read
+
+b) 47551 (asserts on receipt of message)
+ips trace shows the call flow
+core dump shows the assert
+
+c) 41255: good example of ips trace (invalid message sent to the wrong port)
+
+d) 52431: no ips trace, and start with core file
+
+e) 53718: (no data sent or received)
+check PD logs and ips trace
+code read to look for possible paths
+anything else in sipa.out
+
+2. Advice on encountering the problems
+a) Don't be afraid to code-read
+       A good editor such as EMACS or VSlick is enormously valuable
+       Know where the key entry points are
+       Understand the architecture
+b) Reproduce issues with a debug build
+c) IPS trace (with event trace) helpful in 90% of cases
+
+3, Tools to be investigated
+a) ips trace
+b) reproduce issues with a debug build
+   internal trace
+   memory checking to catch overwrites
+   memory verification to catch memory leaks
+c) diagnostics
+d) use memory tracking statistics to catch leaks in a production build
+e) how to utilize the asserts
+   if hit on packet receipt, probably a bug in DC-SIP
+   if hit when application sends message, probably interface abuse
